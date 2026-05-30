@@ -67,11 +67,12 @@ To add a new vendor: edit `VENDOR_SIGNATURES` in `src/vendors.py`.
 When the user says **"review the articles and write the slate analysis"** (or "refresh the slate analysis", or similar):
 
 1. Read projections for the active sport: `data/sessions/<slug>.json`
-2. Read uploaded articles: `articles/<slug>/*.pdf` and `*.txt`/`*.md` (use the Read tool; PDFs may require poppler — note in the file if anything couldn't be parsed)
-3. Read strategy: `rules/<slug>/{philosophy,framework,autopsies}.md` + `rules/shared/anchor_equivalence.md`
-4. Read recent autopsies: tail of `rules/<slug>/autopsy_data.jsonl`
-5. For NASCAR: also read `rules/nascar/tracks/<track>.md`
-6. Synthesize:
+2. Read **contests** for the active sport: `data/contests/<slug>.json` — this drives total lineup count and per-contest entry caps (SE, 3-Max, 5-Max, 20-Max, 150-Max)
+3. Read uploaded articles: `articles/<slug>/*.pdf` and `*.txt`/`*.md` (use the Read tool; PDFs may require poppler — note in the file if anything couldn't be parsed)
+4. Read strategy: `rules/<slug>/{philosophy,framework,autopsies}.md` + `rules/shared/anchor_equivalence.md`
+5. Read recent autopsies: tail of `rules/<slug>/autopsy_data.jsonl`
+6. For NASCAR: also read `rules/nascar/tracks/<track>.md`
+7. Synthesize:
    - Where do the articles + auto-data agree? Where do they disagree?
    - Which qualitative overrides should beat the quantitative signal (mirror the King Green pattern from `rules/mma_mme/autopsies.md`)?
    - What's the Anchor-Equivalence call?
@@ -84,10 +85,11 @@ The file is rendered at the top of the Slate Analysis tab with a "Last updated" 
 
 When the user says **"build lineups for the current slate"** (or "rebuild lineups", or similar):
 
-1. Read the slate analysis: `data/slate_analysis/<slug>.md` (if missing, write it first via the workflow above)
-2. Read projections: `data/sessions/<slug>.json`
-3. Read recent autopsies for SE-specific discipline rules (`rules/<slug>/autopsies.md` + `autopsy_data.jsonl`)
-4. Build 2–5 lineups by hand (default 2 for SE contests, 3-5 for MME) — each with:
+1. Read **contests**: `data/contests/<slug>.json` — drives **total lineup count** (`portfolio_summary.unique_lineups_needed`) and **contest assignment per lineup** (which contests each lineup is entered into). Lineup quality comes from the projections + articles + framework reads, not from a configurable ceiling target.
+2. Read the slate analysis: `data/slate_analysis/<slug>.md` (if missing, write it first via the workflow above)
+3. Read projections: `data/sessions/<slug>.json`
+4. Read recent autopsies for SE-specific discipline rules (`rules/<slug>/autopsies.md` + `autopsy_data.jsonl`)
+5. Build N lineups (where N = `unique_lineups_needed` from contests; default 2 if no contests declared) — each with:
    - One-sentence **thesis** ("how it wins")
    - **Roster** as a markdown table (player, salary, win%, win-case proj, role)
    - **Total salary** verified ≤ $50,000 (do the math, show it)

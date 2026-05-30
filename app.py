@@ -23,6 +23,11 @@ from src.slate_analysis import (
     load_persisted, clear_persisted,
 )
 from src.lineups import load_lineups, clear_lineups
+from src.contests import (
+    CONTEST_TYPES as CONTEST_ENTRY_TYPES,
+    load_contests, add_contest, remove_contest,
+    clear_contests, portfolio_summary,
+)
 
 
 REPO_ROOT = Path(__file__).parent
@@ -56,8 +61,8 @@ strategy = load_strategy(slug)
 
 
 # ---------- Tabs ---------- #
-tab_proj, tab_diff, tab_articles, tab_analysis, tab_lineups, tab_strategy, tab_autopsy = st.tabs(
-    ["Projections", "Projections Diff", "Articles", "Slate Analysis", "Lineups", "Strategy", "Autopsy"]
+tab_proj, tab_diff, tab_articles, tab_contests, tab_analysis, tab_lineups, tab_strategy, tab_autopsy = st.tabs(
+    ["Projections", "Projections Diff", "Articles", "Contests", "Slate Analysis", "Lineups", "Strategy", "Autopsy"]
 )
 
 
@@ -265,6 +270,90 @@ with tab_articles:
                 st.rerun()
 
 
+# ===== Tab 4.3: Contests =====
+with tab_contests:
+    st.subheader(f"Contests — {contest_label}")
+    st.caption(
+        "Declare which contests you're entering this slate. Claude reads this when writing "
+        "the Slate Analysis and Lineups so the recommendations respect contest field sizes, "
+        "entry counts, and ceiling targets."
+    )
+
+    contests_list = load_contests(slug)
+
+    # Portfolio summary at top
+    if contests_list:
+        summary = portfolio_summary(slug)
+        c1, c2, c3 = st.columns(3)
+        c1.metric("Contests", summary["n_contests"])
+        c2.metric("Total entries", summary["total_entries"])
+        c3.metric("Unique lineups needed", summary["unique_lineups_needed"])
+        st.caption(
+            "'Unique lineups needed' = MAX my_entries across contests "
+            "(the same lineup can be entered into multiple contests on DK)."
+        )
+        st.markdown("---")
+
+    # Add contest form
+    with st.expander("➕ Add a contest", expanded=not contests_list):
+        with st.form(key=f"add_contest_{slug}", clear_on_submit=True):
+            name = st.text_input("Contest name", placeholder="e.g., UFC $100K MEGA mini-MAX")
+            type_label = st.selectbox("Contest type", list(CONTEST_ENTRY_TYPES.keys()))
+            type_meta = CONTEST_ENTRY_TYPES.get(type_label, {})
+
+            col_a, col_b = st.columns(2)
+            with col_a:
+                field_size = st.number_input("Field size (entries)", min_value=1, value=1000, step=100)
+                my_entries = st.number_input("My entries", min_value=1, value=1, step=1)
+            with col_b:
+                max_entries = st.number_input(
+                    "Max entries allowed", min_value=1,
+                    value=type_meta.get("default_max_entries", 1), step=1,
+                )
+
+            col_c, col_d = st.columns(2)
+            with col_c:
+                entry_fee = st.number_input("Entry fee ($, optional)", min_value=0.0, value=0.0, step=0.25)
+            with col_d:
+                prize_pool = st.number_input("Prize pool ($, optional)", min_value=0, value=0, step=100)
+
+            submitted = st.form_submit_button("Add contest", type="primary")
+            if submitted and name.strip():
+                add_contest(slug, {
+                    "name": name.strip(),
+                    "type": type_label,
+                    "field_size": int(field_size),
+                    "max_entries": int(max_entries),
+                    "my_entries": int(my_entries),
+                    "entry_fee": float(entry_fee) if entry_fee else None,
+                    "prize_pool": int(prize_pool) if prize_pool else None,
+                })
+                st.rerun()
+
+    # List of contests
+    if contests_list:
+        st.markdown("### Active contests")
+        for c in contests_list:
+            with st.container(border=True):
+                top_cols = st.columns([6, 1])
+                top_cols[0].markdown(f"**{c['name']}** — *{c['type']}*")
+                if top_cols[1].button("✕ Delete", key=f"del_contest_{c['id']}"):
+                    remove_contest(slug, c["id"])
+                    st.rerun()
+                detail_cols = st.columns(2)
+                detail_cols[0].caption(f"Field size: **{c['field_size']:,}**")
+                detail_cols[1].caption(f"Entries: **{c['my_entries']} / {c['max_entries']}**")
+                if c.get("entry_fee") or c.get("prize_pool"):
+                    extras = []
+                    if c.get("entry_fee"):
+                        extras.append(f"Entry ${c['entry_fee']}")
+                    if c.get("prize_pool"):
+                        extras.append(f"Prize ${c['prize_pool']:,}")
+                    st.caption(" · ".join(extras))
+    else:
+        st.info("No contests added yet. Add one above so Claude knows the contest mix when writing analysis + lineups.")
+
+
 # ===== Tab 4.5: Slate Analysis =====
 with tab_analysis:
     st.subheader(f"Slate Analysis — {contest_label}")
@@ -469,12 +558,13 @@ with tab_autopsy:
                 }
                 with jsonl_path.open("a") as f:
                     f.write(json.dumps(row) + "\n")
-                # Clear the persisted slate analysis + lineups — next slate starts fresh
+                # Clear all per-slate state — next slate starts fresh
                 clear_persisted(slug)
                 clear_lineups(slug)
+                clear_contests(slug)
                 st.success(
                     f"Logged to rules/{slug}/autopsies.md + autopsy_data.jsonl. "
-                    "Cleared the Slate Analysis and Lineups tabs for next time."
+                    "Cleared Slate Analysis, Lineups, and Contests for next time."
                 )
 
     st.divider()
