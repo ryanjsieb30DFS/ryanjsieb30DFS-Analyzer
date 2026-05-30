@@ -19,6 +19,7 @@ from src.landscape import chalk_summary, leverage_table, anchor_equivalence_chec
 from src.projections_diff import diff_table, flagged_disagreements
 from src.autopsy import parse_dk_results
 from src.strategy import load_strategy, load_track, load_shared
+from src.slate_analysis import snapshot, top_chalk, sport_signals
 
 
 REPO_ROOT = Path(__file__).parent
@@ -52,8 +53,8 @@ strategy = load_strategy(slug)
 
 
 # ---------- Tabs ---------- #
-tab_proj, tab_diff, tab_articles, tab_strategy, tab_autopsy = st.tabs(
-    ["Projections", "Projections Diff", "Articles", "Strategy", "Autopsy"]
+tab_proj, tab_diff, tab_articles, tab_analysis, tab_strategy, tab_autopsy = st.tabs(
+    ["Projections", "Projections Diff", "Articles", "Slate Analysis", "Strategy", "Autopsy"]
 )
 
 
@@ -253,6 +254,100 @@ with tab_articles:
             if cols[1].button("Delete", key=f"del_{f.name}"):
                 f.unlink()
                 st.rerun()
+
+
+# ===== Tab 4.5: Slate Analysis =====
+with tab_analysis:
+    st.subheader(f"Slate Analysis — {contest_label}")
+    st.caption(
+        "Auto-generated breakdown of the active slate. Recomputes from the latest uploaded data every time you load this tab."
+    )
+
+    sources = sessions.load_sources(slug)
+    if not sources:
+        st.info("Upload projections in the Projections tab first — the analysis pulls from your active session.")
+    else:
+        primary_name = list(sources.keys())[0]
+        df = sources[primary_name]["df"]
+        st.caption(f"Reading from: **{primary_name}** ({sources[primary_name]['vendor']})")
+
+        # 1. Snapshot
+        snap = snapshot(df)
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("Players", f"{snap['n_players']}")
+        c2.metric("Top-5 own concentration", f"{snap['top5_own_concentration_pct']}%")
+        c3.metric("Chalk (≥15%)", f"{snap['n_chalk']}")
+        c4.metric("Leverage pool (<5% own)", f"{snap['n_leverage_candidates']}")
+        st.caption(
+            f"Avg salary ${snap['avg_salary']:,.0f} · range ${snap['min_salary']:,}–${snap['max_salary']:,} · avg proj {snap['avg_proj']}"
+        )
+
+        # 2. Top chalk
+        st.markdown("### Top chalk")
+        chalk = top_chalk(df)
+        if chalk.empty:
+            st.info("No players above 15% ownership.")
+        else:
+            st.dataframe(chalk, use_container_width=True)
+
+        # 3. Top leverage
+        st.markdown("### Top leverage candidates")
+        st.dataframe(leverage_table(df), use_container_width=True)
+
+        # 4. Anchor-Equivalence
+        st.markdown("### Anchor-Equivalence findings")
+        groups = anchor_equivalence_check(df)
+        if not groups:
+            st.success("✅ No anchor-equivalence pairs at similar ownership.")
+        else:
+            for g in groups:
+                st.warning(
+                    f"**{', '.join(g['players'])}** (own% {g['own_range'][0]:.1f}–{g['own_range'][1]:.1f}) — "
+                    f"{g['rule']}"
+                )
+
+        # 5. Sport-specific signals
+        signals = sport_signals(df, sport)
+        if signals:
+            st.markdown(f"### {sport.upper()} signals")
+            for key, table in signals.items():
+                label = key.replace("_", " ").title()
+                st.markdown(f"**{label}**")
+                st.dataframe(table, use_container_width=True)
+
+        # 6. Vendor disagreement
+        if len(sources) >= 2:
+            st.markdown("### Vendor disagreement (top 5 on proj_points)")
+            flagged = flagged_disagreements(sources, metric="proj_points", pct_threshold=15.0)
+            if flagged.empty:
+                st.success("Vendors broadly agree at the 15% threshold.")
+            else:
+                st.dataframe(flagged.head(5), use_container_width=True)
+                st.caption("See the Projections Diff tab to change the threshold or compare other metrics.")
+
+        # 7. Recent autopsy lessons
+        st.markdown("### Recent autopsy lessons")
+        lessons = strategy["recent_lessons"][:3]
+        if not lessons:
+            st.info("No prior autopsies for this sport yet.")
+        else:
+            for lesson in lessons:
+                ts = lesson.get("timestamp", "?")
+                notes = (lesson.get("notes") or "").strip() or "_(no notes)_"
+                st.markdown(f"- `{ts}` — {notes[:300]}")
+
+        # 8. Framework reminders
+        st.markdown("### Framework reminders")
+        reminders = []
+        if slug == "pga_rd4_sd":
+            reminders.append("⛳ **RD4 Showdown**: flat 6-golfer lineup — NO captain, NO 1.5x multiplier.")
+        if slug == "nascar":
+            reminders.append("🏁 **NASCAR**: read `rules/nascar/tracks/<track>.md` before locking.")
+        reminders.append("🔒 **Anchor-Equivalence**: if 2+ chalk-tier anchors at similar own, ≥1 lineup MUST run the alternative.")
+        reminders.append("🎯 **GPP-only framing**: optimize for ceiling and leverage, never floor.")
+        for r in reminders:
+            st.markdown(f"- {r}")
+        st.caption("→ See the **Strategy** tab for the full philosophy/framework/autopsies for this sport.")
 
 
 # ===== Tab 5: Autopsy =====

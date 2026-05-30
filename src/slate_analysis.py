@@ -1,0 +1,108 @@
+"""Auto-generated slate analysis: pulls projections + sport-specific signals into one view.
+
+Pure computation. No LLM, no persistence. The Slate Analysis tab recomputes from
+the active session every load.
+"""
+from __future__ import annotations
+
+import pandas as pd
+
+
+def snapshot(df: pd.DataFrame) -> dict:
+    """Top-of-tab numbers: roster size, salary stats, chalk concentration, leverage count."""
+    own = df["ownership"].fillna(0)
+    top5_own_sum = own.nlargest(5).sum()
+    return {
+        "n_players": int(len(df)),
+        "avg_salary": round(float(df["salary"].mean()), 0),
+        "max_salary": int(df["salary"].max()),
+        "min_salary": int(df["salary"].min()),
+        "avg_proj": round(float(df["proj_points"].mean()), 2),
+        "top5_own_concentration_pct": round(float(top5_own_sum), 1),
+        "n_leverage_candidates": int((own < 5).sum()),
+        "n_chalk": int((own >= 15).sum()),
+    }
+
+
+def top_chalk(df: pd.DataFrame, n: int = 10) -> pd.DataFrame:
+    """Players at >=15% own, ranked by ownership, with proj/$ and proj/own ratio."""
+    chalk = df[df["ownership"].fillna(0) >= 15].copy()
+    if chalk.empty:
+        return chalk
+    chalk["pt_per_$"] = (chalk["proj_points"] / chalk["salary"] * 1000).round(2)
+    chalk["proj_per_own"] = (chalk["proj_points"] / chalk["ownership"]).round(3)
+    cols = ["name", "salary", "proj_points", "ownership", "pt_per_$", "proj_per_own"]
+    return chalk.sort_values("ownership", ascending=False).head(n)[cols].reset_index(drop=True)
+
+
+def sport_signals(df: pd.DataFrame, sport: str) -> dict:
+    """Sport-specific tables. Each value is either a DataFrame or None when data absent."""
+    if sport == "golf":
+        return _golf_signals(df)
+    if sport == "mma":
+        return _mma_signals(df)
+    if sport == "nascar":
+        return _nascar_signals(df)
+    return {}
+
+
+def _golf_signals(df: pd.DataFrame) -> dict:
+    out: dict = {}
+    if "tee_time" in df.columns and df["tee_time"].notna().any():
+        wave = df.groupby("tee_time").agg(
+            n=("name", "count"),
+            avg_proj=("proj_points", "mean"),
+            avg_own=("ownership", "mean"),
+        ).round(2).reset_index().sort_values("tee_time")
+        out["tee_time_waves"] = wave
+    if "make_cut_odds" in df.columns and df["make_cut_odds"].notna().any():
+        bins = pd.cut(
+            df["make_cut_odds"].fillna(0),
+            bins=[-0.01, 0.40, 0.55, 0.70, 0.85, 1.01],
+            labels=["Coffin (<40%)", "Risky (40–55%)", "Coin-flip (55–70%)", "Solid (70–85%)", "Lock (≥85%)"],
+        )
+        tier = df.assign(cut_tier=bins).groupby("cut_tier", observed=True).agg(
+            n=("name", "count"),
+            avg_proj=("proj_points", "mean"),
+            avg_own=("ownership", "mean"),
+        ).round(2).reset_index()
+        out["make_cut_tiers"] = tier
+    return out
+
+
+def _mma_signals(df: pd.DataFrame) -> dict:
+    out: dict = {}
+    if "win_prob" in df.columns and df["win_prob"].notna().any():
+        card = df[["name", "salary", "win_prob", "proj_points", "ownership"]].copy()
+        if "opponent" in df.columns:
+            card.insert(1, "opponent", df["opponent"])
+        if "proj_win" in df.columns and "proj_loss" in df.columns:
+            card["win_loss_spread"] = (df["proj_win"] - df["proj_loss"]).round(1)
+        card["role"] = card["win_prob"].apply(
+            lambda p: "Big fav (≥65%)" if p >= 0.65 else ("Fav" if p >= 0.5 else ("Dog" if p >= 0.35 else "Big dog (<35%)"))
+        )
+        out["matchup_card"] = card.sort_values("win_prob", ascending=False).reset_index(drop=True)
+
+        # Underdog leverage: low own + meaningful win equity
+        dogs = df[(df["win_prob"] < 0.5) & (df["ownership"].fillna(0) < 10)].copy()
+        if not dogs.empty:
+            dogs = dogs[["name", "salary", "win_prob", "proj_points", "ownership"]].sort_values("win_prob", ascending=False)
+            out["underdog_leverage"] = dogs.head(8).reset_index(drop=True)
+    return out
+
+
+def _nascar_signals(df: pd.DataFrame) -> dict:
+    out: dict = {}
+    if "dominator_points" in df.columns and df["dominator_points"].notna().any():
+        dom = df[df["dominator_points"].fillna(0) > 0][
+            ["name", "salary", "proj_points", "dominator_points", "ownership"]
+        ].sort_values("dominator_points", ascending=False)
+        out["dominator_pool"] = dom.head(12).reset_index(drop=True)
+    if "starting_position" in df.columns and df["starting_position"].notna().any():
+        # Position differential leverage: starting deep, projected well
+        pd_df = df[df["starting_position"] >= 20].copy()
+        if not pd_df.empty:
+            pd_df["pd_score"] = (pd_df["proj_points"] / (pd_df["ownership"].fillna(0) + 1)).round(2)
+            cols = ["name", "salary", "starting_position", "proj_points", "ownership", "pd_score"]
+            out["pd_candidates"] = pd_df.sort_values("pd_score", ascending=False).head(10)[cols].reset_index(drop=True)
+    return out
