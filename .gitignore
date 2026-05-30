@@ -6,3 +6,5 @@ venv/
 data/sessions/
 data/slate_analysis/
 data/lineups/
+articles/*/
+!articles/.gitkeep
