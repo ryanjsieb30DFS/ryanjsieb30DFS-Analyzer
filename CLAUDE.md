@@ -62,6 +62,45 @@ To add a new vendor: edit `VENDOR_SIGNATURES` in `src/vendors.py`.
 4. **Articles** — upload PDFs/notes for the slate
 5. *(After contest ends)* **Autopsy** — upload DK contest-standings CSV, view field summary, log lessons to `rules/<slug>/autopsies.md`
 
+## Writing the slate analysis
+
+When the user says **"review the articles and write the slate analysis"** (or "refresh the slate analysis", or similar):
+
+1. Read projections for the active sport: `data/sessions/<slug>.json`
+2. Read uploaded articles: `articles/<slug>/*.pdf` and `*.txt`/`*.md` (use the Read tool; PDFs may require poppler — note in the file if anything couldn't be parsed)
+3. Read strategy: `rules/<slug>/{philosophy,framework,autopsies}.md` + `rules/shared/anchor_equivalence.md`
+4. Read recent autopsies: tail of `rules/<slug>/autopsy_data.jsonl`
+5. For NASCAR: also read `rules/nascar/tracks/<track>.md`
+6. Synthesize:
+   - Where do the articles + auto-data agree? Where do they disagree?
+   - Which qualitative overrides should beat the quantitative signal (mirror the King Green pattern from `rules/mma_mme/autopsies.md`)?
+   - What's the Anchor-Equivalence call?
+   - What conviction-core duplication / ceiling-threshold / binary-leverage warnings apply (per SE framework)?
+7. Write to `data/slate_analysis/<slug>.md` — concise, scannable, GPP-framed, with a player-by-player call where the auto-data and the articles diverge
+
+The file is rendered at the top of the Slate Analysis tab with a "Last updated" timestamp. It's cleared automatically when the user logs an autopsy for the sport.
+
+## Building lineups (hand-built, not optimized)
+
+When the user says **"build lineups for the current slate"** (or "rebuild lineups", or similar):
+
+1. Read the slate analysis: `data/slate_analysis/<slug>.md` (if missing, write it first via the workflow above)
+2. Read projections: `data/sessions/<slug>.json`
+3. Read recent autopsies for SE-specific discipline rules (`rules/<slug>/autopsies.md` + `autopsy_data.jsonl`)
+4. Build 2–5 lineups by hand (default 2 for SE contests, 3-5 for MME) — each with:
+   - One-sentence **thesis** ("how it wins")
+   - **Roster** as a markdown table (player, salary, win%, win-case proj, role)
+   - **Total salary** verified ≤ $50,000 (do the math, show it)
+   - **Opponent check** — verify no opponent-stacking
+   - **"What if?"** line stating which scenario this lineup answers
+5. Lineups in a portfolio MUST answer DIFFERENT "what if?" questions (`feedback_no_competing_lineups`)
+6. For MMA SE specifically: never duplicate the same 3+ conviction-core players across multiple lineups (5/16/26 lesson)
+7. Apply the Anchor-Equivalence rule explicitly: if chalk anchors at similar own, ≥1 lineup must run the alternative
+8. Apply ceiling-threshold discipline: sum top-6 `proj_win` values, target ≥600 for SE
+9. Write to `data/lineups/<slug>.md` with a final **Portfolio audit** section summarizing player overlap, fight hedges, and framework-rule compliance
+
+The file is rendered in the Lineups tab. Cleared automatically when the user logs an autopsy.
+
 ## Hard rules
 
 - **No scraping.** DK ToS prohibits it; never build scrapers. Use user-pasted/uploaded data only.

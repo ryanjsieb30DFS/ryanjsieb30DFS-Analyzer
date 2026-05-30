@@ -4,3 +4,5 @@ __pycache__/
 .venv/
 venv/
 data/sessions/
+data/slate_analysis/
+data/lineups/

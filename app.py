@@ -18,7 +18,11 @@ from src.landscape import chalk_summary, leverage_table, anchor_equivalence_chec
 from src.projections_diff import diff_table, flagged_disagreements
 from src.autopsy import parse_dk_results
 from src.strategy import load_strategy, load_track, load_shared
-from src.slate_analysis import snapshot, top_chalk, sport_signals
+from src.slate_analysis import (
+    snapshot, top_chalk, sport_signals,
+    load_persisted, clear_persisted,
+)
+from src.lineups import load_lineups, clear_lineups
 
 
 REPO_ROOT = Path(__file__).parent
@@ -52,8 +56,8 @@ strategy = load_strategy(slug)
 
 
 # ---------- Tabs ---------- #
-tab_proj, tab_diff, tab_articles, tab_analysis, tab_strategy, tab_autopsy = st.tabs(
-    ["Projections", "Projections Diff", "Articles", "Slate Analysis", "Strategy", "Autopsy"]
+tab_proj, tab_diff, tab_articles, tab_analysis, tab_lineups, tab_strategy, tab_autopsy = st.tabs(
+    ["Projections", "Projections Diff", "Articles", "Slate Analysis", "Lineups", "Strategy", "Autopsy"]
 )
 
 
@@ -265,8 +269,24 @@ with tab_articles:
 with tab_analysis:
     st.subheader(f"Slate Analysis — {contest_label}")
     st.caption(
-        "Auto-generated breakdown of the active slate. Recomputes from the latest uploaded data every time you load this tab."
+        "Claude's read (top) plus an auto-generated structured breakdown from the active session below."
     )
+
+    # ----- Claude's persisted read -----
+    persisted = load_persisted(slug)
+    if persisted:
+        with st.container(border=True):
+            st.markdown("### 📝 Claude's read")
+            st.caption(f"Last updated: {persisted['mtime']}")
+            st.markdown(persisted["markdown"])
+    else:
+        st.info(
+            "**No saved analysis yet.** In Claude Code, ask: *\"review the articles and write the slate analysis\"* — "
+            "Claude will read your projections, uploaded articles, philosophy/framework/autopsies, and write a synthesis here."
+        )
+
+    st.markdown("---")
+    st.markdown("## Auto-generated breakdown")
 
     sources = sessions.load_sources(slug)
     if not sources:
@@ -355,6 +375,35 @@ with tab_analysis:
         st.caption("→ See the **Strategy** tab for the full philosophy/framework/autopsies for this sport.")
 
 
+# ===== Tab 4.7: Lineups (hand-built by Claude) =====
+with tab_lineups:
+    st.subheader(f"Lineups — {contest_label}")
+    st.caption(
+        "Hand-built by Claude based on the Slate Analysis read. Not an optimizer — these are judgment-driven lineups, "
+        "each with an articulable thesis answering a different 'what if?' question."
+    )
+
+    lineups_blob = load_lineups(slug)
+    if lineups_blob:
+        with st.container(border=True):
+            st.caption(f"Last updated: {lineups_blob['mtime']}")
+            st.markdown(lineups_blob["markdown"])
+    else:
+        st.info(
+            "**No lineups built yet.** In Claude Code, ask: *\"build lineups for the current slate\"* — "
+            "Claude will read your Slate Analysis, projections, framework, and autopsies, then write a small "
+            "curated set here. Each lineup gets a thesis + roster + 'what if?' scenario."
+        )
+
+    st.markdown("---")
+    st.markdown("### Reference")
+    st.caption(
+        "**Salary cap: $50,000** · **Roster: 6 players** (PGA Classic, PGA RD4 SD, MMA, NASCAR). "
+        "Lineups in a portfolio must answer DIFFERENT \"what if?\" questions. "
+        "Anchor-Equivalence pre-lock check is mandatory — see the Strategy tab for the full rule."
+    )
+
+
 # ===== Tab 5: Autopsy =====
 with tab_autopsy:
     st.subheader(f"Post-slate autopsy — {contest_label}")
@@ -420,7 +469,13 @@ with tab_autopsy:
                 }
                 with jsonl_path.open("a") as f:
                     f.write(json.dumps(row) + "\n")
-                st.success(f"Logged to rules/{slug}/autopsies.md + autopsy_data.jsonl")
+                # Clear the persisted slate analysis + lineups — next slate starts fresh
+                clear_persisted(slug)
+                clear_lineups(slug)
+                st.success(
+                    f"Logged to rules/{slug}/autopsies.md + autopsy_data.jsonl. "
+                    "Cleared the Slate Analysis and Lineups tabs for next time."
+                )
 
     st.divider()
     st.markdown("### Cross-slate patterns (autopsies.md)")

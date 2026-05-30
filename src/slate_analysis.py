@@ -1,11 +1,43 @@
-"""Auto-generated slate analysis: pulls projections + sport-specific signals into one view.
+"""Slate analysis: auto-generated computations + persisted Claude synthesis.
 
-Pure computation. No LLM, no persistence. The Slate Analysis tab recomputes from
-the active session every load.
+The Slate Analysis tab has two layers:
+1. Persisted markdown at data/slate_analysis/<slug>.md — Claude writes this when
+   asked to "review the articles and write the slate analysis"
+2. Auto-generated structured breakdown — recomputes from the active session on every load
 """
 from __future__ import annotations
 
+from datetime import datetime
+from pathlib import Path
+
 import pandas as pd
+
+
+_ANALYSIS_DIR = Path(__file__).parent.parent / "data" / "slate_analysis"
+
+
+def load_persisted(slug: str) -> dict | None:
+    """Return {'markdown': str, 'mtime': str} or None if no file exists."""
+    p = _ANALYSIS_DIR / f"{slug}.md"
+    if not p.exists():
+        return None
+    return {
+        "markdown": p.read_text(),
+        "mtime": datetime.fromtimestamp(p.stat().st_mtime).strftime("%Y-%m-%d %H:%M"),
+    }
+
+
+def save_persisted(slug: str, markdown: str) -> None:
+    """Write data/slate_analysis/<slug>.md. Called by Claude, not the UI."""
+    _ANALYSIS_DIR.mkdir(parents=True, exist_ok=True)
+    (_ANALYSIS_DIR / f"{slug}.md").write_text(markdown)
+
+
+def clear_persisted(slug: str) -> None:
+    """Delete the file. Called after an autopsy log so the next slate starts fresh."""
+    p = _ANALYSIS_DIR / f"{slug}.md"
+    if p.exists():
+        p.unlink()
 
 
 def snapshot(df: pd.DataFrame) -> dict:
