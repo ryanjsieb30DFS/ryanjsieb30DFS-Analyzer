@@ -14,7 +14,6 @@ import streamlit as st
 
 from src import sessions
 from src.projections import load_projections, warn_missing_for_sport
-from src.vendors import detect_vendor, normalize_to_canonical
 from src.landscape import chalk_summary, leverage_table, anchor_equivalence_check
 from src.projections_diff import diff_table, flagged_disagreements
 from src.autopsy import parse_dk_results
@@ -165,14 +164,20 @@ with tab_proj:
 
     if uploaded:
         for f in uploaded:
-            raw = pd.read_csv(f)
-            sig = detect_vendor(raw)
-            if sig is None:
-                st.error(f"❌ Couldn't detect vendor for {f.name}.")
+            try:
+                df = load_projections(f)
+            except Exception as e:
+                st.error(f"❌ Failed to load {f.name}: {e}")
                 continue
-            df = normalize_to_canonical(raw, sig)
-            sessions.save_source(slug, f.name, df, sig.get("name", "unknown"))
-            st.success(f"✅ {f.name} — detected as **{sig.get('name')}** ({len(df)} players)")
+            vendor_name = df.attrs.get("vendor")
+            if vendor_name is None:
+                st.error(
+                    f"❌ Couldn't detect vendor for {f.name}. "
+                    f"Headers seen: {list(df.columns)}"
+                )
+                continue
+            sessions.save_source(slug, f.name, df, vendor_name)
+            st.success(f"✅ {f.name} — detected as **{vendor_name}** ({len(df)} players)")
 
     sources = sessions.load_sources(slug)
     if sources:
