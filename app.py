@@ -1,8 +1,7 @@
 """DFS Slate Analyzer — Streamlit app.
 
-Sister to ~/Desktop/Repo/ryanjsieb30DFS sim. This tool analyzes; the sim builds.
-
-Tabs: Projections, Landscape, Projections Diff, Articles, Autopsy.
+Multi-sport DFS slate analyzer for DraftKings.
+Tabs: Strategy, Projections, Projections Diff, Articles, Autopsy.
 """
 from __future__ import annotations
 
@@ -19,6 +18,7 @@ from src.vendors import detect_vendor, normalize_to_canonical
 from src.landscape import chalk_summary, leverage_table, anchor_equivalence_check
 from src.projections_diff import diff_table, flagged_disagreements
 from src.autopsy import parse_dk_results
+from src.strategy import load_strategy, load_track, load_shared
 
 
 REPO_ROOT = Path(__file__).parent
@@ -33,7 +33,7 @@ CONTEST_TYPES = {
 
 st.set_page_config(page_title="DFS Slate Analyzer", layout="wide")
 st.title("DFS Slate Analyzer")
-st.caption("Sister tool to the sim — this one reads the slate, doesn't build lineups.")
+st.caption("Multi-sport DFS slate analyzer for DraftKings.")
 
 # ---------- Sidebar ---------- #
 with st.sidebar:
@@ -47,10 +47,104 @@ with st.sidebar:
         sessions.clear(slug)
         st.rerun()
 
+# Load active sport's strategy bundle (used by every tab)
+strategy = load_strategy(slug)
+
+
 # ---------- Tabs ---------- #
-tab_proj, tab_landscape, tab_diff, tab_articles, tab_autopsy = st.tabs(
-    ["Projections", "Landscape", "Projections Diff", "Articles", "Autopsy"]
+tab_proj, tab_diff, tab_articles, tab_strategy, tab_autopsy = st.tabs(
+    ["Projections", "Projections Diff", "Articles", "Strategy", "Autopsy"]
 )
+
+
+# ===== Tab 0: Strategy (analysis hub + reference docs) =====
+with tab_strategy:
+    st.subheader(f"Strategy for {contest_label}")
+    st.caption(
+        "Slate read, sport-specific callouts, recent autopsy lessons, and the active sport's "
+        "philosophy / framework / autopsies. Everything for this contest type lives here."
+    )
+
+    # Recent-lessons banner
+    if strategy["recent_lessons"]:
+        with st.container(border=True):
+            st.markdown(f"**🧠 Recent lessons ({len(strategy['recent_lessons'])} last autopsies):**")
+            for lesson in strategy["recent_lessons"][:3]:
+                ts = lesson.get("timestamp", "?")
+                notes = (lesson.get("notes") or "").strip() or "_(no notes)_"
+                st.markdown(f"- `{ts}` — {notes[:240]}")
+    else:
+        st.info("No prior autopsies for this sport yet — lessons will appear here after you log one.")
+
+    # NASCAR: track selector inline
+    if slug == "nascar":
+        track_files = strategy["track_files"]
+        if track_files:
+            picked = st.selectbox("Track", track_files, key="nascar_track_pick")
+            with st.expander(f"🏁 Track notes — {picked}", expanded=True):
+                st.markdown(load_track(picked))
+        else:
+            st.warning(
+                "No NASCAR track notes yet. Add one at `rules/nascar/tracks/<slug>.md` "
+                "(use `charlotte_motor_speedway.md` as a template)."
+            )
+
+    # PGA RD4 SD hard rule
+    if slug == "pga_rd4_sd":
+        st.warning(
+            "⛳ **RD4 Showdown**: flat 6-golfer lineup — NO captain, NO 1.5x multiplier."
+        )
+
+    # Slate read section (requires uploaded projections)
+    st.markdown("---")
+    st.markdown("## Slate read")
+    sources = sessions.load_sources(slug)
+    if not sources:
+        st.info("Upload projections in the Projections tab to see chalk tiers, leverage, and anchor-equivalence checks.")
+    else:
+        primary_name = list(sources.keys())[0]
+        df = sources[primary_name]["df"]
+        st.caption(f"Reading from: **{primary_name}** ({sources[primary_name]['vendor']})")
+
+        st.markdown("### Chalk tiers")
+        st.dataframe(chalk_summary(df), use_container_width=True)
+
+        st.markdown("### Leverage candidates")
+        st.caption("Sorted by `upside / (ownership + 1)`. Higher = better GPP leverage.")
+        st.dataframe(leverage_table(df), use_container_width=True)
+
+        st.markdown("### Anchor-Equivalence pre-lock check")
+        st.caption(
+            "If 2+ chalk-tier anchors sit at similar projected ownership, "
+            "at least one lineup MUST run the alternative — a 4-slate-validated structural leak."
+        )
+        with st.expander("📖 Read the rule"):
+            st.markdown(load_shared("anchor_equivalence") or "_Missing._")
+        groups = anchor_equivalence_check(df)
+        if not groups:
+            st.success("✅ No anchor-equivalence pairs detected.")
+        else:
+            for g in groups:
+                st.warning(
+                    f"**Equivalent anchors:** {', '.join(g['players'])} "
+                    f"(own% {g['own_range'][0]:.1f}–{g['own_range'][1]:.1f}). {g['rule']}"
+                )
+
+    # Strategy reference docs (always visible)
+    st.markdown("---")
+    st.markdown("## Reference docs")
+    sub_phil, sub_frame, sub_autopsies, sub_shared = st.tabs(
+        ["Philosophy", "Framework", "Autopsies", "Shared rules"]
+    )
+    with sub_phil:
+        st.markdown(strategy["philosophy"] or "_No philosophy.md for this sport yet._")
+    with sub_frame:
+        st.markdown(strategy["framework"] or "_No framework.md for this sport yet._")
+    with sub_autopsies:
+        st.markdown(strategy["autopsies"] or "_No autopsies.md for this sport yet._")
+    with sub_shared:
+        st.markdown("### Anchor-Equivalence Rule (cross-sport)")
+        st.markdown(load_shared("anchor_equivalence") or "_Missing._")
 
 
 # ===== Tab 1: Projections =====
@@ -104,51 +198,7 @@ with tab_proj:
         st.info("No projections uploaded yet.")
 
 
-# ===== Tab 2: Landscape =====
-with tab_landscape:
-    st.subheader("Slate landscape")
-    sources = sessions.load_sources(slug)
-    if not sources:
-        st.info("Upload projections in the Projections tab first.")
-    else:
-        primary_name = list(sources.keys())[0]
-        df = sources[primary_name]["df"]
-        st.caption(f"Reading from: **{primary_name}** ({sources[primary_name]['vendor']})")
-
-        if slug == "nascar":
-            st.warning(
-                "🏁 **NASCAR**: read the track-specific notes at `rules/nascar/tracks/<track>.md` "
-                "before locking. If the track isn't documented yet, add it."
-            )
-        if slug == "pga_rd4_sd":
-            st.warning(
-                "⛳ **RD4 Showdown**: flat 6-golfer lineup — NO captain, NO 1.5x multiplier."
-            )
-
-        st.markdown("### Chalk tiers")
-        st.dataframe(chalk_summary(df), use_container_width=True)
-
-        st.markdown("### Leverage candidates")
-        st.caption("Sorted by `upside / (ownership + 1)`. Higher = better GPP leverage.")
-        st.dataframe(leverage_table(df), use_container_width=True)
-
-        st.markdown("### Anchor-Equivalence pre-lock check")
-        st.caption(
-            "If 2+ chalk-tier anchors sit at similar projected ownership, "
-            "at least one lineup MUST run the alternative — a 4-slate-validated structural leak."
-        )
-        groups = anchor_equivalence_check(df)
-        if not groups:
-            st.success("✅ No anchor-equivalence pairs detected.")
-        else:
-            for g in groups:
-                st.warning(
-                    f"**Equivalent anchors:** {', '.join(g['players'])} "
-                    f"(own% {g['own_range'][0]:.1f}–{g['own_range'][1]:.1f}). {g['rule']}"
-                )
-
-
-# ===== Tab 3: Projections Diff =====
+# ===== Tab 2: Projections Diff =====
 with tab_diff:
     st.subheader("Vendor projection disagreement")
     sources = sessions.load_sources(slug)
@@ -198,12 +248,9 @@ with tab_articles:
     else:
         st.markdown(f"**{len(files)} file(s):**")
         for f in files:
-            cols = st.columns([5, 1, 1])
+            cols = st.columns([5, 1])
             cols[0].write(f"📄 {f.name}")
-            if f.suffix.lower() in (".txt", ".md"):
-                with cols[1].expander("View"):
-                    pass  # placeholder
-            if cols[2].button("Delete", key=f"del_{f.name}"):
+            if cols[1].button("Delete", key=f"del_{f.name}"):
                 f.unlink()
                 st.rerun()
 
@@ -276,7 +323,7 @@ with tab_autopsy:
                 st.success(f"Logged to rules/{slug}/autopsies.md + autopsy_data.jsonl")
 
     st.divider()
-    st.markdown("### Cross-slate patterns")
+    st.markdown("### Cross-slate patterns (autopsies.md)")
     autopsies_md = REPO_ROOT / "rules" / slug / "autopsies.md"
     if autopsies_md.exists():
         st.markdown(autopsies_md.read_text())

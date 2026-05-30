@@ -1,8 +1,6 @@
 # DFS Slate Analyzer
 
-Streamlit web app for DFS slate analysis. Sister to the sim at `~/Desktop/Repo/ryanjsieb30DFS`.
-
-The sim builds lineups. This tool reads the slate (chalk tiers, leverage, vendor disagreement, post-slate autopsy).
+Streamlit web app for multi-sport DFS slate analysis on DraftKings (PGA Classic, PGA RD4 Showdown, MMA, NASCAR).
 
 ## Run
 
@@ -10,10 +8,10 @@ The sim builds lineups. This tool reads the slate (chalk tiers, leverage, vendor
 cd ~/Desktop/Repo/ryanjsieb30DFS-Analyzer
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/streamlit run app.py
+.venv/bin/streamlit run app.py --server.port 8601
 ```
 
-Open http://localhost:8501.
+Open http://localhost:8601.
 
 ## Workflow
 

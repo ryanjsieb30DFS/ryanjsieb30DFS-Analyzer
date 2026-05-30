@@ -1,8 +1,7 @@
 """Per-sport session persistence.
 
-One JSON file per contest type at data/sessions/<slug>.json. Stores the
-uploaded projection sources for the active slate. Simpler than the sim's
-session_store because the Analyzer has no lineup pools.
+One JSON file per contest type at data/sessions/<slug>.json.
+Stores the uploaded projection sources for the active slate.
 """
 from __future__ import annotations
 
