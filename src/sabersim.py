@@ -316,14 +316,51 @@ def load_dk_ids(slug: str) -> pd.DataFrame | None:
     return pd.read_csv(p, dtype={"dk_id": str})
 
 
+def dk_ids_from_projections(slug: str) -> pd.DataFrame | None:
+    """Derive a name↔DK-ID map from the active projections session, if those
+    projections already carry `dk_id` (e.g. ETR / DK RD4 SD exports)."""
+    from src import sessions  # local import to avoid any import-order coupling
+    rows = []
+    for src in sessions.load_sources(slug).values():
+        df = src.get("df")
+        if df is None or "name" not in df.columns or "dk_id" not in df.columns:
+            continue
+        for _, r in df[["name", "dk_id"]].iterrows():
+            if pd.isna(r["dk_id"]) or not str(r["name"]).strip():
+                continue
+            idv = str(r["dk_id"]).strip()
+            if idv.endswith(".0"):  # int stored as float in JSON round-trip
+                idv = idv[:-2]
+            rows.append({"name": str(r["name"]).strip(), "dk_id": idv})
+    if not rows:
+        return None
+    return pd.DataFrame(rows).drop_duplicates(subset=["name"])
+
+
+def resolve_dk_id_map(slug: str) -> tuple[pd.DataFrame | None, str]:
+    """Best available name↔DK-ID map for the join. Uploaded file overrides
+    projection-derived IDs. Returns (df_or_None, source)."""
+    uploaded = load_dk_ids(slug)
+    if uploaded is not None and not uploaded.empty:
+        return uploaded, "uploaded"
+    proj = dk_ids_from_projections(slug)
+    if proj is not None and not proj.empty:
+        return proj, "projections"
+    return None, "none"
+
+
 def refresh_summary_with_dkids(slug: str) -> None:
-    """Re-annotate an existing pool summary with the persisted DK-id map.
-    Used when the DK-id file is uploaded after the SaberSim pool."""
+    """Re-annotate an existing pool summary with the best available DK-id map
+    (uploaded file, else projection-derived). Used when the DK-id file or
+    projections change after the SaberSim pool was loaded."""
     summary = load_summary(slug)
-    dkids = load_dk_ids(slug)
-    if summary is None or dkids is None or dkids.empty:
+    if summary is None:
+        return
+    dkids, source = resolve_dk_id_map(slug)
+    if dkids is None or dkids.empty:
         return
     summary = annotate_summary_with_dkids(summary, dkids)
+    summary["dk_id_source"] = source
     _path(slug, "summary.json").write_text(json.dumps(summary, indent=2))
 
 
@@ -340,11 +377,12 @@ def save_pool(slug: str, df: pd.DataFrame, meta: dict) -> None:
     disk.to_csv(_path(slug, "lineups.csv"), index=False)
     summary = summarize_pool(df)
     summary["meta"] = meta
-    # If a DK-id map is already on disk for this slate, annotate now so Claude's
-    # summary.json carries exact DK IDs without waiting for a re-upload.
-    dkids = load_dk_ids(slug)
+    # Annotate with the best available DK-id map (uploaded file, else the
+    # projections' own dk_id) so Claude's summary.json carries exact DK IDs.
+    dkids, source = resolve_dk_id_map(slug)
     if dkids is not None and not dkids.empty:
         summary = annotate_summary_with_dkids(summary, dkids)
+        summary["dk_id_source"] = source
     _path(slug, "summary.json").write_text(json.dumps(summary, indent=2))
 
 

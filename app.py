@@ -33,6 +33,7 @@ from src.sabersim import (
     parse_sabersim_lineups, save_pool, load_pool, load_summary,
     load_rules, clear_sabersim,
     parse_dk_player_ids, save_dk_ids, load_dk_ids, refresh_summary_with_dkids,
+    dk_ids_from_projections, resolve_dk_id_map,
 )
 
 
@@ -392,9 +393,15 @@ with tab_sabersim:
             "Upload your DraftKings DKEntries or DKSalaries CSV so SaberSim's name-only "
             "players resolve to DK player IDs (and any name/spelling drift gets flagged)."
         )
+        _proj_ids = dk_ids_from_projections(slug)
+        if _proj_ids is not None and not _proj_ids.empty:
+            st.info(
+                f"Your projections already include DK IDs for **{len(_proj_ids)}** players — "
+                "no upload needed. Upload a DK file only to override."
+            )
         _dk_existing = load_dk_ids(slug)
         if _dk_existing is not None and not _dk_existing.empty:
-            st.caption(f"Loaded: **{len(_dk_existing)}** DK player IDs.")
+            st.caption(f"Uploaded DK file: **{len(_dk_existing)}** player IDs (overrides projections).")
         dk_ids_upload = st.file_uploader("DK player-ID CSV", type="csv", key=f"dk_ids_upload_{slug}")
         if dk_ids_upload is not None and st.button("Load DK player IDs", key=f"dk_ids_load_{slug}"):
             try:
@@ -423,12 +430,14 @@ with tab_sabersim:
 
         _match = summary.get("dk_id_match")
         if _match and _match.get("total"):
-            st.caption(f"DK IDs: matched **{_match['matched']}/{_match['total']}** SaberSim players.")
+            _src = summary.get("dk_id_source", "")
+            _src_label = {"uploaded": " (from uploaded file)", "projections": " (from projections)"}.get(_src, "")
+            st.caption(f"DK IDs{_src_label}: matched **{_match['matched']}/{_match['total']}** SaberSim players.")
             _unmatched = summary.get("unmatched_players", [])
             if _unmatched:
                 st.warning("Unmatched names (drift vs DK — fix in SaberSim or DK file): " + ", ".join(_unmatched))
-        elif load_dk_ids(slug) is None:
-            st.caption("No DK player-ID file loaded — upload one above to resolve players to DK IDs.")
+        elif resolve_dk_id_map(slug)[0] is None:
+            st.caption("No DK IDs available — projections don't include them; upload a DK file above to resolve players.")
 
         exposure = summary.get("exposure", [])
         if exposure:

@@ -34,7 +34,7 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas, plotly, 
 | `articles/<slug>/` | Per-contest-type research uploads (PDFs, notes) |
 | `templates/` | Canonical projection CSV templates per sport |
 | `data/sessions/` | Per-sport session JSON (gitignored) |
-| `data/sabersim/` | Per-slate SaberSim pool: `<slug>_lineups.csv` (raw), `<slug>_summary.json` (exposures/top-lineups + `dk_id_map`/`unmatched_players` for Claude), `<slug>_rules.md` (build rules to enter into SaberSim), `<slug>_dkids.csv` (DK name↔player-ID map from a DKEntries/DKSalaries upload) |
+| `data/sabersim/` | Per-slate SaberSim pool: `<slug>_lineups.csv` (raw), `<slug>_summary.json` (exposures/top-lineups + `dk_id_map`/`unmatched_players` for Claude), `<slug>_rules.md` (build rules to enter into SaberSim), `<slug>_dkids.csv` (DK name↔player-ID map from a DKEntries/DKSalaries upload — optional). DK IDs auto-source from the projections' own `dk_id` when present (e.g. ETR / DK RD4 SD exports); the upload is only needed when projections lack IDs, and overrides them when present. `summary.json` records `dk_id_source` (`uploaded`/`projections`). |
 
 ## Contest types
 
