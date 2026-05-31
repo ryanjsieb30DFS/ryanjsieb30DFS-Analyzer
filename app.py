@@ -32,6 +32,7 @@ from src.contests import (
 from src.sabersim import (
     parse_sabersim_lineups, save_pool, load_pool, load_summary,
     load_rules, clear_sabersim,
+    parse_dk_player_ids, save_dk_ids, load_dk_ids, refresh_summary_with_dkids,
 )
 
 
@@ -386,6 +387,27 @@ with tab_sabersim:
         except Exception as exc:
             st.error(f"Failed to parse SaberSim export: {exc}")
 
+    with st.expander("DK player IDs (maps SaberSim names → DK IDs)", expanded=False):
+        st.caption(
+            "Upload your DraftKings DKEntries or DKSalaries CSV so SaberSim's name-only "
+            "players resolve to DK player IDs (and any name/spelling drift gets flagged)."
+        )
+        _dk_existing = load_dk_ids(slug)
+        if _dk_existing is not None and not _dk_existing.empty:
+            st.caption(f"Loaded: **{len(_dk_existing)}** DK player IDs.")
+        dk_ids_upload = st.file_uploader("DK player-ID CSV", type="csv", key=f"dk_ids_upload_{slug}")
+        if dk_ids_upload is not None and st.button("Load DK player IDs", key=f"dk_ids_load_{slug}"):
+            try:
+                dk_df = parse_dk_player_ids(dk_ids_upload)
+                if dk_df.empty:
+                    st.warning("No players parsed — is this a DKEntries/DKSalaries CSV with a 'Name + ID' column?")
+                else:
+                    save_dk_ids(slug, dk_df)
+                    refresh_summary_with_dkids(slug)  # re-annotate an already-loaded pool
+                    st.success(f"Loaded {len(dk_df)} DK player IDs.")
+            except Exception as exc:
+                st.error(f"Failed to parse DK player-ID CSV: {exc}")
+
     pool = load_pool(slug)
     summary = load_summary(slug)
     if pool is not None and summary is not None:
@@ -398,6 +420,15 @@ with tab_sabersim:
         mc[2].metric("Median Own Sum", f"{dist.get('own_sum', {}).get('median', '—')}")
         _best_top1 = dist.get("top1_pct", {}).get("max")
         mc[3].metric("Best Top 1%", f"{_best_top1}" if _best_top1 is not None else "—")
+
+        _match = summary.get("dk_id_match")
+        if _match and _match.get("total"):
+            st.caption(f"DK IDs: matched **{_match['matched']}/{_match['total']}** SaberSim players.")
+            _unmatched = summary.get("unmatched_players", [])
+            if _unmatched:
+                st.warning("Unmatched names (drift vs DK — fix in SaberSim or DK file): " + ", ".join(_unmatched))
+        elif load_dk_ids(slug) is None:
+            st.caption("No DK player-ID file loaded — upload one above to resolve players to DK IDs.")
 
         exposure = summary.get("exposure", [])
         if exposure:

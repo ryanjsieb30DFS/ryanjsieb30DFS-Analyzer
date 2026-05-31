@@ -34,7 +34,7 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas, plotly, 
 | `articles/<slug>/` | Per-contest-type research uploads (PDFs, notes) |
 | `templates/` | Canonical projection CSV templates per sport |
 | `data/sessions/` | Per-sport session JSON (gitignored) |
-| `data/sabersim/` | Per-slate SaberSim pool: `<slug>_lineups.csv` (raw), `<slug>_summary.json` (exposures/top-lineups for Claude), `<slug>_rules.md` (build rules to enter into SaberSim) |
+| `data/sabersim/` | Per-slate SaberSim pool: `<slug>_lineups.csv` (raw), `<slug>_summary.json` (exposures/top-lineups + `dk_id_map`/`unmatched_players` for Claude), `<slug>_rules.md` (build rules to enter into SaberSim), `<slug>_dkids.csv` (DK name↔player-ID map from a DKEntries/DKSalaries upload) |
 
 ## Contest types
 
@@ -73,7 +73,7 @@ When the user says **"review the articles and write the slate analysis"** (or "r
 3. Read uploaded articles: `articles/<slug>/*.pdf` and `*.txt`/`*.md` (use the Read tool; PDFs may require poppler — note in the file if anything couldn't be parsed)
 4. Read strategy: `rules/<slug>/{philosophy,framework,autopsies}.md` + `rules/shared/anchor_equivalence.md`
 5. Read recent autopsies: tail of `rules/<slug>/autopsy_data.jsonl`
-5b. If a SaberSim pool exists, read `data/sabersim/<slug>_summary.json` — the simmed pool's player exposures + top lineups (by Top 1% / Win % / Sim ROI). Use it to see where the sims agree/disagree with the articles' read (e.g., a low-owned fighter the sims love, or chalk the sims fade). Read the compact summary, NOT the raw `<slug>_lineups.csv` (it can be ~5,000 rows).
+5b. If a SaberSim pool exists, read `data/sabersim/<slug>_summary.json` — the simmed pool's player exposures + top lineups (by Top 1% / Win % / Sim ROI). Use it to see where the sims agree/disagree with the articles' read (e.g., a low-owned fighter the sims love, or chalk the sims fade). Read the compact summary, NOT the raw `<slug>_lineups.csv` (it can be ~5,000 rows). The summary also carries `dk_id_map` (player→DK ID, from an uploaded DK file) and `unmatched_players` — reference players by DK ID when precision matters, and call out any unmatched names (likely SaberSim↔DK spelling drift).
 6. For NASCAR: also read `rules/nascar/tracks/<track>.md`
 7. Synthesize:
    - Where do the articles + auto-data agree? Where do they disagree?

@@ -15,7 +15,10 @@ Persistence (dir data/sabersim/):
 """
 from __future__ import annotations
 
+import csv
+import io
 import json
+import unicodedata
 from pathlib import Path
 
 import pandas as pd
@@ -194,6 +197,136 @@ def summarize_pool(df: pd.DataFrame) -> dict:
     return summary
 
 
+# --------------------------------------------------------------------------- #
+# DK player-ID map (resolves SaberSim's name-only players to DK IDs)
+# --------------------------------------------------------------------------- #
+_NAME_SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v"}
+
+
+def _norm_name(s) -> str:
+    """Normalize a player name for fuzzy matching: strip accents/punctuation,
+    lowercase, drop generational suffixes."""
+    s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode()
+    s = "".join(ch if (ch.isalnum() or ch == " ") else " " for ch in s.lower())
+    toks = [t for t in s.split() if t and t not in _NAME_SUFFIXES]
+    return " ".join(toks)
+
+
+def parse_dk_player_ids(csv_path_or_buffer) -> pd.DataFrame:
+    """Parse a DraftKings DKEntries/DKSalaries CSV into name↔DK-ID rows.
+
+    Locates the player-pool sub-table by finding the `Name + ID` header cell
+    (the DKEntries layout offsets it to the right and partway down; a plain
+    DKSalaries puts it on row 0). Returns columns: name, dk_id, salary,
+    roster_position, team.
+    """
+    # DK's DKEntries CSV is ragged (the entry-template rows are narrower than
+    # the player-pool sub-table), which breaks pandas — read with csv instead.
+    if hasattr(csv_path_or_buffer, "read"):
+        data = csv_path_or_buffer.read()
+        if isinstance(data, bytes):
+            data = data.decode("utf-8-sig", errors="replace")
+        grid = list(csv.reader(io.StringIO(data)))
+    else:
+        with open(csv_path_or_buffer, "r", encoding="utf-8-sig", errors="replace", newline="") as fh:
+            grid = list(csv.reader(fh))
+
+    hr = None
+    for r, row in enumerate(grid):
+        if any(cell.strip() == "Name + ID" for cell in row):
+            hr = r
+            break
+    if hr is None:
+        raise ValueError("Could not find a 'Name + ID' player-pool header in this CSV.")
+
+    header: dict[str, int] = {}
+    for j, cell in enumerate(grid[hr]):
+        lab = cell.strip()
+        if lab and lab not in header:
+            header[lab] = j
+    name_col, id_col = header.get("Name"), header.get("ID")
+    if name_col is None or id_col is None:
+        raise ValueError("DK player-pool header is missing a 'Name' or 'ID' column.")
+    sal_col, rost_col, team_col = header.get("Salary"), header.get("Roster Position"), header.get("TeamAbbrev")
+
+    def _cell(row: list, j) -> str:
+        return row[j].strip() if (j is not None and j < len(row)) else ""
+
+    rows = []
+    for row in grid[hr + 1:]:
+        nm, idv = _cell(row, name_col), _cell(row, id_col)
+        if not nm or not idv:
+            continue
+        rows.append({
+            "name": nm,
+            "dk_id": idv,
+            "salary": _to_num(_cell(row, sal_col)),
+            "roster_position": _cell(row, rost_col),
+            "team": _cell(row, team_col),
+        })
+    return pd.DataFrame(rows)
+
+
+def _build_name_index(dkid_df: pd.DataFrame) -> tuple[dict, dict]:
+    """Return (exact_map, norm_map) from a DK-ID DataFrame: name→dk_id."""
+    exact, norm = {}, {}
+    for _, row in dkid_df.iterrows():
+        exact[str(row["name"]).strip()] = row["dk_id"]
+        norm.setdefault(_norm_name(row["name"]), row["dk_id"])
+    return exact, norm
+
+
+def _match_name(name: str, exact_map: dict, norm_map: dict):
+    """Resolve a SaberSim player name to a DK id (exact, then normalized)."""
+    s = str(name).strip()
+    if s in exact_map:
+        return exact_map[s]
+    return norm_map.get(_norm_name(s))
+
+
+def annotate_summary_with_dkids(summary: dict, dkid_df: pd.DataFrame) -> dict:
+    """Add dk_id to each exposure row and attach dk_id_map / unmatched_players /
+    dk_id_match to the summary, so the tab + Claude reference exact DK players."""
+    exact_map, norm_map = _build_name_index(dkid_df)
+    id_map, unmatched = {}, []
+    for row in summary.get("exposure", []):
+        player = row.get("player")
+        dk_id = _match_name(player, exact_map, norm_map)
+        row["dk_id"] = dk_id
+        if dk_id is not None:
+            id_map[player] = dk_id
+        else:
+            unmatched.append(player)
+    total = len(summary.get("exposure", []))
+    summary["dk_id_map"] = id_map
+    summary["unmatched_players"] = unmatched
+    summary["dk_id_match"] = {"matched": len(id_map), "total": total}
+    return summary
+
+
+def save_dk_ids(slug: str, df: pd.DataFrame) -> None:
+    _SABERSIM_DIR.mkdir(parents=True, exist_ok=True)
+    df.to_csv(_path(slug, "dkids.csv"), index=False)
+
+
+def load_dk_ids(slug: str) -> pd.DataFrame | None:
+    p = _path(slug, "dkids.csv")
+    if not p.exists():
+        return None
+    return pd.read_csv(p, dtype={"dk_id": str})
+
+
+def refresh_summary_with_dkids(slug: str) -> None:
+    """Re-annotate an existing pool summary with the persisted DK-id map.
+    Used when the DK-id file is uploaded after the SaberSim pool."""
+    summary = load_summary(slug)
+    dkids = load_dk_ids(slug)
+    if summary is None or dkids is None or dkids.empty:
+        return
+    summary = annotate_summary_with_dkids(summary, dkids)
+    _path(slug, "summary.json").write_text(json.dumps(summary, indent=2))
+
+
 def _path(slug: str, suffix: str) -> Path:
     return _SABERSIM_DIR / f"{slug}_{suffix}"
 
@@ -207,6 +340,11 @@ def save_pool(slug: str, df: pd.DataFrame, meta: dict) -> None:
     disk.to_csv(_path(slug, "lineups.csv"), index=False)
     summary = summarize_pool(df)
     summary["meta"] = meta
+    # If a DK-id map is already on disk for this slate, annotate now so Claude's
+    # summary.json carries exact DK IDs without waiting for a re-upload.
+    dkids = load_dk_ids(slug)
+    if dkids is not None and not dkids.empty:
+        summary = annotate_summary_with_dkids(summary, dkids)
     _path(slug, "summary.json").write_text(json.dumps(summary, indent=2))
 
 
@@ -243,7 +381,7 @@ def load_rules(slug: str) -> dict | None:
 
 
 def clear_sabersim(slug: str) -> None:
-    for suffix in ("lineups.csv", "summary.json", "rules.md"):
+    for suffix in ("lineups.csv", "summary.json", "rules.md", "dkids.csv"):
         p = _path(slug, suffix)
         if p.exists():
             p.unlink()
