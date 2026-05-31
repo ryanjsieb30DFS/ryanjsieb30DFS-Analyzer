@@ -30,15 +30,17 @@ _PLAYERS_SEP = " | "
 # Canonical metric -> candidate header names (matched case/space-insensitively,
 # both as exact normalized keys and as substrings). Order = match priority.
 _METRIC_SYNONYMS: dict[str, list[str]] = {
-    "salary":     ["salary", "sal"],
-    "proj":       ["proj", "projection", "projected", "fpts", "points"],
-    "own_sum":    ["own sum", "ownership sum", "sum own", "total own", "ownsum"],
-    "own":        ["own", "ownership", "proj own", "pown"],
-    "sim_roi":    ["sim roi %", "sim roi", "roi %", "roi percent", "roi"],
-    "cash_pct":   ["cash %", "cash percent", "cash"],
-    "top1_pct":   ["top 1%", "top 1 %", "top 1", "top1", "top 1 percent"],
-    "win_pct":    ["win %", "win percent", "win"],
-    "avg_payout": ["avg payout", "average payout", "payout"],
+    "salary":      ["salary", "sal"],
+    "proj":        ["proj score", "proj", "projection", "projected", "fpts", "points"],
+    "own_sum":     ["own sum", "ownership sum", "sum own", "total own", "ownsum", "ownership", "own"],
+    "cash_pct":    ["cash %", "cash rate", "cash percent", "cash"],
+    "win_pct":     ["win %", "win rate", "win percent", "win"],
+    "top1_pct":    ["top 1%", "top 1 %", "top 1", "top1", "top 1 percent"],
+    "optimal_pct": ["sim optimals", "optimals", "optimal %", "optimal"],
+    "saber_score": ["saber score", "saberscore"],
+    "ceiling":     ["95th", "ceiling", "ceil"],
+    "avg_payout":  ["avg payout", "average payout", "payout"],
+    # sim_roi is matched specially (must contain "roi" but NOT "stdev"/"dupes").
 }
 # Meta (non-metric) columns we also surface.
 _META_SYNONYMS: dict[str, list[str]] = {
@@ -46,11 +48,14 @@ _META_SYNONYMS: dict[str, list[str]] = {
     "lineup_id": ["lineup id", "lineup", "id"],
 }
 _PLAYERS_SYNONYMS = ["players", "roster", "lineup players"]
+# Short position codes that mark a leading roster-block column (DK roster slots).
+_POSITION_CODES = {"g", "f", "d", "cpt", "util", "flex", "mvp", "star", "pro"}
 
 # Metrics that are numeric and get distribution + exposure stats.
-_NUMERIC = ["salary", "proj", "own_sum", "own", "sim_roi", "cash_pct", "win_pct", "top1_pct", "avg_payout"]
+_NUMERIC = ["salary", "proj", "own_sum", "sim_roi", "cash_pct", "win_pct",
+            "top1_pct", "optimal_pct", "saber_score", "ceiling", "avg_payout"]
 # Preferred ranking metrics for the "top lineups" view (in priority order).
-_RANK_METRICS = ["top1_pct", "win_pct", "sim_roi", "proj"]
+_RANK_METRICS = ["top1_pct", "win_pct", "sim_roi", "saber_score", "proj"]
 
 
 def _norm(s: str) -> str:
@@ -83,70 +88,147 @@ def _match_column(columns: list[str], candidates: list[str]) -> str | None:
     return None
 
 
+def _read_grid(csv_path_or_buffer) -> list[list[str]]:
+    """Read any CSV into a ragged list-of-rows via the csv module (tolerant of
+    SaberSim's duplicate headers + blank separator column that break pandas)."""
+    if hasattr(csv_path_or_buffer, "read"):
+        data = csv_path_or_buffer.read()
+        if isinstance(data, bytes):
+            data = data.decode("utf-8-sig", errors="replace")
+        return list(csv.reader(io.StringIO(data)))
+    with open(csv_path_or_buffer, "r", encoding="utf-8-sig", errors="replace", newline="") as fh:
+        return list(csv.reader(fh))
+
+
+_ID_SUFFIX = None  # compiled lazily
+
+
+def _strip_id_suffix(s: str) -> str:
+    import re
+    global _ID_SUFFIX
+    if _ID_SUFFIX is None:
+        _ID_SUFFIX = re.compile(r"\s*\(\d+\)\s*$")
+    return _ID_SUFFIX.sub("", s).strip()
+
+
+def _detect_metrics(header: list[str], col_indices: list[int]) -> dict[str, int]:
+    """Map canonical metric/meta names → column index over the given columns."""
+    norm = {j: _norm(header[j]) for j in col_indices}
+    detected: dict[str, int] = {}
+
+    def _find(cands: list[str]):
+        for cand in cands:  # exact normalized first
+            for j in col_indices:
+                if norm[j] == cand and j not in detected.values():
+                    return j
+        for cand in cands:  # then substring
+            for j in col_indices:
+                if cand in norm[j] and j not in detected.values():
+                    return j
+        return None
+
+    for canon, cands in {**_META_SYNONYMS, **_METRIC_SYNONYMS}.items():
+        j = _find(cands)
+        if j is not None:
+            detected[canon] = j
+    # sim_roi: a column containing "roi" but not stdev/std/dupes.
+    if "sim_roi" not in detected:
+        for j in col_indices:
+            n = norm[j]
+            if "roi" in n and not any(bad in n for bad in ("stdev", "std", "dupe")) and j not in detected.values():
+                detected["sim_roi"] = j
+                break
+    return detected
+
+
 def parse_sabersim_lineups(csv_path_or_buffer) -> tuple[pd.DataFrame, dict]:
     """Read a SaberSim lineup export. Returns (normalized_df, meta).
 
-    Column-flexible: detects a comma-separated players column (preferred) or
-    per-position player columns, plus sim-metric columns by fuzzy header match.
-    The normalized df has a `players` column of list[str] plus whichever
-    canonical metric/meta columns were detected.
+    Handles two shapes:
+      (a) a single comma-separated players/roster column (names), or
+      (b) the real SaberSim layout: a leading roster block of position columns
+          (holding DK player IDs or names), a blank separator column, then
+          sim-metric columns. Roster tokens may be DK IDs — `save_pool` resolves
+          them to names via the slate's DK-id map.
     """
-    raw = pd.read_csv(csv_path_or_buffer)
-    raw.columns = [str(c).strip() for c in raw.columns]
-    cols = list(raw.columns)
+    grid = _read_grid(csv_path_or_buffer)
+    if not grid:
+        return pd.DataFrame({"players": []}), {"n_lineups": 0, "detected": {}, "players_source": "none"}
+    header = [c.strip() for c in grid[0]]
+    data = grid[1:]
+    ncol = len(header)
 
-    detected: dict[str, str] = {}
-    for canon, cands in {**_META_SYNONYMS, **_METRIC_SYNONYMS}.items():
-        hit = _match_column(cols, cands)
-        if hit is not None and hit not in detected.values():
-            detected[canon] = hit
+    def _cell(row: list, j: int) -> str:
+        return row[j].strip() if 0 <= j < len(row) else ""
 
-    # --- players: prefer a single comma-separated column ---
+    # --- locate the roster ---
     players_source = "none"
-    players_col = _match_column(cols, _PLAYERS_SYNONYMS)
-    # Guard: don't mistake the "lineup id" column for the players column.
-    if players_col is not None and players_col == detected.get("lineup_id"):
-        players_col = None
-    players_lists: list[list[str]] = []
+    roster_cols: list[int] = []
+    players_col = None
+
+    # (a) single comma-separated players column
+    for j in range(ncol):
+        if _norm(header[j]) in _PLAYERS_SYNONYMS:
+            players_col = j
+            break
     if players_col is not None:
         players_source = "players_column"
-        for v in raw[players_col].fillna(""):
-            names = [p.strip() for p in str(v).split(",") if p.strip()]
-            players_lists.append(names)
     else:
-        # Fallback: per-position columns (values like "Name" or "Name (12345)").
-        # Roster columns = those not claimed as meta/metric and that look like names.
-        claimed = set(detected.values())
-        slot_cols = [c for c in cols if c not in claimed]
-        import re as _re
-        def _looks_like_name(x: str) -> bool:
-            x = str(x).strip()
-            return bool(x) and any(ch.isalpha() for ch in x)
-        slot_cols = [c for c in slot_cols if raw[c].map(_looks_like_name).mean() > 0.8]
-        if slot_cols:
-            players_source = "position_columns"
-            _id = _re.compile(r"\s*\(\d+\)\s*$")
-            for _, row in raw[slot_cols].iterrows():
-                names = [_id.sub("", str(row[c]).strip()) for c in slot_cols if str(row[c]).strip()]
-                players_lists.append([n for n in names if n])
+        # (b) leading roster block: stop at the first blank-header (separator)
+        sep = next((j for j in range(ncol) if header[j] == ""), None)
+        if sep is not None and sep > 0:
+            roster_cols = list(range(sep))
         else:
-            players_lists = [[] for _ in range(len(raw))]
+            # fallback: maximal leading run of position-code / numeric-id columns
+            run = []
+            for j in range(ncol):
+                h = _norm(header[j])
+                col_vals = [_cell(r, j) for r in data[:20] if _cell(r, j)]
+                numeric = col_vals and all(v.replace(".", "").isdigit() for v in col_vals)
+                if h in _POSITION_CODES or numeric:
+                    run.append(j)
+                else:
+                    break
+            roster_cols = run
+        if roster_cols:
+            players_source = "roster_block"
+
+    # metric region = everything not in the roster / players column
+    used = set(roster_cols) | ({players_col} if players_col is not None else set())
+    sep_idx = next((j for j in range(ncol) if header[j] == ""), None)
+    if sep_idx is not None:
+        used.add(sep_idx)
+    metric_cols = [j for j in range(ncol) if j not in used]
+    detected = _detect_metrics(header, metric_cols)
+
+    # --- build roster token lists ---
+    players_lists: list[list[str]] = []
+    for row in data:
+        if players_col is not None:
+            toks = [t.strip() for t in _cell(row, players_col).split(",") if t.strip()]
+        else:
+            toks = [_strip_id_suffix(_cell(row, j)) for j in roster_cols if _cell(row, j)]
+        players_lists.append(toks)
+
+    flat = [t for lst in players_lists for t in lst]
+    player_key = "dk_id" if (flat and all(t.replace(".", "").isdigit() for t in flat)) else "name"
 
     out = pd.DataFrame()
     out["players"] = players_lists
-    for canon, orig in detected.items():
+    for canon, j in detected.items():
         if canon in _NUMERIC:
-            out[canon] = raw[orig].map(_to_num)
+            out[canon] = [_to_num(_cell(r, j)) for r in data]
         else:
-            out[canon] = raw[orig].astype(str).str.strip()
+            out[canon] = [_cell(r, j) for r in data]
 
-    claimed_all = set(detected.values()) | ({players_col} if players_col else set())
     meta = {
         "n_lineups": int(len(out)),
-        "detected": detected,
+        "detected": {k: header[j] for k, j in detected.items()},
         "players_source": players_source,
-        "players_column": players_col,
-        "unmatched_columns": [c for c in cols if c not in claimed_all],
+        "player_key": player_key,
+        "roster_columns": [header[j] for j in roster_cols],
+        "separator_index": sep_idx,
+        "unmatched_columns": [header[j] for j in metric_cols if j not in detected.values()],
     }
     return out, meta
 
@@ -370,6 +452,31 @@ def _path(slug: str, suffix: str) -> Path:
 
 def save_pool(slug: str, df: pd.DataFrame, meta: dict) -> None:
     _SABERSIM_DIR.mkdir(parents=True, exist_ok=True)
+    df = df.copy()
+
+    # Real SaberSim exports carry the roster as DK player IDs. Resolve them to
+    # names via the slate's DK-id map so exposure/top-lineups read as players.
+    if meta.get("player_key") == "dk_id":
+        dkids, _src = resolve_dk_id_map(slug)
+        id2name = {}
+        if dkids is not None and not dkids.empty:
+            id2name = {str(r["dk_id"]).strip(): str(r["name"]).strip() for _, r in dkids.iterrows()}
+        unresolved = set()
+
+        def _resolve(lst):
+            out = []
+            for tok in (lst if isinstance(lst, list) else []):
+                name = id2name.get(str(tok).strip())
+                if name:
+                    out.append(name)
+                else:
+                    out.append(tok)
+                    unresolved.add(tok)
+            return out
+
+        df["players"] = df["players"].map(_resolve)
+        meta = {**meta, "unresolved_ids": sorted(unresolved)}
+
     disk = df.copy()
     disk["players"] = disk["players"].map(
         lambda lst: _PLAYERS_SEP.join(lst) if isinstance(lst, list) else (lst or "")

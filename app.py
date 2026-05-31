@@ -378,6 +378,11 @@ with tab_sabersim:
             st.success(f"Loaded {ss_meta['n_lineups']:,} lineups.")
             det = ss_meta.get("detected", {})
             st.caption("Detected columns: " + (", ".join(f"{k}→{v}" for k, v in det.items()) or "none"))
+            if ss_meta.get("player_key") == "dk_id":
+                st.caption(
+                    f"Roster read as DK IDs from columns {ss_meta.get('roster_columns')} — "
+                    "resolved to names via your projections/DK-id map (see match status below)."
+                )
             if ss_meta.get("players_source") == "none":
                 st.warning(
                     "Couldn't find a players/roster column — exposure won't compute. "
