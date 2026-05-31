@@ -2,7 +2,7 @@
 
 **Contest Type:** Single Entry (SE)
 **Document Type:** Slate-by-Slate Post-Mortems
-**Last Updated:** May 17, 2026
+**Last Updated:** May 30, 2026
 **Companion Files:** SE_mma_philosophy_2026-05-17.md, SE_mma_framework_2026-05-17.md
 
 ---
@@ -134,6 +134,42 @@ Added to SE framework:
 A success that validates SE process. Both SEs lost. But the losses were instructive — they showed exactly what the SE framework should prevent: identical conviction cores across multiple entries, and leverage pieces that are too binary-dependent for small fields.
 
 The lesson is not "SEs are bad." The lesson is "these two SEs were built without proper SE discipline." They were constructed as "two MME lineups" rather than "two SE lineups with hedged conviction cores."
+
+---
+
+## 2026-05-30 — UFC Macau — SE / multi-contest Review
+
+### Contests Played
+
+| Contest | Field | Cash (approx) | Best result |
+|---|---|---|---|
+| $2K Sprawl (3-max) | 577 | top ~20% | **L3 — 536.76 → rank 30 (top 5.2%)** ✅ |
+| $5K Clinch (SE) | 901 | top ~25% | L1 (Zhang) — 339.26 → rank 539 (61%, no cash) |
+| $100K MEGA (10 of 150-max) | 34,579 | top ~22% | L3 — 536.76 → rank 1,681 (top 4.9%) |
+
+**Winning lineup (690.21):** Pavlovich 128.6 · Haddon 128.1 · Menifield 127.2 · Vera 114.6 · Amorim 101.3 · Hill 90.4.
+**Best user lineup L3 (536.76):** Pavlovich · Haddon · Menifield · Dias 108.5 · **Ding 25.2 · Harris 19.2**. Shared 3 of 6 with the winner; lost the slate on the two forced mid-range pieces.
+
+### What Actually Happened
+The two emphasized top anchors hit huge — **Pavlovich (128.6)** and **Haddon (128.1)**, Brett's highest-confidence "doesn't need a KO" chalk pivot. The mandated Zhang-fade leverage piece **Menifield (127.2 at 15.9% own)** was a top-3 slate score. But the chalkiest play on the board, **Zhang (44% own, KO-or-bust) busted to 10.09**, and the two heavily-stacked mid-range "ceiling" pieces died: **Ding (70% portfolio exposure → 25.2)** and **Perez (50% → 7.2)**. The actual winner used none of the high-projection mid-range — it filled around Pavlovich/Haddon/Menifield with the secondary tier we rated "bust risk / mix-in only": **Amorim (101, 0% of our exposure)** and **Vera (114, 10%)**.
+
+### What Worked
+- The **anchor-equivalence rule saved the slate** (5th validation). Every good finish was a Pavlovich-not-Zhang lineup; L3 (Pavlovich+Haddon double-anchor) went 30/577 and 1,681/34,579.
+- Haddon-as-non-KO-dependent-chalk-pivot read was exactly right.
+- Matthews ceiling-cap fade (0%) and Figueiredo qualitative fade were both correct (Matthews won but capped at 89.9; Figgy 11.25).
+
+### Decision-Level Errors
+1. **Equal 40/40 Zhang/Pavlovich weighting.** Zhang was *both* the chalkiest play *and* KO-or-bust — the pivot side should have been weighted heavier. 40% of the portfolio rode the bust.
+2. **Wrong SE bullet.** The single SE used L1 (Zhang chalk-correct) → 539/901. L3 (the differentiated Pavlovich+Haddon build) was the stronger lineup and proved it elsewhere.
+3. **Ceiling-threshold tunnel vision.** The ≥620 win-case gate stacked Dias/Ding/Perez (70/70/50%) and zeroed out the cheap secondary leverage (Amorim, Vera) that actually won.
+
+### Process-Level Lessons (codified into framework.md)
+- **Asymmetric anchor-equivalence weighting** when the chalk side is chalkiest-on-slate AND KO-or-bust.
+- **SE bullet = highest-conviction *differentiated* build**, not the chalk-correct one, when the chalk anchor is boom/bust.
+- **Win-case ceiling under-rates low-own finishers** — reserve ≥1 lineup for the field-fade secondary tier; don't let the ceiling gate force out cheap secondary leverage.
+
+### What This Slate Was Not
+A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead right and produced a top-5% finish in two contests. The gap to the optimal was concentrated in three correctable weighting decisions, not a broken read.
 
 ---
 

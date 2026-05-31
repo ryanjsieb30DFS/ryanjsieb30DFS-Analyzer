@@ -2,7 +2,7 @@
 
 **Contest Type:** Single Entry (SE)
 **Document Type:** Operational Process & Manual Build Playbook
-**Last Updated:** May 17, 2026
+**Last Updated:** May 30, 2026
 **Companion Files:** SE_mma_philosophy_2026-05-17.md, SE_mma_autopsies_2026-05-17.md
 
 ---
@@ -142,6 +142,22 @@ A better leverage piece for the same salary slot would have been a fighter with 
 ### Secondary Plays Are Not Leverage
 
 If your "leverage" play is owned 20%+, it's not leverage — it's a secondary chalk play. True leverage in SE context means sub-15% owned, ideally sub-12%. Petroski at 23% own in the $5 SE was not actually contrarian; he was just less-chalky chalk.
+
+### Asymmetric Anchor-Equivalence Weighting (5/30/26 — UFC Macau)
+
+The Anchor-Equivalence rule (run the pivot in ≥1 lineup) is about *presence*, not *weighting*. On 5/30/26 Zhang (44% own — chalkiest on the slate) and Pavlovich were an anchor-equiv pair; the portfolio split them 40%/40%. Zhang was KO-or-bust and busted to 10.09; Pavlovich smashed (128.6). Equal weighting meant 40% of the portfolio rode the play that died.
+
+**Rule:** when the chalk side of an anchor-equiv pair is *both* the chalkiest play on the slate *and* KO-or-bust (no decision floor), weight the **pivot side heavier than 50/50** — the pivot carries the same realistic win-equity with far better leverage. Presence in ≥1 lineup is the floor, not the target.
+
+### SE-Bullet Selection (5/30/26 — UFC Macau)
+
+When you have one SE entry and a multi-lineup portfolio behind it, the SE bullet should be your **highest-conviction *differentiated* build — not the chalk-correct one — whenever the chalk anchor is boom/bust.** On 5/30/26 the lone SE used the Zhang chalk-correct lineup (539/901, no cash); the Pavlovich+Haddon double-anchor build was clearly stronger and went 30/577 in the 3-max. The single bullet is where differentiation matters most, because you only get one swing.
+
+### Win-Case Ceiling Under-Rates Low-Own Finishers (5/30/26 — UFC Macau)
+
+The ≥600–620 ceiling-threshold (summing projector win-cases) is computed from chalk-friendly projections, so it systematically steers the portfolio toward high-projection mid-range chalk and *away* from cheap, low-owned secondary pieces whose win-case the projections under-rate. On 5/30/26 the threshold stacked Dias/Ding/Perez (70/70/50%) — two of which busted — while the actual winner's differentiators were **Amorim (101 pts, we ran 0%) and Vera (114 pts, 10%)**, both rated "bust risk / mix-in only."
+
+**Rule:** keep the ceiling threshold, but **reserve ≥1 lineup for the field-fade secondary tier** — cheap, sub-25%-owned fighters with a live finishing/volume path whose projection under-states their ceiling. Don't let the ceiling gate zero out the pieces that actually separate a winning lineup from the chalk field.
 
 ## Post-SE Review
 
