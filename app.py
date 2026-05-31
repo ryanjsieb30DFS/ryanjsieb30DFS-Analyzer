@@ -29,6 +29,10 @@ from src.contests import (
     load_contests, add_contest, remove_contest,
     clear_contests, portfolio_summary,
 )
+from src.sabersim import (
+    parse_sabersim_lineups, save_pool, load_pool, load_summary,
+    load_rules, clear_sabersim,
+)
 
 
 REPO_ROOT = Path(__file__).parent
@@ -62,8 +66,8 @@ strategy = load_strategy(slug)
 
 
 # ---------- Tabs ---------- #
-tab_proj, tab_diff, tab_articles, tab_contests, tab_analysis, tab_lineups, tab_strategy, tab_autopsy = st.tabs(
-    ["Projections", "Projections Diff", "Articles", "Contests", "Slate Analysis", "Lineups", "Strategy", "Autopsy"]
+tab_proj, tab_diff, tab_articles, tab_contests, tab_sabersim, tab_analysis, tab_lineups, tab_strategy, tab_autopsy = st.tabs(
+    ["Projections", "Projections Diff", "Articles", "Contests", "SaberSim Data", "Slate Analysis", "Lineups", "Strategy", "Autopsy"]
 )
 
 
@@ -355,6 +359,79 @@ with tab_contests:
         st.info("No contests added yet. Add one above so Claude knows the contest mix when writing analysis + lineups.")
 
 
+# ===== Tab 4.4: SaberSim Data =====
+with tab_sabersim:
+    st.subheader(f"SaberSim Data — {contest_label}")
+    st.caption(
+        "Upload SaberSim's simmed lineup pool for this slate. Claude reads the pool's "
+        "exposures + top lineups when writing the Slate Analysis, then writes the build "
+        "rules (below) for you to enter back into SaberSim."
+    )
+
+    ss_upload = st.file_uploader("SaberSim lineup export (CSV)", type="csv", key=f"ss_upload_{slug}")
+    if ss_upload is not None and st.button("Load SaberSim pool", type="primary", key=f"ss_load_{slug}"):
+        try:
+            ss_df, ss_meta = parse_sabersim_lineups(ss_upload)
+            save_pool(slug, ss_df, ss_meta)
+            st.success(f"Loaded {ss_meta['n_lineups']:,} lineups.")
+            det = ss_meta.get("detected", {})
+            st.caption("Detected columns: " + (", ".join(f"{k}→{v}" for k, v in det.items()) or "none"))
+            if ss_meta.get("players_source") == "none":
+                st.warning(
+                    "Couldn't find a players/roster column — exposure won't compute. "
+                    "Check the export format and tell me the column names."
+                )
+            if ss_meta.get("unmatched_columns"):
+                st.caption("Ignored columns: " + ", ".join(ss_meta["unmatched_columns"]))
+        except Exception as exc:
+            st.error(f"Failed to parse SaberSim export: {exc}")
+
+    pool = load_pool(slug)
+    summary = load_summary(slug)
+    if pool is not None and summary is not None:
+        n = summary.get("n_lineups", len(pool))
+        dist = summary.get("distributions", {})
+        st.markdown("### Pool summary")
+        mc = st.columns(4)
+        mc[0].metric("Lineups", f"{n:,}")
+        mc[1].metric("Median Proj", f"{dist.get('proj', {}).get('median', '—')}")
+        mc[2].metric("Median Own Sum", f"{dist.get('own_sum', {}).get('median', '—')}")
+        _best_top1 = dist.get("top1_pct", {}).get("max")
+        mc[3].metric("Best Top 1%", f"{_best_top1}" if _best_top1 is not None else "—")
+
+        exposure = summary.get("exposure", [])
+        if exposure:
+            st.markdown("### Player exposure")
+            st.caption("How often each player appears across the simmed pool.")
+            st.dataframe(pd.DataFrame(exposure), use_container_width=True, hide_index=True)
+
+        top_lineups = summary.get("top_lineups", {})
+        if top_lineups:
+            st.markdown("### Top lineups")
+            _labels = {"top1_pct": "Top 1%", "win_pct": "Win %", "sim_roi": "Sim ROI", "proj": "Proj"}
+            _avail = [k for k in ["top1_pct", "win_pct", "sim_roi", "proj"] if k in top_lineups]
+            _choice = st.selectbox(
+                "Rank by", _avail, format_func=lambda k: _labels.get(k, k), key=f"ss_rank_{slug}",
+            )
+            st.dataframe(pd.DataFrame(top_lineups[_choice]), use_container_width=True, hide_index=True)
+    else:
+        st.info("No SaberSim pool loaded for this slate yet. Upload an export above.")
+
+    # ---- Build rules to enter into SaberSim ----
+    st.markdown("---")
+    st.markdown("### Build rules for SaberSim")
+    ss_rules = load_rules(slug)
+    if ss_rules:
+        st.caption(f"Last updated: {datetime.fromtimestamp(ss_rules['mtime']).strftime('%Y-%m-%d %H:%M')}")
+        st.markdown(ss_rules["markdown"])
+    else:
+        st.info(
+            "No build rules yet. Ask Claude to **\"write the slate analysis\"** — it will generate "
+            "the SaberSim build rules (exposure caps/floors, must-plays, fades, ceiling/ownership "
+            "targets) here for you to enter into SaberSim."
+        )
+
+
 # ===== Tab 4.5: Slate Analysis =====
 with tab_analysis:
     st.subheader(f"Slate Analysis — {contest_label}")
@@ -587,10 +664,11 @@ with tab_autopsy:
                 clear_persisted(slug)
                 clear_lineups(slug)
                 clear_contests(slug)
+                clear_sabersim(slug)
                 st.success(
                     f"Logged {len(parsed_contests)} contest(s) to rules/{slug}/autopsies.md "
-                    "+ autopsy_data.jsonl. Cleared Slate Analysis, Lineups, and Contests for "
-                    "next time."
+                    "+ autopsy_data.jsonl. Cleared Slate Analysis, Lineups, Contests, and "
+                    "SaberSim data for next time."
                 )
 
     st.divider()

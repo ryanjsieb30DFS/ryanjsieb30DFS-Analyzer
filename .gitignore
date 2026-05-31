@@ -7,5 +7,6 @@ data/sessions/
 data/slate_analysis/
 data/lineups/
 data/contests/
+data/sabersim/
 articles/*/
 !articles/.gitkeep

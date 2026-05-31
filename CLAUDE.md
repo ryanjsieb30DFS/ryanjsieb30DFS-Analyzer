@@ -21,18 +21,20 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas, plotly, 
 
 | Path | Purpose |
 |---|---|
-| `app.py` | Streamlit UI: 5 tabs (Projections, Landscape, Projections Diff, Articles, Autopsy) |
+| `app.py` | Streamlit UI: 9 tabs (Projections, Projections Diff, Articles, Contests, SaberSim Data, Slate Analysis, Lineups, Strategy, Autopsy) |
 | `src/projections.py` | CSV loader with vendor auto-detection + canonical schema normalization |
 | `src/vendors.py` | Vendor column signatures (ETR, Ship It Nation, DailyFan PGA/MMA/NASCAR, DK PGA RD4 SD) |
 | `src/sessions.py` | Per-sport JSON persistence at `data/sessions/<slug>.json` |
 | `src/landscape.py` | Chalk tiers, leverage table, anchor-equivalence check |
 | `src/projections_diff.py` | Cross-vendor disagreement detector |
 | `src/autopsy.py` | DK contest-standings parser |
+| `src/sabersim.py` | SaberSim lineup-pool ingestion (fuzzy column detection), exposure/top-lineup summary, + build-rules store |
 | `src/diagnostics.py` | Player-tier helpers used by landscape |
 | `rules/<slug>/` | Philosophy / framework / autopsies docs per contest type — Claude reads these as context |
 | `articles/<slug>/` | Per-contest-type research uploads (PDFs, notes) |
 | `templates/` | Canonical projection CSV templates per sport |
 | `data/sessions/` | Per-sport session JSON (gitignored) |
+| `data/sabersim/` | Per-slate SaberSim pool: `<slug>_lineups.csv` (raw), `<slug>_summary.json` (exposures/top-lineups for Claude), `<slug>_rules.md` (build rules to enter into SaberSim) |
 
 ## Contest types
 
@@ -71,6 +73,7 @@ When the user says **"review the articles and write the slate analysis"** (or "r
 3. Read uploaded articles: `articles/<slug>/*.pdf` and `*.txt`/`*.md` (use the Read tool; PDFs may require poppler — note in the file if anything couldn't be parsed)
 4. Read strategy: `rules/<slug>/{philosophy,framework,autopsies}.md` + `rules/shared/anchor_equivalence.md`
 5. Read recent autopsies: tail of `rules/<slug>/autopsy_data.jsonl`
+5b. If a SaberSim pool exists, read `data/sabersim/<slug>_summary.json` — the simmed pool's player exposures + top lineups (by Top 1% / Win % / Sim ROI). Use it to see where the sims agree/disagree with the articles' read (e.g., a low-owned fighter the sims love, or chalk the sims fade). Read the compact summary, NOT the raw `<slug>_lineups.csv` (it can be ~5,000 rows).
 6. For NASCAR: also read `rules/nascar/tracks/<track>.md`
 7. Synthesize:
    - Where do the articles + auto-data agree? Where do they disagree?
@@ -78,8 +81,9 @@ When the user says **"review the articles and write the slate analysis"** (or "r
    - What's the Anchor-Equivalence call?
    - What conviction-core duplication / ceiling-threshold / binary-leverage warnings apply (per SE framework)?
 7. Write to `data/slate_analysis/<slug>.md` — concise, scannable, GPP-framed, with a player-by-player call where the auto-data and the articles diverge
+8. **Write the SaberSim build rules** to `data/sabersim/<slug>_rules.md` — the constraints the user will type into SaberSim so it builds lineups aligned to this read: per-fighter exposure floors/caps (% min/max), must-plays, hard fades, group/conditional rules, and ceiling / ownership-sum targets. Derive these from the analysis + the SE framework (anchor-equivalence weighting, ceiling threshold, field-fade-secondary reserve). Keep it copy-pasteable into SaberSim's rule fields.
 
-The file is rendered at the top of the Slate Analysis tab with a "Last updated" timestamp. It's cleared automatically when the user logs an autopsy for the sport.
+Both files are rendered in their tabs (Slate Analysis, SaberSim Data) with a "Last updated" timestamp, and both are cleared automatically when the user logs an autopsy for the sport.
 
 ## Building lineups (hand-built, not optimized)
 
@@ -88,6 +92,7 @@ When the user says **"build lineups for the current slate"** (or "rebuild lineup
 1. Read **contests**: `data/contests/<slug>.json` — drives **total lineup count** (`portfolio_summary.unique_lineups_needed`) and **contest assignment per lineup** (which contests each lineup is entered into). Lineup quality comes from the projections + articles + framework reads, not from a configurable ceiling target.
 2. Read the slate analysis: `data/slate_analysis/<slug>.md` (if missing, write it first via the workflow above)
 3. Read projections: `data/sessions/<slug>.json`
+3b. If a SaberSim pool exists, read `data/sabersim/<slug>_summary.json` — treat the simmed pool's exposures + top lineups as an input. Our hand-built lineups + the build rules in `<slug>_rules.md` shape the SaberSim pool; we don't replace it. Use the pool to sanity-check our reads against what the sims surface.
 4. Read recent autopsies for SE-specific discipline rules (`rules/<slug>/autopsies.md` + `autopsy_data.jsonl`)
 5. Build N lineups (where N = `unique_lineups_needed` from contests; default 2 if no contests declared) — each with:
    - One-sentence **thesis** ("how it wins")
