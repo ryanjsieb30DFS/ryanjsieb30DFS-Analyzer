@@ -6,6 +6,7 @@ Tabs: Strategy, Projections, Projections Diff, Articles, Autopsy.
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -594,8 +595,19 @@ with tab_autopsy:
 
     st.divider()
     st.markdown("### Cross-slate patterns (autopsies.md)")
+    st.caption("Most recent slate first; older slates below.")
     autopsies_md = REPO_ROOT / "rules" / slug / "autopsies.md"
     if autopsies_md.exists():
-        st.markdown(autopsies_md.read_text())
+        _text = autopsies_md.read_text()
+        # Render dated slate sections newest-first. Keep the file preamble
+        # (title/intro) pinned on top and any non-dated section (e.g. the
+        # "Template for Future SE Entries") at the bottom.
+        _chunks = re.split(r"(?m)^(?=## )", _text)
+        _preamble = _chunks[0] if _chunks and not _chunks[0].startswith("## ") else ""
+        _sections = _chunks[1:] if _preamble else _chunks
+        _dated = [c for c in _sections if re.match(r"## \d{4}-", c)]
+        _other = [c for c in _sections if not re.match(r"## \d{4}-", c)]
+        _ordered = ([_preamble] if _preamble else []) + list(reversed(_dated)) + _other
+        st.markdown("".join(_ordered))
     else:
         st.info("No autopsies logged yet for this contest type.")
