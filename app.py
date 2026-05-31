@@ -497,74 +497,99 @@ with tab_lineups:
 with tab_autopsy:
     st.subheader(f"Post-slate autopsy — {contest_label}")
 
-    dk_csv = st.file_uploader(
-        "DraftKings contest-standings CSV",
+    dk_csvs = st.file_uploader(
+        "DraftKings contest-standings CSV(s)",
         type="csv",
+        accept_multiple_files=True,
         key=f"dk_upload_{slug}",
+        help="Upload one CSV per DK contest you entered on this slate. Each is "
+             "summarized and logged as its own autopsy entry. Player scores are "
+             "identical across contests; field size, winning score, and cash line differ.",
     )
 
-    if dk_csv is not None:
-        try:
-            parsed = parse_dk_results(dk_csv)
-        except ValueError as e:
-            st.error(str(e))
-        else:
+    if dk_csvs:
+        # Parse + display each contest in its own section, collecting a per-CSV
+        # payload (with its own notes) for the single Log button below. A bad
+        # CSV is reported but doesn't block the others.
+        parsed_contests = []
+        for i, dk_csv in enumerate(dk_csvs):
+            try:
+                parsed = parse_dk_results(dk_csv)
+            except ValueError as e:
+                st.error(f"{dk_csv.name}: {e}")
+                continue
             lineups = parsed["lineups"]
             players = parsed["players"]
 
-            st.markdown("### Field summary")
-            c1, c2, c3 = st.columns(3)
-            c1.metric("Entries", f"{len(lineups):,}")
-            c2.metric("Winning score", f"{lineups['Points'].max():.1f}")
-            c3.metric("Cash line (top 20%)", f"{lineups['Points'].quantile(0.80):.1f}")
+            with st.expander(
+                f"{dk_csv.name} — {len(lineups):,} entries, winning "
+                f"{lineups['Points'].max():.1f}",
+                expanded=(i == 0),
+            ):
+                st.markdown("### Field summary")
+                c1, c2, c3 = st.columns(3)
+                c1.metric("Entries", f"{len(lineups):,}")
+                c2.metric("Winning score", f"{lineups['Points'].max():.1f}")
+                c3.metric("Cash line (top 20%)", f"{lineups['Points'].quantile(0.80):.1f}")
 
-            st.markdown("### Top 10 lineups")
-            top = lineups.nlargest(10, "Points")[["Rank", "EntryName", "Points", "Lineup_parsed"]]
-            st.dataframe(top, use_container_width=True)
+                st.markdown("### Top 10 lineups")
+                top = lineups.nlargest(10, "Points")[["Rank", "EntryName", "Points", "Lineup_parsed"]]
+                st.dataframe(top, use_container_width=True)
 
-            st.markdown("### Highest-scoring players")
-            top_players = players.nlargest(15, "actual_fpts")[
-                ["name", "roster_position", "actual_own", "actual_fpts"]
-            ]
-            st.dataframe(top_players, use_container_width=True)
+                st.markdown("### Highest-scoring players")
+                top_players = players.nlargest(15, "actual_fpts")[
+                    ["name", "roster_position", "actual_own", "actual_fpts"]
+                ]
+                st.dataframe(top_players, use_container_width=True)
 
+                notes = st.text_area(
+                    "Lessons / patterns to log (appended to autopsies.md)",
+                    key=f"autopsy_notes_{slug}_{i}",
+                    height=120,
+                )
+            parsed_contests.append({
+                "name": dk_csv.name,
+                "lineups": lineups,
+                "notes": notes,
+            })
+
+        if parsed_contests:
             st.divider()
-            notes = st.text_area(
-                "Lessons / patterns to log (appended to autopsies.md)",
-                key=f"autopsy_notes_{slug}",
-                height=120,
-            )
             if st.button("📝 Log autopsy", type="primary"):
                 ts = datetime.now().strftime("%Y-%m-%d %H:%M")
-                # Append to autopsies.md
                 md_path = REPO_ROOT / "rules" / slug / "autopsies.md"
                 md_path.parent.mkdir(parents=True, exist_ok=True)
-                with md_path.open("a") as f:
-                    f.write(f"\n\n## {ts} — {contest_label}\n")
-                    f.write(f"- Entries: {len(lineups):,}\n")
-                    f.write(f"- Winning score: {lineups['Points'].max():.1f}\n")
-                    f.write(f"- Cash line (top 20%): {lineups['Points'].quantile(0.80):.1f}\n")
-                    if notes.strip():
-                        f.write(f"\n{notes.strip()}\n")
-                # Append structured row to autopsy_data.jsonl
                 jsonl_path = REPO_ROOT / "rules" / slug / "autopsy_data.jsonl"
-                row = {
-                    "timestamp": ts,
-                    "contest_type": contest_label,
-                    "entries": int(len(lineups)),
-                    "winning_score": float(lineups["Points"].max()),
-                    "cash_line_p80": float(lineups["Points"].quantile(0.80)),
-                    "notes": notes.strip(),
-                }
-                with jsonl_path.open("a") as f:
-                    f.write(json.dumps(row) + "\n")
+                # One autopsies.md section + one autopsy_data.jsonl row per
+                # contest; source_file disambiguates same-type contests.
+                with md_path.open("a") as fmd, jsonl_path.open("a") as fjl:
+                    for pc in parsed_contests:
+                        lineups = pc["lineups"]
+                        notes = pc["notes"]
+                        fmd.write(f"\n\n## {ts} — {contest_label} ({pc['name']})\n")
+                        fmd.write(f"- Entries: {len(lineups):,}\n")
+                        fmd.write(f"- Winning score: {lineups['Points'].max():.1f}\n")
+                        fmd.write(f"- Cash line (top 20%): {lineups['Points'].quantile(0.80):.1f}\n")
+                        if notes.strip():
+                            fmd.write(f"\n{notes.strip()}\n")
+                        row = {
+                            "timestamp": ts,
+                            "contest_type": contest_label,
+                            "source_file": pc["name"],
+                            "entries": int(len(lineups)),
+                            "winning_score": float(lineups["Points"].max()),
+                            "cash_line_p80": float(lineups["Points"].quantile(0.80)),
+                            "notes": notes.strip(),
+                        }
+                        fjl.write(json.dumps(row) + "\n")
                 # Clear all per-slate state — next slate starts fresh
                 clear_persisted(slug)
                 clear_lineups(slug)
                 clear_contests(slug)
                 st.success(
-                    f"Logged to rules/{slug}/autopsies.md + autopsy_data.jsonl. "
-                    "Cleared Slate Analysis, Lineups, and Contests for next time."
+                    f"Logged {len(parsed_contests)} contest(s) to rules/{slug}/autopsies.md "
+                    "+ autopsy_data.jsonl. Cleared Slate Analysis, Lineups, and Contests for "
+                    "next time."
                 )
 
     st.divider()
