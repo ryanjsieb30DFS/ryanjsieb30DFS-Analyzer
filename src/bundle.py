@@ -78,7 +78,7 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
 
     # --- Projections --- #
     L += ["", "## Projections"]
-    sources = sessions.load_sources(slug)
+    sources = sessions.merge_same_vendor(sessions.load_sources(slug))
     if not sources:
         L.append("_No projections uploaded._")
     else:
@@ -110,7 +110,7 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
                 )
 
         # Sport signals
-        signals = sport_signals(df, sport)
+        signals = sport_signals(df, sport, team_data=sessions.load_team_data(slug))
         if signals:
             L += ["", f"### {sport.upper()} signals"]
             for key, table in signals.items():

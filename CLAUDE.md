@@ -50,6 +50,7 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas.
 | PGA RD4 Showdown | `pga_rd4_sd` | golf | 6 golfers, **flat — NO captain, NO 1.5x** |
 | MMA | `mma_se` | mma | SE rules |
 | NASCAR | `nascar` | nascar | 6 drivers; **always check `rules/nascar/tracks/<slug>.md`** |
+| MLB Classic | `mlb_classic` | mlb | 10 players (P, P, C, 1B, 2B, 3B, SS, OF×3), $50K; **team-stack driven** |
 
 ## Vendor auto-detection
 
@@ -59,6 +60,8 @@ Drop any of the user's vendor exports into the Projections tab — the loader de
 - **DailyFan NASCAR** (`Driver, Salary, Starting Position, ...`)
 - **DailyFan MMA** (`Fighter, Matchup, Win %, Salary DK, ...`)
 - **DK PGA RD4 SD** (`Golfer, Tee Time, Salary, Points, Ownership, ...`)
+- **Ship It Nation MLB** (`#, Name, Team, Opp, Pos, H, Salary, Proj, Own, Slate`) — hitters and pitchers ship as **two separate files** with identical headers; both detect as this vendor and are auto-combined into one pool for analysis
+- **Ship It Nation MLB Stacks** (`#, Team, Proj, Own %, Stack Salary, Slate`) — team-level stack rankings; stored as session team-data (not a player source) and merged into the MLB team-stack signals as `vendor_stack_*` columns
 
 To add a new vendor: edit `VENDOR_SIGNATURES` in `src/vendors.py`.
 
@@ -89,7 +92,7 @@ This normally runs **in-app**: the Analyze tab's **Generate slate analysis** but
 
 ## Building lineups
 
-Normally triggered **in-app**: the Analyze tab's **Build lineups** button calls `src/analysis_runner.py::run_build_lineups`, which runs `claude -p` headlessly to build the portfolio from the slate analysis and write `data/lineups/<slug>.md` (rendered back in the tab). It requires a slate analysis to exist first. The count is `portfolio_summary.unique_lineups_needed` (default 2; entry caps SE / 3-Max / 5-Max / 20-Max / 150-Max), but **build fewer if the slate supports fewer distinct theses — never pad with filler**. Each lineup needs: a one-sentence thesis ("how it wins"), a roster table with total salary verified ≤ $50,000, and a distinct "what if?" question (lineups in a portfolio must answer DIFFERENT questions — `feedback_no_competing_lineups`). Apply the Anchor-Equivalence rule explicitly, and for MMA SE differ on at least one conviction anchor across lineups (never duplicate the same full core). Read `rules/<slug>/{framework,autopsies}.md` for the sport's construction rules (e.g. RD4 SD is a flat 6-golfer lineup, no captain). End with a Portfolio audit section.
+Normally triggered **in-app**: the Analyze tab's **Build lineups** button calls `src/analysis_runner.py::run_build_lineups`, which runs `claude -p` headlessly to build the portfolio from the slate analysis and write `data/lineups/<slug>.md` (rendered back in the tab). It requires a slate analysis to exist first. The count is `portfolio_summary.unique_lineups_needed` (default 2; entry caps SE / 3-Max / 5-Max / 20-Max / 150-Max), but **build fewer if the slate supports fewer distinct theses — never pad with filler**. Each lineup needs: a one-sentence thesis ("how it wins"), a roster table with total salary verified ≤ $50,000, and a distinct "what if?" question (lineups in a portfolio must answer DIFFERENT questions — `feedback_no_competing_lineups`). Apply the Anchor-Equivalence rule explicitly, and for MMA SE differ on at least one conviction anchor across lineups (never duplicate the same full core). Read `rules/<slug>/{framework,autopsies}.md` for the sport's construction rules (e.g. RD4 SD is a flat 6-golfer lineup, no captain; **MLB Classic is a 10-man, team-stack-driven roster — P,P,C,1B,2B,3B,SS,OF×3 — never roster a hitter against your own pitcher**). End with a Portfolio audit section.
 
 ## Hard rules
 
@@ -99,11 +102,11 @@ Normally triggered **in-app**: the Analyze tab's **Build lineups** button calls 
 - **NASCAR**: before any NASCAR analysis, check `rules/nascar/tracks/<slug>.md`. If missing, proactively ask the user to fill it in.
 - **PGA RD4 SD**: flat 6-golfer lineup, **NO captain, NO 1.5x multiplier**. Never reference "CPT" for this contest type.
 - **No stddev required.** Vendors don't ship it; loader auto-derives (`(ceiling − proj) / 1.28` or 30% of proj).
-- **No NFL/NBA/MLB.** Out of scope.
+- **No NFL/NBA.** Out of scope. (MLB Classic is supported as of 2026-06.)
 - **Never commit without explicit instruction.** "done"/"next"/"looks good" are NOT commit triggers.
 
 ## Useful file paths
 
-- **Sample vendor CSVs**: `~/Downloads/PGA Projections DK.csv` (ETR), `~/Downloads/DK PGA DFS Projections (6).csv` (Ship It Nation), `~/Downloads/DailyFan-Projections-Sheet-MMA-DK-38.csv`, `~/Downloads/DailyFan-Projections-Sheet-NASCAR-DK-12 (1).csv`, `~/Downloads/DK PGA Round 4 Showdown Projections (5).csv`
+- **Sample vendor CSVs**: `~/Downloads/PGA Projections DK.csv` (ETR), `~/Downloads/DK PGA DFS Projections (6).csv` (Ship It Nation), `~/Downloads/DailyFan-Projections-Sheet-MMA-DK-38.csv`, `~/Downloads/DailyFan-Projections-Sheet-NASCAR-DK-12 (1).csv`, `~/Downloads/DK PGA Round 4 Showdown Projections (5).csv`, `~/Downloads/DK-hitter-rankings-DK-MAIN.csv` + `~/Downloads/DK-pitcher-rankings-DK-MAIN.csv` + `~/Downloads/DK-stack-rankings-DK-MAIN.csv` (Ship It Nation MLB, 3-file set)
 - **Sample DK contest-standings**: `~/Downloads/contest-standings-190402324.csv`
 - **GitHub**: https://github.com/ryanjsieb30DFS/ryanjsieb30DFS-Analyzer (`main` branch)

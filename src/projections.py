@@ -33,9 +33,10 @@ OPTIONAL_FLOAT_COLUMNS = [
     "win_prob", "proj_win", "proj_loss",
     "ko_pct", "sub_pct", "dec_pct",
     "dominator_points", "fast_laps",
+    "team_total",
 ]
-OPTIONAL_INT_COLUMNS = ["starting_position", "dk_id", "matchup"]
-OPTIONAL_STR_COLUMNS = ["opponent", "tee_time"]
+OPTIONAL_INT_COLUMNS = ["starting_position", "dk_id", "matchup", "batting_order"]
+OPTIONAL_STR_COLUMNS = ["opponent", "tee_time", "position", "team", "hand"]
 
 
 def load_projections(csv_path_or_buffer) -> pd.DataFrame:
@@ -50,6 +51,18 @@ def load_projections(csv_path_or_buffer) -> pd.DataFrame:
     vendor_name: str | None = None
     signature = detect_vendor(projections)
     if signature is not None:
+        # Team-level files (e.g. SIN MLB stack rankings) skip the player
+        # schema entirely — normalized and returned as-is.
+        if signature.get("kind") == "team_stacks":
+            out = normalize_to_canonical(projections, signature)
+            for col in ("stack_proj", "stack_own", "stack_salary"):
+                if col in out.columns:
+                    out[col] = out[col].apply(_clean_number)
+            out["team"] = out["team"].astype(str).str.strip()
+            out = out.reset_index(drop=True)
+            out.attrs["vendor"] = signature["name"]
+            out.attrs["kind"] = "team_stacks"
+            return out
         projections = normalize_to_canonical(projections, signature)
         vendor_name = signature["name"]
 
@@ -215,4 +228,9 @@ def warn_missing_for_sport(projections: pd.DataFrame, sport: str | None) -> list
         warnings.append(
             "NASCAR: 'starting_position' column missing — PD floor constraint cannot be enforced."
         )
+    if sport == "mlb":
+        if "team" not in projections.columns:
+            warnings.append("MLB: 'team' column missing — team-stack analysis disabled.")
+        if "position" not in projections.columns:
+            warnings.append("MLB: 'position' column missing — pitcher/hitter split disabled.")
     return warnings

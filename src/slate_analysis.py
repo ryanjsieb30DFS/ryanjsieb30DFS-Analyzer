@@ -67,14 +67,20 @@ def top_chalk(df: pd.DataFrame, n: int = 10) -> pd.DataFrame:
     return chalk.sort_values("ownership", ascending=False).head(n)[cols].reset_index(drop=True)
 
 
-def sport_signals(df: pd.DataFrame, sport: str) -> dict:
-    """Sport-specific tables. Each value is either a DataFrame or None when data absent."""
+def sport_signals(df: pd.DataFrame, sport: str, team_data: pd.DataFrame | None = None) -> dict:
+    """Sport-specific tables. Each value is either a DataFrame or None when data absent.
+
+    team_data: optional team-level table (e.g. SIN MLB stack rankings) — only
+    used by MLB.
+    """
     if sport == "golf":
         return _golf_signals(df)
     if sport == "mma":
         return _mma_signals(df)
     if sport == "nascar":
         return _nascar_signals(df)
+    if sport == "mlb":
+        return _mlb_signals(df, team_data)
     return {}
 
 
@@ -137,4 +143,53 @@ def _nascar_signals(df: pd.DataFrame) -> dict:
             pd_df["pd_score"] = (pd_df["proj_points"] / (pd_df["ownership"].fillna(0) + 1)).round(2)
             cols = ["name", "salary", "starting_position", "proj_points", "ownership", "pd_score"]
             out["pd_candidates"] = pd_df.sort_values("pd_score", ascending=False).head(10)[cols].reset_index(drop=True)
+    return out
+
+
+_PITCHER_POS = {"p", "sp", "rp"}
+
+
+def _mlb_signals(df: pd.DataFrame, team_data: pd.DataFrame | None = None) -> dict:
+    """Team stacks (the core MLB lever) + the pitcher pool."""
+    out: dict = {}
+    has_pos = "position" in df.columns and df["position"].notna().any()
+    pos_lower = df["position"].astype(str).str.strip().str.lower() if has_pos else None
+
+    # Team-stack table: hitters grouped by team (MLB analog to NASCAR's dom pool).
+    if "team" in df.columns and df["team"].notna().any():
+        hitters = df[~pos_lower.isin(_PITCHER_POS)] if pos_lower is not None else df
+        stacks = hitters.groupby("team").agg(
+            n=("name", "count"),
+            stack_proj=("proj_points", "sum"),
+            avg_own=("ownership", "mean"),
+        ).round(2).reset_index()
+        if "team_total" in df.columns and df["team_total"].notna().any():
+            tt = df.groupby("team")["team_total"].max().reset_index()
+            stacks = stacks.merge(tt, on="team", how="left").sort_values(
+                ["team_total", "stack_proj"], ascending=False
+            )
+        else:
+            stacks = stacks.sort_values("stack_proj", ascending=False)
+        # Vendor stack rankings (e.g. SIN MLB stack file) beat our summed proxy
+        if team_data is not None and not team_data.empty and "team" in team_data.columns:
+            vendor_cols = {
+                "stack_proj": "vendor_stack_proj",
+                "stack_own": "vendor_stack_own",
+                "stack_salary": "vendor_stack_salary",
+            }
+            keep = ["team"] + [c for c in vendor_cols if c in team_data.columns]
+            stacks = stacks.merge(
+                team_data[keep].rename(columns=vendor_cols), on="team", how="left"
+            )
+            if "vendor_stack_proj" in stacks.columns:
+                stacks = stacks.sort_values("vendor_stack_proj", ascending=False)
+        out["team_stacks"] = stacks.reset_index(drop=True)
+
+    # Pitcher pool.
+    if pos_lower is not None:
+        pitchers = df[pos_lower.isin(_PITCHER_POS)]
+        if not pitchers.empty:
+            cols = [c for c in ["name", "team", "opponent", "salary", "proj_points", "ownership"]
+                    if c in pitchers.columns]
+            out["pitchers"] = pitchers.sort_values("proj_points", ascending=False)[cols].reset_index(drop=True)
     return out

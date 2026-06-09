@@ -38,6 +38,7 @@ CONTEST_TYPES = {
     "PGA RD4 Showdown": {"slug": "pga_rd4_sd", "sport": "golf"},
     "MMA": {"slug": "mma_se", "sport": "mma"},
     "NASCAR": {"slug": "nascar", "sport": "nascar"},
+    "MLB Classic": {"slug": "mlb_classic", "sport": "mlb"},
 }
 
 
@@ -90,6 +91,12 @@ with tab_proj:
             except Exception as e:
                 st.error(f"❌ Failed to load {f.name}: {e}")
                 continue
+            if df.attrs.get("kind") == "team_stacks":
+                sessions.save_team_data(slug, f.name, df, df.attrs["vendor"])
+                st.success(
+                    f"✅ {f.name} — detected as **{df.attrs['vendor']}** ({len(df)} teams)"
+                )
+                continue
             vendor_name = df.attrs.get("vendor")
             if vendor_name is None:
                 st.error(
@@ -101,6 +108,7 @@ with tab_proj:
             st.success(f"✅ {f.name} — detected as **{vendor_name}** ({len(df)} players)")
 
     sources = sessions.load_sources(slug)
+    team_data = sessions.load_team_data(slug)
     if sources:
         st.divider()
         st.markdown(f"**Loaded sources ({len(sources)}):**")
@@ -112,15 +120,26 @@ with tab_proj:
                 sessions.drop_source(slug, name)
                 st.rerun()
 
+        if team_data is not None:
+            cols = st.columns([4, 2, 1])
+            cols[0].write(f"📊 {team_data.attrs.get('filename', 'team data')}")
+            cols[1].write(f"`{team_data.attrs.get('vendor')}` · {len(team_data)} teams")
+            if cols[2].button("Drop", key="drop_team_data"):
+                sessions.drop_team_data(slug)
+                st.rerun()
+
         st.divider()
-        primary_name = st.selectbox("Primary source for the analysis", list(sources.keys()))
-        df = sources[primary_name]["df"]
+        pool = sessions.merge_same_vendor(sources)
+        primary_name = st.selectbox("Primary source for the analysis", list(pool.keys()))
+        df = pool[primary_name]["df"]
 
         warnings = warn_missing_for_sport(df, sport)
         for w in warnings:
             st.warning(w)
 
         st.dataframe(df, use_container_width=True, height=500)
+    elif team_data is not None:
+        st.info("Team data loaded — upload the player files (hitters + pitchers) too.")
     else:
         st.info("No projections uploaded yet.")
 
@@ -269,7 +288,7 @@ with tab_analyze:
 
     # ----- (b) Auto-snapshot -----
     st.markdown("---")
-    sources = sessions.load_sources(slug)
+    sources = sessions.merge_same_vendor(sessions.load_sources(slug))
     if not sources:
         st.info("Upload projections in the Projections tab — the snapshot pulls from your active session.")
     else:
@@ -314,7 +333,7 @@ with tab_analyze:
                 )
 
         # Sport-specific signals
-        signals = sport_signals(df, sport)
+        signals = sport_signals(df, sport, team_data=sessions.load_team_data(slug))
         if signals:
             st.markdown(f"### {sport.upper()} signals")
             for key, table in signals.items():
