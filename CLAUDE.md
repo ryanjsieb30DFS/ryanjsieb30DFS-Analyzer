@@ -61,14 +61,14 @@ Drop any of the user's vendor exports into the Projections tab — the loader de
 - **DailyFan MMA** (`Fighter, Matchup, Win %, Salary DK, ...`)
 - **DK PGA RD4 SD** (`Golfer, Tee Time, Salary, Points, Ownership, ...`)
 - **Ship It Nation MLB** (`#, Name, Team, Opp, Pos, H, Salary, Proj, Own, Slate`) — hitters and pitchers ship as **two separate files** with identical headers; both detect as this vendor and are auto-combined into one pool for analysis
-- **Ship It Nation MLB Stacks** (`#, Team, Proj, Own %, Stack Salary, Slate`) — team-level stack rankings; stored as session team-data (not a player source) and merged into the MLB team-stack signals as `vendor_stack_*` columns
+- **Ship It Nation MLB Stacks** (`#, Team, Proj, Own %, Stack Salary, Slate`) — team-level stack rankings; uploaded via the **Slate Data** tab (not Projections), stored as session team-data and merged into the MLB team-stack signals as `vendor_stack_*` columns
 
 To add a new vendor: edit `VENDOR_SIGNATURES` in `src/vendors.py`.
 
 ## Workflow per slate
 
-1. **Projections** — upload one or more vendor CSVs (auto-detected), inspect rows
-2. **Slate Data** — upload PDFs/notes/photos (e.g. DailyFan screenshots) for the slate
+1. **Projections** — upload vendor **player-projection** CSVs only (auto-detected), inspect rows
+2. **Slate Data** — everything that isn't player projections: PDFs/notes/photos (e.g. DailyFan screenshots), misc data CSVs (vegas odds, course/track history, matchup data), and team-level vendor files (SIN MLB stack rankings — auto-detected here and routed to session team data feeding the stack signals)
 3. **Sim Data** *(optional)* — upload a sim export CSV (e.g. SaberSim); stored as-is for Claude
 4. **Analyze** — declare contests, review the auto-snapshot (chalk tiers, leverage, anchor-equivalence, sport signals, vendor disagreement), then click **Generate slate analysis** — the app builds the bundle and runs `claude -p` headlessly to write + render the analysis (no chat needed)
 5. *(After contest ends)* **Autopsy** — upload DK contest-standings CSV, view field summary, log lessons to `rules/<slug>/autopsies.md`
@@ -78,7 +78,7 @@ To add a new vendor: edit `VENDOR_SIGNATURES` in `src/vendors.py`.
 This normally runs **in-app**: the Analyze tab's **Generate slate analysis** button calls `src/analysis_runner.py::run_analysis`, which builds the bundle and invokes `claude -p` headlessly (subscription auth, no API key) with the prompt to read the bundle + referenced files and write `data/slate_analysis/<slug>.md`. That headless Claude loads this `CLAUDE.md` and follows the steps below. The same can be triggered manually from a chat (fallback): click the button once to build the bundle, then ask **"read the bundle and write the slate analysis"**. Either way the steps are:
 
 1. Read the bundle: `data/bundle/<slug>.md` — it consolidates the contest config, projections read (chalk/leverage/anchor/sport-signals), cross-vendor disagreement, and absolute paths to everything else below. Start here.
-2. Read the slate-data files it lists under `articles/<slug>/` — `*.pdf`, `*.txt`/`*.md`, and `*.png`/`*.jpg`/`*.jpeg` (use the Read tool — it reads images visually, so DailyFan screenshots work; PDFs may require poppler — note in the file if anything couldn't be parsed)
+2. Read the slate-data files it lists under `articles/<slug>/` — `*.pdf`, `*.txt`/`*.md`, `*.csv` (misc data like vegas odds or course/track history — read as text tables), and `*.png`/`*.jpg`/`*.jpeg` (use the Read tool — it reads images visually, so DailyFan screenshots work; PDFs may require poppler — note in the file if anything couldn't be parsed)
 3. Read strategy: `rules/<slug>/{philosophy,framework,autopsies}.md` + `rules/shared/anchor_equivalence.md` (paths are in the bundle)
 4. Read recent autopsies: tail of `rules/<slug>/autopsy_data.jsonl`
 5. If sim data exists, read the raw file at the path in the bundle's "Sim data" section — see where the sims agree/disagree with the articles' read (e.g., a low-owned play the sims love, or chalk they fade)

@@ -5,6 +5,7 @@ Flow: Projections → Slate Data → Sim Data → Analyze → Autopsy.
 """
 from __future__ import annotations
 
+import io
 import json
 import re
 from datetime import datetime
@@ -95,9 +96,9 @@ with tab_proj:
                 st.error(f"❌ Failed to load {f.name}: {e}")
                 continue
             if df.attrs.get("kind") == "team_stacks":
-                sessions.save_team_data(slug, f.name, df, df.attrs["vendor"])
-                st.success(
-                    f"✅ {f.name} — detected as **{df.attrs['vendor']}** ({len(df)} teams)"
+                st.info(
+                    f"📊 {f.name} is team-level data ({df.attrs['vendor']}) — "
+                    "upload it in the **Slate Data** tab instead."
                 )
                 continue
             vendor_name = df.attrs.get("vendor")
@@ -111,7 +112,6 @@ with tab_proj:
             st.success(f"✅ {f.name} — detected as **{vendor_name}** ({len(df)} players)")
 
     sources = sessions.load_sources(slug)
-    team_data = sessions.load_team_data(slug)
     if sources:
         st.divider()
         st.markdown(f"**Loaded sources ({len(sources)}):**")
@@ -121,14 +121,6 @@ with tab_proj:
             cols[1].write(f"`{blob['vendor']}` · {len(blob['df'])} players")
             if cols[2].button("Drop", key=f"drop_{name}"):
                 sessions.drop_source(slug, name)
-                st.rerun()
-
-        if team_data is not None:
-            cols = st.columns([4, 2, 1])
-            cols[0].write(f"📊 {team_data.attrs.get('filename', 'team data')}")
-            cols[1].write(f"`{team_data.attrs.get('vendor')}` · {len(team_data)} teams")
-            if cols[2].button("Drop", key="drop_team_data"):
-                sessions.drop_team_data(slug)
                 st.rerun()
 
         st.divider()
@@ -141,8 +133,6 @@ with tab_proj:
             st.warning(w)
 
         st.dataframe(df, use_container_width=True, height=500)
-    elif team_data is not None:
-        st.info("Team data loaded — upload the player files (hitters + pitchers) too.")
     else:
         st.info("No projections uploaded yet.")
 
@@ -150,21 +140,44 @@ with tab_proj:
 # ===== Tab 2: Slate Data =====
 with tab_slate:
     st.subheader(f"Slate Data — {contest_label}")
-    st.caption("Upload articles, notes, photos, and screenshots for the slate. Claude reads these when writing the analysis.")
+    st.caption("Upload articles, notes, data CSVs, photos, and screenshots for the slate. Claude reads these when writing the analysis.")
     articles_dir = REPO_ROOT / "articles" / slug
     articles_dir.mkdir(parents=True, exist_ok=True)
 
     uploaded_pdfs = st.file_uploader(
-        "Upload article PDFs / notes",
-        type=["pdf", "txt", "md"],
+        "Upload article PDFs / notes / data CSVs",
+        type=["pdf", "txt", "md", "csv"],
         accept_multiple_files=True,
         key=f"articles_{slug}",
     )
     if uploaded_pdfs:
         for f in uploaded_pdfs:
+            data = f.read()
+            # CSVs get routed: team-level vendor files (e.g. SIN MLB stacks)
+            # become session team data feeding the sport signals; player
+            # projections are redirected; everything else is saved as context.
+            if f.name.lower().endswith(".csv"):
+                detected = None
+                try:
+                    detected = load_projections(io.BytesIO(data))
+                except Exception:
+                    pass
+                if detected is not None and detected.attrs.get("kind") == "team_stacks":
+                    sessions.save_team_data(slug, f.name, detected, detected.attrs["vendor"])
+                    st.success(
+                        f"📊 {f.name} — detected as **{detected.attrs['vendor']}** "
+                        f"({len(detected)} teams). Feeds the {sport.upper()} stack signals."
+                    )
+                    continue
+                if detected is not None and detected.attrs.get("vendor") is not None:
+                    st.warning(
+                        f"{f.name} looks like **{detected.attrs['vendor']}** player "
+                        "projections — upload it in the **Projections** tab instead."
+                    )
+                    continue
             ts = datetime.now().strftime("%Y-%m-%d")
             dest = articles_dir / f"{ts}__{f.name}"
-            dest.write_bytes(f.read())
+            dest.write_bytes(data)
             st.success(f"Saved {dest.name}")
 
     uploaded_photos = st.file_uploader(
@@ -180,14 +193,27 @@ with tab_slate:
             dest.write_bytes(f.read())
             st.success(f"Saved {dest.name}")
 
+    team_data = sessions.load_team_data(slug)
+    if team_data is not None:
+        cols = st.columns([5, 1])
+        cols[0].write(
+            f"📊 {team_data.attrs.get('filename', 'team data')} — "
+            f"`{team_data.attrs.get('vendor')}` · {len(team_data)} teams "
+            f"(feeds the {sport.upper()} stack signals)"
+        )
+        if cols[1].button("Drop", key="drop_team_data"):
+            sessions.drop_team_data(slug)
+            st.rerun()
+
     files = sorted(articles_dir.glob("*"))
-    if not files:
+    if not files and team_data is None:
         st.info("No slate data uploaded yet for this contest type.")
-    else:
+    elif files:
         st.markdown(f"**{len(files)} file(s):**")
         for f in files:
             cols = st.columns([5, 1])
-            icon = "🖼️" if f.suffix.lower() in (".png", ".jpg", ".jpeg") else "📄"
+            suffix = f.suffix.lower()
+            icon = "🖼️" if suffix in (".png", ".jpg", ".jpeg") else ("📊" if suffix == ".csv" else "📄")
             cols[0].write(f"{icon} {f.name}")
             if cols[1].button("Delete", key=f"del_{f.name}"):
                 f.unlink()
