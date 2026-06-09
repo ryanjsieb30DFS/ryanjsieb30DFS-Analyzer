@@ -31,7 +31,8 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas.
 | `src/contests.py` | Per-sport contest registry at `data/contests/<slug>.json` |
 | `src/sim_data.py` | Generic sim-data store: saves the raw upload + a light summary at `data/sim_data/` |
 | `src/bundle.py` | `build_bundle` — consolidates all inputs into `data/bundle/<slug>.md` for Claude to read |
-| `src/analysis_runner.py` | `run_analysis` — builds the bundle, runs `claude -p` headlessly (subscription auth), writes `data/slate_analysis/<slug>.md`. Powers the Analyze tab's "Generate slate analysis" button |
+| `src/analysis_runner.py` | `run_analysis` + `run_build_lineups` — build the bundle, run `claude -p` headlessly (subscription auth), write `data/slate_analysis/<slug>.md` / `data/lineups/<slug>.md`. Power the Analyze tab's "Generate slate analysis" + "Build lineups" buttons |
+| `src/lineups.py` | Read/clear the hand-built lineups at `data/lineups/<slug>.md` (Claude writes them via the headless run) |
 | `src/strategy.py` | Loads per-sport philosophy/framework/autopsies + recent lessons (read by `bundle.py`; no UI tab) |
 | `src/autopsy.py` | DK contest-standings parser |
 | `rules/<slug>/` | Philosophy / framework / autopsies docs per contest type — Claude reads these as context (no UI tab; surfaced via the bundle) |
@@ -86,7 +87,9 @@ This normally runs **in-app**: the Analyze tab's **Generate slate analysis** but
    - What conviction-core duplication / ceiling-threshold / binary-leverage warnings apply (per the sport's framework)?
 8. Write to `data/slate_analysis/<slug>.md` — concise, scannable, GPP-framed, with a player-by-player call where the auto-snapshot and the articles diverge. It renders in the Analyze tab with a "Last updated" timestamp and is cleared automatically when the user logs an autopsy.
 
-The contest config (`data/contests/<slug>.json`, surfaced in the bundle) drives how contrarian the read is and how many unique lineups make sense (`portfolio_summary.unique_lineups_needed`; entry caps SE / 3-Max / 5-Max / 20-Max / 150-Max). If the user asks for lineups, build them in chat: each needs a one-sentence thesis ("how it wins"), a roster table with total salary verified ≤ $50,000, and a distinct "what if?" question (lineups in a portfolio must answer DIFFERENT questions — `feedback_no_competing_lineups`). Apply the Anchor-Equivalence rule explicitly, and for MMA SE never duplicate the same 3+ conviction-core players across lineups.
+## Building lineups
+
+Normally triggered **in-app**: the Analyze tab's **Build lineups** button calls `src/analysis_runner.py::run_build_lineups`, which runs `claude -p` headlessly to build the portfolio from the slate analysis and write `data/lineups/<slug>.md` (rendered back in the tab). It requires a slate analysis to exist first. The count is `portfolio_summary.unique_lineups_needed` (default 2; entry caps SE / 3-Max / 5-Max / 20-Max / 150-Max), but **build fewer if the slate supports fewer distinct theses — never pad with filler**. Each lineup needs: a one-sentence thesis ("how it wins"), a roster table with total salary verified ≤ $50,000, and a distinct "what if?" question (lineups in a portfolio must answer DIFFERENT questions — `feedback_no_competing_lineups`). Apply the Anchor-Equivalence rule explicitly, and for MMA SE differ on at least one conviction anchor across lineups (never duplicate the same full core). Read `rules/<slug>/{framework,autopsies}.md` for the sport's construction rules (e.g. RD4 SD is a flat 6-golfer lineup, no captain). End with a Portfolio audit section.
 
 ## Hard rules
 

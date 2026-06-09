@@ -27,7 +27,8 @@ from src.contests import (
 )
 from src.sim_data import save_sim, load_sim_summary, clear_sim
 from src.bundle import clear_bundle
-from src.analysis_runner import run_analysis
+from src.analysis_runner import run_analysis, run_build_lineups, lineup_target
+from src.lineups import load_lineups, clear_lineups
 
 
 REPO_ROOT = Path(__file__).parent
@@ -373,6 +374,34 @@ with tab_analyze:
     else:
         st.info("**No saved analysis yet.** Click **Generate slate analysis** above and it appears here.")
 
+    # ----- (f) Build lineups (one click, from the analysis) -----
+    st.markdown("---")
+    st.markdown("### Build lineups")
+    n_target = lineup_target(slug)
+    st.caption(
+        f"Hand-builds your portfolio from the analysis — up to **{n_target}** lineup(s) "
+        "(from your declared contests), each with a distinct thesis. Builds fewer if the "
+        "slate only supports fewer distinct angles. Takes ~1–3 minutes; uses your Claude subscription."
+    )
+    if not persisted:
+        st.info("Generate the slate analysis first — lineups are built from it.")
+    elif st.button("🏗️ Build lineups", type="primary", key=f"build_lineups_{slug}"):
+        with st.spinner(f"Building up to {n_target} lineup(s) from the analysis… (~1–3 min)"):
+            lresult = run_build_lineups(slug, contest_label, sport, n_target)
+        if lresult["ok"]:
+            cost = lresult.get("cost_usd")
+            cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
+            st.success(f"Lineups built in {lresult['duration_s']:.0f}s{cost_note}.")
+            st.rerun()
+        else:
+            st.error(f"Couldn't build lineups: {lresult['error']}")
+
+    lineups_blob = load_lineups(slug)
+    if lineups_blob:
+        with st.container(border=True):
+            st.caption(f"Last updated: {lineups_blob['mtime']}")
+            st.markdown(lineups_blob["markdown"])
+
 
 # ===== Tab 5: Autopsy =====
 with tab_autopsy:
@@ -465,13 +494,14 @@ with tab_autopsy:
                         fjl.write(json.dumps(row) + "\n")
                 # Clear all per-slate state — next slate starts fresh
                 clear_persisted(slug)
+                clear_lineups(slug)
                 clear_contests(slug)
                 clear_sim(slug)
                 clear_bundle(slug)
                 st.success(
                     f"Logged {len(parsed_contests)} contest(s) to rules/{slug}/autopsies.md "
-                    "+ autopsy_data.jsonl. Cleared the slate analysis, contests, sim data, "
-                    "and bundle for next time."
+                    "+ autopsy_data.jsonl. Cleared the slate analysis, lineups, contests, "
+                    "sim data, and bundle for next time."
                 )
 
     st.divider()
