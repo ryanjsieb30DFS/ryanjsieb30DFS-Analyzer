@@ -17,7 +17,10 @@ from src import sessions
 from src.projections import load_projections, warn_missing_for_sport
 from src.landscape import chalk_summary, leverage_table, anchor_equivalence_check
 from src.projections_diff import flagged_disagreements
-from src.autopsy import parse_dk_results
+from src.autopsy import (
+    parse_dk_results, analyze_contest, load_session_projections,
+    build_autopsy_record, record_md_summary,
+)
 from src.strategy import load_strategy, load_track, load_shared
 from src.slate_analysis import snapshot, top_chalk, sport_signals, load_persisted, clear_persisted
 from src.contests import (
@@ -440,6 +443,7 @@ with tab_autopsy:
         # Parse + display each contest in its own section, collecting a per-CSV
         # payload (with its own notes) for the single Log button below. A bad
         # CSV is reported but doesn't block the others.
+        proj_df, proj_source = load_session_projections(slug)
         parsed_contests = []
         for i, dk_csv in enumerate(dk_csvs):
             try:
@@ -449,6 +453,7 @@ with tab_autopsy:
                 continue
             lineups = parsed["lineups"]
             players = parsed["players"]
+            analysis = analyze_contest(parsed, proj_df, sport)
 
             with st.expander(
                 f"{dk_csv.name} — {len(lineups):,} entries, winning "
@@ -471,6 +476,75 @@ with tab_autopsy:
                 ]
                 st.dataframe(top_players, use_container_width=True)
 
+                pm = analysis["proj_match"]
+                if pm["available"]:
+                    st.caption(
+                        f"Projections joined from **{proj_source}** — matched "
+                        f"{pm['matched']}/{pm['total']} players."
+                    )
+                    if pm["matched"] < pm["total"] * 0.7:
+                        st.warning(
+                            "Low projection match rate — the session may hold a "
+                            "different slate's projections. Salary/proj columns "
+                            "may be incomplete."
+                        )
+                else:
+                    st.warning(
+                        "No projections in the active session — salary, proj-vs-actual, "
+                        "and stack-shape analysis unavailable for this autopsy."
+                    )
+
+                st.markdown("### Your entries")
+                user_df = analysis["user_lineups_df"]
+                if user_df.empty:
+                    st.info("No entries matching RyvlesGaming30 / ryanjsieb30 found in this contest.")
+                else:
+                    show_cols = [c for c in ["rank", "points", "avg_own", "low_own_count",
+                                             "salary_used", "proj_total", "dup_count",
+                                             "stack_shape", "players"]
+                                 if sport == "mlb" or c != "stack_shape"]
+                    st.dataframe(user_df[show_cols], use_container_width=True)
+
+                st.markdown("### Winners vs You")
+                ws = analysis["winners_summary"]
+                us = analysis["user_summary"]
+                rows = [
+                    ("Avg ownership %", "avg_own_mean"),
+                    ("Sub-10% players / lineup", "low_own_count_mean"),
+                    ("Salary used", "salary_used_mean"),
+                ]
+                comp = pd.DataFrame([
+                    {
+                        "metric": label,
+                        f"top {ws.get('top_n')} winners": ws.get(key),
+                        "you": us.get(key) if us else None,
+                        "delta": (analysis["vs_user"] or {}).get(key.replace("_mean", "_delta")),
+                    }
+                    for label, key in rows
+                ])
+                st.dataframe(comp, use_container_width=True)
+                dup_note = (
+                    f"{ws.get('unique_pct')}% of top lineups are unique "
+                    f"(max duplication {ws.get('dup_max')})"
+                )
+                if sport == "mlb" and ws.get("stack_shapes"):
+                    shapes = ", ".join(f"{k}×{v}" for k, v in list(ws["stack_shapes"].items())[:5])
+                    dup_note += f" · winning stack shapes: {shapes}"
+                st.caption(dup_note)
+
+                if analysis["overperformers"] or analysis["underperformers"]:
+                    st.markdown("### Proj vs actual")
+                    c1, c2 = st.columns(2)
+                    c1.markdown("**Overperformed**")
+                    c1.dataframe(pd.DataFrame(analysis["overperformers"]), use_container_width=True)
+                    c2.markdown("**Underperformed**")
+                    c2.dataframe(pd.DataFrame(analysis["underperformers"]), use_container_width=True)
+
+                if analysis["slate_defining"]:
+                    st.markdown("### Slate-defining plays")
+                    st.caption("In ≥30% of top lineups at <20% field ownership.")
+                    st.dataframe(pd.DataFrame(analysis["slate_defining"]), use_container_width=True)
+
                 notes = st.text_area(
                     "Lessons / patterns to log (appended to autopsies.md)",
                     key=f"autopsy_notes_{slug}_{i}",
@@ -479,6 +553,8 @@ with tab_autopsy:
             parsed_contests.append({
                 "name": dk_csv.name,
                 "lineups": lineups,
+                "parsed": parsed,
+                "analysis": analysis,
                 "notes": notes,
             })
 
@@ -495,22 +571,25 @@ with tab_autopsy:
                     for pc in parsed_contests:
                         lineups = pc["lineups"]
                         notes = pc["notes"]
+                        record = build_autopsy_record(
+                            ts=ts,
+                            contest_label=contest_label,
+                            slug=slug,
+                            sport=sport,
+                            source_file=pc["name"],
+                            parsed=pc["parsed"],
+                            analysis=pc["analysis"],
+                            proj_source=proj_source,
+                            notes=notes,
+                        )
                         fmd.write(f"\n\n## {ts} — {contest_label} ({pc['name']})\n")
                         fmd.write(f"- Entries: {len(lineups):,}\n")
                         fmd.write(f"- Winning score: {lineups['Points'].max():.1f}\n")
                         fmd.write(f"- Cash line (top 20%): {lineups['Points'].quantile(0.80):.1f}\n")
+                        fmd.write(record_md_summary(record) + "\n")
                         if notes.strip():
                             fmd.write(f"\n{notes.strip()}\n")
-                        row = {
-                            "timestamp": ts,
-                            "contest_type": contest_label,
-                            "source_file": pc["name"],
-                            "entries": int(len(lineups)),
-                            "winning_score": float(lineups["Points"].max()),
-                            "cash_line_p80": float(lineups["Points"].quantile(0.80)),
-                            "notes": notes.strip(),
-                        }
-                        fjl.write(json.dumps(row) + "\n")
+                        fjl.write(json.dumps(record) + "\n")
                 # Clear all per-slate state — next slate starts fresh
                 clear_persisted(slug)
                 clear_lineups(slug)

@@ -165,7 +165,12 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
         L += ["", "### Recent autopsy lessons"]
         for lesson in lessons:
             notes = (lesson.get("notes") or "").strip() or "_(no notes)_"
-            L.append(f"- `{lesson.get('timestamp', '?')}` — {notes[:300]}")
+            us = lesson.get("user_summary") or {}
+            rank_note = (
+                f" (best rank {us['best_rank']:,}/{lesson['entries']:,})"
+                if us.get("best_rank") and lesson.get("entries") else ""
+            )
+            L.append(f"- `{lesson.get('timestamp', '?')}` — {notes[:300]}{rank_note}")
 
     L += ["", f"**Output target:** write the synthesis to `data/slate_analysis/{slug}.md`."]
 
