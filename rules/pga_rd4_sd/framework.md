@@ -78,6 +78,8 @@ Every lineup individually passes this checklist:
 - Full salary used ($50,000 exactly or within $200)
 - Articulable one-sentence thesis
 
+**Portfolio-level check (across all lineups, not per-lineup):** Correct-Chalk Concentration — if a justified moderate-own core exists, ≥1 lineup rosters the full core (see section below).
+
 ### Stage 4 — Deploy
 
 Match contest priority to lineup conviction. SE contests get strongest reads; MME fallback gets variants. Lock and submit.
@@ -270,6 +272,19 @@ For every analyst-named "structural value" anchor, identify the 1-2 equivalent-p
 - **CJ Cup 5.24.26:** RD4 SD is flat 6-golfer (no CPT slot); the anchor is the top-salary / top-projection golfer. Scheffler vs Wyndham Clark at similar chalk-tier own. Went 100% Scheffler / 0% Clark across 4 lineups. Clark scored 97.8 (slate-defining), Scheffler scored 50s. Best finish 4,560 of 8,323.
 
 **Pre-lock check:** for every chalk-tier (~20%+ own) anchor candidate, run the explicit anchor-equivalence scan — identify the equivalent-profile alternative and verify ≥1 lineup runs it before locking. This is a hard checklist item, not a vibe check.
+
+## The Correct-Chalk Concentration Rule (PGA RD4 SD 5.31.26)
+
+**The near-inverse of Anchor-Equivalence, for a different slate shape.** Anchor-Equivalence governs the *coin-flip* case — two equivalent-profile chalk anchors, split exposure across them. Correct-Chalk Concentration governs the *shared-core* case — when 3-4 *justified* moderate-own plays (≈10-25% own, real ceiling, the field will largely share them) form the slate's correct core, **at least one lineup must roster the full core together.** Single legs of the core scattered across many lineups do not capture the win.
+
+**Why it's a rule:** On RD4 SD 5.31.26 the winning lineup and the field's entire top-4 shared a four-play moderate-own core (each member overperformed projection by ~20 pts). Our 10-lineup portfolio held single legs scattered — **no lineup carried more than 2 of the winning 6** — and clustered just under the cash line. The slate's actual leverage was *connected correct chalk*, not contrarian fades.
+
+**Pre-lock check (portfolio-level):**
+1. Identify the justified moderate-own core — moderate ownership (≈10-25%), real ceiling, course/form-supported. Distinguish from *popular ceiling-light chalk* (the highest projected-own plays that are popular without a ceiling case — these are the coffin tier, not the core).
+2. Verify ≥1 lineup rosters 3-4 members of that core *together*, not as scattered single legs.
+3. Do not over-diversify: with a clear birdie-fest read, fewer distinct cores rostered deeply beats max breadth. A portfolio clustered just under the cash line is the symptom of dilution.
+
+**Interaction with other rules:** This does not override the Mid-Tier Ownership Trap (≤2 plays at 10-20% own per lineup) — the trap targets *unconnected* mid-tier filler with no ceiling. A *justified, course-supported* moderate-own core that all profiles as ceiling plays is the opposite of trap filler. The distinction is ceiling and correlation, not ownership band. Still pair the core with the mandatory sub-5%/sub-10% spike for differentiation.
 
 ## Post-Slate Equity Metric
 

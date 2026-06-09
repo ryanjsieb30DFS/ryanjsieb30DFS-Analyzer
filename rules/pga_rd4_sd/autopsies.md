@@ -4,6 +4,74 @@ This file is a running log of distilled process lessons from post-tournament aut
 
 ---
 
+## PGA RD4 SD 5.31.26
+
+**Result:** 1 of 10 lineups cashed. Best finish: **#69 of 10,701 (top 0.65%)** — 284.85 pts (well clear of the 238.05 cash line). The other nine finished 233.85 → 182.25, with a four-lineup cluster at ~233 that missed cash by ~4 pts. Winning lineup scored 329.75.
+
+**Slate Read:** Birdie-fest. The field's projected chalk and the slate's actual leverage were *different players* — and that gap defined the slate. The three highest *projected*-owned plays (the 44.6% / 31.9% / 30.5% own tier) all came in flat (met or missed projection). The slate was won on the **next tier down** — moderate-own plays at ~13–26% that all smashed their projection together — plus the day's sub-10% ceiling spike. This was a "correct-chalk" slate: the winning edge was rostering several *justified* moderate-own plays *as a connected core*, not fading the board.
+
+**The Single Decisive Hit/Miss:** The winning lineup (and the field's entire top-4) shared a four-play core of moderate-own plays that all overperformed by ~20 pts each, anchored by the day's top score and finished with the sub-10% spike. Our portfolio held single legs of that core scattered across ten lineups — **no single lineup carried more than 2 of the winning 6.** Max diversification made assembling the correct correlated core structurally impossible. The lone deep finish (#69) came from the one lineup that paired the sub-10% spike with two correct mid-tier ceiling plays — validating both the spike read and the ceiling rule.
+
+### Top over-performers (FPTS vs projection)
+
+| Player | Proj | Actual | Δ | Proj Own | Actual Own |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Steven Fisk | 31.2 | 59.7 | +28.5 | 8.4% | 6.4% |
+| Rico Hoey | 31.6 | 54.0 | +22.4 | 6.5% | 6.1% |
+| Ben Griffin | 36.3 | 58.2 | +21.9 | 13.5% | 12.5% |
+| Russell Henley | 41.0 | 62.5 | +21.5 | 25.8% | 23.1% |
+| Gary Woodland | 35.7 | 56.0 | +20.3 | 13.7% | 14.8% |
+| Nicolas Echavarria | 31.9 | 49.9 | +18.0 | 20.4% | 24.9% |
+
+### Top under-performers
+
+| Player | Proj | Actual | Δ | Proj Own | Actual Own |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Christiaan Bezuidenhout | 34.8 | 15.8 | -19.0 | 17.3% | 18.9% |
+| Tom Kim | 32.7 | 13.8 | -18.9 | 4.8% | 6.4% |
+| Robert MacIntyre | 34.6 | 19.5 | -15.1 | 5.8% | 5.5% |
+
+### The chalk that didn't pay (highest projected own → actual)
+
+| Player | Proj Own | Proj | Actual | Our Exp |
+| --- | ---: | ---: | ---: | ---: |
+| Eric Cole | 44.6% | 37.5 | 41.0 | **4/10** |
+| J.J. Spaun | 31.9% | 40.7 | 38.3 | **4/10** |
+| Ryan Gerard | 30.5% | 38.0 | 27.8 | 2/10 |
+
+### Slate-defining plays (the moderate-own core + spikes that won it)
+
+| Player | Salary | Actual FPTS | Actual Own | Our Exp |
+| --- | ---: | ---: | ---: | ---: |
+| Russell Henley | $10,600 | 62.5 | 23.1% | 3/10 |
+| Steven Fisk | $6,600 | 59.7 | 6.4% | 2/10 |
+| Ben Griffin | $9,100 | 58.2 | 12.5% | 3/10 |
+| Gary Woodland | $9,200 | 56.0 | 14.8% | 1/10 |
+| Rico Hoey | $7,000 | 54.0 | 6.1% | 2/10 |
+| Nicolas Echavarria | $6,300 | 49.9 | 24.9% | 1/10 |
+
+**Note on format:** PGA RD4 SD is a flat 6-golfer lineup — no captain, no 1.5x multiplier. "Anchor" below means the top-salary / top-projection golfer slot, not a positional CPT.
+
+### Process Lessons
+
+1. **Correct-chalk-concentration leak (new pattern — near-inverse of Anchor-Equivalence).** On a slate where 3-4 justified moderate-own plays form the obvious-but-correct core, single legs spread across the portfolio don't capture the win — *one lineup has to roster the full core together*. The winning structure was a connected 4-play core; our max overlap was 2 of 6 in any single lineup. Anchor-Equivalence says *split* equivalent chalk across lineups; this says *concentrate* the correct correlated core in at least one. Both are pre-lock checks; they apply to different slate shapes (equivalent-pair coin-flip vs. shared-core birdie-fest).
+
+2. **Anchored the wrong chalk.** Our two heaviest exposures were the field's two highest-owned plays (the ~30-34% own tier), both of which delivered only at-projection. The chalk that actually paid — the ~13-15% own ceiling tier — sat at 1/10 exposure. Paying full field ownership on the ceiling-light chalk while underweighting the justified-ceiling chalk is anti-leverage (Philosophy rule #1: play good chalk, but build around it *sharply* — own the chalk that has ceiling, not the chalk that's merely popular).
+
+3. **Over-diversification capped the portfolio.** Ten bullets touched ~37 distinct golfers. Spreading that wide guarantees no lineup assembles the correct core and clusters the bulk of the portfolio just under the cash line (four lineups at ~233 vs a 238 cash line). With a clear birdie-fest read, fewer distinct cores rostered more deeply beats max breadth.
+
+### What Went Right
+
+- **The sub-10% spike read worked.** Both day-defining spikes (sub-10% own, 50+ FPTS) were on our radar and rostered in 2/10 each. The ceiling-slot process is sound.
+- **#69 of 10,701 (top 0.65%).** The one lineup that paired the spike with two correct mid-tier ceiling plays reached real contention — proof the construction process can hit; the failure was portfolio-level, not per-lineup.
+- **60+ ceiling rule held** in the lineups that scored — every contending lineup had its ceiling slot doing real work.
+
+### Key Takeaway
+
+This was a correct-chalk birdie-fest, and the leak was structural, not analytical: we identified the right spikes and the right ceiling plays, then *diluted them to death* across ten lineups while overweighting the field's ceiling-light popular chalk. On a slate where the field shares a justified core, the win comes from concentrating that core in at least one lineup — not from owning single legs of it everywhere. New pre-lock check (Correct-Chalk Concentration) added to framework; this is the complement to Anchor-Equivalence, applied to a different slate shape.
+
+---
+
 ## PGA Championship 2026
 
 **Result:** 1 of 3 contests cashed. All three contests were effectively SE (C1: 295-entry SE, 187/295, 194.10 pts, missed by ~30; C2: 1,784-entry SE, 1214/1784, 193.05 pts, missed by ~31; C3: 2,353-entry multi-entry treated as SE, 383/2353, 227.55 pts, **cashed by ~7**). Winning lineups: C1 288.15, C2 299.00, C3 294.65.
@@ -194,3 +262,9 @@ The process at the punt-slot level was solid. The failure was at the **anchor an
 ### Key Takeaway
 
 Concentrating 100% on one chalk-tier anchor when an equivalent-profile alternative exists at similar own is the third consecutive slate's manifestation of the Cadillac/Truist anchor-equivalence miss. The Anchor-Equivalence Rule is no longer an emerging pattern; it's a load-bearing pre-lock check at every anchor slot — for RD4 SD specifically, that's the top-salary / top-projection golfer slot (not a CPT slot — RD4 SD has none). The secondary takeaway is that on identified birdie-fest slates the sub-15% mid-tier slot is where the score comes from — covering only 1 of 4 top value plays across 4 lineups is a structural floor violation on this slate type.
+
+
+## 2026-05-31 21:44 — PGA RD4 Showdown (contest-standings-190928334.csv)
+- Entries: 10,701
+- Winning score: 329.8
+- Cash line (top 20%): 238.0

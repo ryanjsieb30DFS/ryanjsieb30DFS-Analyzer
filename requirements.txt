@@ -1,5 +1,2 @@
 streamlit>=1.30
 pandas>=2.0
-plotly>=5.18
-pyyaml>=6.0
-pypdf>=4.0

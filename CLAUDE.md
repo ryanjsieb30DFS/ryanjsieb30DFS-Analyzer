@@ -15,26 +15,31 @@ cd ~/Desktop/Repo/ryanjsieb30DFS-Analyzer
 .venv/bin/streamlit run app.py --server.port 8601    # http://localhost:8601
 ```
 
-The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas, plotly, pyyaml.
+The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas.
 
 ## Architecture
 
 | Path | Purpose |
 |---|---|
-| `app.py` | Streamlit UI: 9 tabs (Projections, Projections Diff, Articles, Contests, SaberSim Data, Slate Analysis, Lineups, Strategy, Autopsy) |
+| `app.py` | Streamlit UI: 5 tabs (Projections, Slate Data, Sim Data, Analyze, Autopsy) |
 | `src/projections.py` | CSV loader with vendor auto-detection + canonical schema normalization |
 | `src/vendors.py` | Vendor column signatures (ETR, Ship It Nation, DailyFan PGA/MMA/NASCAR, DK PGA RD4 SD) |
 | `src/sessions.py` | Per-sport JSON persistence at `data/sessions/<slug>.json` |
 | `src/landscape.py` | Chalk tiers, leverage table, anchor-equivalence check |
+| `src/slate_analysis.py` | Auto-snapshot computations (`snapshot`, `top_chalk`, `sport_signals`) + persisted-analysis read/write at `data/slate_analysis/<slug>.md` |
 | `src/projections_diff.py` | Cross-vendor disagreement detector |
+| `src/contests.py` | Per-sport contest registry at `data/contests/<slug>.json` |
+| `src/sim_data.py` | Generic sim-data store: saves the raw upload + a light summary at `data/sim_data/` |
+| `src/bundle.py` | `build_bundle` — consolidates all inputs into `data/bundle/<slug>.md` for Claude to read |
+| `src/analysis_runner.py` | `run_analysis` — builds the bundle, runs `claude -p` headlessly (subscription auth), writes `data/slate_analysis/<slug>.md`. Powers the Analyze tab's "Generate slate analysis" button |
+| `src/strategy.py` | Loads per-sport philosophy/framework/autopsies + recent lessons (read by `bundle.py`; no UI tab) |
 | `src/autopsy.py` | DK contest-standings parser |
-| `src/sabersim.py` | SaberSim lineup-pool ingestion (fuzzy column detection), exposure/top-lineup summary, + build-rules store |
-| `src/diagnostics.py` | Player-tier helpers used by landscape |
-| `rules/<slug>/` | Philosophy / framework / autopsies docs per contest type — Claude reads these as context |
-| `articles/<slug>/` | Per-contest-type research uploads (PDFs, notes) |
+| `rules/<slug>/` | Philosophy / framework / autopsies docs per contest type — Claude reads these as context (no UI tab; surfaced via the bundle) |
+| `articles/<slug>/` | Per-contest-type "Slate Data" uploads — PDFs, notes, and photos/screenshots (e.g. DailyFan). Tab label is "Slate Data"; the on-disk dir stays `articles/`. |
 | `templates/` | Canonical projection CSV templates per sport |
 | `data/sessions/` | Per-sport session JSON (gitignored) |
-| `data/sabersim/` | Per-slate SaberSim pool: `<slug>_lineups.csv` (raw), `<slug>_summary.json` (exposures/top-lineups + `dk_id_map`/`unmatched_players` for Claude), `<slug>_rules.md` (build rules to enter into SaberSim), `<slug>_dkids.csv` (DK name↔player-ID map from a DKEntries/DKSalaries upload — optional). DK IDs auto-source from the projections' own `dk_id` when present (e.g. ETR / DK RD4 SD exports); the upload is only needed when projections lack IDs, and overrides them when present. `summary.json` records `dk_id_source` (`uploaded`/`projections`). |
+| `data/sim_data/` | Per-slate sim upload: `<slug>__<filename>` (raw) + `<slug>_summary.json` (light summary for Claude). Optional. |
+| `data/bundle/` | `<slug>.md` — the consolidated "Bundle for Claude" written from the Analyze tab. |
 
 ## Contest types
 
@@ -59,60 +64,35 @@ To add a new vendor: edit `VENDOR_SIGNATURES` in `src/vendors.py`.
 ## Workflow per slate
 
 1. **Projections** — upload one or more vendor CSVs (auto-detected), inspect rows
-2. **Landscape** — read the slate-level structural story (chalk tiers, leverage, anchor-equivalence pre-lock check)
-3. **Projections Diff** — when 2+ vendors uploaded, see where they materially disagree
-4. **Articles** — upload PDFs/notes for the slate
+2. **Slate Data** — upload PDFs/notes/photos (e.g. DailyFan screenshots) for the slate
+3. **Sim Data** *(optional)* — upload a sim export CSV (e.g. SaberSim); stored as-is for Claude
+4. **Analyze** — declare contests, review the auto-snapshot (chalk tiers, leverage, anchor-equivalence, sport signals, vendor disagreement), then click **Generate slate analysis** — the app builds the bundle and runs `claude -p` headlessly to write + render the analysis (no chat needed)
 5. *(After contest ends)* **Autopsy** — upload DK contest-standings CSV, view field summary, log lessons to `rules/<slug>/autopsies.md`
 
 ## Writing the slate analysis
 
-When the user says **"review the articles and write the slate analysis"** (or "refresh the slate analysis", or similar):
+This normally runs **in-app**: the Analyze tab's **Generate slate analysis** button calls `src/analysis_runner.py::run_analysis`, which builds the bundle and invokes `claude -p` headlessly (subscription auth, no API key) with the prompt to read the bundle + referenced files and write `data/slate_analysis/<slug>.md`. That headless Claude loads this `CLAUDE.md` and follows the steps below. The same can be triggered manually from a chat (fallback): click the button once to build the bundle, then ask **"read the bundle and write the slate analysis"**. Either way the steps are:
 
-1. Read projections for the active sport: `data/sessions/<slug>.json`
-2. Read **contests** for the active sport: `data/contests/<slug>.json` — this drives total lineup count and per-contest entry caps (SE, 3-Max, 5-Max, 20-Max, 150-Max)
-3. Read uploaded articles: `articles/<slug>/*.pdf` and `*.txt`/`*.md` (use the Read tool; PDFs may require poppler — note in the file if anything couldn't be parsed)
-4. Read strategy: `rules/<slug>/{philosophy,framework,autopsies}.md` + `rules/shared/anchor_equivalence.md`
-5. Read recent autopsies: tail of `rules/<slug>/autopsy_data.jsonl`
-5b. If a SaberSim pool exists, read `data/sabersim/<slug>_summary.json` — the simmed pool's player exposures + top lineups (by Top 1% / Win % / Sim ROI). Use it to see where the sims agree/disagree with the articles' read (e.g., a low-owned fighter the sims love, or chalk the sims fade). Read the compact summary, NOT the raw `<slug>_lineups.csv` (it can be ~5,000 rows). The summary also carries `dk_id_map` (player→DK ID, from an uploaded DK file) and `unmatched_players` — reference players by DK ID when precision matters, and call out any unmatched names (likely SaberSim↔DK spelling drift).
+1. Read the bundle: `data/bundle/<slug>.md` — it consolidates the contest config, projections read (chalk/leverage/anchor/sport-signals), cross-vendor disagreement, and absolute paths to everything else below. Start here.
+2. Read the slate-data files it lists under `articles/<slug>/` — `*.pdf`, `*.txt`/`*.md`, and `*.png`/`*.jpg`/`*.jpeg` (use the Read tool — it reads images visually, so DailyFan screenshots work; PDFs may require poppler — note in the file if anything couldn't be parsed)
+3. Read strategy: `rules/<slug>/{philosophy,framework,autopsies}.md` + `rules/shared/anchor_equivalence.md` (paths are in the bundle)
+4. Read recent autopsies: tail of `rules/<slug>/autopsy_data.jsonl`
+5. If sim data exists, read the raw file at the path in the bundle's "Sim data" section — see where the sims agree/disagree with the articles' read (e.g., a low-owned play the sims love, or chalk they fade)
 6. For NASCAR: also read `rules/nascar/tracks/<track>.md`
 7. Synthesize:
-   - Where do the articles + auto-data agree? Where do they disagree?
-   - Which qualitative overrides should beat the quantitative signal (mirror the King Green pattern from `rules/mma_mme/autopsies.md`)?
+   - Where do the articles + auto-snapshot agree? Where do they disagree?
+   - Which qualitative overrides should beat the quantitative signal?
    - What's the Anchor-Equivalence call?
-   - What conviction-core duplication / ceiling-threshold / binary-leverage warnings apply (per SE framework)?
-7. Write to `data/slate_analysis/<slug>.md` — concise, scannable, GPP-framed, with a player-by-player call where the auto-data and the articles diverge
-8. **Write the SaberSim build rules** to `data/sabersim/<slug>_rules.md` — the constraints the user will type into SaberSim so it builds lineups aligned to this read: per-fighter exposure floors/caps (% min/max), must-plays, hard fades, group/conditional rules, and ceiling / ownership-sum targets. Derive these from the analysis + the SE framework (anchor-equivalence weighting, ceiling threshold, field-fade-secondary reserve). Keep it copy-pasteable into SaberSim's rule fields.
+   - What conviction-core duplication / ceiling-threshold / binary-leverage warnings apply (per the sport's framework)?
+8. Write to `data/slate_analysis/<slug>.md` — concise, scannable, GPP-framed, with a player-by-player call where the auto-snapshot and the articles diverge. It renders in the Analyze tab with a "Last updated" timestamp and is cleared automatically when the user logs an autopsy.
 
-Both files are rendered in their tabs (Slate Analysis, SaberSim Data) with a "Last updated" timestamp, and both are cleared automatically when the user logs an autopsy for the sport.
-
-## Building lineups (hand-built, not optimized)
-
-When the user says **"build lineups for the current slate"** (or "rebuild lineups", or similar):
-
-1. Read **contests**: `data/contests/<slug>.json` — drives **total lineup count** (`portfolio_summary.unique_lineups_needed`) and **contest assignment per lineup** (which contests each lineup is entered into). Lineup quality comes from the projections + articles + framework reads, not from a configurable ceiling target.
-2. Read the slate analysis: `data/slate_analysis/<slug>.md` (if missing, write it first via the workflow above)
-3. Read projections: `data/sessions/<slug>.json`
-3b. If a SaberSim pool exists, read `data/sabersim/<slug>_summary.json` — treat the simmed pool's exposures + top lineups as an input. Our hand-built lineups + the build rules in `<slug>_rules.md` shape the SaberSim pool; we don't replace it. Use the pool to sanity-check our reads against what the sims surface.
-4. Read recent autopsies for SE-specific discipline rules (`rules/<slug>/autopsies.md` + `autopsy_data.jsonl`)
-5. Build N lineups (where N = `unique_lineups_needed` from contests; default 2 if no contests declared) — each with:
-   - One-sentence **thesis** ("how it wins")
-   - **Roster** as a markdown table (player, salary, win%, win-case proj, role)
-   - **Total salary** verified ≤ $50,000 (do the math, show it)
-   - **Opponent check** — verify no opponent-stacking
-   - **"What if?"** line stating which scenario this lineup answers
-5. Lineups in a portfolio MUST answer DIFFERENT "what if?" questions (`feedback_no_competing_lineups`)
-6. For MMA SE specifically: never duplicate the same 3+ conviction-core players across multiple lineups (5/16/26 lesson)
-7. Apply the Anchor-Equivalence rule explicitly: if chalk anchors at similar own, ≥1 lineup must run the alternative
-8. Apply ceiling-threshold discipline: sum top-6 `proj_win` values, target ≥600 for SE
-9. Write to `data/lineups/<slug>.md` with a final **Portfolio audit** section summarizing player overlap, fight hedges, and framework-rule compliance
-
-The file is rendered in the Lineups tab. Cleared automatically when the user logs an autopsy.
+The contest config (`data/contests/<slug>.json`, surfaced in the bundle) drives how contrarian the read is and how many unique lineups make sense (`portfolio_summary.unique_lineups_needed`; entry caps SE / 3-Max / 5-Max / 20-Max / 150-Max). If the user asks for lineups, build them in chat: each needs a one-sentence thesis ("how it wins"), a roster table with total salary verified ≤ $50,000, and a distinct "what if?" question (lineups in a portfolio must answer DIFFERENT questions — `feedback_no_competing_lineups`). Apply the Anchor-Equivalence rule explicitly, and for MMA SE never duplicate the same 3+ conviction-core players across lineups.
 
 ## Hard rules
 
 - **No scraping.** DK ToS prohibits it; never build scrapers. Use user-pasted/uploaded data only.
 - **GPP-only framing.** Leverage / ceiling / contrarian. Never propose cash-game features.
-- **Anchor-Equivalence Rule** is a **mandatory pre-lock check** on every slate — surfaced as a warning in the Landscape tab. 4-slate-validated structural leak: if 2+ chalk-tier anchors at similar own%, ≥1 lineup must run the alternative.
+- **Anchor-Equivalence Rule** is a **mandatory pre-lock check** on every slate — surfaced as a warning in the Analyze tab. 4-slate-validated structural leak: if 2+ chalk-tier anchors at similar own%, ≥1 lineup must run the alternative.
 - **NASCAR**: before any NASCAR analysis, check `rules/nascar/tracks/<slug>.md`. If missing, proactively ask the user to fill it in.
 - **PGA RD4 SD**: flat 6-golfer lineup, **NO captain, NO 1.5x multiplier**. Never reference "CPT" for this contest type.
 - **No stddev required.** Vendors don't ship it; loader auto-derives (`(ceiling − proj) / 1.28` or 30% of proj).
