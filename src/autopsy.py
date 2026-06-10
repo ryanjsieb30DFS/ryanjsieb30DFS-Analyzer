@@ -115,6 +115,61 @@ def load_session_projections(slug: str):
     return df, name
 
 
+def score_vendors(slug: str, players: pd.DataFrame) -> list[dict]:
+    """Calibrate EVERY vendor source against DK actuals — one dict per vendor.
+
+    `players` is parse_dk_results()['players'] from the slate's largest-field
+    contest (actual_own is per-contest; actual_fpts is slate-wide). Unlike
+    load_session_projections this scores all sources, not just the largest.
+    Metrics are None when nothing matched or the column is all-NaN.
+    """
+    actuals = players[["name", "actual_fpts", "actual_own"]].copy()
+    actuals["_norm"] = actuals["name"].apply(_norm_name)
+
+    rows = []
+    for source_name, blob in sessions.merge_same_vendor(sessions.load_sources(slug)).items():
+        df = blob["df"].copy()
+        row = {
+            "vendor": blob.get("vendor"),
+            "source_name": source_name,
+            "n_players_vendor": int(len(df)),
+            "n_matched": 0,
+            "match_rate": None,
+            "proj_mae": None, "proj_corr": None,
+            "own_mae": None, "own_corr": None,
+            "worst_proj_miss": None, "worst_own_miss": None,
+        }
+        if not df.empty:
+            df["_norm"] = df["name"].apply(_norm_name)
+            joined = df.merge(actuals[["_norm", "actual_fpts", "actual_own"]], on="_norm", how="inner")
+            row["n_matched"] = int(len(joined))
+            row["match_rate"] = round(len(joined) / len(df) * 100, 1)
+        if row["n_matched"]:
+            for proj_col, actual_col, prefix in (
+                ("proj_points", "actual_fpts", "proj"),
+                ("ownership", "actual_own", "own"),
+            ):
+                if proj_col not in joined.columns:
+                    continue
+                sub = joined[[proj_col, actual_col, "name"]].dropna()
+                if sub.empty:
+                    continue
+                err = (sub[actual_col] - sub[proj_col]).abs()
+                row[f"{prefix}_mae"] = round(float(err.mean()), 2)
+                if len(sub) >= 3:
+                    corr = sub[proj_col].corr(sub[actual_col])
+                    row[f"{prefix}_corr"] = None if pd.isna(corr) else round(float(corr), 3)
+                worst = sub.loc[err.idxmax()]
+                row[f"worst_{prefix}_miss"] = {
+                    "name": str(worst["name"]),
+                    "proj": _json_safe(round(float(worst[proj_col]), 2)),
+                    "actual": _json_safe(round(float(worst[actual_col]), 2)),
+                    "delta": _json_safe(round(float(worst[actual_col] - worst[proj_col]), 2)),
+                }
+        rows.append(row)
+    return rows
+
+
 def _opt_round(values: list, ndigits: int = 2):
     """Mean of the non-None values, rounded; None if nothing to average.
     Pandas stores None as NaN in numeric columns, so filter both."""

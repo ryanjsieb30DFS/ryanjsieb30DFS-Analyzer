@@ -31,7 +31,7 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas.
 | `src/contests.py` | Per-sport contest registry at `data/contests/<slug>.json` |
 | `src/sim_data.py` | Generic sim-data store: saves the raw upload + a light summary at `data/sim_data/` |
 | `src/bundle.py` | `build_bundle` — consolidates all inputs into `data/bundle/<slug>.md` for Claude to read |
-| `src/analysis_runner.py` | `run_analysis` + `run_build_lineups` + `run_autopsy_review` + `run_apply_proposals` — build the bundle, run `claude -p` headlessly (subscription auth). Power the Analyze tab's "Generate slate analysis" + "Build lineups" buttons and the Autopsy tab's review/approve buttons |
+| `src/analysis_runner.py` | `run_analysis` + `run_build_lineups` + `run_red_team` + `run_autopsy_review` + `run_apply_proposals` — build the bundle, run `claude -p` headlessly (subscription auth). Power the Analyze tab's "Generate slate analysis" / "Build lineups" / "Red team the lineups" buttons and the Autopsy tab's review/approve buttons |
 | `src/lineups.py` | Read/clear the hand-built lineups at `data/lineups/<slug>.md` (Claude writes them via the headless run) |
 | `src/strategy.py` | Loads per-sport philosophy/framework/autopsies + recent lessons (read by `bundle.py`; no UI tab) |
 | `src/autopsy.py` | DK contest-standings parser |
@@ -40,6 +40,8 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas.
 | `rules/<slug>/lessons.yaml` | The lesson ledger — structured lessons with a lifecycle (hypothesis → validated → codified/retired). Claude-edited during the post-autopsy review; user approves codifications |
 | `rules/<slug>/history/` | One folder per archived slate: manifest, slate analysis, lineups, bundle, contests, autopsy records, results, and the autopsy review |
 | `rules/<slug>/results.jsonl` | Append-only, app-written results ledger (one row per slate: buy-in, winnings, ROI, best percentile). Claude reads it, never edits it |
+| `rules/<slug>/vendor_calibration.jsonl` | Append-only, app-written vendor accuracy ledger (proj/own MAE vs DK actuals, largest-field contest per slate). Claude reads it, never edits it. **Legacy `calibrations.jsonl` (plural) files are deprecated sim artifacts — ignore them** |
+| `data/red_team/` | `<slug>.md` — adversarial pre-lock review of the built lineups (Claude-written via the Analyze tab's Red team button; cleared on autopsy log, archived to history) |
 | `rules/{nascar/tracks,pga_classic/courses,mlb_classic/parks}/` | Venue knowledge — one file per track/course/park, accumulating date-stamped per-slate observations. Both PGA slugs share `pga_classic/courses/` |
 | `articles/<slug>/` | Per-contest-type "Slate Data" uploads — PDFs, notes, and photos/screenshots (e.g. DailyFan). Tab label is "Slate Data"; the on-disk dir stays `articles/`. |
 | `templates/` | Canonical projection CSV templates per sport |
@@ -77,8 +79,9 @@ To add a new vendor: edit `VENDOR_SIGNATURES` in `src/vendors.py`.
 2. **Slate Data** — everything that isn't player projections: PDFs/notes/photos (e.g. DailyFan screenshots), misc data CSVs (vegas odds, course/track history, matchup data), and team-level vendor files (SIN MLB stack rankings — auto-detected here and routed to session team data feeding the stack signals)
 3. **Sim Data** *(optional)* — upload a sim export CSV (e.g. SaberSim); stored as-is for Claude
 4. **Analyze** — declare contests, review the auto-snapshot (chalk tiers, leverage, anchor-equivalence, sport signals, vendor disagreement), then click **Generate slate analysis** — the app builds the bundle and runs `claude -p` headlessly to write + render the analysis (no chat needed)
-5. *(After contest ends)* **Autopsy** — upload DK contest-standings CSV(s), link each to its declared contest, enter winnings, view field summary, log lessons to `rules/<slug>/autopsies.md`. **Log autopsy** archives the slate to `rules/<slug>/history/<date>__<slate>/` + appends `rules/<slug>/results.jsonl` before clearing the workspace
-6. **Post-autopsy review** — click **Run post-autopsy review** (Autopsy tab): grades the build process, updates `lessons.yaml` + the venue file, proposes framework changes. Click **Approve & apply proposals** to accept them
+5. *(optional, pre-lock)* **Red team** — click **🔪 Red team the lineups**: an adversarial headless run tries to refute each lineup's thesis; verdicts SHIP / FIX / KILL render below the lineups. Findings only — fix via rebuilding or chat
+6. *(After contest ends)* **Autopsy** — upload DK contest-standings CSV(s), link each to its declared contest, enter winnings, view field summary, log lessons to `rules/<slug>/autopsies.md`. **Log autopsy** archives the slate to `rules/<slug>/history/<date>__<slate>/`, appends `rules/<slug>/results.jsonl`, and calibrates every vendor vs actuals into `rules/<slug>/vendor_calibration.jsonl` before clearing the workspace
+7. **Post-autopsy review** — click **Run post-autopsy review** (Autopsy tab): grades the build process (including red-team verdict adherence), updates `lessons.yaml` + the venue file, proposes framework changes. Click **Approve & apply proposals** to accept them
 
 ## Writing the slate analysis
 
@@ -110,7 +113,8 @@ Before writing `data/slate_analysis/<slug>.md` or `data/lineups/<slug>.md`, in o
 3. **Read `rules/<slug>/lessons.yaml`.** Every lesson with status `hypothesis` or `validated` must be either applied (name where) or rejected (name the mechanism reason). Codified lessons live in framework.md already; retired ones are ignored.
 4. **Run the framework pre-lock checks** for the sport, always including Anchor-Equivalence (`rules/shared/anchor_equivalence.md`).
 5. **Scan `rules/<slug>/results.jsonl`** (last 3 slates) for recent process notes.
-6. **Open the output file with the `## Pre-flight checklist` block** — six lines (slate confirmed / projections loaded / venue file read / open lessons applied-or-rejected / framework pre-lock checks / prior results scanned), each checked `[x]` with specifics or unchecked `[ ]` with the reason. No checklist block, no valid output.
+6. **Check vendor calibration.** When vendors disagree, prefer the vendor with lower MAE in `rules/<slug>/vendor_calibration.jsonl` (inlined in the bundle) — projection MAE for point calls, ownership MAE for leverage calls. **Small-sample guard: a vendor with <3 calibrated slates is a note, not a weight.**
+7. **Open the output file with the `## Pre-flight checklist` block** — six lines (slate confirmed / projections loaded / venue file read / open lessons applied-or-rejected / framework pre-lock checks / prior results scanned), each checked `[x]` with specifics or unchecked `[ ]` with the reason. No checklist block, no valid output.
 
 Checklist format example:
 
@@ -145,11 +149,23 @@ New ledger file header (when creating lessons.yaml for a sport):
 lessons: []
 ```
 
+## Red Team review
+
+Triggered by the Analyze tab's **🔪 Red team the lineups** button after lineups exist → `run_red_team` → writes `data/red_team/<slug>.md` (cleared on autopsy log, archived to history). Adversarial standards:
+
+- **Attack the thesis**: enumerate everything that must be true for each lineup to win, steelman it, then refute with evidence from the slate's inputs.
+- **Verify the leverage math** against vendor-projected ownership (weighted by `vendor_calibration.jsonl`) — name the numbers; a 15%-owned "leverage play" is chalk wearing a costume.
+- **Hunt shared failure modes** across the portfolio and field-duplication risk (obvious cores everyone builds).
+- **Re-run Anchor-Equivalence** and check open `lessons.yaml` lessons the build ignored.
+- **Audit the pre-flight checklist line by line** — verify claims, don't trust checkmarks.
+
+Output format: `## Verdict summary` table, then per-lineup `SHIP / FIX (the one specific change) / KILL (the fatal flaw)` attacks, portfolio-level findings, pre-flight audit. SHIP is a legitimate verdict — manufactured objections are as useless as rubber stamps. **Hard rule: the red team never rewrites lineups.md** — findings only; the user decides.
+
 ## Post-autopsy ritual
 
 Triggered by the Autopsy tab's **Run post-autopsy review** button after **Log autopsy** (which archives the slate to `rules/<slug>/history/<date>__<slate>/` and appends `rules/<slug>/results.jsonl`). The headless run:
 
-1. Grades the archived slate's process (checklist honesty, lessons applied vs ignored).
+1. Grades the archived slate's process (checklist honesty, lessons applied vs ignored). If the archive contains `red_team.md`, also grades verdict adherence and verdict accuracy in hindsight — heeded FIXes that saved points, ignored KILLs that cost lineups, and wrong verdicts that were rightly overruled are all ledger-worthy evidence.
 2. Updates `lessons.yaml` evidence/statuses and births new hypotheses (mechanism-based, not result-based).
 3. Updates/creates the venue file with a date-stamped per-slate observation.
 4. Writes `<history_dir>/autopsy_review.md` with `## Process scorecard`, `## Lesson ledger changes`, `## Venue file changes`, `## Proposed codifications` — proposed (NOT applied) framework changes; the user approves via the app.

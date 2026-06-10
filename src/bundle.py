@@ -167,6 +167,9 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
     results_path = rules_dir / "results.jsonl"
     if results_path.exists():
         L.append(f"- `{results_path}` — cross-slate results ledger")
+    calibration_path = rules_dir / "vendor_calibration.jsonl"
+    if calibration_path.exists():
+        L.append(f"- `{calibration_path}` — per-vendor accuracy history vs DK actuals")
     venue_rel = _VENUE_DIRS.get(slug)
     if venue_rel:
         venue_dir = _REPO_ROOT / "rules" / venue_rel
@@ -175,8 +178,24 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
             if v.stem.lower() != "readme":
                 L.append(f"- `{v}`")
 
+    # Vendor calibration inline so the headless run can't skip it.
+    from src.history import load_results, vendor_accuracy
+    acc = vendor_accuracy(slug)
+    if acc:
+        L += ["", "### Vendor calibration (vs DK actuals)"]
+        for a in acc:
+            flag = " ⚠️ <3 slates — note only, do not weight" if a["slates"] < 3 else ""
+            proj = a["proj_mae"] if a["proj_mae"] is not None else "n/a"
+            own = a["own_mae"] if a["own_mae"] is not None else "n/a"
+            L.append(
+                f"- **{a['vendor']}** — {a['slates']} slate(s): proj MAE {proj}, own MAE {own}{flag}"
+            )
+        L.append(
+            "_When vendors disagree, weight the vendor with the lower demonstrated MAE for that "
+            "metric; ownership MAE drives leverage calls._"
+        )
+
     # Last 3 slate results inline so the headless run can't skip them.
-    from src.history import load_results
     recent_results = load_results(slug, n=3)
     if recent_results:
         L += ["", "### Recent slate results (from results.jsonl)"]

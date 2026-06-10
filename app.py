@@ -20,7 +20,7 @@ from src.landscape import chalk_summary, leverage_table, anchor_equivalence_chec
 from src.projections_diff import flagged_disagreements
 from src.autopsy import (
     parse_dk_results, analyze_contest, load_session_projections,
-    build_autopsy_record, record_md_summary,
+    build_autopsy_record, record_md_summary, score_vendors,
 )
 from src.strategy import load_strategy, load_track, load_shared
 from src.slate_analysis import snapshot, top_chalk, sport_signals, load_persisted, clear_persisted
@@ -33,9 +33,9 @@ from src.sim_data import save_sim, load_sim_summary, clear_sim
 from src.bundle import clear_bundle
 from src.analysis_runner import (
     run_analysis, run_build_lineups, lineup_target,
-    run_autopsy_review, run_apply_proposals,
+    run_autopsy_review, run_apply_proposals, run_red_team,
 )
-from src.lineups import load_lineups, clear_lineups
+from src.lineups import load_lineups, clear_lineups, load_red_team, clear_red_team
 from src import history
 
 
@@ -458,6 +458,34 @@ with tab_analyze:
             st.caption(f"Last updated: {lineups_blob['mtime']}")
             st.markdown(lineups_blob["markdown"])
 
+        # ----- (g) Red team (adversarial pre-lock review) -----
+        st.markdown("---")
+        st.markdown("### Red team")
+        st.caption(
+            "Adversarial pre-lock review: tries to refute each lineup's thesis, audits the "
+            "leverage math and the pre-flight checklist, and hunts shared failure modes. "
+            "Verdicts are SHIP / FIX / KILL — findings only, nothing is rewritten. "
+            "Takes ~1–3 minutes; uses your Claude subscription."
+        )
+        if st.button("🔪 Red team the lineups", key=f"red_team_{slug}"):
+            with st.spinner("Red-teaming the portfolio — attacking each thesis… (~1–3 min)"):
+                rt = run_red_team(slug, contest_label, sport)
+            if rt["ok"]:
+                cost = rt.get("cost_usd")
+                cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
+                st.success(f"Red-team review written in {rt['duration_s']:.0f}s{cost_note}.")
+                st.rerun()
+            else:
+                st.error(f"Couldn't run the red team: {rt['error']}")
+
+        rt_blob = load_red_team(slug)
+        if rt_blob:
+            if rt_blob["mtime"] < lineups_blob["mtime"]:
+                st.warning("Lineups changed since this red-team review — re-run it.")
+            with st.container(border=True):
+                st.caption(f"Last updated: {rt_blob['mtime']}")
+                st.markdown(rt_blob["markdown"])
+
 
 # ===== Tab 5: Autopsy =====
 with tab_autopsy:
@@ -695,18 +723,43 @@ with tab_autopsy:
                     roi_contests=[pc["roi"] for pc in parsed_contests],
                     proj_source=proj_source,
                 )
+                # Vendor calibration: score every uploaded vendor against the
+                # actuals from the largest-field contest. Never blocks the log.
+                cal_note = ""
+                try:
+                    biggest = max(parsed_contests, key=lambda pc: len(pc["lineups"]))
+                    cal_rows = score_vendors(slug, biggest["parsed"]["players"])
+                    for row in cal_rows:
+                        row.update({
+                            "schema_version": 1,
+                            "date": ts.split(" ")[0],
+                            "slug": slug,
+                            "sport": sport,
+                            "slate_label": slate_label.strip() or contest_label,
+                            "history_dir": str(hist_dir.relative_to(REPO_ROOT)),
+                            "calibrated_against": {
+                                "source_file": biggest["name"],
+                                "field_size": len(biggest["lineups"]),
+                            },
+                        })
+                    if cal_rows:
+                        history.append_calibration(slug, cal_rows)
+                        cal_note = f" Calibrated {len(cal_rows)} vendor(s) vs actuals."
+                except Exception as e:
+                    cal_note = f" (Vendor calibration skipped: {e})"
                 # Clear all per-slate state — next slate starts fresh
                 clear_persisted(slug)
                 clear_lineups(slug)
+                clear_red_team(slug)
                 clear_contests(slug)
                 clear_sim(slug)
                 clear_bundle(slug)
                 st.success(
                     f"Logged {len(parsed_contests)} contest(s) to rules/{slug}/autopsies.md "
                     "+ autopsy_data.jsonl, and archived the slate to "
-                    f"`{hist_dir.relative_to(REPO_ROOT)}`. Cleared the slate analysis, "
-                    "lineups, contests, sim data, and bundle for next time. "
-                    "Now run the post-autopsy review below."
+                    f"`{hist_dir.relative_to(REPO_ROOT)}`.{cal_note} Cleared the slate "
+                    "analysis, lineups, red-team review, contests, sim data, and bundle "
+                    "for next time. Now run the post-autopsy review below."
                 )
 
     # ----- Post-autopsy review (the learning loop) ----- #
@@ -781,6 +834,17 @@ with tab_autopsy:
             for r in reversed(results_rows)
         ])
         st.dataframe(ledger, use_container_width=True)
+
+    # ----- Vendor accuracy ----- #
+    acc = history.vendor_accuracy(slug)
+    if acc:
+        st.divider()
+        st.markdown("### Vendor accuracy (last 10 slates)")
+        st.caption(
+            "Projection / ownership mean absolute error vs DK actuals from the "
+            "largest-field contest per slate. Under 3 slates = small sample, note only."
+        )
+        st.dataframe(pd.DataFrame(acc), use_container_width=True)
 
     st.divider()
     st.markdown("### Cross-slate patterns (autopsies.md)")

@@ -154,6 +154,54 @@ def run_build_lineups(slug: str, contest_label: str, sport: str, n_target: int) 
     return _run_claude(prompt, out_path)
 
 
+def run_red_team(slug: str, contest_label: str, sport: str) -> dict:
+    """Adversarial pre-lock review of the built lineups — findings only,
+    written to data/red_team/<slug>.md. Never rewrites the lineups."""
+    lineups_path = _REPO_ROOT / "data" / "lineups" / f"{slug}.md"
+    if not lineups_path.exists():
+        return {"ok": False, "error": "Build lineups first — the red team attacks them.",
+                "duration_s": 0.0, "cost_usd": None}
+
+    analysis_path = _REPO_ROOT / "data" / "slate_analysis" / f"{slug}.md"
+    out_path = _REPO_ROOT / "data" / "red_team" / f"{slug}.md"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    bundle_path = build_bundle(slug, contest_label, sport)
+
+    prompt = (
+        f"Red-team the {contest_label} lineup portfolio at `{lineups_path}`. You are an ADVERSARY "
+        f"whose job is to kill these lineups before lock, per the 'Red Team review' section of "
+        f"CLAUDE.md. Read the slate analysis at `{analysis_path}`, the bundle at `{bundle_path}` and "
+        f"its referenced projections, `rules/{slug}/philosophy.md`, `rules/{slug}/framework.md`, "
+        f"`rules/{slug}/lessons.yaml`, and `rules/shared/anchor_equivalence.md`. If "
+        f"`rules/{slug}/vendor_calibration.jsonl` exists, use it to judge how much to trust each "
+        f"vendor's ownership numbers.\n\n"
+        f"For EACH lineup:\n"
+        f"1. REFUTE THE THESIS: state what must ALL be true for this lineup to win the GPP, then "
+        f"attack each condition with evidence from the inputs. Steelman it first, then break it.\n"
+        f"2. LEVERAGE AUDIT: recompute the math — is the 'contrarian' piece actually contrarian at "
+        f"the vendor-projected ownership? Name the number. A 15%-owned 'leverage play' is chalk "
+        f"wearing a costume.\n"
+        f"3. SHARED FAILURE MODES: what single game-state kills this lineup AND another one in the "
+        f"portfolio?\n\n"
+        f"Then PORTFOLIO-LEVEL findings: competing lineups answering the same question, chalk-tier "
+        f"Anchor-Equivalence violations (2+ similar-own anchors with no lineup on the alternative), "
+        f"duplication risk with the field (obvious cores everyone builds), and open lessons.yaml "
+        f"lessons the build ignored.\n\n"
+        f"Then AUDIT THE PRE-FLIGHT CHECKLIST in `{lineups_path}` skeptically: for each checked "
+        f"line, verify it was actually done (e.g. does the named venue file exist and say what's "
+        f"claimed?). Flag rubber-stamps.\n\n"
+        f"VERDICT per lineup: SHIP (survives attack), FIX (name the ONE specific change), or KILL "
+        f"(name the fatal flaw). Be willing to say SHIP — manufactured objections are as useless as "
+        f"rubber stamps.\n\n"
+        f"HARD RULE: do NOT edit `{lineups_path}` or any other file — write ONLY the findings to "
+        f"`{out_path}` with sections: '## Verdict summary' (table: lineup / verdict / one-line "
+        f"reason), '## Lineup attacks' (one subsection each), '## Portfolio-level findings', "
+        f"'## Pre-flight audit'. The user decides what to act on. "
+        f"Do not ask any questions — produce the file."
+    )
+    return _run_claude(prompt, out_path)
+
+
 def run_autopsy_review(slug: str, contest_label: str, sport: str) -> dict:
     """Post-autopsy learning run: grade the archived slate's process, update
     the lesson ledger + venue file, and write proposed (not applied)
@@ -168,12 +216,17 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str) -> dict:
     out_path = hist_dir / "autopsy_review.md"
     prompt = (
         f"Run the post-autopsy review for the archived {contest_label} slate at `{hist_dir}`. "
-        f"Read its manifest.json, slate_analysis.md, lineups.md, autopsy.json, and results.json, "
-        f"plus the latest entries in `rules/{slug}/autopsy_data.jsonl` and the lesson ledger at "
+        f"Read its manifest.json, slate_analysis.md, lineups.md, autopsy.json, and results.json "
+        f"(plus red_team.md if present), the latest entries in `rules/{slug}/autopsy_data.jsonl`, "
+        f"and the lesson ledger at "
         f"`rules/{slug}/lessons.yaml` (create it with the standard header from CLAUDE.md's "
         f"'Lesson ledger' section if missing). Then, following the 'Post-autopsy ritual' in CLAUDE.md:\n"
         f"1. GRADE THE PROCESS: was the pre-flight checklist present and honest in slate_analysis.md "
-        f"and lineups.md? Which open lessons were applied vs ignored, and did ignored ones cost anything?\n"
+        f"and lineups.md? Which open lessons were applied vs ignored, and did ignored ones cost anything? "
+        f"If red_team.md exists: for each FIX/KILL verdict, was it heeded before lock, and was the red "
+        f"team right in hindsight? A heeded FIX that saved points or an ignored KILL that cost a lineup "
+        f"is ledger-worthy evidence; an overruled verdict that was wrong is evidence against "
+        f"over-trusting the red team.\n"
         f"2. UPDATE `rules/{slug}/lessons.yaml` directly (Edit tool): add confirmations/contradictions "
         f"with this slate's date and history dir; promote status to 'validated' where confirmations "
         f"exist; add new 'hypothesis' lessons born from this autopsy — mechanism-based, not "
