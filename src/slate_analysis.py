@@ -148,6 +148,46 @@ def _nascar_signals(df: pd.DataFrame) -> dict:
 
 _PITCHER_POS = {"p", "sp", "rp"}
 
+# Vendors disagree on MLB team naming (ETR: "CHC", SIN: "Cubs"). Map every
+# variant to one canonical key so cross-vendor team merges line up.
+_MLB_TEAM_KEYS = {
+    "ARI": "ARI", "AZ": "ARI", "DIAMONDBACKS": "ARI",
+    "ATL": "ATL", "BRAVES": "ATL",
+    "BAL": "BAL", "ORIOLES": "BAL",
+    "BOS": "BOS", "RED SOX": "BOS",
+    "CHC": "CHC", "CUBS": "CHC",
+    "CWS": "CWS", "CHW": "CWS", "WHITE SOX": "CWS",
+    "CIN": "CIN", "REDS": "CIN",
+    "CLE": "CLE", "GUARDIANS": "CLE",
+    "COL": "COL", "ROCKIES": "COL",
+    "DET": "DET", "TIGERS": "DET",
+    "HOU": "HOU", "ASTROS": "HOU",
+    "KC": "KC", "KCR": "KC", "ROYALS": "KC",
+    "LAA": "LAA", "ANGELS": "LAA",
+    "LAD": "LAD", "DODGERS": "LAD",
+    "MIA": "MIA", "MARLINS": "MIA",
+    "MIL": "MIL", "BREWERS": "MIL",
+    "MIN": "MIN", "TWINS": "MIN",
+    "NYM": "NYM", "METS": "NYM",
+    "NYY": "NYY", "YANKEES": "NYY",
+    "ATH": "ATH", "OAK": "ATH", "ATHLETICS": "ATH", "A'S": "ATH",
+    "PHI": "PHI", "PHILLIES": "PHI",
+    "PIT": "PIT", "PIRATES": "PIT",
+    "SD": "SD", "SDP": "SD", "PADRES": "SD",
+    "SEA": "SEA", "MARINERS": "SEA",
+    "SF": "SF", "SFG": "SF", "GIANTS": "SF",
+    "STL": "STL", "CARDINALS": "STL",
+    "TB": "TB", "TBR": "TB", "RAYS": "TB",
+    "TEX": "TEX", "RANGERS": "TEX",
+    "TOR": "TOR", "BLUE JAYS": "TOR",
+    "WSH": "WSH", "WAS": "WSH", "NATIONALS": "WSH",
+}
+
+
+def _mlb_team_key(team) -> str:
+    s = str(team).strip()
+    return _MLB_TEAM_KEYS.get(s.upper(), s)
+
 
 def _mlb_signals(df: pd.DataFrame, team_data: pd.DataFrame | None = None) -> dict:
     """Team stacks (the core MLB lever) + the pitcher pool."""
@@ -170,7 +210,8 @@ def _mlb_signals(df: pd.DataFrame, team_data: pd.DataFrame | None = None) -> dic
             )
         else:
             stacks = stacks.sort_values("stack_proj", ascending=False)
-        # Vendor stack rankings (e.g. SIN MLB stack file) beat our summed proxy
+        # Vendor stack rankings (e.g. SIN MLB stack file) beat our summed proxy.
+        # Merge on normalized team keys — vendors mix abbreviations and nicknames.
         if team_data is not None and not team_data.empty and "team" in team_data.columns:
             vendor_cols = {
                 "stack_proj": "vendor_stack_proj",
@@ -178,9 +219,11 @@ def _mlb_signals(df: pd.DataFrame, team_data: pd.DataFrame | None = None) -> dic
                 "stack_salary": "vendor_stack_salary",
             }
             keep = ["team"] + [c for c in vendor_cols if c in team_data.columns]
-            stacks = stacks.merge(
-                team_data[keep].rename(columns=vendor_cols), on="team", how="left"
-            )
+            td = team_data[keep].rename(columns=vendor_cols).copy()
+            td["_team_key"] = td["team"].apply(_mlb_team_key)
+            td = td.drop(columns="team")
+            stacks["_team_key"] = stacks["team"].apply(_mlb_team_key)
+            stacks = stacks.merge(td, on="_team_key", how="left").drop(columns="_team_key")
             if "vendor_stack_proj" in stacks.columns:
                 stacks = stacks.sort_values("vendor_stack_proj", ascending=False)
         out["team_stacks"] = stacks.reset_index(drop=True)

@@ -51,17 +51,20 @@ def load_projections(csv_path_or_buffer) -> pd.DataFrame:
     vendor_name: str | None = None
     signature = detect_vendor(projections)
     if signature is not None:
-        # Team-level files (e.g. SIN MLB stack rankings) skip the player
-        # schema entirely — normalized and returned as-is.
-        if signature.get("kind") == "team_stacks":
+        # Non-projection files (team stacks, rankings) skip the player
+        # schema entirely — normalized and returned with their kind tagged
+        # so the UI can route them.
+        kind = signature.get("kind")
+        if kind is not None:
             out = normalize_to_canonical(projections, signature)
-            for col in ("stack_proj", "stack_own", "stack_salary"):
-                if col in out.columns:
-                    out[col] = out[col].apply(_clean_number)
-            out["team"] = out["team"].astype(str).str.strip()
+            if kind == "team_stacks":
+                for col in ("stack_proj", "stack_own", "stack_salary"):
+                    if col in out.columns:
+                        out[col] = out[col].apply(_clean_number)
+                out["team"] = out["team"].astype(str).str.strip()
             out = out.reset_index(drop=True)
             out.attrs["vendor"] = signature["name"]
-            out.attrs["kind"] = "team_stacks"
+            out.attrs["kind"] = kind
             return out
         projections = normalize_to_canonical(projections, signature)
         vendor_name = signature["name"]
@@ -131,9 +134,12 @@ def load_projections(csv_path_or_buffer) -> pd.DataFrame:
 
 
 def _clean_columns(df: pd.DataFrame) -> pd.DataFrame:
-    """Lowercase and strip column names; preserve order."""
+    """Lowercase and strip column names; preserve order. Strips the UTF-8 BOM
+    some vendor exports prepend to the first header (str.strip won't)."""
     df = df.copy()
-    df.columns = [c.strip().lower().replace(" ", "_") for c in df.columns]
+    df.columns = [
+        c.replace("\ufeff", "").strip().lower().replace(" ", "_") for c in df.columns
+    ]
     return df
 
 

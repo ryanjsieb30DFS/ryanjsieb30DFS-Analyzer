@@ -85,10 +85,12 @@ VENDOR_SIGNATURES: list[dict] = [
         "drop_columns": ["win_odds", "finish_odds", "mean_ppd", "win_ppd"],
     },
     {
-        # SIN ships MLB as separate hitter + pitcher files with identical
-        # headers — this one signature matches both; `pos` tells the rows apart.
-        "name": "Ship It Nation MLB",
+        # SIN's hitter + pitcher rankings files (identical headers; `pos` tells
+        # the rows apart). These are RANKINGS — slate context, not the player
+        # pool — so they route to articles/<slug>/, not the projections session.
+        "name": "Ship It Nation MLB Rankings",
         "sport": "mlb",
+        "kind": "rankings",
         "required_columns": {"name", "team", "opp", "pos", "h", "salary", "proj", "own"},
         "column_map": {
             "proj": "proj_points",
@@ -98,6 +100,24 @@ VENDOR_SIGNATURES: list[dict] = [
             "h": "hand",
         },
         "drop_columns": ["#", "slate"],
+    },
+    {
+        # SIN's single-file MLB projections export (distinct from their
+        # hitter/pitcher rankings pair below — different headers, team
+        # abbreviations instead of nicknames). No ceiling column — stddev
+        # falls back to 30% of projection.
+        "name": "Ship It Nation MLB Projections",
+        "sport": "mlb",
+        "required_columns": {"name", "tm", "opp", "pos", "sal", "proj", "own"},
+        "column_map": {
+            "sal": "salary",
+            "proj": "proj_points",
+            "own": "ownership",
+            "tm": "team",
+            "opp": "opponent",
+            "pos": "position",
+        },
+        "drop_columns": ["pt/$", "slate"],
     },
     {
         # SIN's third MLB file: team-level stack rankings, not player rows.
