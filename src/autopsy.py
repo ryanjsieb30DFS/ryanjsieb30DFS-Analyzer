@@ -125,10 +125,18 @@ def score_vendors(slug: str, players: pd.DataFrame) -> list[dict]:
     """
     actuals = players[["name", "actual_fpts", "actual_own"]].copy()
     actuals["_norm"] = actuals["name"].apply(_norm_name)
+    # DK lists multi-position players once per roster spot — dedupe so the
+    # join can't multiply rows (keep first; FPTS is identical across listings).
+    actuals = actuals.drop_duplicates("_norm")
 
     rows = []
     for source_name, blob in sessions.merge_same_vendor(sessions.load_sources(slug)).items():
         df = blob["df"].copy()
+        if not df.empty:
+            df["_norm"] = df["name"].apply(_norm_name)
+            # Two-way players (e.g. hitter + pitcher rows in SIN MLB) appear
+            # twice in the vendor pool — keep the higher-projection role.
+            df = df.sort_values("proj_points", ascending=False).drop_duplicates("_norm")
         row = {
             "vendor": blob.get("vendor"),
             "source_name": source_name,
@@ -140,7 +148,6 @@ def score_vendors(slug: str, players: pd.DataFrame) -> list[dict]:
             "worst_proj_miss": None, "worst_own_miss": None,
         }
         if not df.empty:
-            df["_norm"] = df["name"].apply(_norm_name)
             joined = df.merge(actuals[["_norm", "actual_fpts", "actual_own"]], on="_norm", how="inner")
             row["n_matched"] = int(len(joined))
             row["match_rate"] = round(len(joined) / len(df) * 100, 1)

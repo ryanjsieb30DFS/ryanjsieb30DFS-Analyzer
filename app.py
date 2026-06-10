@@ -43,7 +43,9 @@ from src.lineups import (
 from src import history
 
 
-REPO_ROOT = Path(__file__).parent
+# resolve() is required: under `streamlit run app.py` __file__ is relative,
+# and relative_to() against an unresolved root breaks on absolute paths.
+REPO_ROOT = Path(__file__).resolve().parent
 
 CONTEST_TYPES = {
     "PGA Classic": {"slug": "pga_classic", "sport": "golf"},
