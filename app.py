@@ -37,8 +37,8 @@ from src.analysis_runner import (
 )
 from src.lineups import (
     load_lineups, clear_lineups, load_red_team, clear_red_team,
-    roster_spec, slot_eligible, lineup_totals, validate_lineup,
-    append_handbuilt_lineup,
+    roster_spec, lineup_totals, validate_lineup,
+    append_handbuilt_lineup, assign_slots,
 )
 from src import history
 
@@ -509,51 +509,8 @@ with tab_hand:
         if slug == "pga_rd4_sd":
             st.caption("⛳ Flat 6-golfer lineup — no captain, no multiplier.")
 
-        # Sortable reference table with value + leverage flag
-        view = hb_df.copy()
-        view["value"] = (view["proj_points"] / view["salary"] * 1000).round(2)
-        view["sub10"] = view["ownership"] < 10
-        extras = {
-            "golf": ["tee_time", "ceiling", "make_cut_odds"],
-            "mma": ["win_prob", "ko_pct", "sub_pct", "dec_pct"],
-            "nascar": ["starting_position", "dominator_points", "fast_laps"],
-            "mlb": [],
-        }.get(sport, [])
-        wanted = ["name", "position", "team", "opponent", "salary", "proj_points",
-                  "ownership", "value", "sub10"] + extras
-        cols = [c for c in wanted if c in view.columns]
-        st.dataframe(
-            view[cols].sort_values("salary", ascending=False),
-            use_container_width=True, height=320,
-            column_config={
-                "sub10": st.column_config.CheckboxColumn("<10% own"),
-                "ownership": st.column_config.NumberColumn("own%", format="%.1f"),
-                "proj_points": st.column_config.NumberColumn("proj", format="%.1f"),
-            },
-        )
-
-        # Slot pickers
         spec = roster_spec(slug)
         n_slots = len(spec["slots"])
-        # NaN -> None so totals/validation/format treat missing data as missing
-        hb_rows = {
-            rec["name"]: {k: (None if pd.isna(v) else v) for k, v in rec.items()}
-            for rec in hb_df.to_dict("records")
-        }
-
-        def _hb_fmt(name: str) -> str:
-            r = hb_rows[name]
-            bits = [name]
-            if r.get("position"):
-                bits.append(str(r["position"]))
-            if r.get("team"):
-                bits.append(str(r["team"]))
-            bits.append(f"${int(r['salary']):,}")
-            if r.get("proj_points") is not None:
-                bits.append(f"{float(r['proj_points']):.1f} pts")
-            if r.get("ownership") is not None:
-                bits.append(f"{float(r['ownership']):.1f}%")
-            return " · ".join(bits)
 
         # Slot labels: "P 1, P 2, C, 1B…" for MLB; "Golfer 1…6" for flat sports
         slot_labels = []
@@ -566,96 +523,139 @@ with tab_hand:
             else:
                 slot_labels.append(f"{spec['slot_label']} {seen_slots[s]}")
 
-        st.markdown("### Pick your lineup")
-        picked_names = [st.session_state.get(f"hb_slot_{slug}_{i}") for i in range(n_slots)]
-        for row_start in range(0, n_slots, 3):
-            cells = st.columns(3)
-            for j, i in enumerate(range(row_start, min(row_start + 3, n_slots))):
-                others = {p for k, p in enumerate(picked_names) if p and k != i}
-                options = sorted(
-                    (
-                        name for name, r in hb_rows.items()
-                        if name not in others
-                        and slot_eligible(
-                            r.get("position") if spec["positional"] else None,
-                            spec["slots"][i],
-                        )
-                    ),
-                    key=lambda nm: -int(hb_rows[nm]["salary"]),
-                )
-                with cells[j]:
-                    st.selectbox(
-                        slot_labels[i], options, index=None, placeholder="— empty —",
-                        key=f"hb_slot_{slug}_{i}", format_func=_hb_fmt,
-                    )
+        # Pool view: pinned order — selection indices map into THIS df, so its
+        # row order must never change between reruns.
+        view = hb_df.copy()
+        view["value"] = (view["proj_points"] / view["salary"] * 1000).round(2)
+        view["sub10"] = view["ownership"] < 10
+        view = view.sort_values(["salary", "name"], ascending=[False, True]).reset_index(drop=True)
+        extras = {
+            "golf": ["tee_time", "ceiling", "make_cut_odds"],
+            "mma": ["win_prob", "ko_pct", "sub_pct", "dec_pct"],
+            "nascar": ["starting_position", "dominator_points", "fast_laps"],
+            "mlb": [],
+        }.get(sport, [])
+        wanted = ["name", "position", "team", "opponent", "salary", "proj_points",
+                  "ownership", "value", "sub10"] + extras
+        cols = [c for c in wanted if c in view.columns]
 
-        picked_names = [st.session_state.get(f"hb_slot_{slug}_{i}") for i in range(n_slots)]
-        picked = [
-            dict(hb_rows[nm], slot=spec["slots"][i])
-            for i, nm in enumerate(picked_names) if nm
+        nonce_key = f"hb_nonce_{slug}"
+        nonce = st.session_state.setdefault(nonce_key, 0)
+        left, right = st.columns([3, 2], gap="medium")
+
+        with left:
+            event = st.dataframe(
+                view[cols], hide_index=True, height=500,
+                use_container_width=True,
+                on_select="rerun", selection_mode="multi-row",
+                key=f"hb_table_{slug}_{hb_src}_{nonce}",
+                column_config={
+                    "sub10": st.column_config.CheckboxColumn("<10% own"),
+                    "ownership": st.column_config.NumberColumn("own%", format="%.1f"),
+                    "proj_points": st.column_config.NumberColumn("proj", format="%.1f"),
+                },
+            )
+            st.caption(
+                "Click rows to add players · deselect to remove. Sorting a column "
+                "clears your picks — use the table's 🔍 search instead."
+            )
+
+        sel_rows = sorted(event.selection.rows)
+        ignored = sel_rows[n_slots:]
+        sel_rows = sel_rows[:n_slots]
+        selected = [
+            {k: (None if pd.isna(v) else v) for k, v in view.iloc[i].items()}
+            for i in sel_rows
         ]
+        picked, assign_errors = assign_slots(selected, spec)
 
-        # Live totals
-        totals = lineup_totals(picked, spec["cap"])
-        m1, m2, m3, m4, m5 = st.columns(5)
-        m1.metric("Salary used", f"${totals['salary_used']:,}")
-        m2.metric("Remaining", f"${totals['salary_left']:,}",
-                  delta=None if totals["salary_left"] >= 0 else f"-${-totals['salary_left']:,} over")
-        m3.metric("Proj points", totals["proj_total"])
-        m4.metric("Total own%", f"{totals['own_total']}%"
-                  + (f" (avg {totals['own_avg']}%)" if totals["own_avg"] is not None else ""))
-        m5.metric("Sub-10% players", totals["n_sub10"])
-        st.caption(f"{totals['n_players']}/{n_slots} slots filled. GPP note: winners run more sub-10% players than the field.")
+        with right:
+            totals = lineup_totals(picked, spec["cap"])
+            open_slots = n_slots - totals["n_players"]
+            rem_per = totals["salary_left"] // open_slots if open_slots else None
+            st.markdown(f"#### Lineup ({totals['n_players']}/{n_slots})")
+            a1, a2, a3 = st.columns(3)
+            a1.metric("Salary", f"${totals['salary_used']:,}")
+            a2.metric("Remaining", f"${totals['salary_left']:,}")
+            a3.metric("Rem/Player", f"${rem_per:,}" if rem_per is not None else "—")
+            b1, b2, b3 = st.columns(3)
+            b1.metric("Proj", totals["proj_total"])
+            b2.metric("Own%", f"{totals['own_total']}%")
+            b3.metric("Sub-10%", totals["n_sub10"])
 
-        # Live structural errors only — don't nag about incomplete slots mid-build
-        if picked:
-            live_errors = [
-                e for e in validate_lineup(slug, picked, thesis="x", what_if="x")
-                if e.startswith("Over the") or e.startswith("House rule")
-                or "not eligible" in e or e.startswith("Duplicate")
-            ]
-            for e in live_errors:
+            if ignored:
+                names = ", ".join(view.iloc[i]["name"] for i in ignored)
+                st.warning(
+                    f"{len(ignored)} too many players selected — ignoring: {names}. "
+                    "Deselect rows to fix."
+                )
+
+            # Slot list — picked is in spec slot order, so a pointer-walk lines
+            # each player up with its label (handles P/P and OF×3 duplicates).
+            ptr = 0
+            lines = []
+            for i, label in enumerate(slot_labels):
+                if ptr < len(picked) and picked[ptr]["slot"] == spec["slots"][i]:
+                    p = picked[ptr]
+                    ptr += 1
+                    own = f"{float(p['ownership']):.1f}%" if p.get("ownership") is not None else "—"
+                    proj = f"{float(p['proj_points']):.1f}" if p.get("proj_points") is not None else "—"
+                    lines.append(f"**{label}** · {p['name']} · ${int(p['salary']):,} · {proj} · {own}")
+                else:
+                    lines.append(f"**{label}** · *— empty —*")
+            st.markdown("\n\n".join(lines))
+            st.caption("To remove a player, deselect their row in the table.")
+
+            for e in assign_errors:
                 st.error(e)
 
-        # Save block
-        st.markdown("### Save to the portfolio")
-        hb_name = st.text_input(
-            "Lineup name (optional)", key=f"hb_name_{slug}",
-            placeholder='e.g. "Braves Freight Train"',
-        )
-        hb_thesis = st.text_input(
-            "Thesis — one sentence: how does this lineup win? (required)",
-            key=f"hb_thesis_{slug}",
-        )
-        hb_whatif = st.text_input(
-            "What if? — the distinct question this lineup answers (required)",
-            key=f"hb_whatif_{slug}",
-        )
-        b1, b2 = st.columns([1, 1])
-        if b1.button("💾 Save lineup", type="primary", key=f"hb_save_{slug}"):
-            errors = validate_lineup(slug, picked, hb_thesis, hb_whatif)
-            if errors:
-                for e in errors:
+            # Live structural errors only — don't nag about incomplete slots mid-build
+            if picked:
+                live_errors = [
+                    e for e in validate_lineup(slug, picked, thesis="x", what_if="x")
+                    if e.startswith("Over the") or e.startswith("House rule")
+                    or "not eligible" in e or e.startswith("Duplicate")
+                ]
+                for e in live_errors:
                     st.error(e)
-            else:
-                n = append_handbuilt_lineup(
-                    slug, contest_label, hb_name, hb_thesis, hb_whatif, picked
-                )
-                for i in range(n_slots):
-                    st.session_state.pop(f"hb_slot_{slug}_{i}", None)
+
+            # Save block
+            st.markdown("##### Save to the portfolio")
+            hb_name = st.text_input(
+                "Lineup name (optional)", key=f"hb_name_{slug}",
+                placeholder='e.g. "Braves Freight Train"',
+            )
+            hb_thesis = st.text_input(
+                "Thesis — one sentence: how does this lineup win? (required)",
+                key=f"hb_thesis_{slug}",
+            )
+            hb_whatif = st.text_input(
+                "What if? — the distinct question this lineup answers (required)",
+                key=f"hb_whatif_{slug}",
+            )
+            c1, c2 = st.columns([1, 1])
+            if c1.button("💾 Save lineup", type="primary", key=f"hb_save_{slug}"):
+                errors = assign_errors + validate_lineup(slug, picked, hb_thesis, hb_whatif)
+                if errors:
+                    for e in errors:
+                        st.error(e)
+                else:
+                    n = append_handbuilt_lineup(
+                        slug, contest_label, hb_name, hb_thesis, hb_whatif, picked
+                    )
+                    st.session_state[nonce_key] = nonce + 1
+                    for k in (f"hb_name_{slug}", f"hb_thesis_{slug}", f"hb_whatif_{slug}"):
+                        st.session_state.pop(k, None)
+                    st.success(
+                        f"Saved Lineup {n} (handbuilt) to data/lineups/{slug}.md — it shows "
+                        "in the Analyze tab and is covered by Red Team."
+                    )
+                    st.rerun()
+            if c2.button("Clear lineup", key=f"hb_clear_{slug}"):
+                st.session_state[nonce_key] = nonce + 1
                 for k in (f"hb_name_{slug}", f"hb_thesis_{slug}", f"hb_whatif_{slug}"):
                     st.session_state.pop(k, None)
-                st.success(
-                    f"Saved Lineup {n} (handbuilt) to data/lineups/{slug}.md — it shows in "
-                    "the Analyze tab and is covered by Red Team."
-                )
                 st.rerun()
-        if b2.button("Clear lineup", key=f"hb_clear_{slug}"):
-            for i in range(n_slots):
-                st.session_state.pop(f"hb_slot_{slug}_{i}", None)
-            for k in (f"hb_name_{slug}", f"hb_thesis_{slug}", f"hb_whatif_{slug}"):
-                st.session_state.pop(k, None)
-            st.rerun()
 
         # Current portfolio
         hb_lineups = load_lineups(slug)

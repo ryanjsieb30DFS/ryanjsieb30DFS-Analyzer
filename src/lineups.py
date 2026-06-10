@@ -82,6 +82,56 @@ def slot_eligible(position, slot: str) -> bool:
     return slot in [p.strip().upper() for p in str(position).split("/")]
 
 
+def assign_slots(players: list[dict], spec: dict) -> tuple[list[dict], list[str]]:
+    """Auto-assign selected players to roster slots.
+
+    Returns (assigned, errors). assigned = copies of placeable players with
+    'slot' set, ordered by slot index (spec order). errors = one message per
+    unplaceable player. Positional sports use Kuhn's augmenting-path bipartite
+    matching (exact — picking '1B/3B' then '1B' relocates the flex player to
+    3B instead of erroring); flat sports fill slots in order. Partial
+    selections are fine — open slots stay open.
+    """
+    slots = spec["slots"]
+    if not spec["positional"]:
+        assigned = [dict(p, slot=slots[i]) for i, p in enumerate(players[: len(slots)])]
+        errors = [
+            f"No open slot for {p['name']} — all {len(slots)} slots are filled."
+            for p in players[len(slots):]
+        ]
+        return assigned, errors
+
+    elig = [
+        [j for j, s in enumerate(slots) if slot_eligible(p.get("position"), s)]
+        for p in players
+    ]
+    owner: dict[int, int] = {}  # slot index -> player index
+
+    def _place(i: int, visited: set) -> bool:
+        for j in elig[i]:
+            if j in visited:
+                continue
+            visited.add(j)
+            if j not in owner or _place(owner[j], visited):
+                owner[j] = i
+                return True
+        return False
+
+    errors = []
+    # Scarcity order: rigid players claim slots first, so errors land on the
+    # most flexible (and most fixable) picks.
+    for i in sorted(range(len(players)), key=lambda i: (len(elig[i]), i)):
+        p = players[i]
+        if not elig[i]:
+            errors.append(f"{p['name']} ({p.get('position')}) doesn't fit any slot in this contest.")
+        elif not _place(i, set()):
+            taken = " and ".join(dict.fromkeys(slots[j] for j in elig[i]))
+            errors.append(f"No open slot for {p['name']} ({p.get('position')}) — {taken} already filled.")
+
+    assigned = [dict(players[i], slot=slots[j]) for j, i in sorted(owner.items())]
+    return assigned, errors
+
+
 def lineup_totals(players: list[dict], cap: int = SALARY_CAP) -> dict:
     """GPP summary math for a (possibly partial) lineup of canonical row dicts."""
     salaries = [int(p["salary"]) for p in players if p.get("salary") is not None]
