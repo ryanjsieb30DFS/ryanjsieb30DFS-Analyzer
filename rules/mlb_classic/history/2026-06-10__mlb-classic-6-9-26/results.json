@@ -14,8 +14,8 @@
       "my_entries": 1,
       "entry_fee": 12.0,
       "buy_in": 12.0,
-      "winnings": null,
-      "roi_pct": null,
+      "winnings": 0.0,
+      "roi_pct": -100.0,
       "best_rank": 202,
       "best_percentile": 41.2
     },
@@ -27,15 +27,15 @@
       "my_entries": 1,
       "entry_fee": 12.0,
       "buy_in": 12.0,
-      "winnings": null,
-      "roi_pct": null,
+      "winnings": 0.0,
+      "roi_pct": -100.0,
       "best_rank": 391,
       "best_percentile": 39.9
     }
   ],
   "total_buy_in": 24.0,
-  "total_winnings": null,
-  "roi_pct": null,
+  "total_winnings": 0.0,
+  "roi_pct": -100.0,
   "best_rank": 202,
   "best_percentile": 39.9,
   "entries_total": 2
