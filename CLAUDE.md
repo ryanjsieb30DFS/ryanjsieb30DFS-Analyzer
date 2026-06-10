@@ -6,7 +6,7 @@ Multi-sport DFS slate analyzer for DraftKings. Streamlit web app. Personal-use, 
 
 A pre-slate / post-slate analysis tool for **PGA Classic, PGA RD4 Showdown, MMA, NASCAR**. The user uploads vendor projections; the Analyzer surfaces the structural read of the slate (chalk tiers, leverage candidates, anchor-equivalence pre-lock check, cross-vendor disagreements). After the contest, the user uploads DK contest-standings and the Analyzer drives a post-mortem.
 
-This tool does not build lineups, run Monte Carlo, or simulate contests. It surfaces the **read**; lineup construction is left to the user.
+Lineups come from two places, both landing in `data/lineups/<slug>.md`: Claude builds them on request (Analyze tab's Build lineups button) and the user hand-builds them in the **Handbuild** tab — handbuilt lineups carry a `(handbuilt)` tag in their heading. The tool does not run Monte Carlo or simulate contests.
 
 ## Run
 
@@ -21,7 +21,7 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas.
 
 | Path | Purpose |
 |---|---|
-| `app.py` | Streamlit UI: 5 tabs (Projections, Slate Data, Sim Data, Analyze, Autopsy) |
+| `app.py` | Streamlit UI: 6 tabs (Projections, Slate Data, Sim Data, Analyze, Handbuild, Autopsy) |
 | `src/projections.py` | CSV loader with vendor auto-detection + canonical schema normalization |
 | `src/vendors.py` | Vendor column signatures (ETR, Ship It Nation, DailyFan PGA/MMA/NASCAR, DK PGA RD4 SD) |
 | `src/sessions.py` | Per-sport JSON persistence at `data/sessions/<slug>.json` |
@@ -32,7 +32,7 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas.
 | `src/sim_data.py` | Generic sim-data store: saves the raw upload + a light summary at `data/sim_data/` |
 | `src/bundle.py` | `build_bundle` — consolidates all inputs into `data/bundle/<slug>.md` for Claude to read |
 | `src/analysis_runner.py` | `run_analysis` + `run_build_lineups` + `run_red_team` + `run_autopsy_review` + `run_apply_proposals` — build the bundle, run `claude -p` headlessly (subscription auth). Power the Analyze tab's "Generate slate analysis" / "Build lineups" / "Red team the lineups" buttons and the Autopsy tab's review/approve buttons |
-| `src/lineups.py` | Read/clear the hand-built lineups at `data/lineups/<slug>.md` (Claude writes them via the headless run) |
+| `src/lineups.py` | Read/clear `data/lineups/<slug>.md` + `data/red_team/<slug>.md`, plus the Handbuild engine: `ROSTER_SPECS` (DK roster shapes + $50K cap per slug), `validate_lineup` (always-on house rules incl. MLB own-pitcher block + thesis required), `append_handbuilt_lineup` (appends `(handbuilt)`-tagged lineups in the Claude-built format, numbering continued) |
 | `src/strategy.py` | Loads per-sport philosophy/framework/autopsies + recent lessons (read by `bundle.py`; no UI tab) |
 | `src/autopsy.py` | DK contest-standings parser |
 | `src/history.py` | Per-slate archive (`rules/<slug>/history/`) + cross-slate results ledger (`rules/<slug>/results.jsonl`) — written by the Autopsy tab's Log button BEFORE the workspace clears |
@@ -79,9 +79,10 @@ To add a new vendor: edit `VENDOR_SIGNATURES` in `src/vendors.py`.
 2. **Slate Data** — everything that isn't player projections: PDFs/notes/photos (e.g. DailyFan screenshots), misc data CSVs (vegas odds, course/track history, matchup data), and team-level vendor files (SIN MLB stack rankings — auto-detected here and routed to session team data feeding the stack signals)
 3. **Sim Data** *(optional)* — upload a sim export CSV (e.g. SaberSim); stored as-is for Claude
 4. **Analyze** — declare contests, review the auto-snapshot (chalk tiers, leverage, anchor-equivalence, sport signals, vendor disagreement), then click **Generate slate analysis** — the app builds the bundle and runs `claude -p` headlessly to write + render the analysis (no chat needed)
-5. *(optional, pre-lock)* **Red team** — click **🔪 Red team the lineups**: an adversarial headless run tries to refute each lineup's thesis; verdicts SHIP / FIX / KILL render below the lineups. Findings only — fix via rebuilding or chat
-6. *(After contest ends)* **Autopsy** — upload DK contest-standings CSV(s), link each to its declared contest, enter winnings, view field summary, log lessons to `rules/<slug>/autopsies.md`. **Log autopsy** archives the slate to `rules/<slug>/history/<date>__<slate>/`, appends `rules/<slug>/results.jsonl`, and calibrates every vendor vs actuals into `rules/<slug>/vendor_calibration.jsonl` before clearing the workspace
-7. **Post-autopsy review** — click **Run post-autopsy review** (Autopsy tab): grades the build process (including red-team verdict adherence), updates `lessons.yaml` + the venue file, proposes framework changes. Click **Approve & apply proposals** to accept them
+5. *(optional)* **Handbuild** — hand-pick a lineup from the loaded pool with live salary/proj/ownership totals; saving requires a thesis + 'What if?' and appends to the same portfolio file (tagged `(handbuilt)`), so red team / archive / review cover it
+6. *(optional, pre-lock)* **Red team** — click **🔪 Red team the lineups**: an adversarial headless run tries to refute each lineup's thesis (Claude-built AND handbuilt); verdicts SHIP / FIX / KILL render below the lineups. Findings only — fix via rebuilding or chat
+7. *(After contest ends)* **Autopsy** — upload DK contest-standings CSV(s), link each to its declared contest, enter winnings, view field summary, log lessons to `rules/<slug>/autopsies.md`. **Log autopsy** archives the slate to `rules/<slug>/history/<date>__<slate>/`, appends `rules/<slug>/results.jsonl`, and calibrates every vendor vs actuals into `rules/<slug>/vendor_calibration.jsonl` before clearing the workspace
+8. **Post-autopsy review** — click **Run post-autopsy review** (Autopsy tab): grades the build process (including red-team verdict adherence), updates `lessons.yaml` + the venue file, proposes framework changes. Click **Approve & apply proposals** to accept them
 
 ## Writing the slate analysis
 
