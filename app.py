@@ -34,11 +34,13 @@ from src.bundle import clear_bundle
 from src.analysis_runner import (
     run_analysis, run_build_lineups, lineup_target,
     run_autopsy_review, run_apply_proposals, run_red_team,
+    run_handbuild_analysis,
 )
 from src.lineups import (
     load_lineups, clear_lineups, load_red_team, clear_red_team,
     roster_spec, lineup_totals, validate_lineup,
     append_handbuilt_lineup, assign_slots,
+    load_handbuild_analysis, clear_handbuild_analysis,
 )
 from src import history
 
@@ -439,16 +441,23 @@ with tab_analyze:
     # ----- (f) Build lineups (one click, from the analysis) -----
     st.markdown("---")
     st.markdown("### Build lineups")
-    n_target = lineup_target(slug)
     st.caption(
-        f"Hand-builds your portfolio from the analysis — up to **{n_target}** lineup(s) "
-        "(from your declared contests), each with a distinct thesis. Builds fewer if the "
-        "slate only supports fewer distinct angles. Takes ~1–3 minutes; uses your Claude subscription."
+        "Builds your portfolio from the analysis — each lineup with a distinct thesis. "
+        "Builds fewer if the slate only supports fewer distinct angles. Handbuilt lineups "
+        "already saved are kept and built around. "
+        "Takes ~3–15 minutes on big slates; uses your Claude subscription."
+    )
+    n_target = st.number_input(
+        "How many lineups?",
+        min_value=1, max_value=150,
+        value=lineup_target(slug),
+        key=f"build_n_{slug}",
+        help="Defaults to what your declared contests call for — override it freely.",
     )
     if not persisted:
         st.info("Generate the slate analysis first — lineups are built from it.")
     elif st.button("🏗️ Build lineups", type="primary", key=f"build_lineups_{slug}"):
-        with st.spinner(f"Building up to {n_target} lineup(s) from the analysis… (~1–3 min)"):
+        with st.spinner(f"Building up to {n_target} lineup(s) from the analysis… (~3–15 min — leave this tab open)"):
             lresult = run_build_lineups(slug, contest_label, sport, n_target)
         if lresult["ok"]:
             cost = lresult.get("cost_usd")
@@ -621,43 +630,99 @@ with tab_hand:
                 for e in live_errors:
                     st.error(e)
 
-            # Save block
-            st.markdown("##### Save to the portfolio")
+            # Analyze & save block — Claude writes the thesis/'What if?'; the
+            # user never types them. Analyze first, then save with its output.
+            st.markdown("##### Claude analyze & save")
             hb_name = st.text_input(
                 "Lineup name (optional)", key=f"hb_name_{slug}",
                 placeholder='e.g. "Braves Freight Train"',
             )
-            hb_thesis = st.text_input(
-                "Thesis — one sentence: how does this lineup win? (required)",
-                key=f"hb_thesis_{slug}",
+            hb_analysis = load_handbuild_analysis(slug)
+            analysis_is_current = (
+                hb_analysis is not None
+                and sorted(hb_analysis["players"]) == sorted(p["name"] for p in picked)
             )
-            hb_whatif = st.text_input(
-                "What if? — the distinct question this lineup answers (required)",
-                key=f"hb_whatif_{slug}",
+            # Table picks live in the browser session — a refresh, dropped
+            # connection, or server restart clears them. The analyzed lineup
+            # snapshot survives on disk, so saving still works from it.
+            analysis_recoverable = (
+                not picked and hb_analysis is not None and bool(hb_analysis["player_rows"])
             )
-            c1, c2 = st.columns([1, 1])
-            if c1.button("💾 Save lineup", type="primary", key=f"hb_save_{slug}"):
-                errors = assign_errors + validate_lineup(slug, picked, hb_thesis, hb_whatif)
+            if analysis_recoverable:
+                st.info(
+                    "Table picks were reset (page refresh / lost connection), but your "
+                    "analyzed lineup is intact: "
+                    f"{', '.join(hb_analysis['players'])}. 💾 Save lineup still saves it — "
+                    "or re-click the players to keep editing."
+                )
+
+            c1, c2, c3 = st.columns([1, 1, 1])
+            if c1.button("🧠 Claude analyze", type="primary", key=f"hb_analyze_{slug}"):
+                errors = assign_errors + validate_lineup(slug, picked, thesis="x", what_if="x")
                 if errors:
                     for e in errors:
                         st.error(e)
                 else:
-                    n = append_handbuilt_lineup(
-                        slug, contest_label, hb_name, hb_thesis, hb_whatif, picked
+                    with st.spinner("Claude is analyzing your handbuild… (~1–2 min)"):
+                        res = run_handbuild_analysis(slug, contest_label, sport, picked, totals)
+                    if res["ok"]:
+                        st.rerun()
+                    else:
+                        st.error(res["error"])
+            if c2.button("💾 Save lineup", key=f"hb_save_{slug}"):
+                if analysis_is_current:
+                    save_rows = picked
+                elif analysis_recoverable:
+                    save_rows = hb_analysis["player_rows"]
+                else:
+                    save_rows = None
+                if save_rows is None:
+                    st.error(
+                        "Run 🧠 Claude analyze first — it writes the thesis and 'What if?' "
+                        "this lineup is saved with."
                     )
-                    st.session_state[nonce_key] = nonce + 1
-                    for k in (f"hb_name_{slug}", f"hb_thesis_{slug}", f"hb_whatif_{slug}"):
-                        st.session_state.pop(k, None)
-                    st.success(
-                        f"Saved Lineup {n} (handbuilt) to data/lineups/{slug}.md — it shows "
-                        "in the Analyze tab and is covered by Red Team."
+                elif not (hb_analysis["thesis"] and hb_analysis["what_if"]):
+                    st.error(
+                        "Couldn't read a Thesis / 'What if?' from the analysis — "
+                        "re-run 🧠 Claude analyze."
                     )
-                    st.rerun()
-            if c2.button("Clear lineup", key=f"hb_clear_{slug}"):
+                else:
+                    errors = assign_errors + validate_lineup(
+                        slug, save_rows, hb_analysis["thesis"], hb_analysis["what_if"]
+                    )
+                    if errors:
+                        for e in errors:
+                            st.error(e)
+                    else:
+                        n = append_handbuilt_lineup(
+                            slug, contest_label, hb_name,
+                            hb_analysis["thesis"], hb_analysis["what_if"], save_rows,
+                        )
+                        clear_handbuild_analysis(slug)
+                        st.session_state[nonce_key] = nonce + 1
+                        st.session_state.pop(f"hb_name_{slug}", None)
+                        st.success(
+                            f"Saved Lineup {n} (handbuilt) to data/lineups/{slug}.md — it shows "
+                            "in the Analyze tab and is covered by Red Team."
+                        )
+                        st.rerun()
+            if c3.button("Clear lineup", key=f"hb_clear_{slug}"):
+                clear_handbuild_analysis(slug)
                 st.session_state[nonce_key] = nonce + 1
-                for k in (f"hb_name_{slug}", f"hb_thesis_{slug}", f"hb_whatif_{slug}"):
-                    st.session_state.pop(k, None)
+                st.session_state.pop(f"hb_name_{slug}", None)
                 st.rerun()
+
+        # Claude's read on the current handbuild
+        if hb_analysis:
+            st.markdown("#### 🧠 Claude's read on this handbuild")
+            if not analysis_is_current and not analysis_recoverable:
+                st.warning(
+                    "Lineup changed since this analysis — re-run 🧠 Claude analyze "
+                    "before saving."
+                )
+            with st.container(border=True):
+                st.caption(f"Last updated: {hb_analysis['mtime']}")
+                st.markdown(hb_analysis["markdown"])
 
         # Current portfolio
         hb_lineups = load_lineups(slug)
@@ -931,6 +996,7 @@ with tab_autopsy:
                 clear_persisted(slug)
                 clear_lineups(slug)
                 clear_red_team(slug)
+                clear_handbuild_analysis(slug)
                 clear_contests(slug)
                 clear_sim(slug)
                 clear_bundle(slug)

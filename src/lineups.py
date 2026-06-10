@@ -6,12 +6,14 @@ This module just reads + clears them, mirroring src/slate_analysis.py.
 """
 from __future__ import annotations
 
+import json
 import re
 from datetime import datetime
 from pathlib import Path
 
 _LINEUPS_DIR = Path(__file__).parent.parent / "data" / "lineups"
 _RED_TEAM_DIR = Path(__file__).parent.parent / "data" / "red_team"
+_HB_ANALYSIS_DIR = Path(__file__).parent.parent / "data" / "handbuild_analysis"
 
 
 def load_lineups(slug: str) -> dict | None:
@@ -48,6 +50,48 @@ def clear_red_team(slug: str) -> None:
     p = _RED_TEAM_DIR / f"{slug}.md"
     if p.exists():
         p.unlink()
+
+
+def load_handbuild_analysis(slug: str) -> dict | None:
+    """Claude's analysis of the current handbuild, or None if none exists.
+
+    Returns {'markdown', 'mtime', 'thesis', 'what_if', 'players'} — thesis and
+    what_if are parsed from the fixed-format lines Claude writes; players come
+    from the lineup snapshot saved when the analysis ran, so the UI can detect
+    a lineup that changed after its analysis.
+    """
+    p = _HB_ANALYSIS_DIR / f"{slug}.md"
+    if not p.exists():
+        return None
+    md = p.read_text()
+    thesis = re.search(r"(?m)^\*\*Thesis:\*\*\s*(.+?)\s*$", md)
+    what_if = re.search(r"(?m)^\*\*What if\?\*\*\s*[—:–-]?\s*\*?(.+?)\*?\s*$", md)
+    players: list[str] = []
+    player_rows: list[dict] = []
+    snap = _HB_ANALYSIS_DIR / f"{slug}_lineup.json"
+    if snap.exists():
+        try:
+            player_rows = json.loads(snap.read_text())["players"]
+            players = [pl["name"] for pl in player_rows]
+        except (json.JSONDecodeError, KeyError, TypeError):
+            players, player_rows = [], []
+    return {
+        "markdown": md,
+        "mtime": datetime.fromtimestamp(p.stat().st_mtime).strftime("%Y-%m-%d %H:%M"),
+        "thesis": thesis.group(1).strip() if thesis else "",
+        "what_if": what_if.group(1).strip() if what_if else "",
+        "players": players,
+        # Full slotted row dicts — lets the save flow work even after the
+        # table's browser-session selections are lost (refresh / restart).
+        "player_rows": player_rows,
+    }
+
+
+def clear_handbuild_analysis(slug: str) -> None:
+    """Delete the analysis + lineup snapshot. Called on save, clear, and autopsy log."""
+    for p in (_HB_ANALYSIS_DIR / f"{slug}.md", _HB_ANALYSIS_DIR / f"{slug}_lineup.json"):
+        if p.exists():
+            p.unlink()
 
 
 # ---------- Handbuild: roster specs, math, validation, append ---------- #

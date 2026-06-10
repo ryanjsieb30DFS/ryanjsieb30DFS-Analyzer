@@ -21,7 +21,7 @@ from src.bundle import build_bundle
 from src.contests import portfolio_summary
 
 _REPO_ROOT = Path(__file__).parent.parent
-_TIMEOUT_S = 600
+_TIMEOUT_S = 1200  # big slates (MLB) can blow past 10 min of reading + building
 
 
 def _claude_binary() -> str | None:
@@ -149,7 +149,70 @@ def run_build_lineups(slug: str, contest_label: str, sport: str, n_target: int) 
         f"applied open lesson must be named in the lineup thesis it influenced (or explicitly "
         f"rejected with the mechanism reason).\n\n"
         f"End with a 'Portfolio audit' section: player overlap, hedges, and rule-compliance check. "
-        f"Write the result to `{out_path}`. Do not ask any questions — produce the file."
+        f"Write the result to `{out_path}`. "
+        f"IMPORTANT: if `{out_path}` already exists with lineups in it (e.g. handbuilt ones), "
+        f"PRESERVE them exactly as written — append your new lineups after them, continue their "
+        f"numbering, count them toward the {n_target}-lineup target, and make sure your new "
+        f"lineups answer DIFFERENT questions than the existing ones (include them in the "
+        f"Portfolio audit). Do not ask any questions — produce the file."
+    )
+    return _run_claude(prompt, out_path)
+
+
+def run_handbuild_analysis(slug: str, contest_label: str, sport: str,
+                           players: list[dict], totals: dict) -> dict:
+    """Analyze the user's handbuilt lineup via headless Claude.
+
+    Snapshots the picked lineup to data/handbuild_analysis/<slug>_lineup.json,
+    then Claude writes the analysis (verdict + thesis + 'What if?' + findings)
+    to data/handbuild_analysis/<slug>.md. The Handbuild save flow attaches the
+    parsed thesis/'What if?' to the lineup — the user never types them.
+    """
+    out_dir = _REPO_ROOT / "data" / "handbuild_analysis"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / f"{slug}.md"
+    snap_path = out_dir / f"{slug}_lineup.json"
+    snap_path.write_text(json.dumps({"players": players, "totals": totals},
+                                    indent=2, default=str))
+
+    bundle_path = build_bundle(slug, contest_label, sport)
+    analysis_path = _REPO_ROOT / "data" / "slate_analysis" / f"{slug}.md"
+    lineups_path = _REPO_ROOT / "data" / "lineups" / f"{slug}.md"
+    slate_ctx = (
+        f"the slate analysis at `{analysis_path}`, " if analysis_path.exists()
+        else "(no slate analysis exists yet — judge from the bundle and strategy docs alone) "
+    )
+    portfolio_ctx = (
+        f"Also read the existing portfolio at `{lineups_path}` and check whether this handbuild "
+        f"competes with (answers the same question as) a lineup already in it. "
+        if lineups_path.exists() else "There are no other lineups on this slate yet. "
+    )
+
+    prompt = (
+        f"Analyze the user's HANDBUILT {contest_label} lineup in `{snap_path}` (canonical player "
+        f"rows + GPP totals). Read {slate_ctx}the bundle at `{bundle_path}` and its referenced "
+        f"projections, `rules/{slug}/philosophy.md`, `rules/{slug}/framework.md`, "
+        f"`rules/{slug}/lessons.yaml`, and `rules/shared/anchor_equivalence.md`. If "
+        f"`rules/{slug}/vendor_calibration.jsonl` exists, use it to weight vendor ownership "
+        f"numbers. {portfolio_ctx}\n\n"
+        f"GPP framing — judge the lineup on how it WINS a tournament, never on cashing:\n"
+        f"1. STEELMAN: the strongest case for this build — derive the thesis the user is "
+        f"implicitly playing.\n"
+        f"2. ATTACK: failure modes, leverage audit against the vendor-projected ownership "
+        f"(name the numbers), correlation/structure issues, framework rules or open lessons.yaml "
+        f"lessons it violates, and the Anchor-Equivalence implications.\n"
+        f"3. VERDICT: SHIP (play as-is), FIX (the ONE specific change), or KILL (the fatal flaw).\n\n"
+        f"Write the result to `{out_path}` in EXACTLY this structure — the app parses the Thesis "
+        f"and 'What if?' lines verbatim, so keep their format:\n\n"
+        f"## Verdict\n"
+        f"SHIP|FIX|KILL — one-line reason\n\n"
+        f"**Thesis:** <one sentence: how this lineup wins — write the best honest thesis even if "
+        f"the verdict is FIX or KILL>\n\n"
+        f"**What if?** — <the distinct question this lineup answers>\n\n"
+        f"## Analysis\n"
+        f"<concise and scannable: steelman, attacks, leverage math, lesson/framework checks>\n\n"
+        f"HARD RULE: write ONLY `{out_path}` — never edit the lineups file or anything else; the "
+        f"user decides whether to save. Do not ask any questions — produce the file."
     )
     return _run_claude(prompt, out_path)
 

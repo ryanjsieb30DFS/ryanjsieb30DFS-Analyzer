@@ -12,3 +12,5 @@ data/sim_data/
 data/bundle/
 articles/*/
 !articles/.gitkeep
+data/red_team/
+data/handbuild_analysis/
