@@ -18,7 +18,15 @@ lessons:
       construction lever. A stack captures the same run-scoring events multiple times,
       multiplying ceiling in exactly the outcomes a GPP needs.
     status: codified
-    confirmations: []
+    confirmations:
+      - date: "2026-06-10"
+        slate: "rules/mlb_classic/history/2026-06-10__mlb-classic-6-9-26"
+        evidence: >
+          Mechanism confirmed: winning stack shapes in both SE contests were
+          overwhelmingly 5-man-primary builds (5-2-1, 5-3, 5-1-1-1 account for
+          11 of 14 shaped top-20 lineups in the $5k and 8 of 11 in the $10K).
+          The $5k rank-2 (156.6) and $10K rank-4 (151.35) were both ATL 5-stacks
+          capturing Olson's 32-pt game multiple times via Acuna/Harris/Riley.
     contradictions: []
     codified_in: "framework.md — Roster & contest facts"
     retired_reason: null
@@ -60,7 +68,99 @@ lessons:
       leverage when it outperforms. Mandatory pre-lock check, cross-sport
       (4-slate-validated before MLB was added).
     status: codified
-    confirmations: []
+    confirmations:
+      - date: "2026-06-10"
+        slate: "rules/mlb_classic/history/2026-06-10__mlb-classic-6-9-26"
+        evidence: >
+          First MLB confirmation of the mechanism at the STACK level: MIL/CHC/ATH
+          (86–101% combined own) were flagged anchor-equivalent with ATL (~37%) as
+          the alternative. The highest-owned equivalent busted (Turang 0.0 pts at
+          ~31% actual own; MIL stacks absent from winners) while the alternative
+          anchor landed top-4 in both contests (ATL 5-stacks at ranks 2 and 4).
+          Caveat logged: at the PITCHER level the named alternative (Wheeler 9.5%)
+          missed while a lower-owned member of the chalk class (Cease, 12.8–16.9%
+          actual) was the slate-defining arm — variance, not a mechanism failure,
+          but it shows the alternative anchor need not come from outside the class.
     contradictions: []
     codified_in: "rules/shared/anchor_equivalence.md (referenced by framework.md — Lineup discipline)"
+    retired_reason: null
+
+  # --- Born from 2026-06-10 post-autopsy review (slate: MLB Classic 6.9.26) ---
+
+  - id: mlb-classic-2026-06-10-pivot-budget-small-field-se
+    born: "2026-06-10"
+    origin: "rules/mlb_classic/history/2026-06-10__mlb-classic-6-9-26"
+    statement: >
+      In small-field SE MLB Classic (≤~1,000 entries), winning lineups run
+      near-field ownership with ONE structural pivot, not several: top-20
+      winners averaged 13.2% own ($5k) and 16.0% own ($10K) with ~4–5 sub-10%
+      plays per lineup. Mechanism: a small field cannot cover the chalk
+      combinatorics, so chalk-plus-one-pivot separates enough to win; layering
+      pivots (mega-stack fade + pitcher pivot + punt fills) out-leverages the
+      field and trades ceiling for uniqueness nobody is contesting. The 6/9
+      build carried 8 sub-10% plays — double the winners' density — despite the
+      slate analysis itself directing "one or two structural pivots beats full
+      contrarian" for this field size. Pick ONE primary leverage axis (stack OR
+      pitcher); keep the other near-field.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mlb-classic-2026-06-10-salary-enabler-pitcher-chalk
+    born: "2026-06-10"
+    origin: "rules/mlb_classic/history/2026-06-10__mlb-classic-6-9-26"
+    statement: >
+      MLB pitcher chalk that is salary-driven (a cheap viable P2 whose price
+      unlocks premium bats) is an enabler, not a chalk trap — fading it cuts
+      you off from the winning salary structure rather than gaining leverage.
+      Discriminate chalk arms by workload/leash (avg IP, K%) instead of by
+      ownership alone: on 6/9, Dustin May (28.8% proj own, dismissed as
+      "chalk-trap risk") anchored 13 of the 20 listed top-10 lineups across
+      both contests, while the short-leash chalk arm Kai-Wei Teng (2.5 avg IP
+      flag) busted at 1.8 pts on 27–29% actual own. The analysis's IP-based
+      discrimination worked; its ownership-based discrimination did not.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mlb-classic-2026-06-10-blank-own-snapshot-artifact
+    born: "2026-06-10"
+    origin: "rules/mlb_classic/history/2026-06-10__mlb-classic-6-9-26"
+    statement: >
+      Blank Own fields in vendor hitter CSVs (seen in the SIN hitter file) flow
+      through the auto-snapshot as 0.0% ownership, putting double-digit-owned
+      players (Troy Johnston 11.3%, Maikel Garcia 10.1%, Edouard Julien 8.8%
+      per The Stone) at the top of the leverage table. Cross-check the
+      snapshot's top leverage rows against article ownership before trusting
+      them; treat a blank Own as unknown, never as zero. Caught pre-lock on
+      6/9 (the analysis discarded the artifact rows), so the mechanism is
+      observed at birth — needs confirmation on future slates or an app-side
+      fix.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mlb-classic-2026-06-10-untracked-entry-bypasses-loop
+    born: "2026-06-10"
+    origin: "rules/mlb_classic/history/2026-06-10__mlb-classic-6-9-26"
+    statement: >
+      Every lineup actually entered on DK must exist in data/lineups/<slug>.md
+      (Claude-built or handbuilt) before lock. An untracked entry bypasses the
+      thesis requirement, the red team, and the portfolio audit, and the
+      autopsy then grades a portfolio that doesn't match what was played. On
+      6/9 the $5k entry (CHC 5-3 Coors chalk with Teng+May: Busch/Bregman/
+      PCA/Suzuki/Ballesteros + Castro/Tovar/McCarthy) appears nowhere in the
+      archived lineups.md, which claimed "same lineup in both SE contests."
+      Process mechanism, not a results claim: the loop can only improve
+      lineups it can see.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
     retired_reason: null
