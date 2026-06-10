@@ -28,6 +28,15 @@ from src.strategy import load_strategy
 _REPO_ROOT = Path(__file__).parent.parent
 _BUNDLE_DIR = _REPO_ROOT / "data" / "bundle"
 
+# Venue-knowledge dir per slug (relative to rules/). Both PGA slugs share the
+# same physical courses; MMA has no strategy-relevant venue.
+_VENUE_DIRS = {
+    "nascar": "nascar/tracks",
+    "pga_classic": "pga_classic/courses",
+    "pga_rd4_sd": "pga_classic/courses",
+    "mlb_classic": "mlb_classic/parks",
+}
+
 
 def _path(slug: str) -> Path:
     return _BUNDLE_DIR / f"{slug}.md"
@@ -152,12 +161,33 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
     for doc in ("philosophy.md", "framework.md", "autopsies.md", "autopsy_data.jsonl"):
         L.append(f"- `{rules_dir / doc}`")
     L.append(f"- `{_REPO_ROOT / 'rules' / 'shared' / 'anchor_equivalence.md'}`")
-    if sport == "nascar":
-        tracks_dir = _REPO_ROOT / "rules" / "nascar" / "tracks"
-        tracks = sorted(tracks_dir.glob("*.md")) if tracks_dir.exists() else []
-        for t in tracks:
-            if t.stem.lower() != "readme":
-                L.append(f"- `{t}`")
+    lessons_path = rules_dir / "lessons.yaml"
+    if lessons_path.exists():
+        L.append(f"- `{lessons_path}` — **mandatory pre-build read: open lessons (hypothesis/validated)**")
+    results_path = rules_dir / "results.jsonl"
+    if results_path.exists():
+        L.append(f"- `{results_path}` — cross-slate results ledger")
+    venue_rel = _VENUE_DIRS.get(slug)
+    if venue_rel:
+        venue_dir = _REPO_ROOT / "rules" / venue_rel
+        venues = sorted(venue_dir.glob("*.md")) if venue_dir.exists() else []
+        for v in venues:
+            if v.stem.lower() != "readme":
+                L.append(f"- `{v}`")
+
+    # Last 3 slate results inline so the headless run can't skip them.
+    from src.history import load_results
+    recent_results = load_results(slug, n=3)
+    if recent_results:
+        L += ["", "### Recent slate results (from results.jsonl)"]
+        for r in reversed(recent_results):
+            roi = f"{r['roi_pct']}%" if r.get("roi_pct") is not None else "n/a"
+            pct = f"top {r['best_percentile']}%" if r.get("best_percentile") is not None else "no entries found"
+            L.append(
+                f"- `{r.get('date')}` — {r.get('slate_label')}: {r.get('entries_total')} entries, "
+                f"ROI {roi}, best finish {pct} (archive: `{r.get('history_dir')}`)"
+            )
+        L.append("_GPP ROI is noise under ~10 slates — read these for process notes, not conclusions._")
 
     strategy = load_strategy(slug)
     lessons = strategy.get("recent_lessons", [])[:3]

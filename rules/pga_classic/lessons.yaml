@@ -1,0 +1,157 @@
+# Lesson ledger — one entry per generalizable lesson. Claude edits during the
+# post-autopsy review; the user approves codifications/retirements.
+# Lifecycle: hypothesis -> validated -> codified | retired.
+# Promotion: 3 mechanism confirmations -> propose codifying into framework.md.
+# Retirement: 2 mechanism contradictions -> propose retiring.
+# GPP guard: a lost contest is NOT a contradiction; only mechanism failures count.
+lessons:
+  - id: pga-classic-2026-05-11-never-zero-value-chalk-anchor
+    born: "2026-05-11"   # Truist Championship final day (event May 6-11, 2026)
+    origin: "autopsies.md — Week 1 Truist Championship, Carry-Forward Note 1 (Aberg blind spot)"
+    statement: >
+      Never zero-out the model's projection #1 (or a multi-anchor chalk alternative)
+      across the entire portfolio. The cost of being wrong about value chalk (zero
+      exposure when it wins) is asymmetrically higher than the cost of small exposure
+      to it when it loses, so at least one lineup must carry the alternative chalk
+      anchor as a hedge.
+    status: codified
+    confirmations:
+      - date: "2026-05-17"
+        slate: "PGA Championship at Aronimink"
+        note: "Aberg at 30.7% MME exposure delivered 84 FPTS; autopsy explicitly marks the Truist blind spot fully corrected."
+    contradictions: []
+    codified_in: "framework.md — Section 6 Anchor Selection Logic (Default policy); philosophy.md — Section 5 Chalk Has a Purpose"
+    retired_reason: null
+
+  - id: pga-classic-2026-05-11-leverage-spine-pairing
+    born: "2026-05-11"
+    origin: "autopsies.md — Week 1 Truist Championship, Carry-Forward Note 2 (JT/Bradley spine)"
+    statement: >
+      Deploying two coffin-list overweights (>=+10% recommended-vs-projected ownership
+      gap) together in the same lineup compounds the leverage advantage: each offers
+      ceiling-equivalent exposure to chalk at materially lower duplication risk, and
+      pairing them is multiplicative, not additive.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Section 5 The Leverage Spine; philosophy.md — Section 6 Leverage Is Asymmetric Bet Construction"
+    retired_reason: null
+
+  - id: pga-classic-2026-05-11-contrarian-needs-leverage-anchor
+    born: "2026-05-11"
+    origin: "autopsies.md — Week 1 Truist Championship, Carry-Forward Note 3 (L4 collapse)"
+    statement: >
+      Contrarian builds stacked with mid-range contrarian picks but no leverage-floor
+      anchor are fragile: if 3 of 4 mid-range picks bust around their median, the
+      lineup has no margin to absorb misses and no path. Every contrarian build should
+      include at least one coffin-list-grade leverage piece as its anchor.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-05-11-portfolio-exposure-cap
+    born: "2026-05-11"
+    origin: "autopsies.md — Week 1 Truist Championship, Carry-Forward Note 4 (2/4 cap on Reitan)"
+    statement: >
+      Portfolio exposure caps are correct policy even when they cost upside on a single
+      slate (Reitan 124 FPTS capped at 1/4): the cap protects against the reverse
+      failure mode where a high-conviction play bombs in every lineup simultaneously.
+      Risk management is judged across the sample, not the week.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Section 7 Exposure Caps (Multi-Lineup Portfolios)"
+    retired_reason: null
+
+  - id: pga-classic-2026-05-11-track-slate-lock-stat
+    born: "2026-05-11"
+    origin: "autopsies.md — Week 1 Truist Championship, Carry-Forward Note 5 (winner-in-N-of-M stat)"
+    statement: >
+      When one player appears in N of N (or a large majority of) winning lineups, that
+      is a structural slate truth, not noise. Tracking the "slate lock" stat each week
+      and asking whether the player was identifiable pre-slate converts hindsight into
+      a repeatable pre-slate scan.
+    status: codified
+    confirmations:
+      - date: "2026-05-17"
+        slate: "PGA Championship at Aronimink"
+        note: "Top-100 winning-lineup appearance tracking applied (Smalley 73/100, Rai 63/100); directly produced the course-history + sub-5% own scan."
+    contradictions: []
+    codified_in: "framework.md — Section 10 Tracking Stats ('slate lock' identification rate)"
+    retired_reason: null
+
+  - id: pga-classic-2026-05-17-course-history-sub5-scan
+    born: "2026-05-17"
+    origin: "autopsies.md — Week 2 PGA Championship, Carry-Forward Note 1 (Smalley/Rai blind spot)"
+    statement: >
+      Players on the course-history boost list with sub-5% projected ownership are
+      structurally high-leverage: the field underweights course fit at the bottom of
+      the ownership curve, so these plays historically produce slate-defining outcomes
+      (Smalley 96.5 FPTS at 10.9%, Rai 117 FPTS at 2.3%). The cross-reference is a
+      required pre-build scan.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Section 2 Slate Diagnostics (required scan) and Section 9 Pre-Submission Checklists"
+    retired_reason: null
+
+  - id: pga-classic-2026-05-17-se-leverage-cap-two
+    born: "2026-05-17"
+    origin: "autopsies.md — Week 2 PGA Championship, Carry-Forward Note 2 + Failure Mode Classification (Keegan/Hatton/Brennan triple stack)"
+    statement: >
+      Correlated bust risk increases non-linearly past two leverage plays per lineup:
+      stacking 3+ high-conviction sub-10% own plays in a single SE lineup concentrates
+      bust risk so that individually defensible plays can collapse in unison and leave
+      the lineup with no path. Cap the leverage spine at 2 per SE build; distribute
+      additional leverage across separate lineups.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Section 4A Critical SE rule; Section 5 Multi-leverage-spine cautionary note"
+    retired_reason: null
+
+  - id: pga-classic-2026-05-17-trap-vs-value-chalk
+    born: "2026-05-17"
+    origin: "autopsies.md — Week 2 PGA Championship, Carry-Forward Note 3 (coffin chalk thesis)"
+    statement: >
+      Chalk is not one category: trap chalk (overowned relative to projection/coffin
+      list) is the easiest fade in the portfolio, while value chalk (correctly owned or
+      coffin-underowned) should be overweighted. The coffin list is the primary signal
+      for the split — all four top-tier coffin overweights (Rahm, Aberg, Rory,
+      Schauffele) hit at the PGA Championship.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Section 6 Anchor Selection Logic (Trap chalk vs value chalk); philosophy.md — Section 5 Chalk Has a Purpose"
+    retired_reason: null
+
+  - id: pga-classic-2026-05-17-two-build-max
+    born: "2026-05-17"
+    origin: "autopsies.md — Week 2 PGA Championship, Carry-Forward Note 5 (15-build iteration cycle)"
+    statement: >
+      Optimizer/build iteration past the point where structural reads stabilize
+      produces marginal noise, not improvement (reads stabilized by Build 6 of 15).
+      Two-build maximum per slate: one conviction baseline, one refined version; the
+      slate read drives the build, not iteration volume.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Section 11 Quality of Rules Discipline; philosophy.md — Section 11 Quality of Rules Over Quantity"
+    retired_reason: null
+
+  - id: pga-classic-2026-05-17-se-primary-contest-selection
+    born: "2026-05-17"
+    origin: "autopsies.md — Week 2 PGA Championship, Carry-Forward Note 6 (contest selection shift)"
+    statement: >
+      150-max MME demands lineup-construction precision that coarse-lever optimizers
+      cannot deliver, producing diminishing returns relative to cognitive cost.
+      Small-portfolio formats (SE primary; 3-max/5-max secondary; occasional 20-max or
+      small-portfolio MME) deliver better process discipline at equivalent or superior
+      risk-adjusted returns.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Section 1 Contest Selection"
+    retired_reason: null

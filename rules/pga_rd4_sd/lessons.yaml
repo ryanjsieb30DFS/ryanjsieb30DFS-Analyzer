@@ -1,0 +1,308 @@
+# Lesson ledger — one entry per generalizable lesson. Claude edits during the
+# post-autopsy review; the user approves codifications/retirements.
+# Lifecycle: hypothesis -> validated -> codified | retired.
+# Promotion: 3 mechanism confirmations -> propose codifying into framework.md.
+# Retirement: 2 mechanism contradictions -> propose retiring.
+# GPP guard: a lost contest is NOT a contradiction; only mechanism failures count.
+# Format note: PGA RD4 SD is a flat 6-golfer lineup — NO captain, NO 1.5x.
+# "Anchor" everywhere below means the top-salary / top-projection golfer slot.
+lessons:
+  - id: pga-rd4-sd-2026-05-01-anchor-equivalence
+    born: "2026-05-01"   # Cadillac Championship 2026; exact slate date not recorded in autopsies.md (precedes Truist, May 2026) — 1st used as placeholder
+    origin: "autopsies.md — Cadillac Championship 2026, Process Lesson 1 (The Anchor-Equivalence Rule)"
+    statement: >
+      Chalk-tier anchors with equivalent profiles (same salary tier, similar ownership,
+      similar starting position and ceiling) are substitutable to the field, so
+      concentrating exposure on the named pick bets a coin flip the field has already
+      mispriced. At least one lineup must run the lower-owned alternative; in flat
+      6-golfer RD4 SD the anchor slot is the top-salary/top-projection golfer, not a CPT.
+    status: codified
+    confirmations:
+      - date: "2026-05-11"
+        slate: "Truist Championship 2026 (RD4 SD)"
+        note: "Analyst-named pick at 20% own scored 43.85 vs uncommented same-profile alternative at 16% own scoring 64.4; zero exposure to the alternative. LU3's anchor-equivalent rotation was also the best finish."
+      - date: "2026-05-24"
+        slate: "CJ Cup 5.24.26"
+        note: "100% Scheffler / 0% Wyndham Clark at the anchor slot across 4 lineups despite similar chalk-tier own; Clark scored 97.8 (slate-defining). Third consecutive slate manifestation."
+    contradictions: []
+    codified_in: "framework.md — The Anchor-Equivalence Rule (3-slate golf confirmation); philosophy.md — On Structural Leaks; rules/shared/anchor_equivalence.md"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-01-never-zero-top3-anchor
+    born: "2026-05-01"   # Cadillac Championship 2026; placeholder date (see above)
+    origin: "autopsies.md — Cadillac Championship 2026, Process Lesson 2 (Never Zero Out a Top-3 Anchor With 4 Bullets)"
+    statement: >
+      With limited bullets (4-20), under-weighting the modal anchor is leverage but 0%
+      exposure is a voluntary lottery exit: if the high-probability outcome (e.g., a
+      leader up 4+ shots holding) materializes, the entire portfolio is dead regardless
+      of downstream construction. Never take any top-3 anchor to 0% with 4 bullets.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "philosophy.md — Foundational Rule 5 (Don't Punch Out of the Contest); framework.md — Handbuilt MME universal rules (top-3 anchor exposure 25-60%, never 0%)"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-01-ruleset-split-default
+    born: "2026-05-01"   # Cadillac Championship 2026; placeholder date (see above)
+    origin: "autopsies.md — Cadillac Championship 2026, Process Lesson 3 + Truist 2026, Process Lesson 1 (rule-set splitting)"
+    statement: >
+      The birdie-fest vs tough-course rule-set call is the highest-leverage decision of
+      the build, and analyst confidence is not sufficient evidence to commit — the
+      analyst reads the same noisy signals. Default to a 2-2 rule-set split on 4-bullet
+      portfolios; one-sided commitment requires overwhelming forcing evidence (severe
+      weather, course setup change, physically constrained scoring distribution).
+    status: codified
+    confirmations:
+      - date: "2026-05-11"
+        slate: "Truist Championship 2026 (RD4 SD)"
+        note: "Second consecutive R4 lost at the rule-set commitment level — Cadillac with an uncertain analyst, Truist with a certain one. Escalated splitting from 'when uncertain' to the default."
+    contradictions: []
+    codified_in: "framework.md — Rule-Set Decision Framework (Critical Lesson From Cadillac -> Truist 2026)"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-01-sixty-plus-ceiling-rule
+    born: "2026-05-01"   # Cadillac Championship 2026; placeholder date (see above)
+    origin: "autopsies.md — Cadillac Championship 2026, Process Lesson 4 (The 60+ Ceiling Rule)"
+    statement: >
+      No lineup without at least one player with a realistic 60+ point ceiling can win
+      a 5,000+ entrant Showdown — the winning-score math doesn't work without one slot
+      doing outsized work. Every lineup needs an anchor-of-the-week,
+      cheap-spike-of-the-week, or low-owned mid-tier breakout profile.
+    status: codified
+    confirmations:
+      - date: "2026-05-17"
+        slate: "PGA Championship 2026 (RD4 SD)"
+        note: "The lone cash (C3) came from the one lineup carrying the mid-tier ceiling shot, which delivered 65+."
+      - date: "2026-05-31"
+        slate: "PGA RD4 SD 5.31.26"
+        note: "60+ ceiling rule held in the lineups that scored — every contending lineup had its ceiling slot doing real work."
+    contradictions: []
+    codified_in: "philosophy.md — Foundational Rule 3; framework.md — The Ceiling-Player Requirement"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-01-ceiling-not-popularity
+    born: "2026-05-01"   # Cadillac Championship 2026; placeholder date (see above)
+    origin: "autopsies.md — Cadillac Championship 2026, Process Lesson 5 ('Safe' Anchors Aren't GPP Anchors)"
+    statement: >
+      Low ownership on a floor profile is not leverage, and high ownership on a real
+      ceiling profile is not automatically a fade — GPPs pay ceiling, so the axis that
+      matters is ceiling, not popularity. Own the chalk that has ceiling, not the chalk
+      that is merely popular, and never roster a floor profile in the anchor slot of a
+      contest that pays ceiling.
+    status: codified
+    confirmations:
+      - date: "2026-05-31"
+        slate: "PGA RD4 SD 5.31.26"
+        note: "Heaviest exposure went to the ceiling-light 30-44% projected-own tier (flat results) while the justified-ceiling 13-25% own tier that smashed sat at ~1/10 exposure — anti-leverage on both axes."
+    contradictions: []
+    codified_in: "philosophy.md — Foundational Rule 1 (Leverage > Floor, build around chalk sharply) and On Structural Leaks (Correct-Chalk Concentration paragraph)"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-01-coffin-block-max-one
+    born: "2026-05-01"   # Cadillac Championship 2026; placeholder date (see above)
+    origin: "autopsies.md — Cadillac Championship 2026, What Went Right (coffin avoidance) + Philosophy Rule 4"
+    statement: >
+      High-ownership plays at marginal price/profile are field traps: if they hit, the
+      field hits with you; if they bust, you are buried. Maximum one coffin-block
+      player per lineup — stacking two is a leverage death sentence.
+    status: codified
+    confirmations:
+      - date: "2026-05-01"
+        slate: "Cadillac Championship 2026"
+        note: "Multiple 25%+ own players underperformed price; avoiding the coffin block kept the lineups out of the deepest part of the field."
+    contradictions:
+      - date: "2026-05-11"
+        slate: "Truist Championship 2026 (RD4 SD)"
+        note: "Three 'coffin' plays all hit 45+ on the birdie-fest. Mechanism contradiction of the UNIVERSAL form only — resolved by making the rule rule-set-conditional (see coffin-ruleset-conditional lesson) rather than retiring."
+    codified_in: "philosophy.md — Foundational Rule 4 (Coffin Avoidance Is Real); framework.md — Coffin Block Identification"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-11-ceiling-math-ruleset-dependent
+    born: "2026-05-11"   # Truist Championship 2026 RD4 (event week May 6-11)
+    origin: "autopsies.md — Truist Championship 2026, Process Lesson 2 (ceiling math is rule-set-dependent)"
+    statement: >
+      "A T32 starter can't realistically score 60+" is true on a tough course (winning
+      -15 to -17) and false on a birdie-fest (winning -19 to -22, where -7 to -10
+      rounds are routine). Before removing a sub-5% punt for 'limited ceiling', name
+      the rule-set the ceiling math assumes; if the rule-set call is uncertain, keep
+      the ceiling exposure rather than rationalizing it out.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — The Ceiling-Player Requirement (ceiling math is rule-set-dependent)"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-11-coffin-ruleset-conditional
+    born: "2026-05-11"
+    origin: "autopsies.md — Truist Championship 2026, Process Lesson 3 (coffin identification is rule-set-dependent)"
+    statement: >
+      Coffin avoidance is primarily a tough-course rule. On birdie-fest slates,
+      cumulative ownership targets are naturally higher (~113%) and concentration often
+      represents accurate ownership on real value, so the 'coffin block' can become the
+      winning block — loosen to max-2 and verify the play actually fits the coffin
+      profile under the rule-set the lineup is built for.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Coffin Block Identification (rule-set dependence, from Truist 2026)"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-17-mode-ab-structural-floor
+    born: "2026-05-17"   # PGA Championship 2026 RD4
+    origin: "autopsies.md — PGA Championship 2026, Process Lesson 1 (Mode B + structural floor)"
+    statement: >
+      Diversifying slate reads across contests (Mode B) is a valid hedge on
+      low-conviction slates, but it is not a license to skip structural rules on
+      individual lineups: every lineup must independently hit the structural floor (60+
+      ceiling player, sub-5% spike when birdie-fest is in play, mid-tier trap limit,
+      coffin discipline, articulable thesis). The PGA Championship loss came from zero
+      lineups hitting the sub-5% spike slot, not from the diversification itself.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Multi-Contest Slate Read Discipline (Mode A / Mode B + The Structural Floor); philosophy.md — Foundational Rule 6"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-17-autopsy-patterns-not-players
+    born: "2026-05-17"
+    origin: "autopsies.md — PGA Championship 2026, Process Lesson 2 (analyst anchor bias)"
+    statement: >
+      Specific player names praised in an autopsy become unexamined default leans the
+      following week — for both the user and Claude. Autopsies must reference the
+      patterns that worked (cheap-spike-of-the-week profile, sub-25 climber on
+      birdie-fest), not the specific players, and every slate gets re-read from scratch
+      against this week's leaderboard, ownership, and rule-set.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "philosophy.md — What I Push Back On (anchor bias from prior week)"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-17-mid-tier-ownership-trap
+    born: "2026-05-17"
+    origin: "autopsies.md — PGA Championship 2026, Process Lesson 3 (the mid-tier 10-20% ownership trap)"
+    statement: >
+      Stacking 3-4 plays in the 10-20% ownership band creates field-weight exposure
+      without leverage: no slot differentiates from the field and no slot does ceiling
+      work, so the lineup floor is fine but the ceiling is capped. Max 2 plays at
+      10-20% own per lineup — commit higher (20%+ real ceiling shots) or lower (sub-5%
+      spikes); the middle is the trap. (A justified, course-supported moderate-own
+      CORE with ceiling is the opposite of trap filler — see correct-chalk-concentration.)
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — The Mid-Tier Ownership Trap"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-17-small-field-multientry-is-se
+    born: "2026-05-17"
+    origin: "autopsies.md — PGA Championship 2026, Process Lesson 4 (small-field multi-entry is functionally SE)"
+    statement: >
+      Field size and contest dynamics determine the build approach, not the DraftKings
+      label: a small-field multi-entry contest (roughly <=2,500 entries) demands the
+      same conviction level and structural rule discipline as a true single-entry
+      contest.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Multi-Contest Slate Read Discipline (Contest Size Calibration)"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-17-sub5-spike-portfolio-clause
+    born: "2026-05-17"
+    origin: "autopsies.md — PGA Championship 2026, Process Lesson 5 (sub-5% spike sub-clause)"
+    statement: >
+      On birdie-fest / major slates, contest winners reliably include a sub-5%
+      cheap-spike-of-the-week play (a way-back, low-owned ceiling lottery profile)
+      because low winning-score separation makes cheap spikes the differentiator. Each
+      lineup needs a realistic 60+ ceiling player AND the portfolio needs at least one
+      sub-5% spike across the build whenever birdie-fest is in play.
+    status: codified
+    confirmations:
+      - date: "2026-05-31"
+        slate: "PGA RD4 SD 5.31.26"
+        note: "Both day-defining spikes (sub-10% own, 50+ FPTS) were identified and rostered; the lone deep finish (#69 of 10,701) paired the spike with two correct mid-tier ceiling plays — the spike-slot process validated."
+    contradictions: []
+    codified_in: "framework.md — The Ceiling-Player Requirement (sub-5% spike sub-clause) and The Structural Floor"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-24-sub15-midtier-birdiefest-score-source
+    born: "2026-05-24"   # CJ Cup 5.24.26
+    origin: "autopsies.md — CJ Cup 5.24.26, Process Lesson 2 (sub-15% mid-tier value was the slate)"
+    statement: >
+      On identified birdie-fest slates, the sub-15% own mid-tier salary slot is where
+      the winning score comes from: pricing lags moderate-own mid-tier ceiling on easy
+      scoring days, so those profiles outscore both the popular chalk and the punts.
+      Skipping that slot in favor of 'safer' mid-tier names is a structural floor
+      violation on this slate type.
+    status: validated
+    confirmations:
+      - date: "2026-05-24"
+        slate: "CJ Cup 5.24.26"
+        note: "Suber 79.5 / Keefer 74.0 / Higgo 71.0 / Svensson 61.6 all at sub-15% own; only Svensson covered (1 of 4 lineups). CJ Cup autopsy cites PGA Champ + Truist as prior validation of the slot."
+      - date: "2026-05-31"
+        slate: "PGA RD4 SD 5.31.26"
+        note: "The ~13-26% moderate-own mid-tier ceiling tier (Griffin, Woodland, Henley, Hoey) smashed projection by ~20 each and formed the winning core; the highest-projected-own chalk came in flat."
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-24-repeated-punt-needs-thesis
+    born: "2026-05-24"
+    origin: "autopsies.md — CJ Cup 5.24.26, Process Lesson 3 (under-performing punts ridden in multiple lineups)"
+    statement: >
+      In a flat 6-golfer lineup every busted punt replaces a ceiling-salary slot with
+      floor, so a sub-6% punt that appears in 2+ lineups concentrates dead-slot risk.
+      Pre-lock check: any sub-6% punt in 2+ lineups needs an articulated
+      cheap-spike-of-the-week thesis; otherwise rotate punts across lineups.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-24-one-thesis-per-bullet
+    born: "2026-05-24"
+    origin: "autopsies.md — CJ Cup 5.24.26, Process Lesson 4 (all 4 lineups answered the same question)"
+    statement: >
+      A portfolio where every lineup answers the same "what if?" question is one thesis
+      bet sized x4, not four uncorrelated bets — if the shared read is wrong, every
+      bullet dies together. Each lineup must materially differ (different anchor,
+      rule-set, leverage angle, or sub-25 profile) and carry its own one-sentence
+      thesis.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "philosophy.md — Foundational Rule 2 (Every Lineup Needs a Thesis); framework.md — Handbuilt MME universal rules (materially differ; no two lineups share more than 4 of 6)"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-31-correct-chalk-concentration
+    born: "2026-05-31"   # PGA RD4 SD 5.31.26
+    origin: "autopsies.md — PGA RD4 SD 5.31.26, Process Lesson 1 (correct-chalk-concentration leak)"
+    statement: >
+      On a correct-chalk birdie-fest where 3-4 justified moderate-own plays (~10-25%
+      own with real ceiling) form a core the field will largely share, scattered single
+      legs of that core cannot capture the win — at least one lineup must roster the
+      full core together, because the winning structure is the connected core plus a
+      spike. This is the near-inverse of Anchor-Equivalence: that rule splits the
+      coin-flip pair; this one concentrates the shared core.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — The Correct-Chalk Concentration Rule; philosophy.md — On Structural Leaks"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-05-31-over-diversification-dilutes
+    born: "2026-05-31"
+    origin: "autopsies.md — PGA RD4 SD 5.31.26, Process Lesson 3 (over-diversification capped the portfolio)"
+    statement: >
+      Spreading a portfolio across too many distinct golfers (10 bullets, ~37 golfers)
+      guarantees no lineup assembles the correct core and clusters the bulk of the
+      portfolio just under the cash line. With a clear birdie-fest read, fewer distinct
+      cores rostered more deeply beats max breadth; a cluster just under the cash line
+      is the diagnostic symptom of dilution.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — The Correct-Chalk Concentration Rule (pre-lock check item 3: do not over-diversify)"
+    retired_reason: null

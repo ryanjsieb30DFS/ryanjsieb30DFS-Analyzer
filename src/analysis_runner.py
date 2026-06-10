@@ -100,6 +100,12 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"(projections, the article PDFs and images, strategy docs, and any sim data). "
         f"Then write a concise, scannable, GPP-framed slate analysis to `{out_path}`, "
         f"following the 'Writing the slate analysis' workflow in CLAUDE.md for sport `{sport}`. "
+        f"MANDATORY: complete the 'Pre-flight ritual' in CLAUDE.md first — confirm the data is for "
+        f"the CURRENT slate, read the venue file for this slate's venue (create a stub marked "
+        f"UNVERIFIED if missing), read `rules/{slug}/lessons.yaml` (every open lesson applied or "
+        f"rejected with the mechanism reason), and run the framework pre-lock checks including "
+        f"Anchor-Equivalence. The output file MUST begin with the '## Pre-flight checklist' block "
+        f"defined in CLAUDE.md, every line filled in with specifics. "
         f"Do not ask any questions — read the inputs and produce the file."
     )
     return _run_claude(prompt, out_path)
@@ -137,11 +143,77 @@ def run_build_lineups(slug: str, contest_label: str, sport: str, n_target: int) 
         f"at least one lineup MUST run the alternative.\n"
         f"- If the slate supports FEWER than {n_target} genuinely distinct theses, build fewer and explain why — "
         f"DO NOT pad with filler lineups.\n"
-        f"- Follow the sport's framework (e.g. RD4 SD is a flat 6-golfer lineup, no captain).\n\n"
+        f"- Follow the sport's framework (e.g. RD4 SD is a flat 6-golfer lineup, no captain).\n"
+        f"- Complete the 'Pre-flight ritual' in CLAUDE.md: re-read `rules/{slug}/lessons.yaml` and "
+        f"the venue file. The output MUST begin with the '## Pre-flight checklist' block, and each "
+        f"applied open lesson must be named in the lineup thesis it influenced (or explicitly "
+        f"rejected with the mechanism reason).\n\n"
         f"End with a 'Portfolio audit' section: player overlap, hedges, and rule-compliance check. "
         f"Write the result to `{out_path}`. Do not ask any questions — produce the file."
     )
     return _run_claude(prompt, out_path)
+
+
+def run_autopsy_review(slug: str, contest_label: str, sport: str) -> dict:
+    """Post-autopsy learning run: grade the archived slate's process, update
+    the lesson ledger + venue file, and write proposed (not applied)
+    framework changes to <history_dir>/autopsy_review.md."""
+    from src.history import latest_history_dir
+
+    hist_dir = latest_history_dir(slug)
+    if hist_dir is None:
+        return {"ok": False, "error": "No archived slate found — log an autopsy first.",
+                "duration_s": 0.0, "cost_usd": None}
+
+    out_path = hist_dir / "autopsy_review.md"
+    prompt = (
+        f"Run the post-autopsy review for the archived {contest_label} slate at `{hist_dir}`. "
+        f"Read its manifest.json, slate_analysis.md, lineups.md, autopsy.json, and results.json, "
+        f"plus the latest entries in `rules/{slug}/autopsy_data.jsonl` and the lesson ledger at "
+        f"`rules/{slug}/lessons.yaml` (create it with the standard header from CLAUDE.md's "
+        f"'Lesson ledger' section if missing). Then, following the 'Post-autopsy ritual' in CLAUDE.md:\n"
+        f"1. GRADE THE PROCESS: was the pre-flight checklist present and honest in slate_analysis.md "
+        f"and lineups.md? Which open lessons were applied vs ignored, and did ignored ones cost anything?\n"
+        f"2. UPDATE `rules/{slug}/lessons.yaml` directly (Edit tool): add confirmations/contradictions "
+        f"with this slate's date and history dir; promote status to 'validated' where confirmations "
+        f"exist; add new 'hypothesis' lessons born from this autopsy — mechanism-based, not "
+        f"result-based.\n"
+        f"3. UPDATE THE VENUE FILE for this slate's venue (sport `{sport}`; see CLAUDE.md for the "
+        f"venue dir; create the file from the archived analysis if missing): append a date-stamped "
+        f"'Per-slate observation' line with what this slate proved or disproved about the venue.\n"
+        f"4. WRITE `{out_path}` with sections: '## Process scorecard', '## Lesson ledger changes', "
+        f"'## Venue file changes', and '## Proposed codifications' — for any lesson meeting the "
+        f"promotion criteria (3 confirming slates) write the exact framework.md/philosophy.md edit "
+        f"you propose; for retirement candidates (2 mechanism contradictions) the same. If nothing "
+        f"qualifies, write 'None this slate.' under that heading. "
+        f"Do NOT edit framework.md or philosophy.md in this run — proposals only; the user approves.\n"
+        f"GPP guard: a bad ROI or a lost contest is NEVER a contradiction by itself; only mechanism "
+        f"failures count. Do not ask any questions — produce the file."
+    )
+    return _run_claude(prompt, out_path)
+
+
+def run_apply_proposals(slug: str) -> dict:
+    """Apply the user-approved '## Proposed codifications' from the latest
+    autopsy review to framework.md/philosophy.md + the lesson ledger."""
+    from src.history import latest_history_dir
+
+    hist_dir = latest_history_dir(slug)
+    review_path = hist_dir / "autopsy_review.md" if hist_dir else None
+    if review_path is None or not review_path.exists():
+        return {"ok": False, "error": "No autopsy review found — run the review first.",
+                "duration_s": 0.0, "cost_usd": None}
+
+    prompt = (
+        f"Read `{review_path}`, section '## Proposed codifications'. The user has APPROVED these "
+        f"proposals. Apply each proposed edit to `rules/{slug}/framework.md` / "
+        f"`rules/{slug}/philosophy.md` exactly as written, then update `rules/{slug}/lessons.yaml`: "
+        f"set the affected lessons' status to 'codified' (with codified_in naming the doc + section) "
+        f"or 'retired' (with retired_reason). Finally append a line "
+        f"'## Applied' with the current changes summarized to the end of `{review_path}`. "
+        f"Do not ask any questions."
+    )
+    return _run_claude(prompt, review_path)
 
 
 def lineup_target(slug: str) -> int:

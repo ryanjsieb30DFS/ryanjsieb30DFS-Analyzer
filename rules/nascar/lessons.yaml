@@ -1,0 +1,444 @@
+# Lesson ledger — one entry per generalizable lesson. Claude edits during the
+# post-autopsy review; the user approves codifications/retirements.
+# Lifecycle: hypothesis -> validated -> codified | retired.
+# Promotion: 3 mechanism confirmations -> propose codifying into framework.md.
+# Retirement: 2 mechanism contradictions -> propose retiring.
+# GPP guard: a lost contest is NOT a contradiction; only mechanism failures count.
+lessons:
+
+  # ---------------------------------------------------------------
+  # Texas Motor Speedway — May 2026 (Slate #1)
+  # ---------------------------------------------------------------
+
+  - id: nascar-2026-05-01-50-pct-chalk-rule
+    born: "2026-05-01"   # Texas slate; only "May 2026" known, 1st used as placeholder
+    origin: "autopsies.md — Texas Motor Speedway, Lessons That Generalize #1"
+    statement: >
+      Drivers at 50%+ ownership at lock deserve at least 33% portfolio exposure
+      because the market is rarely that wrong about price/start math at the
+      extremes. Fade only on definitive evidence (suspension, withdrawal,
+      mechanical issue, confirmed equipment problem); a backup car alone is a
+      hedge, not a fade thesis.
+    status: codified
+    confirmations:
+      - {date: "2026-05-01", slate: "Watkins Glen", note: "SVG held at 43% exposure under the rule; SVG scored 78.35 and SVG-in lineups averaged 199.5 vs 158 without."}
+    contradictions: []
+    codified_in: "philosophy.md — On Ownership Leverage; framework.md — Step 5 Portfolio Review + Quick-Reference Decision Heuristics"
+    retired_reason: null
+
+  - id: nascar-2026-05-01-anchor-vs-pivot
+    born: "2026-05-01"   # Texas slate; only "May 2026" known
+    origin: "autopsies.md — Texas Motor Speedway, Lessons That Generalize #2"
+    statement: >
+      Sub-15%-owned plays are pivots, never a lineup's load-bearing piece,
+      because a single low-owned bust should not collapse the lineup's
+      structural integrity. Pre-lock test: "If this 10%-owned play scores zero,
+      can this lineup still cash?"
+    status: codified
+    confirmations:
+      - {date: "2026-05-01", slate: "Watkins Glen", note: "Bell+Zilisch in 18 lineups averaged 147 pts (deep below cash) when both busted — the rule was violated structurally and the mechanism (load-bearing leverage collapse) played out."}
+    contradictions: []
+    codified_in: "philosophy.md — On Ownership Leverage; framework.md — Step 5 Portfolio Review + Quick-Reference Decision Heuristics"
+    retired_reason: null
+
+  - id: nascar-2026-05-01-correlation-not-substitution
+    born: "2026-05-01"   # Texas slate; only "May 2026" known
+    origin: "autopsies.md — Texas Motor Speedway, Lessons That Generalize #3"
+    statement: >
+      Two plays addressing similar theses (e.g. two deep-PD drivers at different
+      price points and team archetypes) are independent shots at different point
+      distributions, not interchangeable substitutes — both can hit on the same
+      slate. Rostering one does not "cover" the other.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nascar-2026-05-01-hms-intermediate-double-up
+    born: "2026-05-01"   # Texas slate; only "May 2026" known
+    origin: "autopsies.md — Texas Motor Speedway, Lessons That Generalize #4"
+    statement: >
+      HMS speed correlates across teammates at intermediate tracks, so a
+      Byron+Elliott style double-up captures the same equipment edge twice
+      (Byron 43 + Elliott 95.95 cashed L3 at Texas). Track for Kansas, Vegas,
+      Charlotte and other intermediates.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Quick-Reference Decision Heuristics (HMS + intermediates -> consider double-up)"
+    retired_reason: null
+
+  - id: nascar-2026-05-01-sub-10-punts-over-15-20
+    born: "2026-05-01"   # Texas slate; only "May 2026" known
+    origin: "autopsies.md — Texas Motor Speedway, Lessons That Generalize #5"
+    statement: >
+      When floors match, the lowest-owned of viable Tier 5 punts is the better
+      GPP play because similar output at one-third the ownership is vastly more
+      leverage (Ty Dillon 7% own / 29 pts vs Zane 17% own / 33 pts). Scope
+      (Dover): sub-10% own is necessary but not sufficient — the mechanism
+      requires matching floors AND source-material endorsement; it does not
+      transfer to tracks where the field is correctly pricing a structurally
+      lower floor.
+    status: codified
+    confirmations:
+      - {date: "2026-05-01", slate: "Watkins Glen", note: "Austin Dillon at 5% field own / $5,800 scored 57.9 as the slate-winning punt — second consecutive slate confirming the mechanism at chaotic tracks."}
+    contradictions:
+      - {date: "2026-05-17", slate: "Dover All-Star", note: "Mechanism (natural PD chaos) absent on high-banked concrete with brutal passing difficulty; Ty Dillon ranked second-worst on slate and carried a 'MME or fade' warning. Scoping refinement, not a result-based contradiction."}
+    codified_in: "framework.md — Step 2 Tier 5 + Quick-Reference Decision Heuristics (punt selection)"
+    retired_reason: null
+
+  - id: nascar-2026-05-01-portfolio-gaps-addressed-pre-lock
+    born: "2026-05-01"   # Texas slate; only "May 2026" known
+    origin: "autopsies.md — Texas Motor Speedway, Lessons That Generalize #6"
+    statement: >
+      An identified portfolio gap is already-diagnosed information the field may
+      not have priced; leaving it unaddressed forfeits that edge for free
+      (Suarez flagged as a hole pre-slate, not fixed, scored 35.35). If a gap is
+      identified, address it in at least one lineup even if construction is
+      awkward.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nascar-2026-05-01-ownership-shift-full-reevaluation
+    born: "2026-05-01"   # Texas slate; only "May 2026" known
+    origin: "autopsies.md — Texas Motor Speedway, Process Notes"
+    statement: >
+      A major ownership shift (e.g. Blaney 54%->39%) changes the relative-value
+      math of every fade and overweight justified against it, so it should
+      trigger full re-evaluation of the chalk structure, not be treated as
+      confirmation of the existing plan.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nascar-2026-05-01-bet-sizing-reflects-inverse
+    born: "2026-05-01"   # Texas slate; only "May 2026" known
+    origin: "autopsies.md — Texas Motor Speedway, Process Notes (Bubba decision); Watkins Glen, Process Notes (calibrated confidence)"
+    statement: >
+      Stated confidence must be expressed in exposure deltas because exposure,
+      not language, is the actual bet: "80% confident" with a 47% exposure to
+      the contrarian is a near-total commitment to the base case, not 80%
+      confidence. High confidence = 10-15pts above field rate; moderate = field
+      rate; low = 5-10pts below. High-magnitude fades additionally require
+      calibrated language and explicit acknowledgment of the downside scenario.
+    status: codified
+    confirmations:
+      - {date: "2026-05-01", slate: "Watkins Glen", note: "Zilisch at 47% exposure under an '80% confident' label was the slate-defining loss; bet size did not reflect the 20% inverse (SVG dominates), which is what occurred."}
+    contradictions: []
+    codified_in: "philosophy.md — On Process Discipline (bet sizing reflects probability of the inverse)"
+    retired_reason: null
+
+  - id: nascar-2026-05-01-backup-car-not-auto-fade
+    born: "2026-05-01"   # Texas slate; only "May 2026" known
+    origin: "autopsies.md — Texas Motor Speedway, What We Got Wrong (Bubba fade) + Slate-Specific Notes"
+    statement: >
+      A backup car is a risk factor, not a fade thesis — it lowers the floor
+      modestly but does not erase the price/start PD math that put the driver at
+      chalk ownership (Bubba top-5 from P37 in a backup car, 63 pts at 65.58%
+      own). Don't auto-fade backup-car drivers; demand positive evidence.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Quick-Reference Decision Heuristics (backup-car driver -> don't auto-fade)"
+    retired_reason: null
+
+  # ---------------------------------------------------------------
+  # Watkins Glen — May 2026 (Slate #2)
+  # ---------------------------------------------------------------
+
+  - id: nascar-2026-05-01-thesis-before-iteration
+    born: "2026-05-01"   # Watkins Glen slate; only "May 2026" known
+    origin: "autopsies.md — Watkins Glen, Lessons That Generalize #1"
+    statement: >
+      Optimizer iteration cannot save a portfolio whose foundational thesis is
+      wrong, because every build re-expresses the same incorrect bet with
+      different exposures. Before iterating on Min/Max or boost/dock settings,
+      validate the core strategic thesis; if results feel wrong, re-evaluate the
+      thesis, not the construction.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Iteration Discipline (optimizer outputs don't validate or invalidate strategy)"
+    retired_reason: null
+
+  - id: nascar-2026-05-01-inverse-thesis-test
+    born: "2026-05-01"   # Watkins Glen slate; only "May 2026" known
+    origin: "autopsies.md — Watkins Glen, Lessons That Generalize #2"
+    statement: >
+      If the contrarian dominator thesis depends on the chalk dominator
+      under-performing ("Zilisch wins because SVG's ceiling is capped"), it is
+      an absence-of-confidence thesis about the chalk, not positive evidence for
+      the contrarian — and it collapses entirely when the chalk's ceiling isn't
+      capped. Default to field rate on the chalk and require an independent
+      positive win path for the contrarian.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "philosophy.md — On Contrarian Thinking (The Inverse Thesis Test)"
+    retired_reason: null
+
+  - id: nascar-2026-05-01-correlated-leverage-one-bet
+    born: "2026-05-01"   # Watkins Glen slate; only "May 2026" known
+    origin: "autopsies.md — Watkins Glen, Lessons That Generalize #3"
+    statement: >
+      Overweights sharing one thesis bust together, so 3+ overweights betting on
+      the same outcome (e.g. "Toyota speed beats the SVG/HMS chalk path") are a
+      single concentrated bet, not diversified leverage. Count the theses behind
+      overweights, not the drivers, and break the correlated stack by reducing
+      exposure on at least one.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "philosophy.md — On Contrarian Thinking (correlated leverage stacks); framework.md — Step 5 thesis-count check + Quick-Reference Decision Heuristics"
+    retired_reason: null
+
+  - id: nascar-2026-05-01-iteration-discipline
+    born: "2026-05-01"   # Watkins Glen slate; only "May 2026" known
+    origin: "autopsies.md — Watkins Glen, Lessons That Generalize #5, #6, #8 + Process Notes"
+    statement: >
+      Every optimizer build must be justified by a diagnosed structural problem
+      and an articulated specific adjustment, because iteration driven by
+      discomfort ("I just want to build one more set") is a signal about the
+      thesis, not optimization — and marginal differences across builds that
+      satisfy the same strategic criteria are noise (lock the first satisfying
+      build). Forcing the lock preserves decision integrity even when the
+      outcome doesn't validate it.
+    status: codified
+    confirmations:
+      - {date: "2026-05-17", slate: "Dover All-Star", note: "Framework updated: no hard build cap, but each build requires a diagnosed structural problem; the mechanism (discomfort-driven iteration is noise) held and was refined rather than contradicted."}
+    contradictions: []
+    codified_in: "framework.md — Iteration Discipline (Watkins Glen lesson — updated 5/17/26)"
+    retired_reason: null
+
+  - id: nascar-2026-05-01-sound-chalk-toward-field-rate
+    born: "2026-05-01"   # Watkins Glen slate; only "May 2026" known
+    origin: "autopsies.md — Watkins Glen, Lessons That Generalize #7"
+    statement: >
+      When all three structural pillars (price, start, track-fit) confirm a 60%+
+      chalk play, field consensus at the extreme is even stronger than modeled —
+      target field rate or slightly below, not the 33% floor of the 50% Chalk
+      Rule. SVG at 60% field own was correct; holding him to 43% gave 15+
+      exposure points of leverage back to the field.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "philosophy.md — On Ownership Leverage (structurally sound chalk expands toward field rate); framework.md — Quick-Reference Decision Heuristics"
+    retired_reason: null
+
+  - id: nascar-2026-05-01-track-profile-overweight-cap
+    born: "2026-05-01"   # Watkins Glen slate; only "May 2026" known
+    origin: "autopsies.md — Watkins Glen, Process Notes (Zilisch overweight from Step 1 track profile)"
+    statement: >
+      Track-profile analysis correctly identifies viable win paths, but path
+      viability is not path probability — over-extrapolating from "X has a
+      positive win path" to "X is the primary slate-winning thesis" turns a
+      sound read into an oversized bet. Cap track-profile-derived overweights at
+      +10pts above field rate, not +20pts.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "philosophy.md — On Contrarian Thinking (track-profile-derived overweights cap at +10pts)"
+    retired_reason: null
+
+  - id: nascar-2026-05-01-hms-road-course-fade
+    born: "2026-05-01"   # Watkins Glen slate; only "May 2026" known
+    origin: "autopsies.md — Watkins Glen, What We Got Right (Bowman fade / Byron under-exposure)"
+    statement: >
+      HMS equipment edge does not translate to road courses, so HMS drivers are
+      fades there (Glen: Bowman 20, Larson 19, Byron -17, Elliott 21). The same
+      teammate correlation that makes HMS a double-up at intermediates works in
+      reverse — the weakness correlates across the org too.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Quick-Reference Decision Heuristics (HMS + road courses -> fade)"
+    retired_reason: null
+
+  - id: nascar-2026-05-01-toyota-road-double-up-not-bell
+    born: "2026-05-01"   # Watkins Glen slate; only "May 2026" known
+    origin: "autopsies.md — Watkins Glen, What We Got Wrong (Bell) + Slate-Specific Notes"
+    statement: >
+      Toyota road-course speed is real at the org level (Reddick 50.8, Briscoe
+      45.45, Gibbs 54.05 all hit at Glen), so a Toyota double-up should be
+      expressed through Reddick/Briscoe rather than Bell (8.00) — capture the
+      equipment correlation without concentrating on the driver who busted the
+      thesis.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Quick-Reference Decision Heuristics (Toyota road course double-up)"
+    retired_reason: null
+
+  # ---------------------------------------------------------------
+  # Dover All-Star — 2026-05-17 (no autopsies.md entry; lessons live
+  # directly in framework.md / philosophy.md, indexed here)
+  # ---------------------------------------------------------------
+
+  - id: nascar-2026-05-17-mme-or-fade-means-fade-in-se
+    born: "2026-05-17"
+    origin: "philosophy.md — On Reading the Source Material (Dover All-Star lesson)"
+    statement: >
+      "MME or fade" in Dustin's Deep Dive is a deliberate marker for drivers
+      with win equity but bad expected value: in MME the portfolio's variance
+      absorbs them across 1-2 lineups, but a single-entry lineup that must win
+      1-of-N cannot — so "MME or fade" means fade in single entry, full stop.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "philosophy.md — On Reading the Source Material; framework.md — Step 6 check #6 + Quick-Reference Decision Heuristics"
+    retired_reason: null
+
+  - id: nascar-2026-05-17-mechanism-check-before-reapplying-patterns
+    born: "2026-05-17"
+    origin: "philosophy.md — On Reading the Source Material + On Process Discipline (Dover lesson)"
+    statement: >
+      Autopsy patterns don't transfer across track types unless the underlying
+      mechanic transfers: Texas Ty Dillon worked because a chaotic intermediate
+      created natural PD chaos, a mechanic absent at high-banked concrete Dover.
+      Before applying any prior lesson ask "what mechanic made it work, and is
+      that mechanic present here?" — pattern recognition without a mechanism
+      check is superstition, and confident citation of prior patterns is how
+      lessons get misapplied at speed.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "philosophy.md — On Reading the Source Material + On Process Discipline; framework.md — Quick-Reference Decision Heuristics (autopsy patterns require mechanism check)"
+    retired_reason: null
+
+  - id: nascar-2026-05-17-se-and-mme-built-separately
+    born: "2026-05-17"
+    origin: "framework.md — Step 4 Contest-Specific Construction (Dover lesson)"
+    statement: >
+      Single Entry and MME are different lineup archetypes because SE cannot
+      rely on portfolio variance to absorb bust risk: SE needs floor and ceiling
+      in the same lineup, 1-2 leverage spots all with positive evidence, no
+      "MME or fade" drivers, and max 2 must-advance drivers in formats with
+      stage cuts. Build them separately; 3+ must-advance per lineup is
+      acceptable only for MME.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Step 4 Single Entry vs MME construction + Step 5 must-advance concentration check; philosophy.md — On Contest-Specific Strategy"
+    retired_reason: null
+
+  - id: nascar-2026-05-17-format-overlays-break-scoring-assumptions
+    born: "2026-05-17"
+    origin: "framework.md — Step 1 Track Profile Assessment (Dover lesson)"
+    statement: >
+      Format-driven slates (All-Star, stage races, inverts, eliminations) break
+      normal dominator/PD scoring assumptions, so the Step 1 track profile must
+      explicitly map format overlays before any tiering — otherwise tiers
+      inherit assumptions the format has invalidated.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Step 1 (format-driven scoring overlays row) + Quick-Reference Decision Heuristics"
+    retired_reason: null
+
+  - id: nascar-2026-05-17-conservative-boost-dock-first
+    born: "2026-05-17"
+    origin: "framework.md — Iteration Discipline (Dover lesson)"
+    statement: >
+      Large boost/dock adjustments cascade through the optimizer in
+      unpredictable ways (docking Hamlin -3 pushed Elliott to 75% at Dover), so
+      use ±1 before reaching for ±5 — small adjustments isolate the variable
+      being tested. The boost/dock cascade is real optimizer behavior; respect
+      it.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Iteration Discipline (conservative boost/dock first) + The Solver rule mechanics"
+    retired_reason: null
+
+  # ---------------------------------------------------------------
+  # Charlotte 600 — 2026-05-24 (Slate #3 autopsy: "NASCAR 5.24.26")
+  # ---------------------------------------------------------------
+
+  - id: nascar-2026-05-24-anchor-equivalence
+    born: "2026-05-24"
+    origin: "autopsies.md — Autopsy: NASCAR 5.24.26, Process Lessons #1"
+    statement: >
+      Chalk-tier anchors at similar ownership are mathematically substitutable
+      to the field, so concentrating on one while zeroing the equivalent-profile
+      alternative bets the portfolio on a coin flip the field already mispriced
+      (Bell 21.9% own scored 87.8 while faded 0/5; Reddick 33.2% own in only
+      one lineup). For every chalk-tier (>=20% own) dominator candidate,
+      identify the equivalent-profile alternative and run it in at least one
+      lineup — a build-time enforced rule, 4-slate-validated across 2 sports.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "rules/shared/anchor_equivalence.md; framework.md — Step 6 mandatory check #8; philosophy.md — On Process Discipline (The Anchor-Equivalence Rule cost us Charlotte 600)"
+    retired_reason: null
+
+  - id: nascar-2026-05-24-sleeper-spike-floor
+    born: "2026-05-24"
+    origin: "autopsies.md — Autopsy: NASCAR 5.24.26, Process Lessons #2"
+    statement: >
+      On NASCAR slates the sub-15% own / sub-$6K slot is where back-of-pack
+      starters earn massive place-differential points, and zero coverage of it
+      is a structural floor violation — Charlotte had 10 such plays score 20+
+      FPTS (Suarez 73.0, Zane Smith 53.5, Gibbs 51.8, ...) and the portfolio
+      held none. At least 2 of N lineups must contain a sub-15% own / sub-$6K
+      driver projected for >=15 spots of place differential.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Step 6 mandatory check #9 (sleeper-spike floor)"
+    retired_reason: null
+
+  - id: nascar-2026-05-24-sim-roi-not-a-selector
+    born: "2026-05-24"
+    origin: "autopsies.md — Autopsy: NASCAR 5.24.26, Process Lessons #3"
+    statement: >
+      Pre-slate Sim ROI rank was anti-informative as a lineup selector on
+      NASCAR (Spearman -0.054 vs actual; top-10 by sim ROI averaged below pool
+      mean), so selecting by it made the portfolio worse than random. Use the
+      Exposure-tab lift score (>1.5 on chalk-tier players) and the
+      Chalky-Combos-to-Avoid list as primary selectors; Sim ROI is an
+      informational input only.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Step 6 mandatory check #11; philosophy.md — On Process Discipline (Sim ROI is informational, not a selection ranker)"
+    retired_reason: null
+
+  - id: nascar-2026-05-24-chalky-combos-scrub
+    born: "2026-05-24"
+    origin: "autopsies.md — Autopsy: NASCAR 5.24.26, Process Lessons #4"
+    statement: >
+      Repeating a flagged chalky combo across lineups concentrates the portfolio
+      on below-median-ROI chalk co-occurrence — Charlotte's Hocevar+Chastain
+      combo ran in 3 of 5 entered lineups and both drivers were 0/50 in winners.
+      Before locking, scrub the Chalky-Combos-to-Avoid list and drop any
+      2-player combo appearing in 2+ selected lineups from at least one of
+      them.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Step 6 mandatory check #10 (Chalky-Combos-to-Avoid scrub)"
+    retired_reason: null
+
+  - id: nascar-2026-05-24-post-roi-gold-standard
+    born: "2026-05-24"
+    origin: "autopsies.md — Autopsy: NASCAR 5.24.26, Post-sim findings + Key Takeaway"
+    statement: >
+      One-shot actual rank is a single sample from the field-construction
+      distribution; post_roi_pct (many alternate simulated fields with
+      deterministic actuals) isolates selection skill from field variance and is
+      well-calibrated (Charlotte: 10/10 top-10 and 44/50 top-50 overlap with
+      actuals). Anchor "did this lineup have real equity / was the loss luck or
+      selection?" on post_roi — all 5 Charlotte entries were -100% across 500
+      iterations while 22% of the unentered pool was equity-positive, proving a
+      selection-layer leak, not variance.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Step 6 mandatory check #12; philosophy.md — On Process Discipline (use post_roi_pct as the gold-standard retroactive equity metric)"
+    retired_reason: null

@@ -1,0 +1,203 @@
+# Lesson ledger — one entry per generalizable lesson. Claude edits during the
+# post-autopsy review; the user approves codifications/retirements.
+# Lifecycle: hypothesis -> validated -> codified | retired.
+# Promotion: 3 mechanism confirmations -> propose codifying into framework.md.
+# Retirement: 2 mechanism contradictions -> propose retiring.
+# GPP guard: a lost contest is NOT a contradiction; only mechanism failures count.
+lessons:
+  # ---- 2026-05-09 — UFC Chimaev vs. Strickland ----
+
+  - id: mma-se-2026-05-09-verify-submission-before-lock
+    born: "2026-05-09"
+    origin: "autopsies.md — 2026-05-09 UFC Chimaev vs. Strickland — Process-Level Lessons"
+    statement: >
+      Read back the locked DK lineup against the final recommendation before
+      submitting. The $12 SE lost differentiation because the recommended
+      Kopylov-to-Miller leverage swap was never applied — an execution failure,
+      not a strategy failure, and one a 30-second verification step removes entirely.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Pre-Submission Checklist for SE (item 10: Submission verified)"
+    retired_reason: null
+
+  - id: mma-se-2026-05-09-confirmed-vs-speculative-news
+    born: "2026-05-09"
+    origin: "autopsies.md — 2026-05-09 UFC Chimaev vs. Strickland — Process-Level Lessons"
+    statement: >
+      In SE, react fully to CONFIRMED news but only partially to SPECULATIVE news.
+      Swapping away from a reliable scorer onto a KO-or-bust replacement on
+      unconfirmed injury news trades a known any-outcome floor for a binary bet —
+      the Brady-to-Buckley swap (Brady 136.27, Buckley 5.20) was an overreaction,
+      and SE's one-shot structure makes that risk asymmetry worse.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-05-16 — UFC Vegas 117 (Allen vs. Costa) ----
+
+  - id: mma-se-2026-05-16-no-identical-conviction-cores
+    born: "2026-05-16"
+    origin: "autopsies.md — 2026-05-16 UFC Vegas 117 — Process-Level Lessons"
+    statement: >
+      Never lock identical conviction cores across multiple SEs: shared anchors make
+      two entries a single bet, so one anchor's failure kills both lineups
+      identically (Santos + Gantt in both SEs; Santos lost and both died together).
+      Differentiate on at least one of the two conviction anchors, accepting that
+      one SE underweights a play you believe in — that IS the hedge.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Step 5 — Diversification; The Santos/Gantt Pairing Lesson; philosophy.md — SE Diversification Rules"
+    retired_reason: null
+
+  - id: mma-se-2026-05-16-ceiling-threshold-discipline
+    born: "2026-05-16"
+    origin: "autopsies.md — 2026-05-16 UFC Vegas 117 — Process-Level Lessons"
+    statement: >
+      Before locking a SE, sum all 6 fighters' win-case projections and compare to
+      the field-size winning threshold; a lineup whose ceiling can't reach the
+      historical winning score is built to cash, not to win, and SE prize structures
+      pay only the top. The 5/16 lineups were ceiling-capped at ~572/~581 in a field
+      whose winner scored 660.81 — no variance outcome could have won.
+    status: codified
+    confirmations: []
+    contradictions:
+      - date: "2026-05-30"
+        slate: "UFC Macau"
+        note: >
+          Mechanism limitation, not retirement: the threshold is computed from
+          chalk-friendly projections, so applied alone it forced high-projection
+          mid-range chalk (Dias/Ding/Perez) and zeroed out the low-own finishers
+          (Amorim, Vera) who actually won. Refined in framework.md rather than
+          retired — keep the gate, reserve >=1 field-fade lineup.
+    codified_in: "framework.md — Step 4 (item 6) + Pre-Submission Checklist item 7; philosophy.md — Ceiling Threshold Discipline"
+    retired_reason: null
+
+  - id: mma-se-2026-05-16-binary-leverage-weak-in-small-fields
+    born: "2026-05-16"
+    origin: "autopsies.md — 2026-05-16 UFC Vegas 117 — Process-Level Lessons"
+    statement: >
+      In small-field SEs (under ~500 entrants), pure KO-or-bust leverage plays are
+      structurally weak: a ~25% chance of 115 points and 75% chance of ~0 blends to
+      ~29 EV, while a fighter with KO upside AND a decision floor blends to ~90.
+      Small fields don't require extreme variance to separate, so prefer leverage
+      with blended EV above ~50; save pure-binary plays for large fields.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Binary-Dependent Leverage Plays (5/16/26) + Step 3 — Field-Size Calibration"
+    retired_reason: null
+
+  - id: mma-se-2026-05-16-secondary-plays-are-not-leverage
+    born: "2026-05-16"
+    origin: "autopsies.md — 2026-05-16 UFC Vegas 117 — Process-Level Lessons"
+    statement: >
+      A 20%+-owned play is not leverage, it is secondary chalk — at that ownership a
+      hit doesn't separate you from the field. True SE leverage is sub-15% owned
+      (ideally sub-12%) with a realistic 100+ point path; audit the "leverage" slot
+      and swap anything 20%+ for something that actually contradicts chalk.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Step 2 — Contrarian Swing Identification; Secondary Plays Are Not Leverage"
+    retired_reason: null
+
+  # ---- 2026-05-30 — UFC Macau ----
+
+  - id: mma-se-2026-05-30-asymmetric-anchor-equivalence-weighting
+    born: "2026-05-30"
+    origin: "autopsies.md — 2026-05-30 UFC Macau — Process-Level Lessons"
+    statement: >
+      Anchor-equivalence is about presence, not weighting — but when the chalk side
+      of an equivalent pair is BOTH the chalkiest play on the slate AND KO-or-bust
+      (no decision floor), weight the pivot side heavier than 50/50: the pivot
+      carries the same realistic win equity with far better leverage. The 40/40
+      Zhang/Pavlovich split left 40% of the portfolio on the side that busted (10.09)
+      while the pivot smashed (128.6).
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Asymmetric Anchor-Equivalence Weighting (5/30/26 — UFC Macau)"
+    retired_reason: null
+
+  - id: mma-se-2026-05-30-se-bullet-is-the-differentiated-build
+    born: "2026-05-30"
+    origin: "autopsies.md — 2026-05-30 UFC Macau — Process-Level Lessons"
+    statement: >
+      When one SE entry sits behind a multi-lineup portfolio and the chalk anchor is
+      boom/bust, the SE bullet should be the highest-conviction DIFFERENTIATED build,
+      not the chalk-correct one — the single bullet is where differentiation matters
+      most because you only get one swing. The 5/30 SE used the Zhang chalk lineup
+      (539/901) while the differentiated Pavlovich+Haddon build went 30/577 elsewhere.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — SE-Bullet Selection (5/30/26 — UFC Macau)"
+    retired_reason: null
+
+  - id: mma-se-2026-05-30-ceiling-gate-underrates-low-own-finishers
+    born: "2026-05-30"
+    origin: "autopsies.md — 2026-05-30 UFC Macau — Process-Level Lessons"
+    statement: >
+      The win-case ceiling threshold is computed from chalk-friendly projections, so
+      it systematically steers builds toward high-projection mid-range chalk and away
+      from cheap, low-owned finishers whose ceiling the projections under-rate (the
+      5/30 winner's differentiators, Amorim and Vera, were rated bust-risk and held
+      at 0%/10% exposure). Keep the threshold but reserve at least one lineup for the
+      field-fade secondary tier — sub-25%-owned fighters with a live finishing/volume path.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Win-Case Ceiling Under-Rates Low-Own Finishers (5/30/26 — UFC Macau)"
+    retired_reason: null
+
+  - id: mma-se-2026-05-30-anchor-equivalence-fifth-validation
+    born: "2026-05-30"   # rule predates this ledger (4-slate-validated before Macau); this entry logs the MMA confirmation
+    origin: "autopsies.md — 2026-05-30 UFC Macau — What Worked"
+    statement: >
+      The shared Anchor-Equivalence rule applies fully to MMA: chalk-tier anchors at
+      similar ownership are substitutable to the field, so running the alternative
+      captures uncontested leverage when it outperforms. At Macau every good finish
+      was a Pavlovich-not-Zhang lineup — the rule's 5th cross-sport validation.
+    status: codified
+    confirmations:
+      - date: "2026-05-30"
+        slate: "UFC Macau"
+        note: "5th validation; Pavlovich-not-Zhang lineups produced top-5% finishes in two contests."
+    contradictions: []
+    codified_in: "rules/shared/anchor_equivalence.md"
+    retired_reason: null
+
+  # ---- Indexed from the 2026-05-17 framework/philosophy (operating rules not tied to a single autopsy) ----
+
+  - id: mma-se-2026-05-17-field-size-calibration
+    born: "2026-05-17"   # date of the framework/philosophy docs these rules were codified in
+    origin: "framework.md — Step 3 — Field-Size Calibration (also philosophy.md — Field Size Matters More in SE)"
+    statement: >
+      Required differentiation scales with field size: under ~500 entrants a
+      chalk-leaning conviction core with one quality swing can win; 500-1,500 needs
+      genuine differentiation (~60-65% conviction / 35-40% leverage); 1,500+ demands
+      fading a top chalk or pairing contrarian pieces, because the chalk is more
+      locked in and shared outcomes can't separate you.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Step 3 — Field-Size Calibration"
+    retired_reason: null
+
+  - id: mma-se-2026-05-17-one-leverage-swing-conviction-core
+    born: "2026-05-17"   # date of the framework/philosophy docs these rules were codified in
+    origin: "philosophy.md — Conviction vs. Contrarian in SE (also framework.md — Steps 1-2)"
+    statement: >
+      A SE is one shot, so conviction plays are the load-bearing walls: lock 2-3
+      conviction anchors (~70% of the build) and include exactly ONE sub-20%-owned
+      leverage swing (~30%) that supports the core rather than carrying it. Unlike
+      MME, a single lineup cannot afford to ride a contrarian bet as its core thesis.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "philosophy.md — Conviction vs. Contrarian in SE; framework.md — Steps 1-2"
+    retired_reason: null

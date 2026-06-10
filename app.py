@@ -31,8 +31,12 @@ from src.contests import (
 )
 from src.sim_data import save_sim, load_sim_summary, clear_sim
 from src.bundle import clear_bundle
-from src.analysis_runner import run_analysis, run_build_lineups, lineup_target
+from src.analysis_runner import (
+    run_analysis, run_build_lineups, lineup_target,
+    run_autopsy_review, run_apply_proposals,
+)
 from src.lineups import load_lineups, clear_lineups
+from src import history
 
 
 REPO_ROOT = Path(__file__).parent
@@ -95,10 +99,10 @@ with tab_proj:
             except Exception as e:
                 st.error(f"❌ Failed to load {f.name}: {e}")
                 continue
-            if df.attrs.get("kind") == "team_stacks":
+            if df.attrs.get("kind") is not None:
                 st.info(
-                    f"📊 {f.name} is team-level data ({df.attrs['vendor']}) — "
-                    "upload it in the **Slate Data** tab instead."
+                    f"📊 {f.name} is {df.attrs['vendor']} data, not player "
+                    "projections — upload it in the **Slate Data** tab instead."
                 )
                 continue
             vendor_name = df.attrs.get("vendor")
@@ -169,7 +173,11 @@ with tab_slate:
                         f"({len(detected)} teams). Feeds the {sport.upper()} stack signals."
                     )
                     continue
-                if detected is not None and detected.attrs.get("vendor") is not None:
+                if detected is not None and detected.attrs.get("kind") is not None:
+                    # Recognized non-projection data (e.g. SIN rankings):
+                    # falls through and is saved below as slate context.
+                    pass
+                elif detected is not None and detected.attrs.get("vendor") is not None:
                     st.warning(
                         f"{f.name} looks like **{detected.attrs['vendor']}** player "
                         "projections — upload it in the **Projections** tab instead."
@@ -576,16 +584,74 @@ with tab_autopsy:
                     key=f"autopsy_notes_{slug}_{i}",
                     height=120,
                 )
+
+                # --- ROI inputs: link to a declared contest + winnings --- #
+                st.markdown("##### Results for the ROI ledger")
+                declared = load_contests(slug)
+                options = [c["name"] for c in declared] + ["(not declared)"]
+                # Default: declared contest whose field size is within ~10%
+                # of this CSV's entry count.
+                default_idx = len(options) - 1
+                for j, c in enumerate(declared):
+                    fs = c.get("field_size") or 0
+                    if fs and abs(fs - len(lineups)) / fs <= 0.10:
+                        default_idx = j
+                        break
+                picked_name = st.selectbox(
+                    "Declared contest", options, index=default_idx,
+                    key=f"autopsy_contest_{slug}_{i}",
+                )
+                picked = next((c for c in declared if c["name"] == picked_name), None)
+                if picked is None:
+                    fee = st.number_input(
+                        "Entry fee ($)", min_value=0.0, step=0.25, value=0.0,
+                        key=f"autopsy_fee_{slug}_{i}",
+                    )
+                    entry_fee = float(fee) if fee else None
+                    my_entries = (analysis["user_summary"] or {}).get("entry_count", 0)
+                    contest_type = None
+                else:
+                    entry_fee = picked.get("entry_fee")
+                    my_entries = picked.get("my_entries", 0)
+                    contest_type = picked.get("type")
+                win_raw = st.text_input(
+                    "Winnings this contest ($) — leave blank if you didn't check",
+                    key=f"autopsy_win_{slug}_{i}",
+                    placeholder="e.g. 18.50 — blank means 'not reported', 0 means won nothing",
+                )
+                try:
+                    winnings = float(win_raw) if win_raw.strip() else None
+                except ValueError:
+                    winnings = None
+                    st.warning(f"Couldn't read '{win_raw}' as a dollar amount — logging winnings as not reported.")
+
+            us = analysis["user_summary"] or {}
             parsed_contests.append({
                 "name": dk_csv.name,
                 "lineups": lineups,
                 "parsed": parsed,
                 "analysis": analysis,
                 "notes": notes,
+                "roi": {
+                    "name": picked_name if picked else dk_csv.name,
+                    "type": contest_type,
+                    "source_file": dk_csv.name,
+                    "field_size": len(lineups),
+                    "my_entries": my_entries,
+                    "entry_fee": entry_fee,
+                    "winnings": winnings,
+                    "best_rank": us.get("best_rank"),
+                    "best_percentile": us.get("best_percentile"),
+                },
             })
 
         if parsed_contests:
             st.divider()
+            slate_label = st.text_input(
+                "Slate label (names the archive folder)",
+                key=f"autopsy_slate_label_{slug}",
+                placeholder="e.g. Nashville Superspeedway / Memorial Tournament / UFC 320",
+            )
             if st.button("📝 Log autopsy", type="primary"):
                 ts = datetime.now().strftime("%Y-%m-%d %H:%M")
                 md_path = REPO_ROOT / "rules" / slug / "autopsies.md"
@@ -593,6 +659,7 @@ with tab_autopsy:
                 jsonl_path = REPO_ROOT / "rules" / slug / "autopsy_data.jsonl"
                 # One autopsies.md section + one autopsy_data.jsonl row per
                 # contest; source_file disambiguates same-type contests.
+                records = []
                 with md_path.open("a") as fmd, jsonl_path.open("a") as fjl:
                     for pc in parsed_contests:
                         lineups = pc["lineups"]
@@ -616,6 +683,18 @@ with tab_autopsy:
                         if notes.strip():
                             fmd.write(f"\n{notes.strip()}\n")
                         fjl.write(json.dumps(record) + "\n")
+                        records.append(record)
+                # Archive the slate BEFORE clearing — lineups, analysis, and
+                # ROI survive in rules/<slug>/history/ + results.jsonl.
+                hist_dir = history.archive_slate(
+                    slug=slug,
+                    sport=sport,
+                    contest_label=contest_label,
+                    slate_label=slate_label.strip(),
+                    autopsy_records=records,
+                    roi_contests=[pc["roi"] for pc in parsed_contests],
+                    proj_source=proj_source,
+                )
                 # Clear all per-slate state — next slate starts fresh
                 clear_persisted(slug)
                 clear_lineups(slug)
@@ -624,9 +703,84 @@ with tab_autopsy:
                 clear_bundle(slug)
                 st.success(
                     f"Logged {len(parsed_contests)} contest(s) to rules/{slug}/autopsies.md "
-                    "+ autopsy_data.jsonl. Cleared the slate analysis, lineups, contests, "
-                    "sim data, and bundle for next time."
+                    "+ autopsy_data.jsonl, and archived the slate to "
+                    f"`{hist_dir.relative_to(REPO_ROOT)}`. Cleared the slate analysis, "
+                    "lineups, contests, sim data, and bundle for next time. "
+                    "Now run the post-autopsy review below."
                 )
+
+    # ----- Post-autopsy review (the learning loop) ----- #
+    latest_hist = history.latest_history_dir(slug)
+    if latest_hist is not None:
+        st.divider()
+        st.markdown("### Post-autopsy review")
+        review_path = latest_hist / "autopsy_review.md"
+        st.caption(
+            f"Latest archived slate: `{latest_hist.relative_to(REPO_ROOT)}`. "
+            "The review grades the build process, updates the lesson ledger "
+            f"(rules/{slug}/lessons.yaml) and venue notes, and proposes framework "
+            "changes for your approval. Takes ~1–3 minutes."
+        )
+        btn_label = "🔄 Re-run post-autopsy review" if review_path.exists() else "🔬 Run post-autopsy review"
+        if st.button(btn_label, type="primary", key=f"autopsy_review_{slug}"):
+            with st.spinner("Reviewing the archived slate — grading process, updating lessons + venue notes… (~1–3 min)"):
+                rresult = run_autopsy_review(slug, contest_label, sport)
+            if rresult["ok"]:
+                cost = rresult.get("cost_usd")
+                cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
+                st.success(f"Review written in {rresult['duration_s']:.0f}s{cost_note}.")
+                st.rerun()
+            else:
+                st.error(f"Couldn't run the review: {rresult['error']}")
+
+        if review_path.exists():
+            review_md = review_path.read_text()
+            with st.container(border=True):
+                st.markdown(review_md)
+            proposals = re.search(
+                r"(?ms)^## Proposed codifications\s*\n(.*?)(?=^## |\Z)", review_md
+            )
+            has_proposals = bool(
+                proposals and proposals.group(1).strip()
+                and "none" not in proposals.group(1).strip().lower()[:40]
+            )
+            if has_proposals:
+                st.warning(
+                    "The review proposes framework/philosophy changes (above). "
+                    "Approving applies them and updates lesson statuses."
+                )
+                if st.button("✅ Approve & apply proposals", key=f"apply_proposals_{slug}"):
+                    with st.spinner("Applying the approved proposals…"):
+                        aresult = run_apply_proposals(slug)
+                    if aresult["ok"]:
+                        st.success("Proposals applied to the framework/philosophy + lesson ledger.")
+                        st.rerun()
+                    else:
+                        st.error(f"Couldn't apply the proposals: {aresult['error']}")
+
+    # ----- ROI ledger ----- #
+    results_rows = history.load_results(slug)
+    if results_rows:
+        st.divider()
+        st.markdown("### Results ledger (all archived slates)")
+        st.caption(
+            "GPP ROI is meaningless under ~10 slates — watch best-percentile "
+            "and process metrics first. Winnings blank = not reported."
+        )
+        ledger = pd.DataFrame([
+            {
+                "date": r.get("date"),
+                "slate": r.get("slate_label"),
+                "entries": r.get("entries_total"),
+                "buy-in $": r.get("total_buy_in"),
+                "winnings $": r.get("total_winnings"),
+                "ROI %": r.get("roi_pct"),
+                "best %ile": r.get("best_percentile"),
+                "best rank": r.get("best_rank"),
+            }
+            for r in reversed(results_rows)
+        ])
+        st.dataframe(ledger, use_container_width=True)
 
     st.divider()
     st.markdown("### Cross-slate patterns (autopsies.md)")

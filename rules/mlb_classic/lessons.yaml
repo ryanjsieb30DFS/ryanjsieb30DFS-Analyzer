@@ -1,0 +1,66 @@
+# Lesson ledger — one entry per generalizable lesson. Claude edits during the
+# post-autopsy review; the user approves codifications/retirements.
+# Lifecycle: hypothesis -> validated -> codified | retired.
+# Promotion: 3 mechanism confirmations -> propose codifying into framework.md.
+# Retirement: 2 mechanism contradictions -> propose retiring.
+# GPP guard: a lost contest is NOT a contradiction; only mechanism failures count.
+lessons:
+  # autopsies.md is empty (no slates logged yet) — entries below index the
+  # operating rules already codified in framework.md. Born dates use 2026-06-01
+  # because MLB Classic support was added in 2026-06 and only the month is known.
+
+  - id: mlb-classic-2026-06-01-team-stacking-core-lever
+    born: "2026-06-01"   # month known only (sport added 2026-06); 1st used by convention
+    origin: "framework.md — Roster & contest facts (autopsies.md is empty; indexed from framework)"
+    statement: >
+      DK MLB scoring is correlation-driven: hitters on the same team score together
+      when the offense goes off, so team stacking — not isolated value — is the core
+      construction lever. A stack captures the same run-scoring events multiple times,
+      multiplying ceiling in exactly the outcomes a GPP needs.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Roster & contest facts"
+    retired_reason: null
+
+  - id: mlb-classic-2026-06-01-no-hitter-vs-own-pitcher
+    born: "2026-06-01"   # month known only (sport added 2026-06); 1st used by convention
+    origin: "framework.md — Roster & contest facts (autopsies.md is empty; indexed from framework)"
+    statement: >
+      Never roster a hitter against your own pitcher: the two outcomes are negatively
+      correlated, so any points the hitter scores come directly out of the pitcher's
+      score (and vice versa), structurally capping the lineup's joint ceiling.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Roster & contest facts"
+    retired_reason: null
+
+  - id: mlb-classic-2026-06-01-distinct-thesis-per-lineup
+    born: "2026-06-01"   # month known only (sport added 2026-06); 1st used by convention
+    origin: "framework.md — Lineup discipline (inherited; autopsies.md is empty)"
+    statement: >
+      Every lineup needs a one-sentence "how it wins" thesis, and lineups in a
+      portfolio must answer DIFFERENT questions — distinct stacks/game-environments,
+      not the same stack reshuffled. Competing lineups split the same bet across
+      entries instead of hedging uncorrelated outcomes.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "framework.md — Lineup discipline (inherited, applies now)"
+    retired_reason: null
+
+  - id: mlb-classic-2026-06-01-anchor-equivalence-check
+    born: "2026-06-01"   # month known only (sport added 2026-06); 1st used by convention
+    origin: "framework.md — Lineup discipline (inherited; rule lives in rules/shared/anchor_equivalence.md)"
+    statement: >
+      If a slate has 2+ chalk-tier anchors at similar projected ownership, at least
+      one lineup must run the alternative: equivalently-owned anchors are
+      substitutable to the field, so the less popular one captures uncontested
+      leverage when it outperforms. Mandatory pre-lock check, cross-sport
+      (4-slate-validated before MLB was added).
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: "rules/shared/anchor_equivalence.md (referenced by framework.md — Lineup discipline)"
+    retired_reason: null
