@@ -43,7 +43,7 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas.
 | `rules/<slug>/vendor_calibration.jsonl` | Append-only, app-written vendor accuracy ledger (proj/own MAE vs DK actuals, largest-field contest per slate). Claude reads it, never edits it. **Legacy `calibrations.jsonl` (plural) files are deprecated sim artifacts — ignore them** |
 | `data/red_team/` | `<slug>.md` — adversarial pre-lock review of the built lineups (Claude-written via the Analyze tab's Red team button; cleared on autopsy log, archived to history) |
 | `rules/{nascar/tracks,pga_classic/courses,mlb_classic/parks}/` | Venue knowledge — one file per track/course/park, accumulating date-stamped per-slate observations. Both PGA slugs share `pga_classic/courses/` |
-| `articles/<slug>/` | Per-contest-type "Slate Data" uploads — PDFs, notes, and photos/screenshots (e.g. DailyFan). Tab label is "Slate Data"; the on-disk dir stays `articles/`. |
+| `articles/<slug>/` | Per-contest-type "Slate Data" uploads — PDFs, notes, and photos/screenshots (e.g. DailyFan). Tab label is "Slate Data"; the on-disk dir stays `articles/`. Per-slate: deleted on autopsy log and on the sidebar "Clear this sport's slate" button (filenames survive in the archive's `manifest.json`). |
 | `templates/` | Canonical projection CSV templates per sport |
 | `data/sessions/` | Per-sport session JSON (gitignored) |
 | `data/sim_data/` | Per-slate sim upload: `<slug>__<filename>` (raw) + `<slug>_summary.json` (light summary for Claude). Optional. |
@@ -62,8 +62,8 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas.
 ## Vendor auto-detection
 
 Drop any of the user's vendor exports into the Projections tab — the loader detects:
-- **ETR PGA** (`NAME, SAL, PROJ, CEIL, OWN, PT/$`)
-- **Ship It Nation PGA** (`Golfer, Round 1 Tee Time, DK Salary, ...`)
+- **ETR PGA** (`Golfer, Round 1 Tee Time, DK Salary, Proj, Small/Large Field Own, DK Ceiling, Make Cut Odds, ...`) — ETR renamed `DK Points` → `Proj` in June 2026; both headers are accepted
+- **PGA Simple (unconfirmed vendor)** (`NAME, SAL, PROJ, CEIL, OWN, PT/$`) — vendor unverified; the user labels projection sources going forward
 - **DailyFan NASCAR** (`Driver, Salary, Starting Position, ...`)
 - **DailyFan MMA** (`Fighter, Matchup, Win %, Salary DK, ...`)
 - **DK PGA RD4 SD** (`Golfer, Tee Time, Salary, Points, Ownership, ...`)
@@ -187,6 +187,6 @@ The slate's scoreboard is **best-percentile trend + process/mechanism metrics** 
 
 ## Useful file paths
 
-- **Sample vendor CSVs**: `~/Downloads/PGA Projections DK.csv` (ETR), `~/Downloads/DK PGA DFS Projections (6).csv` (Ship It Nation), `~/Downloads/DailyFan-Projections-Sheet-MMA-DK-38.csv`, `~/Downloads/DailyFan-Projections-Sheet-NASCAR-DK-12 (1).csv`, `~/Downloads/DK PGA Round 4 Showdown Projections (5).csv`, `~/Downloads/DK-hitter-rankings-DK-MAIN.csv` + `~/Downloads/DK-pitcher-rankings-DK-MAIN.csv` + `~/Downloads/DK-stack-rankings-DK-MAIN.csv` (Ship It Nation MLB, 3-file set)
+- **Sample vendor CSVs**: `~/Downloads/DK PGA DFS Projections (6).csv` (ETR, old `DK Points` header) + `~/Downloads/DK PGA DFS Projections (9).csv` (ETR, new `Proj` header), `~/Downloads/PGA Projections DK.csv` (simple format, vendor unconfirmed), `~/Downloads/DailyFan-Projections-Sheet-MMA-DK-38.csv`, `~/Downloads/DailyFan-Projections-Sheet-NASCAR-DK-12 (1).csv`, `~/Downloads/DK PGA Round 4 Showdown Projections (5).csv`, `~/Downloads/DK-hitter-rankings-DK-MAIN.csv` + `~/Downloads/DK-pitcher-rankings-DK-MAIN.csv` + `~/Downloads/DK-stack-rankings-DK-MAIN.csv` (Ship It Nation MLB, 3-file set)
 - **Sample DK contest-standings**: `~/Downloads/contest-standings-190402324.csv`
 - **GitHub**: https://github.com/ryanjsieb30DFS/ryanjsieb30DFS-Analyzer (`main` branch)

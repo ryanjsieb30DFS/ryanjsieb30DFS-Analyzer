@@ -58,6 +58,15 @@ CONTEST_TYPES = {
 }
 
 
+def clear_articles(slug: str) -> None:
+    """Delete the slate's uploaded Slate Data files (articles/<slug>/)."""
+    articles_dir = REPO_ROOT / "articles" / slug
+    if articles_dir.exists():
+        for f in articles_dir.glob("*"):
+            if f.is_file():
+                f.unlink()
+
+
 st.set_page_config(page_title="DFS Slate Analyzer", layout="wide")
 st.title("DFS Slate Analyzer")
 st.caption("Multi-sport DFS slate analyzer for DraftKings.")
@@ -72,6 +81,7 @@ with st.sidebar:
     st.divider()
     if st.button("Clear this sport's slate", type="secondary"):
         sessions.clear(slug)
+        clear_articles(slug)
         st.rerun()
 
 # Load active sport's strategy bundle (used by the Analyze tab)
@@ -1000,12 +1010,13 @@ with tab_autopsy:
                 clear_contests(slug)
                 clear_sim(slug)
                 clear_bundle(slug)
+                clear_articles(slug)
                 st.success(
                     f"Logged {len(parsed_contests)} contest(s) to rules/{slug}/autopsies.md "
                     "+ autopsy_data.jsonl, and archived the slate to "
                     f"`{hist_dir.relative_to(REPO_ROOT)}`.{cal_note} Cleared the slate "
-                    "analysis, lineups, red-team review, contests, sim data, and bundle "
-                    "for next time. Now run the post-autopsy review below."
+                    "analysis, lineups, red-team review, contests, sim data, slate data "
+                    "files, and bundle for next time. Now run the post-autopsy review below."
                 )
 
     # ----- Post-autopsy review (the learning loop) ----- #

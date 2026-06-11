@@ -16,7 +16,8 @@ import pandas as pd
 # column rename map (vendor -> canonical), and optional columns to drop.
 VENDOR_SIGNATURES: list[dict] = [
     {
-        "name": "ETR PGA",
+        # Vendor unverified — the user labels projection sources going forward.
+        "name": "PGA Simple (unconfirmed vendor)",
         "sport": "golf",
         "required_columns": {"name", "sal", "proj", "ceil", "own"},
         "column_map": {
@@ -28,16 +29,19 @@ VENDOR_SIGNATURES: list[dict] = [
         "drop_columns": ["pt/$"],
     },
     {
-        "name": "Ship It Nation PGA",
+        # ETR renamed "DK Points" -> "Proj" in June 2026; both map to
+        # proj_points and neither is required so old and new exports match.
+        "name": "ETR PGA",
         "sport": "golf",
         "required_columns": {
-            "golfer", "dk_salary", "dk_points", "dk_ceiling",
+            "golfer", "dk_salary", "dk_ceiling",
             "large_field_own", "make_cut_odds", "round_1_tee_time",
         },
         "column_map": {
             "golfer": "name",
             "dk_salary": "salary",
             "dk_points": "proj_points",
+            "proj": "proj_points",
             "dk_ceiling": "ceiling",
             "large_field_own": "ownership",
             "round_1_tee_time": "tee_time",
