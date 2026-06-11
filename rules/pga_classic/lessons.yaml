@@ -19,6 +19,14 @@ lessons:
       - date: "2026-05-17"
         slate: "PGA Championship at Aronimink"
         note: "Aberg at 30.7% MME exposure delivered 84 FPTS; autopsy explicitly marks the Truist blind spot fully corrected."
+      - date: "2026-06-10"
+        slate: "Memorial at Muirfield Village (rules/pga_classic/history/2026-06-10__pga-classic-6-4-2026)"
+        note: >
+          Analysis carried value-chalk Scottie as primary anchor and honored the
+          equivalence hedge with one Aberg lineup. Scottie anchored the SE winner and
+          5 of the top-10 20-Max winners while Aberg (lean trap) busted entirely —
+          the asymmetry the lesson describes played out exactly: small hedge cost,
+          large payoff for not zeroing the value chalk.
     contradictions: []
     codified_in: "framework.md — Section 6 Anchor Selection Logic (Default policy); philosophy.md — Section 5 Chalk Has a Purpose"
     retired_reason: null
@@ -32,7 +40,15 @@ lessons:
       ceiling-equivalent exposure to chalk at materially lower duplication risk, and
       pairing them is multiplicative, not additive.
     status: codified
-    confirmations: []
+    confirmations:
+      - date: "2026-06-10"
+        slate: "Memorial at Muirfield Village (rules/pga_classic/history/2026-06-10__pga-classic-6-4-2026)"
+        note: >
+          The analysis named JT (+18.3 coffin) + Keegan (+14.0) as the near-permanent
+          spine. In hindsight: JT + Keegan appeared TOGETHER in the rank-3 20-Max
+          winning lineup (537 pts), and Keegan appeared in 3 of the top-10 20-Max
+          winners. Two coffin overweights paired at low combined own again showed up
+          in winning structures.
     contradictions: []
     codified_in: "framework.md — Section 5 The Leverage Spine; philosophy.md — Section 6 Leverage Is Asymmetric Bet Construction"
     retired_reason: null
@@ -78,6 +94,14 @@ lessons:
       - date: "2026-05-17"
         slate: "PGA Championship at Aronimink"
         note: "Top-100 winning-lineup appearance tracking applied (Smalley 73/100, Rai 63/100); directly produced the course-history + sub-5% own scan."
+      - date: "2026-06-10"
+        slate: "Memorial at Muirfield Village (rules/pga_classic/history/2026-06-10__pga-classic-6-4-2026)"
+        note: >
+          Stat tracked again: Ryan Gerard in 73.5% of SE top-34 and 66% of 20-Max
+          top-100 winners (110 FPTS @ ~11%); J.T. Poston in 38% of 20-Max top-100
+          (115.5 @ 2.7%). Neither appeared anywhere in the pre-slate analysis —
+          the stat converted that blind spot into this review's new
+          form/value-engine hypothesis.
     contradictions: []
     codified_in: "framework.md — Section 10 Tracking Stats ('slate lock' identification rate)"
     retired_reason: null
@@ -93,7 +117,20 @@ lessons:
       required pre-build scan.
     status: codified
     confirmations: []
-    contradictions: []
+    contradictions:
+      - date: "2026-06-10"
+        slate: "Memorial at Muirfield Village (rules/pga_classic/history/2026-06-10__pga-classic-6-4-2026)"
+        note: >
+          At a 0.42-stickiness course (CH clearly predictive), the scan's three
+          qualifiers (Vegas 0.8%, Echavarria 2.0%, Horschel 1.9% — all bottom-10
+          skill baselines) all busted, while the actual sub-5% slate-definer
+          (Poston 115.5 @ 2.7%, 38/100 top winners) and Eric Cole (3.5%, in the
+          20-Max winner) were surfaced by the form/value engine, not course
+          history. The scan's mechanism (CH boost at the bottom of the ownership
+          curve = structural leverage) did not operate; the busts themselves are
+          variance, but the scan missing every actual cheap slate-definer is a
+          coverage failure. First mechanism contradiction — see the skill-gate
+          hypothesis born this slate.
     codified_in: "framework.md — Section 2 Slate Diagnostics (required scan) and Section 9 Pre-Submission Checklists"
     retired_reason: null
 
@@ -123,7 +160,17 @@ lessons:
       Schauffele) hit at the PGA Championship.
     status: codified
     confirmations: []
-    contradictions: []
+    contradictions:
+      - date: "2026-06-10"
+        slate: "Memorial at Muirfield Village (rules/pga_classic/history/2026-06-10__pga-classic-6-4-2026)"
+        note: >
+          Mechanism mis-sorted the fade side: coffin underweights Reitan (-5.1) and
+          Burns (-6.2) plus writer-fade Wyndham Clark were slate-defining or in
+          multiple SE top-5 winners (Reitan 96.5 @ ~11%, Clark 102 @ 7.5%). The
+          fade labels were premised on projected ownership that never materialized —
+          all three came in at 7-11% actual, where "trap chalk" is just mispriced
+          leverage. First mechanism contradiction; the split itself still worked at
+          the top of the board (Scottie value chalk hit, Aberg trap busted).
     codified_in: "framework.md — Section 6 Anchor Selection Logic (Trap chalk vs value chalk); philosophy.md — Section 5 Chalk Has a Purpose"
     retired_reason: null
 
@@ -154,4 +201,60 @@ lessons:
     confirmations: []
     contradictions: []
     codified_in: "framework.md — Section 1 Contest Selection"
+    retired_reason: null
+
+  - id: pga-classic-2026-06-10-ch-scan-needs-skill-gate
+    born: "2026-06-10"
+    origin: "rules/pga_classic/history/2026-06-10__pga-classic-6-4-2026 — Memorial at Muirfield Village"
+    statement: >
+      The course-history-boost x sub-5% own scan must be gated on skill baseline:
+      qualifiers with bottom-decile ball-striking at a penal course are
+      lottery-slot-only material regardless of stickiness, and the slate-defining
+      cheap plays instead come from the form/value engine (hot approach numbers,
+      value-report flags). At Muirfield (0.42 stickiness) all three CH qualifiers
+      were bottom-10 skill and busted, while Poston (115.5 @ 2.7%, value/form
+      profile) and Eric Cole (in the 20-Max winner at 3.5%, "5 straight weeks
+      gaining approach") were the actual sub-5% slate-definers. The scan should
+      cross CH boost AND a minimum skill floor, and the form/value engine should
+      be treated as a co-equal source of sub-5% leverage.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-06-10-fade-needs-ownership-to-materialize
+    born: "2026-06-10"
+    origin: "rules/pga_classic/history/2026-06-10__pga-classic-6-4-2026 — Memorial at Muirfield Village"
+    statement: >
+      A projected-ownership-based fade (trap chalk, coffin underweight) is
+      conditional on the ownership actually materializing. When a fade-listed
+      player's real ownership comes in well under projection (sub-12%), the fade
+      premise is void and the player is mispriced leverage, not trap chalk. At
+      the Memorial, fade-side names Reitan (-5.1 coffin), Burns (-6.2), and
+      Wyndham Clark (writer fade) all came in at 7-11% actual own and all landed
+      in winning structures (Reitan 96.5, Clark 102). Where late/actual ownership
+      signals exist, sanity-check the fade list against them before lock.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-06-10-entered-lineups-must-trace-to-plan
+    born: "2026-06-10"
+    origin: "rules/pga_classic/history/2026-06-10__pga-classic-6-4-2026 — Memorial at Muirfield Village"
+    statement: >
+      Lineups entered on DK must trace to the written plan (built or handbuilt
+      through the tool), or the deviation must be logged pre-lock with a rationale.
+      At the Memorial no lineups.md was archived; the entered SE bore no
+      resemblance to the analysis's recommended SE and was structurally over-chalky
+      for the field (avg own 17.74 with 1 sub-10% play vs the SE winners' 12.25
+      and 2.24) — exactly the structure the written plan avoided (62.6% cumulative
+      own, 4 sub-8% pieces). Undocumented deviations cannot be process-graded and
+      forfeit the red-team and portfolio-audit safety nets.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
     retired_reason: null

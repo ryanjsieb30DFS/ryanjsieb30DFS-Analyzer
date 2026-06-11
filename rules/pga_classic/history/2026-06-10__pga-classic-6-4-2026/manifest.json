@@ -1,0 +1,28 @@
+{
+  "slug": "pga_classic",
+  "sport": "golf",
+  "contest_label": "PGA Classic",
+  "date": "2026-06-10",
+  "slate_label": "PGA Classic 6.4.2026",
+  "archived_at": "2026-06-10 21:40",
+  "archived": [
+    "slate_analysis.md",
+    "bundle.md",
+    "contests.json"
+  ],
+  "missing": [
+    "lineups.md",
+    "red_team.md"
+  ],
+  "article_files": [
+    "articles/pga_classic/2026-06-03__Course Stickiness 6.4.26.pdf",
+    "articles/pga_classic/2026-06-03__Establish-The-Green-Memorial-Tournament-1.pdf",
+    "articles/pga_classic/2026-06-03__Golf Course Fits 6.4.26.pdf",
+    "articles/pga_classic/2026-06-03__Golf Large Field 6.4.26.pdf",
+    "articles/pga_classic/2026-06-03__Golf Lev 1.pdf",
+    "articles/pga_classic/2026-06-03__Golf Lev 2 6.4.26.pdf",
+    "articles/pga_classic/2026-06-03__Golf Models 6.4.26.pdf",
+    "articles/pga_classic/2026-06-03__Golf Value Report 6.4.26.pdf"
+  ],
+  "proj_source": null
+}

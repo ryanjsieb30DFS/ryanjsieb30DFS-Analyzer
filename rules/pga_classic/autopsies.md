@@ -241,3 +241,21 @@ Per Philosophy Section 4:
 ---
 
 *Add subsequent weeks below using the template at the top of this document.*
+
+
+## 2026-06-10 21:40 — PGA Classic (contest-standings-190983818.csv)
+- Entries: 3,431
+- Winning score: 534.0
+- Cash line (top 20%): 401.0
+- My entries: 1 · best rank 2,653/3,431 (top 77.3%)
+- Winners (top 34): avg own 12.25% vs mine 17.74% · sub-10% plays/lineup 2.24 vs mine 1.0
+- Slate-defining plays: Ryan Gerard (110.0 pts @ 10.2%), Kristoffer Reitan (96.5 pts @ 11.4%), Rory McIlroy (78.5 pts @ 8.8%)
+
+
+## 2026-06-10 21:40 — PGA Classic (contest-standings-190983808.csv)
+- Entries: 23,781
+- Winning score: 559.5
+- Cash line (top 20%): 403.0
+- My entries: 15 · best rank 829/23,781 (top 3.5%)
+- Winners (top 100): avg own 12.59% vs mine 13.52% · sub-10% plays/lineup 1.93 vs mine 1.8
+- Slate-defining plays: J.T. Poston (115.5 pts @ 2.7%), Ryan Gerard (110.0 pts @ 11.4%), Wyndham Clark (102.0 pts @ 7.5%), Kristoffer Reitan (96.5 pts @ 11.1%)

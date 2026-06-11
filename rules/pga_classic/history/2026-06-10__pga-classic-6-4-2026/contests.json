@@ -1,0 +1,24 @@
+{
+  "contests": [
+    {
+      "name": "PGA TOUR $35K Albatross [Single Entry]",
+      "type": "SE",
+      "field_size": 3431,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "prize_pool": 35000,
+      "id": "453fcf5d"
+    },
+    {
+      "name": "PGA TOUR $60K Birdie [20 Entry Max]",
+      "type": "20-Max",
+      "field_size": 23781,
+      "max_entries": 20,
+      "my_entries": 15,
+      "entry_fee": 3.0,
+      "prize_pool": 60000,
+      "id": "513f5b8e"
+    }
+  ]
+}
