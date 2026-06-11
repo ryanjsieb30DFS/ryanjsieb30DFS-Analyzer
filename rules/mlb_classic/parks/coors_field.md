@@ -33,3 +33,12 @@ knowledge; treat as a starting point until more slates accumulate.
   a COL mini-stack/one-off was near-free equity while the CHC mega-stack was an
   ownership tax. (User lineup's lone Coors piece, Castro at $4,200, was the
   right idea and a winning-lineup staple.)
+
+- **2026-06-11 (MLB Classic 6.10.26, CHC @ COL, 6.70/5.55 implied):** Coors was a
+  supporting cast, not the slate-winner — both SE contests were won by the PHI dome
+  stack while Coors pieces appeared in winners only as 1–2 man fills (PCA + Happ in
+  the $6K winner, Cole Carrigg 14.2% own as a cheap COL one-off in multiple top
+  lineups). CHC as the consensus Coors favorite (76.9% combined own) again failed to
+  pay a primary-stack premium. Second straight slate supporting the park's core
+  mechanism in its weaker form: the owned Coors side is a tax; the cheap unowned-side
+  one-off (Carrigg here, Castro on 6/9) is the repeatable equity.

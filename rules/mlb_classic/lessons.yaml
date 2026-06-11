@@ -102,8 +102,18 @@ lessons:
       slate analysis itself directing "one or two structural pivots beats full
       contrarian" for this field size. Pick ONE primary leverage axis (stack OR
       pitcher); keep the other near-field.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-06-11"
+        slate: "rules/mlb_classic/history/2026-06-11__mlb-classic-6-10-26"
+        evidence: >
+          Mechanism confirmed in both SE contests (6/10 slate): top-20 winners
+          averaged 15.4% own ($6K, 588 entries) and 16.0% own ($4K SE, 392
+          entries) with ~4.9-5.2 sub-10% plays per lineup — the same
+          near-field-plus-one-pivot band as 6/9. The ONE pivot was the PHI
+          dome stack (Harper 8.5-9.7% own in 65-75% of top-20 lineups);
+          pitchers stayed full chalk (Luzardo+Detmers). Dominant winning
+          shapes again 5-3 / 5-2-1 / 5-1-1-1.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -121,8 +131,20 @@ lessons:
       both contests, while the short-leash chalk arm Kai-Wei Teng (2.5 avg IP
       flag) busted at 1.8 pts on 27–29% actual own. The analysis's IP-based
       discrimination worked; its ownership-based discrimination did not.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-06-11"
+        slate: "rules/mlb_classic/history/2026-06-11__mlb-classic-6-10-26"
+        evidence: >
+          Mechanism confirmed: Reid Detmers ($7,500, 38% proj own) was kept as
+          the salary-enabling P2 in the built Lineup 2 explicitly per this
+          lesson, and smashed (31.15 FPTS at 68.7% actual own). Both contest
+          winners ran the full chalk arm pair (Luzardo+Detmers) and spent the
+          savings on the underowned PHI bats — fading the enabler would have
+          cut builds off from the winning salary structure. The anti-Detmers
+          binary (Lineup 3's HOU strike) hit the wrong world; per the GPP
+          guard that bust is not logged as a contradiction of anything, but
+          the enabler-keep side of this lesson is now 2-for-2.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -159,6 +181,84 @@ lessons:
       archived lineups.md, which claimed "same lineup in both SE contests."
       Process mechanism, not a results claim: the loop can only improve
       lineups it can see.
+    status: validated
+    confirmations:
+      - date: "2026-06-11"
+        slate: "rules/mlb_classic/history/2026-06-11__mlb-classic-6-10-26"
+        evidence: >
+          Second consecutive slate (6/10): BOTH entered lineups were untracked
+          SaberSim imports swapped in near lock — neither appears in the
+          archived lineups.md. They bypassed the thesis requirement, red team,
+          and portfolio audit, and were chalkier than the winning band (21.3%
+          and 21.4% avg own with 1 and 4 sub-10% plays, vs winners' 15.4-16.0%
+          and ~5). Meanwhile the tracked-but-abandoned Lineup 2 held the
+          winning skeleton (PHI-5 + Luzardo + Detmers; 6 of 10 players shared
+          with the $4K winner). The cost of bypassing the loop is no longer
+          hypothetical on this sample.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # --- Born from 2026-06-11 post-autopsy (slate: MLB Classic 6.10.26) ---
+
+  - id: mlb-classic-2026-06-11-se-chalk-pitcher-own-condensation
+    born: "2026-06-11"
+    origin: "rules/mlb_classic/history/2026-06-11__mlb-classic-6-10-26"
+    statement: >
+      In small-field SE MLB Classic, ownership on the consensus chalk pitcher
+      condenses far ABOVE vendor projection: on 6/10 Reid Detmers projected
+      38.0% and closed at 68.7% (the slate's worst ownership miss, +30.8; SIN's
+      overall own MAE was just 3.28, so this is concentrated at the chalk P1,
+      not a calibration problem). Mechanism: a small SE field converges on the
+      consensus arm because pitcher is the slate's highest-variance single
+      decision and casual SE fields don't diversify it. Leverage math on any
+      P1 fade must assume condensation — a "38% fade" can really be a ~69%
+      fade (more leveraged AND more binary than projected). Check the prior
+      worst_own_miss rows in vendor_calibration.jsonl before sizing a pitcher
+      strike.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mlb-classic-2026-06-11-weather-proof-dome-stack-pivot
+    born: "2026-06-11"
+    origin: "rules/mlb_classic/history/2026-06-11__mlb-classic-6-10-26"
+    statement: >
+      When rain risk concentrates field ownership on outdoor offenses, the
+      underowned dome/roof stack is the structural pivot of choice. Mechanism:
+      weather uncertainty suppresses nothing in the dome while the
+      rain-exposed chalk cluster splits its equity across PPD/shortened-game
+      risk; the dome stack gets the slate's only guaranteed 9 innings at a
+      leverage price. On 6/10 the PHI dome 5-stack (vs TOR; Harper 8.5-9.7%
+      own, ~27% combined) appeared in 65-75% of top-20 lineups and won BOTH SE
+      contests, while the 77-92%-owned TEX/MIL/ATH outdoor cluster produced
+      none of the slate-defining plays. The built Lineup 2 called this
+      pre-lock ("underowned Phillies dome offense"), so the mechanism is
+      observed at birth — needs confirmation on future weather slates.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mlb-classic-2026-06-11-late-build-bailout
+    born: "2026-06-11"
+    origin: "rules/mlb_classic/history/2026-06-11__mlb-classic-6-10-26"
+    statement: >
+      Process lesson: a lineup build that lands <30 minutes before lock
+      collapses trust at exactly the moment nothing can be re-checked. On
+      6/10 the build arrived 18:49 ET vs a 19:07 lock after a long spinner;
+      with no time for the red team or even a read-through, the audited
+      portfolio felt unsafe and was swapped for untracked SaberSim chalk —
+      which was worse than the abandoned build (L2 held the winning
+      skeleton). Mechanism: the portfolio's trust comes from its audit trail
+      (thesis, pre-flight, red team), and that trail needs clock time to
+      exist. How to apply: start Analyze -> Build >= 60-90 minutes before
+      lock so the red team fits; if a build lands late anyway, the DEFAULT is
+      to enter the audited portfolio as-is — swapping to lineups that
+      bypassed every check is the higher-variance act, not the safer one.
     status: hypothesis
     confirmations: []
     contradictions: []

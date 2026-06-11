@@ -20,5 +20,11 @@ prior slates observed here. Verify and flesh out as slates accumulate.
 
 ## Per-slate observations
 
-- **2026-06-10 (MLB Classic 6/10/26, MIL @ ATH, 7.35/7.35 implied):** observation
-  pending autopsy — both lineups still PROJECTED at analysis time (9:05 PM ET start).
+- **2026-06-10 (MLB Classic 6/10/26, MIL @ ATH, 7.35/7.35 implied):** The slate's
+  biggest total (14.7, 106°F) did NOT produce the winning axis — both SE contests
+  were won by the 4.80-implied PHI dome stack instead. The MIL side busted outright
+  (Turang 0.0 pts again at 14.8% own, Bauers 0.0 at 11.1%, Contreras a top
+  underperformer); ATH paid only as secondary pieces in winners (Henry Bolte 13.3%
+  in the $6K winner, McNeil one-offs), never as the primary 5-stack. First evidence
+  that the heat-total hype here is an ownership tax (91.8%/81.8% combined) rather
+  than a scoring guarantee — one slate, treat as a lean not a rule.

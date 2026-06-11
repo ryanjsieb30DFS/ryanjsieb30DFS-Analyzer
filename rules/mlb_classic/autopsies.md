@@ -25,3 +25,31 @@ Post-slate lessons accumulate here (newest first), logged from the Autopsy tab.
 - Overperformed proj: Jac Caglianone, Matt Olson, Bryce Eldridge
 - Underperformed proj: Colin Rea, Kai-Wei Teng, Brice Turang
 - Slate-defining plays: Matt Olson (32.0 pts @ 5.5%), Dylan Cease (31.1 pts @ 12.8%), Jonah Heim (22.0 pts @ 4.3%), Tyler Soderstrom (18.0 pts @ 18.6%)
+
+
+## 2026-06-11 11:16 — MLB Classic (contest-standings-191221893.csv)
+- Entries: 588
+- Winning score: 153.1
+- Cash line (top 20%): 110.2
+- My entries: 1 · best rank 236/588 (top 40.1%)
+- Winners (top 20): avg own 15.42% vs mine 21.33% · sub-10% plays/lineup 4.85 vs mine 1.0 · salary Δ -471
+- Winning stack shapes: 5-3×6, 5-2-1×3, 2-2-2-1-1×1, 3-2-1-1-1×1
+- Overperformed proj: Bryce Harper, Jordan Walker, Michael Lorenzen
+- Underperformed proj: David Peterson, Brice Turang, Jake Bauers
+- Slate-defining plays: Bryce Harper (25.0 pts @ 8.5%), Kyle Schwarber (23.0 pts @ 7.3%), Alec Bohm (21.0 pts @ 6.8%), Bryson Stott (15.0 pts @ 14.1%)
+
+Post-log note (2026-06-11): the entered DK lineup was a SaberSim import, NOT from the archived portfolio in lineups.md. The in-app build landed 18:49 ET vs a 19:07 lock after a long spinner; with no time to review, the user swapped to untracked SaberSim lineups near lock. The abandoned portfolio's Lineup 2 contained the winning skeleton (PHI 5-stack + Luzardo + Detmers — 6 of 10 players shared with the $4K winner). Grade the entered (untracked) lineups as the played portfolio.
+
+
+## 2026-06-11 11:16 — MLB Classic (contest-standings-191221894.csv)
+- Entries: 392
+- Winning score: 161.1
+- Cash line (top 20%): 110.1
+- My entries: 1 · best rank 203/392 (top 51.8%)
+- Winners (top 20): avg own 15.97% vs mine 21.4% · sub-10% plays/lineup 5.15 vs mine 4.0
+- Winning stack shapes: 5-3×3, 5-1-1-1×3, 5-2-1×3, 4-3-1×2
+- Overperformed proj: Bryce Harper, Jordan Walker, Michael Lorenzen
+- Underperformed proj: David Peterson, Brice Turang, William Contreras
+- Slate-defining plays: Bryce Harper (25.0 pts @ 9.7%), Kyle Schwarber (23.0 pts @ 7.1%), Alec Bohm (21.0 pts @ 7.1%), Bryson Stott (15.0 pts @ 14.3%)
+
+Post-log note (2026-06-11): same as the $6K contest above — entered lineup was a SaberSim import swapped in near lock, not the archived portfolio. See the note on contest-standings-191221893.csv.
