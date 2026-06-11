@@ -888,9 +888,9 @@ with tab_autopsy:
                     my_entries = picked.get("my_entries", 0)
                     contest_type = picked.get("type")
                 win_raw = st.text_input(
-                    "Winnings this contest ($) — leave blank if you didn't check",
+                    "Winnings this contest ($) — optional, ROI lives in your third-party tracker",
                     key=f"autopsy_win_{slug}_{i}",
-                    placeholder="e.g. 18.50 — blank means 'not reported', 0 means won nothing",
+                    placeholder="blank is fine — percentile + process are tracked here either way",
                 )
                 try:
                     winnings = float(win_raw) if win_raw.strip() else None
@@ -1063,8 +1063,8 @@ with tab_autopsy:
         st.divider()
         st.markdown("### Results ledger (all archived slates)")
         st.caption(
-            "GPP ROI is meaningless under ~10 slates — watch best-percentile "
-            "and process metrics first. Winnings blank = not reported."
+            "Best-percentile and process metrics are the scoreboard here — "
+            "ROI lives in your third-party tracker, so winnings are usually blank."
         )
         ledger = pd.DataFrame([
             {
