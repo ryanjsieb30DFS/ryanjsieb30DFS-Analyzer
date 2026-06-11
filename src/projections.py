@@ -69,6 +69,11 @@ def load_projections(csv_path_or_buffer) -> pd.DataFrame:
         projections = normalize_to_canonical(projections, signature)
         vendor_name = signature["name"]
 
+    # Vendors occasionally export the same row twice (SIN 6/11: Cole Carrigg).
+    # Identical rows are harmless — drop them; validate_projections still
+    # rejects same-name rows whose data actually differs.
+    projections = projections.drop_duplicates().reset_index(drop=True)
+
     validate_projections(projections)
     projections = projections.copy()
     projections["name"] = projections["name"].astype(str).str.strip()
@@ -212,7 +217,10 @@ def validate_projections(projections: pd.DataFrame) -> None:
 
     if projections["name"].duplicated().any():
         duplicates = projections.loc[projections["name"].duplicated(), "name"].tolist()
-        raise ValueError(f"Duplicate player names found: {duplicates}")
+        raise ValueError(
+            f"Duplicate player names with conflicting data: {duplicates} — the same "
+            "name appears twice with different values; fix the vendor file."
+        )
 
 
 def warn_missing_for_sport(projections: pd.DataFrame, sport: str | None) -> list[str]:
