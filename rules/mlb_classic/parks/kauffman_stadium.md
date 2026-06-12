@@ -14,3 +14,8 @@
   T-storm risk, 31% rain, 18 mph wind at 2:10 PM. Articles called Royals/Rangers
   the strongest hitting weather (wind) but the rain/PPD risk was unpriced in
   ownership (KC ~75% combined, Witt 22.5%). TEX lineup still PROJECTED at writing.
+  **Result (logged 2026-06-12):** the game played (no PPD), but the KC chalk busted
+  on performance anyway — Witt 3.0 at ~31% actual own (condensed above his 22.5%
+  projection). The visiting TEX side paid instead: Seager 19 @ ~14-16% in BOTH
+  contest winners. One slate's lean: when storm risk concentrates doubt here, the
+  cheaper visiting bats have been the better expression than the home chalk.

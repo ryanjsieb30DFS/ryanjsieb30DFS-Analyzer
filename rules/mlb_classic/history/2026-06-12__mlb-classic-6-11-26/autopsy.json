@@ -1,0 +1,899 @@
+[
+  {
+    "timestamp": "2026-06-12 14:09",
+    "contest_type": "MLB Classic",
+    "source_file": "contest-standings-191246830.csv",
+    "entries": 490,
+    "winning_score": 145.75,
+    "cash_line_p80": 101.07000000000001,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mlb_classic",
+    "sport": "mlb",
+    "projections": {
+      "available": true,
+      "source": "mlb-projections-dk-20260611.csv",
+      "matched": 95,
+      "total": 115
+    },
+    "user_summary": {
+      "avg_own_mean": 23.1,
+      "low_own_count_mean": 3.0,
+      "salary_used_mean": 50000.0,
+      "entry_count": 1,
+      "best_rank": 141,
+      "best_percentile": 28.8
+    },
+    "user_lineups": [
+      {
+        "rank": 141,
+        "entry_name": "RyvlesGaming30",
+        "points": 93.6,
+        "percentile": 28.8,
+        "players": [
+          "Michael Busch",
+          "Ezequiel Duran",
+          "Josh Jung",
+          "Carson Kelly",
+          "Pete Crow-Armstrong",
+          "Ian Happ",
+          "Wyatt Langford",
+          "Christian Scott",
+          "Merrill Kelly",
+          "Dansby Swanson"
+        ],
+        "avg_own": 23.1,
+        "low_own_count": 3,
+        "salary_used": 50000,
+        "proj_total": 100.66,
+        "dup_count": 1,
+        "stack_shape": "5-3"
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Colt Keith",
+        "proj_points": 6.94,
+        "actual_fpts": 28.0,
+        "fpts_delta": 21.06,
+        "ownership": 3.71,
+        "actual_own": 1.22
+      },
+      {
+        "name": "Zach McKinstry",
+        "proj_points": 6.93,
+        "actual_fpts": 19.0,
+        "fpts_delta": 12.07,
+        "ownership": 6.52,
+        "actual_own": 1.22
+      },
+      {
+        "name": "Zach McKinstry",
+        "proj_points": 6.93,
+        "actual_fpts": 19.0,
+        "fpts_delta": 12.07,
+        "ownership": 6.52,
+        "actual_own": 0.41
+      },
+      {
+        "name": "Tyler Phillips",
+        "proj_points": 11.34,
+        "actual_fpts": 22.85,
+        "fpts_delta": 11.51,
+        "ownership": 21.93,
+        "actual_own": 17.55
+      },
+      {
+        "name": "Lars Nootbaar",
+        "proj_points": 7.51,
+        "actual_fpts": 19.0,
+        "fpts_delta": 11.49,
+        "ownership": 3.56,
+        "actual_own": 3.27
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Zebby Matthews",
+        "proj_points": 12.27,
+        "actual_fpts": 1.5,
+        "fpts_delta": -10.77,
+        "ownership": 24.21,
+        "actual_own": 25.92
+      },
+      {
+        "name": "Byron Buxton",
+        "proj_points": 10.18,
+        "actual_fpts": 0.0,
+        "fpts_delta": -10.18,
+        "ownership": 13.32,
+        "actual_own": 24.9
+      },
+      {
+        "name": "Kody Clemens",
+        "proj_points": 9.29,
+        "actual_fpts": 0.0,
+        "fpts_delta": -9.29,
+        "ownership": 11.1,
+        "actual_own": 11.22
+      },
+      {
+        "name": "Kody Clemens",
+        "proj_points": 9.29,
+        "actual_fpts": 0.0,
+        "fpts_delta": -9.29,
+        "ownership": 11.1,
+        "actual_own": 7.96
+      },
+      {
+        "name": "Hunter Goodman",
+        "proj_points": 9.14,
+        "actual_fpts": 0.0,
+        "fpts_delta": -9.14,
+        "ownership": 14.14,
+        "actual_own": 24.9
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Tyler Phillips",
+        "salary": 6200,
+        "actual_fpts": 22.85,
+        "actual_own": 17.55,
+        "top_lineup_pct": 55.0
+      },
+      {
+        "name": "Seiya Suzuki",
+        "salary": 5200,
+        "actual_fpts": 20.0,
+        "actual_own": 10.61,
+        "top_lineup_pct": 40.0
+      },
+      {
+        "name": "Alex Bregman",
+        "salary": 4800,
+        "actual_fpts": 20.0,
+        "actual_own": 15.31,
+        "top_lineup_pct": 50.0
+      },
+      {
+        "name": "Corey Seager",
+        "salary": 4600,
+        "actual_fpts": 19.0,
+        "actual_own": 16.33,
+        "top_lineup_pct": 35.0
+      },
+      {
+        "name": "Cole Carrigg",
+        "salary": 2500,
+        "actual_fpts": 17.0,
+        "actual_own": 4.49,
+        "top_lineup_pct": 40.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 18.46,
+      "low_own_count_mean": 3.55,
+      "salary_used_mean": 49812.0,
+      "dup_max": 1,
+      "unique_pct": 100.0,
+      "stack_shapes": {
+        "5-3": 3,
+        "5-2-1": 3,
+        "5-1-1-1": 3,
+        "4-3-1": 2,
+        "4-4": 2,
+        "2-2-2-1-1": 1,
+        "3-2-1-1-1": 1,
+        "4-1-1-1-1": 1
+      },
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "KING--13",
+          "points": 145.75,
+          "percentile": 0.2,
+          "players": [
+            "Michael Busch",
+            "Ezequiel Duran",
+            "Alex Bregman",
+            "Carter Jensen",
+            "Pete Crow-Armstrong",
+            "Seiya Suzuki",
+            "Brandon Nimmo",
+            "Merrill Kelly",
+            "Tyler Phillips",
+            "Corey Seager"
+          ],
+          "avg_own": 18.76,
+          "low_own_count": 1,
+          "salary_used": 49400,
+          "proj_total": 100.64,
+          "dup_count": 1,
+          "stack_shape": "4-3-1"
+        },
+        {
+          "rank": 2,
+          "entry_name": "pkrinthedrkstar",
+          "points": 144.55,
+          "percentile": 0.4,
+          "players": [
+            "Michael Busch",
+            "Willi Castro",
+            "Colt Keith",
+            "Liam Hicks",
+            "Pete Crow-Armstrong",
+            "Riley Greene",
+            "Kyle Stowers",
+            "Christian Scott",
+            "Tyler Phillips",
+            "Corey Seager"
+          ],
+          "avg_own": 19.55,
+          "low_own_count": 4,
+          "salary_used": 49900,
+          "proj_total": 99.72,
+          "dup_count": 1,
+          "stack_shape": "2-2-2-1-1"
+        },
+        {
+          "rank": 3,
+          "entry_name": "jgulli10",
+          "points": 139.0,
+          "percentile": 0.6,
+          "players": [
+            "Jared Young",
+            "Gleyber Torres",
+            "Kevin McGonigle",
+            "Elias Diaz",
+            "Juan Soto",
+            "Pete Crow-Armstrong",
+            "Riley Greene",
+            "Christian Scott",
+            "Kumar Rocker",
+            "Corey Seager"
+          ],
+          "avg_own": 16.65,
+          "low_own_count": 5,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "melliadisj",
+          "points": 138.4,
+          "percentile": 0.8,
+          "players": [
+            "Michael Busch",
+            "Xavier Edwards",
+            "Alex Bregman",
+            "Joe Mack",
+            "Pete Crow-Armstrong",
+            "Seiya Suzuki",
+            "Ian Happ",
+            "Hunter Dobbins",
+            "Tyler Phillips",
+            "Otto Lopez"
+          ],
+          "avg_own": 19.73,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 95.64,
+          "dup_count": 1,
+          "stack_shape": "5-3"
+        },
+        {
+          "rank": 5,
+          "entry_name": "NickC114",
+          "points": 137.55,
+          "percentile": 1.0,
+          "players": [
+            "Michael Busch",
+            "Edouard Julien",
+            "Willi Castro",
+            "Carson Kelly",
+            "Pete Crow-Armstrong",
+            "Seiya Suzuki",
+            "Troy Johnston",
+            "Christian Scott",
+            "Tyler Phillips",
+            "Cole Carrigg"
+          ],
+          "avg_own": 17.3,
+          "low_own_count": 5,
+          "salary_used": 49900,
+          "proj_total": 97.15,
+          "dup_count": 1,
+          "stack_shape": "4-4"
+        },
+        {
+          "rank": 5,
+          "entry_name": "jusnit",
+          "points": 137.55,
+          "percentile": 1.0,
+          "players": [
+            "Michael Busch",
+            "Willi Castro",
+            "Alex Bregman",
+            "Moises Ballesteros",
+            "Pete Crow-Armstrong",
+            "Ian Happ",
+            "Kyle Stowers",
+            "Christian Scott",
+            "Tyler Phillips",
+            "Cole Carrigg"
+          ],
+          "avg_own": 20.41,
+          "low_own_count": 4,
+          "salary_used": 49700,
+          "proj_total": 101.22,
+          "dup_count": 1,
+          "stack_shape": "5-2-1"
+        },
+        {
+          "rank": 7,
+          "entry_name": "SkyU27",
+          "points": 136.35,
+          "percentile": 1.4,
+          "players": [
+            "Michael Busch",
+            "Zach McKinstry",
+            "Josh Jung",
+            "Moises Ballesteros",
+            "Pete Crow-Armstrong",
+            "Seiya Suzuki",
+            "Ian Happ",
+            "Edward Cabrera",
+            "Hunter Dobbins",
+            "Corey Seager"
+          ],
+          "avg_own": 18.86,
+          "low_own_count": 2,
+          "salary_used": 50000,
+          "proj_total": 96.35,
+          "dup_count": 1,
+          "stack_shape": "5-2-1"
+        },
+        {
+          "rank": 8,
+          "entry_name": "dearyn",
+          "points": 135.55,
+          "percentile": 1.6,
+          "players": [
+            "Michael Busch",
+            "Nick Loftin",
+            "Alex Bregman",
+            "Moises Ballesteros",
+            "Pete Crow-Armstrong",
+            "Seiya Suzuki",
+            "Riley Greene",
+            "Christian Scott",
+            "Tyler Phillips",
+            "Ezequiel Duran"
+          ],
+          "avg_own": 19.49,
+          "low_own_count": 3,
+          "salary_used": 50000,
+          "proj_total": 99.99,
+          "dup_count": 1,
+          "stack_shape": "5-1-1-1"
+        },
+        {
+          "rank": 9,
+          "entry_name": "cantbstopped5deuce",
+          "points": 133.5,
+          "percentile": 1.8,
+          "players": [
+            "Michael Busch",
+            "Zach McKinstry",
+            "Alex Bregman",
+            "Moises Ballesteros",
+            "Pete Crow-Armstrong",
+            "Ian Happ",
+            "Kyle Stowers",
+            "Christian Scott",
+            "Edward Cabrera",
+            "Ezequiel Duran"
+          ],
+          "avg_own": 19.23,
+          "low_own_count": 4,
+          "salary_used": 49800,
+          "proj_total": 100.33,
+          "dup_count": 1,
+          "stack_shape": "5-1-1-1"
+        },
+        {
+          "rank": 10,
+          "entry_name": "jokerboy21",
+          "points": 132.55,
+          "percentile": 2.0,
+          "players": [
+            "Michael Busch",
+            "Nico Hoerner",
+            "Alex Bregman",
+            "Carter Jensen",
+            "Pete Crow-Armstrong",
+            "Ian Happ",
+            "Brandon Nimmo",
+            "Christian Scott",
+            "Tyler Phillips",
+            "Cole Carrigg"
+          ],
+          "avg_own": 23.55,
+          "low_own_count": 2,
+          "salary_used": 50000,
+          "proj_total": 103.3,
+          "dup_count": 1,
+          "stack_shape": "5-1-1-1"
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -4.64,
+        "low_own_count_delta": 0.55,
+        "salary_used_delta": -188.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-06-12 14:09",
+    "contest_type": "MLB Classic",
+    "source_file": "contest-standings-191246831.csv",
+    "entries": 1189,
+    "winning_score": 164.15,
+    "cash_line_p80": 101.47000000000001,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mlb_classic",
+    "sport": "mlb",
+    "projections": {
+      "available": true,
+      "source": "mlb-projections-dk-20260611.csv",
+      "matched": 97,
+      "total": 127
+    },
+    "user_summary": {
+      "avg_own_mean": 13.99,
+      "low_own_count_mean": 6.0,
+      "salary_used_mean": 50000.0,
+      "entry_count": 1,
+      "best_rank": 52,
+      "best_percentile": 4.4
+    },
+    "user_lineups": [
+      {
+        "rank": 52,
+        "entry_name": "RyvlesGaming30",
+        "points": 123.2,
+        "percentile": 4.4,
+        "players": [
+          "Jared Young",
+          "Marcus Semien",
+          "Alex Bregman",
+          "Moises Ballesteros",
+          "Juan Soto",
+          "Seiya Suzuki",
+          "Carson Benge",
+          "Zebby Matthews",
+          "Christian Scott",
+          "Bo Bichette"
+        ],
+        "avg_own": 13.99,
+        "low_own_count": 6,
+        "salary_used": 50000,
+        "proj_total": 96.3,
+        "dup_count": 1,
+        "stack_shape": "5-3"
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Colt Keith",
+        "proj_points": 6.94,
+        "actual_fpts": 28.0,
+        "fpts_delta": 21.06,
+        "ownership": 3.71,
+        "actual_own": 2.35
+      },
+      {
+        "name": "Zach McKinstry",
+        "proj_points": 6.93,
+        "actual_fpts": 19.0,
+        "fpts_delta": 12.07,
+        "ownership": 6.52,
+        "actual_own": 2.44
+      },
+      {
+        "name": "Zach McKinstry",
+        "proj_points": 6.93,
+        "actual_fpts": 19.0,
+        "fpts_delta": 12.07,
+        "ownership": 6.52,
+        "actual_own": 1.01
+      },
+      {
+        "name": "Tyler Phillips",
+        "proj_points": 11.34,
+        "actual_fpts": 22.85,
+        "fpts_delta": 11.51,
+        "ownership": 21.93,
+        "actual_own": 14.55
+      },
+      {
+        "name": "Lars Nootbaar",
+        "proj_points": 7.51,
+        "actual_fpts": 19.0,
+        "fpts_delta": 11.49,
+        "ownership": 3.56,
+        "actual_own": 4.29
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Zebby Matthews",
+        "proj_points": 12.27,
+        "actual_fpts": 1.5,
+        "fpts_delta": -10.77,
+        "ownership": 24.21,
+        "actual_own": 24.64
+      },
+      {
+        "name": "Byron Buxton",
+        "proj_points": 10.18,
+        "actual_fpts": 0.0,
+        "fpts_delta": -10.18,
+        "ownership": 13.32,
+        "actual_own": 27.59
+      },
+      {
+        "name": "Jake McCarthy",
+        "proj_points": 9.62,
+        "actual_fpts": 0.0,
+        "fpts_delta": -9.62,
+        "ownership": 13.28,
+        "actual_own": 0.08
+      },
+      {
+        "name": "Kody Clemens",
+        "proj_points": 9.29,
+        "actual_fpts": 0.0,
+        "fpts_delta": -9.29,
+        "ownership": 11.1,
+        "actual_own": 8.58
+      },
+      {
+        "name": "Kody Clemens",
+        "proj_points": 9.29,
+        "actual_fpts": 0.0,
+        "fpts_delta": -9.29,
+        "ownership": 11.1,
+        "actual_own": 7.32
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Keider Montero",
+        "salary": 7700,
+        "actual_fpts": 23.25,
+        "actual_own": 10.85,
+        "top_lineup_pct": 50.0
+      },
+      {
+        "name": "Tyler Phillips",
+        "salary": 6200,
+        "actual_fpts": 22.85,
+        "actual_own": 14.55,
+        "top_lineup_pct": 50.0
+      },
+      {
+        "name": "Alex Bregman",
+        "salary": 4800,
+        "actual_fpts": 20.0,
+        "actual_own": 14.13,
+        "top_lineup_pct": 50.0
+      },
+      {
+        "name": "Seiya Suzuki",
+        "salary": 5200,
+        "actual_fpts": 20.0,
+        "actual_own": 9.17,
+        "top_lineup_pct": 55.0
+      },
+      {
+        "name": "Corey Seager",
+        "salary": 4600,
+        "actual_fpts": 19.0,
+        "actual_own": 13.96,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Zach McKinstry",
+        "salary": 2300,
+        "actual_fpts": 19.0,
+        "actual_own": 1.01,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Cole Carrigg",
+        "salary": 2500,
+        "actual_fpts": 17.0,
+        "actual_own": 3.03,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Riley Greene",
+        "salary": 4400,
+        "actual_fpts": 16.0,
+        "actual_own": 17.75,
+        "top_lineup_pct": 30.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 15.41,
+      "low_own_count_mean": 3.3,
+      "salary_used_mean": 49645.0,
+      "dup_max": 1,
+      "unique_pct": 100.0,
+      "stack_shapes": {
+        "5-2-1": 7,
+        "3-2-1-1-1": 3,
+        "4-3-1": 3,
+        "4-2-1-1": 3,
+        "3-2-2-1": 1,
+        "3-3-2": 1,
+        "5-3": 1,
+        "4-4": 1
+      },
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "lopperty",
+          "points": 164.15,
+          "percentile": 0.1,
+          "players": [
+            "Michael Busch",
+            "Willi Castro",
+            "Colt Keith",
+            "Moises Ballesteros",
+            "Juan Soto",
+            "Pete Crow-Armstrong",
+            "Cole Carrigg",
+            "Keider Montero",
+            "Merrill Kelly",
+            "Corey Seager"
+          ],
+          "avg_own": 12.78,
+          "low_own_count": 4,
+          "salary_used": 50000,
+          "proj_total": 97.22,
+          "dup_count": 1,
+          "stack_shape": "3-2-1-1-1"
+        },
+        {
+          "rank": 2,
+          "entry_name": "dillmaak2022",
+          "points": 152.15,
+          "percentile": 0.2,
+          "players": [
+            "Michael Busch",
+            "Zach McKinstry",
+            "Alex Bregman",
+            "Moises Ballesteros",
+            "Pete Crow-Armstrong",
+            "Ian Happ",
+            "Brandon Nimmo",
+            "Keider Montero",
+            "Merrill Kelly",
+            "Corey Seager"
+          ],
+          "avg_own": 15.34,
+          "low_own_count": 2,
+          "salary_used": 49900,
+          "proj_total": 99.27,
+          "dup_count": 1,
+          "stack_shape": "5-2-1"
+        },
+        {
+          "rank": 3,
+          "entry_name": "SixersPhan",
+          "points": 152.1,
+          "percentile": 0.3,
+          "players": [
+            "Alec Burleson",
+            "Nico Hoerner",
+            "Colt Keith",
+            "Francisco Alvarez",
+            "Pete Crow-Armstrong",
+            "Jordan Walker",
+            "Seiya Suzuki",
+            "Keider Montero",
+            "Tyler Phillips",
+            "Otto Lopez"
+          ],
+          "avg_own": 13.07,
+          "low_own_count": 4,
+          "salary_used": 49500,
+          "proj_total": 93.9,
+          "dup_count": 1,
+          "stack_shape": "3-2-1-1-1"
+        },
+        {
+          "rank": 4,
+          "entry_name": "bishops1800",
+          "points": 149.0,
+          "percentile": 0.3,
+          "players": [
+            "Spencer Torkelson",
+            "Zach McKinstry",
+            "Alex Bregman",
+            "Carson Kelly",
+            "Juan Soto",
+            "Ian Happ",
+            "Kerry Carpenter",
+            "Michael Wacha",
+            "Keider Montero",
+            "Dansby Swanson"
+          ],
+          "avg_own": 9.39,
+          "low_own_count": 4,
+          "salary_used": 50000,
+          "proj_total": 92.18,
+          "dup_count": 1,
+          "stack_shape": "4-3-1"
+        },
+        {
+          "rank": 5,
+          "entry_name": "mickevcarter",
+          "points": 147.5,
+          "percentile": 0.4,
+          "players": [
+            "Vinnie Pasquantino",
+            "Zach McKinstry",
+            "Colt Keith",
+            "Carter Jensen",
+            "Juan Soto",
+            "Pete Crow-Armstrong",
+            "Riley Greene",
+            "Christian Scott",
+            "Edward Cabrera",
+            "Kevin McGonigle"
+          ],
+          "avg_own": 18.47,
+          "low_own_count": 3,
+          "salary_used": 49100,
+          "proj_total": 98.83,
+          "dup_count": 1,
+          "stack_shape": "4-2-1-1"
+        },
+        {
+          "rank": 6,
+          "entry_name": "pitcoman",
+          "points": 146.95,
+          "percentile": 0.5,
+          "players": [
+            "LuJames Groover",
+            "Zach McKinstry",
+            "Alex Bregman",
+            "Carson Kelly",
+            "Pete Crow-Armstrong",
+            "Seiya Suzuki",
+            "Ian Happ",
+            "Christian Scott",
+            "Keider Montero",
+            "Kevin McGonigle"
+          ],
+          "avg_own": 15.48,
+          "low_own_count": 5,
+          "salary_used": 49600,
+          "proj_total": 99.66,
+          "dup_count": 1,
+          "stack_shape": "5-2-1"
+        },
+        {
+          "rank": 7,
+          "entry_name": "gymdoortee",
+          "points": 143.05,
+          "percentile": 0.6,
+          "players": [
+            "Alec Burleson",
+            "Gleyber Torres",
+            "Kevin McGonigle",
+            "Dillon Dingler",
+            "Ian Happ",
+            "Riley Greene",
+            "Kyle Stowers",
+            "Keider Montero",
+            "Edward Cabrera",
+            "Otto Lopez"
+          ],
+          "avg_own": 14.09,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 94.6,
+          "dup_count": 1,
+          "stack_shape": "4-2-1-1"
+        },
+        {
+          "rank": 8,
+          "entry_name": "pickens81",
+          "points": 142.1,
+          "percentile": 0.7,
+          "players": [
+            "Vinnie Pasquantino",
+            "Ezequiel Duran",
+            "Alex Bregman",
+            "Liam Hicks",
+            "Pete Crow-Armstrong",
+            "Jac Caglianone",
+            "Brandon Nimmo",
+            "Keider Montero",
+            "Tyler Phillips",
+            "Corey Seager"
+          ],
+          "avg_own": 15.22,
+          "low_own_count": 2,
+          "salary_used": 48400,
+          "proj_total": 97.27,
+          "dup_count": 1,
+          "stack_shape": "3-2-2-1"
+        },
+        {
+          "rank": 9,
+          "entry_name": "jaakko",
+          "points": 141.1,
+          "percentile": 0.8,
+          "players": [
+            "Michael Busch",
+            "Nico Hoerner",
+            "Kevin McGonigle",
+            "Dillon Dingler",
+            "Seiya Suzuki",
+            "Riley Greene",
+            "Kerry Carpenter",
+            "Keider Montero",
+            "Tyler Phillips",
+            "Cole Carrigg"
+          ],
+          "avg_own": 11.56,
+          "low_own_count": 4,
+          "salary_used": 49900,
+          "proj_total": 96.26,
+          "dup_count": 1,
+          "stack_shape": "4-3-1"
+        },
+        {
+          "rank": 10,
+          "entry_name": "mbenson",
+          "points": 140.8,
+          "percentile": 0.8,
+          "players": [
+            "Spencer Torkelson",
+            "Gleyber Torres",
+            "Alex Bregman",
+            "Ivan Herrera",
+            "Pete Crow-Armstrong",
+            "Ian Happ",
+            "Riley Greene",
+            "Keider Montero",
+            "Hunter Dobbins",
+            "Masyn Winn"
+          ],
+          "avg_own": 14.79,
+          "low_own_count": 3,
+          "salary_used": 49100,
+          "proj_total": 90.62,
+          "dup_count": 1,
+          "stack_shape": "3-3-2"
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 1.42,
+        "low_own_count_delta": -2.7,
+        "salary_used_delta": -355.0
+      }
+    }
+  }
+]

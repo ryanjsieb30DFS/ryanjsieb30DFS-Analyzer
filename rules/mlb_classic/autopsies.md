@@ -53,3 +53,27 @@ Post-log note (2026-06-11): the entered DK lineup was a SaberSim import, NOT fro
 - Slate-defining plays: Bryce Harper (25.0 pts @ 9.7%), Kyle Schwarber (23.0 pts @ 7.1%), Alec Bohm (21.0 pts @ 7.1%), Bryson Stott (15.0 pts @ 14.3%)
 
 Post-log note (2026-06-11): same as the $6K contest above — entered lineup was a SaberSim import swapped in near lock, not the archived portfolio. See the note on contest-standings-191221893.csv.
+
+
+## 2026-06-12 14:09 — MLB Classic (contest-standings-191246830.csv)
+- Entries: 490
+- Winning score: 145.8
+- Cash line (top 20%): 101.1
+- My entries: 1 · best rank 141/490 (top 28.8%)
+- Winners (top 20): avg own 18.46% vs mine 23.1% · sub-10% plays/lineup 3.55 vs mine 3.0 · salary Δ -188
+- Winning stack shapes: 5-3×3, 5-2-1×3, 5-1-1-1×3, 4-3-1×2
+- Overperformed proj: Colt Keith, Zach McKinstry, Zach McKinstry
+- Underperformed proj: Zebby Matthews, Byron Buxton, Kody Clemens
+- Slate-defining plays: Tyler Phillips (22.9 pts @ 17.6%), Seiya Suzuki (20.0 pts @ 10.6%), Alex Bregman (20.0 pts @ 15.3%), Corey Seager (19.0 pts @ 16.3%)
+
+
+## 2026-06-12 14:09 — MLB Classic (contest-standings-191246831.csv)
+- Entries: 1,189
+- Winning score: 164.2
+- Cash line (top 20%): 101.5
+- My entries: 1 · best rank 52/1,189 (top 4.4%)
+- Winners (top 20): avg own 15.41% vs mine 13.99% · sub-10% plays/lineup 3.3 vs mine 6.0 · salary Δ -355
+- Winning stack shapes: 5-2-1×7, 3-2-1-1-1×3, 4-3-1×3, 4-2-1-1×3
+- Overperformed proj: Colt Keith, Zach McKinstry, Zach McKinstry
+- Underperformed proj: Zebby Matthews, Byron Buxton, Jake McCarthy
+- Slate-defining plays: Keider Montero (23.2 pts @ 10.8%), Tyler Phillips (22.9 pts @ 14.6%), Alex Bregman (20.0 pts @ 14.1%), Seiya Suzuki (20.0 pts @ 9.2%)

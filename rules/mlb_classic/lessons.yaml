@@ -102,7 +102,7 @@ lessons:
       slate analysis itself directing "one or two structural pivots beats full
       contrarian" for this field size. Pick ONE primary leverage axis (stack OR
       pitcher); keep the other near-field.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-11"
         slate: "rules/mlb_classic/history/2026-06-11__mlb-classic-6-10-26"
@@ -114,8 +114,21 @@ lessons:
           dome stack (Harper 8.5-9.7% own in 65-75% of top-20 lineups);
           pitchers stayed full chalk (Luzardo+Detmers). Dominant winning
           shapes again 5-3 / 5-2-1 / 5-1-1-1.
+      - date: "2026-06-12"
+        slate: "rules/mlb_classic/history/2026-06-12__mlb-classic-6-11-26"
+        evidence: >
+          Third mechanism confirmation, with a same-slate controlled contrast
+          (6/11 slate): top-20 winners averaged 15.4% own / 3.3 sub-10% plays
+          ($5K Chin Music, 1,189 entries) and 18.5% own / 3.6 sub-10% ($5K
+          Base Hit, 490) — near-field-plus-one-pivot again. The user entered
+          BOTH worlds: the in-band build (L1 NYM-5, 14.0% avg own, one pivot)
+          finished top 4.4% — ledger best — while the above-band chalk build
+          (L2 CHC-5+TEX-3, 23.1% avg own, no structural pivot) finished
+          mid-pack (28.8%) on the SAME slate. Band refinement: winning sub-10%
+          density was 3.3-3.6 here vs 4-5 on prior slates — "one pivot,
+          roughly 3-5 sub-10% plays" is the working range.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Construction (user-approved 2026-06-12)"
     retired_reason: null
 
   - id: mlb-classic-2026-06-10-salary-enabler-pitcher-chalk
@@ -131,7 +144,7 @@ lessons:
       both contests, while the short-leash chalk arm Kai-Wei Teng (2.5 avg IP
       flag) busted at 1.8 pts on 27–29% actual own. The analysis's IP-based
       discrimination worked; its ownership-based discrimination did not.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-11"
         slate: "rules/mlb_classic/history/2026-06-11__mlb-classic-6-10-26"
@@ -145,8 +158,35 @@ lessons:
           binary (Lineup 3's HOU strike) hit the wrong world; per the GPP
           guard that bust is not logged as a contradiction of anything, but
           the enabler-keep side of this lesson is now 2-for-2.
-    contradictions: []
-    codified_in: null
+      - date: "2026-06-12"
+        slate: "rules/mlb_classic/history/2026-06-12__mlb-classic-6-11-26"
+        evidence: >
+          ENABLER-KEEP half confirmed a 3rd time, by cost this time: Tyler
+          Phillips ($6,200, 21.9% proj own) was the slate's cheap chalk
+          enabler and the build faded him entirely — he scored 22.85 (slate-
+          defining play in BOTH contests, 50-55% of top-20 lineups) and the
+          $5K Base Hit winner ran Phillips+Kelly cheap arms to fund the bats.
+          Fading the enabler again cut builds off from the winning salary
+          structure. NOTE: this same slate contradicted the lesson's LEASH
+          clause (see contradictions) — the enabler-keep mechanism and the
+          leash discriminator are now diverging halves of one lesson.
+    contradictions:
+      - date: "2026-06-12"
+        slate: "rules/mlb_classic/history/2026-06-12__mlb-classic-6-11-26"
+        evidence: >
+          The leash discriminator failed as a fade trigger: Phillips's 2.4
+          avg IP was the exact Kai-Wei Teng profile the lesson says to fade,
+          and the build faded him on that mechanism explicitly ("the leash
+          mechanism says fade anyway") — he threw past his leash and put up
+          22.85, the slate-defining arm. Leash-as-fade-trigger is now 1-1
+          (Teng busted 6/9, Phillips smashed 6/11). Mechanism contradiction
+          of the clause "discriminate chalk arms by workload/leash": avg IP
+          appears to be a season artifact, not a per-start cap, for cheap
+          chalk. First contradiction logged — a second retires the clause.
+    codified_in: >
+      framework.md — Construction (user-approved 2026-06-12): enabler-keep
+      principle codified; leash clause demoted to a risk note in the
+      framework text per the Phillips contradiction
     retired_reason: null
 
   - id: mlb-classic-2026-06-10-blank-own-snapshot-artifact
@@ -163,6 +203,9 @@ lessons:
       observed at birth — needs confirmation on future slates or an app-side
       fix.
     status: hypothesis
+    # 2026-06-12 note (no evidence change): cross-check performed pre-lock on
+    # 6/11 — no blank-Own rows in that SIN file (Feltner's 1.04% verified
+    # real). The check is doing its job; the artifact hasn't recurred yet.
     confirmations: []
     contradictions: []
     codified_in: null
@@ -181,7 +224,7 @@ lessons:
       archived lineups.md, which claimed "same lineup in both SE contests."
       Process mechanism, not a results claim: the loop can only improve
       lineups it can see.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-11"
         slate: "rules/mlb_classic/history/2026-06-11__mlb-classic-6-10-26"
@@ -195,8 +238,19 @@ lessons:
           winning skeleton (PHI-5 + Luzardo + Detmers; 6 of 10 players shared
           with the $4K winner). The cost of bypassing the loop is no longer
           hypothetical on this sample.
+      - date: "2026-06-12"
+        slate: "rules/mlb_classic/history/2026-06-12__mlb-classic-6-11-26"
+        evidence: >
+          Third confirmation, this time the positive case: for the first time
+          in three slates BOTH entered lineups existed in lineups.md pre-lock
+          (L1 app-built; L2 chat-built at the user's direction and logged with
+          thesis + audit addendum before lock). The loop could see and grade
+          everything it was asked to grade, and the fully-audited L1 delivered
+          the ledger's best percentile (top 4.4%). Mechanism confirmed from
+          both directions now: bypassing the loop produced chalkier-than-band
+          entries twice; honoring it produced an in-band entry once.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Lineup discipline, HARD RULE (user-approved 2026-06-12)"
     retired_reason: null
 
   # --- Born from 2026-06-11 post-autopsy (slate: MLB Classic 6.10.26) ---
@@ -216,8 +270,21 @@ lessons:
       fade (more leveraged AND more binary than projected). Check the prior
       worst_own_miss rows in vendor_calibration.jsonl before sizing a pitcher
       strike.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-06-12"
+        slate: "rules/mlb_classic/history/2026-06-12__mlb-classic-6-11-26"
+        evidence: >
+          Mechanism confirmed on the very next slate: Christian Scott
+          projected 43.9% and closed at 56.0-62.7% across the two SE
+          contests — the consensus P1 condensed again (Detmers 38.0->68.7 on
+          6/10). The build USED the lesson pre-lock: Scott was kept rather
+          than faded explicitly because "fading him is a 60-70%-actual fade,"
+          and the pivot was taken in his own bats instead — the in-band L1
+          that kept him finished top 4.4%. Refinement worth tracking:
+          condensation concentrated ONLY on the consensus #1 — the cheap #2
+          chalk arm (Phillips 21.9% proj) actually closed LOWER (14.6-17.6%).
+          SE fields converge on one arm, not on the chalk class.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -238,6 +305,10 @@ lessons:
       pre-lock ("underowned Phillies dome offense"), so the mechanism is
       observed at birth — needs confirmation on future weather slates.
     status: hypothesis
+    # 2026-06-12 note (no evidence change): correctly judged NOT APPLICABLE
+    # on 6/11 — the mechanism's precondition (field ownership concentrated on
+    # a rain-exposed offense) was absent; the #1 cluster was CHC at sunny
+    # Coors. Pre-flight rejection with the mechanism named, as intended.
     confirmations: []
     contradictions: []
     codified_in: null
@@ -259,6 +330,54 @@ lessons:
       lock so the red team fits; if a build lands late anyway, the DEFAULT is
       to enter the audited portfolio as-is — swapping to lineups that
       bypassed every check is the higher-variance act, not the safer one.
+    status: hypothesis
+    # 2026-06-12 note (no status change): on 6/11 the build landed ~35 min
+    # pre-lock (12:35/12:40 vs 13:10) — tight again, and the red team was
+    # skipped for time — but the trust collapse did NOT recur: the user
+    # entered the tracked lineups with no swap. Adherence to the prescribed
+    # default, not a mechanism event; logged in the process scorecard.
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # --- Born from 2026-06-12 post-autopsy (slate: MLB Classic 6.11.26) ---
+
+  - id: mlb-classic-2026-06-12-sin-projection-pool-omissions
+    born: "2026-06-12"
+    origin: "rules/mlb_classic/history/2026-06-12__mlb-classic-6-11-26"
+    statement: >
+      The SIN projections CSV can omit priced, playable players entirely —
+      on 6/11 Cole Carrigg ($2,500, Stone-ranked at 10.6% own) was missing
+      from the 99-player file, so the auto-snapshot and leverage table were
+      structurally blind to him; he scored 17.0 at 3.0-4.5% actual own, made
+      the $5K Chin Music WINNER, and appeared in 30-40% of top-20 lineups.
+      Mechanism: the snapshot can only rank players in the pool; an omitted
+      cheap stud is invisible leverage. Cross-check the Stone's value/cheap
+      rankings against the projection pool pre-lock and flag any priced
+      player the CSV lacks. Caught pre-lock on 6/11 (the analysis noted the
+      omission via the Stone), so observed at birth — needs confirmation.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mlb-classic-2026-06-12-five-man-primary-conditional-on-blowup
+    born: "2026-06-12"
+    origin: "rules/mlb_classic/history/2026-06-12__mlb-classic-6-11-26"
+    statement: >
+      5-man-primary dominance is conditional on an offense actually going
+      off; it is not a structural law. On 6/11 the consensus run environment
+      (CHC at Coors, 6.05 implied) delivered only moderately (best Cubs
+      17-20 pts, spread across bats) and the winning shapes diversified:
+      the $5K Chin Music winner was 3-2-1-1-1 and the $5K Base Hit winner
+      4-3-1, with 5-man primaries in well under half of top-20 lineups
+      (8-9 of 20) vs 11-14 of 20 on the two prior slates. Mechanism: a
+      5-stack multiplies a blowup; when no team blows up, it multiplies
+      mediocrity and the extra roster spots beat the extra correlation.
+      Stacking remains the core lever (every winner carried a 3+ stack) —
+      this is about the 5-man PREMIUM, not stacking itself.
     status: hypothesis
     confirmations: []
     contradictions: []

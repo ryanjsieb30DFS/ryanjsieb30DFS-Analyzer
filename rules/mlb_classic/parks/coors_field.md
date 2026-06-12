@@ -42,3 +42,17 @@ knowledge; treat as a starting point until more slates accumulate.
   pay a primary-stack premium. Second straight slate supporting the park's core
   mechanism in its weaker form: the owned Coors side is a tax; the cheap unowned-side
   one-off (Carrigg here, Castro on 6/9) is the repeatable equity.
+
+- **2026-06-12 (MLB Classic 6.11.26, CHC @ COL, 6.05/5.20 implied):** Third
+  consecutive CHC@COL slate and the cleanest read yet. The owned side (CHC, ~146%
+  combined projected own, PCA 33-40% actual) went moderate, not nuclear — best Cubs
+  were Bregman/Suzuki at 20, PCA 17, Busch 12, spread across bats — and no CHC-5
+  primary won; winners used CHC as 2-4 man pieces. On the unowned side the pattern
+  went 3-for-3: Cole Carrigg ($2,500) scored 17.0 at 3.0-4.5% actual own, made the
+  $5K Chin Music WINNER and 30-40% of top-20 lineups — second straight slate it's
+  Carrigg specifically (Castro on 6/9). Meanwhile the *owned* COL piece, Hunter
+  Goodman (~25% actual), busted at 0.0 — ownership, not park side, is the
+  discriminator. Core mechanism now 3-slate-validated in both directions: pay the
+  Coors environment through the cheap unowned one-off, never through the consensus
+  stack or the owned name. Caveat for the ledger: Carrigg was MISSING from the SIN
+  projections CSV this slate (see sin-projection-pool-omissions lesson).

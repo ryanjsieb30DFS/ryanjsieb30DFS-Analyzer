@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "date": "2026-06-12",
+  "slug": "mlb_classic",
+  "sport": "mlb",
+  "slate_label": "MLB Classic 6.11.26",
+  "history_dir": "rules/mlb_classic/history/2026-06-12__mlb-classic-6-11-26",
+  "contests": [
+    {
+      "name": "MLB $5K Base Hit",
+      "type": "SE",
+      "source_file": "contest-standings-191246830.csv",
+      "field_size": 490,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "buy_in": 12.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 141,
+      "best_percentile": 28.8
+    },
+    {
+      "name": "MLB $5K Chin Music",
+      "type": "SE",
+      "source_file": "contest-standings-191246831.csv",
+      "field_size": 1189,
+      "my_entries": 1,
+      "entry_fee": 5.0,
+      "buy_in": 5.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 52,
+      "best_percentile": 4.4
+    }
+  ],
+  "total_buy_in": 17.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 52,
+  "best_percentile": 4.4,
+  "entries_total": 2
+}

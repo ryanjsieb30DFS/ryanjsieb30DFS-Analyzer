@@ -1,0 +1,34 @@
+{
+  "slug": "mlb_classic",
+  "sport": "mlb",
+  "contest_label": "MLB Classic",
+  "date": "2026-06-12",
+  "slate_label": "MLB Classic 6.11.26",
+  "archived_at": "2026-06-12 14:09",
+  "archived": [
+    "slate_analysis.md",
+    "lineups.md",
+    "bundle.md",
+    "contests.json"
+  ],
+  "missing": [
+    "red_team.md"
+  ],
+  "article_files": [
+    "articles/mlb_classic/2026-06-11__DK-hitter-rankings-DK-MAIN (3).csv",
+    "articles/mlb_classic/2026-06-11__DK-pitcher-rankings-DK-MAIN (3).csv",
+    "articles/mlb_classic/2026-06-11__MLB-The-Stone 6.11.26.pdf",
+    "articles/mlb_classic/2026-06-11__Screen Shot 2026-06-11 at 11.40.38 AM.png",
+    "articles/mlb_classic/2026-06-11__Screen Shot 2026-06-11 at 11.41.05 AM.png",
+    "articles/mlb_classic/2026-06-11__Screen Shot 2026-06-11 at 11.41.13 AM.png",
+    "articles/mlb_classic/2026-06-11__Screen Shot 2026-06-11 at 11.41.23 AM.png",
+    "articles/mlb_classic/2026-06-12__DK-hitter-rankings-DK-MAIN (3).csv",
+    "articles/mlb_classic/2026-06-12__DK-pitcher-rankings-DK-MAIN (3).csv",
+    "articles/mlb_classic/2026-06-12__MLB-The-Stone 6.11.26.pdf",
+    "articles/mlb_classic/2026-06-12__Screen Shot 2026-06-11 at 11.40.38 AM.png",
+    "articles/mlb_classic/2026-06-12__Screen Shot 2026-06-11 at 11.41.05 AM.png",
+    "articles/mlb_classic/2026-06-12__Screen Shot 2026-06-11 at 11.41.13 AM.png",
+    "articles/mlb_classic/2026-06-12__Screen Shot 2026-06-11 at 11.41.23 AM.png"
+  ],
+  "proj_source": "mlb-projections-dk-20260611.csv"
+}
