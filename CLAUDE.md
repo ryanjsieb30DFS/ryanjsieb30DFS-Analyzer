@@ -99,7 +99,50 @@ This normally runs **in-app**: the Analyze tab's **Generate slate analysis** but
    - Which qualitative overrides should beat the quantitative signal?
    - What's the Anchor-Equivalence call?
    - What conviction-core duplication / ceiling-threshold / binary-leverage warnings apply (per the sport's framework)?
-8. Write to `data/slate_analysis/<slug>.md` — concise, scannable, GPP-framed, with a player-by-player call where the auto-snapshot and the articles diverge. It renders in the Analyze tab with a "Last updated" timestamp and is cleared automatically when the user logs an autopsy.
+8. Write to `data/slate_analysis/<slug>.md` in the **handbuild-first format** below (all sports, always on). The user hand-builds lineups — every section must answer *who to play, and if played, how the rest of the roster shapes around them*, with no prose-to-decision translation required. It renders in the Analyze tab with a "Last updated" timestamp and is cleared automatically when the user logs an autopsy.
+
+### Slate analysis format (handbuild-first — mandatory, all sports)
+
+The file contains these sections, in order. GPP-framed throughout; concise and scannable.
+
+1. `## Pre-flight checklist` — first, always (see Pre-flight ritual).
+2. `## Slate at a glance` — brief facts table (games/fights/races, implied totals or win probs, weather, contests + field sizes). Keep it short.
+3. `## The N decisions that define this slate` (N = 2–5) — the structural calls a hand-builder must make, in priority order. Each decision gets:
+   - **PLAY / PASS / MIX** verdict + one-sentence mechanism.
+   - Ownership adjusted for known patterns (e.g. SE chalk-pitcher condensation — name the lesson).
+   - **If played →** the concrete roster-shaping consequences: remaining salary and per-slot math, who pairs with them, who conflicts (own-pitcher blocks, same-fight conflicts, duplicated-core risk), which framework rules/lessons activate.
+   - **If faded →** the world that bet needs to win (a fade is a bet too — price it, including condensation-adjusted ownership).
+   - The **Anchor-Equivalence call** appears here as one of the decisions (still mandatory on every slate).
+4. `## Player board` — tiered table covering the decision-relevant set (full chalk tier + every named leverage candidate + traps + any player the vendors and I disagree on — NOT the whole pool; close with one line naming what was left off and why):
+   - **PLAY** — belongs in most builds. **MIX** — situational; say exactly when. **PASS** — trap; say why, and what to do if the user plays them anyway.
+   - Every row: salary, proj, own% (condensation-adjusted where a lesson applies), call, and an **"If played →"** shaping note.
+   - Sport-specific columns matching the Handbuild pool: golf — ceiling, make-cut; MMA — win%, finish mix; NASCAR — start pos, dominator pts; MLB — team/stack role.
+5. `## Where I disagree with the vendors` — MANDATORY, never omitted. Each entry: the vendor's claim → my call → the mechanism, weighted by `rules/<slug>/vendor_calibration.jsonl` (small-sample guard applies). Disagreeing with the data is encouraged when the mechanism supports it — that's where edges come from. If there are genuinely no disagreements, say so in one line.
+6. `## Edges to exploit` — ranked. Each edge states the **expression**: the concrete way to put it in a lineup (named players, stack shape/salary route), not just the observation.
+
+Roster-shaping logic is sport-specific — derive it from `rules/<slug>/framework.md` + open lessons (MLB: stack pairing + own-pitcher blocks; golf: salary-tier routes after an anchor; MMA: never both sides of a fight, conviction-anchor separation; NASCAR: dominator math + position differential).
+
+Compact example of the shape (MLB, abbreviated):
+
+```markdown
+## The 3 decisions that define this slate
+### 1. Christian Scott ($8,300 · 44% proj own → expect 55–65% per se-chalk-pitcher-own-condensation)
+PLAY — right chalk; the fade is really a ~60% fade.
+- If played → $41,700 for 9 spots ($4,633/spot). Stack his OWN bats (they pair, not fight); SP2 from the 22–25% class.
+- If faded → you need the world where 60%-owned chalk busts AND your alternative arm smashes — price it as the binary it is.
+
+## Player board
+| Player | Sal | Proj | Own% | Call | If played → |
+|---|---|---|---|---|---|
+| Scott | $8.3K | 14.7 | 44→~60 | PLAY | stack NYM bats with him |
+| Phillips | $6.2K | 11.3 | 22 | PASS | (if anyway: full-chalk bats, zero other pivots) |
+
+## Where I disagree with the vendors
+- The Stone ranks Phillips P#1 — I pass: <mechanism>. (SIN own MAE 3.0 over 3 slates — trust their ownership, question their arm ranks.)
+
+## Edges to exploit
+1. NYM 34.7% combined own vs the board's biggest favorite — expression: NYM-4/5 with Scott, $2.6K Young as the value engine.
+```
 
 ## Building lineups
 
