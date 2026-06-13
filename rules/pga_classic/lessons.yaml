@@ -263,8 +263,9 @@ lessons:
     born: "2026-06-13"
     origin: "bulk mining — 168 Classic DK contest-standings slates 2023-2026 (rules/pga_classic/mining_2023_2026.md)"
     statement: >
-      The Classic winning lineup structure is ~13% average ownership with 2-3
-      sub-10%-owned golfers and is 91% unique. Mechanism: the 2-day-plus-cut format
+      The Classic winning lineup structure is ~13% average PER-PLAYER ownership
+      (mean of the 6 golfers' field own%, ~78% cumulative — NOT a lineup total) with
+      2-3 sub-10%-owned golfers and is 91% unique. Mechanism: the 2-day-plus-cut format
       carries enough variance that an all-chalk lineup cannot separate from the
       field; multiple leverage plays are structurally required to win, and sharing
       the field's obvious core (duplication) caps upside. Large-sample confirmation
@@ -275,7 +276,7 @@ lessons:
       - date: "2026-06-13"
         slate: "168-slate mining 2023-2026"
         note: >
-          Median winners avg-own 12.9% (stable 12.8-13.2% every year); median 2.5
+          Median winners per-player avg-own 12.9% (stable 12.8-13.2% every year); median 2.5
           sub-10% golfers; 91% of rank-1 winners ran >=1 sub-10% and 78% ran >=2;
           winners 91% unique.
     contradictions: []
@@ -309,7 +310,7 @@ lessons:
       (high winning scores) reward ~2 darts, tough courses ~3. Mechanism: when the
       field's chalk also scores (low scoring/cut variance), over-leveraging forfeits
       points the chalk banks; on tough courses, differentiation via low-owned plays
-      matters more. Average ownership stays ~13% across archetypes — the dart COUNT
+      matters more. Average per-player ownership stays ~13% across archetypes — the dart COUNT
       shifts, not the overall own target.
     status: hypothesis
     confirmations:

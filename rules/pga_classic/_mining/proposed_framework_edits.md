@@ -10,8 +10,9 @@ entry and the mining report it rests on. Approve item-by-item and I'll apply.
 
 ### P1 — Quantify the winning-structure target (Section 3 Ownership Tier Framework / Section 5 The Leverage Spine)
 Add a one-line empirical anchor: *"168-slate baseline (2023-2026): winning lineups
-average ~13% ownership with 2-3 sub-10%-owned golfers and are 91% unique. Target this
-shape; an all-chalk lineup is a structural non-starter."*
+average ~13% PER-PLAYER ownership (~78% cumulative across 6) with 2-3 sub-10%-owned
+golfers and are 91% unique. Target this shape; an all-chalk lineup is a structural
+non-starter."*
 Basis: `pga-classic-...-winning-structure-13own-2to3-darts` (validated). Note this only
 makes an *existing* codified number (the 12.25/2.24 SE reference) explicit and large-sample.
 
@@ -23,7 +24,7 @@ Basis: `pga-classic-...-leverage-play-mandatory` (validated). Reinforces existin
 
 ### P3 — Dart-count by course archetype (Section 5 / Section 9 checklists) — *hypothesis, lighter*
 Add: *"Dose darts to course variance: tough courses ~3 sub-10% plays, birdie-fests ~2
-(avg ownership stays ~13% either way)."* Mark as a hypothesis to confirm on the next few
+(avg per-player ownership stays ~13% either way)."* Mark as a hypothesis to confirm on the next few
 slates before hard-coding.
 Basis: `pga-classic-...-dose-darts-to-course-variance` (hypothesis).
 
@@ -34,12 +35,12 @@ Basis: `pga-classic-...-dose-darts-to-course-variance` (hypothesis).
 ### R1 — Replace the "Historical Winning Structure (ETR Database)" numbers with actual DK winners
 The framework's `## Historical Winning Structure (ETR Database)` section currently uses
 ETR-estimated averages. Replace/annotate with the 146-slate actual-DK baseline:
-*"Winning lineups average ~19% ownership with ~1.7 sub-10% golfers (median), 85% unique;
-93% of winners carry >=1 sub-10% play. Stable 2023-2026."*
+*"Winning lineups average ~19% PER-PLAYER ownership (~115% cumulative) with ~1.7 sub-10%
+golfers (median), 85% unique; 93% of winners carry >=1 sub-10% play. Stable 2023-2026."*
 Basis: `pga-rd4-sd-...-winning-structure-19own-1to2-darts` (validated).
 
 ### R2 — Add the cross-format leverage-gap rule (new short subsection)
-*"RD4 SD is structurally chalkier than Classic: ~19% vs ~13% winning own, ~1.7 vs ~2.5
+*"RD4 SD is structurally chalkier than Classic: ~19% vs ~13% winning per-player own, ~1.7 vs ~2.5
 darts. Do not import Classic's contrarian dosage. The single round + smaller field +
 lower variance shrink the contrarian payoff — leverage is still required, in a smaller
 dose."*

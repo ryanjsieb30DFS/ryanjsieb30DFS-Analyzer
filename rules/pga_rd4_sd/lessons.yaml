@@ -311,8 +311,9 @@ lessons:
     born: "2026-06-13"
     origin: "bulk mining — 146 RD4 SD DK contest-standings slates 2023-2026 (rules/pga_rd4_sd/mining_2023_2026.md)"
     statement: >
-      The RD4 SD winning lineup structure is ~19% average ownership with ~1.7
-      sub-10%-owned golfers (median), 85% unique. Mechanism: a single final round
+      The RD4 SD winning lineup structure is ~19% average PER-PLAYER ownership
+      (mean of the 6 golfers' field own%, ~115% cumulative — NOT a lineup total) with
+      ~1.7 sub-10%-owned golfers (median), 85% unique. Mechanism: a single final round
       (no cut, smaller fields, lower scoring variance) compresses the edge of going
       deep contrarian relative to the 2-day Classic, so winners are chalkier — but
       still carry >=1 leverage play (93% of winners). This is the actual-DK
@@ -323,7 +324,7 @@ lessons:
       - date: "2026-06-13"
         slate: "146-slate mining 2023-2026"
         note: >
-          Median winners avg-own 19.1% (stable 17.4-19.5% every year); median 1.7
+          Median winners per-player avg-own 19.1% (stable 17.4-19.5% every year); median 1.7
           sub-10% golfers; 93% of rank-1 winners ran >=1 sub-10%, 64% ran >=2; 85% unique.
     contradictions: []
     codified_in: null
@@ -333,8 +334,8 @@ lessons:
     born: "2026-06-13"
     origin: "bulk mining — Classic (168) vs RD4 SD (146) slates 2023-2026 (mining_2023_2026.md)"
     statement: >
-      RD4 SD winners are structurally chalkier than Classic winners: ~19% avg own
-      vs ~13%, and ~1.7 sub-10% darts vs ~2.5 (won-with->=2-darts 64% vs 78%).
+      RD4 SD winners are structurally chalkier than Classic winners: ~19% per-player
+      avg own vs ~13%, and ~1.7 sub-10% darts vs ~2.5 (won-with->=2-darts 64% vs 78%).
       Mechanism: single final round + smaller fields + lower scoring variance shrink
       the payoff of contrarian construction. Do NOT import Classic's contrarian
       dosage into RD4 SD (or vice versa) — leverage is mandatory in both, but the
@@ -343,7 +344,7 @@ lessons:
     confirmations:
       - date: "2026-06-13"
         slate: "168 Classic vs 146 RD4 SD mining 2023-2026"
-        note: "Classic winners 12.9% own / 2.5 darts; RD4 SD 19.1% / 1.7 darts. Gap stable across all four years."
+        note: "Classic winners 12.9% per-player own / 2.5 darts; RD4 SD 19.1% / 1.7 darts. Gap stable across all four years."
     contradictions: []
     codified_in: null
     retired_reason: null
