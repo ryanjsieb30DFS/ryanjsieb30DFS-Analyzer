@@ -170,57 +170,70 @@ def run_build_lineups(slug: str, contest_label: str, sport: str, n_target: int) 
 
 
 def run_select_lineups(slug: str, contest_label: str, sport: str, n_target: int) -> dict:
-    """Select the best lineups from the uploaded SaberSim pool via headless Claude.
+    """Select the best lineups from the uploaded lineup pool(s) via headless Claude.
 
     Unlike run_build_lineups (which invents rosters), this picks up to n_target
-    lineups FROM the SaberSim lineup-export CSV the user uploaded in the Sim Data
-    tab, judged against the slate analysis. Requires BOTH the slate analysis and a
-    sim-data file to exist. Writes the chosen lineups to data/lineups/<slug>.md in
-    the same portfolio format run_build_lineups uses; never edits other data files.
+    lineups FROM the lineup-pool CSV(s) the user uploaded in the Sim Data tab — a
+    SaberSim export or any traditional optimizer's files (proj-/ceiling-/50-50-
+    optimized, possibly several, with or without sim metrics) — judged against the
+    slate analysis. Requires BOTH the slate analysis and at least one pool file to
+    exist. Writes the chosen lineups to data/lineups/<slug>.md in the same portfolio
+    format run_build_lineups uses; never edits other data files.
     """
     analysis_path = _REPO_ROOT / "data" / "slate_analysis" / f"{slug}.md"
     if not analysis_path.exists():
         return {"ok": False, "error": "Generate the slate analysis first — selections are judged against it.",
                 "duration_s": 0.0, "cost_usd": None}
 
-    from src.sim_data import load_sim_summary
+    from src.sim_data import load_sim_files
     from src.lineups import roster_spec
 
-    sim = load_sim_summary(slug)
-    if not sim or not sim.get("path"):
+    sim_files = load_sim_files(slug)
+    if not sim_files:
         return {"ok": False,
-                "error": "Upload your SaberSim lineup-export CSV in the Sim Data tab first.",
+                "error": "Upload at least one lineup-pool CSV in the Sim Data tab first.",
                 "duration_s": 0.0, "cost_usd": None}
-    sim_path = sim["path"]
     slots = roster_spec(slug)["slots"]
+    pool_paths = "\n".join(
+        f"  - `{s['path']}` ({s['n_rows']:,} rows · {'has sims' if s.get('has_sim_cols') else 'rosters only'})"
+        for s in sim_files
+    )
 
     out_path = _REPO_ROOT / "data" / "lineups" / f"{slug}.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     bundle_path = build_bundle(slug, contest_label, sport)
 
     prompt = (
-        f"SELECT the {contest_label} lineup portfolio from the user's uploaded SaberSim pool — "
+        f"SELECT the {contest_label} lineup portfolio from the user's uploaded lineup pool(s) — "
         f"do NOT invent rosters. Read the slate analysis at `{analysis_path}`, the bundle at "
         f"`{bundle_path}` and the files it references (projections, articles), "
         f"`rules/{slug}/framework.md` + `rules/{slug}/autopsies.md` for the sport's "
-        f"lineup-construction rules, and the uploaded SaberSim lineup-export CSV at `{sim_path}` "
-        f"(its path is also in the bundle's '## Sim data' section).\n\n"
-        f"How to read the SaberSim CSV: each ROW is one candidate lineup. Its first "
-        f"{len(slots)} columns are DK player IDs in slot order ({', '.join(slots)}), "
-        f"followed by metric columns (Proj Score, percentile ceilings, Ownership, Salary, Saber "
-        f"Score, and per-contest ROI/Win Rate/Cash Rate/Sim Dupes). Resolve each DK ID to a player "
-        f"using the projections pool's `dk_id` column (in the bundle's Projections source) so you "
-        f"know the names, salaries, ownership, teams, and slate-analysis calls behind every row.\n\n"
-        f"SELECT UP TO {n_target} lineup(s) from the CSV. Selection discipline (enforce strictly):\n"
+        f"lineup-construction rules, and EVERY uploaded lineup-pool CSV below (paths also in the "
+        f"bundle's '## Sim data' section):\n{pool_paths}\n\n"
+        f"How to read each pool CSV: each ROW is one candidate lineup. Its first "
+        f"{len(slots)} columns are DK player IDs in slot order ({', '.join(slots)}). The REMAINING "
+        f"columns VARY by file and may include sim metrics (Proj Score, percentile ceilings, "
+        f"Ownership, Salary, Saber Score, per-contest ROI/Win Rate/Cash Rate/Sim Dupes) OR may be "
+        f"absent entirely (a traditional optimizer's rosters-only export) — use those metrics only "
+        f"if present, and NEVER require them. Resolve each DK ID to a player using the projections "
+        f"pool's `dk_id` column (in the bundle's Projections source) so you know the names, salaries, "
+        f"ownership, teams, and slate-analysis calls behind every row.\n\n"
+        f"If MULTIPLE files are present they are likely different optimizer settings "
+        f"(projection-/ceiling-/50-50-weighted) — COMBINE all candidates into one pool and DEDUPE "
+        f"identical rosters (same 10 player IDs = one candidate, regardless of which file it came "
+        f"from). Cross-file diversity is a feature: a ceiling-optimized file is where the GPP tail "
+        f"lives.\n\n"
+        f"SELECT UP TO {n_target} lineup(s) from the combined pool. Selection discipline (enforce strictly):\n"
         f"- FILTER to lineups that EXPRESS the slate analysis's edges and '## Player board' calls — "
-        f"NOT the rows with the highest SaberSim ROI/Saber Score. Sim rank is NOT a quality filter: "
-        f"per this repo's rules a high-ROI sim row that fights the slate's edges is a worse pick than "
-        f"a mid-pack row that nails them. Judge each row on how it WINS a GPP, never on cashing.\n"
+        f"NOT the rows with the highest sim ROI/Saber Score (when sims even exist). Sim rank is NOT a "
+        f"quality filter: per this repo's rules a high-ROI sim row that fights the slate's edges is a "
+        f"worse pick than a mid-pack row that nails them. With NO sim columns, rank purely on edge-fit, "
+        f"then ceiling/projection/ownership. Judge each row on how it WINS a GPP, never on cashing.\n"
         f"- The chosen lineups MUST answer DIFFERENT questions — distinct theses, no near-duplicates "
         f"and no shared full conviction core.\n"
         f"- Apply the Anchor-Equivalence pre-lock check: if 2+ chalk-tier anchors sit at similar "
         f"ownership, at least one selected lineup MUST run the alternative.\n"
-        f"- Never roster a hitter against your own pitcher (MLB) — reject any such row even if SaberSim "
+        f"- Never roster a hitter against your own pitcher (MLB) — reject any such row even if a sim "
         f"ranks it highly; honor every hard rule in the sport's framework (e.g. RD4 SD is flat 6, no "
         f"captain).\n"
         f"- If the pool offers FEWER than {n_target} genuinely distinct, edge-expressing lineups, "
@@ -230,8 +243,8 @@ def run_select_lineups(slug: str, contest_label: str, sport: str, n_target: int)
         f"- A roster as a markdown table (player, salary, key metric, role).\n"
         f"- Total salary verified <= $50,000 — show the addition.\n"
         f"- A 'What if?' line stating which distinct scenario it answers.\n"
-        f"- Tag the lineup heading as selected from the uploaded SaberSim pool and note its source "
-        f"ROW INDEX in the CSV (1-based, counting data rows after the header) for traceability.\n\n"
+        f"- Tag the lineup heading as selected from the uploaded pool and note its source FILE name "
+        f"+ ROW INDEX (1-based, counting data rows after the header) for traceability.\n\n"
         f"Complete the 'Pre-flight ritual' in CLAUDE.md: re-read `rules/{slug}/lessons.yaml` and the "
         f"venue file. The output MUST begin with the '## Pre-flight checklist' block, and each applied "
         f"open lesson must be named in the lineup thesis it influenced (or explicitly rejected with the "
@@ -243,8 +256,8 @@ def run_select_lineups(slug: str, contest_label: str, sport: str, n_target: int)
         f"PRESERVE them exactly as written — append your selected lineups after them, continue their "
         f"numbering, count them toward the {n_target}-lineup target, and make sure your selections "
         f"answer DIFFERENT questions than the existing ones (include them in the Portfolio audit).\n\n"
-        f"HARD RULE: write ONLY `{out_path}` — never edit the slate analysis, the bundle, the sim "
-        f"file, or any other data file. Do not ask any questions — produce the file."
+        f"HARD RULE: write ONLY `{out_path}` — never edit the slate analysis, the bundle, the pool "
+        f"file(s), or any other data file. Do not ask any questions — produce the file."
     )
     return _run_claude(prompt, out_path)
 

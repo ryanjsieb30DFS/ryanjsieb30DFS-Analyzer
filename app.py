@@ -30,7 +30,7 @@ from src.contests import (
     clear_contests, portfolio_summary,
 )
 from src.contest_templates import load_templates, save_template, remove_template
-from src.sim_data import save_sim, load_sim_summary, clear_sim
+from src.sim_data import save_sim, load_sim_files, drop_sim_file, clear_sim
 from src.bundle import clear_bundle
 from src.analysis_runner import (
     run_analysis, run_build_lineups, run_select_lineups, lineup_target,
@@ -254,34 +254,50 @@ with tab_slate:
 with tab_sim:
     st.subheader(f"Sim Data — {contest_label}")
     st.caption(
-        "Optional. Upload a sim export CSV (e.g. SaberSim). It's stored as-is for "
-        "Claude to read; a light summary shows below."
+        "Optional. Upload one or more lineup-pool CSVs — a SaberSim export (with sims) "
+        "or a traditional optimizer's files (projection-/ceiling-/50-50-weighted, often "
+        "without sims). Upload several at once; they're stored as-is and the **Select "
+        "lineups** action in the Analyze tab picks from all of them. Sim columns are optional."
     )
 
-    up = st.file_uploader("Sim export (CSV)", type="csv", key=f"sim_{slug}")
-    if up is not None and st.button("Store sim file", type="primary", key=f"sim_save_{slug}"):
-        meta = save_sim(slug, up)
-        if meta.get("error"):
-            st.warning(f"Stored {meta['filename']}, but {meta['error']}")
-        else:
-            st.success(f"Stored {meta['filename']} — {meta['n_rows']:,} rows × {meta['n_cols']} cols")
+    up = st.file_uploader(
+        "Lineup-pool CSV(s)", type="csv", accept_multiple_files=True, key=f"sim_{slug}"
+    )
+    if up and st.button("Store file(s)", type="primary", key=f"sim_save_{slug}"):
+        for f in up:
+            meta = save_sim(slug, f)
+            if meta.get("error"):
+                st.warning(f"Stored {meta['filename']}, but {meta['error']}")
+            else:
+                kind = "with sims" if meta.get("has_sim_cols") else "rosters only"
+                st.success(f"Stored {meta['filename']} — {meta['n_rows']:,} rows × {meta['n_cols']} cols ({kind})")
+        st.rerun()
 
-    summary = load_sim_summary(slug)
-    if summary:
+    sim_files = load_sim_files(slug)
+    if sim_files:
         st.divider()
-        st.markdown("### Stored sim file")
-        st.caption(f"`{summary['filename']}` · {summary['n_rows']:,} rows · {summary['n_cols']} cols")
-        if summary.get("columns"):
-            st.write("**Columns:** " + ", ".join(summary["columns"]))
-        if summary.get("preview"):
-            st.dataframe(pd.DataFrame(summary["preview"]), use_container_width=True)
-        if summary.get("error"):
-            st.warning(summary["error"])
-        if st.button("Remove sim file", key=f"sim_clear_{slug}"):
+        st.markdown(f"### Stored lineup pools ({len(sim_files)})")
+        for sim in sim_files:
+            kind = "with sims" if sim.get("has_sim_cols") else "rosters only"
+            cols = st.columns([5, 1])
+            cols[0].markdown(
+                f"📄 `{sim['filename']}` · {sim['n_rows']:,} rows · {sim['n_cols']} cols · **{kind}**"
+            )
+            if cols[1].button("Drop", key=f"sim_drop_{slug}_{sim['filename']}"):
+                drop_sim_file(slug, sim["filename"])
+                st.rerun()
+            if sim.get("error"):
+                st.warning(sim["error"])
+        with st.expander("Preview columns / rows"):
+            for sim in sim_files:
+                st.caption(f"`{sim['filename']}` columns: " + ", ".join(sim.get("columns", [])))
+                if sim.get("preview"):
+                    st.dataframe(pd.DataFrame(sim["preview"]), use_container_width=True)
+        if st.button("Remove all", key=f"sim_clear_{slug}"):
             clear_sim(slug)
             st.rerun()
     else:
-        st.info("No sim data stored for this slate.")
+        st.info("No lineup pools stored for this slate.")
 
 
 # ===== Tab 4: Analyze =====
@@ -533,14 +549,15 @@ with tab_analyze:
         else:
             st.error(f"Couldn't build lineups: {lresult['error']}")
 
-    # ----- (f2) Select lineups (pick from the uploaded SaberSim pool) -----
+    # ----- (f2) Select lineups (pick from the uploaded lineup pool(s)) -----
     st.markdown("---")
-    st.markdown("### Select lineups (from uploaded SaberSim pool)")
+    st.markdown("### Select lineups (from uploaded lineup pool)")
     st.caption(
-        "Already generated a lineup pool in SaberSim? Upload its lineup-export CSV in the "
-        "Sim Data tab, then click below — Claude picks the best lineups FROM that pool that "
-        "express this slate's edges (NOT just SaberSim's top-ROI rows), each with a distinct "
-        "thesis, and writes them as your portfolio. Takes ~3–15 minutes; uses your Claude "
+        "Already generated lineups in SaberSim or a traditional optimizer? Upload the "
+        "lineup-pool CSV(s) in the Sim Data tab (multiple files OK — proj/ceiling/50-50), "
+        "then click below — Claude picks the best lineups FROM your pool that express this "
+        "slate's edges (NOT just the top sim rows), each with a distinct thesis, and writes "
+        "them as your portfolio. Sim columns optional. Takes ~3–15 minutes; uses your Claude "
         "subscription."
     )
     n_select = st.number_input(
@@ -550,23 +567,23 @@ with tab_analyze:
         key=f"select_n_{slug}",
         help="Defaults to what your declared contests call for — override it freely.",
     )
-    sim_summary = load_sim_summary(slug)
+    sim_files = load_sim_files(slug)
     pool_has_ids = any("dk_id" in s["df"].columns for s in sources.values())
     if not persisted:
         st.info("Generate the slate analysis first — selections are judged against it.")
-    elif not sim_summary:
+    elif not sim_files:
         st.info(
-            "Upload your SaberSim lineup-export CSV in the **Sim Data** tab — these are the "
-            "lineups Claude picks from."
+            "Upload your lineup-pool CSV(s) in the **Sim Data** tab — these are the lineups "
+            "Claude picks from (SaberSim or any optimizer export; one or many files)."
         )
     elif not pool_has_ids:
         st.info(
-            "The loaded projections carry no DK IDs, so the SaberSim rows can't be matched to "
-            "players. Load a pool with an ID column (the SaberSim **projections** export) in the "
-            "Projections tab — Ship It Nation has no IDs."
+            "The loaded projections carry no DK IDs, so the pool's rows can't be matched to "
+            "players. Load a pool with an ID column (e.g. the SaberSim **projections** export) "
+            "in the Projections tab — Ship It Nation has no IDs."
         )
     elif st.button("🎯 Select lineups", type="primary", key=f"select_lineups_{slug}"):
-        with st.spinner(f"Selecting up to {n_select} lineup(s) from your SaberSim pool… (~3–15 min — leave this tab open)"):
+        with st.spinner(f"Selecting up to {n_select} lineup(s) from your pool… (~3–15 min — leave this tab open)"):
             sresult = run_select_lineups(slug, contest_label, sport, n_select)
         if sresult["ok"]:
             cost = sresult.get("cost_usd")

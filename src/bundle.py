@@ -22,7 +22,7 @@ from src.contests import load_contests, portfolio_summary
 from src.landscape import leverage_table, anchor_equivalence_check
 from src.projections_diff import flagged_disagreements
 from src.slate_analysis import snapshot, top_chalk, sport_signals
-from src.sim_data import load_sim_summary
+from src.sim_data import load_sim_files
 from src.strategy import load_strategy
 
 _REPO_ROOT = Path(__file__).parent.parent
@@ -143,17 +143,24 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
     else:
         L.append("_No slate-data files uploaded._")
 
-    # --- Sim data --- #
+    # --- Sim data / lineup pools --- #
     L += ["", "## Sim data"]
-    sim = load_sim_summary(slug)
-    if sim:
-        L.append(f"- File: `{sim['path']}` ({sim['n_rows']:,} rows × {sim['n_cols']} cols)")
-        if sim.get("columns"):
-            L.append(f"- Columns: {', '.join(sim['columns'])}")
-        if sim.get("error"):
-            L.append(f"- ⚠️ {sim['error']}")
+    sim_files = load_sim_files(slug)
+    if sim_files:
+        L.append(
+            f"{len(sim_files)} uploaded lineup-pool file(s). Each row is a candidate "
+            "lineup (the first columns are DK player IDs in roster-slot order); sim "
+            "metric columns may or may not be present. Read every file below:"
+        )
+        for sim in sim_files:
+            kind = "has sims" if sim.get("has_sim_cols") else "rosters only"
+            L.append(f"- `{sim['path']}` ({sim['n_rows']:,} rows × {sim['n_cols']} cols · {kind})")
+            if sim.get("columns"):
+                L.append(f"    - Columns: {', '.join(sim['columns'])}")
+            if sim.get("error"):
+                L.append(f"    - ⚠️ {sim['error']}")
     else:
-        L.append("_No sim data uploaded._")
+        L.append("_No sim data / lineup pools uploaded._")
 
     # --- References for Claude --- #
     L += ["", "## References for Claude (read as needed)"]
