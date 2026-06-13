@@ -1,0 +1,6754 @@
+[
+  {
+    "field_size": 4705,
+    "winning_score": 436.2,
+    "cash_line_p80": 322.85,
+    "median_score": 344.05,
+    "top_n": 47,
+    "winners_avg_own": 18.46,
+    "winners_low_own_mean": 1.7,
+    "winners_unique_pct": 95.7,
+    "winners_dup_max": 2,
+    "winner_avg_own": 9.9,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Sungjae Im",
+      "Ludvig Aberg",
+      "Justin Thomas",
+      "Si Woo Kim",
+      "Jhonattan Vegas",
+      "Nick Taylor"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Ludvig Aberg",
+        "own": 11.22,
+        "fpts": 85.25,
+        "top_pct": 51.1
+      },
+      {
+        "name": "Jhonattan Vegas",
+        "own": 14.18,
+        "fpts": 79.5,
+        "top_pct": 80.9
+      },
+      {
+        "name": "Corey Conners",
+        "own": 14.41,
+        "fpts": 67.45,
+        "top_pct": 31.9
+      }
+    ],
+    "date": "01-05-2025",
+    "year": "2025",
+    "tournament": "Sentry",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "01-05-2025 The Sentry R4 SD.csv"
+  },
+  {
+    "field_size": 4117,
+    "winning_score": 448.45,
+    "cash_line_p80": 311.71,
+    "median_score": 334.6,
+    "top_n": 41,
+    "winners_avg_own": 20.69,
+    "winners_low_own_mean": 1.02,
+    "winners_unique_pct": 75.6,
+    "winners_dup_max": 2,
+    "winner_avg_own": 19.17,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Jon Rahm",
+      "Tom Kim",
+      "Will Zalatoris",
+      "Max Homa",
+      "Tom Hoge",
+      "Mackenzie Hughes"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Tom Hoge",
+        "own": 17.2,
+        "fpts": 82.15,
+        "top_pct": 65.9
+      },
+      {
+        "name": "Luke List",
+        "own": 9.98,
+        "fpts": 69.65,
+        "top_pct": 36.6
+      }
+    ],
+    "date": "01-08-2023",
+    "year": "2023",
+    "tournament": "Tournament of Champions",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "01-08-2023 Tournament of Champions R4 SD.csv"
+  },
+  {
+    "field_size": 3529,
+    "winning_score": 329.75,
+    "cash_line_p80": 241.66,
+    "median_score": 262.6,
+    "top_n": 35,
+    "winners_avg_own": 22.13,
+    "winners_low_own_mean": 1.14,
+    "winners_unique_pct": 94.3,
+    "winners_dup_max": 2,
+    "winner_avg_own": 21.5,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Corey Conners",
+      "Si Woo Kim",
+      "Chris Kirk",
+      "David Lipsky",
+      "Nick Taylor",
+      "Aaron Baddeley"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Andrew Novak",
+        "own": 2.38,
+        "fpts": 63.25,
+        "top_pct": 34.3
+      },
+      {
+        "name": "Corey Conners",
+        "own": 13.77,
+        "fpts": 58.25,
+        "top_pct": 54.3
+      },
+      {
+        "name": "Matt Kuchar",
+        "own": 19.38,
+        "fpts": 52.9,
+        "top_pct": 34.3
+      },
+      {
+        "name": "Nick Taylor",
+        "own": 11.02,
+        "fpts": 47.7,
+        "top_pct": 31.4
+      }
+    ],
+    "date": "01-12-2023",
+    "year": "2023",
+    "tournament": "Sony Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "01-12-2023 Sony Open R4 SD.csv"
+  },
+  {
+    "field_size": 4705,
+    "winning_score": 331.8,
+    "cash_line_p80": 243.0,
+    "median_score": 264.1,
+    "top_n": 47,
+    "winners_avg_own": 24.78,
+    "winners_low_own_mean": 0.64,
+    "winners_unique_pct": 61.7,
+    "winners_dup_max": 11,
+    "winner_avg_own": 30.17,
+    "winner_low_own_count": 0,
+    "winner_lineup": [
+      "Russell Henley",
+      "Eric Cole",
+      "J.J. Spaun",
+      "Nicolas Echavarria",
+      "Stephan Jaeger",
+      "Nick Taylor"
+    ],
+    "n_slate_defining": 0,
+    "slate_defining": [],
+    "date": "01-12-2025",
+    "year": "2025",
+    "tournament": "Sony Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "01-12-2025 Sony Open R4 SD.csv"
+  },
+  {
+    "field_size": 5882,
+    "winning_score": 385.35,
+    "cash_line_p80": 253.35,
+    "median_score": 276.5,
+    "top_n": 59,
+    "winners_avg_own": 17.55,
+    "winners_low_own_mean": 2.34,
+    "winners_unique_pct": 96.6,
+    "winners_dup_max": 2,
+    "winner_avg_own": 15.32,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "J.T. Poston",
+      "Russell Henley",
+      "Eric Cole",
+      "Andrew Putnam",
+      "Matthieu Pavon",
+      "Grayson Murray"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "J.T. Poston",
+        "own": 7.51,
+        "fpts": 83.75,
+        "top_pct": 55.9
+      },
+      {
+        "name": "Andrew Putnam",
+        "own": 9.61,
+        "fpts": 68.0,
+        "top_pct": 49.2
+      },
+      {
+        "name": "Nick Taylor",
+        "own": 12.68,
+        "fpts": 61.2,
+        "top_pct": 47.5
+      }
+    ],
+    "date": "01-14-2024",
+    "year": "2024",
+    "tournament": "Sony Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "01-14-2024 Sony Open R4 SD.csv"
+  },
+  {
+    "field_size": 3294,
+    "winning_score": 380.2,
+    "cash_line_p80": 243.5,
+    "median_score": 268.58,
+    "top_n": 33,
+    "winners_avg_own": 19.26,
+    "winners_low_own_mean": 0.94,
+    "winners_unique_pct": 87.9,
+    "winners_dup_max": 2,
+    "winner_avg_own": 23.1,
+    "winner_low_own_count": 0,
+    "winner_lineup": [
+      "Robert MacIntyre",
+      "Hideki Matsuyama",
+      "Chris Gotterup",
+      "Ryan Gerard",
+      "Daniel Berger",
+      "Lee Hodges"
+    ],
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Robert MacIntyre",
+        "own": 13.57,
+        "fpts": 75.25,
+        "top_pct": 66.7
+      },
+      {
+        "name": "Daniel Berger",
+        "own": 12.78,
+        "fpts": 66.9,
+        "top_pct": 48.5
+      },
+      {
+        "name": "Patrick Rodgers",
+        "own": 18.46,
+        "fpts": 62.25,
+        "top_pct": 51.5
+      },
+      {
+        "name": "Taylor Pendrith",
+        "own": 10.84,
+        "fpts": 60.95,
+        "top_pct": 36.4
+      },
+      {
+        "name": "Lee Hodges",
+        "own": 11.9,
+        "fpts": 60.75,
+        "top_pct": 42.4
+      }
+    ],
+    "date": "01-18-2026",
+    "year": "2026",
+    "tournament": "Sony Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "01-18-2026 Sony Open R4 SD.csv"
+  },
+  {
+    "field_size": 4705,
+    "winning_score": 343.6,
+    "cash_line_p80": 251.05,
+    "median_score": 270.15,
+    "top_n": 47,
+    "winners_avg_own": 23.43,
+    "winners_low_own_mean": 1.4,
+    "winners_unique_pct": 83.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 16.02,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Justin Thomas",
+      "Ben Griffin",
+      "J.T. Poston",
+      "Cameron Davis",
+      "Alex Smalley",
+      "Taylor Moore"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Taylor Moore",
+        "own": 11.37,
+        "fpts": 56.0,
+        "top_pct": 51.1
+      },
+      {
+        "name": "Ben Griffin",
+        "own": 18.45,
+        "fpts": 56.0,
+        "top_pct": 31.9
+      }
+    ],
+    "date": "01-19-2025",
+    "year": "2025",
+    "tournament": "American Express",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "01-19-2025 The American Express R4 SD.csv"
+  },
+  {
+    "field_size": 4705,
+    "winning_score": 412.8,
+    "cash_line_p80": 273.75,
+    "median_score": 305.7,
+    "top_n": 47,
+    "winners_avg_own": 19.78,
+    "winners_low_own_mean": 1.81,
+    "winners_unique_pct": 95.7,
+    "winners_dup_max": 2,
+    "winner_avg_own": 12.08,
+    "winner_low_own_count": 4,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Xander Schauffele",
+      "Keith Mitchell",
+      "Will Zalatoris",
+      "Greyson Sigg",
+      "Kevin Yu"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Keith Mitchell",
+        "own": 6.7,
+        "fpts": 82.5,
+        "top_pct": 42.6
+      },
+      {
+        "name": "Kevin Yu",
+        "own": 14.11,
+        "fpts": 80.2,
+        "top_pct": 42.6
+      },
+      {
+        "name": "Michael Kim",
+        "own": 12.48,
+        "fpts": 74.25,
+        "top_pct": 42.6
+      },
+      {
+        "name": "Ben Griffin",
+        "own": 18.0,
+        "fpts": 60.45,
+        "top_pct": 34.0
+      }
+    ],
+    "date": "01-21-2024",
+    "year": "2024",
+    "tournament": "American Express",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "01-21-2024 American Express R4 SD.csv"
+  },
+  {
+    "field_size": 2941,
+    "winning_score": 426.65,
+    "cash_line_p80": 295.95,
+    "median_score": 319.8,
+    "top_n": 29,
+    "winners_avg_own": 19.17,
+    "winners_low_own_mean": 1.24,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 23.64,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Jon Rahm",
+      "Xander Schauffele",
+      "Davis Thompson",
+      "Justin Rose",
+      "Chris Kirk",
+      "Erik Van Rooyen"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Xander Schauffele",
+        "own": 11.66,
+        "fpts": 90.25,
+        "top_pct": 79.3
+      },
+      {
+        "name": "Tony Finau",
+        "own": 18.63,
+        "fpts": 58.4,
+        "top_pct": 37.9
+      }
+    ],
+    "date": "01-22-2023",
+    "year": "2023",
+    "tournament": "American Express",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "01-22-2023 The American Express R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 254.65,
+    "cash_line_p80": 123.7,
+    "median_score": 148.35,
+    "top_n": 100,
+    "winners_avg_own": 19.46,
+    "winners_low_own_mean": 1.5,
+    "winners_unique_pct": 82.0,
+    "winners_dup_max": 3,
+    "winner_avg_own": 23.01,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Sungjae Im",
+      "Taylor Pendrith",
+      "Sam Stevens",
+      "Harris English",
+      "Andrew Novak",
+      "Danny Willett"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Sam Stevens",
+        "own": 11.93,
+        "fpts": 54.95,
+        "top_pct": 81.0
+      },
+      {
+        "name": "Kris Ventura",
+        "own": 13.04,
+        "fpts": 40.7,
+        "top_pct": 36.0
+      },
+      {
+        "name": "Taylor Pendrith",
+        "own": 17.57,
+        "fpts": 39.2,
+        "top_pct": 34.0
+      }
+    ],
+    "date": "01-25-2025",
+    "year": "2025",
+    "tournament": "Farmers Insurance Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "01-25-2025 Farmers Insurance Open R4 SD.csv"
+  },
+  {
+    "field_size": 3294,
+    "winning_score": 377.65,
+    "cash_line_p80": 247.83,
+    "median_score": 276.05,
+    "top_n": 33,
+    "winners_avg_own": 16.81,
+    "winners_low_own_mean": 2.33,
+    "winners_unique_pct": 90.9,
+    "winners_dup_max": 6,
+    "winner_avg_own": 12.0,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Patrick Cantlay",
+      "Jason Day",
+      "Rickie Fowler",
+      "Will Zalatoris",
+      "Ryan Gerard",
+      "Hao-Tong Li"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Andrew Putnam",
+        "own": 15.82,
+        "fpts": 61.85,
+        "top_pct": 45.5
+      }
+    ],
+    "date": "01-25-2026",
+    "year": "2026",
+    "tournament": "American Express",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "01-25-2026 The American Express R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 316.15,
+    "cash_line_p80": 212.5,
+    "median_score": 234.25,
+    "top_n": 100,
+    "winners_avg_own": 19.58,
+    "winners_low_own_mean": 1.01,
+    "winners_unique_pct": 85.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 14.62,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Xander Schauffele",
+      "Hideki Matsuyama",
+      "Beau Hossler",
+      "Matthieu Pavon",
+      "Chesson Hadley",
+      "Doug Ghim"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Kevin Yu",
+        "own": 11.6,
+        "fpts": 60.75,
+        "top_pct": 62.0
+      },
+      {
+        "name": "Nate Lashley",
+        "own": 4.98,
+        "fpts": 58.2,
+        "top_pct": 34.0
+      },
+      {
+        "name": "Beau Hossler",
+        "own": 12.14,
+        "fpts": 54.4,
+        "top_pct": 37.0
+      },
+      {
+        "name": "Jake Knapp",
+        "own": 13.52,
+        "fpts": 49.7,
+        "top_pct": 30.0
+      }
+    ],
+    "date": "01-27-2024",
+    "year": "2024",
+    "tournament": "Farmers",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "01-27-2024 Farmers R4 SD.csv"
+  },
+  {
+    "field_size": 13061,
+    "winning_score": 329.95,
+    "cash_line_p80": 162.5,
+    "median_score": 193.1,
+    "top_n": 100,
+    "winners_avg_own": 17.52,
+    "winners_low_own_mean": 2.15,
+    "winners_unique_pct": 81.0,
+    "winners_dup_max": 7,
+    "winner_avg_own": 17.26,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Max Homa",
+      "Sungjae Im",
+      "Hideki Matsuyama",
+      "Keegan Bradley",
+      "Rickie Fowler",
+      "Erik Barnes"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Keegan Bradley",
+        "own": 9.68,
+        "fpts": 67.5,
+        "top_pct": 58.0
+      },
+      {
+        "name": "Jimmy Walker",
+        "own": 8.8,
+        "fpts": 34.85,
+        "top_pct": 33.0
+      }
+    ],
+    "date": "01-28-2023",
+    "year": "2023",
+    "tournament": "Farmers Insurance Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "01-28-2023 Farmer_s Insurance Open R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 368.2,
+    "cash_line_p80": 248.65,
+    "median_score": 272.5,
+    "top_n": 94,
+    "winners_avg_own": 19.8,
+    "winners_low_own_mean": 0.99,
+    "winners_unique_pct": 84.0,
+    "winners_dup_max": 3,
+    "winner_avg_own": 17.7,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Si Woo Kim",
+      "Jake Knapp",
+      "Sahith Theegala",
+      "Pierceson Coody",
+      "Stephan Jaeger",
+      "Tony Finau"
+    ],
+    "n_slate_defining": 6,
+    "slate_defining": [
+      {
+        "name": "Pierceson Coody",
+        "own": 15.97,
+        "fpts": 73.65,
+        "top_pct": 88.3
+      },
+      {
+        "name": "Sahith Theegala",
+        "own": 10.55,
+        "fpts": 65.45,
+        "top_pct": 43.6
+      },
+      {
+        "name": "Jake Knapp",
+        "own": 18.82,
+        "fpts": 64.1,
+        "top_pct": 58.5
+      },
+      {
+        "name": "Andrew Novak",
+        "own": 13.39,
+        "fpts": 60.45,
+        "top_pct": 31.9
+      },
+      {
+        "name": "Ryan Gerard",
+        "own": 14.11,
+        "fpts": 54.95,
+        "top_pct": 30.9
+      },
+      {
+        "name": "Stephan Jaeger",
+        "own": 17.47,
+        "fpts": 54.85,
+        "top_pct": 31.9
+      }
+    ],
+    "date": "02-01-2026",
+    "year": "2026",
+    "tournament": "Farmers Insurance Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-01-2026 Farmers Insurance Open R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 364.6,
+    "cash_line_p80": 269.68,
+    "median_score": 292.35,
+    "top_n": 100,
+    "winners_avg_own": 29.7,
+    "winners_low_own_mean": 1.11,
+    "winners_unique_pct": 26.0,
+    "winners_dup_max": 48,
+    "winner_avg_own": 30.16,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Rory McIlroy",
+      "Russell Henley",
+      "Shane Lowry",
+      "Tom Kim",
+      "Adam Scott",
+      "Justin Rose"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Billy Horschel",
+        "own": 7.85,
+        "fpts": 59.45,
+        "top_pct": 61.0
+      }
+    ],
+    "date": "02-02-2025",
+    "year": "2025",
+    "tournament": "AT&T Pebble Beach Pro-Am",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-02-2025 AT&T Pebble Beach Pro-Am R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 398.05,
+    "cash_line_p80": 240.0,
+    "median_score": 272.9,
+    "top_n": 100,
+    "winners_avg_own": 23.14,
+    "winners_low_own_mean": 1.2,
+    "winners_unique_pct": 80.0,
+    "winners_dup_max": 7,
+    "winner_avg_own": 22.86,
+    "winner_low_own_count": 0,
+    "winner_lineup": [
+      "Justin Rose",
+      "Denny McCarthy",
+      "Joseph Bramlett",
+      "Brandon Wu",
+      "Brendon Todd",
+      "Kevin Yu"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Denny McCarthy",
+        "own": 13.12,
+        "fpts": 76.4,
+        "top_pct": 50.0
+      }
+    ],
+    "date": "02-05-2023",
+    "year": "2023",
+    "tournament": "AT&T Pebble Beach Pro Am",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-05-2023 AT&T Pebble Beach Pro Am R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 359.75,
+    "cash_line_p80": 239.05,
+    "median_score": 261.95,
+    "top_n": 94,
+    "winners_avg_own": 15.29,
+    "winners_low_own_mean": 2.32,
+    "winners_unique_pct": 85.1,
+    "winners_dup_max": 2,
+    "winner_avg_own": 13.49,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Chris Gotterup",
+      "Pierceson Coody",
+      "Nicolai Hojgaard",
+      "Daniel Berger",
+      "Kurt Kitayama",
+      "Jordan L. Smith"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Chris Gotterup",
+        "own": 12.43,
+        "fpts": 76.65,
+        "top_pct": 67.0
+      }
+    ],
+    "date": "02-08-2026",
+    "year": "2026",
+    "tournament": "Waste Management Phoenix Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-08-2026 Waste Management Phoenix Open R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 370.45,
+    "cash_line_p80": 249.15,
+    "median_score": 276.05,
+    "top_n": 94,
+    "winners_avg_own": 25.26,
+    "winners_low_own_mean": 0.49,
+    "winners_unique_pct": 39.4,
+    "winners_dup_max": 16,
+    "winner_avg_own": 23.8,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Justin Thomas",
+      "Jordan Spieth",
+      "Thomas Detry",
+      "Christiaan Bezuidenhout",
+      "Michael Kim",
+      "Adam Hadwin"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Justin Thomas",
+        "own": 19.71,
+        "fpts": 67.9,
+        "top_pct": 98.9
+      },
+      {
+        "name": "Christiaan Bezuidenhout",
+        "own": 14.43,
+        "fpts": 61.75,
+        "top_pct": 35.1
+      },
+      {
+        "name": "Cameron Young",
+        "own": 15.77,
+        "fpts": 60.0,
+        "top_pct": 31.9
+      }
+    ],
+    "date": "02-09-2025",
+    "year": "2025",
+    "tournament": "Waste Management Phoenix Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-09-2025 Waste Management Phoenix Open R4 SD.csv"
+  },
+  {
+    "field_size": 6802,
+    "winning_score": 380.5,
+    "cash_line_p80": 235.45,
+    "median_score": 263.52,
+    "top_n": 68,
+    "winners_avg_own": 20.09,
+    "winners_low_own_mean": 1.53,
+    "winners_unique_pct": 80.9,
+    "winners_dup_max": 7,
+    "winner_avg_own": 18.31,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Si Woo Kim",
+      "Nick Taylor",
+      "Emiliano Grillo",
+      "Tom Hoge",
+      "Charley Hoffman"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Charley Hoffman",
+        "own": 18.23,
+        "fpts": 73.7,
+        "top_pct": 80.9
+      },
+      {
+        "name": "Sam Burns",
+        "own": 16.08,
+        "fpts": 67.7,
+        "top_pct": 36.8
+      }
+    ],
+    "date": "02-11-2024",
+    "year": "2024",
+    "tournament": "WMPO",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-11-2024 WMPO R4 SD.csv"
+  },
+  {
+    "field_size": 8823,
+    "winning_score": 366.8,
+    "cash_line_p80": 240.07,
+    "median_score": 263.7,
+    "top_n": 88,
+    "winners_avg_own": 20.82,
+    "winners_low_own_mean": 1.22,
+    "winners_unique_pct": 72.7,
+    "winners_dup_max": 5,
+    "winner_avg_own": 24.22,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Justin Thomas",
+      "Sam Burns",
+      "Tyrrell Hatton",
+      "Nick Taylor",
+      "Beau Hossler"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Beau Hossler",
+        "own": 4.93,
+        "fpts": 68.9,
+        "top_pct": 39.8
+      }
+    ],
+    "date": "02-12-2023",
+    "year": "2023",
+    "tournament": "Waste Management Phoenix Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-12-2023 Waste Management Phoenix Open R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 391.25,
+    "cash_line_p80": 269.2,
+    "median_score": 298.4,
+    "top_n": 100,
+    "winners_avg_own": 16.71,
+    "winners_low_own_mean": 2.15,
+    "winners_unique_pct": 81.0,
+    "winners_dup_max": 3,
+    "winner_avg_own": 19.87,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Sepp Straka",
+      "Shane Lowry",
+      "Collin Morikawa",
+      "Alex Smalley",
+      "Nicolas Echavarria"
+    ],
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Scottie Scheffler",
+        "own": 19.58,
+        "fpts": 84.6,
+        "top_pct": 78.0
+      },
+      {
+        "name": "Min Woo Lee",
+        "own": 12.55,
+        "fpts": 67.7,
+        "top_pct": 40.0
+      },
+      {
+        "name": "Sam Burns",
+        "own": 17.48,
+        "fpts": 61.7,
+        "top_pct": 44.0
+      },
+      {
+        "name": "Alex Smalley",
+        "own": 3.78,
+        "fpts": 59.2,
+        "top_pct": 33.0
+      },
+      {
+        "name": "Nicolas Echavarria",
+        "own": 7.42,
+        "fpts": 56.7,
+        "top_pct": 39.0
+      }
+    ],
+    "date": "02-15-2026",
+    "year": "2026",
+    "tournament": "AT&T Pebble Beach Pro-Am",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-15-2026 AT&T Pebble Beach Pro-Am R4 SD.csv"
+  },
+  {
+    "field_size": 16470,
+    "winning_score": 382.15,
+    "cash_line_p80": 259.2,
+    "median_score": 286.6,
+    "top_n": 100,
+    "winners_avg_own": 22.81,
+    "winners_low_own_mean": 1.3,
+    "winners_unique_pct": 43.0,
+    "winners_dup_max": 6,
+    "winner_avg_own": 20.05,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Ludvig Aberg",
+      "Maverick McNealy",
+      "Daniel Berger",
+      "Nick Taylor",
+      "Lucas Glover"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Akshay Bhatia",
+        "own": 13.56,
+        "fpts": 59.25,
+        "top_pct": 35.0
+      },
+      {
+        "name": "Daniel Berger",
+        "own": 9.44,
+        "fpts": 58.25,
+        "top_pct": 44.0
+      },
+      {
+        "name": "Nick Taylor",
+        "own": 17.7,
+        "fpts": 51.9,
+        "top_pct": 43.0
+      }
+    ],
+    "date": "02-16-2025",
+    "year": "2025",
+    "tournament": "Genesis Invitational",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-16-2025 The Genesis Invitational R4 SD.csv"
+  },
+  {
+    "field_size": 17859,
+    "winning_score": 359.25,
+    "cash_line_p80": 216.9,
+    "median_score": 240.2,
+    "top_n": 100,
+    "winners_avg_own": 24.9,
+    "winners_low_own_mean": 0.72,
+    "winners_unique_pct": 43.0,
+    "winners_dup_max": 30,
+    "winner_avg_own": 21.04,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Ludvig Aberg",
+      "Will Zalatoris",
+      "Hideki Matsuyama",
+      "Luke List",
+      "Tom Hoge",
+      "Adam Hadwin"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Hideki Matsuyama",
+        "own": 18.58,
+        "fpts": 88.25,
+        "top_pct": 100.0
+      },
+      {
+        "name": "Adam Hadwin",
+        "own": 17.48,
+        "fpts": 66.95,
+        "top_pct": 92.0
+      },
+      {
+        "name": "Tom Hoge",
+        "own": 16.83,
+        "fpts": 51.45,
+        "top_pct": 33.0
+      }
+    ],
+    "date": "02-18-2024",
+    "year": "2024",
+    "tournament": "Genesis",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-18-2024 Genesis R4 SD.csv"
+  },
+  {
+    "field_size": 18823,
+    "winning_score": 356.2,
+    "cash_line_p80": 229.7,
+    "median_score": 251.7,
+    "top_n": 100,
+    "winners_avg_own": 18.9,
+    "winners_low_own_mean": 2.07,
+    "winners_unique_pct": 73.0,
+    "winners_dup_max": 6,
+    "winner_avg_own": 17.89,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Patrick Cantlay",
+      "Will Zalatoris",
+      "Jason Day",
+      "Sahith Theegala",
+      "Seamus Power",
+      "Harris English"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Will Zalatoris",
+        "own": 18.81,
+        "fpts": 71.2,
+        "top_pct": 91.0
+      },
+      {
+        "name": "Jason Day",
+        "own": 6.31,
+        "fpts": 64.45,
+        "top_pct": 39.0
+      },
+      {
+        "name": "Matt Kuchar",
+        "own": 9.79,
+        "fpts": 55.5,
+        "top_pct": 47.0
+      }
+    ],
+    "date": "02-19-2023",
+    "year": "2023",
+    "tournament": "Genesis Invitational",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-19-2023 The Genesis Invitational R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 378.6,
+    "cash_line_p80": 256.5,
+    "median_score": 281.35,
+    "top_n": 100,
+    "winners_avg_own": 17.15,
+    "winners_low_own_mean": 1.35,
+    "winners_unique_pct": 81.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 19.95,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Rory McIlroy",
+      "Jake Knapp",
+      "Adam Scott",
+      "Kurt Kitayama",
+      "Alex Noren",
+      "Sam Stevens"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Adam Scott",
+        "own": 14.94,
+        "fpts": 74.5,
+        "top_pct": 79.0
+      },
+      {
+        "name": "Alex Noren",
+        "own": 13.98,
+        "fpts": 63.25,
+        "top_pct": 45.0
+      },
+      {
+        "name": "Cameron Young",
+        "own": 14.81,
+        "fpts": 62.15,
+        "top_pct": 42.0
+      }
+    ],
+    "date": "02-22-2026",
+    "year": "2026",
+    "tournament": "Genesis Invitational",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-22-2026 The Genesis Invitational R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 353.1,
+    "cash_line_p80": 233.65,
+    "median_score": 255.85,
+    "top_n": 100,
+    "winners_avg_own": 18.53,
+    "winners_low_own_mean": 1.62,
+    "winners_unique_pct": 89.0,
+    "winners_dup_max": 3,
+    "winner_avg_own": 19.73,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Aaron Rai",
+      "Ben Griffin",
+      "Jake Knapp",
+      "Brian Campbell",
+      "Isaiah Salinda",
+      "Danny Walker"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Isaiah Salinda",
+        "own": 19.17,
+        "fpts": 66.5,
+        "top_pct": 77.0
+      },
+      {
+        "name": "Joel Dahmen",
+        "own": 14.14,
+        "fpts": 61.95,
+        "top_pct": 53.0
+      }
+    ],
+    "date": "02-23-2025",
+    "year": "2025",
+    "tournament": "Mexico Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-23-2025 Mexico Open R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 341.75,
+    "cash_line_p80": 224.03,
+    "median_score": 245.87,
+    "top_n": 100,
+    "winners_avg_own": 17.0,
+    "winners_low_own_mean": 1.66,
+    "winners_unique_pct": 83.0,
+    "winners_dup_max": 9,
+    "winner_avg_own": 20.4,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Stephan Jaeger",
+      "Jake Knapp",
+      "Doug Ghim",
+      "Carson Young",
+      "Robert Macintyre",
+      "C.T. Pan"
+    ],
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "C.T. Pan",
+        "own": 10.99,
+        "fpts": 68.4,
+        "top_pct": 68.0
+      },
+      {
+        "name": "Stephan Jaeger",
+        "own": 11.46,
+        "fpts": 67.45,
+        "top_pct": 61.0
+      },
+      {
+        "name": "Doug Ghim",
+        "own": 11.31,
+        "fpts": 59.55,
+        "top_pct": 39.0
+      },
+      {
+        "name": "Maverick McNealy",
+        "own": 8.5,
+        "fpts": 59.2,
+        "top_pct": 35.0
+      },
+      {
+        "name": "Patrick Rodgers",
+        "own": 17.29,
+        "fpts": 56.5,
+        "top_pct": 47.0
+      }
+    ],
+    "date": "02-25-2024",
+    "year": "2024",
+    "tournament": "Mexico Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-25-2024 Mexico Open R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 319.7,
+    "cash_line_p80": 196.7,
+    "median_score": 221.85,
+    "top_n": 100,
+    "winners_avg_own": 21.68,
+    "winners_low_own_mean": 1.36,
+    "winners_unique_pct": 58.0,
+    "winners_dup_max": 17,
+    "winner_avg_own": 20.08,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Chris Kirk",
+      "Stephan Jaeger",
+      "Brandon Wu",
+      "Eric Cole",
+      "Tyler Duncan",
+      "Ryan Gerard"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Ryan Gerard",
+        "own": 11.22,
+        "fpts": 50.2,
+        "top_pct": 32.0
+      },
+      {
+        "name": "Ben Martin",
+        "own": 12.47,
+        "fpts": 45.4,
+        "top_pct": 48.0
+      }
+    ],
+    "date": "02-26-2023",
+    "year": "2023",
+    "tournament": "Honda Classic",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "02-26-2023 The Honda Classic R4 SD.csv"
+  },
+  {
+    "field_size": 8235,
+    "winning_score": 342.3,
+    "cash_line_p80": 245.8,
+    "median_score": 267.9,
+    "top_n": 82,
+    "winners_avg_own": 21.34,
+    "winners_low_own_mean": 2.18,
+    "winners_unique_pct": 73.2,
+    "winners_dup_max": 11,
+    "winner_avg_own": 17.7,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Nicolai Hojgaard",
+      "Brooks Koepka",
+      "Nicolas Echavarria",
+      "Ricky Castillo",
+      "Chad Ramey",
+      "William Mouw"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Nicolai Hojgaard",
+        "own": 14.54,
+        "fpts": 66.9,
+        "top_pct": 51.2
+      },
+      {
+        "name": "Brooks Koepka",
+        "own": 8.86,
+        "fpts": 64.45,
+        "top_pct": 35.4
+      },
+      {
+        "name": "William Mouw",
+        "own": 6.78,
+        "fpts": 52.45,
+        "top_pct": 36.6
+      }
+    ],
+    "date": "03-01-2026",
+    "year": "2026",
+    "tournament": "Cognizant Classic",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-01-2026 Cognizant Classic R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 352.45,
+    "cash_line_p80": 209.5,
+    "median_score": 232.25,
+    "top_n": 94,
+    "winners_avg_own": 15.9,
+    "winners_low_own_mean": 1.41,
+    "winners_unique_pct": 92.6,
+    "winners_dup_max": 3,
+    "winner_avg_own": 15.08,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Shane Lowry",
+      "Jordan Spieth",
+      "J.J. Spaun",
+      "Jake Knapp",
+      "Joe Highsmith",
+      "Erik Van Rooyen"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Joe Highsmith",
+        "own": 13.86,
+        "fpts": 79.75,
+        "top_pct": 90.4
+      },
+      {
+        "name": "Jacob Bridgeman",
+        "own": 6.01,
+        "fpts": 72.7,
+        "top_pct": 40.4
+      },
+      {
+        "name": "J.J. Spaun",
+        "own": 14.99,
+        "fpts": 63.25,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Max McGreevy",
+        "own": 16.57,
+        "fpts": 53.45,
+        "top_pct": 42.6
+      }
+    ],
+    "date": "03-02-2025",
+    "year": "2025",
+    "tournament": "Cognizant Classic",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-02-2025 Cognizant Classic R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 372.9,
+    "cash_line_p80": 246.25,
+    "median_score": 271.4,
+    "top_n": 100,
+    "winners_avg_own": 15.22,
+    "winners_low_own_mean": 1.62,
+    "winners_unique_pct": 92.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 14.16,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Keith Mitchell",
+      "Alex Noren",
+      "Beau Hossler",
+      "Austin Eckroat",
+      "Erik Van Rooyen",
+      "Billy Horschel"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Erik Van Rooyen",
+        "own": 11.87,
+        "fpts": 76.95,
+        "top_pct": 77.0
+      },
+      {
+        "name": "Keith Mitchell",
+        "own": 14.52,
+        "fpts": 64.45,
+        "top_pct": 52.0
+      },
+      {
+        "name": "Jake Knapp",
+        "own": 14.48,
+        "fpts": 62.7,
+        "top_pct": 39.0
+      }
+    ],
+    "date": "03-03-2024",
+    "year": "2024",
+    "tournament": "Cognizant",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-03-2024 Cognizant R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 304.35,
+    "cash_line_p80": 199.85,
+    "median_score": 221.7,
+    "top_n": 100,
+    "winners_avg_own": 17.19,
+    "winners_low_own_mean": 1.82,
+    "winners_unique_pct": 90.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 20.46,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Patrick Cantlay",
+      "Tyrrell Hatton",
+      "Davis Riley",
+      "Harris English",
+      "Trey Mullinax"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Davis Riley",
+        "own": 2.88,
+        "fpts": 66.9,
+        "top_pct": 48.0
+      },
+      {
+        "name": "Patrick Cantlay",
+        "own": 10.41,
+        "fpts": 56.35,
+        "top_pct": 38.0
+      },
+      {
+        "name": "Trey Mullinax",
+        "own": 11.95,
+        "fpts": 54.1,
+        "top_pct": 32.0
+      },
+      {
+        "name": "Jordan Spieth",
+        "own": 18.03,
+        "fpts": 52.8,
+        "top_pct": 48.0
+      }
+    ],
+    "date": "03-05-2023",
+    "year": "2023",
+    "tournament": "Arnold Palmer Invitational",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-05-2023 Arnold Palmer Invitational R4 SD.csv"
+  },
+  {
+    "field_size": 10720,
+    "winning_score": 345.45,
+    "cash_line_p80": 218.14,
+    "median_score": 243.8,
+    "top_n": 100,
+    "winners_avg_own": 25.39,
+    "winners_low_own_mean": 0.41,
+    "winners_unique_pct": 44.0,
+    "winners_dup_max": 8,
+    "winner_avg_own": 23.11,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Ludvig Aberg",
+      "Cameron Young",
+      "Min Woo Lee",
+      "Akshay Bhatia",
+      "Sahith Theegala",
+      "Max Greyserman"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Sahith Theegala",
+        "own": 13.67,
+        "fpts": 60.95,
+        "top_pct": 71.0
+      },
+      {
+        "name": "Russell Henley",
+        "own": 19.53,
+        "fpts": 56.5,
+        "top_pct": 36.0
+      }
+    ],
+    "date": "03-08-2026",
+    "year": "2026",
+    "tournament": "Arnold Palmer Invitational",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-08-2026 Arnold Palmer Invitational R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 338.2,
+    "cash_line_p80": 209.96,
+    "median_score": 234.4,
+    "top_n": 100,
+    "winners_avg_own": 16.51,
+    "winners_low_own_mean": 2.78,
+    "winners_unique_pct": 91.0,
+    "winners_dup_max": 3,
+    "winner_avg_own": 14.76,
+    "winner_low_own_count": 4,
+    "winner_lineup": [
+      "Ludvig Aberg",
+      "Russell Henley",
+      "Keegan Bradley",
+      "Sepp Straka",
+      "Denny McCarthy",
+      "Justin Rose"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Keegan Bradley",
+        "own": 4.82,
+        "fpts": 75.95,
+        "top_pct": 88.0
+      },
+      {
+        "name": "Tommy Fleetwood",
+        "own": 13.44,
+        "fpts": 55.9,
+        "top_pct": 35.0
+      }
+    ],
+    "date": "03-09-2025",
+    "year": "2025",
+    "tournament": "Arnold Palmer Invitational",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-09-2025 Arnold Palmer Invitational R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 297.3,
+    "cash_line_p80": 171.5,
+    "median_score": 197.45,
+    "top_n": 100,
+    "winners_avg_own": 18.25,
+    "winners_low_own_mean": 2.13,
+    "winners_unique_pct": 82.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 17.66,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Wyndham Clark",
+      "Sahith Theegala",
+      "Brian Harman",
+      "Brendon Todd",
+      "Andrew Putnam"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Byeong Hun An",
+        "own": 6.93,
+        "fpts": 57.4,
+        "top_pct": 39.0
+      },
+      {
+        "name": "Brendon Todd",
+        "own": 12.12,
+        "fpts": 43.95,
+        "top_pct": 49.0
+      },
+      {
+        "name": "Andrew Putnam",
+        "own": 16.89,
+        "fpts": 42.95,
+        "top_pct": 58.0
+      }
+    ],
+    "date": "03-10-2024",
+    "year": "2024",
+    "tournament": "API",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-10-2024 API R4 SD.csv"
+  },
+  {
+    "field_size": 17424,
+    "winning_score": 343.9,
+    "cash_line_p80": 218.0,
+    "median_score": 236.8,
+    "top_n": 100,
+    "winners_avg_own": 16.62,
+    "winners_low_own_mean": 1.78,
+    "winners_unique_pct": 93.0,
+    "winners_dup_max": 3,
+    "winner_avg_own": 10.56,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Viktor Hovland",
+      "Xander Schauffele",
+      "Tyrrell Hatton",
+      "Hideki Matsuyama",
+      "Tom Hoge",
+      "Eric Cole"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Tyrrell Hatton",
+        "own": 13.56,
+        "fpts": 72.7,
+        "top_pct": 92.0
+      },
+      {
+        "name": "Hideki Matsuyama",
+        "own": 10.2,
+        "fpts": 61.05,
+        "top_pct": 65.0
+      },
+      {
+        "name": "Tom Hoge",
+        "own": 18.5,
+        "fpts": 49.5,
+        "top_pct": 39.0
+      }
+    ],
+    "date": "03-12-2023",
+    "year": "2023",
+    "tournament": "PLAYERS Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-12-2023 The PLAYERS Championship R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 295.3,
+    "cash_line_p80": 186.25,
+    "median_score": 210.62,
+    "top_n": 100,
+    "winners_avg_own": 16.22,
+    "winners_low_own_mean": 1.67,
+    "winners_unique_pct": 91.0,
+    "winners_dup_max": 3,
+    "winner_avg_own": 17.84,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Cameron Young",
+      "Matt Fitzpatrick",
+      "Sepp Straka",
+      "Jacob Bridgeman",
+      "Brian Harman",
+      "Patrick Rodgers"
+    ],
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Sudarshan Yellamaraju",
+        "own": 8.53,
+        "fpts": 53.9,
+        "top_pct": 33.0
+      },
+      {
+        "name": "Robert MacIntyre",
+        "own": 17.74,
+        "fpts": 51.1,
+        "top_pct": 51.0
+      },
+      {
+        "name": "Sepp Straka",
+        "own": 15.76,
+        "fpts": 49.9,
+        "top_pct": 39.0
+      },
+      {
+        "name": "Patrick Rodgers",
+        "own": 7.72,
+        "fpts": 49.55,
+        "top_pct": 30.0
+      },
+      {
+        "name": "Jacob Bridgeman",
+        "own": 16.54,
+        "fpts": 48.25,
+        "top_pct": 36.0
+      }
+    ],
+    "date": "03-15-2026",
+    "year": "2026",
+    "tournament": "THE PLAYERS Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-15-2026 THE PLAYERS Championship R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 372.4,
+    "cash_line_p80": 230.8,
+    "median_score": 259.8,
+    "top_n": 100,
+    "winners_avg_own": 17.36,
+    "winners_low_own_mean": 1.63,
+    "winners_unique_pct": 82.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 21.64,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Hideki Matsuyama",
+      "Ludvig Aberg",
+      "Matt Fitzpatrick",
+      "Brian Harman",
+      "Si Woo Kim",
+      "Sam Ryder"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Si Woo Kim",
+        "own": 12.69,
+        "fpts": 75.45,
+        "top_pct": 75.0
+      },
+      {
+        "name": "Sam Ryder",
+        "own": 6.9,
+        "fpts": 58.95,
+        "top_pct": 33.0
+      },
+      {
+        "name": "Joel Dahmen",
+        "own": 13.31,
+        "fpts": 49.95,
+        "top_pct": 37.0
+      }
+    ],
+    "date": "03-17-2024",
+    "year": "2024",
+    "tournament": "Players",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-17-2024 Players R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 316.9,
+    "cash_line_p80": 190.3,
+    "median_score": 214.5,
+    "top_n": 100,
+    "winners_avg_own": 16.57,
+    "winners_low_own_mean": 2.45,
+    "winners_unique_pct": 90.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 16.17,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Rory McIlroy",
+      "Collin Morikawa",
+      "Lucas Glover",
+      "Davis Thompson",
+      "Tom Hoge",
+      "Rico Hoey"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Tom Hoge",
+        "own": 7.37,
+        "fpts": 62.45,
+        "top_pct": 71.0
+      },
+      {
+        "name": "Danny Walker",
+        "own": 10.22,
+        "fpts": 44.9,
+        "top_pct": 44.0
+      }
+    ],
+    "date": "03-17-2025",
+    "year": "2025",
+    "tournament": "THE PLAYERS Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-17-2025 THE PLAYERS Championship R4 SD.csv"
+  },
+  {
+    "field_size": 8823,
+    "winning_score": 272.65,
+    "cash_line_p80": 178.0,
+    "median_score": 198.9,
+    "top_n": 88,
+    "winners_avg_own": 20.78,
+    "winners_low_own_mean": 1.28,
+    "winners_unique_pct": 69.3,
+    "winners_dup_max": 9,
+    "winner_avg_own": 13.53,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Sam Burns",
+      "Justin Suh",
+      "Taylor Moore",
+      "Kyoung-Hoon Lee",
+      "Nick Taylor",
+      "Cody Gribble"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Sam Burns",
+        "own": 13.65,
+        "fpts": 56.5,
+        "top_pct": 53.4
+      },
+      {
+        "name": "Zac Blair",
+        "own": 17.68,
+        "fpts": 32.05,
+        "top_pct": 33.0
+      }
+    ],
+    "date": "03-19-2023",
+    "year": "2023",
+    "tournament": "Valspar",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-19-2023 Valspar R4 SD.csv"
+  },
+  {
+    "field_size": 7058,
+    "winning_score": 324.7,
+    "cash_line_p80": 210.0,
+    "median_score": 229.2,
+    "top_n": 71,
+    "winners_avg_own": 19.77,
+    "winners_low_own_mean": 2.2,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 17.36,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Xander Schauffele",
+      "Matt Fitzpatrick",
+      "Patrick Cantlay",
+      "Stephan Jaeger",
+      "Sam Ryder",
+      "Emiliano Grillo"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Xander Schauffele",
+        "own": 17.1,
+        "fpts": 66.95,
+        "top_pct": 76.1
+      },
+      {
+        "name": "Emiliano Grillo",
+        "own": 3.24,
+        "fpts": 65.45,
+        "top_pct": 52.1
+      },
+      {
+        "name": "Patrick Cantlay",
+        "own": 17.89,
+        "fpts": 52.95,
+        "top_pct": 31.0
+      }
+    ],
+    "date": "03-22-2026",
+    "year": "2026",
+    "tournament": "Valspar Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-22-2026 Valspar Championship R4 SD.csv"
+  },
+  {
+    "field_size": 8823,
+    "winning_score": 350.95,
+    "cash_line_p80": 219.22,
+    "median_score": 243.3,
+    "top_n": 88,
+    "winners_avg_own": 21.35,
+    "winners_low_own_mean": 1.26,
+    "winners_unique_pct": 83.0,
+    "winners_dup_max": 3,
+    "winner_avg_own": 22.22,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Justin Thomas",
+      "Lucas Glover",
+      "Viktor Hovland",
+      "Billy Horschel",
+      "Bud Cauley",
+      "Seamus Power"
+    ],
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Bud Cauley",
+        "own": 14.1,
+        "fpts": 61.75,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Seamus Power",
+        "own": 6.78,
+        "fpts": 61.65,
+        "top_pct": 36.4
+      },
+      {
+        "name": "Lucas Glover",
+        "own": 15.63,
+        "fpts": 55.05,
+        "top_pct": 39.8
+      },
+      {
+        "name": "Billy Horschel",
+        "own": 19.27,
+        "fpts": 53.45,
+        "top_pct": 53.4
+      },
+      {
+        "name": "Ryo Hisatsune",
+        "own": 15.3,
+        "fpts": 50.15,
+        "top_pct": 51.1
+      }
+    ],
+    "date": "03-23-2025",
+    "year": "2025",
+    "tournament": "Valspar Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-23-2025 Valspar Championship R4 SD.csv"
+  },
+  {
+    "field_size": 7058,
+    "winning_score": 316.8,
+    "cash_line_p80": 179.25,
+    "median_score": 208.15,
+    "top_n": 71,
+    "winners_avg_own": 16.51,
+    "winners_low_own_mean": 2.18,
+    "winners_unique_pct": 91.5,
+    "winners_dup_max": 2,
+    "winner_avg_own": 16.45,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Xander Schauffele",
+      "Mackenzie Hughes",
+      "Peter Malnati",
+      "Aaron Baddeley",
+      "Kyoung-Hoon Lee",
+      "Carl Yuan"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Peter Malnati",
+        "own": 18.53,
+        "fpts": 62.95,
+        "top_pct": 57.7
+      },
+      {
+        "name": "Carl Yuan",
+        "own": 11.08,
+        "fpts": 51.6,
+        "top_pct": 32.4
+      },
+      {
+        "name": "Ryan Moore",
+        "own": 8.88,
+        "fpts": 49.65,
+        "top_pct": 39.4
+      }
+    ],
+    "date": "03-24-2024",
+    "year": "2024",
+    "tournament": "Valspar",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-24-2024 Valspar R4 SD.csv"
+  },
+  {
+    "field_size": 7058,
+    "winning_score": 358.15,
+    "cash_line_p80": 234.55,
+    "median_score": 256.5,
+    "top_n": 71,
+    "winners_avg_own": 21.72,
+    "winners_low_own_mean": 1.86,
+    "winners_unique_pct": 69.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 16.36,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Chris Gotterup",
+      "Jake Knapp",
+      "Gary Woodland",
+      "Adrien Dumont De Chassart",
+      "John Keefer",
+      "Karl Vilips"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Jake Knapp",
+        "own": 7.31,
+        "fpts": 74.5,
+        "top_pct": 43.7
+      },
+      {
+        "name": "John Keefer",
+        "own": 18.14,
+        "fpts": 62.45,
+        "top_pct": 74.6
+      },
+      {
+        "name": "Chris Gotterup",
+        "own": 13.97,
+        "fpts": 61.7,
+        "top_pct": 40.8
+      }
+    ],
+    "date": "03-29-2026",
+    "year": "2026",
+    "tournament": "Houston Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-29-2026 Houston Open R4 SD.csv"
+  },
+  {
+    "field_size": 8823,
+    "winning_score": 380.45,
+    "cash_line_p80": 233.0,
+    "median_score": 260.4,
+    "top_n": 88,
+    "winners_avg_own": 15.74,
+    "winners_low_own_mean": 2.27,
+    "winners_unique_pct": 95.5,
+    "winners_dup_max": 2,
+    "winner_avg_own": 14.22,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Wyndham Clark",
+      "Gary Woodland",
+      "Hayden Springer",
+      "Rico Hoey",
+      "Chan Kim"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Sami Valimaki",
+        "own": 9.59,
+        "fpts": 75.5,
+        "top_pct": 58.0
+      },
+      {
+        "name": "Gary Woodland",
+        "own": 18.23,
+        "fpts": 72.95,
+        "top_pct": 63.6
+      },
+      {
+        "name": "Rico Hoey",
+        "own": 9.76,
+        "fpts": 63.45,
+        "top_pct": 36.4
+      },
+      {
+        "name": "Mackenzie Hughes",
+        "own": 19.26,
+        "fpts": 50.45,
+        "top_pct": 35.2
+      }
+    ],
+    "date": "03-30-2025",
+    "year": "2025",
+    "tournament": "Houston Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-30-2025 Houston Open R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 323.35,
+    "cash_line_p80": 239.0,
+    "median_score": 258.4,
+    "top_n": 94,
+    "winners_avg_own": 15.82,
+    "winners_low_own_mean": 1.94,
+    "winners_unique_pct": 74.5,
+    "winners_dup_max": 10,
+    "winner_avg_own": 15.17,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Alex Noren",
+      "Stephan Jaeger",
+      "Aaron Rai",
+      "Billy Horschel",
+      "Davis Riley",
+      "David Skinns"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Billy Horschel",
+        "own": 12.07,
+        "fpts": 65.45,
+        "top_pct": 94.7
+      },
+      {
+        "name": "Davis Riley",
+        "own": 4.71,
+        "fpts": 60.15,
+        "top_pct": 39.4
+      },
+      {
+        "name": "Alex Noren",
+        "own": 7.86,
+        "fpts": 56.2,
+        "top_pct": 41.5
+      }
+    ],
+    "date": "03-31-2024",
+    "year": "2024",
+    "tournament": "Houston Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "03-31-2024 Houston Open R4 SD.csv"
+  },
+  {
+    "field_size": 5882,
+    "winning_score": 368.05,
+    "cash_line_p80": 231.95,
+    "median_score": 258.15,
+    "top_n": 59,
+    "winners_avg_own": 22.7,
+    "winners_low_own_mean": 1.2,
+    "winners_unique_pct": 71.2,
+    "winners_dup_max": 11,
+    "winner_avg_own": 21.04,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Corey Conners",
+      "Hideki Matsuyama",
+      "Sam Ryder",
+      "Sam Stevens",
+      "Lanto Griffin",
+      "Chez Reavie"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Chez Reavie",
+        "own": 3.74,
+        "fpts": 72.15,
+        "top_pct": 33.9
+      }
+    ],
+    "date": "04-02-2023",
+    "year": "2023",
+    "tournament": "Valero",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-02-2023 Valero R4 SD.csv"
+  },
+  {
+    "field_size": 5882,
+    "winning_score": 331.85,
+    "cash_line_p80": 211.85,
+    "median_score": 238.48,
+    "top_n": 59,
+    "winners_avg_own": 24.44,
+    "winners_low_own_mean": 0.66,
+    "winners_unique_pct": 44.1,
+    "winners_dup_max": 7,
+    "winner_avg_own": 19.31,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Si Woo Kim",
+      "Ryo Hisatsune",
+      "J.J. Spaun",
+      "Matt Wallace",
+      "Rico Hoey",
+      "Kevin Yu"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "J.J. Spaun",
+        "own": 18.96,
+        "fpts": 63.2,
+        "top_pct": 74.6
+      },
+      {
+        "name": "Kevin Yu",
+        "own": 15.78,
+        "fpts": 54.6,
+        "top_pct": 83.1
+      }
+    ],
+    "date": "04-05-2026",
+    "year": "2026",
+    "tournament": "Valero Texas Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-05-2026 Valero Texas Open R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 245.55,
+    "cash_line_p80": 145.0,
+    "median_score": 163.2,
+    "top_n": 94,
+    "winners_avg_own": 16.89,
+    "winners_low_own_mean": 2.72,
+    "winners_unique_pct": 97.9,
+    "winners_dup_max": 2,
+    "winner_avg_own": 16.25,
+    "winner_low_own_count": 4,
+    "winner_lineup": [
+      "Maverick McNealy",
+      "Ryan Gerard",
+      "Brian Harman",
+      "Gary Woodland",
+      "Eric Cole",
+      "Thorbjorn Olesen"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Thorbjorn Olesen",
+        "own": 7.54,
+        "fpts": 53.9,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Ryan Gerard",
+        "own": 7.98,
+        "fpts": 50.7,
+        "top_pct": 39.4
+      },
+      {
+        "name": "Bud Cauley",
+        "own": 10.23,
+        "fpts": 46.35,
+        "top_pct": 45.7
+      }
+    ],
+    "date": "04-06-2025",
+    "year": "2025",
+    "tournament": "Valero Texas Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-06-2025 Valero Texas Open R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 367.05,
+    "cash_line_p80": 241.1,
+    "median_score": 270.7,
+    "top_n": 94,
+    "winners_avg_own": 25.48,
+    "winners_low_own_mean": 0.69,
+    "winners_unique_pct": 45.7,
+    "winners_dup_max": 17,
+    "winner_avg_own": 23.83,
+    "winner_low_own_count": 0,
+    "winner_lineup": [
+      "Rory McIlroy",
+      "Akshay Bhatia",
+      "Denny McCarthy",
+      "Adam Schenk",
+      "Ben Martin",
+      "Rico Hoey"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Adam Schenk",
+        "own": 13.27,
+        "fpts": 60.3,
+        "top_pct": 67.0
+      },
+      {
+        "name": "Ben Martin",
+        "own": 14.26,
+        "fpts": 52.9,
+        "top_pct": 36.2
+      }
+    ],
+    "date": "04-07-2024",
+    "year": "2024",
+    "tournament": "Valero Texas Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-07-2024 Valero Texas Open R4 SD.csv"
+  },
+  {
+    "field_size": 28235,
+    "winning_score": 332.5,
+    "cash_line_p80": 183.35,
+    "median_score": 208.95,
+    "top_n": 100,
+    "winners_avg_own": 20.05,
+    "winners_low_own_mean": 1.45,
+    "winners_unique_pct": 69.0,
+    "winners_dup_max": 7,
+    "winner_avg_own": 22.22,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Jon Rahm",
+      "Jordan Spieth",
+      "Sungjae Im",
+      "Patrick Reed",
+      "Russell Henley",
+      "Phil Mickelson"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Jordan Spieth",
+        "own": 4.38,
+        "fpts": 68.85,
+        "top_pct": 41.0
+      },
+      {
+        "name": "Phil Mickelson",
+        "own": 10.48,
+        "fpts": 67.7,
+        "top_pct": 85.0
+      },
+      {
+        "name": "Cameron Young",
+        "own": 14.55,
+        "fpts": 53.9,
+        "top_pct": 30.0
+      }
+    ],
+    "date": "04-08-2023",
+    "year": "2023",
+    "tournament": "Masters",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-08-2023 Masters R4 SD.csv"
+  },
+  {
+    "field_size": 34515,
+    "winning_score": 339.7,
+    "cash_line_p80": 188.45,
+    "median_score": 215.9,
+    "top_n": 100,
+    "winners_avg_own": 15.48,
+    "winners_low_own_mean": 2.81,
+    "winners_unique_pct": 89.0,
+    "winners_dup_max": 5,
+    "winner_avg_own": 12.98,
+    "winner_low_own_count": 4,
+    "winner_lineup": [
+      "Justin Rose",
+      "Hideki Matsuyama",
+      "Viktor Hovland",
+      "Tyrrell Hatton",
+      "Russell Henley",
+      "Maverick McNealy"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Tyrrell Hatton",
+        "own": 7.47,
+        "fpts": 69.4,
+        "top_pct": 53.0
+      },
+      {
+        "name": "Collin Morikawa",
+        "own": 17.17,
+        "fpts": 60.05,
+        "top_pct": 64.0
+      }
+    ],
+    "date": "04-12-2026",
+    "year": "2026",
+    "tournament": "Masters",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-12-2026 The Masters R4 SD.csv"
+  },
+  {
+    "field_size": 37647,
+    "winning_score": 326.75,
+    "cash_line_p80": 180.55,
+    "median_score": 210.6,
+    "top_n": 100,
+    "winners_avg_own": 20.22,
+    "winners_low_own_mean": 0.86,
+    "winners_unique_pct": 53.0,
+    "winners_dup_max": 13,
+    "winner_avg_own": 17.36,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Rory McIlroy",
+      "Justin Rose",
+      "Jordan Spieth",
+      "Patrick Reed",
+      "Harris English",
+      "Brian Campbell"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Justin Rose",
+        "own": 10.56,
+        "fpts": 71.3,
+        "top_pct": 98.0
+      },
+      {
+        "name": "Sungjae Im",
+        "own": 19.74,
+        "fpts": 51.6,
+        "top_pct": 60.0
+      },
+      {
+        "name": "Max Homa",
+        "own": 19.77,
+        "fpts": 40.3,
+        "top_pct": 37.0
+      }
+    ],
+    "date": "04-13-2025",
+    "year": "2025",
+    "tournament": "Masters",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-13-2025 The Masters R4 SD.csv"
+  },
+  {
+    "field_size": 36960,
+    "winning_score": 311.65,
+    "cash_line_p80": 195.4,
+    "median_score": 216.85,
+    "top_n": 100,
+    "winners_avg_own": 17.15,
+    "winners_low_own_mean": 2.71,
+    "winners_unique_pct": 89.0,
+    "winners_dup_max": 3,
+    "winner_avg_own": 14.36,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Max Homa",
+      "Tommy Fleetwood",
+      "Tom Kim",
+      "Keegan Bradley",
+      "Adam Hadwin"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Tom Kim",
+        "own": 2.24,
+        "fpts": 61.4,
+        "top_pct": 46.0
+      },
+      {
+        "name": "Tommy Fleetwood",
+        "own": 19.25,
+        "fpts": 53.75,
+        "top_pct": 41.0
+      },
+      {
+        "name": "Keegan Bradley",
+        "own": 4.31,
+        "fpts": 51.55,
+        "top_pct": 40.0
+      },
+      {
+        "name": "J.T. Poston",
+        "own": 2.66,
+        "fpts": 48.45,
+        "top_pct": 31.0
+      }
+    ],
+    "date": "04-14-2024",
+    "year": "2024",
+    "tournament": "Masters",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-14-2024 The Masters R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 328.45,
+    "cash_line_p80": 195.15,
+    "median_score": 218.55,
+    "top_n": 94,
+    "winners_avg_own": 11.78,
+    "winners_low_own_mean": 3.41,
+    "winners_unique_pct": 95.7,
+    "winners_dup_max": 2,
+    "winner_avg_own": 10.36,
+    "winner_low_own_count": 4,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Chris Gotterup",
+      "Rickie Fowler",
+      "Keegan Bradley",
+      "Ben Griffin",
+      "Michael Kim"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Michael Kim",
+        "own": 1.34,
+        "fpts": 78.25,
+        "top_pct": 44.7
+      }
+    ],
+    "date": "04-19-2026",
+    "year": "2026",
+    "tournament": "RBC Heritage",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-19-2026 RBC Heritage R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 333.95,
+    "cash_line_p80": 222.25,
+    "median_score": 242.7,
+    "top_n": 100,
+    "winners_avg_own": 19.5,
+    "winners_low_own_mean": 2.09,
+    "winners_unique_pct": 79.0,
+    "winners_dup_max": 11,
+    "winner_avg_own": 21.59,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Justin Thomas",
+      "Daniel Berger",
+      "Sungjae Im",
+      "Maverick McNealy",
+      "Andrew Novak",
+      "Mackenzie Hughes"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Daniel Berger",
+        "own": 9.87,
+        "fpts": 66.5,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Mackenzie Hughes",
+        "own": 10.07,
+        "fpts": 60.85,
+        "top_pct": 64.0
+      }
+    ],
+    "date": "04-20-2025",
+    "year": "2025",
+    "tournament": "RBC Heritage",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-20-2025 RBC Heritage R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 337.75,
+    "cash_line_p80": 208.85,
+    "median_score": 230.8,
+    "top_n": 100,
+    "winners_avg_own": 13.09,
+    "winners_low_own_mean": 3.02,
+    "winners_unique_pct": 96.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 9.0,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Xander Schauffele",
+      "Wyndham Clark",
+      "J.T. Poston",
+      "Justin Thomas",
+      "Brian Harman",
+      "Rickie Fowler"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Wyndham Clark",
+        "own": 9.72,
+        "fpts": 72.5,
+        "top_pct": 51.0
+      },
+      {
+        "name": "Brian Harman",
+        "own": 3.35,
+        "fpts": 67.7,
+        "top_pct": 43.0
+      },
+      {
+        "name": "Justin Thomas",
+        "own": 11.89,
+        "fpts": 65.5,
+        "top_pct": 59.0
+      },
+      {
+        "name": "Patrick Cantlay",
+        "own": 18.19,
+        "fpts": 50.65,
+        "top_pct": 33.0
+      }
+    ],
+    "date": "04-22-2024",
+    "year": "2024",
+    "tournament": "RBC Heritage",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-22-2024 RBC Heritage R4 SD.csv"
+  },
+  {
+    "field_size": 4705,
+    "winning_score": 369.75,
+    "cash_line_p80": 238.3,
+    "median_score": 266.45,
+    "top_n": 47,
+    "winners_avg_own": 15.53,
+    "winners_low_own_mean": 1.89,
+    "winners_unique_pct": 91.5,
+    "winners_dup_max": 2,
+    "winner_avg_own": 16.1,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Patrick Cantlay",
+      "Si Woo Kim",
+      "Taylor Moore",
+      "Adam Hadwin",
+      "Nick Hardy",
+      "Michael Gligic"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Adam Hadwin",
+        "own": 9.08,
+        "fpts": 81.2,
+        "top_pct": 44.7
+      },
+      {
+        "name": "Nick Taylor",
+        "own": 15.62,
+        "fpts": 81.2,
+        "top_pct": 55.3
+      }
+    ],
+    "date": "04-23-2023",
+    "year": "2023",
+    "tournament": "Zurich",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-23-2023 Zurich R4 SD.csv"
+  },
+  {
+    "field_size": 3294,
+    "winning_score": 366.8,
+    "cash_line_p80": 279.18,
+    "median_score": 296.7,
+    "top_n": 33,
+    "winners_avg_own": 17.44,
+    "winners_low_own_mean": 2.7,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 16.59,
+    "winner_low_own_count": 4,
+    "winner_lineup": [
+      "Matt Fitzpatrick",
+      "Ben Griffin",
+      "Kris Ventura",
+      "John Parry",
+      "Hank Lebioda",
+      "Trace Crowe"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "John Parry",
+        "own": 5.77,
+        "fpts": 72.75,
+        "top_pct": 54.5
+      },
+      {
+        "name": "Kris Ventura",
+        "own": 4.31,
+        "fpts": 71.65,
+        "top_pct": 30.3
+      },
+      {
+        "name": "Kristoffer Reitan",
+        "own": 17.09,
+        "fpts": 71.65,
+        "top_pct": 57.6
+      },
+      {
+        "name": "Michael Thorbjornsen",
+        "own": 13.96,
+        "fpts": 61.35,
+        "top_pct": 42.4
+      }
+    ],
+    "date": "04-26-2026",
+    "year": "2026",
+    "tournament": "Zurich Classic of New Orleans",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-26-2026 Zurich Classic of New Orleans R4 SD.csv"
+  },
+  {
+    "field_size": 4705,
+    "winning_score": 337.45,
+    "cash_line_p80": 227.55,
+    "median_score": 250.6,
+    "top_n": 47,
+    "winners_avg_own": 12.4,
+    "winners_low_own_mean": 3.34,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 5.63,
+    "winner_low_own_count": 6,
+    "winner_lineup": [
+      "Keith Mitchell",
+      "Rasmus Hojgaard",
+      "Michael Thorbjornsen",
+      "Jacob Bridgeman",
+      "Nick Hardy",
+      "Cristobal Del Solar"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Jacob Bridgeman",
+        "own": 6.42,
+        "fpts": 66.1,
+        "top_pct": 42.6
+      },
+      {
+        "name": "Keith Mitchell",
+        "own": 5.19,
+        "fpts": 61.7,
+        "top_pct": 36.2
+      },
+      {
+        "name": "Justin Lower",
+        "own": 16.77,
+        "fpts": 52.45,
+        "top_pct": 31.9
+      }
+    ],
+    "date": "04-27-2025",
+    "year": "2025",
+    "tournament": "Zurich Classic of New Orleans",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-27-2025 Zurich Classic of New Orleans R4 SD.csv"
+  },
+  {
+    "field_size": 5882,
+    "winning_score": 370.15,
+    "cash_line_p80": 226.56,
+    "median_score": 246.38,
+    "top_n": 59,
+    "winners_avg_own": 15.35,
+    "winners_low_own_mean": 2.75,
+    "winners_unique_pct": 98.3,
+    "winners_dup_max": 2,
+    "winner_avg_own": 12.43,
+    "winner_low_own_count": 4,
+    "winner_lineup": [
+      "Rory McIlroy",
+      "Brice Garnett",
+      "Ryan Brehm",
+      "Garrick Higgo",
+      "Greyson Sigg",
+      "Sam Stevens"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Chad Ramey",
+        "own": 3.47,
+        "fpts": 82.15,
+        "top_pct": 47.5
+      },
+      {
+        "name": "Garrick Higgo",
+        "own": 5.59,
+        "fpts": 75.25,
+        "top_pct": 42.4
+      },
+      {
+        "name": "Sam Stevens",
+        "own": 4.1,
+        "fpts": 74.5,
+        "top_pct": 35.6
+      },
+      {
+        "name": "Thomas Detry",
+        "own": 17.53,
+        "fpts": 55.05,
+        "top_pct": 39.0
+      }
+    ],
+    "date": "04-28-2024",
+    "year": "2024",
+    "tournament": "Zurich Classic of New Orleans",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-28-2024 Zurich Classic of New Orleans R4 SD.csv"
+  },
+  {
+    "field_size": 8823,
+    "winning_score": 375.95,
+    "cash_line_p80": 259.8,
+    "median_score": 282.85,
+    "top_n": 88,
+    "winners_avg_own": 18.61,
+    "winners_low_own_mean": 2.4,
+    "winners_unique_pct": 85.2,
+    "winners_dup_max": 3,
+    "winner_avg_own": 20.34,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Tony Finau",
+      "Brandon Wu",
+      "Eric Cole",
+      "Harry Hall",
+      "Alejandro Tosti",
+      "Ben Taylor"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Harry Hall",
+        "own": 5.43,
+        "fpts": 63.95,
+        "top_pct": 30.7
+      },
+      {
+        "name": "Emiliano Grillo",
+        "own": 16.28,
+        "fpts": 61.45,
+        "top_pct": 44.3
+      },
+      {
+        "name": "Eric Cole",
+        "own": 15.92,
+        "fpts": 61.25,
+        "top_pct": 52.3
+      },
+      {
+        "name": "Cameron Champ",
+        "own": 18.35,
+        "fpts": 60.5,
+        "top_pct": 38.6
+      }
+    ],
+    "date": "04-30-2023",
+    "year": "2023",
+    "tournament": "Mexico Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "04-30-2023 Mexico Open R4 SD.csv"
+  },
+  {
+    "field_size": 5882,
+    "winning_score": 386.1,
+    "cash_line_p80": 266.52,
+    "median_score": 285.85,
+    "top_n": 59,
+    "winners_avg_own": 15.95,
+    "winners_low_own_mean": 2.17,
+    "winners_unique_pct": 93.2,
+    "winners_dup_max": 2,
+    "winner_avg_own": 9.3,
+    "winner_low_own_count": 5,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Sahith Theegala",
+      "Nicolai Hojgaard",
+      "Shane Lowry",
+      "Keith Mitchell",
+      "Lucas Glover"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Adam Scott",
+        "own": 11.27,
+        "fpts": 79.5,
+        "top_pct": 76.3
+      },
+      {
+        "name": "Sepp Straka",
+        "own": 13.89,
+        "fpts": 66.95,
+        "top_pct": 42.4
+      },
+      {
+        "name": "Kurt Kitayama",
+        "own": 16.39,
+        "fpts": 59.25,
+        "top_pct": 44.1
+      }
+    ],
+    "date": "05-03-2026",
+    "year": "2026",
+    "tournament": "Cadillac Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-03-2026 Cadillac Championship R4 SD.csv"
+  },
+  {
+    "field_size": 7058,
+    "winning_score": 408.7,
+    "cash_line_p80": 278.6,
+    "median_score": 312.08,
+    "top_n": 71,
+    "winners_avg_own": 20.16,
+    "winners_low_own_mean": 1.39,
+    "winners_unique_pct": 76.1,
+    "winners_dup_max": 3,
+    "winner_avg_own": 20.55,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Jordan Spieth",
+      "Antoine Rozner",
+      "Takumi Kanaya",
+      "Will Gordon",
+      "Ross Steelman"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Takumi Kanaya",
+        "own": 13.42,
+        "fpts": 66.5,
+        "top_pct": 59.2
+      },
+      {
+        "name": "Will Gordon",
+        "own": 12.37,
+        "fpts": 65.5,
+        "top_pct": 64.8
+      }
+    ],
+    "date": "05-04-2025",
+    "year": "2025",
+    "tournament": "CJ Cup Byron Nelson",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-04-2025 The CJ Cup Byron Nelson R4 SD.csv"
+  },
+  {
+    "field_size": 7058,
+    "winning_score": 393.25,
+    "cash_line_p80": 283.62,
+    "median_score": 306.2,
+    "top_n": 71,
+    "winners_avg_own": 16.31,
+    "winners_low_own_mean": 1.65,
+    "winners_unique_pct": 91.5,
+    "winners_dup_max": 2,
+    "winner_avg_own": 14.45,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Alex Noren",
+      "Byeong Hun An",
+      "Keith Mitchell",
+      "Seonghyeon Kim",
+      "Rafael Campos",
+      "Kevin Chappell"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Ryo Hisatsune",
+        "own": 9.71,
+        "fpts": 67.7,
+        "top_pct": 46.5
+      },
+      {
+        "name": "Seonghyeon Kim",
+        "own": 12.78,
+        "fpts": 67.2,
+        "top_pct": 43.7
+      },
+      {
+        "name": "Aaron Rai",
+        "own": 17.17,
+        "fpts": 67.2,
+        "top_pct": 45.1
+      }
+    ],
+    "date": "05-05-2024",
+    "year": "2024",
+    "tournament": "CJ Cup Byron Nelson",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-05-2024 The CJ Cup Byron Nelson R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 292.05,
+    "cash_line_p80": 200.65,
+    "median_score": 223.45,
+    "top_n": 94,
+    "winners_avg_own": 28.31,
+    "winners_low_own_mean": 0.8,
+    "winners_unique_pct": 34.0,
+    "winners_dup_max": 42,
+    "winner_avg_own": 20.96,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Xander Schauffele",
+      "Max Homa",
+      "Wyndham Clark",
+      "Kyoung-Hoon Lee",
+      "Denny McCarthy",
+      "Jimmy Walker"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Denny McCarthy",
+        "own": 4.96,
+        "fpts": 56.7,
+        "top_pct": 31.9
+      },
+      {
+        "name": "Michael Kim",
+        "own": 10.13,
+        "fpts": 44.4,
+        "top_pct": 54.3
+      }
+    ],
+    "date": "05-07-2023",
+    "year": "2023",
+    "tournament": "Wells Fargo",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-07-2023 Wells Fargo R4 SD.csv"
+  },
+  {
+    "field_size": 4705,
+    "winning_score": 339.9,
+    "cash_line_p80": 205.59,
+    "median_score": 230.25,
+    "top_n": 47,
+    "winners_avg_own": 16.94,
+    "winners_low_own_mean": 1.85,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 17.5,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Ludvig Aberg",
+      "Rickie Fowler",
+      "Min Woo Lee",
+      "J.J. Spaun",
+      "Kristoffer Reitan",
+      "Harry Hall"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Rickie Fowler",
+        "own": 17.07,
+        "fpts": 64.4,
+        "top_pct": 61.7
+      },
+      {
+        "name": "Ludvig Aberg",
+        "own": 14.01,
+        "fpts": 62.6,
+        "top_pct": 68.1
+      },
+      {
+        "name": "Harry Hall",
+        "own": 9.61,
+        "fpts": 52.4,
+        "top_pct": 31.9
+      }
+    ],
+    "date": "05-10-2026",
+    "year": "2026",
+    "tournament": "Truist Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-10-2026 Truist Championship R4 SD.csv"
+  },
+  {
+    "field_size": 5882,
+    "winning_score": 336.55,
+    "cash_line_p80": 212.76,
+    "median_score": 236.68,
+    "top_n": 59,
+    "winners_avg_own": 19.51,
+    "winners_low_own_mean": 1.53,
+    "winners_unique_pct": 86.4,
+    "winners_dup_max": 2,
+    "winner_avg_own": 17.77,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Justin Thomas",
+      "Patrick Cantlay",
+      "Tommy Fleetwood",
+      "Aaron Rai",
+      "Jacob Bridgeman",
+      "Cameron Young"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Patrick Cantlay",
+        "own": 14.43,
+        "fpts": 58.65,
+        "top_pct": 42.4
+      },
+      {
+        "name": "Tommy Fleetwood",
+        "own": 16.08,
+        "fpts": 58.65,
+        "top_pct": 45.8
+      },
+      {
+        "name": "Cameron Young",
+        "own": 14.67,
+        "fpts": 57.9,
+        "top_pct": 61.0
+      },
+      {
+        "name": "Jacob Bridgeman",
+        "own": 19.62,
+        "fpts": 57.7,
+        "top_pct": 66.1
+      }
+    ],
+    "date": "05-11-2025",
+    "year": "2025",
+    "tournament": "Truist Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-11-2025 Truist Championship R4 SD.csv"
+  },
+  {
+    "field_size": 9401,
+    "winning_score": 320.5,
+    "cash_line_p80": 184.85,
+    "median_score": 213.7,
+    "top_n": 94,
+    "winners_avg_own": 22.93,
+    "winners_low_own_mean": 0.88,
+    "winners_unique_pct": 35.1,
+    "winners_dup_max": 90,
+    "winner_avg_own": 18.85,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Rory McIlroy",
+      "Max Homa",
+      "Byeong Hun An",
+      "Nick Dunlap",
+      "Grayson Murray",
+      "Mackenzie Hughes"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Mackenzie Hughes",
+        "own": 17.55,
+        "fpts": 56.7,
+        "top_pct": 96.8
+      },
+      {
+        "name": "Grayson Murray",
+        "own": 11.73,
+        "fpts": 45.55,
+        "top_pct": 56.4
+      },
+      {
+        "name": "Seamus Power",
+        "own": 17.08,
+        "fpts": 44.05,
+        "top_pct": 61.7
+      },
+      {
+        "name": "Nick Dunlap",
+        "own": 6.07,
+        "fpts": 30.5,
+        "top_pct": 47.9
+      }
+    ],
+    "date": "05-12-2024",
+    "year": "2024",
+    "tournament": "Wells Fargo Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-12-2024 Wells Fargo Championship R4 SD.csv"
+  },
+  {
+    "field_size": 8823,
+    "winning_score": 448.75,
+    "cash_line_p80": 317.95,
+    "median_score": 345.75,
+    "top_n": 88,
+    "winners_avg_own": 18.64,
+    "winners_low_own_mean": 1.65,
+    "winners_unique_pct": 87.5,
+    "winners_dup_max": 5,
+    "winner_avg_own": 16.18,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Jason Day",
+      "Si Woo Kim",
+      "Seamus Power",
+      "Zecheng Dou",
+      "C.T. Pan",
+      "Kevin Tway"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "C.T. Pan",
+        "own": 10.06,
+        "fpts": 81.7,
+        "top_pct": 65.9
+      },
+      {
+        "name": "Si Woo Kim",
+        "own": 19.35,
+        "fpts": 81.0,
+        "top_pct": 55.7
+      }
+    ],
+    "date": "05-14-2023",
+    "year": "2023",
+    "tournament": "Byron Nelson",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-14-2023 Byron Nelson R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 321.1,
+    "cash_line_p80": 180.6,
+    "median_score": 201.1,
+    "top_n": 100,
+    "winners_avg_own": 13.64,
+    "winners_low_own_mean": 2.59,
+    "winners_unique_pct": 96.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 13.71,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Xander Schauffele",
+      "Justin Thomas",
+      "Alex Smalley",
+      "Kurt Kitayama",
+      "Harris English",
+      "Aaron Rai"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Kurt Kitayama",
+        "own": 4.0,
+        "fpts": 72.25,
+        "top_pct": 59.0
+      },
+      {
+        "name": "Aaron Rai",
+        "own": 16.26,
+        "fpts": 65.1,
+        "top_pct": 74.0
+      },
+      {
+        "name": "Justin Thomas",
+        "own": 6.32,
+        "fpts": 57.7,
+        "top_pct": 34.0
+      }
+    ],
+    "date": "05-17-2026",
+    "year": "2026",
+    "tournament": "PGA Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-17-2026 PGA Championship R4 SD.csv"
+  },
+  {
+    "field_size": 18333,
+    "winning_score": 293.95,
+    "cash_line_p80": 173.1,
+    "median_score": 194.05,
+    "top_n": 100,
+    "winners_avg_own": 15.39,
+    "winners_low_own_mean": 3.59,
+    "winners_unique_pct": 94.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 16.13,
+    "winner_low_own_count": 4,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Corey Conners",
+      "Harris English",
+      "Taylor Pendrith",
+      "Ben Griffin",
+      "Joe Highsmith"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Harris English",
+        "own": 6.39,
+        "fpts": 63.45,
+        "top_pct": 86.0
+      },
+      {
+        "name": "Taylor Pendrith",
+        "own": 7.13,
+        "fpts": 50.6,
+        "top_pct": 34.0
+      },
+      {
+        "name": "Joaquin Niemann",
+        "own": 9.0,
+        "fpts": 50.1,
+        "top_pct": 32.0
+      }
+    ],
+    "date": "05-18-2025",
+    "year": "2025",
+    "tournament": "PGA Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-18-2025 PGA Championship R4 SD.csv"
+  },
+  {
+    "field_size": 18823,
+    "winning_score": 367.45,
+    "cash_line_p80": 248.15,
+    "median_score": 273.55,
+    "top_n": 100,
+    "winners_avg_own": 16.82,
+    "winners_low_own_mean": 1.98,
+    "winners_unique_pct": 88.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 15.89,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Xander Schauffele",
+      "Viktor Hovland",
+      "Alex Noren",
+      "Thomas Detry",
+      "Billy Horschel",
+      "Lee Hodges"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Billy Horschel",
+        "own": 5.21,
+        "fpts": 65.2,
+        "top_pct": 44.0
+      },
+      {
+        "name": "Thomas Detry",
+        "own": 10.08,
+        "fpts": 61.75,
+        "top_pct": 47.0
+      }
+    ],
+    "date": "05-19-2024",
+    "year": "2024",
+    "tournament": "PGA Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-19-2024 PGA Championship R4 SD.csv"
+  },
+  {
+    "field_size": 18823,
+    "winning_score": 329.3,
+    "cash_line_p80": 206.75,
+    "median_score": 231.85,
+    "top_n": 100,
+    "winners_avg_own": 21.11,
+    "winners_low_own_mean": 2.04,
+    "winners_unique_pct": 75.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 21.74,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Brooks Koepka",
+      "Viktor Hovland",
+      "Patrick Cantlay",
+      "Cameron Davis",
+      "Adrian Meronk",
+      "Kurt Kitayama"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Sepp Straka",
+        "own": 4.33,
+        "fpts": 63.1,
+        "top_pct": 33.0
+      },
+      {
+        "name": "Cameron Davis",
+        "own": 9.59,
+        "fpts": 58.7,
+        "top_pct": 47.0
+      },
+      {
+        "name": "Kurt Kitayama",
+        "own": 12.2,
+        "fpts": 57.7,
+        "top_pct": 73.0
+      },
+      {
+        "name": "Victor Perez",
+        "own": 18.43,
+        "fpts": 47.2,
+        "top_pct": 39.0
+      }
+    ],
+    "date": "05-21-2023",
+    "year": "2023",
+    "tournament": "PGA Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-21-2023 PGA Championship R4 SD.csv"
+  },
+  {
+    "field_size": 4705,
+    "winning_score": 409.8,
+    "cash_line_p80": 278.45,
+    "median_score": 307.35,
+    "top_n": 47,
+    "winners_avg_own": 18.83,
+    "winners_low_own_mean": 1.85,
+    "winners_unique_pct": 80.9,
+    "winners_dup_max": 5,
+    "winner_avg_own": 15.94,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Si Woo Kim",
+      "Wyndham Clark",
+      "Jackson Suber",
+      "John Parry",
+      "John Keefer",
+      "A.J. Ewart"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Jackson Suber",
+        "own": 16.17,
+        "fpts": 79.5,
+        "top_pct": 83.0
+      }
+    ],
+    "date": "05-24-2026",
+    "year": "2026",
+    "tournament": "CJ Cup Byron Nelson",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-24-2026 The CJ Cup Byron Nelson R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 139.65,
+    "cash_line_p80": 40.5,
+    "median_score": 49.95,
+    "top_n": 94,
+    "winners_avg_own": 10.89,
+    "winners_low_own_mean": 3.73,
+    "winners_unique_pct": 97.9,
+    "winners_dup_max": 2,
+    "winner_avg_own": 9.43,
+    "winner_low_own_count": 4,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Andrew Novak",
+      "Erik Van Rooyen",
+      "Taylor Moore",
+      "Rico Hoey",
+      "Dylan Wu"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Erik Van Rooyen",
+        "own": 1.73,
+        "fpts": 52.45,
+        "top_pct": 81.9
+      }
+    ],
+    "date": "05-25-2025",
+    "year": "2025",
+    "tournament": "Charles Schwab Challenge",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-25-2025 Charles Schwab Challenge R4 SD.csv"
+  },
+  {
+    "field_size": 12976,
+    "winning_score": 269.6,
+    "cash_line_p80": 144.65,
+    "median_score": 168.65,
+    "top_n": 100,
+    "winners_avg_own": 19.63,
+    "winners_low_own_mean": 2.01,
+    "winners_unique_pct": 85.0,
+    "winners_dup_max": 5,
+    "winner_avg_own": 10.58,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Collin Morikawa",
+      "Sepp Straka",
+      "Keegan Bradley",
+      "Lucas Glover",
+      "Lee Hodges",
+      "Kyoung-Hoon Lee"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Keegan Bradley",
+        "own": 18.51,
+        "fpts": 51.65,
+        "top_pct": 56.0
+      },
+      {
+        "name": "Collin Morikawa",
+        "own": 19.77,
+        "fpts": 46.85,
+        "top_pct": 38.0
+      },
+      {
+        "name": "Mac Meissner",
+        "own": 14.69,
+        "fpts": 45.4,
+        "top_pct": 46.0
+      },
+      {
+        "name": "Lee Hodges",
+        "own": 9.12,
+        "fpts": 44.1,
+        "top_pct": 36.0
+      }
+    ],
+    "date": "05-26-2024",
+    "year": "2024",
+    "tournament": "Charles Schwab Challenge",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-26-2024 Charles Schwab Challenge R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 278.95,
+    "cash_line_p80": 171.9,
+    "median_score": 190.95,
+    "top_n": 94,
+    "winners_avg_own": 15.46,
+    "winners_low_own_mean": 2.09,
+    "winners_unique_pct": 97.9,
+    "winners_dup_max": 2,
+    "winner_avg_own": 15.44,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Tommy Fleetwood",
+      "Ben Griffin",
+      "Bud Cauley",
+      "Sam Stevens",
+      "Michael Kim",
+      "Vince Whaley"
+    ],
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Michael Kim",
+        "own": 5.96,
+        "fpts": 53.75,
+        "top_pct": 34.0
+      },
+      {
+        "name": "Bud Cauley",
+        "own": 16.28,
+        "fpts": 51.85,
+        "top_pct": 62.8
+      },
+      {
+        "name": "Vince Whaley",
+        "own": 5.99,
+        "fpts": 47.65,
+        "top_pct": 35.1
+      },
+      {
+        "name": "Tommy Fleetwood",
+        "own": 17.92,
+        "fpts": 46.85,
+        "top_pct": 53.2
+      },
+      {
+        "name": "Harry Hall",
+        "own": 12.94,
+        "fpts": 44.9,
+        "top_pct": 45.7
+      }
+    ],
+    "date": "05-26-2025",
+    "year": "2025",
+    "tournament": "Charles Schwab Challenge",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-26-2025 Charles Schwab Challenge R4 SD.csv"
+  },
+  {
+    "field_size": 13668,
+    "winning_score": 297.8,
+    "cash_line_p80": 142.55,
+    "median_score": 165.9,
+    "top_n": 100,
+    "winners_avg_own": 14.3,
+    "winners_low_own_mean": 2.93,
+    "winners_unique_pct": 92.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 14.61,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Rickie Fowler",
+      "Emiliano Grillo",
+      "Michael Kim",
+      "Kevin Streelman",
+      "Paul Haley"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Paul Haley",
+        "own": 3.89,
+        "fpts": 56.55,
+        "top_pct": 52.0
+      },
+      {
+        "name": "Michael Kim",
+        "own": 6.34,
+        "fpts": 52.25,
+        "top_pct": 43.0
+      },
+      {
+        "name": "Sam Burns",
+        "own": 12.33,
+        "fpts": 43.95,
+        "top_pct": 34.0
+      }
+    ],
+    "date": "05-28-2023",
+    "year": "2023",
+    "tournament": "Charles Schwab",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-28-2023 Charles Schwab R4 SD.csv"
+  },
+  {
+    "field_size": 7058,
+    "winning_score": 311.65,
+    "cash_line_p80": 187.5,
+    "median_score": 213.12,
+    "top_n": 71,
+    "winners_avg_own": 17.95,
+    "winners_low_own_mean": 1.34,
+    "winners_unique_pct": 84.5,
+    "winners_dup_max": 3,
+    "winner_avg_own": 18.38,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Russell Henley",
+      "Ben Griffin",
+      "Jordan L. Smith",
+      "Eric Cole",
+      "Michael Brennan",
+      "Steven Fisk"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Steven Fisk",
+        "own": 6.22,
+        "fpts": 59.7,
+        "top_pct": 53.5
+      },
+      {
+        "name": "Ben Griffin",
+        "own": 13.63,
+        "fpts": 58.2,
+        "top_pct": 49.3
+      },
+      {
+        "name": "Gary Woodland",
+        "own": 15.15,
+        "fpts": 56.05,
+        "top_pct": 36.6
+      }
+    ],
+    "date": "05-31-2026",
+    "year": "2026",
+    "tournament": "Charles Schwab Challenge",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "05-31-2026 Charles Schwab Challenge R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 294.85,
+    "cash_line_p80": 188.05,
+    "median_score": 207.85,
+    "top_n": 100,
+    "winners_avg_own": 18.91,
+    "winners_low_own_mean": 2.03,
+    "winners_unique_pct": 81.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 21.36,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Russell Henley",
+      "Harris English",
+      "Sungjae Im",
+      "Brandt Snedeker",
+      "Maverick McNealy"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Brandt Snedeker",
+        "own": 1.58,
+        "fpts": 71.85,
+        "top_pct": 39.0
+      },
+      {
+        "name": "Tom Hoge",
+        "own": 12.73,
+        "fpts": 45.35,
+        "top_pct": 32.0
+      },
+      {
+        "name": "Taylor Pendrith",
+        "own": 14.54,
+        "fpts": 43.35,
+        "top_pct": 32.0
+      },
+      {
+        "name": "Russell Henley",
+        "own": 19.82,
+        "fpts": 43.05,
+        "top_pct": 32.0
+      }
+    ],
+    "date": "06-01-2025",
+    "year": "2025",
+    "tournament": "Memorial",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-01-2025 The Memorial R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 374.65,
+    "cash_line_p80": 227.15,
+    "median_score": 258.05,
+    "top_n": 94,
+    "winners_avg_own": 20.57,
+    "winners_low_own_mean": 0.83,
+    "winners_unique_pct": 62.8,
+    "winners_dup_max": 9,
+    "winner_avg_own": 21.45,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Corey Conners",
+      "Tom Kim",
+      "Robert Macintyre",
+      "Ben Griffin",
+      "Chandler Phillips",
+      "Victor Perez"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Rory McIlroy",
+        "own": 18.89,
+        "fpts": 71.0,
+        "top_pct": 45.7
+      },
+      {
+        "name": "Tom Kim",
+        "own": 14.03,
+        "fpts": 66.95,
+        "top_pct": 51.1
+      },
+      {
+        "name": "Maverick McNealy",
+        "own": 11.58,
+        "fpts": 61.2,
+        "top_pct": 35.1
+      }
+    ],
+    "date": "06-02-2024",
+    "year": "2024",
+    "tournament": "RBC Canadian Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-02-2024 RBC Canadian Open R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 267.95,
+    "cash_line_p80": 124.5,
+    "median_score": 153.2,
+    "top_n": 100,
+    "winners_avg_own": 15.38,
+    "winners_low_own_mean": 1.6,
+    "winners_unique_pct": 84.0,
+    "winners_dup_max": 5,
+    "winner_avg_own": 12.48,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Viktor Hovland",
+      "Sam Burns",
+      "Denny McCarthy",
+      "Beau Hossler",
+      "Luke List"
+    ],
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Scottie Scheffler",
+        "own": 13.9,
+        "fpts": 58.2,
+        "top_pct": 56.0
+      },
+      {
+        "name": "Adam Schenk",
+        "own": 12.44,
+        "fpts": 47.05,
+        "top_pct": 55.0
+      },
+      {
+        "name": "Denny McCarthy",
+        "own": 19.55,
+        "fpts": 46.45,
+        "top_pct": 48.0
+      },
+      {
+        "name": "Andrew Putnam",
+        "own": 9.78,
+        "fpts": 45.4,
+        "top_pct": 38.0
+      },
+      {
+        "name": "Jordan Spieth",
+        "own": 19.91,
+        "fpts": 42.15,
+        "top_pct": 37.0
+      }
+    ],
+    "date": "06-04-2023",
+    "year": "2023",
+    "tournament": "Memorial",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-04-2023 The Memorial R4 SD.csv"
+  },
+  {
+    "field_size": 7058,
+    "winning_score": 371.15,
+    "cash_line_p80": 240.25,
+    "median_score": 266.05,
+    "top_n": 71,
+    "winners_avg_own": 19.9,
+    "winners_low_own_mean": 1.11,
+    "winners_unique_pct": 76.1,
+    "winners_dup_max": 3,
+    "winner_avg_own": 17.68,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Sam Burns",
+      "Russell Henley",
+      "Ryan Gerard",
+      "Justin Thomas",
+      "Alex Fitzpatrick",
+      "Kristoffer Reitan"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Alex Fitzpatrick",
+        "own": 10.99,
+        "fpts": 70.2,
+        "top_pct": 73.2
+      }
+    ],
+    "date": "06-07-2026",
+    "year": "2026",
+    "tournament": "Memorial",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-07-2026 The Memorial R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 367.35,
+    "cash_line_p80": 248.9,
+    "median_score": 272.8,
+    "top_n": 94,
+    "winners_avg_own": 21.2,
+    "winners_low_own_mean": 1.17,
+    "winners_unique_pct": 72.3,
+    "winners_dup_max": 6,
+    "winner_avg_own": 21.27,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Ludvig Aberg",
+      "Sam Burns",
+      "Cameron Young",
+      "Kevin Yu",
+      "Byeong Hun An",
+      "Noah Goodwin"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Byeong Hun An",
+        "own": 19.79,
+        "fpts": 54.35,
+        "top_pct": 31.9
+      }
+    ],
+    "date": "06-08-2025",
+    "year": "2025",
+    "tournament": "RBC Canadian Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-08-2025 RBC Canadian Open R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 248.8,
+    "cash_line_p80": 135.2,
+    "median_score": 155.85,
+    "top_n": 100,
+    "winners_avg_own": 18.18,
+    "winners_low_own_mean": 1.71,
+    "winners_unique_pct": 82.0,
+    "winners_dup_max": 5,
+    "winner_avg_own": 18.3,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Collin Morikawa",
+      "Hideki Matsuyama",
+      "Christiaan Bezuidenhout",
+      "Sepp Straka",
+      "Billy Horschel",
+      "Matt Fitzpatrick"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Matt Fitzpatrick",
+        "own": 12.5,
+        "fpts": 55.6,
+        "top_pct": 92.0
+      },
+      {
+        "name": "Christiaan Bezuidenhout",
+        "own": 16.02,
+        "fpts": 39.3,
+        "top_pct": 35.0
+      },
+      {
+        "name": "Adam Hadwin",
+        "own": 18.57,
+        "fpts": 32.25,
+        "top_pct": 33.0
+      }
+    ],
+    "date": "06-09-2024",
+    "year": "2024",
+    "tournament": "Memorial",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-09-2024 The Memorial R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 382.4,
+    "cash_line_p80": 240.15,
+    "median_score": 266.85,
+    "top_n": 94,
+    "winners_avg_own": 17.9,
+    "winners_low_own_mean": 2.0,
+    "winners_unique_pct": 87.2,
+    "winners_dup_max": 2,
+    "winner_avg_own": 15.18,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Tyrrell Hatton",
+      "Eric Cole",
+      "Nick Taylor",
+      "Brandon Wu",
+      "Dylan Wu",
+      "Lucas Glover"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Eric Cole",
+        "own": 8.15,
+        "fpts": 82.75,
+        "top_pct": 70.2
+      },
+      {
+        "name": "Tyrrell Hatton",
+        "own": 15.27,
+        "fpts": 78.1,
+        "top_pct": 73.4
+      }
+    ],
+    "date": "06-11-2023",
+    "year": "2023",
+    "tournament": "Canadian Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-11-2023 Canadian Open R4 SD.csv"
+  },
+  {
+    "field_size": 18823,
+    "winning_score": 230.05,
+    "cash_line_p80": 128.67,
+    "median_score": 146.65,
+    "top_n": 100,
+    "winners_avg_own": 15.32,
+    "winners_low_own_mean": 1.96,
+    "winners_unique_pct": 96.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 15.81,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Jon Rahm",
+      "J.J. Spaun",
+      "Robert Macintyre",
+      "Taylor Pendrith",
+      "Thomas Detry",
+      "Carlos Ortiz"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Jon Rahm",
+        "own": 12.7,
+        "fpts": 52.7,
+        "top_pct": 70.0
+      },
+      {
+        "name": "Robert Macintyre",
+        "own": 17.88,
+        "fpts": 49.35,
+        "top_pct": 86.0
+      },
+      {
+        "name": "Cameron Young",
+        "own": 19.76,
+        "fpts": 38.35,
+        "top_pct": 44.0
+      }
+    ],
+    "date": "06-15-2025",
+    "year": "2025",
+    "tournament": "US Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-15-2025 US Open R4 SD.csv"
+  },
+  {
+    "field_size": 18823,
+    "winning_score": 263.25,
+    "cash_line_p80": 159.4,
+    "median_score": 180.5,
+    "top_n": 100,
+    "winners_avg_own": 15.19,
+    "winners_low_own_mean": 1.78,
+    "winners_unique_pct": 84.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 12.5,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Patrick Cantlay",
+      "Tony Finau",
+      "Tommy Fleetwood",
+      "Russell Henley",
+      "Shane Lowry",
+      "Davis Thompson"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Tony Finau",
+        "own": 18.02,
+        "fpts": 51.65,
+        "top_pct": 86.0
+      },
+      {
+        "name": "Sam Burns",
+        "own": 11.24,
+        "fpts": 50.75,
+        "top_pct": 68.0
+      },
+      {
+        "name": "Russell Henley",
+        "own": 8.22,
+        "fpts": 48.65,
+        "top_pct": 51.0
+      }
+    ],
+    "date": "06-16-2024",
+    "year": "2024",
+    "tournament": "US Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-16-2024 US Open R4 SD.csv"
+  },
+  {
+    "field_size": 28235,
+    "winning_score": 296.75,
+    "cash_line_p80": 165.05,
+    "median_score": 185.25,
+    "top_n": 100,
+    "winners_avg_own": 14.94,
+    "winners_low_own_mean": 2.44,
+    "winners_unique_pct": 93.0,
+    "winners_dup_max": 3,
+    "winner_avg_own": 17.34,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Rory McIlroy",
+      "Wyndham Clark",
+      "Tommy Fleetwood",
+      "Min Woo Lee",
+      "Denny McCarthy",
+      "Austin Eckroat"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Tommy Fleetwood",
+        "own": 6.52,
+        "fpts": 67.7,
+        "top_pct": 74.0
+      },
+      {
+        "name": "Austin Eckroat",
+        "own": 3.81,
+        "fpts": 60.7,
+        "top_pct": 44.0
+      },
+      {
+        "name": "Min Woo Lee",
+        "own": 14.22,
+        "fpts": 52.75,
+        "top_pct": 52.0
+      }
+    ],
+    "date": "06-18-2023",
+    "year": "2023",
+    "tournament": "US Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-18-2023 US Open R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 321.85,
+    "cash_line_p80": 200.3,
+    "median_score": 228.05,
+    "top_n": 94,
+    "winners_avg_own": 16.26,
+    "winners_low_own_mean": 1.97,
+    "winners_unique_pct": 83.0,
+    "winners_dup_max": 6,
+    "winner_avg_own": 7.05,
+    "winner_low_own_count": 4,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "J.J. Spaun",
+      "Harris English",
+      "Ryan Fox",
+      "Christiaan Bezuidenhout",
+      "Jacob Bridgeman"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Harris English",
+        "own": 19.14,
+        "fpts": 62.7,
+        "top_pct": 74.5
+      },
+      {
+        "name": "Rory McIlroy",
+        "own": 17.32,
+        "fpts": 56.7,
+        "top_pct": 46.8
+      },
+      {
+        "name": "Brian Harman",
+        "own": 17.75,
+        "fpts": 45.1,
+        "top_pct": 36.2
+      }
+    ],
+    "date": "06-22-2025",
+    "year": "2025",
+    "tournament": "Travelers Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-22-2025 Travelers Championship R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 390.2,
+    "cash_line_p80": 267.95,
+    "median_score": 292.5,
+    "top_n": 94,
+    "winners_avg_own": 16.87,
+    "winners_low_own_mean": 1.91,
+    "winners_unique_pct": 88.3,
+    "winners_dup_max": 3,
+    "winner_avg_own": 16.03,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Brian Harman",
+      "Sepp Straka",
+      "Tom Hoge",
+      "Cameron Young",
+      "Webb Simpson"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Sepp Straka",
+        "own": 4.21,
+        "fpts": 73.25,
+        "top_pct": 31.9
+      },
+      {
+        "name": "Brian Harman",
+        "own": 10.11,
+        "fpts": 73.0,
+        "top_pct": 46.8
+      }
+    ],
+    "date": "06-23-2024",
+    "year": "2024",
+    "tournament": "Travelers Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-23-2024 Travelers Championship R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 384.7,
+    "cash_line_p80": 261.05,
+    "median_score": 282.5,
+    "top_n": 100,
+    "winners_avg_own": 16.44,
+    "winners_low_own_mean": 2.58,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 15.24,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Patrick Cantlay",
+      "Brian Harman",
+      "Zac Blair",
+      "Carson Young",
+      "Zach Johnson"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Zac Blair",
+        "own": 2.87,
+        "fpts": 78.9,
+        "top_pct": 53.0
+      },
+      {
+        "name": "Carson Young",
+        "own": 5.27,
+        "fpts": 60.15,
+        "top_pct": 30.0
+      }
+    ],
+    "date": "06-25-2023",
+    "year": "2023",
+    "tournament": "Travelers Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-25-2023 Travelers Championship R4 SD.csv"
+  },
+  {
+    "field_size": 7058,
+    "winning_score": 363.3,
+    "cash_line_p80": 263.95,
+    "median_score": 286.65,
+    "top_n": 71,
+    "winners_avg_own": 19.56,
+    "winners_low_own_mean": 1.59,
+    "winners_unique_pct": 73.2,
+    "winners_dup_max": 6,
+    "winner_avg_own": 18.63,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Max Greyserman",
+      "Akshay Bhatia",
+      "Min Woo Lee",
+      "Jake Knapp",
+      "Aldrich Potgieter",
+      "Nicolas Echavarria"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Nicolas Echavarria",
+        "own": 7.44,
+        "fpts": 65.95,
+        "top_pct": 49.3
+      }
+    ],
+    "date": "06-29-2025",
+    "year": "2025",
+    "tournament": "Rocket Classic",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-29-2025 Rocket Classic R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 301.05,
+    "cash_line_p80": 197.6,
+    "median_score": 217.55,
+    "top_n": 94,
+    "winners_avg_own": 17.94,
+    "winners_low_own_mean": 1.95,
+    "winners_unique_pct": 93.6,
+    "winners_dup_max": 2,
+    "winner_avg_own": 18.78,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Aaron Rai",
+      "Min Woo Lee",
+      "Cameron Davis",
+      "Taylor Moore",
+      "J.J. Spaun",
+      "Rico Hoey"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Rico Hoey",
+        "own": 5.62,
+        "fpts": 58.65,
+        "top_pct": 37.2
+      },
+      {
+        "name": "Taylor Moore",
+        "own": 13.49,
+        "fpts": 50.25,
+        "top_pct": 40.4
+      },
+      {
+        "name": "Dylan Wu",
+        "own": 8.61,
+        "fpts": 50.25,
+        "top_pct": 34.0
+      }
+    ],
+    "date": "06-30-2024",
+    "year": "2024",
+    "tournament": "Rocket Mortgage Classic",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "06-30-2024 Rocket Mortgage Classic R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 395.0,
+    "cash_line_p80": 258.73,
+    "median_score": 284.62,
+    "top_n": 100,
+    "winners_avg_own": 21.2,
+    "winners_low_own_mean": 1.63,
+    "winners_unique_pct": 74.0,
+    "winners_dup_max": 6,
+    "winner_avg_own": 20.27,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Collin Morikawa",
+      "Taylor Moore",
+      "Adam Schenk",
+      "Adam Hadwin",
+      "Alex Noren",
+      "Lucas Glover"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Lucas Glover",
+        "own": 9.27,
+        "fpts": 71.2,
+        "top_pct": 66.0
+      },
+      {
+        "name": "Adam Schenk",
+        "own": 13.23,
+        "fpts": 65.45,
+        "top_pct": 41.0
+      },
+      {
+        "name": "Alex Noren",
+        "own": 16.21,
+        "fpts": 59.25,
+        "top_pct": 36.0
+      }
+    ],
+    "date": "07-02-2023",
+    "year": "2023",
+    "tournament": "Rocket Mortgage",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-02-2023 Rocket Mortgage R4 SD.csv"
+  },
+  {
+    "field_size": 7058,
+    "winning_score": 391.65,
+    "cash_line_p80": 263.42,
+    "median_score": 289.8,
+    "top_n": 71,
+    "winners_avg_own": 15.59,
+    "winners_low_own_mean": 1.07,
+    "winners_unique_pct": 97.2,
+    "winners_dup_max": 2,
+    "winner_avg_own": 12.46,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Denny McCarthy",
+      "Kevin Yu",
+      "Kevin Roy",
+      "Jacob Bridgeman",
+      "Carson Young",
+      "David Lipsky"
+    ],
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Carson Young",
+        "own": 3.64,
+        "fpts": 74.75,
+        "top_pct": 35.2
+      },
+      {
+        "name": "Jacob Bridgeman",
+        "own": 13.29,
+        "fpts": 70.7,
+        "top_pct": 57.7
+      },
+      {
+        "name": "Lucas Glover",
+        "own": 13.96,
+        "fpts": 69.75,
+        "top_pct": 52.1
+      },
+      {
+        "name": "Kevin Yu",
+        "own": 11.96,
+        "fpts": 65.5,
+        "top_pct": 40.8
+      },
+      {
+        "name": "Rico Hoey",
+        "own": 15.66,
+        "fpts": 63.25,
+        "top_pct": 40.8
+      }
+    ],
+    "date": "07-06-2025",
+    "year": "2025",
+    "tournament": "John Deere Classic",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-06-2025 John Deere Classic R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 446.05,
+    "cash_line_p80": 290.5,
+    "median_score": 325.15,
+    "top_n": 94,
+    "winners_avg_own": 21.53,
+    "winners_low_own_mean": 0.76,
+    "winners_unique_pct": 69.1,
+    "winners_dup_max": 6,
+    "winner_avg_own": 18.55,
+    "winner_low_own_count": 0,
+    "winner_lineup": [
+      "Denny McCarthy",
+      "Luke Clanton",
+      "Michael Thorbjornsen",
+      "C.T. Pan",
+      "Andrew Novak",
+      "Carson Young"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Luke Clanton",
+        "own": 17.03,
+        "fpts": 81.0,
+        "top_pct": 66.0
+      },
+      {
+        "name": "Ben Griffin",
+        "own": 17.47,
+        "fpts": 75.2,
+        "top_pct": 44.7
+      },
+      {
+        "name": "Carson Young",
+        "own": 19.21,
+        "fpts": 74.95,
+        "top_pct": 62.8
+      },
+      {
+        "name": "Andrew Novak",
+        "own": 15.43,
+        "fpts": 68.75,
+        "top_pct": 35.1
+      }
+    ],
+    "date": "07-07-2024",
+    "year": "2024",
+    "tournament": "John Deere Classic",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-07-2024 John Deere Classic R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 384.85,
+    "cash_line_p80": 247.8,
+    "median_score": 272.15,
+    "top_n": 100,
+    "winners_avg_own": 17.79,
+    "winners_low_own_mean": 1.11,
+    "winners_unique_pct": 76.0,
+    "winners_dup_max": 3,
+    "winner_avg_own": 16.94,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Ludvig Aberg",
+      "Seamus Power",
+      "Sepp Straka",
+      "Brendon Todd",
+      "Lucas Glover",
+      "Ryan Gerard"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Ludvig Aberg",
+        "own": 10.66,
+        "fpts": 80.5,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Kevin Yu",
+        "own": 14.53,
+        "fpts": 63.6,
+        "top_pct": 59.0
+      }
+    ],
+    "date": "07-09-2023",
+    "year": "2023",
+    "tournament": "John Deere",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-09-2023 John Deere R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 332.7,
+    "cash_line_p80": 211.85,
+    "median_score": 236.35,
+    "top_n": 94,
+    "winners_avg_own": 19.68,
+    "winners_low_own_mean": 1.51,
+    "winners_unique_pct": 78.7,
+    "winners_dup_max": 4,
+    "winner_avg_own": 17.1,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Xander Schauffele",
+      "Ludvig Aberg",
+      "Taylor Pendrith",
+      "Chris Gotterup",
+      "Nicolai Hojgaard",
+      "Justin Rose"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Justin Rose",
+        "own": 9.46,
+        "fpts": 69.25,
+        "top_pct": 69.1
+      },
+      {
+        "name": "Nicolai Hojgaard",
+        "own": 15.74,
+        "fpts": 61.95,
+        "top_pct": 60.6
+      }
+    ],
+    "date": "07-13-2025",
+    "year": "2025",
+    "tournament": "Scottish Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-13-2025 Scottish Open R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 369.9,
+    "cash_line_p80": 215.4,
+    "median_score": 241.3,
+    "top_n": 94,
+    "winners_avg_own": 15.25,
+    "winners_low_own_mean": 3.41,
+    "winners_unique_pct": 92.6,
+    "winners_dup_max": 2,
+    "winner_avg_own": 10.13,
+    "winner_low_own_count": 5,
+    "winner_lineup": [
+      "Xander Schauffele",
+      "Aaron Rai",
+      "Robert Macintyre",
+      "Si Woo Kim",
+      "Thorbjorn Olesen",
+      "Richard Mansell"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Wyndham Clark",
+        "own": 6.47,
+        "fpts": 76.5,
+        "top_pct": 47.9
+      },
+      {
+        "name": "Romain Langasque",
+        "own": 10.79,
+        "fpts": 68.45,
+        "top_pct": 31.9
+      }
+    ],
+    "date": "07-14-2024",
+    "year": "2024",
+    "tournament": "Scottish Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-14-2024 Scottish Open R4 SD.csv"
+  },
+  {
+    "field_size": 313,
+    "winning_score": 388.45,
+    "cash_line_p80": 288.18,
+    "median_score": 316.95,
+    "top_n": 20,
+    "winners_avg_own": 25.0,
+    "winners_low_own_mean": 0.7,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 31.73,
+    "winner_low_own_count": 0,
+    "winner_lineup": [
+      "Vincent Norrman",
+      "Grayson Murray",
+      "Nathan Kimsey",
+      "Doc Redman",
+      "Adrien Saddier",
+      "Trevor Cone"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Masahiro Kawamura",
+        "own": 6.07,
+        "fpts": 68.75,
+        "top_pct": 30.0
+      },
+      {
+        "name": "Alexander Levy",
+        "own": 13.1,
+        "fpts": 60.0,
+        "top_pct": 45.0
+      },
+      {
+        "name": "Doc Redman",
+        "own": 19.17,
+        "fpts": 55.2,
+        "top_pct": 40.0
+      }
+    ],
+    "date": "07-16-2023",
+    "year": "2023",
+    "tournament": "Barbasol",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-16-2023 Barbasol R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 284.15,
+    "cash_line_p80": 151.2,
+    "median_score": 176.0,
+    "top_n": 100,
+    "winners_avg_own": 15.15,
+    "winners_low_own_mean": 2.61,
+    "winners_unique_pct": 94.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 12.83,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Rory McIlroy",
+      "Robert Macintyre",
+      "Nicolai Hojgaard",
+      "Gary Woodland",
+      "Ewen Ferguson",
+      "Grant Forrest"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Robert Macintyre",
+        "own": 16.09,
+        "fpts": 64.45,
+        "top_pct": 89.0
+      },
+      {
+        "name": "Nicolai Hojgaard",
+        "own": 7.97,
+        "fpts": 53.25,
+        "top_pct": 56.0
+      }
+    ],
+    "date": "07-16-2023",
+    "year": "2023",
+    "tournament": "Scottish Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-16-2023 Scottish Open R4 SD.csv"
+  },
+  {
+    "field_size": 18823,
+    "winning_score": 352.5,
+    "cash_line_p80": 237.75,
+    "median_score": 262.7,
+    "top_n": 100,
+    "winners_avg_own": 15.65,
+    "winners_low_own_mean": 1.09,
+    "winners_unique_pct": 66.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 14.51,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Bryson DeChambeau",
+      "Ludvig Aberg",
+      "Russell Henley",
+      "Harris English",
+      "Maverick McNealy",
+      "Wyndham Clark"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Wyndham Clark",
+        "own": 14.85,
+        "fpts": 67.9,
+        "top_pct": 80.0
+      },
+      {
+        "name": "Bryson DeChambeau",
+        "own": 11.29,
+        "fpts": 67.25,
+        "top_pct": 68.0
+      },
+      {
+        "name": "Corey Conners",
+        "own": 12.95,
+        "fpts": 59.7,
+        "top_pct": 47.0
+      }
+    ],
+    "date": "07-20-2025",
+    "year": "2025",
+    "tournament": "British Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-20-2025 British Open R4 SD.csv"
+  },
+  {
+    "field_size": 18823,
+    "winning_score": 334.65,
+    "cash_line_p80": 174.95,
+    "median_score": 206.75,
+    "top_n": 100,
+    "winners_avg_own": 25.24,
+    "winners_low_own_mean": 0.47,
+    "winners_unique_pct": 26.0,
+    "winners_dup_max": 36,
+    "winner_avg_own": 24.25,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Xander Schauffele",
+      "Justin Rose",
+      "Billy Horschel",
+      "Russell Henley",
+      "Thriston Lawrence",
+      "Ryan Fox"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Thriston Lawrence",
+        "own": 18.13,
+        "fpts": 49.2,
+        "top_pct": 82.0
+      }
+    ],
+    "date": "07-21-2024",
+    "year": "2024",
+    "tournament": "British Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-21-2024 British Open R4 SD.csv"
+  },
+  {
+    "field_size": 235,
+    "winning_score": 324.7,
+    "cash_line_p80": 246.34,
+    "median_score": 263.6,
+    "top_n": 20,
+    "winners_avg_own": 19.32,
+    "winners_low_own_mean": 2.75,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 5.82,
+    "winner_low_own_count": 5,
+    "winner_lineup": [
+      "Stephan Jaeger",
+      "Chez Reavie",
+      "Zecheng Dou",
+      "Sean Crocker",
+      "Sebastian Soderberg",
+      "Julien Guerrier"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "James Hahn",
+        "own": 17.02,
+        "fpts": 61.5,
+        "top_pct": 30.0
+      },
+      {
+        "name": "Ryo Hisatsune",
+        "own": 15.32,
+        "fpts": 52.35,
+        "top_pct": 30.0
+      },
+      {
+        "name": "Justin Suh",
+        "own": 8.51,
+        "fpts": 42.65,
+        "top_pct": 30.0
+      }
+    ],
+    "date": "07-23-2023",
+    "year": "2023",
+    "tournament": "Barracuda",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-23-2023 Barracuda R4 SD.csv"
+  },
+  {
+    "field_size": 23529,
+    "winning_score": 296.65,
+    "cash_line_p80": 179.2,
+    "median_score": 202.9,
+    "top_n": 100,
+    "winners_avg_own": 21.24,
+    "winners_low_own_mean": 1.35,
+    "winners_unique_pct": 52.0,
+    "winners_dup_max": 6,
+    "winner_avg_own": 21.67,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Rory McIlroy",
+      "Brian Harman",
+      "Tom Kim",
+      "Jason Day",
+      "Sepp Straka",
+      "Shubhankar Sharma"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Tom Kim",
+        "own": 14.38,
+        "fpts": 56.9,
+        "top_pct": 73.0
+      },
+      {
+        "name": "Rory McIlroy",
+        "own": 17.29,
+        "fpts": 54.15,
+        "top_pct": 40.0
+      },
+      {
+        "name": "Emiliano Grillo",
+        "own": 9.63,
+        "fpts": 48.2,
+        "top_pct": 47.0
+      }
+    ],
+    "date": "07-23-2023",
+    "year": "2023",
+    "tournament": "British Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-23-2023 British Open R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 385.7,
+    "cash_line_p80": 243.8,
+    "median_score": 270.15,
+    "top_n": 94,
+    "winners_avg_own": 17.95,
+    "winners_low_own_mean": 1.73,
+    "winners_unique_pct": 80.9,
+    "winners_dup_max": 2,
+    "winner_avg_own": 18.88,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Kurt Kitayama",
+      "Sam Stevens",
+      "Pierceson Coody",
+      "Matt Wallace",
+      "Christiaan Bezuidenhout",
+      "William Mouw"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Matt Wallace",
+        "own": 12.11,
+        "fpts": 75.75,
+        "top_pct": 73.4
+      },
+      {
+        "name": "Christiaan Bezuidenhout",
+        "own": 8.14,
+        "fpts": 66.5,
+        "top_pct": 33.0
+      }
+    ],
+    "date": "07-27-2025",
+    "year": "2025",
+    "tournament": "3M Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-27-2025 3M Open R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 360.9,
+    "cash_line_p80": 219.85,
+    "median_score": 242.45,
+    "top_n": 94,
+    "winners_avg_own": 16.85,
+    "winners_low_own_mean": 1.45,
+    "winners_unique_pct": 91.5,
+    "winners_dup_max": 4,
+    "winner_avg_own": 15.55,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Tony Finau",
+      "Sam Burns",
+      "Jhonattan Vegas",
+      "Max Greyserman",
+      "Henrik Norlander",
+      "Cameron Champ"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Max Greyserman",
+        "own": 10.96,
+        "fpts": 81.0,
+        "top_pct": 88.3
+      },
+      {
+        "name": "Kurt Kitayama",
+        "own": 14.27,
+        "fpts": 58.65,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Taylor Pendrith",
+        "own": 15.98,
+        "fpts": 55.85,
+        "top_pct": 39.4
+      }
+    ],
+    "date": "07-28-2024",
+    "year": "2024",
+    "tournament": "3M Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-28-2024 3M Open R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 385.0,
+    "cash_line_p80": 265.15,
+    "median_score": 287.9,
+    "top_n": 100,
+    "winners_avg_own": 20.54,
+    "winners_low_own_mean": 1.21,
+    "winners_unique_pct": 79.0,
+    "winners_dup_max": 6,
+    "winner_avg_own": 17.66,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Emiliano Grillo",
+      "Lee Hodges",
+      "Beau Hossler",
+      "Kevin Streelman",
+      "Nick Hardy",
+      "Martin Laird"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Martin Laird",
+        "own": 12.32,
+        "fpts": 77.75,
+        "top_pct": 86.0
+      },
+      {
+        "name": "Kevin Streelman",
+        "own": 17.91,
+        "fpts": 66.15,
+        "top_pct": 59.0
+      }
+    ],
+    "date": "07-30-2023",
+    "year": "2023",
+    "tournament": "3M Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "07-30-2023 3M Open R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 356.65,
+    "cash_line_p80": 221.85,
+    "median_score": 251.15,
+    "top_n": 94,
+    "winners_avg_own": 19.63,
+    "winners_low_own_mean": 2.18,
+    "winners_unique_pct": 86.2,
+    "winners_dup_max": 3,
+    "winner_avg_own": 21.41,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Matt Fitzpatrick",
+      "Cameron Young",
+      "Alex Noren",
+      "Mark Hubbard",
+      "Mac Meissner",
+      "Matthew McCarty"
+    ],
+    "n_slate_defining": 6,
+    "slate_defining": [
+      {
+        "name": "Mark Hubbard",
+        "own": 8.45,
+        "fpts": 70.75,
+        "top_pct": 60.6
+      },
+      {
+        "name": "Matthew McCarty",
+        "own": 9.23,
+        "fpts": 64.95,
+        "top_pct": 39.4
+      },
+      {
+        "name": "Alex Noren",
+        "own": 17.7,
+        "fpts": 62.45,
+        "top_pct": 61.7
+      },
+      {
+        "name": "Patrick Fishburn",
+        "own": 8.96,
+        "fpts": 59.75,
+        "top_pct": 30.9
+      },
+      {
+        "name": "Mac Meissner",
+        "own": 18.15,
+        "fpts": 54.95,
+        "top_pct": 45.7
+      },
+      {
+        "name": "J.T. Poston",
+        "own": 15.42,
+        "fpts": 49.95,
+        "top_pct": 31.9
+      }
+    ],
+    "date": "08-03-2025",
+    "year": "2025",
+    "tournament": "Wyndham Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "08-03-2025 Wyndham Championship R4 SD.csv"
+  },
+  {
+    "field_size": 7058,
+    "winning_score": 396.15,
+    "cash_line_p80": 247.67,
+    "median_score": 277.4,
+    "top_n": 71,
+    "winners_avg_own": 18.94,
+    "winners_low_own_mean": 0.85,
+    "winners_unique_pct": 71.8,
+    "winners_dup_max": 6,
+    "winner_avg_own": 17.33,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Hideki Matsuyama",
+      "Wyndham Clark",
+      "Victor Perez",
+      "Thorbjorn Olesen",
+      "Rafael Campos"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Scottie Scheffler",
+        "own": 13.69,
+        "fpts": 88.25,
+        "top_pct": 46.5
+      },
+      {
+        "name": "Hideki Matsuyama",
+        "own": 16.93,
+        "fpts": 71.5,
+        "top_pct": 66.2
+      },
+      {
+        "name": "Wyndham Clark",
+        "own": 15.06,
+        "fpts": 58.45,
+        "top_pct": 49.3
+      }
+    ],
+    "date": "08-04-2024",
+    "year": "2024",
+    "tournament": "Olympic Men_s Golf Competition",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "08-04-2024 Olympic Men_s Golf Competition R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 316.2,
+    "cash_line_p80": 211.4,
+    "median_score": 229.45,
+    "top_n": 100,
+    "winners_avg_own": 16.88,
+    "winners_low_own_mean": 2.9,
+    "winners_unique_pct": 91.0,
+    "winners_dup_max": 5,
+    "winner_avg_own": 15.85,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Adam Scott",
+      "Cameron Davis",
+      "Lucas Glover",
+      "Thomas Detry",
+      "Webb Simpson",
+      "Charley Hoffman"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Webb Simpson",
+        "own": 5.38,
+        "fpts": 66.7,
+        "top_pct": 67.0
+      },
+      {
+        "name": "Adam Scott",
+        "own": 5.23,
+        "fpts": 64.7,
+        "top_pct": 40.0
+      },
+      {
+        "name": "Cameron Davis",
+        "own": 13.31,
+        "fpts": 51.95,
+        "top_pct": 30.0
+      },
+      {
+        "name": "Charley Hoffman",
+        "own": 5.33,
+        "fpts": 50.55,
+        "top_pct": 30.0
+      }
+    ],
+    "date": "08-06-2023",
+    "year": "2023",
+    "tournament": "Wyndham Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "08-06-2023 Wyndham Championship R4 SD.csv"
+  },
+  {
+    "field_size": 10965,
+    "winning_score": 328.55,
+    "cash_line_p80": 223.45,
+    "median_score": 246.45,
+    "top_n": 100,
+    "winners_avg_own": 22.07,
+    "winners_low_own_mean": 1.28,
+    "winners_unique_pct": 78.0,
+    "winners_dup_max": 5,
+    "winner_avg_own": 16.64,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Russell Henley",
+      "Justin Thomas",
+      "Cameron Young",
+      "J.J. Spaun",
+      "Justin Rose",
+      "Jacob Bridgeman"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Cameron Young",
+        "own": 11.25,
+        "fpts": 62.4,
+        "top_pct": 73.0
+      }
+    ],
+    "date": "08-10-2025",
+    "year": "2025",
+    "tournament": "FedEx St. Jude Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "08-10-2025 FedEx St. Jude Championship R4 SD.csv"
+  },
+  {
+    "field_size": 2823,
+    "winning_score": 343.75,
+    "cash_line_p80": 208.35,
+    "median_score": 235.35,
+    "top_n": 28,
+    "winners_avg_own": 20.59,
+    "winners_low_own_mean": 1.86,
+    "winners_unique_pct": 75.0,
+    "winners_dup_max": 5,
+    "winner_avg_own": 15.28,
+    "winner_low_own_count": 4,
+    "winner_lineup": [
+      "Aaron Rai",
+      "Max Greyserman",
+      "Keith Mitchell",
+      "Mac Meissner",
+      "J.J. Spaun",
+      "Chan Kim"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "J.J. Spaun",
+        "own": 8.36,
+        "fpts": 71.5,
+        "top_pct": 57.1
+      },
+      {
+        "name": "Trace Crowe",
+        "own": 14.2,
+        "fpts": 48.65,
+        "top_pct": 35.7
+      }
+    ],
+    "date": "08-11-2024",
+    "year": "2024",
+    "tournament": "Wyndham Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "08-11-2024 Wyndham Championship R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 340.55,
+    "cash_line_p80": 228.1,
+    "median_score": 248.95,
+    "top_n": 100,
+    "winners_avg_own": 15.29,
+    "winners_low_own_mean": 1.81,
+    "winners_unique_pct": 92.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 11.63,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Rory McIlroy",
+      "Patrick Cantlay",
+      "Sungjae Im",
+      "Chris Kirk",
+      "Keith Mitchell",
+      "Adam Schenk"
+    ],
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Patrick Cantlay",
+        "own": 18.38,
+        "fpts": 67.5,
+        "top_pct": 67.0
+      },
+      {
+        "name": "Rory McIlroy",
+        "own": 18.38,
+        "fpts": 67.25,
+        "top_pct": 67.0
+      },
+      {
+        "name": "Corey Conners",
+        "own": 10.51,
+        "fpts": 62.7,
+        "top_pct": 61.0
+      },
+      {
+        "name": "Russell Henley",
+        "own": 15.07,
+        "fpts": 55.1,
+        "top_pct": 39.0
+      },
+      {
+        "name": "Justin Rose",
+        "own": 15.76,
+        "fpts": 44.5,
+        "top_pct": 30.0
+      }
+    ],
+    "date": "08-13-2023",
+    "year": "2023",
+    "tournament": "Fed Ex St Jude",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "08-13-2023 Fed Ex St Jude R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 286.9,
+    "cash_line_p80": 181.6,
+    "median_score": 205.6,
+    "top_n": 94,
+    "winners_avg_own": 17.64,
+    "winners_low_own_mean": 1.56,
+    "winners_unique_pct": 86.2,
+    "winners_dup_max": 5,
+    "winner_avg_own": 17.7,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Ben Griffin",
+      "Sam Burns",
+      "Harry Hall",
+      "Matt Fitzpatrick",
+      "Maverick McNealy",
+      "Si Woo Kim"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Tommy Fleetwood",
+        "own": 13.45,
+        "fpts": 49.2,
+        "top_pct": 35.1
+      },
+      {
+        "name": "Si Woo Kim",
+        "own": 10.64,
+        "fpts": 46.6,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Taylor Pendrith",
+        "own": 16.69,
+        "fpts": 40.3,
+        "top_pct": 36.2
+      }
+    ],
+    "date": "08-17-2025",
+    "year": "2025",
+    "tournament": "BMW Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "08-17-2025 BMW Championship R4 SD.csv"
+  },
+  {
+    "field_size": 9411,
+    "winning_score": 347.6,
+    "cash_line_p80": 240.4,
+    "median_score": 262.3,
+    "top_n": 94,
+    "winners_avg_own": 16.57,
+    "winners_low_own_mean": 1.86,
+    "winners_unique_pct": 80.9,
+    "winners_dup_max": 4,
+    "winner_avg_own": 6.81,
+    "winner_low_own_count": 5,
+    "winner_lineup": [
+      "Xander Schauffele",
+      "Aaron Rai",
+      "Adam Scott",
+      "Davis Thompson",
+      "Eric Cole",
+      "Max Greyserman"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Xander Schauffele",
+        "own": 19.55,
+        "fpts": 71.75,
+        "top_pct": 64.9
+      },
+      {
+        "name": "Eric Cole",
+        "own": 2.38,
+        "fpts": 67.7,
+        "top_pct": 31.9
+      },
+      {
+        "name": "Wyndham Clark",
+        "own": 16.37,
+        "fpts": 64.5,
+        "top_pct": 61.7
+      },
+      {
+        "name": "Robert Macintyre",
+        "own": 10.43,
+        "fpts": 57.15,
+        "top_pct": 34.0
+      }
+    ],
+    "date": "08-18-2024",
+    "year": "2024",
+    "tournament": "FedEx St. Jude Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "08-18-2024 FedEx St. Jude Championship R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 362.3,
+    "cash_line_p80": 233.86,
+    "median_score": 257.7,
+    "top_n": 100,
+    "winners_avg_own": 20.69,
+    "winners_low_own_mean": 1.63,
+    "winners_unique_pct": 79.0,
+    "winners_dup_max": 5,
+    "winner_avg_own": 22.47,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Viktor Hovland",
+      "Max Homa",
+      "Matt Fitzpatrick",
+      "Russell Henley",
+      "Tom Kim",
+      "Denny McCarthy"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Tom Kim",
+        "own": 7.14,
+        "fpts": 72.25,
+        "top_pct": 53.0
+      },
+      {
+        "name": "Andrew Putnam",
+        "own": 14.96,
+        "fpts": 50.25,
+        "top_pct": 39.0
+      }
+    ],
+    "date": "08-20-2023",
+    "year": "2023",
+    "tournament": "BMW",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "08-20-2023 BMW R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 348.7,
+    "cash_line_p80": 257.95,
+    "median_score": 274.15,
+    "top_n": 100,
+    "winners_avg_own": 22.19,
+    "winners_low_own_mean": 0.51,
+    "winners_unique_pct": 66.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 24.01,
+    "winner_low_own_count": 0,
+    "winner_lineup": [
+      "Tommy Fleetwood",
+      "Justin Thomas",
+      "Viktor Hovland",
+      "Cameron Young",
+      "Akshay Bhatia",
+      "Corey Conners"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Viktor Hovland",
+        "own": 12.05,
+        "fpts": 62.7,
+        "top_pct": 55.0
+      },
+      {
+        "name": "Brian Harman",
+        "own": 9.68,
+        "fpts": 62.7,
+        "top_pct": 42.0
+      },
+      {
+        "name": "Sam Burns",
+        "own": 19.82,
+        "fpts": 57.9,
+        "top_pct": 46.0
+      },
+      {
+        "name": "Justin Thomas",
+        "own": 16.97,
+        "fpts": 56.2,
+        "top_pct": 44.0
+      }
+    ],
+    "date": "08-24-2025",
+    "year": "2025",
+    "tournament": "Tour Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "08-24-2025 Tour Championship R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 317.55,
+    "cash_line_p80": 204.5,
+    "median_score": 223.5,
+    "top_n": 100,
+    "winners_avg_own": 18.26,
+    "winners_low_own_mean": 1.53,
+    "winners_unique_pct": 91.0,
+    "winners_dup_max": 3,
+    "winner_avg_own": 17.69,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Ludvig Aberg",
+      "Adam Scott",
+      "Tommy Fleetwood",
+      "Sam Burns",
+      "Justin Thomas",
+      "Cameron Davis"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Sam Burns",
+        "own": 12.16,
+        "fpts": 67.7,
+        "top_pct": 87.0
+      },
+      {
+        "name": "Cameron Davis",
+        "own": 7.68,
+        "fpts": 62.4,
+        "top_pct": 56.0
+      },
+      {
+        "name": "Tommy Fleetwood",
+        "own": 16.18,
+        "fpts": 50.6,
+        "top_pct": 36.0
+      }
+    ],
+    "date": "08-25-2024",
+    "year": "2024",
+    "tournament": "BMW Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "08-25-2024 BMW Championship R4 SD.csv"
+  },
+  {
+    "field_size": 14117,
+    "winning_score": 374.4,
+    "cash_line_p80": 255.35,
+    "median_score": 286.3,
+    "top_n": 100,
+    "winners_avg_own": 34.73,
+    "winners_low_own_mean": 0.15,
+    "winners_unique_pct": 13.0,
+    "winners_dup_max": 43,
+    "winner_avg_own": 31.41,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Viktor Hovland",
+      "Xander Schauffele",
+      "Wyndham Clark",
+      "Russell Henley",
+      "Tommy Fleetwood",
+      "Si Woo Kim"
+    ],
+    "n_slate_defining": 0,
+    "slate_defining": [],
+    "date": "08-27-2023",
+    "year": "2023",
+    "tournament": "Tour Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "08-27-2023 Tour Championship R4 SD.csv"
+  },
+  {
+    "field_size": 11764,
+    "winning_score": 408.7,
+    "cash_line_p80": 303.95,
+    "median_score": 330.55,
+    "top_n": 100,
+    "winners_avg_own": 31.79,
+    "winners_low_own_mean": 0.03,
+    "winners_unique_pct": 15.0,
+    "winners_dup_max": 31,
+    "winner_avg_own": 32.71,
+    "winner_low_own_count": 0,
+    "winner_lineup": [
+      "Scottie Scheffler",
+      "Adam Scott",
+      "Sahith Theegala",
+      "Sungjae Im",
+      "Justin Thomas",
+      "Russell Henley"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Taylor Pendrith",
+        "own": 14.68,
+        "fpts": 61.1,
+        "top_pct": 46.0
+      }
+    ],
+    "date": "09-01-2024",
+    "year": "2024",
+    "tournament": "Tour Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "09-01-2024 Tour Championship R4 SD.csv"
+  },
+  {
+    "field_size": 2026,
+    "winning_score": 282.1,
+    "cash_line_p80": 200.4,
+    "median_score": 221.65,
+    "top_n": 20,
+    "winners_avg_own": 22.81,
+    "winners_low_own_mean": 2.45,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 21.7,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Tom Hoge",
+      "Mackenzie Hughes",
+      "Patrick Rodgers",
+      "Patton Kizzire",
+      "David Lipsky",
+      "Austin Smotherman"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Tom Hoge",
+        "own": 8.24,
+        "fpts": 51.95,
+        "top_pct": 45.0
+      },
+      {
+        "name": "Austin Smotherman",
+        "own": 7.95,
+        "fpts": 51.75,
+        "top_pct": 65.0
+      }
+    ],
+    "date": "09-15-2024",
+    "year": "2024",
+    "tournament": "Procore Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "09-15-2024 Procore Championship R4 SD.csv"
+  },
+  {
+    "field_size": 2352,
+    "winning_score": 336.15,
+    "cash_line_p80": 219.85,
+    "median_score": 239.55,
+    "top_n": 24,
+    "winners_avg_own": 19.39,
+    "winners_low_own_mean": 2.88,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 13.58,
+    "winner_low_own_count": 4,
+    "winner_lineup": [
+      "Eric Cole",
+      "Brendon Todd",
+      "Seonghyeon Kim",
+      "Carson Young",
+      "Troy Merritt",
+      "Matthias Schwab"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Troy Merritt",
+        "own": 8.67,
+        "fpts": 69.7,
+        "top_pct": 87.5
+      }
+    ],
+    "date": "09-17-2023",
+    "year": "2023",
+    "tournament": "Fortinet",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "09-17-2023 Fortinet R4 SD.csv"
+  },
+  {
+    "field_size": 627,
+    "winning_score": 294.9,
+    "cash_line_p80": 187.75,
+    "median_score": 212.7,
+    "top_n": 20,
+    "winners_avg_own": 18.34,
+    "winners_low_own_mean": 1.05,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 18.02,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Rasmus Hojgaard",
+      "Ryo Hisatsune",
+      "Thorbjorn Olesen",
+      "Jeff Winther",
+      "Adrien Saddier",
+      "Freddy Schott"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Jeff Winther",
+        "own": 11.48,
+        "fpts": 65.4,
+        "top_pct": 65.0
+      },
+      {
+        "name": "Calum Hill",
+        "own": 13.56,
+        "fpts": 48.1,
+        "top_pct": 40.0
+      },
+      {
+        "name": "Thorbjorn Olesen",
+        "own": 19.62,
+        "fpts": 42.9,
+        "top_pct": 45.0
+      }
+    ],
+    "date": "09-24-2023",
+    "year": "2023",
+    "tournament": "Open De France",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "09-24-2023 Open De France R4 SD.csv"
+  },
+  {
+    "field_size": 774,
+    "winning_score": 368.1,
+    "cash_line_p80": 264.81,
+    "median_score": 292.25,
+    "top_n": 20,
+    "winners_avg_own": 30.12,
+    "winners_low_own_mean": 0.25,
+    "winners_unique_pct": 70.0,
+    "winners_dup_max": 6,
+    "winner_avg_own": 30.64,
+    "winner_low_own_count": 0,
+    "winner_lineup": [
+      "Garrick Higgo",
+      "Vince Whaley",
+      "Christiaan Bezuidenhout",
+      "Eric Cole",
+      "Steven Fisk",
+      "Danny Walker"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Christiaan Bezuidenhout",
+        "own": 16.15,
+        "fpts": 60.75,
+        "top_pct": 40.0
+      }
+    ],
+    "date": "10-05-2025",
+    "year": "2025",
+    "tournament": "Baycurrent Classic",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "10-05-2025 Baycurrent Classic R4 SD.csv"
+  },
+  {
+    "field_size": 774,
+    "winning_score": 368.1,
+    "cash_line_p80": 264.81,
+    "median_score": 292.25,
+    "top_n": 20,
+    "winners_avg_own": 30.12,
+    "winners_low_own_mean": 0.25,
+    "winners_unique_pct": 70.0,
+    "winners_dup_max": 6,
+    "winner_avg_own": 30.64,
+    "winner_low_own_count": 0,
+    "winner_lineup": [
+      "Garrick Higgo",
+      "Vince Whaley",
+      "Christiaan Bezuidenhout",
+      "Eric Cole",
+      "Steven Fisk",
+      "Danny Walker"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Christiaan Bezuidenhout",
+        "own": 16.15,
+        "fpts": 60.75,
+        "top_pct": 40.0
+      }
+    ],
+    "date": "10-05-2025",
+    "year": "2025",
+    "tournament": "Sanderson Farms Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "10-05-2025 Sanderson Farms Championship R4 SD.csv"
+  },
+  {
+    "field_size": 1508,
+    "winning_score": 374.8,
+    "cash_line_p80": 280.45,
+    "median_score": 304.5,
+    "top_n": 20,
+    "winners_avg_own": 20.64,
+    "winners_low_own_mean": 1.95,
+    "winners_unique_pct": 90.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 27.85,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Mackenzie Hughes",
+      "Beau Hossler",
+      "Daniel Berger",
+      "Michael Thorbjornsen",
+      "Lucas Glover",
+      "Kevin Yu"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Mackenzie Hughes",
+        "own": 8.42,
+        "fpts": 77.5,
+        "top_pct": 75.0
+      },
+      {
+        "name": "Hayden Springer",
+        "own": 5.5,
+        "fpts": 60.95,
+        "top_pct": 30.0
+      },
+      {
+        "name": "Daniel Berger",
+        "own": 18.37,
+        "fpts": 56.2,
+        "top_pct": 35.0
+      }
+    ],
+    "date": "10-06-2024",
+    "year": "2024",
+    "tournament": "Sanderson Farms Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "10-06-2024 Sanderson Farms Championship R4 SD.csv"
+  },
+  {
+    "field_size": 2352,
+    "winning_score": 342.75,
+    "cash_line_p80": 225.5,
+    "median_score": 247.1,
+    "top_n": 24,
+    "winners_avg_own": 17.09,
+    "winners_low_own_mean": 2.17,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 10.88,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Stephan Jaeger",
+      "Mark Hubbard",
+      "Akshay Bhatia",
+      "Christiaan Bezuidenhout",
+      "Troy Merritt",
+      "Ben Martin"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Mark Hubbard",
+        "own": 19.86,
+        "fpts": 64.6,
+        "top_pct": 66.7
+      },
+      {
+        "name": "C.T. Pan",
+        "own": 6.55,
+        "fpts": 59.45,
+        "top_pct": 33.3
+      },
+      {
+        "name": "Troy Merritt",
+        "own": 12.54,
+        "fpts": 58.85,
+        "top_pct": 58.3
+      }
+    ],
+    "date": "10-08-2023",
+    "year": "2023",
+    "tournament": "Sanderson Farms",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "10-08-2023 Sanderson Farms R4 SD.csv"
+  },
+  {
+    "field_size": 1155,
+    "winning_score": 424.3,
+    "cash_line_p80": 289.91,
+    "median_score": 313.85,
+    "top_n": 20,
+    "winners_avg_own": 20.07,
+    "winners_low_own_mean": 1.55,
+    "winners_unique_pct": 95.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 17.14,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Xander Schauffele",
+      "Rico Hoey",
+      "Nicolas Echavarria",
+      "Keith Mitchell",
+      "William Mouw",
+      "Matthew McCarty"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Takumi Kanaya",
+        "own": 10.3,
+        "fpts": 83.75,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Alex Smalley",
+        "own": 16.54,
+        "fpts": 70.25,
+        "top_pct": 75.0
+      }
+    ],
+    "date": "10-11-2025",
+    "year": "2025",
+    "tournament": "Baycurrent Classic",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "10-11-2025 Baycurrent Classic R4 SD.csv"
+  },
+  {
+    "field_size": 1176,
+    "winning_score": 374.8,
+    "cash_line_p80": 230.15,
+    "median_score": 255.3,
+    "top_n": 20,
+    "winners_avg_own": 15.99,
+    "winners_low_own_mean": 3.65,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 12.09,
+    "winner_low_own_count": 4,
+    "winner_lineup": [
+      "Ben Griffin",
+      "Lucas Glover",
+      "Patrick Rodgers",
+      "Matti Schmid",
+      "Max McGreevy",
+      "Kevin Streelman"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Lucas Glover",
+        "own": 9.44,
+        "fpts": 84.25,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Matti Schmid",
+        "own": 5.78,
+        "fpts": 84.25,
+        "top_pct": 65.0
+      },
+      {
+        "name": "Patrick Rodgers",
+        "own": 7.06,
+        "fpts": 58.45,
+        "top_pct": 30.0
+      }
+    ],
+    "date": "10-13-2024",
+    "year": "2024",
+    "tournament": "Black Desert Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "10-13-2024 Black Desert Championship R4 SD.csv"
+  },
+  {
+    "field_size": 2352,
+    "winning_score": 385.95,
+    "cash_line_p80": 288.97,
+    "median_score": 310.38,
+    "top_n": 24,
+    "winners_avg_own": 15.54,
+    "winners_low_own_mean": 2.04,
+    "winners_unique_pct": 91.7,
+    "winners_dup_max": 2,
+    "winner_avg_own": 10.52,
+    "winner_low_own_count": 3,
+    "winner_lineup": [
+      "Cameron Davis",
+      "Eric Cole",
+      "Alex Noren",
+      "Matt Wallace",
+      "Michael Kim",
+      "Tyler Duncan"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Eric Cole",
+        "own": 10.88,
+        "fpts": 84.25,
+        "top_pct": 91.7
+      },
+      {
+        "name": "Alex Noren",
+        "own": 15.69,
+        "fpts": 67.45,
+        "top_pct": 45.8
+      },
+      {
+        "name": "Michael Kim",
+        "own": 6.85,
+        "fpts": 57.45,
+        "top_pct": 33.3
+      }
+    ],
+    "date": "10-15-2023",
+    "year": "2023",
+    "tournament": "Shriners",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "10-15-2023 Shriners R4 SD.csv"
+  },
+  {
+    "field_size": 177,
+    "winning_score": 354.5,
+    "cash_line_p80": 266.88,
+    "median_score": 285.3,
+    "top_n": 20,
+    "winners_avg_own": 30.62,
+    "winners_low_own_mean": 0.6,
+    "winners_unique_pct": 80.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 26.46,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Davis Thompson",
+      "J.T. Poston",
+      "Rico Hoey",
+      "Mark Hubbard",
+      "Michael Kim",
+      "Alejandro Tosti"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Davis Thompson",
+        "own": 19.21,
+        "fpts": 61.25,
+        "top_pct": 30.0
+      },
+      {
+        "name": "Mark Hubbard",
+        "own": 16.38,
+        "fpts": 52.6,
+        "top_pct": 30.0
+      }
+    ],
+    "date": "10-20-2024",
+    "year": "2024",
+    "tournament": "Shriners Hospitals for Children Open",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "10-20-2024 Shriners Hospitals for Children Open R4 SD.csv"
+  },
+  {
+    "field_size": 2745,
+    "winning_score": 323.2,
+    "cash_line_p80": 195.89,
+    "median_score": 223.9,
+    "top_n": 27,
+    "winners_avg_own": 24.15,
+    "winners_low_own_mean": 0.93,
+    "winners_unique_pct": 77.8,
+    "winners_dup_max": 3,
+    "winner_avg_own": 23.96,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Collin Morikawa",
+      "Beau Hossler",
+      "Min Woo Lee",
+      "J.J. Spaun",
+      "Ryo Ishikawa",
+      "Ryutaro Nagano"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Ryo Ishikawa",
+        "own": 18.65,
+        "fpts": 59.2,
+        "top_pct": 74.1
+      },
+      {
+        "name": "Ryo Hisatsune",
+        "own": 13.66,
+        "fpts": 56.5,
+        "top_pct": 51.9
+      }
+    ],
+    "date": "10-22-2023",
+    "year": "2023",
+    "tournament": "ZOZO",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "10-22-2023 ZOZO R4 SD.csv"
+  },
+  {
+    "field_size": 705,
+    "winning_score": 340.25,
+    "cash_line_p80": 249.49,
+    "median_score": 274.15,
+    "top_n": 20,
+    "winners_avg_own": 20.81,
+    "winners_low_own_mean": 1.75,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 16.0,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Rico Hoey",
+      "Ryan Gerard",
+      "Billy Horschel",
+      "Stephan Jaeger",
+      "Justin Lower",
+      "Kris Ventura"
+    ],
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Stephan Jaeger",
+        "own": 13.62,
+        "fpts": 63.25,
+        "top_pct": 55.0
+      },
+      {
+        "name": "Billy Horschel",
+        "own": 13.33,
+        "fpts": 60.15,
+        "top_pct": 30.0
+      },
+      {
+        "name": "David Ford",
+        "own": 16.45,
+        "fpts": 59.9,
+        "top_pct": 30.0
+      },
+      {
+        "name": "Max Homa",
+        "own": 18.87,
+        "fpts": 51.95,
+        "top_pct": 30.0
+      }
+    ],
+    "date": "10-26-2025",
+    "year": "2025",
+    "tournament": "Bank of Utah Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "10-26-2025 Bank of Utah Championship R4 SD.csv"
+  },
+  {
+    "field_size": 1764,
+    "winning_score": 370.1,
+    "cash_line_p80": 263.11,
+    "median_score": 292.83,
+    "top_n": 20,
+    "winners_avg_own": 28.02,
+    "winners_low_own_mean": 1.4,
+    "winners_unique_pct": 70.0,
+    "winners_dup_max": 6,
+    "winner_avg_own": 34.63,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Justin Thomas",
+      "Kurt Kitayama",
+      "Max Greyserman",
+      "Rickie Fowler",
+      "Nicolas Echavarria",
+      "Yuta Sugiura"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Yuta Sugiura",
+        "own": 3.97,
+        "fpts": 65.0,
+        "top_pct": 70.0
+      },
+      {
+        "name": "Si Woo Kim",
+        "own": 12.19,
+        "fpts": 61.9,
+        "top_pct": 35.0
+      }
+    ],
+    "date": "10-27-2024",
+    "year": "2024",
+    "tournament": "ZOZO CHAMPIONSHIP",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "10-27-2024 ZOZO CHAMPIONSHIP R4 SD.csv"
+  },
+  {
+    "field_size": 2352,
+    "winning_score": 452.7,
+    "cash_line_p80": 328.1,
+    "median_score": 354.35,
+    "top_n": 24,
+    "winners_avg_own": 23.55,
+    "winners_low_own_mean": 2.21,
+    "winners_unique_pct": 91.7,
+    "winners_dup_max": 2,
+    "winner_avg_own": 27.42,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Justin Suh",
+      "Matt Kuchar",
+      "Chesson Hadley",
+      "Erik Van Rooyen",
+      "Camilo Villegas",
+      "Ryan Palmer"
+    ],
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Andrew Putnam",
+        "own": 7.36,
+        "fpts": 87.5,
+        "top_pct": 45.8
+      },
+      {
+        "name": "Ryan Palmer",
+        "own": 8.89,
+        "fpts": 80.0,
+        "top_pct": 62.5
+      },
+      {
+        "name": "Akshay Bhatia",
+        "own": 10.37,
+        "fpts": 73.45,
+        "top_pct": 33.3
+      }
+    ],
+    "date": "11-05-2023",
+    "year": "2023",
+    "tournament": "WWT",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "11-05-2023 WWT R4 SD.csv"
+  },
+  {
+    "field_size": 705,
+    "winning_score": 437.3,
+    "cash_line_p80": 327.34,
+    "median_score": 354.45,
+    "top_n": 20,
+    "winners_avg_own": 27.31,
+    "winners_low_own_mean": 0.95,
+    "winners_unique_pct": 90.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 25.84,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Ben Griffin",
+      "Thorbjorn Olesen",
+      "Sami Valimaki",
+      "Chad Ramey",
+      "Trevor Cone",
+      "Ben Silverman"
+    ],
+    "n_slate_defining": 0,
+    "slate_defining": [],
+    "date": "11-09-2025",
+    "year": "2025",
+    "tournament": "World Wide Technology Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "11-09-2025 World Wide Technology Championship R4 SD.csv"
+  },
+  {
+    "field_size": 882,
+    "winning_score": 417.95,
+    "cash_line_p80": 292.73,
+    "median_score": 324.05,
+    "top_n": 20,
+    "winners_avg_own": 28.29,
+    "winners_low_own_mean": 1.05,
+    "winners_unique_pct": 85.0,
+    "winners_dup_max": 3,
+    "winner_avg_own": 28.99,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Max Greyserman",
+      "Austin Eckroat",
+      "Carson Young",
+      "Justin Lower",
+      "Wesley Bryan",
+      "Kevin Chappell"
+    ],
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "David Lipsky",
+        "own": 18.37,
+        "fpts": 61.75,
+        "top_pct": 35.0
+      }
+    ],
+    "date": "11-10-2024",
+    "year": "2024",
+    "tournament": "World Wide Technology Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "11-10-2024 World Wide Technology Championship R4 SD.csv"
+  },
+  {
+    "field_size": 1176,
+    "winning_score": 348.75,
+    "cash_line_p80": 262.05,
+    "median_score": 287.98,
+    "top_n": 20,
+    "winners_avg_own": 28.44,
+    "winners_low_own_mean": 0.65,
+    "winners_unique_pct": 65.0,
+    "winners_dup_max": 4,
+    "winner_avg_own": 25.65,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Adam Scott",
+      "Alex Noren",
+      "Ryan Palmer",
+      "Camilo Villegas",
+      "Carl Yuan",
+      "Ryan Brehm"
+    ],
+    "n_slate_defining": 0,
+    "slate_defining": [],
+    "date": "11-12-2023",
+    "year": "2023",
+    "tournament": "Bermuda",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "11-12-2023 Bermuda R4 SD.csv"
+  },
+  {
+    "field_size": 669,
+    "winning_score": 253.05,
+    "cash_line_p80": 160.63,
+    "median_score": 179.8,
+    "top_n": 20,
+    "winners_avg_own": 21.55,
+    "winners_low_own_mean": 1.75,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 21.4,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Vince Whaley",
+      "Max McGreevy",
+      "Alex Smalley",
+      "Seamus Power",
+      "Camilo Villegas",
+      "Jonathan Byrd"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Alex Smalley",
+        "own": 19.58,
+        "fpts": 51.6,
+        "top_pct": 80.0
+      },
+      {
+        "name": "Camilo Villegas",
+        "own": 6.13,
+        "fpts": 50.95,
+        "top_pct": 45.0
+      }
+    ],
+    "date": "11-16-2025",
+    "year": "2025",
+    "tournament": "Bermuda Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "11-16-2025 Bermuda Championship R4 SD.csv"
+  },
+  {
+    "field_size": 882,
+    "winning_score": 300.2,
+    "cash_line_p80": 191.22,
+    "median_score": 216.78,
+    "top_n": 20,
+    "winners_avg_own": 25.28,
+    "winners_low_own_mean": 0.9,
+    "winners_unique_pct": 90.0,
+    "winners_dup_max": 2,
+    "winner_avg_own": 21.0,
+    "winner_low_own_count": 1,
+    "winner_lineup": [
+      "Justin Lower",
+      "Greyson Sigg",
+      "Mark Hubbard",
+      "David Lipsky",
+      "Michael Kim",
+      "Rafael Campos"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Mark Hubbard",
+        "own": 19.5,
+        "fpts": 64.15,
+        "top_pct": 75.0
+      },
+      {
+        "name": "Lanto Griffin",
+        "own": 10.09,
+        "fpts": 43.4,
+        "top_pct": 30.0
+      }
+    ],
+    "date": "11-17-2024",
+    "year": "2024",
+    "tournament": "Bermuda Championship",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "11-17-2024 Bermuda Championship R4 SD.csv"
+  },
+  {
+    "field_size": 2352,
+    "winning_score": 424.35,
+    "cash_line_p80": 306.12,
+    "median_score": 337.5,
+    "top_n": 24,
+    "winners_avg_own": 26.09,
+    "winners_low_own_mean": 2.25,
+    "winners_unique_pct": 91.7,
+    "winners_dup_max": 2,
+    "winner_avg_own": 29.5,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Ludvig Aberg",
+      "Denny McCarthy",
+      "Ben Kohles",
+      "Mackenzie Hughes",
+      "Taylor Montgomery",
+      "Tyler Duncan"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Russell Henley",
+        "own": 6.08,
+        "fpts": 76.0,
+        "top_pct": 33.3
+      },
+      {
+        "name": "Taylor Montgomery",
+        "own": 8.33,
+        "fpts": 69.2,
+        "top_pct": 33.3
+      }
+    ],
+    "date": "11-19-2023",
+    "year": "2023",
+    "tournament": "RSM",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "11-19-2023 RSM R4 SD.csv"
+  },
+  {
+    "field_size": 705,
+    "winning_score": 374.1,
+    "cash_line_p80": 273.02,
+    "median_score": 291.2,
+    "top_n": 20,
+    "winners_avg_own": 18.45,
+    "winners_low_own_mean": 1.75,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 21.02,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Si Woo Kim",
+      "Nicolas Echavarria",
+      "Max McGreevy",
+      "Sami Valimaki",
+      "Ricky Castillo",
+      "Antoine Rozner"
+    ],
+    "n_slate_defining": 6,
+    "slate_defining": [
+      {
+        "name": "Ricky Castillo",
+        "own": 5.25,
+        "fpts": 75.95,
+        "top_pct": 30.0
+      },
+      {
+        "name": "Sam Stevens",
+        "own": 5.53,
+        "fpts": 70.7,
+        "top_pct": 35.0
+      },
+      {
+        "name": "Nicolas Echavarria",
+        "own": 18.72,
+        "fpts": 63.65,
+        "top_pct": 60.0
+      },
+      {
+        "name": "Rico Hoey",
+        "own": 14.89,
+        "fpts": 57.2,
+        "top_pct": 35.0
+      },
+      {
+        "name": "Doug Ghim",
+        "own": 11.63,
+        "fpts": 56.0,
+        "top_pct": 30.0
+      },
+      {
+        "name": "Lee Hodges",
+        "own": 13.9,
+        "fpts": 53.45,
+        "top_pct": 30.0
+      }
+    ],
+    "date": "11-23-2025",
+    "year": "2025",
+    "tournament": "RSM Classic",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "11-23-2025 The RSM Classic R4 SD.csv"
+  },
+  {
+    "field_size": 1176,
+    "winning_score": 358.2,
+    "cash_line_p80": 252.6,
+    "median_score": 273.22,
+    "top_n": 20,
+    "winners_avg_own": 20.0,
+    "winners_low_own_mean": 2.5,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "winner_avg_own": 21.4,
+    "winner_low_own_count": 2,
+    "winner_lineup": [
+      "Luke Clanton",
+      "J.T. Poston",
+      "Eric Cole",
+      "Nicolas Echavarria",
+      "Daniel Berger",
+      "Kevin Yu"
+    ],
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "J.T. Poston",
+        "own": 13.27,
+        "fpts": 70.7,
+        "top_pct": 65.0
+      },
+      {
+        "name": "Ludvig Aberg",
+        "own": 8.25,
+        "fpts": 61.5,
+        "top_pct": 35.0
+      }
+    ],
+    "date": "11-24-2024",
+    "year": "2024",
+    "tournament": "RSM Classic",
+    "format": "R4 SD",
+    "slug": "pga_rd4_sd",
+    "source_file": "11-24-2024 The RSM Classic R4 SD.csv"
+  }
+]

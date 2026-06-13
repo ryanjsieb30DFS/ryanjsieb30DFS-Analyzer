@@ -1,0 +1,147 @@
+date,year,tournament,slug,field_size,winning_score,cash_line_p80,median_score,top_n,winners_avg_own,winners_low_own_mean,winners_unique_pct,winners_dup_max,winner_avg_own,winner_low_own_count,n_slate_defining,source_file
+01-05-2025,2025,Sentry,pga_rd4_sd,4705,436.2,322.85,344.05,47,18.46,1.7,95.7,2,9.9,3,3,01-05-2025 The Sentry R4 SD.csv
+01-08-2023,2023,Tournament of Champions,pga_rd4_sd,4117,448.45,311.71,334.6,41,20.69,1.02,75.6,2,19.17,1,2,01-08-2023 Tournament of Champions R4 SD.csv
+01-12-2023,2023,Sony Open,pga_rd4_sd,3529,329.75,241.66,262.6,35,22.13,1.14,94.3,2,21.5,1,4,01-12-2023 Sony Open R4 SD.csv
+01-12-2025,2025,Sony Open,pga_rd4_sd,4705,331.8,243.0,264.1,47,24.78,0.64,61.7,11,30.17,0,0,01-12-2025 Sony Open R4 SD.csv
+01-14-2024,2024,Sony Open,pga_rd4_sd,5882,385.35,253.35,276.5,59,17.55,2.34,96.6,2,15.32,2,3,01-14-2024 Sony Open R4 SD.csv
+01-18-2026,2026,Sony Open,pga_rd4_sd,3294,380.2,243.5,268.58,33,19.26,0.94,87.9,2,23.1,0,5,01-18-2026 Sony Open R4 SD.csv
+01-19-2025,2025,American Express,pga_rd4_sd,4705,343.6,251.05,270.15,47,23.43,1.4,83.0,2,16.02,2,2,01-19-2025 The American Express R4 SD.csv
+01-21-2024,2024,American Express,pga_rd4_sd,4705,412.8,273.75,305.7,47,19.78,1.81,95.7,2,12.08,4,4,01-21-2024 American Express R4 SD.csv
+01-22-2023,2023,American Express,pga_rd4_sd,2941,426.65,295.95,319.8,29,19.17,1.24,100.0,1,23.64,2,2,01-22-2023 The American Express R4 SD.csv
+01-25-2025,2025,Farmers Insurance Open,pga_rd4_sd,11764,254.65,123.7,148.35,100,19.46,1.5,82.0,3,23.01,1,3,01-25-2025 Farmers Insurance Open R4 SD.csv
+01-25-2026,2026,American Express,pga_rd4_sd,3294,377.65,247.83,276.05,33,16.81,2.33,90.9,6,12.0,3,1,01-25-2026 The American Express R4 SD.csv
+01-27-2024,2024,Farmers,pga_rd4_sd,14117,316.15,212.5,234.25,100,19.58,1.01,85.0,4,14.62,3,4,01-27-2024 Farmers R4 SD.csv
+01-28-2023,2023,Farmers Insurance Open,pga_rd4_sd,13061,329.95,162.5,193.1,100,17.52,2.15,81.0,7,17.26,2,2,01-28-2023 Farmer_s Insurance Open R4 SD.csv
+02-01-2026,2026,Farmers Insurance Open,pga_rd4_sd,9411,368.2,248.65,272.5,94,19.8,0.99,84.0,3,17.7,1,6,02-01-2026 Farmers Insurance Open R4 SD.csv
+02-02-2025,2025,AT&T Pebble Beach Pro-Am,pga_rd4_sd,11764,364.6,269.68,292.35,100,29.7,1.11,26.0,48,30.16,1,1,02-02-2025 AT&T Pebble Beach Pro-Am R4 SD.csv
+02-05-2023,2023,AT&T Pebble Beach Pro Am,pga_rd4_sd,11764,398.05,240.0,272.9,100,23.14,1.2,80.0,7,22.86,0,1,02-05-2023 AT&T Pebble Beach Pro Am R4 SD.csv
+02-08-2026,2026,Waste Management Phoenix Open,pga_rd4_sd,9411,359.75,239.05,261.95,94,15.29,2.32,85.1,2,13.49,3,1,02-08-2026 Waste Management Phoenix Open R4 SD.csv
+02-09-2025,2025,Waste Management Phoenix Open,pga_rd4_sd,9411,370.45,249.15,276.05,94,25.26,0.49,39.4,16,23.8,1,3,02-09-2025 Waste Management Phoenix Open R4 SD.csv
+02-11-2024,2024,WMPO,pga_rd4_sd,6802,380.5,235.45,263.52,68,20.09,1.53,80.9,7,18.31,2,2,02-11-2024 WMPO R4 SD.csv
+02-12-2023,2023,Waste Management Phoenix Open,pga_rd4_sd,8823,366.8,240.07,263.7,88,20.82,1.22,72.7,5,24.22,1,1,02-12-2023 Waste Management Phoenix Open R4 SD.csv
+02-15-2026,2026,AT&T Pebble Beach Pro-Am,pga_rd4_sd,14117,391.25,269.2,298.4,100,16.71,2.15,81.0,3,19.87,2,5,02-15-2026 AT&T Pebble Beach Pro-Am R4 SD.csv
+02-16-2025,2025,Genesis Invitational,pga_rd4_sd,16470,382.15,259.2,286.6,100,22.81,1.3,43.0,6,20.05,2,3,02-16-2025 The Genesis Invitational R4 SD.csv
+02-18-2024,2024,Genesis,pga_rd4_sd,17859,359.25,216.9,240.2,100,24.9,0.72,43.0,30,21.04,1,3,02-18-2024 Genesis R4 SD.csv
+02-19-2023,2023,Genesis Invitational,pga_rd4_sd,18823,356.2,229.7,251.7,100,18.9,2.07,73.0,6,17.89,2,3,02-19-2023 The Genesis Invitational R4 SD.csv
+02-22-2026,2026,Genesis Invitational,pga_rd4_sd,11764,378.6,256.5,281.35,100,17.15,1.35,81.0,4,19.95,1,3,02-22-2026 The Genesis Invitational R4 SD.csv
+02-23-2025,2025,Mexico Open,pga_rd4_sd,11764,353.1,233.65,255.85,100,18.53,1.62,89.0,3,19.73,2,2,02-23-2025 Mexico Open R4 SD.csv
+02-25-2024,2024,Mexico Open,pga_rd4_sd,11764,341.75,224.03,245.87,100,17.0,1.66,83.0,9,20.4,1,5,02-25-2024 Mexico Open R4 SD.csv
+02-26-2023,2023,Honda Classic,pga_rd4_sd,11764,319.7,196.7,221.85,100,21.68,1.36,58.0,17,20.08,1,2,02-26-2023 The Honda Classic R4 SD.csv
+03-01-2026,2026,Cognizant Classic,pga_rd4_sd,8235,342.3,245.8,267.9,82,21.34,2.18,73.2,11,17.7,3,3,03-01-2026 Cognizant Classic R4 SD.csv
+03-02-2025,2025,Cognizant Classic,pga_rd4_sd,9411,352.45,209.5,232.25,94,15.9,1.41,92.6,3,15.08,1,4,03-02-2025 Cognizant Classic R4 SD.csv
+03-03-2024,2024,Cognizant,pga_rd4_sd,11764,372.9,246.25,271.4,100,15.22,1.62,92.0,2,14.16,2,3,03-03-2024 Cognizant R4 SD.csv
+03-05-2023,2023,Arnold Palmer Invitational,pga_rd4_sd,14117,304.35,199.85,221.7,100,17.19,1.82,90.0,2,20.46,1,4,03-05-2023 Arnold Palmer Invitational R4 SD.csv
+03-08-2026,2026,Arnold Palmer Invitational,pga_rd4_sd,10720,345.45,218.14,243.8,100,25.39,0.41,44.0,8,23.11,1,2,03-08-2026 Arnold Palmer Invitational R4 SD.csv
+03-09-2025,2025,Arnold Palmer Invitational,pga_rd4_sd,14117,338.2,209.96,234.4,100,16.51,2.78,91.0,3,14.76,4,2,03-09-2025 Arnold Palmer Invitational R4 SD.csv
+03-10-2024,2024,API,pga_rd4_sd,14117,297.3,171.5,197.45,100,18.25,2.13,82.0,4,17.66,2,3,03-10-2024 API R4 SD.csv
+03-12-2023,2023,PLAYERS Championship,pga_rd4_sd,17424,343.9,218.0,236.8,100,16.62,1.78,93.0,3,10.56,2,3,03-12-2023 The PLAYERS Championship R4 SD.csv
+03-15-2026,2026,THE PLAYERS Championship,pga_rd4_sd,11764,295.3,186.25,210.62,100,16.22,1.67,91.0,3,17.84,1,5,03-15-2026 THE PLAYERS Championship R4 SD.csv
+03-17-2024,2024,Players,pga_rd4_sd,14117,372.4,230.8,259.8,100,17.36,1.63,82.0,4,21.64,1,3,03-17-2024 Players R4 SD.csv
+03-17-2025,2025,THE PLAYERS Championship,pga_rd4_sd,14117,316.9,190.3,214.5,100,16.57,2.45,90.0,4,16.17,2,2,03-17-2025 THE PLAYERS Championship R4 SD.csv
+03-19-2023,2023,Valspar,pga_rd4_sd,8823,272.65,178.0,198.9,88,20.78,1.28,69.3,9,13.53,2,2,03-19-2023 Valspar R4 SD.csv
+03-22-2026,2026,Valspar Championship,pga_rd4_sd,7058,324.7,210.0,229.2,71,19.77,2.2,100.0,1,17.36,3,3,03-22-2026 Valspar Championship R4 SD.csv
+03-23-2025,2025,Valspar Championship,pga_rd4_sd,8823,350.95,219.22,243.3,88,21.35,1.26,83.0,3,22.22,1,5,03-23-2025 Valspar Championship R4 SD.csv
+03-24-2024,2024,Valspar,pga_rd4_sd,7058,316.8,179.25,208.15,71,16.51,2.18,91.5,2,16.45,1,3,03-24-2024 Valspar R4 SD.csv
+03-29-2026,2026,Houston Open,pga_rd4_sd,7058,358.15,234.55,256.5,71,21.72,1.86,69.0,4,16.36,3,3,03-29-2026 Houston Open R4 SD.csv
+03-30-2025,2025,Houston Open,pga_rd4_sd,8823,380.45,233.0,260.4,88,15.74,2.27,95.5,2,14.22,2,4,03-30-2025 Houston Open R4 SD.csv
+03-31-2024,2024,Houston Open,pga_rd4_sd,9411,323.35,239.0,258.4,94,15.82,1.94,74.5,10,15.17,2,3,03-31-2024 Houston Open R4 SD.csv
+04-02-2023,2023,Valero,pga_rd4_sd,5882,368.05,231.95,258.15,59,22.7,1.2,71.2,11,21.04,2,1,04-02-2023 Valero R4 SD.csv
+04-05-2026,2026,Valero Texas Open,pga_rd4_sd,5882,331.85,211.85,238.48,59,24.44,0.66,44.1,7,19.31,2,2,04-05-2026 Valero Texas Open R4 SD.csv
+04-06-2025,2025,Valero Texas Open,pga_rd4_sd,9411,245.55,145.0,163.2,94,16.89,2.72,97.9,2,16.25,4,3,04-06-2025 Valero Texas Open R4 SD.csv
+04-07-2024,2024,Valero Texas Open,pga_rd4_sd,9411,367.05,241.1,270.7,94,25.48,0.69,45.7,17,23.83,0,2,04-07-2024 Valero Texas Open R4 SD.csv
+04-08-2023,2023,Masters,pga_rd4_sd,28235,332.5,183.35,208.95,100,20.05,1.45,69.0,7,22.22,1,3,04-08-2023 Masters R4 SD.csv
+04-12-2026,2026,Masters,pga_rd4_sd,34515,339.7,188.45,215.9,100,15.48,2.81,89.0,5,12.98,4,2,04-12-2026 The Masters R4 SD.csv
+04-13-2025,2025,Masters,pga_rd4_sd,37647,326.75,180.55,210.6,100,20.22,0.86,53.0,13,17.36,2,3,04-13-2025 The Masters R4 SD.csv
+04-14-2024,2024,Masters,pga_rd4_sd,36960,311.65,195.4,216.85,100,17.15,2.71,89.0,3,14.36,3,4,04-14-2024 The Masters R4 SD.csv
+04-19-2026,2026,RBC Heritage,pga_rd4_sd,9411,328.45,195.15,218.55,94,11.78,3.41,95.7,2,10.36,4,1,04-19-2026 RBC Heritage R4 SD.csv
+04-20-2025,2025,RBC Heritage,pga_rd4_sd,11764,333.95,222.25,242.7,100,19.5,2.09,79.0,11,21.59,2,2,04-20-2025 RBC Heritage R4 SD.csv
+04-22-2024,2024,RBC Heritage,pga_rd4_sd,14117,337.75,208.85,230.8,100,13.09,3.02,96.0,2,9.0,3,4,04-22-2024 RBC Heritage R4 SD.csv
+04-23-2023,2023,Zurich,pga_rd4_sd,4705,369.75,238.3,266.45,47,15.53,1.89,91.5,2,16.1,2,2,04-23-2023 Zurich R4 SD.csv
+04-26-2026,2026,Zurich Classic of New Orleans,pga_rd4_sd,3294,366.8,279.18,296.7,33,17.44,2.7,100.0,1,16.59,4,4,04-26-2026 Zurich Classic of New Orleans R4 SD.csv
+04-27-2025,2025,Zurich Classic of New Orleans,pga_rd4_sd,4705,337.45,227.55,250.6,47,12.4,3.34,100.0,1,5.63,6,3,04-27-2025 Zurich Classic of New Orleans R4 SD.csv
+04-28-2024,2024,Zurich Classic of New Orleans,pga_rd4_sd,5882,370.15,226.56,246.38,59,15.35,2.75,98.3,2,12.43,4,4,04-28-2024 Zurich Classic of New Orleans R4 SD.csv
+04-30-2023,2023,Mexico Open,pga_rd4_sd,8823,375.95,259.8,282.85,88,18.61,2.4,85.2,3,20.34,2,4,04-30-2023 Mexico Open R4 SD.csv
+05-03-2026,2026,Cadillac Championship,pga_rd4_sd,5882,386.1,266.52,285.85,59,15.95,2.17,93.2,2,9.3,5,3,05-03-2026 Cadillac Championship R4 SD.csv
+05-04-2025,2025,CJ Cup Byron Nelson,pga_rd4_sd,7058,408.7,278.6,312.08,71,20.16,1.39,76.1,3,20.55,1,2,05-04-2025 The CJ Cup Byron Nelson R4 SD.csv
+05-05-2024,2024,CJ Cup Byron Nelson,pga_rd4_sd,7058,393.25,283.62,306.2,71,16.31,1.65,91.5,2,14.45,2,3,05-05-2024 The CJ Cup Byron Nelson R4 SD.csv
+05-07-2023,2023,Wells Fargo,pga_rd4_sd,9411,292.05,200.65,223.45,94,28.31,0.8,34.0,42,20.96,3,2,05-07-2023 Wells Fargo R4 SD.csv
+05-10-2026,2026,Truist Championship,pga_rd4_sd,4705,339.9,205.59,230.25,47,16.94,1.85,100.0,1,17.5,2,3,05-10-2026 Truist Championship R4 SD.csv
+05-11-2025,2025,Truist Championship,pga_rd4_sd,5882,336.55,212.76,236.68,59,19.51,1.53,86.4,2,17.77,1,4,05-11-2025 Truist Championship R4 SD.csv
+05-12-2024,2024,Wells Fargo Championship,pga_rd4_sd,9401,320.5,184.85,213.7,94,22.93,0.88,35.1,90,18.85,2,4,05-12-2024 Wells Fargo Championship R4 SD.csv
+05-14-2023,2023,Byron Nelson,pga_rd4_sd,8823,448.75,317.95,345.75,88,18.64,1.65,87.5,5,16.18,2,2,05-14-2023 Byron Nelson R4 SD.csv
+05-17-2026,2026,PGA Championship,pga_rd4_sd,14117,321.1,180.6,201.1,100,13.64,2.59,96.0,2,13.71,3,3,05-17-2026 PGA Championship R4 SD.csv
+05-18-2025,2025,PGA Championship,pga_rd4_sd,18333,293.95,173.1,194.05,100,15.39,3.59,94.0,2,16.13,4,3,05-18-2025 PGA Championship R4 SD.csv
+05-19-2024,2024,PGA Championship,pga_rd4_sd,18823,367.45,248.15,273.55,100,16.82,1.98,88.0,2,15.89,2,2,05-19-2024 PGA Championship R4 SD.csv
+05-21-2023,2023,PGA Championship,pga_rd4_sd,18823,329.3,206.75,231.85,100,21.11,2.04,75.0,4,21.74,2,4,05-21-2023 PGA Championship R4 SD.csv
+05-24-2026,2026,CJ Cup Byron Nelson,pga_rd4_sd,4705,409.8,278.45,307.35,47,18.83,1.85,80.9,5,15.94,3,1,05-24-2026 The CJ Cup Byron Nelson R4 SD.csv
+05-25-2025,2025,Charles Schwab Challenge,pga_rd4_sd,9411,139.65,40.5,49.95,94,10.89,3.73,97.9,2,9.43,4,1,05-25-2025 Charles Schwab Challenge R4 SD.csv
+05-26-2024,2024,Charles Schwab Challenge,pga_rd4_sd,12976,269.6,144.65,168.65,100,19.63,2.01,85.0,5,10.58,3,4,05-26-2024 Charles Schwab Challenge R4 SD.csv
+05-26-2025,2025,Charles Schwab Challenge,pga_rd4_sd,9411,278.95,171.9,190.95,94,15.46,2.09,97.9,2,15.44,3,5,05-26-2025 Charles Schwab Challenge R4 SD.csv
+05-28-2023,2023,Charles Schwab,pga_rd4_sd,13668,297.8,142.55,165.9,100,14.3,2.93,92.0,2,14.61,3,3,05-28-2023 Charles Schwab R4 SD.csv
+05-31-2026,2026,Charles Schwab Challenge,pga_rd4_sd,7058,311.65,187.5,213.12,71,17.95,1.34,84.5,3,18.38,1,3,05-31-2026 Charles Schwab Challenge R4 SD.csv
+06-01-2025,2025,Memorial,pga_rd4_sd,11764,294.85,188.05,207.85,100,18.91,2.03,81.0,4,21.36,1,4,06-01-2025 The Memorial R4 SD.csv
+06-02-2024,2024,RBC Canadian Open,pga_rd4_sd,9411,374.65,227.15,258.05,94,20.57,0.83,62.8,9,21.45,1,3,06-02-2024 RBC Canadian Open R4 SD.csv
+06-04-2023,2023,Memorial,pga_rd4_sd,14117,267.95,124.5,153.2,100,15.38,1.6,84.0,5,12.48,2,5,06-04-2023 The Memorial R4 SD.csv
+06-07-2026,2026,Memorial,pga_rd4_sd,7058,371.15,240.25,266.05,71,19.9,1.11,76.1,3,17.68,2,1,06-07-2026 The Memorial R4 SD.csv
+06-08-2025,2025,RBC Canadian Open,pga_rd4_sd,9411,367.35,248.9,272.8,94,21.2,1.17,72.3,6,21.27,1,1,06-08-2025 RBC Canadian Open R4 SD.csv
+06-09-2024,2024,Memorial,pga_rd4_sd,14117,248.8,135.2,155.85,100,18.18,1.71,82.0,5,18.3,2,3,06-09-2024 The Memorial R4 SD.csv
+06-11-2023,2023,Canadian Open,pga_rd4_sd,9411,382.4,240.15,266.85,94,17.9,2.0,87.2,2,15.18,3,2,06-11-2023 Canadian Open R4 SD.csv
+06-15-2025,2025,US Open,pga_rd4_sd,18823,230.05,128.67,146.65,100,15.32,1.96,96.0,2,15.81,2,3,06-15-2025 US Open R4 SD.csv
+06-16-2024,2024,US Open,pga_rd4_sd,18823,263.25,159.4,180.5,100,15.19,1.78,84.0,4,12.5,3,3,06-16-2024 US Open R4 SD.csv
+06-18-2023,2023,US Open,pga_rd4_sd,28235,296.75,165.05,185.25,100,14.94,2.44,93.0,3,17.34,3,3,06-18-2023 US Open R4 SD.csv
+06-22-2025,2025,Travelers Championship,pga_rd4_sd,9411,321.85,200.3,228.05,94,16.26,1.97,83.0,6,7.05,4,3,06-22-2025 Travelers Championship R4 SD.csv
+06-23-2024,2024,Travelers Championship,pga_rd4_sd,9411,390.2,267.95,292.5,94,16.87,1.91,88.3,3,16.03,2,2,06-23-2024 Travelers Championship R4 SD.csv
+06-25-2023,2023,Travelers Championship,pga_rd4_sd,11764,384.7,261.05,282.5,100,16.44,2.58,100.0,1,15.24,3,2,06-25-2023 Travelers Championship R4 SD.csv
+06-29-2025,2025,Rocket Classic,pga_rd4_sd,7058,363.3,263.95,286.65,71,19.56,1.59,73.2,6,18.63,2,1,06-29-2025 Rocket Classic R4 SD.csv
+06-30-2024,2024,Rocket Mortgage Classic,pga_rd4_sd,9411,301.05,197.6,217.55,94,17.94,1.95,93.6,2,18.78,2,3,06-30-2024 Rocket Mortgage Classic R4 SD.csv
+07-02-2023,2023,Rocket Mortgage,pga_rd4_sd,11764,395.0,258.73,284.62,100,21.2,1.63,74.0,6,20.27,1,3,07-02-2023 Rocket Mortgage R4 SD.csv
+07-06-2025,2025,John Deere Classic,pga_rd4_sd,7058,391.65,263.42,289.8,71,15.59,1.07,97.2,2,12.46,1,5,07-06-2025 John Deere Classic R4 SD.csv
+07-07-2024,2024,John Deere Classic,pga_rd4_sd,9411,446.05,290.5,325.15,94,21.53,0.76,69.1,6,18.55,0,4,07-07-2024 John Deere Classic R4 SD.csv
+07-09-2023,2023,John Deere,pga_rd4_sd,11764,384.85,247.8,272.15,100,17.79,1.11,76.0,3,16.94,2,2,07-09-2023 John Deere R4 SD.csv
+07-13-2025,2025,Scottish Open,pga_rd4_sd,9411,332.7,211.85,236.35,94,19.68,1.51,78.7,4,17.1,2,2,07-13-2025 Scottish Open R4 SD.csv
+07-14-2024,2024,Scottish Open,pga_rd4_sd,9411,369.9,215.4,241.3,94,15.25,3.41,92.6,2,10.13,5,2,07-14-2024 Scottish Open R4 SD.csv
+07-16-2023,2023,Barbasol,pga_rd4_sd,313,388.45,288.18,316.95,20,25.0,0.7,100.0,1,31.73,0,3,07-16-2023 Barbasol R4 SD.csv
+07-16-2023,2023,Scottish Open,pga_rd4_sd,14117,284.15,151.2,176.0,100,15.15,2.61,94.0,4,12.83,3,2,07-16-2023 Scottish Open R4 SD.csv
+07-20-2025,2025,British Open,pga_rd4_sd,18823,352.5,237.75,262.7,100,15.65,1.09,66.0,4,14.51,1,3,07-20-2025 British Open R4 SD.csv
+07-21-2024,2024,British Open,pga_rd4_sd,18823,334.65,174.95,206.75,100,25.24,0.47,26.0,36,24.25,1,1,07-21-2024 British Open R4 SD.csv
+07-23-2023,2023,Barracuda,pga_rd4_sd,235,324.7,246.34,263.6,20,19.32,2.75,100.0,1,5.82,5,3,07-23-2023 Barracuda R4 SD.csv
+07-23-2023,2023,British Open,pga_rd4_sd,23529,296.65,179.2,202.9,100,21.24,1.35,52.0,6,21.67,1,3,07-23-2023 British Open R4 SD.csv
+07-27-2025,2025,3M Open,pga_rd4_sd,9411,385.7,243.8,270.15,94,17.95,1.73,80.9,2,18.88,1,2,07-27-2025 3M Open R4 SD.csv
+07-28-2024,2024,3M Open,pga_rd4_sd,9411,360.9,219.85,242.45,94,16.85,1.45,91.5,4,15.55,2,3,07-28-2024 3M Open R4 SD.csv
+07-30-2023,2023,3M Open,pga_rd4_sd,14117,385.0,265.15,287.9,100,20.54,1.21,79.0,6,17.66,1,2,07-30-2023 3M Open R4 SD.csv
+08-03-2025,2025,Wyndham Championship,pga_rd4_sd,9411,356.65,221.85,251.15,94,19.63,2.18,86.2,3,21.41,2,6,08-03-2025 Wyndham Championship R4 SD.csv
+08-04-2024,2024,Olympic Men_s Golf Competition,pga_rd4_sd,7058,396.15,247.67,277.4,71,18.94,0.85,71.8,6,17.33,1,3,08-04-2024 Olympic Men_s Golf Competition R4 SD.csv
+08-06-2023,2023,Wyndham Championship,pga_rd4_sd,14117,316.2,211.4,229.45,100,16.88,2.9,91.0,5,15.85,3,4,08-06-2023 Wyndham Championship R4 SD.csv
+08-10-2025,2025,FedEx St. Jude Championship,pga_rd4_sd,10965,328.55,223.45,246.45,100,22.07,1.28,78.0,5,16.64,3,1,08-10-2025 FedEx St. Jude Championship R4 SD.csv
+08-11-2024,2024,Wyndham Championship,pga_rd4_sd,2823,343.75,208.35,235.35,28,20.59,1.86,75.0,5,15.28,4,2,08-11-2024 Wyndham Championship R4 SD.csv
+08-13-2023,2023,Fed Ex St Jude,pga_rd4_sd,14117,340.55,228.1,248.95,100,15.29,1.81,92.0,2,11.63,3,5,08-13-2023 Fed Ex St Jude R4 SD.csv
+08-17-2025,2025,BMW Championship,pga_rd4_sd,9411,286.9,181.6,205.6,94,17.64,1.56,86.2,5,17.7,2,3,08-17-2025 BMW Championship R4 SD.csv
+08-18-2024,2024,FedEx St. Jude Championship,pga_rd4_sd,9411,347.6,240.4,262.3,94,16.57,1.86,80.9,4,6.81,5,4,08-18-2024 FedEx St. Jude Championship R4 SD.csv
+08-20-2023,2023,BMW,pga_rd4_sd,14117,362.3,233.86,257.7,100,20.69,1.63,79.0,5,22.47,2,2,08-20-2023 BMW R4 SD.csv
+08-24-2025,2025,Tour Championship,pga_rd4_sd,11764,348.7,257.95,274.15,100,22.19,0.51,66.0,4,24.01,0,4,08-24-2025 Tour Championship R4 SD.csv
+08-25-2024,2024,BMW Championship,pga_rd4_sd,11764,317.55,204.5,223.5,100,18.26,1.53,91.0,3,17.69,2,3,08-25-2024 BMW Championship R4 SD.csv
+08-27-2023,2023,Tour Championship,pga_rd4_sd,14117,374.4,255.35,286.3,100,34.73,0.15,13.0,43,31.41,1,0,08-27-2023 Tour Championship R4 SD.csv
+09-01-2024,2024,Tour Championship,pga_rd4_sd,11764,408.7,303.95,330.55,100,31.79,0.03,15.0,31,32.71,0,1,09-01-2024 Tour Championship R4 SD.csv
+09-15-2024,2024,Procore Championship,pga_rd4_sd,2026,282.1,200.4,221.65,20,22.81,2.45,100.0,1,21.7,3,2,09-15-2024 Procore Championship R4 SD.csv
+09-17-2023,2023,Fortinet,pga_rd4_sd,2352,336.15,219.85,239.55,24,19.39,2.88,100.0,1,13.58,4,1,09-17-2023 Fortinet R4 SD.csv
+09-24-2023,2023,Open De France,pga_rd4_sd,627,294.9,187.75,212.7,20,18.34,1.05,100.0,1,18.02,1,3,09-24-2023 Open De France R4 SD.csv
+10-05-2025,2025,Baycurrent Classic,pga_rd4_sd,774,368.1,264.81,292.25,20,30.12,0.25,70.0,6,30.64,0,1,10-05-2025 Baycurrent Classic R4 SD.csv
+10-05-2025,2025,Sanderson Farms Championship,pga_rd4_sd,774,368.1,264.81,292.25,20,30.12,0.25,70.0,6,30.64,0,1,10-05-2025 Sanderson Farms Championship R4 SD.csv
+10-06-2024,2024,Sanderson Farms Championship,pga_rd4_sd,1508,374.8,280.45,304.5,20,20.64,1.95,90.0,2,27.85,1,3,10-06-2024 Sanderson Farms Championship R4 SD.csv
+10-08-2023,2023,Sanderson Farms,pga_rd4_sd,2352,342.75,225.5,247.1,24,17.09,2.17,100.0,1,10.88,3,3,10-08-2023 Sanderson Farms R4 SD.csv
+10-11-2025,2025,Baycurrent Classic,pga_rd4_sd,1155,424.3,289.91,313.85,20,20.07,1.55,95.0,2,17.14,3,2,10-11-2025 Baycurrent Classic R4 SD.csv
+10-13-2024,2024,Black Desert Championship,pga_rd4_sd,1176,374.8,230.15,255.3,20,15.99,3.65,100.0,1,12.09,4,3,10-13-2024 Black Desert Championship R4 SD.csv
+10-15-2023,2023,Shriners,pga_rd4_sd,2352,385.95,288.97,310.38,24,15.54,2.04,91.7,2,10.52,3,3,10-15-2023 Shriners R4 SD.csv
+10-20-2024,2024,Shriners Hospitals for Children Open,pga_rd4_sd,177,354.5,266.88,285.3,20,30.62,0.6,80.0,4,26.46,1,2,10-20-2024 Shriners Hospitals for Children Open R4 SD.csv
+10-22-2023,2023,ZOZO,pga_rd4_sd,2745,323.2,195.89,223.9,27,24.15,0.93,77.8,3,23.96,1,2,10-22-2023 ZOZO R4 SD.csv
+10-26-2025,2025,Bank of Utah Championship,pga_rd4_sd,705,340.25,249.49,274.15,20,20.81,1.75,100.0,1,16.0,2,4,10-26-2025 Bank of Utah Championship R4 SD.csv
+10-27-2024,2024,ZOZO CHAMPIONSHIP,pga_rd4_sd,1764,370.1,263.11,292.83,20,28.02,1.4,70.0,6,34.63,1,2,10-27-2024 ZOZO CHAMPIONSHIP R4 SD.csv
+11-05-2023,2023,WWT,pga_rd4_sd,2352,452.7,328.1,354.35,24,23.55,2.21,91.7,2,27.42,2,3,11-05-2023 WWT R4 SD.csv
+11-09-2025,2025,World Wide Technology Championship,pga_rd4_sd,705,437.3,327.34,354.45,20,27.31,0.95,90.0,2,25.84,1,0,11-09-2025 World Wide Technology Championship R4 SD.csv
+11-10-2024,2024,World Wide Technology Championship,pga_rd4_sd,882,417.95,292.73,324.05,20,28.29,1.05,85.0,3,28.99,1,1,11-10-2024 World Wide Technology Championship R4 SD.csv
+11-12-2023,2023,Bermuda,pga_rd4_sd,1176,348.75,262.05,287.98,20,28.44,0.65,65.0,4,25.65,1,0,11-12-2023 Bermuda R4 SD.csv
+11-16-2025,2025,Bermuda Championship,pga_rd4_sd,669,253.05,160.63,179.8,20,21.55,1.75,100.0,1,21.4,2,2,11-16-2025 Bermuda Championship R4 SD.csv
+11-17-2024,2024,Bermuda Championship,pga_rd4_sd,882,300.2,191.22,216.78,20,25.28,0.9,90.0,2,21.0,1,2,11-17-2024 Bermuda Championship R4 SD.csv
+11-19-2023,2023,RSM,pga_rd4_sd,2352,424.35,306.12,337.5,24,26.09,2.25,91.7,2,29.5,2,2,11-19-2023 RSM R4 SD.csv
+11-23-2025,2025,RSM Classic,pga_rd4_sd,705,374.1,273.02,291.2,20,18.45,1.75,100.0,1,21.02,2,6,11-23-2025 The RSM Classic R4 SD.csv
+11-24-2024,2024,RSM Classic,pga_rd4_sd,1176,358.2,252.6,273.22,20,20.0,2.5,100.0,1,21.4,2,2,11-24-2024 The RSM Classic R4 SD.csv

@@ -258,3 +258,64 @@ lessons:
     contradictions: []
     codified_in: null
     retired_reason: null
+
+  - id: pga-classic-2026-06-13-winning-structure-13own-2to3-darts
+    born: "2026-06-13"
+    origin: "bulk mining — 168 Classic DK contest-standings slates 2023-2026 (rules/pga_classic/mining_2023_2026.md)"
+    statement: >
+      The Classic winning lineup structure is ~13% average ownership with 2-3
+      sub-10%-owned golfers and is 91% unique. Mechanism: the 2-day-plus-cut format
+      carries enough variance that an all-chalk lineup cannot separate from the
+      field; multiple leverage plays are structurally required to win, and sharing
+      the field's obvious core (duplication) caps upside. Large-sample confirmation
+      of the framework's leverage-spine / ownership-tier targets (the existing
+      "12.25 own / 2.24 sub-10%" SE reference holds across 168 slates).
+    status: validated
+    confirmations:
+      - date: "2026-06-13"
+        slate: "168-slate mining 2023-2026"
+        note: >
+          Median winners avg-own 12.9% (stable 12.8-13.2% every year); median 2.5
+          sub-10% golfers; 91% of rank-1 winners ran >=1 sub-10% and 78% ran >=2;
+          winners 91% unique.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-06-13-leverage-play-mandatory
+    born: "2026-06-13"
+    origin: "bulk mining — 168 Classic slates 2023-2026 (mining_2023_2026.md)"
+    statement: >
+      Every Classic slate has a 'slate-defining' low-owned play: 96% of slates
+      (161/168) featured >=1 golfer rostered in >=30% of winning lineups while
+      drawing <20% field ownership (median ~12% own, ~108 FPTS, median 4 per slate).
+      Mechanism: GPP golf winners are defined by the sub-radar golfer who smashes;
+      the build job is to identify and roster the leverage tier, not avoid it. An
+      all-chalk lineup is a structural non-starter.
+    status: validated
+    confirmations:
+      - date: "2026-06-13"
+        slate: "168-slate mining 2023-2026"
+        note: "161/168 slates (96%) had >=1 <20%-own play in >=30% of winners; median 4 per slate."
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-06-13-dose-darts-to-course-variance
+    born: "2026-06-13"
+    origin: "bulk mining — 168 Classic slates 2023-2026 (mining_2023_2026.md)"
+    statement: >
+      Calibrate the NUMBER of sub-10% leverage plays to course variance: birdie-fests
+      (high winning scores) reward ~2 darts, tough courses ~3. Mechanism: when the
+      field's chalk also scores (low scoring/cut variance), over-leveraging forfeits
+      points the chalk banks; on tough courses, differentiation via low-owned plays
+      matters more. Average ownership stays ~13% across archetypes — the dart COUNT
+      shifts, not the overall own target.
+    status: hypothesis
+    confirmations:
+      - date: "2026-06-13"
+        slate: "168-slate mining 2023-2026 (archetype split)"
+        note: "Tough (n=57) rank-1 sub-10% median 3 / winners <10% mean 2.59; birdie-fest (n=56) median 2 / 2.16."
+    contradictions: []
+    codified_in: null
+    retired_reason: null
