@@ -28,6 +28,19 @@
   is a **risk note, not a fade trigger** — leash-based fades went 1-1 (Teng busted 6/9,
   Phillips smashed 6/11). *(Codified 2026-06-12; enabler-keep 3-for-3: May, Detmers, the
   Phillips fade cost. Ledger: mlb-classic-2026-06-10-salary-enabler-pitcher-chalk.)*
+- **SE chalk-pitcher ownership condensation:** in small-field SE, the consensus chalk
+  pitcher closes far ABOVE vendor projection — a casual field converges on one arm
+  because pitcher is the slate's highest-variance single decision and SE fields don't
+  diversify it. **The condensation target is the projected-own #1 arm, NOT the
+  cheapest viable chalk arm** — price is not the convergence driver, consensus rank is
+  (Detmers, Scott, Misiorowski were each the projected #1; the one slate that bet
+  affordability instead, 6/12, built its fade on the wrong arm). When sizing any P1
+  fade, assume the projected-own #1 closes far above projection: a "25% fade" can be a
+  ~55% fade — more leveraged AND more binary than projected. Default is to **keep the
+  condensing arm and take the pivot in the bats**, not to fade the arm. *(Codified
+  2026-06-13; 3 mechanism confirmations: 6/10, 6/11, 6/12. Ledger:
+  mlb-classic-2026-06-11-se-chalk-pitcher-own-condensation, with the projected-leader
+  direction from mlb-classic-2026-06-13-condensation-target-projected-leader.)*
 - **Coors games:** read `parks/coors_field.md` — the repeatable equity is the **cheap
   unowned-side one-off**, never the consensus stack or the owned name (3-for-3: Castro 6/9,
   Carrigg 6/10 + 6/11; owned pieces failed to pay all three slates).

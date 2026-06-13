@@ -127,6 +127,19 @@ lessons:
           mid-pack (28.8%) on the SAME slate. Band refinement: winning sub-10%
           density was 3.3-3.6 here vs 4-5 on prior slates — "one pivot,
           roughly 3-5 sub-10% plays" is the working range.
+    # 2026-06-13 WATCH NOTE (no evidence/status change — GPP guard, one slate):
+    # the density band drifted HIGH this slate. Contest-1 (980, in-scope)
+    # top-20 winners ran 6.2 sub-10 plays at 14.2% avg own (avg-own half still
+    # in band; density above the 3-5 range); contest-2 (1,783, ABOVE the
+    # ~1,000-1,200 scope) ran 7.6 sub-10 at 10.3% avg own. The user's two
+    # near-band builds (5 and 7 sub-10) both finished mid-pack (34-37th pct)
+    # while more-spread builds won. Likely driver: a chalk ace (Misiorowski)
+    # both condensed AND smashed, so the pitcher slot stopped differentiating
+    # and winning shifted to wide bat-spread (see new hypothesis
+    # mlb-classic-2026-06-13-chalk-ace-smash-compresses-pitcher-leverage).
+    # Not logged as a contradiction: larger fields, single slate, and the
+    # avg-own half held in-scope. Watch whether the density band is
+    # field-size- and chalk-ace-dependent rather than fixed at 3-5.
     contradictions: []
     codified_in: "framework.md — Construction (user-approved 2026-06-12)"
     retired_reason: null
@@ -270,7 +283,7 @@ lessons:
       fade (more leveraged AND more binary than projected). Check the prior
       worst_own_miss rows in vendor_calibration.jsonl before sizing a pitcher
       strike.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-12"
         slate: "rules/mlb_classic/history/2026-06-12__mlb-classic-6-11-26"
@@ -285,8 +298,32 @@ lessons:
           condensation concentrated ONLY on the consensus #1 — the cheap #2
           chalk arm (Phillips 21.9% proj) actually closed LOWER (14.6-17.6%).
           SE fields converge on one arm, not on the chalk class.
+      - date: "2026-06-13"
+        slate: "rules/mlb_classic/history/2026-06-13__mlb-classic-6-12-26"
+        evidence: >
+          THIRD mechanism confirmation (origin 6/10 Detmers + 6/11 Scott +
+          this slate) — meets the 3-confirming-slate promotion bar; codify
+          proposal written. Jacob Misiorowski projected 25.2% and CLOSED
+          55.6% / 53.1% across the two SE contests (980 + 1,783 entries) — the
+          consensus P1 condensed again, +30pts over projection, identical
+          magnitude to Detmers (+30.8) and Scott. He then SMASHED (58.65 FPTS
+          vs 24.0 proj, the slate-defining play), so the condensed arm was the
+          right side to hold. CRITICAL DIRECTION CORRECTION: this build bet
+          condensation would land on the AFFORDABLE arm (Yesavage $8.5K, the
+          analysis's unvalidated "affordability" corollary) and built L2 to
+          fade Yesavage; it landed instead on the PROJECTED-OWN #1 (Misiorowski
+          $12K, 25.2 vs Yesavage 23.6) — exactly as the prior two slates
+          (Detmers, Scott were both the projected #1) and exactly as the red
+          team warned pre-lock. The lesson's core mechanism (consensus #1
+          condenses) is now 3-for-3; the affordability twist is refuted (see
+          new hypothesis mlb-classic-2026-06-13-condensation-target-projected-leader).
     contradictions: []
-    codified_in: null
+    codified_in: >
+      framework.md — Construction (user-approved 2026-06-13): SE chalk-pitcher
+      ownership condensation codified at 3 mechanism confirmations (6/10 Detmers
+      38->69, 6/11 Scott 44->56-63, 6/12 Misiorowski 25->55), incorporating the
+      projected-own-#1 direction folded in from
+      mlb-classic-2026-06-13-condensation-target-projected-leader.
     retired_reason: null
 
   - id: mlb-classic-2026-06-11-weather-proof-dome-stack-pivot
@@ -357,8 +394,23 @@ lessons:
       rankings against the projection pool pre-lock and flag any priced
       player the CSV lacks. Caught pre-lock on 6/11 (the analysis noted the
       omission via the Stone), so observed at birth — needs confirmation.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-06-13"
+        slate: "rules/mlb_classic/history/2026-06-13__mlb-classic-6-12-26"
+        evidence: >
+          Mechanism confirmed AND the omitted player was a real winning piece.
+          The SIN pool (257 players) omitted three Stone-projected ATH starters
+          — Colby Thomas (17.2% Stone own), Jacob Wilson (14.1%), Alika
+          Williams (10.4%) — so the snapshot/leverage table was structurally
+          blind to all three. The cross-check ran pre-lock and Wilson was
+          rostered in L2 from Stone data ($3.3K). In the field, Jacob Wilson
+          appeared in the rank-2 winning lineups in BOTH contests (VAphin
+          203.15; CrippleWins 213.15) — an invisible-to-the-snapshot cheap bat
+          that the field's optimizer crowd also couldn't see, exactly the
+          mechanism. Second confirming slate (origin 6/11 + this), and the
+          cross-check is now a load-bearing pre-lock step — promoted to
+          validated.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -378,6 +430,84 @@ lessons:
       mediocrity and the extra roster spots beat the extra correlation.
       Stacking remains the core lever (every winner carried a 3+ stack) —
       this is about the 5-man PREMIUM, not stacking itself.
+    status: validated
+    confirmations:
+      - date: "2026-06-13"
+        slate: "rules/mlb_classic/history/2026-06-13__mlb-classic-6-12-26"
+        evidence: >
+          Mechanism confirmed: no single offense blew up (top overperforming
+          bats were scattered across teams — Yordan/HOU 39, Bichette/TOR 36,
+          Rafaela/BOS 37, Abreu/BOS 32 — not one stack going off), and the
+          winning shapes diversified hard. The rank-1 lineup in BOTH contests
+          (4LeftsMakeItRight, 220.3) was a fully-spread 1-1-1-1-1-1-1-1 no-stack
+          build at 9.2% avg own; the 1,783-field top-20 averaged 7.6 sub-10
+          plays with 2-1-1-1-1-1-1 / 3-1-1-1-1-1 the dominant shapes and only a
+          handful of 5-man primaries. The user's L1 stacked MIL-4 expecting a
+          blowup that didn't arrive (MIL bats quiet) and finished mid-pack
+          (37th pct). Stacking still won as a lever (BOS 2-stack Rafaela+Abreu
+          paid), but the 5-man PREMIUM again underperformed spread when no team
+          erupted — second confirming slate (origin 6/11 + this), promoted to
+          validated.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # --- Born from 2026-06-13 post-autopsy (slate: MLB Classic 6.12.26) ---
+
+  - id: mlb-classic-2026-06-13-condensation-target-projected-leader
+    born: "2026-06-13"
+    origin: "rules/mlb_classic/history/2026-06-13__mlb-classic-6-12-26"
+    statement: >
+      SE chalk-pitcher condensation lands on the PROJECTED-OWNERSHIP #1 arm,
+      NOT on the cheapest/most "affordable" viable chalk arm. Refines (and
+      corrects a corollary used against) se-chalk-pitcher-own-condensation. On
+      6/12 the build hypothesized condensation would concentrate on Yesavage
+      ($8.5K, the affordable arm) because he fits next to chalk bats, and built
+      L2 to fade him; instead it concentrated on Misiorowski ($12K, projected #1
+      at 25.2 vs Yesavage 23.6), who closed 53-56% — the same pattern as the two
+      prior condensation events (Detmers and Scott were each the projected #1,
+      regardless of price). Mechanism: a casual SE field converges on the single
+      arm the projections crown as best, not on the one that optimizes salary;
+      price is not the convergence driver, consensus rank is. How to apply: when
+      sizing a pitcher fade, identify the condensation target as the
+      projected-own #1 and assume IT closes far above projection; do not assume
+      condensation transfers to a cheaper arm. The red team flagged this exact
+      pattern pre-lock and was right — mechanism-based, born this slate, needs
+      confirmation.
+    status: codified
+    confirmations: []
+    contradictions: []
+    codified_in: >
+      framework.md — Construction (user-approved 2026-06-13): folded into
+      mlb-classic-2026-06-11-se-chalk-pitcher-own-condensation as a confirmed
+      corollary — the projected-own-#1 direction is now part of the codified
+      SE chalk-pitcher ownership condensation bullet.
+    retired_reason: null
+
+  - id: mlb-classic-2026-06-13-chalk-ace-smash-compresses-pitcher-leverage
+    born: "2026-06-13"
+    origin: "rules/mlb_classic/history/2026-06-13__mlb-classic-6-12-26"
+    statement: >
+      When the consensus chalk ace both condenses AND smashes, the pitcher slot
+      stops being a differentiator and winning shifts to wide bat-spread. On
+      6/12 Misiorowski closed 53-56% owned and went off for 58.65 — so the
+      majority of contenders held him, and separation could only come from the
+      bats. The winning shapes diversified accordingly: the rank-1 lineup in
+      BOTH contests was a fully-spread 1-1-1-1-1-1-1-1 no-stack at 9.2% own, and
+      the larger-field top-20 averaged 7.6 sub-10 plays. The mandatory
+      Anchor-Equivalence "alternative anchor" lineup (L2, Joe Ryan) structurally
+      could NOT hold the smash and finished mid-pack. Mechanism: when everyone
+      owns the same ace, the pitcher edge is competed away and EV migrates to
+      who paired the best cheap, low-owned bats around him — favoring more sub-10
+      bat-spread than the codified pivot-budget band prescribes. How to apply:
+      on a slate with a single dominant, condensing chalk ace, lean the bat side
+      MORE contrarian/spread (not less); and recognize that satisfying
+      Anchor-Equivalence with an alternative arm carries real cost when the
+      condensation lesson predicts the chalk ace will smash — treat that
+      alternative-anchor lineup as a deliberate hedge against the ace busting,
+      not a free requirement. Mechanism-based, born this slate; interacts with
+      mlb-classic-2026-06-10-pivot-budget-small-field-se (density watch note) —
+      needs confirmation.
     status: hypothesis
     confirmations: []
     contradictions: []

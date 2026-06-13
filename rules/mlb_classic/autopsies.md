@@ -77,3 +77,27 @@ Post-log note (2026-06-11): same as the $6K contest above — entered lineup was
 - Overperformed proj: Colt Keith, Zach McKinstry, Zach McKinstry
 - Underperformed proj: Zebby Matthews, Byron Buxton, Jake McCarthy
 - Slate-defining plays: Keider Montero (23.2 pts @ 10.8%), Tyler Phillips (22.9 pts @ 14.6%), Alex Bregman (20.0 pts @ 14.1%), Seiya Suzuki (20.0 pts @ 9.2%)
+
+
+## 2026-06-13 10:55 — MLB Classic (contest-standings-191271892.csv)
+- Entries: 980
+- Winning score: 220.3
+- Cash line (top 20%): 141.6
+- My entries: 1 · best rank 363/980 (top 37.0%)
+- Winners (top 20): avg own 14.23% vs mine 12.67% · sub-10% plays/lineup 6.2 vs mine 7.0 · salary Δ +300
+- Winning stack shapes: 1-1-1-1-1-1-1-1×2, 5-2-1×2, 3-1-1-1-1-1×2, 5-1-1-1×2
+- Overperformed proj: Jacob Misiorowski, Yordan Alvarez, Bo Bichette
+- Underperformed proj: Luinder Avila, Tatsuya Imai, Spencer Strider
+- Slate-defining plays: Yordan Alvarez (39.0 pts @ 6.4%), Tanner Bibee (29.4 pts @ 15.0%), Jordan Lawlar (24.0 pts @ 6.9%)
+
+
+## 2026-06-13 10:55 — MLB Classic (contest-standings-191271894.csv)
+- Entries: 1,783
+- Winning score: 220.3
+- Cash line (top 20%): 138.5
+- My entries: 1 · best rank 617/1,783 (top 34.6%)
+- Winners (top 20): avg own 10.32% vs mine 11.62% · sub-10% plays/lineup 7.6 vs mine 5.0
+- Winning stack shapes: 2-1-1-1-1-1-1×4, 3-1-1-1-1-1×3, 3-2-1-1-1×2, 4-3-1×2
+- Overperformed proj: Jacob Misiorowski, Yordan Alvarez, Bo Bichette
+- Underperformed proj: Luinder Avila, Tatsuya Imai, Spencer Strider
+- Slate-defining plays: Ceddanne Rafaela (37.0 pts @ 2.6%), Sonny Gray (26.5 pts @ 7.2%)

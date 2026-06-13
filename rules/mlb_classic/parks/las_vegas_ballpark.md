@@ -28,3 +28,18 @@ prior slates observed here. Verify and flesh out as slates accumulate.
   in the $6K winner, McNeil one-offs), never as the primary 5-stack. First evidence
   that the heat-total hype here is an ownership tax (91.8%/81.8% combined) rather
   than a scoring guarantee — one slate, treat as a lean not a rule.
+
+- **2026-06-13 (MLB Classic 6/12/26, COL @ ATH, 13.85 total — slate's biggest):**
+  The ownership-tax pattern HELD a second time. COL@ATH was the slate's top total
+  (~196% combined projected stack own) and again produced none of the slate-defining
+  plays — the overperformers and slate-definers came from elsewhere entirely (Yordan
+  Alvarez 39/HOU, Bo Bichette 36/TOR, Rafaela 37 + Abreu 32/BOS, Jordan Lawlar/ARI,
+  Sonny Gray/STL). The portfolio's deliberate "pieces, not mega-stacks" stance on the
+  Vegas game (2-3 bats per side, no 5-stack) was the right structural read for the
+  park a second straight time, even though the rest of the build missed. Two slates
+  now: the huge Las Vegas Ballpark implied total is a field-ownership magnet that has
+  NOT converted to the winning axis — promote from "lean" toward a working rule (buy
+  it in pieces, never as the primary stack). Caveat: both observations are slates
+  where the Vegas total was hype that didn't pay; we have not yet seen a slate where
+  it DID erupt, so the rule is "don't pay the mega-stack tax," not "the park doesn't
+  score."
