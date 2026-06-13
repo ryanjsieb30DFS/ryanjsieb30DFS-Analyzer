@@ -33,7 +33,7 @@ from src.contest_templates import load_templates, save_template, remove_template
 from src.sim_data import save_sim, load_sim_summary, clear_sim
 from src.bundle import clear_bundle
 from src.analysis_runner import (
-    run_analysis, run_build_lineups, lineup_target,
+    run_analysis, run_build_lineups, run_select_lineups, lineup_target,
     run_autopsy_review, run_apply_proposals, run_red_team,
     run_handbuild_analysis, run_rank_lineups,
 )
@@ -532,6 +532,49 @@ with tab_analyze:
             st.rerun()
         else:
             st.error(f"Couldn't build lineups: {lresult['error']}")
+
+    # ----- (f2) Select lineups (pick from the uploaded SaberSim pool) -----
+    st.markdown("---")
+    st.markdown("### Select lineups (from uploaded SaberSim pool)")
+    st.caption(
+        "Already generated a lineup pool in SaberSim? Upload its lineup-export CSV in the "
+        "Sim Data tab, then click below — Claude picks the best lineups FROM that pool that "
+        "express this slate's edges (NOT just SaberSim's top-ROI rows), each with a distinct "
+        "thesis, and writes them as your portfolio. Takes ~3–15 minutes; uses your Claude "
+        "subscription."
+    )
+    n_select = st.number_input(
+        "How many lineups?",
+        min_value=1, max_value=150,
+        value=lineup_target(slug),
+        key=f"select_n_{slug}",
+        help="Defaults to what your declared contests call for — override it freely.",
+    )
+    sim_summary = load_sim_summary(slug)
+    pool_has_ids = any("dk_id" in s["df"].columns for s in sources.values())
+    if not persisted:
+        st.info("Generate the slate analysis first — selections are judged against it.")
+    elif not sim_summary:
+        st.info(
+            "Upload your SaberSim lineup-export CSV in the **Sim Data** tab — these are the "
+            "lineups Claude picks from."
+        )
+    elif not pool_has_ids:
+        st.info(
+            "The loaded projections carry no DK IDs, so the SaberSim rows can't be matched to "
+            "players. Load a pool with an ID column (the SaberSim **projections** export) in the "
+            "Projections tab — Ship It Nation has no IDs."
+        )
+    elif st.button("🎯 Select lineups", type="primary", key=f"select_lineups_{slug}"):
+        with st.spinner(f"Selecting up to {n_select} lineup(s) from your SaberSim pool… (~3–15 min — leave this tab open)"):
+            sresult = run_select_lineups(slug, contest_label, sport, n_select)
+        if sresult["ok"]:
+            cost = sresult.get("cost_usd")
+            cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
+            st.success(f"Lineups selected in {sresult['duration_s']:.0f}s{cost_note}.")
+            st.rerun()
+        else:
+            st.error(f"Couldn't select lineups: {sresult['error']}")
 
     lineups_blob = load_lineups(slug)
     if lineups_blob:
