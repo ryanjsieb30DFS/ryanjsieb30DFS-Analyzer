@@ -277,9 +277,9 @@ def resolve_id_lineups(text: str, pool_df: pd.DataFrame, slug: str) -> tuple[lis
     spec = roster_spec(slug)
     if "dk_id" not in pool_df.columns:
         return [], [
-            "This player pool has no DK IDs, so pasted IDs can't be matched to players. "
-            "(The SIN MLB file doesn't include IDs yet — ranking by DK ID isn't available "
-            "for this sport.)"
+            "The selected player pool has no DK IDs, so pasted IDs can't be matched "
+            "to players. Select a pool with an ID column (e.g. SaberSim) — the SIN "
+            "MLB file doesn't carry IDs."
         ]
 
     # Build dk_id (as a digits-only string) -> clean player-row dict.

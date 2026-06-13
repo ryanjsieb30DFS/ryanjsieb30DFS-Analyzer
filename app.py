@@ -808,9 +808,10 @@ with tab_hand:
         )
         if "dk_id" not in hb_df.columns:
             st.info(
-                "This sport's projections don't carry DK IDs yet, so pasted IDs can't be matched "
-                "to players. (Works for golf and MMA today; MLB needs a vendor file with an ID "
-                "column.)"
+                "The selected player pool doesn't carry DK IDs, so pasted IDs can't be "
+                "matched to players. Pick a source with an ID column in the **Player pool "
+                "source** dropdown above — for MLB, select the **SaberSim** pool (Ship It "
+                "Nation has no IDs). Golf and MMA pools always carry IDs."
             )
         else:
             rank_text = st.text_area(

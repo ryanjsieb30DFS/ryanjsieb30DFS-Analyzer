@@ -177,6 +177,34 @@ VENDOR_SIGNATURES: list[dict] = [
         "drop_columns": ["#", "slate"],
     },
     {
+        # SaberSim's DK projections export — full player pool, hitters +
+        # pitchers together. Ships a real stddev (dk_std) and DK player id
+        # (DFS ID), unlike the SIN pool. User's mapping: SS Proj -> proj_points,
+        # My Own -> ownership (Adj Own is the user's exposure target, left as a
+        # passthrough column). Coexists with the SIN pool for cross-vendor diff.
+        "name": "SaberSim MLB Projections",
+        "sport": "mlb",
+        # Distinctive header set — none appear in the SIN signatures, so there
+        # is no false-match either direction.
+        "required_columns": {
+            "dfs_id", "ss_proj", "saber_total", "dk_points", "dk_std", "my_own",
+        },
+        "column_map": {
+            "ss_proj": "proj_points",
+            "my_own": "ownership",
+            "opp": "opponent",
+            "pos": "position",
+            "dfs_id": "dk_id",
+            "dk_std": "stddev",
+            "dk_95_percentile": "ceiling",
+        },
+        "drop_columns": [
+            # other-site noise — keep the session lean (DK-only slate)
+            "fd_points", "fd_std", "yahoo_points", "yahoo_std",
+            "ob_points", "ob_std", "actual", "live_proj", "value",
+        ],
+    },
+    {
         "name": "DK PGA RD4 SD",
         "sport": "golf",
         "required_columns": {
