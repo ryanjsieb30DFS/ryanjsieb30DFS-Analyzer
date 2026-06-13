@@ -14,3 +14,4 @@ articles/*/
 !articles/.gitkeep
 data/red_team/
 data/handbuild_analysis/
+data/contest_templates/

@@ -29,6 +29,7 @@ from src.contests import (
     load_contests, add_contest, remove_contest,
     clear_contests, portfolio_summary,
 )
+from src.contest_templates import load_templates, save_template, remove_template
 from src.sim_data import save_sim, load_sim_summary, clear_sim
 from src.bundle import clear_bundle
 from src.analysis_runner import (
@@ -302,6 +303,46 @@ with tab_analyze:
             c2.metric("Total entries", csum["total_entries"])
             c3.metric("Unique lineups needed", csum["unique_lineups_needed"])
 
+        templates = load_templates(slug)
+        if templates:
+            st.markdown("**Add from saved**")
+            tcols = st.columns([5, 2, 2, 1])
+            tmpl_names = [t["name"] for t in templates]
+            sel_name = tcols[0].selectbox(
+                "Saved contest", tmpl_names,
+                key=f"tmpl_sel_{slug}", label_visibility="collapsed",
+            )
+            chosen = next(t for t in templates if t["name"] == sel_name)
+            t_field = tcols[1].number_input(
+                "Field size", min_value=1, step=100,
+                value=int(chosen.get("default_field_size", 1000)),
+                key=f"tmpl_fs_{slug}_{chosen['id']}", label_visibility="collapsed",
+            )
+            t_mine = tcols[2].number_input(
+                "My entries", min_value=1, step=1,
+                value=int(chosen.get("default_my_entries", 1)),
+                key=f"tmpl_me_{slug}_{chosen['id']}", label_visibility="collapsed",
+            )
+            if tcols[3].button("Add", key=f"tmpl_add_{slug}", type="primary"):
+                add_contest(slug, {
+                    "name": chosen["name"],
+                    "type": chosen["type"],
+                    "field_size": int(t_field),
+                    "max_entries": int(chosen.get("max_entries", 1)),
+                    "my_entries": int(t_mine),
+                    "entry_fee": chosen.get("entry_fee"),
+                    "prize_pool": chosen.get("prize_pool"),
+                })
+                st.rerun()
+            with st.expander("Manage saved templates"):
+                for t in templates:
+                    mcols = st.columns([8, 1])
+                    mcols[0].caption(f"{t['name']} — {t['type']}")
+                    if mcols[1].button("✕", key=f"del_tmpl_{t['id']}"):
+                        remove_template(slug, t["id"])
+                        st.rerun()
+            st.caption("— or add a new contest —")
+
         with st.form(key=f"add_contest_{slug}", clear_on_submit=True):
             name = st.text_input("Contest name", placeholder="e.g., UFC $100K MEGA mini-MAX")
             type_label = st.selectbox("Contest type", list(CONTEST_ENTRY_TYPES.keys()))
@@ -334,10 +375,22 @@ with tab_analyze:
                 st.rerun()
 
         for c in contests_list:
-            cols = st.columns([6, 3, 1])
+            cols = st.columns([5, 3, 1, 1])
             cols[0].markdown(f"**{c['name']}** — *{c['type']}*")
             cols[1].caption(f"Field {c['field_size']:,} · entries {c['my_entries']}/{c['max_entries']}")
-            if cols[2].button("✕", key=f"del_contest_{c['id']}"):
+            if cols[2].button("★", key=f"save_tmpl_{c['id']}", help="Save as reusable template"):
+                save_template(slug, {
+                    "name": c["name"],
+                    "type": c["type"],
+                    "max_entries": c.get("max_entries", 1),
+                    "entry_fee": c.get("entry_fee"),
+                    "prize_pool": c.get("prize_pool"),
+                    "default_field_size": c.get("field_size", 1000),
+                    "default_my_entries": c.get("my_entries", 1),
+                })
+                st.toast(f"Saved '{c['name']}' to your template library")
+                st.rerun()
+            if cols[3].button("✕", key=f"del_contest_{c['id']}"):
                 remove_contest(slug, c["id"])
                 st.rerun()
 
