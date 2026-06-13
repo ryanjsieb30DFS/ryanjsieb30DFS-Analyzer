@@ -169,6 +169,73 @@ def run_build_lineups(slug: str, contest_label: str, sport: str, n_target: int) 
     return _run_claude(prompt, out_path)
 
 
+def run_rank_lineups(slug: str, contest_label: str, sport: str,
+                     lineups: list[dict]) -> dict:
+    """Rank the user's candidate lineups head-to-head via headless Claude.
+
+    Snapshots the resolved lineups to data/lineup_ranking/<slug>_input.json,
+    then Claude writes a comparative ranking (best->worst with reasoning,
+    per-lineup construction notes, cross-set findings, and a teaching
+    paragraph) to data/lineup_ranking/<slug>.md. This is a construction coach:
+    it ranks and explains, it NEVER edits the portfolio.
+    """
+    out_dir = _REPO_ROOT / "data" / "lineup_ranking"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / f"{slug}.md"
+    snap_path = out_dir / f"{slug}_input.json"
+    theses_path = out_dir / f"{slug}_theses.json"
+    snap_path.write_text(json.dumps({"lineups": lineups}, indent=2, default=str))
+    labels = [ln.get("label") for ln in lineups]
+
+    bundle_path = build_bundle(slug, contest_label, sport)
+    analysis_path = _REPO_ROOT / "data" / "slate_analysis" / f"{slug}.md"
+    slate_ctx = (
+        f"the slate analysis at `{analysis_path}`, " if analysis_path.exists()
+        else "(no slate analysis exists yet — judge from the bundle and strategy docs alone) "
+    )
+
+    prompt = (
+        f"Rank the user's CANDIDATE {contest_label} lineups in `{snap_path}` (a list of "
+        f"slot-assigned player rows + GPP totals per lineup). These are lineups the user built "
+        f"themselves and is deciding between — your job is to rank them and TEACH the "
+        f"construction reasoning, not to rewrite them. Read {slate_ctx}the bundle at "
+        f"`{bundle_path}` and its referenced projections, `rules/{slug}/framework.md`, "
+        f"`rules/{slug}/lessons.yaml`, and `rules/shared/anchor_equivalence.md`. If "
+        f"`rules/{slug}/vendor_calibration.jsonl` exists, use it to weight vendor ownership "
+        f"numbers.\n\n"
+        f"GPP framing — judge every lineup on how it WINS a tournament, never on cashing. "
+        f"Compare the candidates HEAD-TO-HEAD against the slate's edges. Write the result to "
+        f"`{out_path}` with these sections, in order:\n\n"
+        f"## Ranking\n"
+        f"A table best->worst: rank, the lineup label, and a one-line reason. Ties are fine if "
+        f"two genuinely answer different questions equally well — say so.\n\n"
+        f"## Per-lineup construction notes\n"
+        f"For each candidate: salary efficiency (where the money went and whether it bought "
+        f"ceiling), correlation/shape (stacks, tee-time/wave, same-game), ownership/leverage "
+        f"profile against vendor-projected own (name the numbers), and the one-sentence thesis "
+        f"it is implicitly playing. Name which slate-analysis '## Player board' calls and "
+        f"slate-defining decisions each lineup follows or violates — a violated PASS/MIX is a "
+        f"point to argue with evidence, not an automatic demotion.\n\n"
+        f"## Cross-set findings\n"
+        f"Near-duplicate / redundant builds (same question answered twice), shared blind spots "
+        f"across the whole set, and the Anchor-Equivalence read across the candidates.\n\n"
+        f"## Construction principles\n"
+        f"A short, plain teaching paragraph: the transferable lesson from this comparison the "
+        f"user can apply to future builds.\n\n"
+        f"THEN also write the file `{theses_path}` as JSON mapping EACH input lineup's label to "
+        f"the thesis and 'what if?' it plays — so the user can save any of these to their "
+        f"portfolio carrying a real thesis (never a vague label). Use exactly these labels: "
+        f"{labels}. Format:\n"
+        f'{{"Lineup 1": {{"thesis": "<one sentence: how it wins>", "what_if": "<the distinct '
+        f'question it answers>"}}, ...}}\n'
+        f"Write a thesis for every label, even the lower-ranked ones.\n\n"
+        f"HARD RULE: write ONLY `{out_path}` and `{theses_path}` — never edit "
+        f"`data/lineups/{slug}.md` or anything else; these are candidates, not submissions. "
+        f"Do not ask any questions — produce the files."
+    )
+    return _run_claude(prompt, out_path)
+
+
 def run_handbuild_analysis(slug: str, contest_label: str, sport: str,
                            players: list[dict], totals: dict) -> dict:
     """Analyze the user's handbuilt lineup via headless Claude.

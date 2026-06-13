@@ -35,13 +35,15 @@ from src.bundle import clear_bundle
 from src.analysis_runner import (
     run_analysis, run_build_lineups, lineup_target,
     run_autopsy_review, run_apply_proposals, run_red_team,
-    run_handbuild_analysis,
+    run_handbuild_analysis, run_rank_lineups,
 )
 from src.lineups import (
     load_lineups, clear_lineups, load_red_team, clear_red_team,
     roster_spec, lineup_totals, validate_lineup,
     append_handbuilt_lineup, assign_slots,
     load_handbuild_analysis, clear_handbuild_analysis,
+    resolve_id_lineups, load_lineup_ranking, clear_lineup_ranking,
+    load_ranking_theses, load_ranking_input,
 )
 from src import history
 
@@ -83,6 +85,7 @@ with st.sidebar:
     if st.button("Clear this sport's slate", type="secondary"):
         sessions.clear(slug)
         clear_articles(slug)
+        clear_lineup_ranking(slug)
         st.rerun()
 
 # Load active sport's strategy bundle (used by the Analyze tab)
@@ -794,6 +797,94 @@ with tab_hand:
                 st.caption(f"data/lineups/{slug}.md · last updated {hb_lineups['mtime']}")
                 st.markdown(hb_lineups["markdown"])
 
+        # ----- Rank candidate lineups (construction coach) -----
+        st.markdown("---")
+        st.markdown("#### 📊 Rank candidate lineups")
+        st.caption(
+            "Built lineups elsewhere (SaberSim, etc.) and torn between them? Paste them as DK "
+            "player IDs — one lineup per line, IDs separated by spaces or commas. Claude ranks "
+            "them against your slate analysis and explains which construction is best and why. "
+            "Nothing here is submitted — it's a second opinion on your own builds."
+        )
+        if "dk_id" not in hb_df.columns:
+            st.info(
+                "This sport's projections don't carry DK IDs yet, so pasted IDs can't be matched "
+                "to players. (Works for golf and MMA today; MLB needs a vendor file with an ID "
+                "column.)"
+            )
+        else:
+            rank_text = st.text_area(
+                "Candidate lineups (DK player IDs)", key=f"rank_ids_{slug}", height=140,
+                placeholder=("43247065 43247064 43247066 43247070 43247072 43247080\n"
+                             "43247065, 43247064, 43247090, 43247095, 43247100, 43247110"),
+            )
+            resolved, _ = (resolve_id_lineups(rank_text, hb_df, slug)
+                           if rank_text.strip() else ([], []))
+            n_slots = len(roster_spec(slug)["slots"])
+            for ln in resolved:
+                t = ln["totals"]
+                st.markdown(
+                    f"**{ln['label']}** · {t['n_players']}/{n_slots} · ${t['salary_used']:,} · "
+                    f"proj {t['proj_total']} · own {t['own_total']}%"
+                )
+                st.caption(", ".join(p["name"] for p in ln["players"]) or "—")
+                for e in ln["errors"]:
+                    st.caption(f"⚠️ {e}")
+            valid_lineups = [ln for ln in resolved if not ln["errors"]]
+            if resolved:
+                if st.button(
+                    f"📊 Rank these lineups ({len(valid_lineups)} valid)",
+                    type="primary", key=f"rank_btn_{slug}", disabled=not valid_lineups,
+                ):
+                    with st.spinner("Claude is ranking your lineups… (~1–2 min)"):
+                        res = run_rank_lineups(slug, contest_label, sport, valid_lineups)
+                    if res["ok"]:
+                        st.rerun()
+                    else:
+                        st.error(res["error"])
+
+        ranking = load_lineup_ranking(slug)
+        if ranking:
+            with st.container(border=True):
+                st.caption(f"Ranking · last updated {ranking['mtime']}")
+                st.markdown(ranking["markdown"])
+
+            # Save the keepers into the portfolio WITH the ranker's thesis, so
+            # they're covered by red team like every other lineup. Reads the
+            # ranked snapshot (not the live text box) so edits can't desync.
+            ranked_snapshot = load_ranking_input(slug)
+            theses = load_ranking_theses(slug)
+            if ranked_snapshot:
+                st.markdown("##### Save keepers to your portfolio")
+                st.caption(
+                    "Each saved lineup carries the thesis the ranker argued and is reviewed "
+                    "by the Analyze tab's 🔪 Red team button, same as any other lineup."
+                )
+                for ln in ranked_snapshot:
+                    label = ln.get("label", "")
+                    th = theses.get(label, {})
+                    thesis, what_if = th.get("thesis", ""), th.get("what_if", "")
+                    cols = st.columns([6, 2])
+                    names = ", ".join(p["name"] for p in ln["players"])
+                    cols[0].markdown(f"**{label}** — {names}")
+                    if cols[1].button(
+                        "💾 Save", key=f"rank_save_{slug}_{label}",
+                        disabled=not (thesis and what_if),
+                        help=None if (thesis and what_if)
+                        else "No thesis yet — re-run the ranking.",
+                    ):
+                        try:
+                            num = append_handbuilt_lineup(
+                                slug, contest_label, label, thesis, what_if,
+                                ln["players"], tag="from uploaded pool",
+                            )
+                            st.success(
+                                f"Saved Lineup {num} (from uploaded pool) to data/lineups/{slug}.md. "
+                                "Run 🔪 Red team in the Analyze tab to review it."
+                            )
+                        except ValueError as e:
+                            st.error(str(e))
+
 
 # ===== Tab 6: Autopsy =====
 with tab_autopsy:
@@ -1067,6 +1158,7 @@ with tab_autopsy:
                 clear_lineups(slug)
                 clear_red_team(slug)
                 clear_handbuild_analysis(slug)
+                clear_lineup_ranking(slug)
                 clear_contests(slug)
                 clear_sim(slug)
                 clear_bundle(slug)

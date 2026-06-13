@@ -11,9 +11,12 @@ import re
 from datetime import datetime
 from pathlib import Path
 
+import pandas as pd
+
 _LINEUPS_DIR = Path(__file__).parent.parent / "data" / "lineups"
 _RED_TEAM_DIR = Path(__file__).parent.parent / "data" / "red_team"
 _HB_ANALYSIS_DIR = Path(__file__).parent.parent / "data" / "handbuild_analysis"
+_RANKING_DIR = Path(__file__).parent.parent / "data" / "lineup_ranking"
 
 
 def load_lineups(slug: str) -> dict | None:
@@ -90,6 +93,26 @@ def load_handbuild_analysis(slug: str) -> dict | None:
 def clear_handbuild_analysis(slug: str) -> None:
     """Delete the analysis + lineup snapshot. Called on save, clear, and autopsy log."""
     for p in (_HB_ANALYSIS_DIR / f"{slug}.md", _HB_ANALYSIS_DIR / f"{slug}_lineup.json"):
+        if p.exists():
+            p.unlink()
+
+
+def load_lineup_ranking(slug: str) -> dict | None:
+    """Return {'markdown': str, 'mtime': str} for the candidate-lineup ranking, or None."""
+    p = _RANKING_DIR / f"{slug}.md"
+    if not p.exists():
+        return None
+    return {
+        "markdown": p.read_text(),
+        "mtime": datetime.fromtimestamp(p.stat().st_mtime).strftime("%Y-%m-%d %H:%M"),
+    }
+
+
+def clear_lineup_ranking(slug: str) -> None:
+    """Delete the ranking doc + its input/thesis sidecars. Slate-specific — cleared with the slate."""
+    for p in (_RANKING_DIR / f"{slug}.md",
+              _RANKING_DIR / f"{slug}_input.json",
+              _RANKING_DIR / f"{slug}_theses.json"):
         if p.exists():
             p.unlink()
 
@@ -243,6 +266,60 @@ def validate_lineup(slug: str, players: list[dict], thesis: str, what_if: str) -
     return errors
 
 
+def resolve_id_lineups(text: str, pool_df: pd.DataFrame, slug: str) -> tuple[list[dict], list[str]]:
+    """Parse pasted candidate lineups (one per non-empty line, DK player IDs
+    separated by space/comma/tab) and resolve each ID to a pool row via dk_id.
+
+    Returns (lineups, errors). Each lineup: {'label', 'players' (slot-assigned
+    rows), 'totals', 'errors' (per-lineup messages)}. `errors` is the flat list
+    across all lineups for a quick summary. If the pool has no dk_id column,
+    returns ([], [<one explanatory error>]) so the UI can explain the gap."""
+    spec = roster_spec(slug)
+    if "dk_id" not in pool_df.columns:
+        return [], [
+            "This player pool has no DK IDs, so pasted IDs can't be matched to players. "
+            "(The SIN MLB file doesn't include IDs yet — ranking by DK ID isn't available "
+            "for this sport.)"
+        ]
+
+    # Build dk_id (as a digits-only string) -> clean player-row dict.
+    id_map: dict[str, dict] = {}
+    for rec in pool_df.to_dict("records"):
+        did = rec.get("dk_id")
+        if did is None or (isinstance(did, float) and pd.isna(did)):
+            continue
+        clean = {k: (None if (isinstance(v, float) and pd.isna(v)) else v) for k, v in rec.items()}
+        id_map[str(int(did))] = clean
+
+    lineups: list[dict] = []
+    flat_errors: list[str] = []
+    for idx, line in enumerate([ln for ln in text.splitlines() if ln.strip()], start=1):
+        label = f"Lineup {idx}"
+        tokens = [t for t in re.split(r"[\s,;]+", line.strip()) if t]
+        players_raw, errs = [], []
+        for tok in tokens:
+            key = re.sub(r"\D", "", tok)
+            if not key:
+                continue
+            row = id_map.get(key)
+            if row is None:
+                errs.append(f"{label}: unknown DK ID {tok} — not in the loaded pool.")
+            else:
+                players_raw.append(row)
+        picked, assign_errs = assign_slots(players_raw, spec)
+        # thesis/what_if are placeholders so only structural rules fire here.
+        val_errs = validate_lineup(slug, picked, thesis="x", what_if="x")
+        errs += assign_errs + val_errs
+        lineups.append({
+            "label": label,
+            "players": picked,
+            "totals": lineup_totals(picked, spec["cap"]),
+            "errors": errs,
+        })
+        flat_errors += errs
+    return lineups, flat_errors
+
+
 def next_lineup_number(slug: str) -> int:
     """1 + the highest '## Lineup N' heading in data/lineups/<slug>.md; 1 if none."""
     p = _LINEUPS_DIR / f"{slug}.md"
@@ -299,15 +376,39 @@ def _roster_table(slug: str, players: list[dict]) -> str:
     return "\n".join([head, sep, *rows])
 
 
+def load_ranking_theses(slug: str) -> dict:
+    """Label -> {'thesis', 'what_if'} from the ranker's sidecar, or {} if none."""
+    p = _RANKING_DIR / f"{slug}_theses.json"
+    if not p.exists():
+        return {}
+    try:
+        return json.loads(p.read_text())
+    except json.JSONDecodeError:
+        return {}
+
+
+def load_ranking_input(slug: str) -> list[dict]:
+    """The ranked candidate lineups snapshot (players + totals + label), or []."""
+    p = _RANKING_DIR / f"{slug}_input.json"
+    if not p.exists():
+        return []
+    try:
+        return json.loads(p.read_text()).get("lineups", [])
+    except json.JSONDecodeError:
+        return []
+
+
 def format_handbuilt_lineup(
     slug: str, lineup_number: int, lineup_name: str,
     thesis: str, what_if: str, players: list[dict], totals: dict,
+    tag: str = "handbuilt",
 ) -> str:
     salaries = " + ".join(f"{int(p['salary']):,}" for p in players)
     cap = roster_spec(slug)["cap"]
     ts = datetime.now().strftime("%Y-%m-%d %H:%M")
+    source = "Selected from uploaded pool" if tag == "from uploaded pool" else "Handbuilt"
     return "\n".join([
-        f'## Lineup {lineup_number} — "{lineup_name}" (handbuilt)',
+        f'## Lineup {lineup_number} — "{lineup_name}" ({tag})',
         "",
         f"**Thesis:** {thesis.strip()}",
         "",
@@ -320,14 +421,14 @@ def format_handbuilt_lineup(
         "",
         f"**What if?** — *{what_if.strip()}*",
         "",
-        f"**Construction notes:** Handbuilt {ts}. Total own {totals['own_total']}% · "
+        f"**Construction notes:** {source} {ts}. Total own {totals['own_total']}% · "
         f"avg {totals['own_avg']}%/player · {totals['n_sub10']} sub-10% player(s).",
     ])
 
 
 def append_handbuilt_lineup(
     slug: str, contest_label: str, lineup_name: str,
-    thesis: str, what_if: str, players: list[dict],
+    thesis: str, what_if: str, players: list[dict], tag: str = "handbuilt",
 ) -> int:
     """Append a handbuilt lineup to data/lineups/<slug>.md (creating it with a
     header if missing). Returns the lineup number used. Raises ValueError on
@@ -338,8 +439,9 @@ def append_handbuilt_lineup(
 
     n = next_lineup_number(slug)
     totals = lineup_totals(players, roster_spec(slug)["cap"])
+    default_name = "From pool" if tag == "from uploaded pool" else "Handbuilt"
     block = format_handbuilt_lineup(
-        slug, n, lineup_name.strip() or "Handbuilt", thesis, what_if, players, totals
+        slug, n, lineup_name.strip() or default_name, thesis, what_if, players, totals, tag=tag
     )
 
     p = _LINEUPS_DIR / f"{slug}.md"
