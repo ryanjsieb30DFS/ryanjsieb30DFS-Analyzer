@@ -319,7 +319,7 @@ lessons:
       still carry >=1 leverage play (93% of winners). This is the actual-DK
       replacement for the framework's "Historical Winning Structure (ETR Database)"
       estimates, validated across 146 slates.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-13"
         slate: "146-slate mining 2023-2026"
@@ -327,7 +327,7 @@ lessons:
           Median winners per-player avg-own 19.1% (stable 17.4-19.5% every year); median 1.7
           sub-10% golfers; 93% of rank-1 winners ran >=1 sub-10%, 64% ran >=2; 85% unique.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Historical Winning Structure (Actual DK winners 2023-2026 validation)"
     retired_reason: null
 
   - id: pga-rd4-sd-2026-06-13-format-leverage-gap-vs-classic
@@ -340,13 +340,13 @@ lessons:
       the payoff of contrarian construction. Do NOT import Classic's contrarian
       dosage into RD4 SD (or vice versa) — leverage is mandatory in both, but the
       correct DOSE is format-specific.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-13"
         slate: "168 Classic vs 146 RD4 SD mining 2023-2026"
         note: "Classic winners 12.9% per-player own / 2.5 darts; RD4 SD 19.1% / 1.7 darts. Gap stable across all four years."
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Cross-format note vs PGA Classic"
     retired_reason: null
 
   - id: pga-rd4-sd-2026-06-13-leverage-play-still-mandatory

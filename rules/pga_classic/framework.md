@@ -30,6 +30,7 @@ Before constructing any lineup, answer these:
 - **Are the analyst projections converging or diverging?** Convergence = the field will see the same plays. Divergence = look for the model edge.
 - **Does the coffin list have ≥2 high-conviction overweight plays at sub-15% projected ownership?** If yes, this is the "leverage spine" opportunity.
 - **Course history boost list cross-referenced with sub-5% projected ownership.** This is a required pre-build scan as of May 2026. Players appearing on ETR's course history boost list with sub-5% projected ownership are structurally high-leverage and historically produce slate-defining outcomes (PGA Championship 2026: Smalley and Rai both met this criterion and appeared in 60-73% of top-100 winning lineups). Always check this list explicitly before locking the construction.
+- **Name the slate's low-owned smash (mandatory scan).** Across 168 slates (2023-2026), **96% had ≥1 golfer rostered in ≥30% of winning lineups while drawing <20% field ownership** (median ~12% own). There is essentially always a sub-radar golfer who smashes and defines the winners — the scan must surface the candidate leverage tier, and a build with zero sub-10% plays fails the structure check.
 
 ## 3. Ownership Tier Framework
 
@@ -42,6 +43,8 @@ Before constructing any lineup, answer these:
 | Deep contrarian | <4% | High-volatility ceiling chase; required in tournament-winning builds |
 
 **Avoid playing more than one player from the "trap chalk" tier per lineup.** Trap chalk = a player ETR or your projection source flags as overowned (coffin list negative side).
+
+**Empirical winning-structure baseline (168 slates, 2023-2026 — `mining_2023_2026.md`):** winning lineups average **~13% per-player ownership** (~78% cumulative across the 6 golfers — this is a per-player mean, NOT a lineup total), carry **2-3 sub-10%-owned golfers** (median 2.5; 78% of winners ≥2, 91% ≥1), and are **91% unique**. Target this shape; an all-chalk lineup is a structural non-starter. Stable every year 2023-2026.
 
 ## 4. Roster Construction Templates
 

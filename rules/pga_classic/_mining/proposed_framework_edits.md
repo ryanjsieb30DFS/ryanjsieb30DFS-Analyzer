@@ -1,8 +1,10 @@
 # PROPOSED framework/philosophy edits from 2023-2026 mining — PGA Classic + RD4 SD
 
-**Status: PROPOSED, not applied.** Per repo rule, codifying into framework.md /
-philosophy.md requires your approval. Each item cites the seeded `lessons.yaml`
-entry and the mining report it rests on. Approve item-by-item and I'll apply.
+**APPLIED 2026-06-13: P1, P2, R1, R2 codified into framework.md (lessons flipped to
+`codified`). HELD as open hypotheses: P3, R3** (confirm on future slates before codifying).
+
+Per repo rule, codifying into framework.md / philosophy.md requires user approval. Each
+item cites the seeded `lessons.yaml` entry and the mining report it rests on.
 
 ---
 

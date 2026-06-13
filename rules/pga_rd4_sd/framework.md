@@ -18,6 +18,8 @@ This is the foundational decision infrastructure for every R4 SD build. Every li
 | Sub-25 Starters | 1.58 |
 | Winner in Lineup % | 71.6% |
 
+**Actual DK winners (2023-2026 mining, 146 slates — `mining_2023_2026.md`) — confirms the above:** cumulative ownership **~115%** (≈19.1% per-player, a per-player mean), sub-10% plays **~1.7** (median), winners **85% unique**, and **93% carry ≥1 sub-10%** play. Archetype direction matches the tables below (tough courses ~1.9 sub-10% vs birdie-fests ~1.6). The ETR averages hold up against three years of real DK results — treat these as validated.
+
 ### Birdie-Fest Averages (Winning Score -18 or Better)
 
 | Metric | Value |
@@ -45,6 +47,10 @@ This is the foundational decision infrastructure for every R4 SD build. Every li
 | Lowest Starting Pos | 41.5 |
 | Sub-25 Starters | 1.9 |
 | Winner in Lineup % | 73.7% |
+
+### Cross-format note vs PGA Classic
+
+RD4 SD winners are structurally **chalkier** than PGA Classic winners: **~19% vs ~13% per-player ownership, ~1.7 vs ~2.5 sub-10% darts** (won-with-≥2-darts 64% vs 78%). A single final round (no cut), smaller fields, and lower scoring variance shrink the contrarian payoff relative to the 2-day Classic. **Do not import Classic's contrarian dosage into RD4 SD** — leverage is mandatory in both formats (≥1 sub-10% play in 93% of RD4 SD winners), but the correct DOSE is format-specific. (168 Classic / 146 RD4 SD slates, 2023-2026; the gap is stable every year.)
 
 ## The Build Workflow (Four Stages)
 

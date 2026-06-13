@@ -271,7 +271,7 @@ lessons:
       the field's obvious core (duplication) caps upside. Large-sample confirmation
       of the framework's leverage-spine / ownership-tier targets (the existing
       "12.25 own / 2.24 sub-10%" SE reference holds across 168 slates).
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-13"
         slate: "168-slate mining 2023-2026"
@@ -280,7 +280,7 @@ lessons:
           sub-10% golfers; 91% of rank-1 winners ran >=1 sub-10% and 78% ran >=2;
           winners 91% unique.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Section 3 Ownership Tier Framework (empirical winning-structure baseline)"
     retired_reason: null
 
   - id: pga-classic-2026-06-13-leverage-play-mandatory
@@ -293,13 +293,13 @@ lessons:
       Mechanism: GPP golf winners are defined by the sub-radar golfer who smashes;
       the build job is to identify and roster the leverage tier, not avoid it. An
       all-chalk lineup is a structural non-starter.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-13"
         slate: "168-slate mining 2023-2026"
         note: "161/168 slates (96%) had >=1 <20%-own play in >=30% of winners; median 4 per slate."
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Section 2 Slate Diagnostics (mandatory low-owned-smash scan)"
     retired_reason: null
 
   - id: pga-classic-2026-06-13-dose-darts-to-course-variance
