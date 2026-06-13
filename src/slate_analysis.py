@@ -12,6 +12,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from src.vendors import mlb_team_key as _mlb_team_key
+
 
 _ANALYSIS_DIR = Path(__file__).parent.parent / "data" / "slate_analysis"
 
@@ -147,47 +149,6 @@ def _nascar_signals(df: pd.DataFrame) -> dict:
 
 
 _PITCHER_POS = {"p", "sp", "rp"}
-
-# Vendors disagree on MLB team naming (ETR: "CHC", SIN: "Cubs"). Map every
-# variant to one canonical key so cross-vendor team merges line up.
-_MLB_TEAM_KEYS = {
-    "ARI": "ARI", "AZ": "ARI", "DIAMONDBACKS": "ARI",
-    "ATL": "ATL", "BRAVES": "ATL",
-    "BAL": "BAL", "ORIOLES": "BAL",
-    "BOS": "BOS", "RED SOX": "BOS",
-    "CHC": "CHC", "CUBS": "CHC",
-    "CWS": "CWS", "CHW": "CWS", "WHITE SOX": "CWS",
-    "CIN": "CIN", "REDS": "CIN",
-    "CLE": "CLE", "GUARDIANS": "CLE",
-    "COL": "COL", "ROCKIES": "COL",
-    "DET": "DET", "TIGERS": "DET",
-    "HOU": "HOU", "ASTROS": "HOU",
-    "KC": "KC", "KCR": "KC", "ROYALS": "KC",
-    "LAA": "LAA", "ANGELS": "LAA",
-    "LAD": "LAD", "DODGERS": "LAD",
-    "MIA": "MIA", "MARLINS": "MIA",
-    "MIL": "MIL", "BREWERS": "MIL",
-    "MIN": "MIN", "TWINS": "MIN",
-    "NYM": "NYM", "METS": "NYM",
-    "NYY": "NYY", "YANKEES": "NYY",
-    "ATH": "ATH", "OAK": "ATH", "ATHLETICS": "ATH", "A'S": "ATH",
-    "PHI": "PHI", "PHILLIES": "PHI",
-    "PIT": "PIT", "PIRATES": "PIT",
-    "SD": "SD", "SDP": "SD", "PADRES": "SD",
-    "SEA": "SEA", "MARINERS": "SEA",
-    "SF": "SF", "SFG": "SF", "GIANTS": "SF",
-    "STL": "STL", "CARDINALS": "STL",
-    "TB": "TB", "TBR": "TB", "RAYS": "TB",
-    "TEX": "TEX", "RANGERS": "TEX",
-    "TOR": "TOR", "BLUE JAYS": "TOR",
-    "WSH": "WSH", "WAS": "WSH", "NATIONALS": "WSH",
-}
-
-
-def _mlb_team_key(team) -> str:
-    s = str(team).strip()
-    return _MLB_TEAM_KEYS.get(s.upper(), s)
-
 
 def _mlb_signals(df: pd.DataFrame, team_data: pd.DataFrame | None = None) -> dict:
     """Team stacks (the core MLB lever) + the pitcher pool."""

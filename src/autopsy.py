@@ -92,6 +92,20 @@ def _norm_name(name) -> str:
     return s.casefold().replace(".", "").strip()
 
 
+def ambiguous_actual_norms(players: pd.DataFrame) -> set[str]:
+    """Norm-keys that are two DIFFERENT players sharing a name in DK standings.
+
+    DK standings carry no team column, so namesakes (6/12: Max Muncy LAD +
+    Max Muncy ATH) can't be told apart — exclude them from joins rather than
+    mis-attribute. Multi-position listings of ONE player repeat with identical
+    FPTS, so only >1 distinct FPTS per norm flags as ambiguous.
+    """
+    df = players[["name", "actual_fpts"]].copy()
+    df["_norm"] = df["name"].apply(_norm_name)
+    counts = df.groupby("_norm")["actual_fpts"].nunique()
+    return set(counts[counts > 1].index)
+
+
 def is_user_entry(entry_name) -> bool:
     """True if a DK EntryName ('RyvlesGaming30 (4/10)' or bare) is the user's."""
     if not isinstance(entry_name, str):
@@ -125,6 +139,9 @@ def score_vendors(slug: str, players: pd.DataFrame) -> list[dict]:
     """
     actuals = players[["name", "actual_fpts", "actual_own"]].copy()
     actuals["_norm"] = actuals["name"].apply(_norm_name)
+    # Namesakes can't be told apart in standings — never grade a vendor
+    # against the wrong player's actuals.
+    actuals = actuals[~actuals["_norm"].isin(ambiguous_actual_norms(players))]
     # DK lists multi-position players once per roster spot — dedupe so the
     # join can't multiply rows (keep first; FPTS is identical across listings).
     actuals = actuals.drop_duplicates("_norm")
@@ -232,6 +249,19 @@ def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str) -> d
 
     own_map = dict(zip(players["name"].apply(_norm_name), players["actual_own"]))
     fpts_map = dict(zip(players["name"].apply(_norm_name), players["actual_fpts"]))
+
+    # Namesakes (>1 distinct FPTS per norm) are ambiguous in standings — drop
+    # them from the maps so dict last-write can't credit the wrong player.
+    # Lineups containing one degrade safely: lineup_profile's all-matched
+    # guard nulls salary/proj rather than half-summing. Known noise: dup_counts
+    # treats lineups differing only in WHICH namesake they used as duplicates.
+    ambiguous = ambiguous_actual_norms(players)
+    for norm in ambiguous:
+        own_map.pop(norm, None)
+        fpts_map.pop(norm, None)
+    ambiguous_players = sorted(
+        {str(p["name"]) for _, p in players.iterrows() if _norm_name(p["name"]) in ambiguous}
+    )
 
     proj_lookup = None
     matched = 0
@@ -365,6 +395,7 @@ def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str) -> d
         "slate_defining": slate_defining,
         "proj_match": {"matched": matched, "total": int(len(players)),
                        "available": proj_lookup is not None},
+        "ambiguous_players": ambiguous_players,
     }
 
 

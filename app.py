@@ -810,6 +810,13 @@ with tab_autopsy:
                         "No projections in the active session — salary, proj-vs-actual, "
                         "and stack-shape analysis unavailable for this autopsy."
                     )
+                if analysis.get("ambiguous_players"):
+                    st.warning(
+                        "Ambiguous in DK standings (two different players share this "
+                        "name, and DK provides no team to tell them apart) — excluded "
+                        "from proj-vs-actual and vendor calibration: "
+                        + ", ".join(analysis["ambiguous_players"])
+                    )
 
                 st.markdown("### Your entries")
                 user_df = analysis["user_lineups_df"]

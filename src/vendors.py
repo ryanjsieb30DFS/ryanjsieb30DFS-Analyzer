@@ -12,6 +12,47 @@ from __future__ import annotations
 import pandas as pd
 
 
+# Vendors disagree on MLB team naming (ETR: "CHC", SIN: "Cubs"). Map every
+# variant to one canonical key so cross-vendor team merges line up.
+MLB_TEAM_KEYS = {
+    "ARI": "ARI", "AZ": "ARI", "DIAMONDBACKS": "ARI",
+    "ATL": "ATL", "BRAVES": "ATL",
+    "BAL": "BAL", "ORIOLES": "BAL",
+    "BOS": "BOS", "RED SOX": "BOS",
+    "CHC": "CHC", "CUBS": "CHC",
+    "CWS": "CWS", "CHW": "CWS", "WHITE SOX": "CWS",
+    "CIN": "CIN", "REDS": "CIN",
+    "CLE": "CLE", "GUARDIANS": "CLE",
+    "COL": "COL", "ROCKIES": "COL",
+    "DET": "DET", "TIGERS": "DET",
+    "HOU": "HOU", "ASTROS": "HOU",
+    "KC": "KC", "KCR": "KC", "ROYALS": "KC",
+    "LAA": "LAA", "ANGELS": "LAA",
+    "LAD": "LAD", "DODGERS": "LAD",
+    "MIA": "MIA", "MARLINS": "MIA",
+    "MIL": "MIL", "BREWERS": "MIL",
+    "MIN": "MIN", "TWINS": "MIN",
+    "NYM": "NYM", "METS": "NYM",
+    "NYY": "NYY", "YANKEES": "NYY",
+    "ATH": "ATH", "OAK": "ATH", "ATHLETICS": "ATH", "A'S": "ATH",
+    "PHI": "PHI", "PHILLIES": "PHI",
+    "PIT": "PIT", "PIRATES": "PIT",
+    "SD": "SD", "SDP": "SD", "PADRES": "SD",
+    "SEA": "SEA", "MARINERS": "SEA",
+    "SF": "SF", "SFG": "SF", "GIANTS": "SF",
+    "STL": "STL", "CARDINALS": "STL",
+    "TB": "TB", "TBR": "TB", "RAYS": "TB",
+    "TEX": "TEX", "RANGERS": "TEX",
+    "TOR": "TOR", "BLUE JAYS": "TOR",
+    "WSH": "WSH", "WAS": "WSH", "NATIONALS": "WSH",
+}
+
+
+def mlb_team_key(team) -> str:
+    s = str(team).strip()
+    return MLB_TEAM_KEYS.get(s.upper(), s)
+
+
 # Each signature: vendor name, sport, required headers that prove identity,
 # column rename map (vendor -> canonical), and optional columns to drop.
 VENDOR_SIGNATURES: list[dict] = [

@@ -23,7 +23,7 @@ from __future__ import annotations
 
 import pandas as pd
 
-from src.vendors import detect_vendor, normalize_to_canonical
+from src.vendors import detect_vendor, mlb_team_key, normalize_to_canonical
 
 
 REQUIRED_COLUMNS = ["name", "salary", "proj_points", "ownership"]
@@ -73,6 +73,10 @@ def load_projections(csv_path_or_buffer) -> pd.DataFrame:
     # Identical rows are harmless — drop them; validate_projections still
     # rejects same-name rows whose data actually differs.
     projections = projections.drop_duplicates().reset_index(drop=True)
+
+    # Two DIFFERENT players can share a name (6/12: Max Muncy LAD + Max Muncy
+    # ATH). Name is the join key app-wide, so suffix the team to keep it unique.
+    projections = _disambiguate_duplicate_names(projections)
 
     validate_projections(projections)
     projections = projections.copy()
@@ -209,6 +213,37 @@ def _derive_opponent_from_matchup(projections: pd.DataFrame) -> pd.Series:
     return pd.Series(opponents, index=projections.index)
 
 
+def _disambiguate_duplicate_names(projections: pd.DataFrame) -> pd.DataFrame:
+    """Suffix the team onto duplicate names that belong to DIFFERENT teams.
+
+    "Max Muncy" (LAD) and "Max Muncy" (ATH) are two real players. Rewrite them
+    to "Max Muncy (LAD)" / "Max Muncy (ATH)" using the canonical team key so
+    the suffix matches across vendors regardless of team spelling. Groups with
+    a missing team or repeated team keys are left alone — validate_projections
+    raises on those, since same name + same team really is a vendor error.
+    """
+    if "name" not in projections.columns or "team" not in projections.columns:
+        return projections
+    names = projections["name"].astype(str).str.strip()
+    dup_mask = names.duplicated(keep=False)
+    if not dup_mask.any():
+        return projections
+
+    projections = projections.copy()
+    for _, idx in names[dup_mask].groupby(names[dup_mask]).groups.items():
+        teams = projections.loc[idx, "team"]
+        keys = [
+            "" if pd.isna(t) or not str(t).strip() else mlb_team_key(t)
+            for t in teams
+        ]
+        if "" in keys or len(set(keys)) != len(keys):
+            continue
+        projections.loc[idx, "name"] = [
+            f"{names[i]} ({k})" for i, k in zip(idx, keys)
+        ]
+    return projections
+
+
 def validate_projections(projections: pd.DataFrame) -> None:
     """Raise a helpful error if the CSV is missing columns or has bad values."""
     missing_columns = [c for c in REQUIRED_COLUMNS if c not in projections.columns]
@@ -219,7 +254,9 @@ def validate_projections(projections: pd.DataFrame) -> None:
         duplicates = projections.loc[projections["name"].duplicated(), "name"].tolist()
         raise ValueError(
             f"Duplicate player names with conflicting data: {duplicates} — the same "
-            "name appears twice with different values; fix the vendor file."
+            "name appears twice with different values on the same team (or with no "
+            "team column to tell them apart); fix the vendor file. Different-team "
+            "namesakes are disambiguated automatically."
         )
 
 
