@@ -168,6 +168,9 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
     for doc in ("philosophy.md", "framework.md", "autopsies.md", "autopsy_data.jsonl"):
         L.append(f"- `{rules_dir / doc}`")
     L.append(f"- `{_REPO_ROOT / 'rules' / 'shared' / 'anchor_equivalence.md'}`")
+    sharp_path = _REPO_ROOT / "rules" / "shared" / "sharp_playbook.md"
+    if sharp_path.exists():
+        L.append(f"- `{sharp_path}` — sharp-player tendencies reverse-engineered from contest standings (model builds after these)")
     lessons_path = rules_dir / "lessons.yaml"
     if lessons_path.exists():
         L.append(f"- `{lessons_path}` — **mandatory pre-build read: open lessons (hypothesis/validated)**")
