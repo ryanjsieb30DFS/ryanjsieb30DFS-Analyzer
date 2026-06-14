@@ -567,52 +567,23 @@ with tab_analyze:
     else:
         st.info("**No saved analysis yet.** Click **Generate slate analysis** above and it appears here.")
 
-    # ----- (f) Build lineups (one click, from the analysis) -----
-    st.markdown("---")
-    st.markdown("### Build lineups")
-    st.caption(
-        "Builds your portfolio from the analysis — each lineup with a distinct thesis. "
-        "Builds fewer if the slate only supports fewer distinct angles. Handbuilt lineups "
-        "already saved are kept and built around. "
-        "Takes ~3–15 minutes on big slates; uses your Claude subscription."
-    )
-    n_target = st.number_input(
-        "How many lineups?",
-        min_value=1, max_value=150,
-        value=lineup_target(slug),
-        key=f"build_n_{slug}",
-        help="Defaults to what your declared contests call for — override it freely.",
-    )
-    if not persisted:
-        st.info("Generate the slate analysis first — lineups are built from it.")
-    elif st.button("🏗️ Build lineups", type="primary", key=f"build_lineups_{slug}"):
-        with st.spinner(f"Building up to {n_target} lineup(s) from the analysis… (~3–15 min — leave this tab open)"):
-            lresult = run_build_lineups(slug, contest_label, sport, n_target)
-        if lresult["ok"]:
-            cost = lresult.get("cost_usd")
-            cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
-            st.success(f"Lineups built in {lresult['duration_s']:.0f}s{cost_note}.")
-            st.rerun()
-        else:
-            st.error(f"Couldn't build lineups: {lresult['error']}")
-
-    # ----- (f2) Select lineups (pick from the uploaded lineup pool(s)) -----
+    # ----- (f) Select lineups (PRIMARY path — pick from the uploaded pool) -----
     st.markdown("---")
     st.markdown("### Select lineups (from uploaded lineup pool)")
     st.caption(
-        "Already generated lineups in SaberSim or a traditional optimizer? Upload the "
-        "lineup-pool CSV(s) in the Sim Data tab (multiple files OK — proj/ceiling/50-50), "
-        "then click below — Claude picks the best lineups FROM your pool that express this "
-        "slate's edges (NOT just the top sim rows), each with a distinct thesis, and writes "
-        "them as your portfolio. Sim columns optional. Takes ~3–15 minutes; uses your Claude "
-        "subscription."
+        "**Your default path.** You've already built lineups in SaberSim or an optimizer — "
+        "upload the lineup-pool CSV(s) in the Sim Data tab (multiple files OK — proj/ceiling/"
+        "50-50), then click below. Claude picks the best lineups FROM your pool that express "
+        "this slate's edges (NOT just the top sim rows), each with a distinct thesis, and "
+        "writes them as your portfolio — exactly the number you ask for. Sim columns optional. "
+        "Takes ~3–15 minutes; uses your Claude subscription."
     )
     n_select = st.number_input(
         "How many lineups?",
         min_value=1, max_value=150,
         value=lineup_target(slug),
         key=f"select_n_{slug}",
-        help="Defaults to what your declared contests call for — override it freely.",
+        help="You'll get exactly this many — override the default freely.",
     )
     sim_files = load_sim_files(slug)
     pool_has_ids = any("dk_id" in s["df"].columns for s in sources.values())
@@ -630,7 +601,7 @@ with tab_analyze:
             "in the Projections tab — Ship It Nation has no IDs."
         )
     elif st.button("🎯 Select lineups", type="primary", key=f"select_lineups_{slug}"):
-        with st.spinner(f"Selecting up to {n_select} lineup(s) from your pool… (~3–15 min — leave this tab open)"):
+        with st.spinner(f"Selecting {n_select} lineup(s) from your pool… (~3–15 min — leave this tab open)"):
             sresult = run_select_lineups(slug, contest_label, sport, n_select)
         if sresult["ok"]:
             cost = sresult.get("cost_usd")
@@ -639,6 +610,34 @@ with tab_analyze:
             st.rerun()
         else:
             st.error(f"Couldn't select lineups: {sresult['error']}")
+
+    # ----- (f2) Build lineups from scratch (secondary — only when there's NO pool) -----
+    with st.expander("🏗️ Build lineups from scratch (no pool)", expanded=False):
+        st.caption(
+            "Use this **only when you have no uploaded pool** — Claude invents rosters from the "
+            "analysis. Produces exactly the number you ask for (distinct theses prioritized). "
+            "Handbuilt lineups already saved are kept and built around. "
+            "Takes ~3–15 minutes on big slates; uses your Claude subscription."
+        )
+        n_target = st.number_input(
+            "How many lineups?",
+            min_value=1, max_value=150,
+            value=lineup_target(slug),
+            key=f"build_n_{slug}",
+            help="You'll get exactly this many — override the default freely.",
+        )
+        if not persisted:
+            st.info("Generate the slate analysis first — lineups are built from it.")
+        elif st.button("🏗️ Build lineups", type="secondary", key=f"build_lineups_{slug}"):
+            with st.spinner(f"Building {n_target} lineup(s) from the analysis… (~3–15 min — leave this tab open)"):
+                lresult = run_build_lineups(slug, contest_label, sport, n_target)
+            if lresult["ok"]:
+                cost = lresult.get("cost_usd")
+                cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
+                st.success(f"Lineups built in {lresult['duration_s']:.0f}s{cost_note}.")
+                st.rerun()
+            else:
+                st.error(f"Couldn't build lineups: {lresult['error']}")
 
     lineups_blob = load_lineups(slug)
     if lineups_blob:
