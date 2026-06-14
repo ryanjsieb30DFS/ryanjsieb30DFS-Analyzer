@@ -667,7 +667,7 @@ with tab_hand:
         view["sub10"] = view["ownership"] < 10
         view = view.sort_values(["salary", "name"], ascending=[False, True]).reset_index(drop=True)
         extras = {
-            "golf": ["tee_time", "ceiling", "make_cut_odds"],
+            "golf": ["current_score", "tee_time", "ceiling", "make_cut_odds"],
             "mma": ["win_prob", "ko_pct", "sub_pct", "dec_pct"],
             "nascar": ["starting_position", "dominator_points", "fast_laps"],
             "mlb": [],

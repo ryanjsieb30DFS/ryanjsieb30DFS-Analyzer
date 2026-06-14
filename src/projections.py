@@ -34,6 +34,10 @@ OPTIONAL_FLOAT_COLUMNS = [
     "ko_pct", "sub_pct", "dec_pct",
     "dominator_points", "fast_laps",
     "team_total",
+    # live to-par leaderboard score (e.g. DK PGA RD4 SD "Current Score").
+    # Float, NOT int: the int path uses -1 as its NA sentinel, which would
+    # wipe every real -1 (one-under) score.
+    "current_score",
 ]
 OPTIONAL_INT_COLUMNS = ["starting_position", "dk_id", "matchup", "batting_order"]
 OPTIONAL_STR_COLUMNS = ["opponent", "tee_time", "position", "team", "hand"]

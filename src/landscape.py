@@ -40,7 +40,10 @@ def leverage_table(projections: pd.DataFrame, top_n: int = 20) -> pd.DataFrame:
     upside = df["ceiling"] if "ceiling" in df.columns and df["ceiling"].notna().any() else df["proj_points"]
     df["upside"] = upside
     df["leverage_score"] = df["upside"] / (df["ownership"].fillna(0) + 1)
-    cols = ["name", "salary", "proj_points", "upside", "ownership", "leverage_score"]
+    cols = ["name", "salary", "proj_points", "upside", "ownership"]
+    if "current_score" in df.columns:  # golf RD4 SD live leaderboard position
+        cols.append("current_score")
+    cols.append("leverage_score")
     return df.sort_values("leverage_score", ascending=False).head(top_n)[cols].reset_index(drop=True)
 
 

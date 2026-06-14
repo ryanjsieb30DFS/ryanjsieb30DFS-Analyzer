@@ -65,7 +65,10 @@ def top_chalk(df: pd.DataFrame, n: int = 10) -> pd.DataFrame:
         return chalk
     chalk["pt_per_$"] = (chalk["proj_points"] / chalk["salary"] * 1000).round(2)
     chalk["proj_per_own"] = (chalk["proj_points"] / chalk["ownership"]).round(3)
-    cols = ["name", "salary", "proj_points", "ownership", "pt_per_$", "proj_per_own"]
+    cols = ["name", "salary", "proj_points", "ownership"]
+    if "current_score" in chalk.columns:  # golf RD4 SD live leaderboard position
+        cols.append("current_score")
+    cols += ["pt_per_$", "proj_per_own"]
     return chalk.sort_values("ownership", ascending=False).head(n)[cols].reset_index(drop=True)
 
 
@@ -107,6 +110,20 @@ def _golf_signals(df: pd.DataFrame) -> dict:
             avg_own=("ownership", "mean"),
         ).round(2).reset_index()
         out["make_cut_tiers"] = tier
+    # RD4 Showdown live leaderboard position: who among the low-owned plays is
+    # actually in contention vs. way back. A way-back dart can't post the round it
+    # needs on a tough course — this table surfaces the trap (mirrors NASCAR pd).
+    if "current_score" in df.columns and df["current_score"].notna().any():
+        low = df[(df["ownership"].fillna(100) < 10) & df["current_score"].notna()].copy()
+        if not low.empty:
+            leader = df["current_score"].min()
+            low["back"] = (low["current_score"] - leader).round(0)
+            cols = ["name", "salary", "ownership", "current_score", "back"]
+            if "ceiling" in low.columns:
+                cols.append("ceiling")
+            out["low_own_by_position"] = (
+                low.sort_values("current_score").head(15)[cols].reset_index(drop=True)
+            )
     return out
 
 

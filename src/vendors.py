@@ -216,7 +216,9 @@ VENDOR_SIGNATURES: list[dict] = [
             "points": "proj_points",
             "id": "dk_id",
         },
-        "drop_columns": ["value", "current_score", "finish_points"],
+        # Keep `current_score` — it's the live to-par leaderboard position, THE
+        # driving input for RD4 Showdown selection. `value`/`finish_points` are noise.
+        "drop_columns": ["value", "finish_points"],
     },
 ]
 

@@ -365,12 +365,23 @@ def _roster_table(slug: str, players: list[dict]) -> str:
             for p in players
         ]
     else:  # golf — never any CPT wording
+        def _score(p):  # current_score: float to-par, may be None/NaN
+            v = p.get("current_score")
+            return v if (v is not None and v == v) else None
         has_tee = any(p.get("tee_time") for p in players)
-        head = "| Golfer |" + (" Tee time |" if has_tee else "") + " Salary | Proj | Own% |"
+        has_score = any(_score(p) is not None for p in players)
+        head = (
+            "| Golfer |"
+            + (" Tee time |" if has_tee else "")
+            + (" Score |" if has_score else "")
+            + " Salary | Proj | Own% |"
+        )
         rows = []
         for p in players:
             tee = f" {p.get('tee_time', '')} |" if has_tee else ""
-            rows.append(f"| {p['name']} |{tee} {sal(p)} | {proj(p)} | {own(p)} |")
+            sc = _score(p)
+            score = (f" {sc:+.0f} |" if sc is not None else " |") if has_score else ""
+            rows.append(f"| {p['name']} |{tee}{score} {sal(p)} | {proj(p)} | {own(p)} |")
 
     sep = "|" + "---|" * (head.count("|") - 1)
     return "\n".join([head, sep, *rows])
