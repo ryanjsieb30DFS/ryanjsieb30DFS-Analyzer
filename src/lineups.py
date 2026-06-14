@@ -15,6 +15,7 @@ import pandas as pd
 
 _LINEUPS_DIR = Path(__file__).parent.parent / "data" / "lineups"
 _RED_TEAM_DIR = Path(__file__).parent.parent / "data" / "red_team"
+_FIXES_DIR = Path(__file__).parent.parent / "data" / "lineup_fixes"
 _HB_ANALYSIS_DIR = Path(__file__).parent.parent / "data" / "handbuild_analysis"
 _RANKING_DIR = Path(__file__).parent.parent / "data" / "lineup_ranking"
 
@@ -51,6 +52,48 @@ def load_red_team(slug: str) -> dict | None:
 def clear_red_team(slug: str) -> None:
     """Delete the file. Called after an autopsy log so the next slate starts fresh."""
     p = _RED_TEAM_DIR / f"{slug}.md"
+    if p.exists():
+        p.unlink()
+
+
+def red_team_verdicts(slug: str) -> dict[str, str]:
+    """Parse the red-team review's '## Verdict summary' table into
+    {lineup_label: 'SHIP'|'FIX'|'KILL'}. Returns {} if no review exists.
+
+    Reads only the rows of the FIRST markdown table whose verdict cell is a
+    bold SHIP/FIX/KILL — the verdict summary — so per-lineup attack headers
+    (which repeat the verdict) don't double-count.
+    """
+    p = _RED_TEAM_DIR / f"{slug}.md"
+    if not p.exists():
+        return {}
+    out: dict[str, str] = {}
+    for label, verdict in re.findall(
+        r"(?m)^\|\s*(L\d+\b[^|]*?)\s*\|\s*\*\*(SHIP|FIX|KILL)\*\*\s*\|", p.read_text()
+    ):
+        out[label.strip()] = verdict
+    return out
+
+
+def flagged_lineups(slug: str) -> list[str]:
+    """Labels of lineups the red team marked FIX or KILL (in table order)."""
+    return [lab for lab, v in red_team_verdicts(slug).items() if v in ("FIX", "KILL")]
+
+
+def load_lineup_fixes(slug: str) -> dict | None:
+    """Return {'markdown': str, 'mtime': str} for the fix-proposals doc, or None."""
+    p = _FIXES_DIR / f"{slug}.md"
+    if not p.exists():
+        return None
+    return {
+        "markdown": p.read_text(),
+        "mtime": datetime.fromtimestamp(p.stat().st_mtime).strftime("%Y-%m-%d %H:%M"),
+    }
+
+
+def clear_lineup_fixes(slug: str) -> None:
+    """Delete the fix-proposals doc (per-slate working state)."""
+    p = _FIXES_DIR / f"{slug}.md"
     if p.exists():
         p.unlink()
 

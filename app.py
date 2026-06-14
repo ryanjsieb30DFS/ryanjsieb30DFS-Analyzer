@@ -37,9 +37,11 @@ from src.analysis_runner import (
     run_analysis, run_build_lineups, run_select_lineups, lineup_target,
     run_autopsy_review, run_apply_proposals, run_red_team,
     run_handbuild_analysis, run_rank_lineups,
+    run_fix_lineups, run_apply_lineup_fixes,
 )
 from src.lineups import (
     load_lineups, clear_lineups, load_red_team, clear_red_team,
+    red_team_verdicts, flagged_lineups, load_lineup_fixes, clear_lineup_fixes,
     roster_spec, lineup_totals, validate_lineup,
     append_handbuilt_lineup, assign_slots,
     load_handbuild_analysis, clear_handbuild_analysis,
@@ -87,6 +89,7 @@ with st.sidebar:
         sessions.clear(slug)
         clear_articles(slug)
         clear_lineup_ranking(slug)
+        clear_lineup_fixes(slug)
         dk_ids.clear_map(slug)
         st.rerun()
 
@@ -664,12 +667,69 @@ with tab_analyze:
                 st.error(f"Couldn't run the red team: {rt['error']}")
 
         rt_blob = load_red_team(slug)
+        rt_current = bool(rt_blob) and rt_blob["mtime"] >= lineups_blob["mtime"]
         if rt_blob:
-            if rt_blob["mtime"] < lineups_blob["mtime"]:
+            if not rt_current:
                 st.warning("Lineups changed since this red-team review — re-run it.")
             with st.container(border=True):
                 st.caption(f"Last updated: {rt_blob['mtime']}")
                 st.markdown(rt_blob["markdown"])
+
+        # ----- (h) Fix flagged lineups (re-select replacements from the pool) -----
+        if rt_blob:
+            st.markdown("---")
+            st.markdown("### Fix flagged lineups")
+            st.caption(
+                "For each lineup the Red Team marked FIX or KILL, Claude proposes a replacement "
+                "**re-selected from your uploaded pool** (never built from scratch) — SHIP lineups "
+                "are left untouched. Review the proposals, then apply them to your portfolio. "
+                "Takes ~2–5 minutes; uses your Claude subscription."
+            )
+            flagged = flagged_lineups(slug)
+            if not rt_current:
+                st.info("Re-run the Red Team first — the review is older than your current lineups.")
+            elif not flagged:
+                st.info("Every lineup is a SHIP — nothing flagged to fix. 🎉")
+            elif not sim_files:
+                st.info(
+                    "Fixes are re-selected from your pool — upload your lineup-pool CSV(s) in the "
+                    "**Sim Data** tab first."
+                )
+            elif not pool_has_ids:
+                st.info(
+                    "The loaded projections carry no DK IDs, so pool rows can't be matched to players. "
+                    "Attach DK IDs in the **Projections** tab first."
+                )
+            else:
+                st.caption(f"**{len(flagged)} lineup(s) flagged:** " + "; ".join(flagged))
+                if st.button("🔧 Fix flagged lineups (re-select from pool)", key=f"fix_lineups_{slug}"):
+                    with st.spinner(f"Re-selecting replacements for {len(flagged)} lineup(s) from your pool… (~2–5 min)"):
+                        fr = run_fix_lineups(slug, contest_label, sport)
+                    if fr["ok"]:
+                        cost = fr.get("cost_usd")
+                        cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
+                        st.success(f"Fix proposals written in {fr['duration_s']:.0f}s{cost_note}. Review below, then apply.")
+                        st.rerun()
+                    else:
+                        st.error(f"Couldn't propose fixes: {fr['error']}")
+
+            fx_blob = load_lineup_fixes(slug)
+            if fx_blob:
+                if fx_blob["mtime"] < rt_blob["mtime"]:
+                    st.warning("These proposals predate the latest red-team review — re-run Fix.")
+                with st.container(border=True):
+                    st.caption(f"Proposals · {fx_blob['mtime']}")
+                    st.markdown(fx_blob["markdown"])
+                fa_col, _ = st.columns([1, 2])
+                if fa_col.button("✅ Apply fixes to portfolio", type="primary", key=f"apply_fixes_{slug}"):
+                    with st.spinner("Applying fixes — keeping SHIP lineups, swapping the flagged ones…"):
+                        ar = run_apply_lineup_fixes(slug, contest_label, sport)
+                    if ar["ok"]:
+                        clear_lineup_fixes(slug)
+                        st.success(f"Portfolio updated in {ar['duration_s']:.0f}s. Re-run the Red Team to confirm the fixes.")
+                        st.rerun()
+                    else:
+                        st.error(f"Couldn't apply fixes: {ar['error']}")
 
 
 # ===== Tab 5: Handbuild =====
@@ -1262,6 +1322,7 @@ with tab_autopsy:
                 clear_persisted(slug)
                 clear_lineups(slug)
                 clear_red_team(slug)
+                clear_lineup_fixes(slug)
                 clear_handbuild_analysis(slug)
                 clear_lineup_ranking(slug)
                 clear_contests(slug)

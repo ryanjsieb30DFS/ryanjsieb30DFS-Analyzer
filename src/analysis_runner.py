@@ -262,6 +262,128 @@ def run_select_lineups(slug: str, contest_label: str, sport: str, n_target: int)
     return _run_claude(prompt, out_path)
 
 
+def run_fix_lineups(slug: str, contest_label: str, sport: str) -> dict:
+    """Propose pool-sourced replacements for the red-team-flagged lineups.
+
+    Reads the red-team review (data/red_team/<slug>.md) + the current portfolio
+    (data/lineups/<slug>.md), and for each lineup the red team marked FIX or KILL
+    RE-SELECTS a replacement FROM the uploaded lineup pool(s) — never building
+    from scratch. SHIP lineups are left untouched. Writes PROPOSALS only, to
+    data/lineup_fixes/<slug>.md; the portfolio is changed later by
+    run_apply_lineup_fixes. Requires the red-team review, the portfolio, and at
+    least one pool file to exist.
+    """
+    lineups_path = _REPO_ROOT / "data" / "lineups" / f"{slug}.md"
+    red_team_path = _REPO_ROOT / "data" / "red_team" / f"{slug}.md"
+    analysis_path = _REPO_ROOT / "data" / "slate_analysis" / f"{slug}.md"
+    if not lineups_path.exists():
+        return {"ok": False, "error": "No lineups to fix — build/select a portfolio first.",
+                "duration_s": 0.0, "cost_usd": None}
+    if not red_team_path.exists():
+        return {"ok": False, "error": "Run the Red Team first — there are no verdicts to act on.",
+                "duration_s": 0.0, "cost_usd": None}
+
+    from src.sim_data import load_sim_files
+    from src.lineups import roster_spec, flagged_lineups
+
+    flagged = flagged_lineups(slug)
+    if not flagged:
+        return {"ok": False, "error": "Every lineup is a SHIP — nothing flagged to fix.",
+                "duration_s": 0.0, "cost_usd": None}
+    sim_files = load_sim_files(slug)
+    if not sim_files:
+        return {"ok": False,
+                "error": "Fixes are re-selected from your pool — upload a lineup-pool CSV in the Sim Data tab first.",
+                "duration_s": 0.0, "cost_usd": None}
+    slots = roster_spec(slug)["slots"]
+    pool_paths = "\n".join(
+        f"  - `{s['path']}` ({s['n_rows']:,} rows · {'has sims' if s.get('has_sim_cols') else 'rosters only'})"
+        for s in sim_files
+    )
+    flagged_list = "; ".join(flagged)
+
+    out_path = _REPO_ROOT / "data" / "lineup_fixes" / f"{slug}.md"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    bundle_path = build_bundle(slug, contest_label, sport)
+
+    prompt = (
+        f"PROPOSE fixes for the {contest_label} lineup portfolio that the Red Team flagged. "
+        f"Read the red-team review at `{red_team_path}`, the current portfolio at `{lineups_path}`, "
+        f"the slate analysis at `{analysis_path}`, the bundle at `{bundle_path}` and the files it "
+        f"references (projections, articles), `rules/{slug}/framework.md` + `rules/{slug}/autopsies.md`, "
+        f"and EVERY uploaded lineup-pool CSV below (paths also in the bundle's '## Sim data' section):\n"
+        f"{pool_paths}\n\n"
+        f"The red-team '## Verdict summary' marks each lineup SHIP / FIX / KILL. The lineups flagged "
+        f"FIX or KILL are: {flagged_list}. **Leave every SHIP lineup alone.** For EACH flagged lineup, "
+        f"propose ONE replacement RE-SELECTED FROM THE POOL — do NOT invent rosters.\n\n"
+        f"How to read each pool CSV: each ROW is one candidate lineup; its first {len(slots)} columns "
+        f"are DK player IDs in slot order ({', '.join(slots)}); remaining columns are optional sim "
+        f"metrics (use only if present, never required). Resolve each DK ID to a player via the "
+        f"projections pool's `dk_id` column (in the bundle's Projections source). COMBINE all pool "
+        f"files and DEDUPE identical rosters.\n\n"
+        f"Each proposed replacement (selection discipline — enforce strictly):\n"
+        f"- Must be a REAL pool row — tag its source FILE name + 1-based ROW INDEX.\n"
+        f"- May EITHER resolve the red team's specific objection while still answering that lineup's "
+        f"original 'What if?' question, OR be a totally new, distinct lineup that answers a question "
+        f"the portfolio doesn't already cover — your call per lineup; state which you chose.\n"
+        f"- Must EXPRESS the slate analysis's edges / '## Player board' calls, NOT the highest sim "
+        f"ROI/Saber Score row (sim rank is NOT a quality filter on this repo's rules).\n"
+        f"- Total salary <= $50,000 (show the addition); <= 3 driver overlap with any KEPT (SHIP) "
+        f"lineup AND with any other replacement (no near-duplicates, no shared full conviction core).\n"
+        f"- Honor every framework hard rule + the Anchor-Equivalence pre-lock check across the FULL "
+        f"resulting portfolio (kept SHIP lineups + replacements).\n\n"
+        f"Write a proposals document to `{out_path}` with:\n"
+        f"- A short intro: which lineups were flagged and why (quote each one's verdict + the "
+        f"'FIX (one change)' instruction from the red team).\n"
+        f"- A '## Fix proposals' section: one subsection per flagged lineup — restate the original "
+        f"(label + flaw), then the PROPOSED replacement as a roster markdown table (player, salary, "
+        f"key metric, role), a one-sentence thesis, a 'What if?' line, a 'Resolves:' line naming how it "
+        f"answers the red team finding, and a 'Mode:' line ('same question' or 'new question').\n"
+        f"- A '## Kept (SHIP)' list naming the SHIP lineups that carry over unchanged.\n"
+        f"- A '## Portfolio after fixes' note: post-swap player overlap + Anchor-Equivalence compliance "
+        f"across the full set.\n\n"
+        f"HARD RULE: write ONLY `{out_path}` — do NOT edit the portfolio `{lineups_path}`, the red-team "
+        f"file, the slate analysis, the bundle, or the pool files. Applying the fixes is a separate "
+        f"step. Do not ask any questions — produce the file."
+    )
+    return _run_claude(prompt, out_path)
+
+
+def run_apply_lineup_fixes(slug: str, contest_label: str, sport: str) -> dict:
+    """Apply the proposed fixes: rewrite the portfolio keeping SHIP lineups
+    verbatim and swapping in each proposed replacement. Requires both the
+    proposals doc and the portfolio to exist. Writes ONLY data/lineups/<slug>.md.
+    """
+    lineups_path = _REPO_ROOT / "data" / "lineups" / f"{slug}.md"
+    fixes_path = _REPO_ROOT / "data" / "lineup_fixes" / f"{slug}.md"
+    if not fixes_path.exists():
+        return {"ok": False, "error": "No fix proposals yet — run 'Fix flagged lineups' first.",
+                "duration_s": 0.0, "cost_usd": None}
+    if not lineups_path.exists():
+        return {"ok": False, "error": "No portfolio file to apply fixes to.",
+                "duration_s": 0.0, "cost_usd": None}
+
+    prompt = (
+        f"APPLY the proposed lineup fixes to the {contest_label} portfolio. Read the current portfolio "
+        f"at `{lineups_path}` and the fix proposals at `{fixes_path}`. Produce the FINAL portfolio:\n"
+        f"- Keep every SHIP lineup EXACTLY as written in `{lineups_path}` (verbatim — same drivers, "
+        f"thesis, salary line, 'What if?').\n"
+        f"- Replace each red-team-flagged (FIX/KILL) lineup with its PROPOSED replacement from "
+        f"`{fixes_path}` (same roster, thesis, 'What if?', salary check, and the source FILE + ROW "
+        f"INDEX tag); add a short note on the heading or below it that it was re-selected to fix the "
+        f"red-team finding.\n"
+        f"- Renumber the lineups L1..LN in order, keep the existing '## Pre-flight checklist' block at "
+        f"the top, and REWRITE the '## Portfolio audit' to reflect the new set (exposure counts, "
+        f"Anchor-Equivalence compliance, max pairwise overlap, and a line naming which lineups were "
+        f"fixed and how).\n"
+        f"- Verify every final lineup is <= $50,000 with the right number of players and that no two "
+        f"lineups share more than 3 players.\n\n"
+        f"HARD RULE: write ONLY `{lineups_path}` — do NOT edit the proposals file, the red-team file, "
+        f"or any other data file. Do not ask any questions — produce the file."
+    )
+    return _run_claude(prompt, lineups_path)
+
+
 def run_rank_lineups(slug: str, contest_label: str, sport: str,
                      lineups: list[dict]) -> dict:
     """Rank the user's candidate lineups head-to-head via headless Claude.
