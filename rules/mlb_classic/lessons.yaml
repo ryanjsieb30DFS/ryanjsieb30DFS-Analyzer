@@ -127,6 +127,22 @@ lessons:
           mid-pack (28.8%) on the SAME slate. Band refinement: winning sub-10%
           density was 3.3-3.6 here vs 4-5 on prior slates — "one pivot,
           roughly 3-5 sub-10% plays" is the working range.
+      - date: "2026-06-13"
+        slate: "rules/mlb_classic/history/2026-06-13__mlb-classic-6-13-26"
+        evidence: >
+          Band held — the 6/12 high-density drift did NOT persist. Top-20
+          winners ran 12.64% avg own / 5.7 sub-10 (Rally, 882) and 13.43% /
+          5.3 sub-10 (Chin, 1,426): near-field own with ~5-6 sub-10, the upper
+          end of the working range rather than the 7.6-sub-10 extreme seen on
+          6/12. Both user entries were in-band (L1 11.7% own / 5 sub-10; L2
+          12.5% / 5 sub-10), and the better one (L2, 15.4%) beat the off-LAD L1
+          (43.4%). Partially answers the WATCH NOTE below: at these ~900-1,400
+          fields the band reverted to ~5; the 7.6 extreme tracked the 1,783
+          field AND a hard-condensing smash ace (Misiorowski 53-56% + 58 pts),
+          NOT field size alone. This slate's ace (Yamamoto) condensed only
+          mildly (37-43%), the pitcher slot stayed live, and the band held —
+          consistent with density scaling on condensation magnitude (see
+          mlb-classic-2026-06-13-chalk-ace-smash-compresses-pitcher-leverage).
     # 2026-06-13 WATCH NOTE (no evidence/status change — GPP guard, one slate):
     # the density band drifted HIGH this slate. Contest-1 (980, in-scope)
     # top-20 winners ran 6.2 sub-10 plays at 14.2% avg own (avg-own half still
@@ -183,6 +199,18 @@ lessons:
           structure. NOTE: this same slate contradicted the lesson's LEASH
           clause (see contradictions) — the enabler-keep mechanism and the
           leash discriminator are now diverging halves of one lesson.
+      - date: "2026-06-13"
+        slate: "rules/mlb_classic/history/2026-06-13__mlb-classic-6-13-26"
+        evidence: >
+          ENABLER-KEEP confirmed a 4th time. Bubba Chandler ($6,200, 12.1%
+          proj own) was the cheap SP2 enabler kept explicitly per this lesson
+          to fund the premium stacks; he was rostered in BOTH entries and
+          delivered 17.75 FPTS — a slate-defining play (top_lineup_pct 30% in
+          Rally, present across winners) at ~12.6% actual own. The savings vs a
+          second $10K ace funded the LAD/ARI and BAL/CIN bats. Fading him for a
+          second premium arm would again have cut the build off the winning
+          salary shape. The leash clause was not tested this slate (Chandler is
+          a normal-leash arm).
     contradictions:
       - date: "2026-06-12"
         slate: "rules/mlb_classic/history/2026-06-12__mlb-classic-6-11-26"
@@ -262,6 +290,18 @@ lessons:
           the ledger's best percentile (top 4.4%). Mechanism confirmed from
           both directions now: bypassing the loop produced chalkier-than-band
           entries twice; honoring it produced an in-band entry once.
+      - date: "2026-06-13"
+        slate: "rules/mlb_classic/history/2026-06-13__mlb-classic-6-13-26"
+        evidence: >
+          Fourth confirmation, positive case again: BOTH entered lineups
+          existed in lineups.md pre-lock and the autopsy's user_lineups match
+          them player-for-player — Rally Cap entry = the tracked L1 (#902,
+          BAL-5/CIN-3: Alonso/Arroyo/Stewart/Basallo/Bleday/Alexander/O'Neill/
+          Yamamoto/Chandler/Henderson) and Chin Music entry = the tracked L2
+          (#1164, LAD-5/ARI-2). No untracked swap. Every entered lineup carried
+          a thesis, passed red team (SHIP/SHIP post-FIX), and was in the
+          portfolio audit — so the autopsy graded exactly what was played. The
+          honor-the-loop default is now 2-for-2 since the 6/10 swap failures.
     contradictions: []
     codified_in: "framework.md — Lineup discipline, HARD RULE (user-approved 2026-06-12)"
     retired_reason: null
@@ -317,6 +357,26 @@ lessons:
           team warned pre-lock. The lesson's core mechanism (consensus #1
           condenses) is now 3-for-3; the affordability twist is refuted (see
           new hypothesis mlb-classic-2026-06-13-condensation-target-projected-leader).
+      - date: "2026-06-13"
+        slate: "rules/mlb_classic/history/2026-06-13__mlb-classic-6-13-26"
+        evidence: >
+          DIRECTION confirmed a 4th time, but MAGNITUDE muted — a calibration
+          flag. Yamamoto was the projected-own #1 arm (35.3%) and closed
+          37.41% / 43.27% across the two SE contests: still up, but only +2 to
+          +8, nowhere near the flat +30 the prior three events showed (Detmers
+          38->69, Scott 44->56-63, Misiorowski 25->55). The analysis applied
+          the +30 and priced fading Yamamoto as "a ~55-60% binary"; the real
+          fade was 37-43% — meaningfully more viable than the lesson's flat
+          magnitude implied. Holding him was still correct (he smashed, 34.15),
+          so this is NOT a contradiction of the up-direction mechanism — it is
+          a magnitude refinement: the +30 is not a constant. Candidate
+          moderator identified (see new hypothesis
+          mlb-classic-2026-06-13-condensation-magnitude-vs-tier-isolation):
+          unlike the three +30 cases, which were each a lone consensus #1 with
+          daylight, Yamamoto sat in a tight premium tier (deGrom 25.5%, Skubal
+          27.8% within ~10%), and the field split across the three rather than
+          piling onto one. Size future pitcher fades to tier isolation, not a
+          flat +30.
     contradictions: []
     codified_in: >
       framework.md — Construction (user-approved 2026-06-13): SE chalk-pitcher
@@ -508,6 +568,92 @@ lessons:
       not a free requirement. Mechanism-based, born this slate; interacts with
       mlb-classic-2026-06-10-pivot-budget-small-field-se (density watch note) —
       needs confirmation.
+    status: validated
+    confirmations:
+      - date: "2026-06-13"
+        slate: "rules/mlb_classic/history/2026-06-13__mlb-classic-6-13-26"
+        evidence: >
+          CONDITIONAL confirmed by the contrast case — the pitcher-slot
+          compression scales WITH condensation magnitude. On 6/12 Misiorowski
+          condensed hard (53-56%) AND smashed, and the pitcher slot fully
+          stopped differentiating (winners went extreme bat-spread, 7.6 sub-10).
+          This slate Yamamoto smashed (34.15) but condensed only MILDLY (37-43%,
+          not a majority), so the slot stayed live — and winners diverged on
+          pitcher exactly as the milder compression predicts: only ~5 of the
+          Rally Cap top-10 held Yamamoto, the rest used Soroka (ranks 2/4/7) or
+          a low-owned NYM Manaea (19.1 pts, slate-defining, 35-45% of top-20) or
+          deGrom. Bat-spread was correspondingly milder than 6/12 (top-20 ran
+          5.3-5.7 sub-10 here vs 7.6), and 5-man primaries reappeared among
+          winners (5-2-1/5-1-1-1/5-3). Net: the mechanism is real and
+          monotonic in condensation magnitude — heavy condensation kills
+          pitcher leverage and forces bat-spread; mild condensation leaves the
+          slot live and a low-owned pivot arm (Manaea) becomes the edge.
+          Second observing slate (origin 6/12 + this); promoted to validated.
+          Practical upgrade: gate "lean the bats MORE spread" on the ace
+          actually condensing hard, not merely on it being chalk.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # --- Born from 2026-06-14 post-autopsy (slate: MLB Classic 6.13.26) ---
+
+  - id: mlb-classic-2026-06-13-independent-se-no-cross-decouple
+    born: "2026-06-13"
+    origin: "rules/mlb_classic/history/2026-06-13__mlb-classic-6-13-26"
+    statement: >
+      Two single entries in SEPARATE SE contests do not share a prize pool, so
+      "decouple the portfolio / non-competing lineups" discipline — which exists
+      to hedge multiple entries inside ONE field — does not transfer across
+      contests. Each independent SE entry should be the highest-EV build for its
+      OWN field size and payout curve (ceiling for top-heavy, floor+ceiling for
+      flat), even when that means both entries express the same top edge. On
+      6/13 the red team issued a portfolio FIX to decouple L1 off the shared
+      LAD-5 + Yamamoto core; the FIX was taken and L1 was rebuilt to BAL-5/CIN-3
+      (LAD-0) for the top-heavy Rally Cap while L2 kept LAD-5/ARI-2 for the
+      flatter Chin Music. The decouple drove the Rally entry entirely off LAD —
+      the analysis's #1 edge AND the home of the slate-defining play (Max Muncy
+      $4,500, 39 pts, 9% own, in 65-70% of top-20 winners and the rank-1 lineups
+      in BOTH contests). L1 landed on the two games (Camden + GABP) that died and
+      finished 43.4%; the LAD-holding L2 finished 15.4% (the portfolio's better
+      entry). Mechanism: differentiating two entries from EACH OTHER buys nothing
+      when they cash from independent pools — the differentiation that pays is
+      per-contest (which the high-ceiling-to-top-heavy split already delivered),
+      and that is fully compatible with both entries holding the slate's best
+      game. How to apply: when entries are in separate contests, do NOT decouple
+      them off your highest-conviction game to make them "different"; let each be
+      the best build for its field, and keep your #1 edge in both if conviction
+      warrants. SCOPE BOUNDARY, not a contradiction, of
+      mlb-classic-2026-06-01-distinct-thesis-per-lineup (which governs
+      multi-entry WITHIN one field). GPP guard: one slate, and the off-LAD
+      ceiling build was the contest-correct shape for a top-heavy field — the
+      LOSS is not the evidence; the independent-payout STRUCTURE is. Needs
+      confirmation.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mlb-classic-2026-06-13-condensation-magnitude-vs-tier-isolation
+    born: "2026-06-13"
+    origin: "rules/mlb_classic/history/2026-06-13__mlb-classic-6-13-26"
+    statement: >
+      The SE chalk-pitcher condensation MAGNITUDE scales with how ISOLATED the
+      consensus #1 arm is, and is not the flat +30 the codified lesson applies.
+      The three +30 events (Detmers 38->69, Scott 44->56-63, Misiorowski 25->55)
+      were each a lone consensus #1 with clear daylight to the next arm. On 6/13
+      Yamamoto was the projected-own #1 (35.3%) but sat in a tight premium tier
+      — deGrom 25.5%, Skubal 27.8%, both within ~10% — and condensed only +2 to
+      +8 (37.41% / 43.27%). Mechanism: a fragmented top tier gives the casual SE
+      field several defensible "best arms," so convergence splits across them
+      instead of piling onto one; an isolated #1 has no such outlet and absorbs
+      the full pile. How to apply: when sizing a pitcher fade, scale the assumed
+      condensation to tier isolation — a #1 standing alone is a near-+30 (and a
+      brutal fade), but a #1 inside a 3-arm cluster condenses far less (Yamamoto
+      was a real 37-43% fade, not the "55-60% binary" the flat +30 implied).
+      Refines the MAGNITUDE of mlb-classic-2026-06-11-se-chalk-pitcher-own-condensation
+      (whose up-DIRECTION is now 4-for-4) without contradicting it. Born this
+      slate, needs confirmation.
     status: hypothesis
     confirmations: []
     contradictions: []

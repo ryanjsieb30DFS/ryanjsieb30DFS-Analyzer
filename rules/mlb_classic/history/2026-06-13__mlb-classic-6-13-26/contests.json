@@ -1,0 +1,24 @@
+{
+  "contests": [
+    {
+      "name": "MLB $6K Rally Cap",
+      "type": "SE",
+      "field_size": 882,
+      "max_entries": 26,
+      "my_entries": 1,
+      "entry_fee": 8.0,
+      "prize_pool": 6000,
+      "id": "8cbce987"
+    },
+    {
+      "name": "MLB $6K Chin Music",
+      "type": "SE",
+      "field_size": 1426,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 5.0,
+      "prize_pool": 6000,
+      "id": "87ee0d4c"
+    }
+  ]
+}

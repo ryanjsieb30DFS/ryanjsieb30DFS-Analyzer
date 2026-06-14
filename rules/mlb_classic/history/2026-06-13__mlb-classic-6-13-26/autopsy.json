@@ -1,0 +1,906 @@
+[
+  {
+    "timestamp": "2026-06-13 20:09",
+    "contest_type": "MLB Classic",
+    "source_file": "contest-standings-191323712.csv",
+    "entries": 882,
+    "winning_score": 192.25,
+    "cash_line_p80": 125.7,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mlb_classic",
+    "sport": "mlb",
+    "projections": {
+      "available": true,
+      "source": "MLB_2026-06-13-405pm_DK_Main.csv",
+      "matched": 163,
+      "total": 184
+    },
+    "user_summary": {
+      "avg_own_mean": 11.72,
+      "low_own_count_mean": 5.0,
+      "salary_used_mean": 50000.0,
+      "entry_count": 1,
+      "best_rank": 383,
+      "best_percentile": 43.4
+    },
+    "user_lineups": [
+      {
+        "rank": 383,
+        "entry_name": "RyvlesGaming30",
+        "points": 109.9,
+        "percentile": 43.4,
+        "players": [
+          "Pete Alonso",
+          "Edwin Arroyo",
+          "Sal Stewart",
+          "Samuel Basallo",
+          "JJ Bleday",
+          "Blaze Alexander",
+          "Tyler O'Neill",
+          "Yoshinobu Yamamoto",
+          "Bubba Chandler",
+          "Gunnar Henderson"
+        ],
+        "avg_own": 11.72,
+        "low_own_count": 5,
+        "salary_used": 50000,
+        "proj_total": 97.18,
+        "dup_count": 1,
+        "stack_shape": "5-3"
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Max Muncy",
+        "proj_points": 8.26,
+        "actual_fpts": 39.0,
+        "fpts_delta": 30.74,
+        "ownership": 7.36,
+        "actual_own": 9.07
+      },
+      {
+        "name": "Eli White",
+        "proj_points": 6.29,
+        "actual_fpts": 26.0,
+        "fpts_delta": 19.71,
+        "ownership": 2.46,
+        "actual_own": 3.29
+      },
+      {
+        "name": "Samad Taylor",
+        "proj_points": 7.4,
+        "actual_fpts": 24.0,
+        "fpts_delta": 16.6,
+        "ownership": 9.73,
+        "actual_own": 7.6
+      },
+      {
+        "name": "Yoshinobu Yamamoto",
+        "proj_points": 19.38,
+        "actual_fpts": 34.15,
+        "fpts_delta": 14.77,
+        "ownership": 35.46,
+        "actual_own": 37.41
+      },
+      {
+        "name": "Pete Alonso",
+        "proj_points": 9.23,
+        "actual_fpts": 24.0,
+        "fpts_delta": 14.77,
+        "ownership": 9.35,
+        "actual_own": 11.22
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "JJ Bleday",
+        "proj_points": 8.86,
+        "actual_fpts": 0.0,
+        "fpts_delta": -8.86,
+        "ownership": 6.99,
+        "actual_own": 6.46
+      },
+      {
+        "name": "Freddie Freeman",
+        "proj_points": 8.69,
+        "actual_fpts": 0.0,
+        "fpts_delta": -8.69,
+        "ownership": 5.71,
+        "actual_own": 6.24
+      },
+      {
+        "name": "Josh Naylor",
+        "proj_points": 8.61,
+        "actual_fpts": 0.0,
+        "fpts_delta": -8.61,
+        "ownership": 6.66,
+        "actual_own": 5.9
+      },
+      {
+        "name": "Nathaniel Lowe",
+        "proj_points": 7.74,
+        "actual_fpts": 0.0,
+        "fpts_delta": -7.74,
+        "ownership": 3.97,
+        "actual_own": 4.42
+      },
+      {
+        "name": "Sal Stewart",
+        "proj_points": 7.7,
+        "actual_fpts": 0.0,
+        "fpts_delta": -7.7,
+        "ownership": 4.95,
+        "actual_own": 1.59
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Max Muncy",
+        "salary": 4500,
+        "actual_fpts": 39.0,
+        "actual_own": 9.07,
+        "top_lineup_pct": 70.0
+      },
+      {
+        "name": "Samad Taylor",
+        "salary": 2500,
+        "actual_fpts": 24.0,
+        "actual_own": 7.6,
+        "top_lineup_pct": 40.0
+      },
+      {
+        "name": "Shohei Ohtani",
+        "salary": 6600,
+        "actual_fpts": 22.0,
+        "actual_own": 5.56,
+        "top_lineup_pct": 40.0
+      },
+      {
+        "name": "Sean Manaea",
+        "salary": 5900,
+        "actual_fpts": 19.1,
+        "actual_own": 12.47,
+        "top_lineup_pct": 35.0
+      },
+      {
+        "name": "Bubba Chandler",
+        "salary": 6200,
+        "actual_fpts": 17.75,
+        "actual_own": 12.59,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Gavin Sheets",
+        "salary": 3100,
+        "actual_fpts": 16.0,
+        "actual_own": 6.46,
+        "top_lineup_pct": 45.0
+      },
+      {
+        "name": "Fernando Tatis Jr.",
+        "salary": 5100,
+        "actual_fpts": 9.0,
+        "actual_own": 6.58,
+        "top_lineup_pct": 35.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 12.64,
+      "low_own_count_mean": 5.7,
+      "salary_used_mean": 49755.0,
+      "dup_max": 1,
+      "unique_pct": 100.0,
+      "stack_shapes": {
+        "5-2-1": 4,
+        "5-1-1-1": 4,
+        "5-3": 3,
+        "4-3-1": 2,
+        "2-1-1-1-1-1-1": 2,
+        "2-2-2-1-1": 2,
+        "3-2-2-1": 2,
+        "4-2-1-1": 1
+      },
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "Ddohnalek (3/3)",
+          "points": 192.25,
+          "percentile": 0.1,
+          "players": [
+            "Gavin Sheets",
+            "Gleyber Torres",
+            "Max Muncy",
+            "Dillon Dingler",
+            "Fernando Tatis Jr.",
+            "Jackson Merrill",
+            "Samad Taylor",
+            "Yoshinobu Yamamoto",
+            "Sean Manaea",
+            "Xander Bogaerts"
+          ],
+          "avg_own": 12.57,
+          "low_own_count": 6,
+          "salary_used": 49600,
+          "proj_total": 96.18,
+          "dup_count": 1,
+          "stack_shape": "5-2-1"
+        },
+        {
+          "rank": 2,
+          "entry_name": "needlunchmoney (20/26)",
+          "points": 173.7,
+          "percentile": 0.2,
+          "players": [
+            "Luis Garcia Jr.",
+            "Jose Tena",
+            "Max Muncy",
+            "Drew Millas",
+            "Shohei Ohtani",
+            "James Wood",
+            "Wyatt Langford",
+            "Michael Soroka",
+            "Bubba Chandler",
+            "Mookie Betts"
+          ],
+          "avg_own": 10.19,
+          "low_own_count": 6,
+          "salary_used": 49800,
+          "proj_total": 95.45,
+          "dup_count": 1,
+          "stack_shape": "4-3-1"
+        },
+        {
+          "rank": 3,
+          "entry_name": "ruff_endz14 (3/5)",
+          "points": 170.8,
+          "percentile": 0.3,
+          "players": [
+            "Pete Alonso",
+            "Ketel Marte",
+            "Max Muncy",
+            "Gabriel Moreno",
+            "Ryan Waldschmidt",
+            "Samad Taylor",
+            "Tommy Troy",
+            "Yoshinobu Yamamoto",
+            "Joey Cantillo",
+            "Geraldo Perdomo"
+          ],
+          "avg_own": 12.54,
+          "low_own_count": 6,
+          "salary_used": 49000,
+          "proj_total": 97.01,
+          "dup_count": 1,
+          "stack_shape": "5-1-1-1"
+        },
+        {
+          "rank": 4,
+          "entry_name": "needlunchmoney (11/26)",
+          "points": 169.7,
+          "percentile": 0.5,
+          "players": [
+            "Luis Garcia Jr.",
+            "Jose Tena",
+            "Max Muncy",
+            "Drew Millas",
+            "Shohei Ohtani",
+            "James Wood",
+            "Dylan Crews",
+            "Michael Soroka",
+            "Bubba Chandler",
+            "Mookie Betts"
+          ],
+          "avg_own": 9.42,
+          "low_own_count": 7,
+          "salary_used": 50000,
+          "proj_total": 94.81,
+          "dup_count": 1,
+          "stack_shape": "5-3"
+        },
+        {
+          "rank": 5,
+          "entry_name": "redem7 (7/7)",
+          "points": 166.1,
+          "percentile": 0.6,
+          "players": [
+            "Freddie Freeman",
+            "Ozzie Albies",
+            "Max Muncy",
+            "Freddy Fermin",
+            "Kyle Tucker",
+            "Victor Robles",
+            "Eli White",
+            "Yoshinobu Yamamoto",
+            "Michael Soroka",
+            "Mookie Betts"
+          ],
+          "avg_own": 11.12,
+          "low_own_count": 8,
+          "salary_used": 49800,
+          "proj_total": 96.49,
+          "dup_count": 1,
+          "stack_shape": "4-2-1-1"
+        },
+        {
+          "rank": 6,
+          "entry_name": "FantasyGainz (10/26)",
+          "points": 162.25,
+          "percentile": 0.7,
+          "players": [
+            "Gavin Sheets",
+            "Ketel Marte",
+            "Manny Machado",
+            "Freddy Fermin",
+            "Corbin Carroll",
+            "Jackson Merrill",
+            "Samad Taylor",
+            "Yoshinobu Yamamoto",
+            "Sean Manaea",
+            "Gunnar Henderson"
+          ],
+          "avg_own": 16.26,
+          "low_own_count": 3,
+          "salary_used": 49600,
+          "proj_total": 98.77,
+          "dup_count": 1,
+          "stack_shape": "5-2-1"
+        },
+        {
+          "rank": 7,
+          "entry_name": "lewzerr1 (22/26)",
+          "points": 161.6,
+          "percentile": 0.8,
+          "players": [
+            "Jake Burger",
+            "Fernando Tatis Jr.",
+            "Manny Machado",
+            "Gabriel Moreno",
+            "Corbin Carroll",
+            "Jackson Merrill",
+            "Samad Taylor",
+            "Michael Soroka",
+            "Joey Cantillo",
+            "Xander Bogaerts"
+          ],
+          "avg_own": 14.13,
+          "low_own_count": 4,
+          "salary_used": 49200,
+          "proj_total": 98.44,
+          "dup_count": 1,
+          "stack_shape": "5-2-1"
+        },
+        {
+          "rank": 8,
+          "entry_name": "Firedog50 (17/26)",
+          "points": 160.25,
+          "percentile": 0.9,
+          "players": [
+            "Luis Garcia Jr.",
+            "Jose Tena",
+            "Tyler Callihan",
+            "Gabriel Moreno",
+            "Shohei Ohtani",
+            "Daylen Lile",
+            "Dylan Crews",
+            "Yoshinobu Yamamoto",
+            "Sean Manaea",
+            "CJ Abrams"
+          ],
+          "avg_own": 11.04,
+          "low_own_count": 7,
+          "salary_used": 50000,
+          "proj_total": 93.77,
+          "dup_count": 1,
+          "stack_shape": "5-1-1-1"
+        },
+        {
+          "rank": 9,
+          "entry_name": "Groundhog2282 (2/5)",
+          "points": 160.0,
+          "percentile": 1.0,
+          "players": [
+            "Gavin Sheets",
+            "Fernando Tatis Jr.",
+            "Max Muncy",
+            "Freddy Fermin",
+            "Shohei Ohtani",
+            "Kyle Tucker",
+            "Wyatt Langford",
+            "Jacob deGrom",
+            "Sean Manaea",
+            "Xander Bogaerts"
+          ],
+          "avg_own": 11.01,
+          "low_own_count": 6,
+          "salary_used": 50000,
+          "proj_total": 95.4,
+          "dup_count": 1,
+          "stack_shape": "4-3-1"
+        },
+        {
+          "rank": 10,
+          "entry_name": "vymo09",
+          "points": 157.9,
+          "percentile": 1.1,
+          "players": [
+            "Shohei Ohtani",
+            "Fernando Tatis Jr.",
+            "Tyler Callihan",
+            "Samuel Basallo",
+            "James Wood",
+            "Samad Taylor",
+            "Noelvi Marte",
+            "Yoshinobu Yamamoto",
+            "Bubba Chandler",
+            "Bo Bichette"
+          ],
+          "avg_own": 12.19,
+          "low_own_count": 6,
+          "salary_used": 49900,
+          "proj_total": 99.8,
+          "dup_count": 1,
+          "stack_shape": "2-1-1-1-1-1-1"
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 0.92,
+        "low_own_count_delta": 0.7,
+        "salary_used_delta": -245.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-06-13 20:09",
+    "contest_type": "MLB Classic",
+    "source_file": "contest-standings-191303657.csv",
+    "entries": 1426,
+    "winning_score": 187.25,
+    "cash_line_p80": 127.600006,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mlb_classic",
+    "sport": "mlb",
+    "projections": {
+      "available": true,
+      "source": "MLB_2026-06-13-405pm_DK_Main.csv",
+      "matched": 200,
+      "total": 222
+    },
+    "user_summary": {
+      "avg_own_mean": 12.53,
+      "low_own_count_mean": 5.0,
+      "salary_used_mean": 50000.0,
+      "entry_count": 1,
+      "best_rank": 220,
+      "best_percentile": 15.4
+    },
+    "user_lineups": [
+      {
+        "rank": 220,
+        "entry_name": "RyvlesGaming30",
+        "points": 131.9,
+        "percentile": 15.4,
+        "players": [
+          "Freddie Freeman",
+          "Ketel Marte",
+          "Max Muncy",
+          "Adrian Del Castillo",
+          "Kyle Tucker",
+          "Ryan Ward",
+          "Colton Cowser",
+          "Yoshinobu Yamamoto",
+          "Bubba Chandler",
+          "Mookie Betts"
+        ],
+        "avg_own": 12.53,
+        "low_own_count": 5,
+        "salary_used": 50000,
+        "proj_total": 96.36,
+        "dup_count": 1,
+        "stack_shape": "5-2-1"
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Max Muncy",
+        "proj_points": 8.26,
+        "actual_fpts": 39.0,
+        "fpts_delta": 30.74,
+        "ownership": 7.36,
+        "actual_own": 10.38
+      },
+      {
+        "name": "Eli White",
+        "proj_points": 6.29,
+        "actual_fpts": 26.0,
+        "fpts_delta": 19.71,
+        "ownership": 2.46,
+        "actual_own": 2.1
+      },
+      {
+        "name": "Samad Taylor",
+        "proj_points": 7.4,
+        "actual_fpts": 24.0,
+        "fpts_delta": 16.6,
+        "ownership": 9.73,
+        "actual_own": 6.73
+      },
+      {
+        "name": "Yoshinobu Yamamoto",
+        "proj_points": 19.38,
+        "actual_fpts": 34.15,
+        "fpts_delta": 14.77,
+        "ownership": 35.46,
+        "actual_own": 43.27
+      },
+      {
+        "name": "Pete Alonso",
+        "proj_points": 9.23,
+        "actual_fpts": 24.0,
+        "fpts_delta": 14.77,
+        "ownership": 9.35,
+        "actual_own": 10.8
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "JJ Bleday",
+        "proj_points": 8.86,
+        "actual_fpts": 0.0,
+        "fpts_delta": -8.86,
+        "ownership": 6.99,
+        "actual_own": 5.61
+      },
+      {
+        "name": "Freddie Freeman",
+        "proj_points": 8.69,
+        "actual_fpts": 0.0,
+        "fpts_delta": -8.69,
+        "ownership": 5.71,
+        "actual_own": 5.54
+      },
+      {
+        "name": "Josh Naylor",
+        "proj_points": 8.61,
+        "actual_fpts": 0.0,
+        "fpts_delta": -8.61,
+        "ownership": 6.66,
+        "actual_own": 3.86
+      },
+      {
+        "name": "Nathaniel Lowe",
+        "proj_points": 7.74,
+        "actual_fpts": 0.0,
+        "fpts_delta": -7.74,
+        "ownership": 3.97,
+        "actual_own": 3.3
+      },
+      {
+        "name": "Sal Stewart",
+        "proj_points": 7.7,
+        "actual_fpts": 0.0,
+        "fpts_delta": -7.7,
+        "ownership": 4.95,
+        "actual_own": 1.68
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Max Muncy",
+        "salary": 4500,
+        "actual_fpts": 39.0,
+        "actual_own": 10.38,
+        "top_lineup_pct": 65.0
+      },
+      {
+        "name": "Samad Taylor",
+        "salary": 2500,
+        "actual_fpts": 24.0,
+        "actual_own": 6.73,
+        "top_lineup_pct": 45.0
+      },
+      {
+        "name": "Shohei Ohtani",
+        "salary": 6600,
+        "actual_fpts": 22.0,
+        "actual_own": 3.51,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Sean Manaea",
+        "salary": 5900,
+        "actual_fpts": 19.1,
+        "actual_own": 7.5,
+        "top_lineup_pct": 45.0
+      },
+      {
+        "name": "Gavin Sheets",
+        "salary": 3100,
+        "actual_fpts": 16.0,
+        "actual_own": 9.47,
+        "top_lineup_pct": 50.0
+      },
+      {
+        "name": "Mookie Betts",
+        "salary": 4300,
+        "actual_fpts": 15.0,
+        "actual_own": 7.64,
+        "top_lineup_pct": 35.0
+      },
+      {
+        "name": "Fernando Tatis Jr.",
+        "salary": 5100,
+        "actual_fpts": 9.0,
+        "actual_own": 7.43,
+        "top_lineup_pct": 30.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 13.43,
+      "low_own_count_mean": 5.3,
+      "salary_used_mean": 49870.0,
+      "dup_max": 1,
+      "unique_pct": 100.0,
+      "stack_shapes": {
+        "3-2-1-1-1": 5,
+        "2-2-1-1-1-1": 3,
+        "5-2-1": 3,
+        "5-1-1-1": 3,
+        "3-2-2-1": 2,
+        "4-2-1-1": 2,
+        "2-2-2-1-1": 1,
+        "5-3": 1
+      },
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "Bgoebert",
+          "points": 187.25,
+          "percentile": 0.1,
+          "players": [
+            "Spencer Horwitz",
+            "Edwin Arroyo",
+            "Max Muncy",
+            "Gabriel Moreno",
+            "Shohei Ohtani",
+            "Corbin Carroll",
+            "Gavin Sheets",
+            "Yoshinobu Yamamoto",
+            "Sean Manaea",
+            "Bo Bichette"
+          ],
+          "avg_own": 15.93,
+          "low_own_count": 3,
+          "salary_used": 50000,
+          "proj_total": 97.84,
+          "dup_count": 1,
+          "stack_shape": "2-2-1-1-1-1"
+        },
+        {
+          "rank": 2,
+          "entry_name": "nickmarti1993",
+          "points": 181.8,
+          "percentile": 0.1,
+          "players": [
+            "Shohei Ohtani",
+            "Edwin Arroyo",
+            "Max Muncy",
+            "Freddy Fermin",
+            "Juan Soto",
+            "Kyle Tucker",
+            "Samad Taylor",
+            "Yoshinobu Yamamoto",
+            "Joey Cantillo",
+            "Bo Bichette"
+          ],
+          "avg_own": 11.35,
+          "low_own_count": 6,
+          "salary_used": 49800,
+          "proj_total": 95.22,
+          "dup_count": 1,
+          "stack_shape": "3-2-2-1"
+        },
+        {
+          "rank": 3,
+          "entry_name": "cagea65",
+          "points": 178.25,
+          "percentile": 0.2,
+          "players": [
+            "Shohei Ohtani",
+            "Fernando Tatis Jr.",
+            "Manny Machado",
+            "Mickey Gasper",
+            "Jackson Merrill",
+            "Gavin Sheets",
+            "Samad Taylor",
+            "Yoshinobu Yamamoto",
+            "Sean Manaea",
+            "Mookie Betts"
+          ],
+          "avg_own": 12.2,
+          "low_own_count": 7,
+          "salary_used": 49900,
+          "proj_total": 98.78,
+          "dup_count": 1,
+          "stack_shape": "5-2-1"
+        },
+        {
+          "rank": 4,
+          "entry_name": "m_d2005",
+          "points": 173.05,
+          "percentile": 0.3,
+          "players": [
+            "Gavin Sheets",
+            "Cole Young",
+            "Max Muncy",
+            "Gabriel Moreno",
+            "Jackson Merrill",
+            "Ryan Ward",
+            "Samad Taylor",
+            "Yoshinobu Yamamoto",
+            "Jacob deGrom",
+            "Xander Bogaerts"
+          ],
+          "avg_own": 17.16,
+          "low_own_count": 5,
+          "salary_used": 50000,
+          "proj_total": 101.87,
+          "dup_count": 1,
+          "stack_shape": "4-2-1-1"
+        },
+        {
+          "rank": 5,
+          "entry_name": "kevsully",
+          "points": 171.05,
+          "percentile": 0.4,
+          "players": [
+            "Gavin Sheets",
+            "Edwin Arroyo",
+            "Max Muncy",
+            "Gabriel Moreno",
+            "Corbin Carroll",
+            "Jackson Merrill",
+            "Tyler Callihan",
+            "Yoshinobu Yamamoto",
+            "Jacob deGrom",
+            "Cole Young"
+          ],
+          "avg_own": 19.39,
+          "low_own_count": 3,
+          "salary_used": 50000,
+          "proj_total": 102.84,
+          "dup_count": 1,
+          "stack_shape": "2-2-1-1-1-1"
+        },
+        {
+          "rank": 6,
+          "entry_name": "Jwood_3",
+          "points": 169.25,
+          "percentile": 0.4,
+          "players": [
+            "Luis Garcia Jr.",
+            "Jose Tena",
+            "Max Muncy",
+            "Francisco Alvarez",
+            "James Wood",
+            "Daylen Lile",
+            "Dylan Crews",
+            "Yoshinobu Yamamoto",
+            "Sean Manaea",
+            "Mookie Betts"
+          ],
+          "avg_own": 11.28,
+          "low_own_count": 7,
+          "salary_used": 49600,
+          "proj_total": 93.07,
+          "dup_count": 1,
+          "stack_shape": "5-2-1"
+        },
+        {
+          "rank": 7,
+          "entry_name": "tbone1970",
+          "points": 163.1,
+          "percentile": 0.5,
+          "players": [
+            "Pete Alonso",
+            "Ketel Marte",
+            "Manny Machado",
+            "Drew Millas",
+            "Gavin Sheets",
+            "Tyler O'Neill",
+            "Samad Taylor",
+            "Yoshinobu Yamamoto",
+            "Michael Soroka",
+            "Bo Bichette"
+          ],
+          "avg_own": 13.14,
+          "low_own_count": 4,
+          "salary_used": 49900,
+          "proj_total": 99.94,
+          "dup_count": 1,
+          "stack_shape": "3-2-1-1-1"
+        },
+        {
+          "rank": 8,
+          "entry_name": "jjlonghorn11",
+          "points": 162.05,
+          "percentile": 0.6,
+          "players": [
+            "Spencer Horwitz",
+            "Cole Young",
+            "Max Muncy",
+            "Dalton Rushing",
+            "Kyle Stowers",
+            "Gavin Sheets",
+            "Samad Taylor",
+            "Yoshinobu Yamamoto",
+            "Jacob deGrom",
+            "Otto Lopez"
+          ],
+          "avg_own": 14.1,
+          "low_own_count": 5,
+          "salary_used": 50000,
+          "proj_total": 99.75,
+          "dup_count": 1,
+          "stack_shape": "2-2-2-1-1"
+        },
+        {
+          "rank": 9,
+          "entry_name": "Simon_Katz",
+          "points": 161.25,
+          "percentile": 0.6,
+          "players": [
+            "Spencer Horwitz",
+            "Brandon Lowe",
+            "Max Muncy",
+            "Endy Rodriguez",
+            "Kyle Tucker",
+            "Ryan O'Hearn",
+            "Jake Mangum",
+            "Yoshinobu Yamamoto",
+            "Sean Manaea",
+            "Mookie Betts"
+          ],
+          "avg_own": 10.49,
+          "low_own_count": 7,
+          "salary_used": 49800,
+          "proj_total": 93.57,
+          "dup_count": 1,
+          "stack_shape": "5-3"
+        },
+        {
+          "rank": 10,
+          "entry_name": "saints_fan3209",
+          "points": 161.1,
+          "percentile": 0.7,
+          "players": [
+            "Will Wagner",
+            "Edwin Arroyo",
+            "Nolan Arenado",
+            "Liam Hicks",
+            "James Wood",
+            "Samad Taylor",
+            "Eli White",
+            "Yoshinobu Yamamoto",
+            "Michael Soroka",
+            "CJ Abrams"
+          ],
+          "avg_own": 12.38,
+          "low_own_count": 5,
+          "salary_used": 49900,
+          "proj_total": 96.56,
+          "dup_count": 1,
+          "stack_shape": "2-2-1-1-1-1"
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 0.9,
+        "low_own_count_delta": 0.3,
+        "salary_used_delta": -130.0
+      }
+    }
+  }
+]

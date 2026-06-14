@@ -25,3 +25,10 @@
 - Defending champ: Ryan Fox (-18, playoff over Sam Burns in 2025)
 - ETR course-fit boosts went to accuracy players (Putnam, B. Campbell, Peterson, Glover, Rai, Noren, Bezuidenhout); docks to bombers (N. Hojgaard, Lamprecht, Potgieter, K. Mitchell, Brennan, Pendrith, Jaeger, Burns)
 - ETR wind/tee-time impacts negligible this week (±0.3 DK pts max by wave)
+
+### 2026-06-14 — RBC Canadian Open, R4 SD read (entering final round)
+- **Course played TOUGH this year, contradicting its easy/birdie-fest reputation.** Through 54 holes the leader (Suber) was only -13 vs the 2025 winning -18; multiple +4-or-worse rounds; R2 leader Ben James collapsed from T-1 to ~T40. ETR (Jeremy) committed to tough-course rules (min 2 / max 3 of T-10).
+- Likely cause per ETR: 2025's easy scoring was inflated by soft/wet weather; absent that, the bluegrass rough + balanced setup defend. Treat the venue file's "birdie-fest" baseline as weather-dependent, not structural.
+- Bunched leaderboard despite tough scoring: T-10 & ties cut at -10 (~11 names); a large -9 group (Hovland, Bridgeman, Lowry, MacIntyre, Fitzpatrick, Theegala) sat just outside at T12.
+- Cheap genuine T-10 starters available (Jesper Svensson $7.5K -11, Garnett $6.9K -11, Stanger $7.0K -10) — the tough-course salary engine.
+- **Pending R4 confirmation:** did the course stay tough (winning ~-16/-17) or did a calm Sunday re-open it to a birdie-fest? Log the actual at autopsy to calibrate the weather-dependence note.

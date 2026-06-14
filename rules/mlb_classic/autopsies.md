@@ -101,3 +101,27 @@ Post-log note (2026-06-11): same as the $6K contest above — entered lineup was
 - Overperformed proj: Jacob Misiorowski, Yordan Alvarez, Bo Bichette
 - Underperformed proj: Luinder Avila, Tatsuya Imai, Spencer Strider
 - Slate-defining plays: Ceddanne Rafaela (37.0 pts @ 2.6%), Sonny Gray (26.5 pts @ 7.2%)
+
+
+## 2026-06-13 20:09 — MLB Classic (contest-standings-191323712.csv)
+- Entries: 882
+- Winning score: 192.2
+- Cash line (top 20%): 125.7
+- My entries: 1 · best rank 383/882 (top 43.4%)
+- Winners (top 20): avg own 12.64% vs mine 11.72% · sub-10% plays/lineup 5.7 vs mine 5.0 · salary Δ -245
+- Winning stack shapes: 5-2-1×4, 5-1-1-1×4, 5-3×3, 4-3-1×2
+- Overperformed proj: Max Muncy, Eli White, Samad Taylor
+- Underperformed proj: JJ Bleday, Freddie Freeman, Josh Naylor
+- Slate-defining plays: Max Muncy (39.0 pts @ 9.1%), Samad Taylor (24.0 pts @ 7.6%), Shohei Ohtani (22.0 pts @ 5.6%), Sean Manaea (19.1 pts @ 12.5%)
+
+
+## 2026-06-13 20:09 — MLB Classic (contest-standings-191303657.csv)
+- Entries: 1,426
+- Winning score: 187.2
+- Cash line (top 20%): 127.6
+- My entries: 1 · best rank 220/1,426 (top 15.4%)
+- Winners (top 20): avg own 13.43% vs mine 12.53% · sub-10% plays/lineup 5.3 vs mine 5.0 · salary Δ -130
+- Winning stack shapes: 3-2-1-1-1×5, 2-2-1-1-1-1×3, 5-2-1×3, 5-1-1-1×3
+- Overperformed proj: Max Muncy, Eli White, Samad Taylor
+- Underperformed proj: JJ Bleday, Freddie Freeman, Josh Naylor
+- Slate-defining plays: Max Muncy (39.0 pts @ 10.4%), Samad Taylor (24.0 pts @ 6.7%), Shohei Ohtani (22.0 pts @ 3.5%), Sean Manaea (19.1 pts @ 7.5%)

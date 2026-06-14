@@ -11,4 +11,10 @@
 - **2026-06-13 (MLB Classic 6.13.26, ARI @ CIN, 5.25/4.50 implied):** ARI was the slate's
   highest-implied offense (5.25, -150) into GABP vs Rhett Lowder (5.11 xERA, 1.4% proj own).
   The park reinforces the ARI stack thesis — best total + best park on the board. ~85% combined
-  projected ownership (chalk). Result TBD (logged at autopsy).
+  projected ownership (chalk). **Result (logged at autopsy): the bandbox did NOT carry the offenses
+  this slate — the park reputation oversold the spot.** The CIN punt side the leverage entry leaned on
+  was dead — Edwin Arroyo, Sal Stewart (0.0), and JJ Bleday (0.0) all went quiet — and ARI's GABP
+  stack was unremarkable (Marte modest; no ARI bat among the slate-defining plays). The slate-high ARI
+  total + the hitter-park reputation did not convert. Takeaway: GABP's bandbox reputation is not a
+  projection — a 5.25 implied total in a hitter park can still no-show; do not over-weight the park
+  tag when the cheap CIN side is the leverage angle (it was the dud here).

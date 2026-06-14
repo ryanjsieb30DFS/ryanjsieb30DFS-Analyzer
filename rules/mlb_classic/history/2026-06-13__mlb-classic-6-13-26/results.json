@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "date": "2026-06-13",
+  "slug": "mlb_classic",
+  "sport": "mlb",
+  "slate_label": "MLB Classic 6.13.26",
+  "history_dir": "rules/mlb_classic/history/2026-06-13__mlb-classic-6-13-26",
+  "contests": [
+    {
+      "name": "MLB $6K Rally Cap",
+      "type": "SE",
+      "source_file": "contest-standings-191323712.csv",
+      "field_size": 882,
+      "my_entries": 1,
+      "entry_fee": 8.0,
+      "buy_in": 8.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 383,
+      "best_percentile": 43.4
+    },
+    {
+      "name": "MLB $6K Chin Music",
+      "type": "SE",
+      "source_file": "contest-standings-191303657.csv",
+      "field_size": 1426,
+      "my_entries": 1,
+      "entry_fee": 5.0,
+      "buy_in": 5.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 220,
+      "best_percentile": 15.4
+    }
+  ],
+  "total_buy_in": 13.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 220,
+  "best_percentile": 15.4,
+  "entries_total": 2
+}
