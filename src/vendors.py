@@ -130,6 +130,32 @@ VENDOR_SIGNATURES: list[dict] = [
         "drop_columns": ["win_odds", "finish_odds", "mean_ppd", "win_ppd"],
     },
     {
+        # DailyFan's newer MMA sheet adds Captain/Flex pricing (Salary CPT/Flex,
+        # Ownership CPT/Flex/Total, DK ID CPT/Flex) — distinct from the older flat
+        # "salary_dk" sheet above. Map the FLEX columns (the flat-contest pricing;
+        # CPT is the 1.5x captain price). CPT columns pass through untouched so
+        # captain-mode ("special event") data survives if a build needs it.
+        "name": "DailyFan MMA (CPT/Flex)",
+        "sport": "mma",
+        "required_columns": {
+            "fighter", "matchup", "win_%", "salary_flex",
+            "ownership_total", "projection_dk_(mean)",
+        },
+        "column_map": {
+            "fighter": "name",
+            "salary_flex": "salary",
+            "ownership_total": "ownership",
+            "projection_dk_(mean)": "proj_points",
+            "projection_dk_(win)": "proj_win",
+            "projection_dk_(loss)": "proj_loss",
+            "win_%": "win_prob",
+            "dk_id_flex": "dk_id",
+        },
+        "drop_columns": [
+            "win_odds", "finish_odds", "mean_ppd_(flex)", "win_ppd_(flex)",
+        ],
+    },
+    {
         # SIN's hitter + pitcher rankings files (identical headers; `pos` tells
         # the rows apart). These are RANKINGS — slate context, not the player
         # pool — so they route to articles/<slug>/, not the projections session.
