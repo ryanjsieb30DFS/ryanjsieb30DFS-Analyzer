@@ -15,6 +15,7 @@ import pandas as pd
 import streamlit as st
 
 from src import sessions
+from src import dk_ids
 from src.projections import load_projections, warn_missing_for_sport
 from src.landscape import chalk_summary, leverage_table, anchor_equivalence_check
 from src.projections_diff import flagged_disagreements
@@ -86,6 +87,7 @@ with st.sidebar:
         sessions.clear(slug)
         clear_articles(slug)
         clear_lineup_ranking(slug)
+        dk_ids.clear_map(slug)
         st.rerun()
 
 # Load active sport's strategy bundle (used by the Analyze tab)
@@ -136,6 +138,11 @@ with tab_proj:
                 continue
             sessions.save_source(slug, f.name, df, vendor_name)
             st.success(f"✅ {f.name} — detected as **{vendor_name}** ({len(df)} players)")
+        # Re-attach a previously uploaded DK-ID map so IDs stick to the
+        # projections regardless of upload order.
+        _dk_map = dk_ids.load_map(slug)
+        if _dk_map is not None and not _dk_map.empty:
+            dk_ids.apply_to_sessions(slug, _dk_map)
 
     sources = sessions.load_sources(slug)
     if sources:
@@ -159,6 +166,43 @@ with tab_proj:
             st.warning(w)
 
         st.dataframe(df, use_container_width=True, height=500)
+
+        # ---- DK player IDs ---- #
+        _id_count = dk_ids.projections_id_count(slug)
+        with st.expander(f"DK player IDs ({_id_count} attached)", expanded=_id_count == 0):
+            st.caption(
+                "Upload a DraftKings **DKEntries** or **DKSalaries** CSV to attach DK "
+                "IDs to your projections by player name. Needed for **Select lineups** — "
+                "especially NASCAR / DailyFan, whose projections ship no IDs."
+            )
+            if _id_count:
+                st.info(f"Your projections already carry DK IDs for **{_id_count}** players. Upload a DK file only to add/override.")
+            _existing = dk_ids.load_map(slug)
+            if _existing is not None and not _existing.empty:
+                st.caption(f"Uploaded DK file on record: **{len(_existing)}** player IDs (re-applied when projections change).")
+            dk_upload = st.file_uploader("DK player-ID CSV", type="csv", key=f"dk_ids_upload_{slug}")
+            if dk_upload is not None and st.button("Load DK player IDs", key=f"dk_ids_load_{slug}"):
+                try:
+                    dk_df = dk_ids.parse_dk_player_ids(dk_upload)
+                except Exception as exc:
+                    st.error(f"Failed to parse DK player-ID CSV: {exc}")
+                    dk_df = None
+                if dk_df is not None:
+                    if dk_df.empty:
+                        st.warning("No players parsed — is this a DKEntries/DKSalaries CSV with a 'Name + ID' column?")
+                    else:
+                        dk_ids.save_map(slug, dk_df)
+                        stats = dk_ids.apply_to_sessions(slug, dk_df)
+                        st.success(
+                            f"Loaded {len(dk_df)} DK IDs — matched "
+                            f"**{stats['matched']}/{stats['total']}** projection players."
+                        )
+                        if stats["unmatched"]:
+                            st.warning(
+                                "Unmatched names (spelling drift vs DK — fix in the DK file or "
+                                "the vendor export): " + ", ".join(stats["unmatched"])
+                            )
+                        st.rerun()
     else:
         st.info("No projections uploaded yet.")
 
@@ -1224,6 +1268,7 @@ with tab_autopsy:
                 clear_sim(slug)
                 clear_bundle(slug)
                 clear_articles(slug)
+                dk_ids.clear_map(slug)
                 st.success(
                     f"Logged {len(parsed_contests)} contest(s) to rules/{slug}/autopsies.md "
                     "+ autopsy_data.jsonl, and archived the slate to "

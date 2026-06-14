@@ -4,6 +4,7 @@ __pycache__/
 .venv/
 venv/
 data/sessions/
+data/dk_ids/
 data/slate_analysis/
 data/lineups/
 data/contests/
