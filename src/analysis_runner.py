@@ -124,8 +124,8 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
 def run_build_lineups(slug: str, contest_label: str, sport: str, n_target: int) -> dict:
     """Build the lineup portfolio from the slate analysis via headless Claude.
 
-    Requires the slate analysis to exist first. Builds up to n_target lineups,
-    each with a distinct thesis; stops early if the slate supports fewer.
+    Requires the slate analysis to exist first. Builds EXACTLY n_target lineups,
+    each with a distinct thesis where possible; the count is a hard requirement.
     """
     analysis_path = _REPO_ROOT / "data" / "slate_analysis" / f"{slug}.md"
     if not analysis_path.exists():
@@ -141,7 +141,7 @@ def run_build_lineups(slug: str, contest_label: str, sport: str, n_target: int) 
         f"Read the slate analysis at `{analysis_path}`, the bundle at `{bundle_path}` and the files "
         f"it references (projections, articles), and `rules/{slug}/framework.md` + `rules/{slug}/autopsies.md` "
         f"for the sport's lineup-construction rules.\n\n"
-        f"Build UP TO {n_target} lineup(s). Each lineup must have:\n"
+        f"Build EXACTLY {n_target} lineup(s). Each lineup must have:\n"
         f"- A one-sentence thesis ('how it wins').\n"
         f"- A roster as a markdown table (player, salary, key metric, role).\n"
         f"- Total salary verified <= $50,000 — show the addition.\n"
@@ -151,8 +151,11 @@ def run_build_lineups(slug: str, contest_label: str, sport: str, n_target: int) 
         f"(for MMA SE, differ on at least one conviction anchor, not just the leverage piece).\n"
         f"- Apply the Anchor-Equivalence pre-lock check: if 2+ chalk-tier anchors sit at similar ownership, "
         f"at least one lineup MUST run the alternative.\n"
-        f"- If the slate supports FEWER than {n_target} genuinely distinct theses, build fewer and explain why — "
-        f"DO NOT pad with filler lineups.\n"
+        f"- COUNT IS A HARD REQUIREMENT: you MUST produce exactly {n_target} lineups. Prioritize distinct "
+        f"theses; if the slate yields fewer than {n_target} fully-distinct theses, STILL produce {n_target} "
+        f"by adding the most-differentiated additional lineups (a variant on the strongest thesis or the "
+        f"next-best edge), each briefly noted as a coverage/variant lineup in its thesis. NEVER build fewer "
+        f"than {n_target}.\n"
         f"- Follow the sport's framework (e.g. RD4 SD is a flat 6-golfer lineup, no captain).\n"
         f"- Complete the 'Pre-flight ritual' in CLAUDE.md: re-read `rules/{slug}/lessons.yaml` and "
         f"the venue file. The output MUST begin with the '## Pre-flight checklist' block, and each "
@@ -172,7 +175,7 @@ def run_build_lineups(slug: str, contest_label: str, sport: str, n_target: int) 
 def run_select_lineups(slug: str, contest_label: str, sport: str, n_target: int) -> dict:
     """Select the best lineups from the uploaded lineup pool(s) via headless Claude.
 
-    Unlike run_build_lineups (which invents rosters), this picks up to n_target
+    Unlike run_build_lineups (which invents rosters), this picks EXACTLY n_target
     lineups FROM the lineup-pool CSV(s) the user uploaded in the Sim Data tab — a
     SaberSim export or any traditional optimizer's files (proj-/ceiling-/50-50-
     optimized, possibly several, with or without sim metrics) — judged against the
@@ -223,7 +226,7 @@ def run_select_lineups(slug: str, contest_label: str, sport: str, n_target: int)
         f"identical rosters (same 10 player IDs = one candidate, regardless of which file it came "
         f"from). Cross-file diversity is a feature: a ceiling-optimized file is where the GPP tail "
         f"lives.\n\n"
-        f"SELECT UP TO {n_target} lineup(s) from the combined pool. Selection discipline (enforce strictly):\n"
+        f"SELECT EXACTLY {n_target} lineup(s) from the combined pool. Selection discipline (enforce strictly):\n"
         f"- FILTER to lineups that EXPRESS the slate analysis's edges and '## Player board' calls — "
         f"NOT the rows with the highest sim ROI/Saber Score (when sims even exist). Sim rank is NOT a "
         f"quality filter: per this repo's rules a high-ROI sim row that fights the slate's edges is a "
@@ -236,8 +239,13 @@ def run_select_lineups(slug: str, contest_label: str, sport: str, n_target: int)
         f"- Never roster a hitter against your own pitcher (MLB) — reject any such row even if a sim "
         f"ranks it highly; honor every hard rule in the sport's framework (e.g. RD4 SD is flat 6, no "
         f"captain).\n"
-        f"- If the pool offers FEWER than {n_target} genuinely distinct, edge-expressing lineups, "
-        f"select fewer and explain why — DO NOT pad with near-duplicates.\n\n"
+        f"- COUNT IS A HARD REQUIREMENT: you MUST return exactly {n_target} lineups. Prioritize "
+        f"distinct theses; if the pool offers fewer than {n_target} fully-distinct edge-expressing "
+        f"lineups, STILL return {n_target} by adding the most-differentiated remaining pool rows (a "
+        f"variant on the strongest thesis or the next-best edge), each briefly noted as a coverage/"
+        f"variant lineup in its thesis. NEVER return fewer than {n_target} — the only exception is if "
+        f"the combined pool literally contains fewer than {n_target} unique valid rows (then return all "
+        f"of them and say so).\n\n"
         f"For EACH selected lineup write, in the SAME format run_build_lineups uses:\n"
         f"- A one-sentence thesis ('how it wins').\n"
         f"- A roster as a markdown table (player, salary, key metric, role).\n"
