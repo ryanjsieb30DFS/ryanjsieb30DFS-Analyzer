@@ -1,0 +1,28 @@
+{
+  "slug": "pga_classic",
+  "sport": "golf",
+  "contest_label": "PGA Classic",
+  "date": "2026-06-17",
+  "slate_label": "PGA Classic RBC Canada 6.12.26",
+  "archived_at": "2026-06-17 20:01",
+  "archived": [
+    "slate_analysis.md",
+    "bundle.md",
+    "contests.json",
+    "red_team.md"
+  ],
+  "missing": [
+    "lineups.md"
+  ],
+  "article_files": [
+    "articles/pga_classic/2026-06-10__PGA Course Fits 6.11.26.pdf",
+    "articles/pga_classic/2026-06-10__PGA Course Stickiness 6.11.26.pdf",
+    "articles/pga_classic/2026-06-10__PGA Large Field 6.11.26.pdf",
+    "articles/pga_classic/2026-06-10__PGA Models 6.11.26.pdf",
+    "articles/pga_classic/2026-06-10__PGA Top Plays 6.11.26.pdf",
+    "articles/pga_classic/2026-06-10__PGA Value Report 6.11.26.pdf",
+    "articles/pga_classic/2026-06-10__Screen Shot 2026-06-10 at 9.46.34 PM.png",
+    "articles/pga_classic/2026-06-10__Screen Shot 2026-06-10 at 9.46.47 PM.png"
+  ],
+  "proj_source": "DK PGA DFS Projections (9).csv"
+}

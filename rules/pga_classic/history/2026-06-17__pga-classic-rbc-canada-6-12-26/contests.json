@@ -1,0 +1,14 @@
+{
+  "contests": [
+    {
+      "name": "PGA Tour $12K Mulligan",
+      "type": "5-Max",
+      "field_size": 1764,
+      "max_entries": 5,
+      "my_entries": 3,
+      "entry_fee": 8.0,
+      "prize_pool": 12000,
+      "id": "575e72b0"
+    }
+  ]
+}

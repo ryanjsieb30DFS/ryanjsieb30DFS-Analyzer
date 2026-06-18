@@ -259,3 +259,36 @@ Per Philosophy Section 4:
 - My entries: 15 · best rank 829/23,781 (top 3.5%)
 - Winners (top 100): avg own 12.59% vs mine 13.52% · sub-10% plays/lineup 1.93 vs mine 1.8
 - Slate-defining plays: J.T. Poston (115.5 pts @ 2.7%), Ryan Gerard (110.0 pts @ 11.4%), Wyndham Clark (102.0 pts @ 7.5%), Kristoffer Reitan (96.5 pts @ 11.1%)
+
+
+## 2026-06-17 20:01 — PGA Classic (contest-standings-191183283.csv)
+- Entries: 1,494
+- Winning score: 565.5
+- Cash line (top 20%): 442.7
+- My entries: 3 · best rank 78/1,494 (top 5.2%)
+- Winners (top 20): avg own 13.38% vs mine 16.5% · sub-10% plays/lineup 1.85 vs mine 1.33 · salary Δ -60
+- Overperformed proj: Bud Cauley, Jesper Svensson, Billy Horschel
+- Underperformed proj: Mark Hubbard, Paul Waring, Alex Noren
+- Slate-defining plays: Bud Cauley (135.5 pts @ 17.1%), Matt Fitzpatrick (111.5 pts @ 11.7%), Ryan Fox (103.5 pts @ 11.4%), Jackson Suber (102.5 pts @ 10.2%)
+
+
+## 2026-06-17 20:01 — PGA Classic (contest-standings-191183304.csv)
+- Entries: 2,225
+- Winning score: 579.0
+- Cash line (top 20%): 445.0
+- My entries: 3 · best rank 168/2,225 (top 7.6%)
+- Winners (top 22): avg own 13.59% vs mine 14.99% · sub-10% plays/lineup 1.95 vs mine 2.0 · salary Δ +69
+- Overperformed proj: Bud Cauley, Brice Garnett, Matthew Anderson
+- Underperformed proj: Mark Hubbard, Paul Waring, Alex Noren
+- Slate-defining plays: Bud Cauley (135.5 pts @ 17.2%), Matt Fitzpatrick (111.5 pts @ 13.0%), Ryan Fox (103.5 pts @ 11.8%), Tony Finau (77.5 pts @ 14.5%)
+
+
+## 2026-06-17 20:01 — PGA Classic (contest-standings-191094284.csv)
+- Entries: 59,453
+- Winning score: 620.5
+- Cash line (top 20%): 444.0
+- My entries: 6 · best rank 2,965/59,453 (top 5.0%)
+- Winners (top 100): avg own 12.33% vs mine 14.62% · sub-10% plays/lineup 1.83 vs mine 1.5 · salary Δ -64
+- Overperformed proj: Bud Cauley, Jimmy Stanger, Brice Garnett
+- Underperformed proj: Mark Hubbard, Paul Waring, Alex Noren
+- Slate-defining plays: Bud Cauley (135.5 pts @ 13.6%), Matt Fitzpatrick (111.5 pts @ 14.9%), Ryan Fox (103.5 pts @ 12.1%), Jacob Bridgeman (84.5 pts @ 15.8%)

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "date": "2026-06-17",
+  "slug": "pga_classic",
+  "sport": "golf",
+  "slate_label": "PGA Classic RBC Canada 6.12.26",
+  "history_dir": "rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26",
+  "contests": [
+    {
+      "name": "contest-standings-191183283.csv",
+      "type": null,
+      "source_file": "contest-standings-191183283.csv",
+      "field_size": 1494,
+      "my_entries": 3,
+      "entry_fee": null,
+      "buy_in": 0.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 78,
+      "best_percentile": 5.2
+    },
+    {
+      "name": "contest-standings-191183304.csv",
+      "type": null,
+      "source_file": "contest-standings-191183304.csv",
+      "field_size": 2225,
+      "my_entries": 3,
+      "entry_fee": null,
+      "buy_in": 0.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 168,
+      "best_percentile": 7.6
+    },
+    {
+      "name": "contest-standings-191094284.csv",
+      "type": null,
+      "source_file": "contest-standings-191094284.csv",
+      "field_size": 59453,
+      "my_entries": 6,
+      "entry_fee": null,
+      "buy_in": 0.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 2965,
+      "best_percentile": 5.0
+    }
+  ],
+  "total_buy_in": 0.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 78,
+  "best_percentile": 5.0,
+  "entries_total": 12
+}

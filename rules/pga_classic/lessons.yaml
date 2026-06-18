@@ -27,6 +27,18 @@ lessons:
           5 of the top-10 20-Max winners while Aberg (lean trap) busted entirely —
           the asymmetry the lesson describes played out exactly: small hedge cost,
           large payoff for not zeroing the value chalk.
+      - date: "2026-06-17"
+        slate: "RBC Canadian Open at TPC Toronto Osprey Valley North (rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26)"
+        note: >
+          The asymmetry paid through the Anchor-Equivalence hedge, which the analysis
+          mandated (Fitzpatrick required in >=1 lineup as the alternative to Fleetwood/
+          Rai). Fitzpatrick — the less-popular half of the chalk coin (~12-15% actual
+          own) — returned 111.5 FPTS and was THE slate-defining anchor (50% of top
+          1,494-field winners, 54.5% of 2,225-field, 81% of 150-max top-100), appearing
+          in nearly every winning lineup. Carrying the alternative anchor instead of
+          concentrating on the primary value chalk captured the win; the primary value
+          chalk (Rai, 2/3) busted (31.0). Not zeroing the alt anchor was the difference
+          between a 5% finish and nothing. Third confirming slate of the mechanism.
     contradictions: []
     codified_in: "framework.md — Section 6 Anchor Selection Logic (Default policy); philosophy.md — Section 5 Chalk Has a Purpose"
     retired_reason: null
@@ -61,8 +73,21 @@ lessons:
       anchor are fragile: if 3 of 4 mid-range picks bust around their median, the
       lineup has no margin to absorb misses and no path. Every contrarian build should
       include at least one coffin-list-grade leverage piece as its anchor.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-06-17"
+        slate: "RBC Canadian Open at TPC Toronto Osprey Valley North (rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26)"
+        note: >
+          The L3 chaos build was anchored on Finau (+7.4 coffin) per this lesson, with
+          Potgieter as the lottery slot. It did NOT collapse the way the Truist L4 build
+          did (376 pts, ~mid-field, not a zero) — Finau (77.5) provided the leverage
+          floor and Potgieter (4.6% own) hit and appeared in multiple top-10 winners.
+          The anchor prevented the all-coin-flips implosion the lesson was born to
+          prevent. First mechanism confirmation — caveat: red team flagged L3 as the
+          "mildest legal chaos" (zero sub-4% pieces) because the >=2-leverage SE cap was
+          applied as a hard cap; the build had a floor but never reached the deep
+          (<4% own) contrarian tier the actual winners' tails carried. See the new
+          redteam-portfolio-findings hypothesis.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -131,6 +156,21 @@ lessons:
           variance, but the scan missing every actual cheap slate-definer is a
           coverage failure. First mechanism contradiction — see the skill-gate
           hypothesis born this slate.
+      - date: "2026-06-17"
+        slate: "RBC Canadian Open at TPC Toronto Osprey Valley North (rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26)"
+        note: >
+          Second mechanism contradiction, from the opposite end of the stickiness
+          range. At a 0.06-stickiness course CH is pure noise, so the un-gated CH x
+          sub-5% scan had no usable signal at all; the cheap slate-definer (Suber,
+          102.5 @ 10.24% actual) was produced by the FORM/value engine, with his CH
+          boost contributing nothing. Combined with the Memorial (0.42 stickiness, CH
+          predictive yet the qualifiers all busted on skill), the scan has now failed
+          to surface the actual cheap slate-definer at BOTH a high- and a near-zero-
+          stickiness course — the unconditional "CH boost = leverage" mechanism does
+          not hold either way. Meets the 2-contradiction retirement/revision bar; the
+          working replacement is the skill-gated, form-co-equal version
+          (pga-classic-2026-06-10-ch-scan-needs-skill-gate, now validated). See
+          Proposed codifications.
     codified_in: "framework.md — Section 2 Slate Diagnostics (required scan) and Section 9 Pre-Submission Checklists"
     retired_reason: null
 
@@ -217,8 +257,19 @@ lessons:
       gaining approach") were the actual sub-5% slate-definers. The scan should
       cross CH boost AND a minimum skill floor, and the form/value engine should
       be treated as a co-equal source of sub-5% leverage.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-06-17"
+        slate: "RBC Canadian Open at TPC Toronto Osprey Valley North (rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26)"
+        note: >
+          Textbook confirmation at a 0.06-stickiness course (CH pure noise here). The
+          analysis correctly downweighted the raw CH scan and gated the lone qualifier
+          (Suber) in on the FORM line — U.S. Open qualifying medalist, OTT trend — not
+          on his CH boost. Suber ($7.0K, 4.6% proj own) returned 102.5 FPTS and was a
+          genuine slate-definer (35% of the 1,494-field top winners; 10.24% actual
+          own). The skill/form gate produced the cheap slate-definer exactly as the
+          lesson predicts; the un-gated CH boost carried no signal at 0.06 stickiness.
+          First mechanism confirmation.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -235,8 +286,23 @@ lessons:
       Wyndham Clark (writer fade) all came in at 7-11% actual own and all landed
       in winning structures (Reitan 96.5, Clark 102). Where late/actual ownership
       signals exist, sanity-check the fade list against them before lock.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-06-17"
+        slate: "RBC Canadian Open at TPC Toronto Osprey Valley North (rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26)"
+        note: >
+          The lesson cut against the Large-Field writer's FULL-FADE call on Reitan and
+          the analysis kept him 0-1/3 instead of zeroing. Vindicated: Reitan was the
+          anchor of the overall slate winner (PATRIOTSFan1230, 565.5, contest 191183283)
+          and appeared in multiple top-10 winning lineups across all three contests; a
+          full fade would have zeroed exposure to a winning tier-1 anchor for the
+          second straight slate (Memorial precedent). First mechanism confirmation.
+          NOTE the deeper miss the lesson did NOT prevent: the analysis still
+          *preferred Rai over Reitan* at that equivalence tier ("prefer Rai at the
+          tier"), and that was backwards — Rai busted (31.0, own rose to ~30%) while
+          Reitan hit. The fade-direction was corrected; the relative-weight call inside
+          the tier still leaned on the wrong (uncalibrated-coffin) anchor — see the new
+          single-vendor-overweight-self-erosion hypothesis.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -253,8 +319,28 @@ lessons:
       and 2.24) — exactly the structure the written plan avoided (62.6% cumulative
       own, 4 sub-8% pieces). Undocumented deviations cannot be process-graded and
       forfeit the red-team and portfolio-audit safety nets.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-06-17"
+        slate: "RBC Canadian Open at TPC Toronto Osprey Valley North (rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26)"
+        note: >
+          The gap recurred, and this time the cost cuts BOTH ways — proving the
+          mechanism (undocumented deviations forfeit safety nets and cannot be
+          process-graded), not the result. The plan + red team covered exactly three
+          lineups (L1 Fleetwood/Clark/Rai/Greyserman/Finau/James, L2 Fitzpatrick/Lowry/
+          Rai/Cauley/Fisk/Suber, L3 Rose/Lowry/Thorbjornsen/Cole/Finau/Potgieter). The
+          user entered SIX distinct lineups; three were off-plan and red-team-unseen:
+          (a) Fleetwood/Hall/Bridgeman/Cole/Cauley/Finau — the user's BEST lineup of the
+          slate (495 pts, rank 78/1494, 5.2%; rank 2965/59453, 5.0%), Rai-free, which
+          dodged the slate's biggest bust; (b) Fitzpatrick/Rai/Bridgeman/Meissner/Cauley/
+          Finau (469.5); (c) Rose/Reitan/Rai/Taylor/Theegala/Pendrith — the user's WORST
+          (349.5, 70.9%), a triple-anchor Rai+Reitan+Rose chalk-correlation build a red
+          team would very likely have flagged KILL. lineups.md was again not archived
+          (manifest "missing": ["lineups.md"]). Net: the single best AND single worst
+          entries both bypassed the red-team net and have no recorded thesis — the best
+          one cannot even be credited as process (we don't know if Rai-fade was reasoned
+          or incidental). First mechanism confirmation; the traceability gap is now a
+          two-slate pattern.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -279,6 +365,16 @@ lessons:
           Median winners per-player avg-own 12.9% (stable 12.8-13.2% every year); median 2.5
           sub-10% golfers; 91% of rank-1 winners ran >=1 sub-10% and 78% ran >=2;
           winners 91% unique.
+      - date: "2026-06-17"
+        slate: "RBC Canadian Open at TPC Toronto Osprey Valley North (rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26)"
+        note: >
+          Single-slate confirmation across all three contests: top-20/22 winners' mean
+          per-player own 13.38% (1,494) / 13.59% (2,225) and top-100 12.33% (59,453),
+          mean sub-10% count 1.85 / 1.95 / 1.83, unique 100% / 100% / 74% (the 74% is
+          the 150-max where mass-multi-entrants duplicate). Dead-on the ~13% own / 2-ish
+          sub-10% / high-unique baseline. The user's entries averaged ~15-16.5% own
+          (avg_own_delta -1.4 to -3.12 vs winners) — slightly above the winning
+          envelope, dragged up by the Rai/Rose chalk that busted.
     contradictions: []
     codified_in: "framework.md — Section 3 Ownership Tier Framework (empirical winning-structure baseline)"
     retired_reason: null
@@ -298,6 +394,17 @@ lessons:
       - date: "2026-06-13"
         slate: "168-slate mining 2023-2026"
         note: "161/168 slates (96%) had >=1 <20%-own play in >=30% of winners; median 4 per slate."
+      - date: "2026-06-17"
+        slate: "RBC Canadian Open at TPC Toronto Osprey Valley North (rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26)"
+        note: >
+          Confirmed: the slate's defining plays were the sub-20% smashes Cauley
+          ($7.8K, 135.5 FPTS, 13-17% own, in 55-95% of top winners), Fox ($7.8K, 103.5,
+          ~11-12%, 31-44%), Suber ($7.0K, 102.5, ~10%, 35%), and Bridgeman ($8.1K, 84.5,
+          ~16%, 34-40%) — four cheap leverage smashes, matching the lesson's "median 4
+          per slate." The user rostered Cauley, Suber, and Bridgeman heavily, which is
+          why the best entries reached ~5%; missing Fox and the very-cheap winners
+          (Sudarshan Yellamaraju, Pendrith, Potgieter, Nakajima in the top-10) kept them
+          out of the top 1%.
     contradictions: []
     codified_in: "framework.md — Section 2 Slate Diagnostics (mandatory low-owned-smash scan)"
     retired_reason: null
@@ -317,6 +424,147 @@ lessons:
       - date: "2026-06-13"
         slate: "168-slate mining 2023-2026 (archetype split)"
         note: "Tough (n=57) rank-1 sub-10% median 3 / winners <10% mean 2.59; birdie-fest (n=56) median 2 / 2.16."
+      - date: "2026-06-17"
+        slate: "RBC Canadian Open at TPC Toronto Osprey Valley North (rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26)"
+        note: >
+          Ambiguous single-slate data point, logged for honesty rather than forced into
+          a verdict. The venue's birdie-fest baseline is weather-dependent and the R4
+          read flagged it playing TOUGHER than 2025, yet winners ran the birdie-fest
+          dart count (~1.83-1.95 sub-10% across the three contests, i.e. ~2), and Sunday
+          scoring opened up (winning lineup totals 565.5-620.5 with several cheap golfers
+          posting 100+). Read: a setup that played moderately tough still rewarded the
+          ~2-dart birdie-fest structure — mild support for the ~2 default when scoring
+          is reachable, but NOT clean evidence for the tough->3 branch (the course never
+          fully closed up). Treat as a half-confirmation of the ~2 end only.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-06-17-single-vendor-overweight-self-erosion
+    born: "2026-06-17"
+    origin: "rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26 — RBC Canadian Open (red_team.md P1, confirmed by Rai)"
+    statement: >
+      A headline edge built from a SINGLE uncalibrated vendor's internal disagreement
+      with itself — the vendor's published optimal exposure minus that SAME vendor's
+      ownership projection (e.g. ETR's Rai "+25.3 coffin" = 50.2% optimal minus 24.9%
+      own) — is self-eroding and should be sized as a note, not the portfolio's biggest
+      bet. Mechanism: in a low-buy-in contest drawing that vendor's subscribers, actual
+      ownership drifts UP toward the published optimal, so the "overweight" compresses
+      toward zero exactly when it is most-owned; and with no calibration row, there is
+      no evidence the vendor projects ownership well in the first place. This is the
+      mirror image of fade-needs-ownership-to-materialize: an overweight needs ownership
+      to stay LOW to pay. At the RBC, Rai was carried 2/3 as "the lock of the slate,"
+      came in at ~25-30% actual own (ABOVE ETR's 19.4-24.9% projection), and busted
+      (31.0 vs 71.2 proj). The red team named this pre-lock (P1) on a SHIP'd lineup; it
+      was the single biggest miss of the slate. Guard: when the edge is one vendor's
+      self-referential gap, cap exposure and require a second, independent reason
+      (form, skill, course-fit) before treating it as conviction.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-06-17-leverage-spine-needs-sub20-combined-own
+    born: "2026-06-17"
+    origin: "rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26 — RBC Canadian Open (red_team.md L2 attack)"
+    statement: >
+      The codified leverage-spine-pairing mechanism (two coffin overweights paired =
+      multiplicative, not additive) only operates when the pair is sub-~19% COMBINED
+      ownership — the JT+Bradley validation pair that birthed the lesson was sub-19%
+      combined. The multiplicative edge comes from the DUPLICATION discount, which does
+      not exist at chalk ownership. Pairing two value-chalk plays at 40%+ combined own
+      (RBC: Rai ~25% + Cauley ~17.5% = ~42%) is NOT a leverage spine — it is two
+      correlated chalk bets wearing a leverage costume, carrying full chalk-bust
+      correlation with none of the duplication discount. At the RBC the "spine" split:
+      Cauley smashed (135.5) but Rai busted (31.0), and the pair's combined ownership
+      meant no uniqueness was bought. The red team flagged the mislabel pre-lock.
+      Proposed gate: only call a pair a "spine" when combined large-field own is
+      <=~19%; above that, treat each leg as standalone chalk and size on its own merit.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-06-17-mid-owned-value-spine-over-darts
+    born: "2026-06-17"
+    origin: "rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26 — RBC Canadian Open (sharp gap analysis vs cantfademe/Stonesalltheway/Jsf900/TheMish in the 59,453 large field)"
+    statement: >
+      At a value-defined course, the large-field GPP is won by the MODERATELY-owned
+      (~10–16%) mid-priced multipliers, not by anchor selection or by deep sub-5% darts
+      alone. Mechanism: when a cheap-to-mid tier is genuinely the slate's best points-per-
+      dollar, those plays draw 10–16% ownership (not <5%) yet still post ceiling — so the
+      edge is having FULL exposure to every 100+-ceiling play in that own band, while the
+      field over-allocates to the expensive chalk anchors. At the RBC the winning spine was
+      Cauley (135.5/13.6%), Matt Fitzpatrick (111.5/14.9%), Ryan Fox (103.5/12.0%) and
+      Sudarshan Yellamaraju (102/10.4%) — Cauley in 15/15 top lineups, Fox 9/15, Yellamaraju
+      7/15. Our 6 builds had Cauley on the top 3 (which reached ~5%) and NONE on the bottom 3
+      (a perfect 5%-vs-53%+ split), but had ZERO exposure to Fox or Yellamaraju on any build —
+      the single biggest pool gap, ~70 points short of the take-down tier. The winning sharps
+      made this spine their backbone at every entry (TheMish 31% Cauley; Stonesalltheway 80%
+      Bridgeman/75% Fitzpatrick) and added ONE sub-1% dart (cantfademe's single: spine +
+      Potgieter 6.4% + Nakajima 0.71% beat our entire portfolio). The sharp who leaned the
+      expensive busted chalk instead (Jsf900: Fleetwood 44%/Rai 35%/Reitan 25%) finished worst.
+      Guard/expression: pool generation must GUARANTEE exposure to every mid-priced play with a
+      100+ ceiling projected in the ~10–16% own band before adding deep darts; the sub-5% dart
+      is the finishing piece on top of a complete value spine, not a substitute for it. Distinct
+      from leverage-play-mandatory (which is about the sub-20% smashes) — this is specifically
+      that the 10–16% own band, not just <5%, is where value-course slates are won.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-06-17-design-exposures-before-lineups
+    born: "2026-06-17"
+    origin: "rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26 — RBC Canadian Open (sharp gap analysis, volume-controlled: how Stonesalltheway/TheMish/cantfademe pools were constructed vs our 6)"
+    statement: >
+      A multi-lineup portfolio should be built by deciding TARGET EXPOSURES FIRST — a
+      designed core (the value spine) carried at a deliberate rate across the set, with
+      only the differentiators rotated — NOT by assembling N independent rosters and
+      hoping the aggregate is coherent. Mechanism: independent assembly has no exposure
+      governor, so the slate's best value gets under-rostered (it competes for slots with
+      every other idea) and structurally-bad lineups (e.g. stacking multiple chalk anchors)
+      slip in unchallenged because nothing is enforcing portfolio-level shape. Designing
+      exposures first guarantees the spine is on every lineup, caps the busted-chalk legs,
+      and forces each lineup to differ only where intended. Controlling for entry volume,
+      this is what separated the winning sharps from us at the RBC: Stonesalltheway's pool
+      shared a deliberate Bridgeman+Greyserman+Davis-Thompson core and rotated only the
+      finishers; TheMish ran 31% Cauley as a backbone. Our 6 builds read as 6 separate
+      ideas — Cauley on only 3/6, zero Fox/Yellamaraju, and a quadruple-chalk-anchor worst
+      build that no exposure framework would have allowed. NOTE the volume control: this is
+      NOT "enter more lineups" — cantfademe expressed a designed single bullet (spine + 1
+      sub-1% dart) and beat our entire portfolio. The fix applies to a 6-lineup or even a
+      1-lineup build. Expression: before building, write the target exposure for the value
+      spine (every lineup), the mid-owned multipliers, the dart pool, and an explicit CAP
+      on each expensive chalk anchor; then fill lineups to those targets. Distinct from
+      mid-owned-value-spine-over-darts (which is WHICH players to roster) — this is the
+      portfolio CONSTRUCTION METHOD (exposures-first) that gets them rostered consistently.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-06-17-act-on-redteam-portfolio-findings-on-ship
+    born: "2026-06-17"
+    origin: "rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26 — RBC Canadian Open (red_team.md P1/P2 vs actuals)"
+    statement: >
+      Red-team PORTFOLIO-level findings (the P-series) deserve a documented pre-lock
+      response even when every per-lineup verdict is SHIP — a SHIP verdict means "no
+      single legal roster change improves this lineup," NOT "the portfolio has no
+      exposure worth addressing." At the RBC all three lineups were SHIP'd, yet the two
+      biggest actual failure modes were both named in the portfolio findings: P1 (Rai
+      self-eroding overweight) — Rai busted and his own rose to ~30%; and P2 (the
+      accuracy-thesis monoculture leaves a bomber leaderboard beating all three at once)
+      — bombers Potgieter (4.6% own) and Pendrith featured in multiple top-10 winners
+      while the build faded the distance scenario almost entirely. SHIP-but-flagged is
+      a signal to add a documented hedge or cap at the portfolio layer (e.g. one
+      bomber-leaning lineup, a Rai exposure cap below 2/3), not a clean bill of health.
+    status: hypothesis
+    confirmations: []
     contradictions: []
     codified_in: null
     retired_reason: null
