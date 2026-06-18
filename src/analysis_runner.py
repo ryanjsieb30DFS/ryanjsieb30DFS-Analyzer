@@ -90,6 +90,97 @@ def _run_claude(prompt: str, out_path: Path) -> dict:
     return {"ok": True, "error": None, "duration_s": duration, "cost_usd": cost}
 
 
+def _contest_context(slug: str) -> str:
+    """Describe the DECLARED contests for the prompt — selection must fit THESE
+    contests (field size, entry caps, count), not a generic build."""
+    from src.contests import load_contests, portfolio_summary
+    contests = load_contests(slug)
+    if not contests:
+        return "No contests declared — default to a single balanced GPP build."
+    lines = [
+        f"  - **{c.get('name','?')}** ({c.get('type','?')}): field "
+        f"{int(c.get('field_size',0) or 0):,}, my entries {c.get('my_entries','?')}/"
+        f"{c.get('max_entries','?')}, fee ${c.get('entry_fee','?')}"
+        for c in contests
+    ]
+    ps = portfolio_summary(slug)
+    return (
+        f"{len(contests)} contest(s), **{ps.get('unique_lineups_needed', 0)} unique lineup(s) needed**:\n"
+        + "\n".join(lines)
+        + "\n  Field-size / entry-cap aware: bigger field → more contrarian/ceiling and lower "
+          "duplication; smaller field or low entry cap → distinct theses matter more than raw "
+          "uniqueness. When the candidate lines below show per-contest ROI/Dupes, they are for "
+          "THESE declared contests — use them as context only (never as the sole filter)."
+    )
+
+
+def _pool_shortlist_md(slug: str, limit: int = 140, anchor_cap: int = 18) -> tuple[str, dict]:
+    """Resolve the lineup pool in PYTHON (not the LLM) and return a compact, ranked,
+    already-resolved candidate shortlist as markdown. This is the fix for the
+    Select/Fix hang: the LLM picks from a small resolved set instead of crunching
+    a multi-MB CSV with text tools. Rank is shark-like (ceiling up, chalk down,
+    bonus for 2+ skill-floored leverage darts)."""
+    from src.lineups import resolve_pool_candidates, roster_spec
+    cands, notes = resolve_pool_candidates(slug)
+    meta = {"n_total": len(cands), "n_shortlist": 0, "notes": notes}
+    if not cands:
+        return "", meta
+    cap = roster_spec(slug)["cap"]
+    elig = [c for c in cands
+            if c["salary"] <= cap and c["sub5_skill"] >= 1
+            and c["min_sub5_mc"] >= 0.48 and c["avg_own"] <= 17]
+    if not elig:  # never starve the LLM — fall back to legal-salary rows
+        elig = [c for c in cands if c["salary"] <= cap] or cands
+
+    def score(c):
+        return c["ceil_sum"] - 1.5 * c["avg_own"] + (4 if c["sub5_skill"] >= 2 else 0)
+
+    elig.sort(key=score, reverse=True)
+
+    def anchor(c):
+        return max(c["players"], key=lambda p: int(p.get("salary") or 0))["name"]
+
+    per: dict = {}
+    picked = []
+    for c in elig:
+        a = anchor(c)
+        if per.get(a, 0) >= anchor_cap:
+            continue
+        per[a] = per.get(a, 0) + 1
+        picked.append(c)
+        if len(picked) >= limit:
+            break
+    meta["n_shortlist"] = len(picked)
+
+    def _cm(c):
+        bits = []
+        for cn, m in c["contest_metrics"].items():
+            seg = cn.split("[")[0].strip()
+            if m.get("roi") is not None:
+                try:
+                    seg += f" ROI {float(m['roi']):.1f}"
+                except (TypeError, ValueError):
+                    pass
+            if m.get("dupes") is not None:
+                try:
+                    seg += f" Dup {float(m['dupes']):.2f}"
+                except (TypeError, ValueError):
+                    pass
+            bits.append(seg)
+        return " · ".join(bits)
+
+    lines = []
+    for c in picked:
+        ply = ", ".join(f"{p['name']}({float(p.get('ownership') or 0):.1f})" for p in c["players"])
+        cm = _cm(c)
+        lines.append(
+            f"- `{c['source']}` row {c['row']} | ${c['salary']:,} | own {c['avg_own']} | "
+            f"sub5 {c['sub5_skill']}/{c['sub5']} (minMC {c['min_sub5_mc']}) | ceil {c['ceil_sum']} | "
+            f"madeCuts {c['exp_made_cuts']}" + (f" | {cm}" if cm else "") + f"\n    {ply}"
+        )
+    return "\n".join(lines), meta
+
+
 def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
     """Build the bundle and run headless Claude to write the slate analysis."""
     out_path = _REPO_ROOT / "data" / "slate_analysis" / f"{slug}.md"
@@ -189,83 +280,70 @@ def run_select_lineups(slug: str, contest_label: str, sport: str, n_target: int)
                 "duration_s": 0.0, "cost_usd": None}
 
     from src.sim_data import load_sim_files
-    from src.lineups import roster_spec
 
     sim_files = load_sim_files(slug)
     if not sim_files:
         return {"ok": False,
                 "error": "Upload at least one lineup-pool CSV in the Sim Data tab first.",
                 "duration_s": 0.0, "cost_usd": None}
-    slots = roster_spec(slug)["slots"]
-    pool_paths = "\n".join(
-        f"  - `{s['path']}` ({s['n_rows']:,} rows · {'has sims' if s.get('has_sim_cols') else 'rosters only'})"
-        for s in sim_files
-    )
+
+    # Resolve + rank the pool in PYTHON (the fix for the old hang) — the LLM picks
+    # from a small, already-resolved shortlist, never the raw multi-MB CSV.
+    shortlist, meta = _pool_shortlist_md(slug, limit=160)
+    if not shortlist:
+        why = meta["notes"][0] if meta.get("notes") else "no resolvable candidate rows."
+        return {"ok": False,
+                "error": f"Couldn't build a candidate shortlist from the pool — {why}",
+                "duration_s": 0.0, "cost_usd": None}
 
     out_path = _REPO_ROOT / "data" / "lineups" / f"{slug}.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     bundle_path = build_bundle(slug, contest_label, sport)
+    contest_ctx = _contest_context(slug)
 
     prompt = (
-        f"SELECT the {contest_label} lineup portfolio from the user's uploaded lineup pool(s) — "
-        f"do NOT invent rosters. Read the slate analysis at `{analysis_path}`, the bundle at "
-        f"`{bundle_path}` and the files it references (projections, articles), "
-        f"`rules/{slug}/framework.md` + `rules/{slug}/autopsies.md` for the sport's "
-        f"lineup-construction rules, and EVERY uploaded lineup-pool CSV below (paths also in the "
-        f"bundle's '## Sim data' section):\n{pool_paths}\n\n"
-        f"How to read each pool CSV: each ROW is one candidate lineup. Its first "
-        f"{len(slots)} columns are DK player IDs in slot order ({', '.join(slots)}). The REMAINING "
-        f"columns VARY by file and may include sim metrics (Proj Score, percentile ceilings, "
-        f"Ownership, Salary, Saber Score, per-contest ROI/Win Rate/Cash Rate/Sim Dupes) OR may be "
-        f"absent entirely (a traditional optimizer's rosters-only export) — use those metrics only "
-        f"if present, and NEVER require them. Resolve each DK ID to a player using the projections "
-        f"pool's `dk_id` column (in the bundle's Projections source) so you know the names, salaries, "
-        f"ownership, teams, and slate-analysis calls behind every row.\n\n"
-        f"If MULTIPLE files are present they are likely different optimizer settings "
-        f"(projection-/ceiling-/50-50-weighted) — COMBINE all candidates into one pool and DEDUPE "
-        f"identical rosters (same 10 player IDs = one candidate, regardless of which file it came "
-        f"from). Cross-file diversity is a feature: a ceiling-optimized file is where the GPP tail "
-        f"lives.\n\n"
-        f"SELECT EXACTLY {n_target} lineup(s) from the combined pool. Selection discipline (enforce strictly):\n"
-        f"- FILTER to lineups that EXPRESS the slate analysis's edges and '## Player board' calls — "
-        f"NOT the rows with the highest sim ROI/Saber Score (when sims even exist). Sim rank is NOT a "
-        f"quality filter: per this repo's rules a high-ROI sim row that fights the slate's edges is a "
-        f"worse pick than a mid-pack row that nails them. With NO sim columns, rank purely on edge-fit, "
-        f"then ceiling/projection/ownership. Judge each row on how it WINS a GPP, never on cashing.\n"
-        f"- The chosen lineups MUST answer DIFFERENT questions — distinct theses, no near-duplicates "
-        f"and no shared full conviction core.\n"
-        f"- Apply the Anchor-Equivalence pre-lock check: if 2+ chalk-tier anchors sit at similar "
-        f"ownership, at least one selected lineup MUST run the alternative.\n"
-        f"- Never roster a hitter against your own pitcher (MLB) — reject any such row even if a sim "
-        f"ranks it highly; honor every hard rule in the sport's framework (e.g. RD4 SD is flat 6, no "
-        f"captain).\n"
-        f"- COUNT IS A HARD REQUIREMENT: you MUST return exactly {n_target} lineups. Prioritize "
-        f"distinct theses; if the pool offers fewer than {n_target} fully-distinct edge-expressing "
-        f"lineups, STILL return {n_target} by adding the most-differentiated remaining pool rows (a "
-        f"variant on the strongest thesis or the next-best edge), each briefly noted as a coverage/"
-        f"variant lineup in its thesis. NEVER return fewer than {n_target} — the only exception is if "
-        f"the combined pool literally contains fewer than {n_target} unique valid rows (then return all "
-        f"of them and say so).\n\n"
-        f"For EACH selected lineup write, in the SAME format run_build_lineups uses:\n"
-        f"- A one-sentence thesis ('how it wins').\n"
-        f"- A roster as a markdown table (player, salary, key metric, role).\n"
-        f"- Total salary verified <= $50,000 — show the addition.\n"
-        f"- A 'What if?' line stating which distinct scenario it answers.\n"
-        f"- Tag the lineup heading as selected from the uploaded pool and note its source FILE name "
-        f"+ ROW INDEX (1-based, counting data rows after the header) for traceability.\n\n"
-        f"Complete the 'Pre-flight ritual' in CLAUDE.md: re-read `rules/{slug}/lessons.yaml` and the "
-        f"venue file. The output MUST begin with the '## Pre-flight checklist' block, and each applied "
-        f"open lesson must be named in the lineup thesis it influenced (or explicitly rejected with the "
-        f"mechanism reason).\n\n"
-        f"End with a 'Portfolio audit' section: player overlap, hedges, Anchor-Equivalence "
-        f"compliance, and which slate-analysis edges each selection expresses. Write the result to "
-        f"`{out_path}`. "
-        f"IMPORTANT: if `{out_path}` already exists with lineups in it (e.g. handbuilt ones), "
-        f"PRESERVE them exactly as written — append your selected lineups after them, continue their "
-        f"numbering, count them toward the {n_target}-lineup target, and make sure your selections "
-        f"answer DIFFERENT questions than the existing ones (include them in the Portfolio audit).\n\n"
-        f"HARD RULE: write ONLY `{out_path}` — never edit the slate analysis, the bundle, the pool "
-        f"file(s), or any other data file. Do not ask any questions — produce the file."
+        f"SELECT the {contest_label} lineup portfolio from the user's uploaded pool — do NOT invent "
+        f"rosters. Read the slate analysis at `{analysis_path}`, the bundle at `{bundle_path}` and the "
+        f"files it references, `rules/{slug}/framework.md` + `rules/{slug}/autopsies.md`, "
+        f"`rules/{slug}/lessons.yaml`, the venue file, and `rules/shared/sharp_playbook.md`.\n\n"
+        f"CONTESTS — select FOR THESE (very important):\n{contest_ctx}\n\n"
+        f"CANDIDATE POOL — already resolved to players for you ({meta['n_shortlist']} of "
+        f"{meta['n_total']:,} unique pool rows, pre-ranked ceiling-up / chalk-down with a "
+        f"skill-floored leverage piece in each; each line shows source file + 1-based row index, "
+        f"total salary, avg own%, sub-5%-owned skill darts (count/total, min make-cut), ceiling sum, "
+        f"expected made-cuts, and per-declared-contest ROI/Dupes where available). **Pick ONLY from "
+        f"these rows — each is a real pool lineup; cite its `source row N` for traceability:**\n\n"
+        f"{shortlist}\n\n"
+        f"SELECT EXACTLY {n_target} lineup(s) from the candidates above. Discipline (enforce strictly):\n"
+        f"- PLAY LIKE THE SHARKS (`rules/shared/sharp_playbook.md`): all lineups unique (no shared "
+        f"full core); ≥1 sub-5% skill-floored leverage piece in most; ~12–16% avg own/slot "
+        f"(field-size-calibrated per the contests above); elite anchor + downstream differentiation; "
+        f"judged on CEILING, not median.\n"
+        f"- EXPRESS the slate analysis's edges and '## Player board' calls — the candidate rank above "
+        f"is a starting sort, NOT the quality filter; a mid-ranked row that nails the slate's edges "
+        f"beats a top-ranked row that fights them.\n"
+        f"- Apply every open lesson in `lessons.yaml` (name each in the thesis it shaped) and the "
+        f"Anchor-Equivalence pre-lock check: if 2+ chalk-tier anchors sit at similar ownership, ≥1 "
+        f"selected lineup MUST run the alternative.\n"
+        f"- The chosen lineups MUST answer DIFFERENT questions — distinct theses, no near-duplicates, "
+        f"no shared full conviction core. Honor every sport hard rule (MLB: never a hitter vs your "
+        f"own pitcher; RD4 SD: flat 6, no captain).\n"
+        f"- COUNT IS A HARD REQUIREMENT: return exactly {n_target}. If fewer than {n_target} candidates "
+        f"answer fully-distinct questions, STILL return {n_target} using the most-differentiated "
+        f"remaining rows (labeled coverage/variant). Only return fewer if the shortlist literally has "
+        f"fewer than {n_target} rows (then say so).\n\n"
+        f"For EACH selected lineup, in the SAME format run_build_lineups uses: a one-sentence thesis "
+        f"('how it wins'); a roster markdown table (player, salary, own%, ceiling, role); total salary "
+        f"verified <= $50,000 (show the addition); a 'What if?' line; and the heading tagged as "
+        f"selected from the pool with its source FILE + ROW INDEX.\n\n"
+        f"The output MUST begin with the '## Pre-flight checklist' block (CLAUDE.md). End with a "
+        f"'## Portfolio audit': player overlap, hedges, Anchor-Equivalence compliance, exposures vs "
+        f"the contests, and which slate-analysis edges each selection expresses.\n\n"
+        f"IMPORTANT: if `{out_path}` already exists with lineups (e.g. handbuilt), PRESERVE them "
+        f"verbatim, append after them, continue numbering, count them toward {n_target}, and ensure "
+        f"your picks answer DIFFERENT questions.\n"
+        f"HARD RULE: write ONLY `{out_path}` — never edit the analysis, bundle, pool, or other data "
+        f"files. Do not ask questions — produce the file."
     )
     return _run_claude(prompt, out_path)
 
@@ -292,7 +370,7 @@ def run_fix_lineups(slug: str, contest_label: str, sport: str) -> dict:
                 "duration_s": 0.0, "cost_usd": None}
 
     from src.sim_data import load_sim_files
-    from src.lineups import roster_spec, flagged_lineups
+    from src.lineups import flagged_lineups
 
     flagged = flagged_lineups(slug)
     if not flagged:
@@ -303,56 +381,58 @@ def run_fix_lineups(slug: str, contest_label: str, sport: str) -> dict:
         return {"ok": False,
                 "error": "Fixes are re-selected from your pool — upload a lineup-pool CSV in the Sim Data tab first.",
                 "duration_s": 0.0, "cost_usd": None}
-    slots = roster_spec(slug)["slots"]
-    pool_paths = "\n".join(
-        f"  - `{s['path']}` ({s['n_rows']:,} rows · {'has sims' if s.get('has_sim_cols') else 'rosters only'})"
-        for s in sim_files
-    )
+
+    # Resolve + rank the pool in PYTHON (fix for the old hang): the LLM picks
+    # replacements from a small resolved shortlist, never the raw multi-MB CSV.
+    shortlist, meta = _pool_shortlist_md(slug, limit=160)
+    if not shortlist:
+        why = meta["notes"][0] if meta.get("notes") else "no resolvable candidate rows."
+        return {"ok": False,
+                "error": f"Couldn't build a candidate shortlist from the pool — {why}",
+                "duration_s": 0.0, "cost_usd": None}
     flagged_list = "; ".join(flagged)
 
     out_path = _REPO_ROOT / "data" / "lineup_fixes" / f"{slug}.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     bundle_path = build_bundle(slug, contest_label, sport)
+    contest_ctx = _contest_context(slug)
 
     prompt = (
         f"PROPOSE fixes for the {contest_label} lineup portfolio that the Red Team flagged. "
         f"Read the red-team review at `{red_team_path}`, the current portfolio at `{lineups_path}`, "
-        f"the slate analysis at `{analysis_path}`, the bundle at `{bundle_path}` and the files it "
-        f"references (projections, articles), `rules/{slug}/framework.md` + `rules/{slug}/autopsies.md`, "
-        f"and EVERY uploaded lineup-pool CSV below (paths also in the bundle's '## Sim data' section):\n"
-        f"{pool_paths}\n\n"
-        f"The red-team '## Verdict summary' marks each lineup SHIP / FIX / KILL. The lineups flagged "
-        f"FIX or KILL are: {flagged_list}. **Leave every SHIP lineup alone.** For EACH flagged lineup, "
-        f"propose ONE replacement RE-SELECTED FROM THE POOL — do NOT invent rosters.\n\n"
-        f"How to read each pool CSV: each ROW is one candidate lineup; its first {len(slots)} columns "
-        f"are DK player IDs in slot order ({', '.join(slots)}); remaining columns are optional sim "
-        f"metrics (use only if present, never required). Resolve each DK ID to a player via the "
-        f"projections pool's `dk_id` column (in the bundle's Projections source). COMBINE all pool "
-        f"files and DEDUPE identical rosters.\n\n"
-        f"Each proposed replacement (selection discipline — enforce strictly):\n"
-        f"- Must be a REAL pool row — tag its source FILE name + 1-based ROW INDEX.\n"
-        f"- May EITHER resolve the red team's specific objection while still answering that lineup's "
-        f"original 'What if?' question, OR be a totally new, distinct lineup that answers a question "
-        f"the portfolio doesn't already cover — your call per lineup; state which you chose.\n"
-        f"- Must EXPRESS the slate analysis's edges / '## Player board' calls, NOT the highest sim "
-        f"ROI/Saber Score row (sim rank is NOT a quality filter on this repo's rules).\n"
-        f"- Total salary <= $50,000 (show the addition); <= 3 driver overlap with any KEPT (SHIP) "
-        f"lineup AND with any other replacement (no near-duplicates, no shared full conviction core).\n"
-        f"- Honor every framework hard rule + the Anchor-Equivalence pre-lock check across the FULL "
-        f"resulting portfolio (kept SHIP lineups + replacements).\n\n"
-        f"Write a proposals document to `{out_path}` with:\n"
-        f"- A short intro: which lineups were flagged and why (quote each one's verdict + the "
-        f"'FIX (one change)' instruction from the red team).\n"
-        f"- A '## Fix proposals' section: one subsection per flagged lineup — restate the original "
-        f"(label + flaw), then the PROPOSED replacement as a roster markdown table (player, salary, "
-        f"key metric, role), a one-sentence thesis, a 'What if?' line, a 'Resolves:' line naming how it "
-        f"answers the red team finding, and a 'Mode:' line ('same question' or 'new question').\n"
-        f"- A '## Kept (SHIP)' list naming the SHIP lineups that carry over unchanged.\n"
-        f"- A '## Portfolio after fixes' note: post-swap player overlap + Anchor-Equivalence compliance "
-        f"across the full set.\n\n"
+        f"the slate analysis at `{analysis_path}`, the bundle at `{bundle_path}`, "
+        f"`rules/{slug}/framework.md` + `rules/{slug}/lessons.yaml`, and "
+        f"`rules/shared/sharp_playbook.md`.\n\n"
+        f"CONTESTS — fix FOR THESE (very important):\n{contest_ctx}\n\n"
+        f"The red-team '## Verdict summary' marks each lineup SHIP / FIX / KILL. Flagged FIX/KILL: "
+        f"{flagged_list}. **Leave every SHIP lineup alone.** For EACH flagged lineup, propose ONE "
+        f"replacement chosen from the candidate pool below — do NOT invent rosters.\n\n"
+        f"CANDIDATE POOL — already resolved to players for you ({meta['n_shortlist']} of "
+        f"{meta['n_total']:,} unique pool rows, pre-ranked ceiling-up / chalk-down with a skill-floored "
+        f"leverage piece in each; each line shows source file + 1-based row index, salary, avg own%, "
+        f"sub-5%-owned skill darts (count/total, min make-cut), ceiling sum, expected made-cuts, and "
+        f"per-declared-contest ROI/Dupes where available). **Pick replacements ONLY from these rows — "
+        f"each is a real pool lineup; cite its `source row N`:**\n\n"
+        f"{shortlist}\n\n"
+        f"Each proposed replacement (enforce strictly):\n"
+        f"- A REAL pool row from the list — tag its source FILE + ROW INDEX.\n"
+        f"- Resolves the red team's specific objection (quote its 'FIX (one change)') — EITHER keep that "
+        f"lineup's original 'What if?', OR be a distinct new question the portfolio lacks; state which.\n"
+        f"- PLAY LIKE THE SHARKS (`rules/shared/sharp_playbook.md`) and express the slate analysis's "
+        f"edges / '## Player board' calls — the candidate rank is a starting sort, not the filter.\n"
+        f"- Total salary <= $50,000; <= 3 player overlap with any KEPT (SHIP) lineup AND any other "
+        f"replacement (no near-duplicates, no shared full core).\n"
+        f"- Honor every framework hard rule + open lesson + the Anchor-Equivalence check across the FULL "
+        f"resulting portfolio (kept SHIP lineups + replacements), tuned to the contests above.\n\n"
+        f"Write a proposals document to `{out_path}` with: a short intro (which lineups flagged + why, "
+        f"quoting each verdict and 'FIX (one change)'); a '## Fix proposals' section (one subsection per "
+        f"flagged lineup — restate original label+flaw, then the PROPOSED replacement as a roster table "
+        f"[player, salary, own%, ceiling, role], a one-sentence thesis, a 'What if?', a 'Resolves:' line, "
+        f"and a 'Mode:' line [same question / new question]); a '## Kept (SHIP)' list; and a "
+        f"'## Portfolio after fixes' note (post-swap overlap + Anchor-Equivalence across the full set).\n\n"
         f"HARD RULE: write ONLY `{out_path}` — do NOT edit the portfolio `{lineups_path}`, the red-team "
-        f"file, the slate analysis, the bundle, or the pool files. Applying the fixes is a separate "
-        f"step. Do not ask any questions — produce the file."
+        f"file, the analysis, the bundle, or the pool files. Applying is a separate step. Do not ask "
+        f"questions — produce the file."
     )
     return _run_claude(prompt, out_path)
 

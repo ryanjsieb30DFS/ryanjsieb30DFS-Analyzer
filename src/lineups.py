@@ -363,6 +363,117 @@ def resolve_id_lineups(text: str, pool_df: pd.DataFrame, slug: str) -> tuple[lis
     return lineups, flat_errors
 
 
+def resolve_pool_candidates(slug: str) -> tuple[list[dict], list[str]]:
+    """Resolve EVERY uploaded lineup-pool row to players via the merged
+    projections' dk_id, so callers can FILTER/RANK in Python instead of making a
+    headless LLM crunch a multi-MB CSV (the old Select/Fix hang). Returns
+    (candidates, notes).
+
+    Each candidate dict: {row (1-based), source (filename), ids, names, players,
+    salary, avg_own, sub5, sub5_skill, min_sub5_mc, ceil_sum, exp_made_cuts,
+    contest_metrics}. Deduped by roster (same set of dk_ids = one candidate).
+    `contest_metrics` maps a DECLARED-contest name -> {roi, dupes, win_rate}
+    when the pool carries that contest's columns (prefix match)."""
+    from src import sessions
+    from src.sim_data import load_sim_files
+    from src.contests import load_contests
+
+    spec = roster_spec(slug)
+    n_slots = len(spec["slots"])
+
+    sources = sessions.merge_same_vendor(sessions.load_sources(slug))
+    if not sources:
+        return [], ["No projections loaded — upload vendor projections first."]
+    pname = max(sources, key=lambda k: len(sources[k]["df"]))
+    pdf = sources[pname]["df"]
+    if "dk_id" not in pdf.columns:
+        return [], ["Projections carry no dk_id column — can't resolve the pool to players."]
+
+    id_map: dict[str, dict] = {}
+    for rec in pdf.to_dict("records"):
+        did = rec.get("dk_id")
+        if did is None or (isinstance(did, float) and pd.isna(did)):
+            continue
+        id_map[str(int(did))] = rec
+
+    pool_files = load_sim_files(slug)
+    if not pool_files:
+        return [], ["No lineup-pool CSV uploaded (Sim Data tab)."]
+
+    contests = load_contests(slug)
+
+    def _mc(v):
+        try:
+            v = float(v)
+        except (TypeError, ValueError):
+            return 0.0
+        return v / 100 if v > 1.5 else v
+
+    seen: set = set()
+    cands: list[dict] = []
+    notes: list[str] = []
+    for pf in pool_files:
+        try:
+            df = pd.read_csv(pf["path"])
+        except Exception as e:  # noqa: BLE001 — surface, don't crash the run
+            notes.append(f"Couldn't read {Path(pf['path']).name}: {e}")
+            continue
+        cols = list(df.columns)
+        id_cols = cols[:n_slots]
+        # Match each declared contest to its pool columns (prefix match).
+        cmatch: dict[str, tuple] = {}
+        for c in contests:
+            cn = str(c.get("name", "")).strip()
+            if not cn:
+                continue
+            roi = next((col for col in cols if col.startswith(cn) and col.endswith("ROI")), None)
+            dup = next((col for col in cols if col.startswith(cn) and col.endswith("Sim Dupes")), None)
+            win = next((col for col in cols if col.startswith(cn) and col.endswith("Win Rate")), None)
+            if roi or dup or win:
+                cmatch[cn] = (roi, dup, win)
+        for i, rec in enumerate(df.to_dict("records"), start=1):
+            ids = [re.sub(r"\D", "", str(rec.get(c, ""))) for c in id_cols]
+            ids = [x for x in ids if x]
+            if len(ids) != n_slots:
+                continue
+            players = [id_map.get(x) for x in ids]
+            if any(p is None for p in players):
+                continue
+            key = frozenset(ids)
+            if key in seen:
+                continue
+            seen.add(key)
+            owns = [float(p.get("ownership") or 0) for p in players]
+            mcs = [_mc(p.get("make_cut_odds")) for p in players]
+            ceils = [float(p.get("ceiling") or 0) for p in players]
+            sal = sum(int(p.get("salary") or 0) for p in players)
+            sub5 = [j for j, o in enumerate(owns) if o < 5]
+            cm = {
+                cn: {
+                    "roi": rec.get(roi) if roi else None,
+                    "dupes": rec.get(dup) if dup else None,
+                    "win_rate": rec.get(win) if win else None,
+                }
+                for cn, (roi, dup, win) in cmatch.items()
+            }
+            cands.append({
+                "row": i,
+                "source": Path(pf["path"]).name,
+                "ids": ids,
+                "names": [p["name"] for p in players],
+                "players": players,
+                "salary": sal,
+                "avg_own": round(sum(owns) / n_slots, 1),
+                "sub5": len(sub5),
+                "sub5_skill": sum(1 for j in sub5 if mcs[j] >= 0.5),
+                "min_sub5_mc": round(min((mcs[j] for j in sub5), default=1.0), 2),
+                "ceil_sum": round(sum(ceils), 1),
+                "exp_made_cuts": round(sum(mcs), 2),
+                "contest_metrics": cm,
+            })
+    return cands, notes
+
+
 def next_lineup_number(slug: str) -> int:
     """1 + the highest '## Lineup N' heading in data/lineups/<slug>.md; 1 if none."""
     p = _LINEUPS_DIR / f"{slug}.md"
