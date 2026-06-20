@@ -1,0 +1,458 @@
+[
+  {
+    "timestamp": "2026-06-19 22:46",
+    "contest_type": "PGA RD4 Showdown",
+    "source_file": "contest-standings-191320862.csv",
+    "entries": 9512,
+    "winning_score": 336.4,
+    "cash_line_p80": 268.24997,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "pga_rd4_sd",
+    "sport": "golf",
+    "projections": {
+      "available": true,
+      "source": "DK PGA Round 4 Showdown Projections (8).csv",
+      "matched": 75,
+      "total": 75
+    },
+    "user_summary": {
+      "avg_own_mean": 15.69,
+      "low_own_count_mean": 2.83,
+      "salary_used_mean": 49833.0,
+      "entry_count": 6,
+      "best_rank": 428,
+      "best_percentile": 4.5
+    },
+    "user_lineups": [
+      {
+        "rank": 428,
+        "entry_name": "RyvlesGaming30 (3/6)",
+        "points": 292.05002,
+        "percentile": 4.5,
+        "players": [
+          "Tommy Fleetwood",
+          "Bud Cauley",
+          "Harry Hall",
+          "Aldrich Potgieter",
+          "Max Homa",
+          "Jimmy Stanger"
+        ],
+        "avg_own": 15.66,
+        "low_own_count": 3,
+        "salary_used": 49700,
+        "proj_total": 247.1,
+        "dup_count": 2,
+        "stack_shape": null
+      },
+      {
+        "rank": 926,
+        "entry_name": "RyvlesGaming30 (5/6)",
+        "points": 281.15,
+        "percentile": 9.7,
+        "players": [
+          "Tommy Fleetwood",
+          "Bud Cauley",
+          "Ryan Fox",
+          "Michael Thorbjornsen",
+          "Tom Kim",
+          "Kevin Yu"
+        ],
+        "avg_own": 16.2,
+        "low_own_count": 3,
+        "salary_used": 50000,
+        "proj_total": 252.1,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 1177,
+        "entry_name": "RyvlesGaming30 (2/6)",
+        "points": 277.35,
+        "percentile": 12.4,
+        "players": [
+          "Wyndham Clark",
+          "Keith Mitchell",
+          "Bud Cauley",
+          "Sudarshan Yellamaraju",
+          "Aldrich Potgieter",
+          "Billy Horschel"
+        ],
+        "avg_own": 21.3,
+        "low_own_count": 2,
+        "salary_used": 49800,
+        "proj_total": 247,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 6302,
+        "entry_name": "RyvlesGaming30 (1/6)",
+        "points": 230.65,
+        "percentile": 66.3,
+        "players": [
+          "Sam Burns",
+          "Wyndham Clark",
+          "Ryan Fox",
+          "Taylor Pendrith",
+          "David Skinns",
+          "Ben Kohles"
+        ],
+        "avg_own": 17.22,
+        "low_own_count": 2,
+        "salary_used": 49700,
+        "proj_total": 248.7,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 8720,
+        "entry_name": "RyvlesGaming30 (6/6)",
+        "points": 202.54999,
+        "percentile": 91.7,
+        "players": [
+          "Wyndham Clark",
+          "Robert MacIntyre",
+          "Sahith Theegala",
+          "Aldrich Potgieter",
+          "Christiaan Bezuidenhout",
+          "Max McGreevy"
+        ],
+        "avg_own": 13.68,
+        "low_own_count": 3,
+        "salary_used": 49900,
+        "proj_total": 243.8,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 9489,
+        "entry_name": "RyvlesGaming30 (4/6)",
+        "points": 153.25,
+        "percentile": 99.8,
+        "players": [
+          "Sam Burns",
+          "Brooks Koepka",
+          "Christiaan Bezuidenhout",
+          "Max McGreevy",
+          "Max Homa",
+          "William Mouw"
+        ],
+        "avg_own": 10.08,
+        "low_own_count": 4,
+        "salary_used": 49900,
+        "proj_total": 241.8,
+        "dup_count": 1,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Keita Nakajima",
+        "proj_points": 33.8,
+        "actual_fpts": 63.4,
+        "fpts_delta": 29.6,
+        "ownership": 1.6,
+        "actual_own": 1.39
+      },
+      {
+        "name": "Calen Sanderson",
+        "proj_points": 22.7,
+        "actual_fpts": 50.9,
+        "fpts_delta": 28.2,
+        "ownership": 0.2,
+        "actual_own": 0.09
+      },
+      {
+        "name": "Bud Cauley",
+        "proj_points": 44.3,
+        "actual_fpts": 68.15,
+        "fpts_delta": 23.85,
+        "ownership": 34.8,
+        "actual_own": 26.1
+      },
+      {
+        "name": "Matthew Anderson",
+        "proj_points": 31.0,
+        "actual_fpts": 53.8,
+        "fpts_delta": 22.8,
+        "ownership": 1.6,
+        "actual_own": 2.62
+      },
+      {
+        "name": "Nick Taylor",
+        "proj_points": 37.0,
+        "actual_fpts": 58.45,
+        "fpts_delta": 21.45,
+        "ownership": 1.7,
+        "actual_own": 1.73
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Brooks Koepka",
+        "proj_points": 40.6,
+        "actual_fpts": 0.0,
+        "fpts_delta": -40.6,
+        "ownership": 4.2,
+        "actual_own": 5.33
+      },
+      {
+        "name": "Kevin Roy",
+        "proj_points": 34.7,
+        "actual_fpts": 11.5,
+        "fpts_delta": -23.2,
+        "ownership": 1.7,
+        "actual_own": 1.4
+      },
+      {
+        "name": "Sahith Theegala",
+        "proj_points": 41.7,
+        "actual_fpts": 22.85,
+        "fpts_delta": -18.85,
+        "ownership": 13.5,
+        "actual_own": 12.68
+      },
+      {
+        "name": "Kensei Hirata",
+        "proj_points": 31.8,
+        "actual_fpts": 13.8,
+        "fpts_delta": -18.0,
+        "ownership": 0.9,
+        "actual_own": 0.53
+      },
+      {
+        "name": "Sam Burns",
+        "proj_points": 48.1,
+        "actual_fpts": 30.8,
+        "fpts_delta": -17.3,
+        "ownership": 22.6,
+        "actual_own": 22.05
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Matt Fitzpatrick",
+        "salary": 10500,
+        "actual_fpts": 65.4,
+        "actual_own": 15.55,
+        "top_lineup_pct": 67.4
+      }
+    ],
+    "winners_structure": {
+      "top_n": 95,
+      "avg_own_mean": 17.21,
+      "low_own_count_mean": 1.63,
+      "salary_used_mean": 49785.0,
+      "dup_max": 7,
+      "unique_pct": 82.1,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "kevinroach (65/150)",
+          "points": 336.4,
+          "percentile": 0.0,
+          "players": [
+            "Matt Fitzpatrick",
+            "Viktor Hovland",
+            "Bud Cauley",
+            "Ryan Fox",
+            "Taylor Moore",
+            "Keita Nakajima"
+          ],
+          "avg_own": 15.2,
+          "low_own_count": 2,
+          "salary_used": 49800,
+          "proj_total": 249.8,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "Mbedard20 (20/100)",
+          "points": 331.9,
+          "percentile": 0.0,
+          "players": [
+            "Matt Fitzpatrick",
+            "Viktor Hovland",
+            "Bud Cauley",
+            "Ryan Fox",
+            "Brice Garnett",
+            "Rasmus Neergaard-Petersen"
+          ],
+          "avg_own": 16.92,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 252.4,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 3,
+          "entry_name": "jamesdon14 (140/150)",
+          "points": 330.7,
+          "percentile": 0.0,
+          "players": [
+            "Matt Fitzpatrick",
+            "Bud Cauley",
+            "Ryan Fox",
+            "Jacob Bridgeman",
+            "Jimmy Stanger",
+            "Brice Garnett"
+          ],
+          "avg_own": 17.42,
+          "low_own_count": 1,
+          "salary_used": 49600,
+          "proj_total": 249,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "jsf900 (32/150)",
+          "points": 329.65,
+          "percentile": 0.0,
+          "players": [
+            "Matt Fitzpatrick",
+            "Viktor Hovland",
+            "Bud Cauley",
+            "Jacob Bridgeman",
+            "Tom Kim",
+            "Rasmus Neergaard-Petersen"
+          ],
+          "avg_own": 16.14,
+          "low_own_count": 2,
+          "salary_used": 50000,
+          "proj_total": 252.9,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 5,
+          "entry_name": "beaker913 (142/150)",
+          "points": 328.2,
+          "percentile": 0.1,
+          "players": [
+            "Matt Fitzpatrick",
+            "Viktor Hovland",
+            "Bud Cauley",
+            "Ryan Fox",
+            "Beau Hossler",
+            "Patrick Fishburn"
+          ],
+          "avg_own": 14.23,
+          "low_own_count": 2,
+          "salary_used": 50000,
+          "proj_total": 248.3,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 5,
+          "entry_name": "torty (1/2)",
+          "points": 328.2,
+          "percentile": 0.1,
+          "players": [
+            "Viktor Hovland",
+            "Bud Cauley",
+            "Ryan Fox",
+            "Sudarshan Yellamaraju",
+            "Aldrich Potgieter",
+            "Doug Ghim"
+          ],
+          "avg_own": 18.06,
+          "low_own_count": 2,
+          "salary_used": 49600,
+          "proj_total": 252,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 7,
+          "entry_name": "PantherFan2418 (43/75)",
+          "points": 326.8,
+          "percentile": 0.1,
+          "players": [
+            "Matt Fitzpatrick",
+            "Viktor Hovland",
+            "Sudarshan Yellamaraju",
+            "Aldrich Potgieter",
+            "Tom Kim",
+            "Kevin Yu"
+          ],
+          "avg_own": 13.4,
+          "low_own_count": 3,
+          "salary_used": 49900,
+          "proj_total": 247.1,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "shawnzhan (146/150)",
+          "points": 326.40002,
+          "percentile": 0.1,
+          "players": [
+            "Matt Fitzpatrick",
+            "Viktor Hovland",
+            "Bud Cauley",
+            "Sudarshan Yellamaraju",
+            "Tom Kim",
+            "Billy Horschel"
+          ],
+          "avg_own": 19.77,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 252.9,
+          "dup_count": 2,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "beaker913 (31/150)",
+          "points": 326.40002,
+          "percentile": 0.1,
+          "players": [
+            "Matt Fitzpatrick",
+            "Viktor Hovland",
+            "Bud Cauley",
+            "Sudarshan Yellamaraju",
+            "Tom Kim",
+            "Billy Horschel"
+          ],
+          "avg_own": 19.77,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 252.9,
+          "dup_count": 2,
+          "stack_shape": null
+        },
+        {
+          "rank": 10,
+          "entry_name": "thebodyspill (118/120)",
+          "points": 325.8,
+          "percentile": 0.1,
+          "players": [
+            "Matt Fitzpatrick",
+            "Robert MacIntyre",
+            "Viktor Hovland",
+            "Bud Cauley",
+            "Beau Hossler",
+            "Keita Nakajima"
+          ],
+          "avg_own": 13.79,
+          "low_own_count": 2,
+          "salary_used": 49900,
+          "proj_total": 248.5,
+          "dup_count": 1,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 1.52,
+        "low_own_count_delta": -1.2,
+        "salary_used_delta": -48.0
+      }
+    }
+  }
+]

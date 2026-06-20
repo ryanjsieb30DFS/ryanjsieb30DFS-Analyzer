@@ -1,0 +1,25 @@
+{
+  "slug": "pga_rd4_sd",
+  "sport": "golf",
+  "contest_label": "PGA RD4 Showdown",
+  "date": "2026-06-19",
+  "slate_label": "PGA RD4 SD RBC Canada 2026",
+  "archived_at": "2026-06-19 22:46",
+  "archived": [
+    "slate_analysis.md",
+    "lineups.md",
+    "bundle.md",
+    "contests.json",
+    "red_team.md"
+  ],
+  "missing": [],
+  "article_files": [
+    "articles/pga_rd4_sd/2026-06-13__ETR PGA RD4 SD 6.14.26.pdf",
+    "articles/pga_rd4_sd/2026-06-13__ETR RD4 SD Results 6.13.26.pdf",
+    "articles/pga_rd4_sd/2026-06-13__PGA-The-Stone-R4-Showdown 6.14.26.pdf",
+    "articles/pga_rd4_sd/2026-06-14__ETR PGA RD4 SD 6.14.26.pdf",
+    "articles/pga_rd4_sd/2026-06-14__ETR RD4 SD Results 6.13.26.pdf",
+    "articles/pga_rd4_sd/2026-06-14__PGA-The-Stone-R4-Showdown 6.14.26.pdf"
+  ],
+  "proj_source": "DK PGA Round 4 Showdown Projections (8).csv"
+}

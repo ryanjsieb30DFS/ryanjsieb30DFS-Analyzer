@@ -1,0 +1,79 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 24,
+    "leverage_capture": 0.0,
+    "leverage_hit": [],
+    "leverage_missed": [
+      "Matt Fitzpatrick"
+    ],
+    "overperformer_capture": 0.2,
+    "overperformer_hit": [
+      "Bud Cauley"
+    ],
+    "underperformer_exposure": 0.6,
+    "underperformer_hit": [
+      "Brooks Koepka",
+      "Sahith Theegala",
+      "Sam Burns"
+    ]
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 6,
+    "avg_ratio": 0.969,
+    "best_percentile": 4.5,
+    "median_percentile": 66.3,
+    "n_top_10pct": 2,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30 (3/6)",
+        "points": 292.05002,
+        "proj_total": 247.1,
+        "ratio": 1.182,
+        "percentile": 4.5,
+        "avg_own": 15.66
+      },
+      {
+        "entry_name": "RyvlesGaming30 (5/6)",
+        "points": 281.15,
+        "proj_total": 252.1,
+        "ratio": 1.115,
+        "percentile": 9.7,
+        "avg_own": 16.2
+      },
+      {
+        "entry_name": "RyvlesGaming30 (2/6)",
+        "points": 277.35,
+        "proj_total": 247,
+        "ratio": 1.123,
+        "percentile": 12.4,
+        "avg_own": 21.3
+      },
+      {
+        "entry_name": "RyvlesGaming30 (1/6)",
+        "points": 230.65,
+        "proj_total": 248.7,
+        "ratio": 0.927,
+        "percentile": 66.3,
+        "avg_own": 17.22
+      },
+      {
+        "entry_name": "RyvlesGaming30 (6/6)",
+        "points": 202.54999,
+        "proj_total": 243.8,
+        "ratio": 0.831,
+        "percentile": 91.7,
+        "avg_own": 13.68
+      },
+      {
+        "entry_name": "RyvlesGaming30 (4/6)",
+        "points": 153.25,
+        "proj_total": 241.8,
+        "ratio": 0.634,
+        "percentile": 99.8,
+        "avg_own": 10.08
+      }
+    ]
+  }
+}

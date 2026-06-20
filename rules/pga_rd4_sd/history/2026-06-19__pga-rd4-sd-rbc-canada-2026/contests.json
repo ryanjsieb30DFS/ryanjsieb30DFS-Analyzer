@@ -1,0 +1,14 @@
+{
+  "contests": [
+    {
+      "name": "PGA Tour SD $40K Drive the Green",
+      "type": "150-Max",
+      "field_size": 9512,
+      "max_entries": 150,
+      "my_entries": 6,
+      "entry_fee": 5.0,
+      "prize_pool": 40000,
+      "id": "d0a63cf1"
+    }
+  ]
+}

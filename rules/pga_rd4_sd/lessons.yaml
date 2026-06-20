@@ -37,7 +37,18 @@ lessons:
       leader up 4+ shots holding) materializes, the entire portfolio is dead regardless
       of downstream construction. Never take any top-3 anchor to 0% with 4 bullets.
     status: codified
-    confirmations: []
+    confirmations:
+      - date: "2026-06-19"
+        slate: "RBC Canadian Open 2026 (RD4 SD) — autopsy of contest 191320862, field 9,512"
+        note: >
+          Matt Fitzpatrick was the #3 projected golfer in both vendor files (proj
+          rank 3/75, $10,500 / 3rd-highest salary, 17-24% proj own) and taken to 0%
+          across all 6 entries; he finished the #2 actual scorer (65.4 fpts). The lone
+          tracked shark in-field (moklovin, best rank 12 / top 0.13% on 150 entries)
+          carried him at ~19%. Player reads were otherwise sharp (overweight Cauley
+          and the 7.9%-owned Potgieter smash vs the shark), so the complete fade of a
+          top-3 anchor — not construction — is what capped the ceiling at rank 428
+          (top 4.5%). Self-grade flagged the same miss as 0% leverage capture.
     contradictions: []
     codified_in: "philosophy.md — Foundational Rule 5 (Don't Punch Out of the Contest); framework.md — Handbuilt MME universal rules (top-3 anchor exposure 25-60%, never 0%)"
     retired_reason: null
@@ -326,6 +337,15 @@ lessons:
         note: >
           Median winners per-player avg-own 19.1% (stable 17.4-19.5% every year); median 1.7
           sub-10% golfers; 93% of rank-1 winners ran >=1 sub-10%, 64% ran >=2; 85% unique.
+      - date: "2026-06-19"
+        slate: "PGA RD4 SD RBC Canada 2026 (rules/pga_rd4_sd/history/2026-06-19__pga-rd4-sd-rbc-canada-2026)"
+        note: >
+          Live confirmation incl. user-portfolio gradient: top-95 winners avg per-player own 17.21% /
+          1.63 sub-10%, 82.1% unique — bang on the envelope. Within the user's own 6 entries the
+          finish order tracked the envelope: the lineups nearest ~19% own finished best (L2 21.3% ->
+          12.4 pct; L3 15.66% -> 4.5 pct; L5 16.2% -> 9.7 pct), while the two deep-contrarian builds
+          finished worst (L4 10.08% -> 99.8 pct; L6 13.68% -> 91.7 pct). Sub-19% over-leverage was
+          penalized in-sample.
     contradictions: []
     codified_in: "framework.md — Historical Winning Structure (Actual DK winners 2023-2026 validation)"
     retired_reason: null
@@ -345,6 +365,13 @@ lessons:
       - date: "2026-06-13"
         slate: "168 Classic vs 146 RD4 SD mining 2023-2026"
         note: "Classic winners 12.9% per-player own / 2.5 darts; RD4 SD 19.1% / 1.7 darts. Gap stable across all four years."
+      - date: "2026-06-19"
+        slate: "PGA RD4 SD RBC Canada 2026 (rules/pga_rd4_sd/history/2026-06-19__pga-rd4-sd-rbc-canada-2026)"
+        note: >
+          The user's two lineups built at Classic-grade contrarian dosage (L4 avg own 10.08% / 4
+          sub-10% darts; L6 13.68% / 3) finished dead last (99.8 / 91.7 pct), while the chalkier
+          near-19% builds finished best. Concrete cost of importing Classic's dart-heavy contrarian
+          dose into the chalkier RD4 SD format.
     contradictions: []
     codified_in: "framework.md — Cross-format note vs PGA Classic"
     retired_reason: null
@@ -358,11 +385,52 @@ lessons:
       own), and tough courses reward marginally more leverage (~1.9 sub-10% vs ~1.6
       on birdie-fests). Mechanism: the same sub-radar-smash dynamic as Classic, just
       one dart instead of two-to-three.
-    status: hypothesis
+    status: validated
     confirmations:
       - date: "2026-06-13"
         slate: "146-slate mining 2023-2026"
         note: "142/146 slates (97%) had a <20%-own slate-definer; archetype split tough 1.94 vs birdie 1.63 sub-10% mean."
+      - date: "2026-06-19"
+        slate: "PGA RD4 SD RBC Canada 2026 (rules/pga_rd4_sd/history/2026-06-19__pga-rd4-sd-rbc-canada-2026)"
+        note: >
+          First non-mining slate confirmation -> promoted hypothesis -> validated. The slate-definer
+          was Matt Fitzpatrick at 15.55% actual own (<20%) appearing in 67.4% of top lineups, and the
+          rank-1 winner ran ~2 sub-10% darts (Taylor Moore + Keita Nakajima 1.39%). Winners' structure
+          avg per-player own 17.21% / 1.63 sub-10% — leverage was mandatory AND sat right at the ~19%
+          envelope, not deep-contrarian.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-06-19-contention-extends-past-54hole-leaders
+    born: "2026-06-19"   # RBC Canadian Open R4 SD
+    origin: "autopsies.md — PGA RD4 SD RBC Canada 2026 (the -9/3-back chasers, faded as 'not T-10 starters', were the slate-definers)"
+    statement: >
+      On RD4 SD, final-round contention extends well past the 54-hole leaders, and a
+      hard position gate that fades golfers 2-4 shots back ('not a T-10 starter') is a
+      ceiling leak — those chasers carry full ceiling, are usually lower-owned than the
+      leaders, and are exactly who wins when Sunday scoring reopens. Distinguish three
+      buckets, do NOT collapse the back two into one: (1) leaders/T-10 = chalk;
+      (2) IN-CONTENTION chasers 2-4 back (here -9, 3 back) = full ceiling, the real
+      leverage tier; (3) WAY-BACK darts (>6-7 back / over par) = can't post the needed
+      round on a tough course, the only bucket the position gate should actually
+      exclude. The 'birdie hedge = way-back sub-5% lottery tickets' construction is its
+      own leak: hedge the reopened-scoring world with bucket-2 chasers, not bucket-3
+      darts; reserve true way-back darts for confirmed -19/-20 birdie-fests only.
+    status: hypothesis
+    confirmations:
+      - date: "2026-06-19"
+        slate: "PGA RD4 SD RBC Canada 2026 (rules/pga_rd4_sd/history/2026-06-19__pga-rd4-sd-rbc-canada-2026)"
+        note: >
+          BORN here. Winning lineup = Fitzpatrick (-9 T12, scored 65.4) + Hovland (-9 T12) + Cauley +
+          Fox + Taylor Moore + Keita Nakajima; Fitzpatrick was THE slate-definer (67.4% of top
+          lineups, 15.55% own). The analysis rated Fitzpatrick MIX-down and PASSED Hovland explicitly
+          because they were -9, not -10-or-better; the user rostered NEITHER across all 6 lineups.
+          Sunday scoring reopened (Fitz/Hovland fired low rounds from 3 back). Meanwhile the user's
+          two birdie hedges bet on bucket-3 way-back darts (Thorbjornsen -4, Tom Kim -6, McGreevy -6,
+          Bezuidenhout -4) that did not deliver. Best user finish (L3, 4.5 pct) carried Cauley but no
+          bucket-2 chaser -> ceiling capped. The position gate, reinforced by the red team's
+          'all-in-the-red, exclude way-back' framing, faded the exact tier that won.
     contradictions: []
     codified_in: null
     retired_reason: null

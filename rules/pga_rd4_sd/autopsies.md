@@ -268,3 +268,25 @@ Concentrating 100% on one chalk-tier anchor when an equivalent-profile alternati
 - Entries: 10,701
 - Winning score: 329.8
 - Cash line (top 20%): 238.0
+
+
+## 2026-06-19 22:46 — PGA RD4 Showdown (contest-standings-191320862.csv)
+- Entries: 9,512
+- Winning score: 336.4
+- Cash line (top 20%): 268.2
+- My entries: 6 · best rank 428/9,512 (top 4.5%)
+- Winners (top 95): avg own 17.21% vs mine 15.69% · sub-10% plays/lineup 1.63 vs mine 2.83 · salary Δ -48
+- Overperformed proj: Keita Nakajima, Calen Sanderson, Bud Cauley
+- Underperformed proj: Brooks Koepka, Kevin Roy, Sahith Theegala
+- Slate-defining plays: Matt Fitzpatrick (65.4 pts @ 15.6%)
+
+
+## 2026-06-19 23:02 — PGA RD4 Showdown (contest-standings-191320862.csv)
+- Entries: 9,512
+- Winning score: 336.4
+- Cash line (top 20%): 268.2
+- My entries: 6 · best rank 428/9,512 (top 4.5%)
+- Winners (top 95): avg own 17.21% vs mine 15.69% · sub-10% plays/lineup 1.63 vs mine 2.83 · salary Δ -48
+- Overperformed proj: Keita Nakajima, Calen Sanderson, Bud Cauley
+- Underperformed proj: Brooks Koepka, Kevin Roy, Sahith Theegala
+- Slate-defining plays: Matt Fitzpatrick (65.4 pts @ 15.6%)
