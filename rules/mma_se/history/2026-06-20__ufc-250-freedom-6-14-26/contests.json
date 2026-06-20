@@ -1,0 +1,14 @@
+{
+  "contests": [
+    {
+      "name": "UFC Captain $25K Arm Bar",
+      "type": "150-Max",
+      "field_size": 5945,
+      "max_entries": 150,
+      "my_entries": 10,
+      "entry_fee": 5.0,
+      "prize_pool": 25000,
+      "id": "50fb80b9"
+    }
+  ]
+}

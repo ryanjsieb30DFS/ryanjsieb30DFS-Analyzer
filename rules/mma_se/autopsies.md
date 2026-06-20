@@ -181,3 +181,12 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 ### What Worked
 ### Process-Level Lessons
 ### What This Slate Was Not
+
+
+## 2026-06-20 08:40 — MMA (contest-standings-191363697.csv)
+- Entries: 5,945
+- Winning score: 618.4
+- Cash line (top 20%): 489.4
+- My entries: 10 · best rank 14/5,945 (top 0.2%)
+- Overperformed proj: Josh Hokit, Bo Nickal, Mauricio Ruffy
+- Underperformed proj: Alex Pereira, Alex Pereira, Michael Chandler

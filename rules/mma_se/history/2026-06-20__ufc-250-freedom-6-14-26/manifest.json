@@ -1,0 +1,27 @@
+{
+  "slug": "mma_se",
+  "sport": "mma",
+  "contest_label": "MMA",
+  "date": "2026-06-20",
+  "slate_label": "UFC 250 Freedom 6.14.26",
+  "archived_at": "2026-06-20 08:40",
+  "archived": [
+    "slate_analysis.md",
+    "lineups.md",
+    "bundle.md",
+    "contests.json",
+    "red_team.md"
+  ],
+  "missing": [],
+  "article_files": [
+    "articles/mma_se/2026-06-14__MMA Matchups 6.14.26.pdf",
+    "articles/mma_se/2026-06-14__MMA Top Plays 6.14.26.pdf",
+    "articles/mma_se/2026-06-14__MMA _ Core Report _ Ship It Nation 6.14.26.pdf",
+    "articles/mma_se/2026-06-14__MMA _ Fight Rankings _ Ship It Nation 6.14.26.pdf",
+    "articles/mma_se/2026-06-14__MMA _ Slate Plan _ Ship It Nation 6.14.26.pdf",
+    "articles/mma_se/2026-06-14__MMA _ Tier Rankings _ Ship It Nation 6.14.26.pdf",
+    "articles/mma_se/2026-06-14__MMA-Stone SIN 6.14.26.pdf",
+    "articles/mma_se/2026-06-14__lineups_dk_ufc_showdown_6-14-2026_800pm.csv"
+  ],
+  "proj_source": "DailyFan-Projections-Sheet-MMA-DK-43.csv"
+}

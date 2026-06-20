@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "date": "2026-06-20",
+  "slug": "mma_se",
+  "sport": "mma",
+  "slate_label": "UFC 250 Freedom 6.14.26",
+  "history_dir": "rules/mma_se/history/2026-06-20__ufc-250-freedom-6-14-26",
+  "contests": [
+    {
+      "name": "UFC Captain $25K Arm Bar",
+      "type": "150-Max",
+      "source_file": "contest-standings-191363697.csv",
+      "field_size": 5945,
+      "my_entries": 10,
+      "entry_fee": 5.0,
+      "buy_in": 50.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 14,
+      "best_percentile": 0.2
+    }
+  ],
+  "total_buy_in": 50.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 14,
+  "best_percentile": 0.2,
+  "entries_total": 10,
+  "edge_leverage_capture": null,
+  "edge_overperformer_capture": 1.0,
+  "edge_bust_exposure": 1.0,
+  "lineup_avg_ratio": 1.133
+}

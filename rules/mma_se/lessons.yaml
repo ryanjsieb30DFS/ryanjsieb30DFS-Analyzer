@@ -63,7 +63,16 @@ lessons:
       pay only the top. The 5/16 lineups were ceiling-capped at ~572/~581 in a field
       whose winner scored 660.81 — no variance outcome could have won.
     status: codified
-    confirmations: []
+    confirmations:
+      - date: "2026-06-14"
+        slate: "UFC Freedom 250 (White House) — captain-mode showdown, 5,945 field"
+        note: >
+          Confirmed in the positive direction. The build summed win-case ceilings to
+          ~620-652 against a ~600+ target; the winning score was 618.43 and the user's
+          best lineup (L4) hit 615.37 actual (rank 14/5,945). The gate correctly
+          targeted the winning range — the build COULD reach the winning score and
+          nearly did. The ceiling threshold did its job: no lineup was built to cash
+          short of the winning number.
     contradictions:
       - date: "2026-05-30"
         slate: "UFC Macau"
@@ -86,7 +95,19 @@ lessons:
       Small fields don't require extreme variance to separate, so prefer leverage
       with blended EV above ~50; save pure-binary plays for large fields.
     status: codified
-    confirmations: []
+    confirmations:
+      - date: "2026-06-14"
+        slate: "UFC Freedom 250 (White House) — captain-mode showdown, 5,945 field"
+        note: >
+          Large-field inverse confirmed. In the 5,945-entry field a pure binary dog
+          hit and was in the winning lineup: Gaethje (19% to win, KO-or-bust) upset
+          Topuria (81% main-event chalk) and posted 127.14. The winning roster
+          (Gaethje/Ruffy/Hokit/Bo/Gane/Zahabi) carried that binary dog, and the
+          user's two best lineups (L4 rank 14, L7 rank 821) were the two Topuria-free
+          builds that also carried Gaethje. Mechanism: large fields reward the extreme
+          variance that small fields punish — the build correctly inverted the rule
+          for this field size, though it used Gaethje only as salary relief rather
+          than as the deliberate binary swing.
     contradictions: []
     codified_in: "framework.md — Binary-Dependent Leverage Plays (5/16/26) + Step 3 — Field-Size Calibration"
     retired_reason: null
@@ -118,7 +139,19 @@ lessons:
       Zhang/Pavlovich split left 40% of the portfolio on the side that busted (10.09)
       while the pivot smashed (128.6).
     status: codified
-    confirmations: []
+    confirmations:
+      - date: "2026-06-14"
+        slate: "UFC Freedom 250 (White House) — captain-mode showdown, 5,945 field"
+        note: >
+          Boundary confirmation — the trigger correctly did NOT fire, and the default
+          50/50 was right. The equivalence pair was Gane(48%)/Pereira(52%): the
+          chalkier side (Pereira) was NOT the chalkiest play on the slate (Hokit 75 /
+          Topuria 68 were chalkier) and Pereira had a finish lean but a decision floor
+          existed in the fight, so the "chalkiest-AND-KO-or-bust" condition was unmet.
+          A flat 50/50 (one CPT each side) was therefore correct; weighting toward
+          either side would have been a guess. Validates the rule's specificity — it
+          asks for asymmetry only under a narrow condition, not on every equivalence
+          pair.
     contradictions: []
     codified_in: "framework.md — Asymmetric Anchor-Equivalence Weighting (5/30/26 — UFC Macau)"
     retired_reason: null
@@ -167,6 +200,18 @@ lessons:
       - date: "2026-05-30"
         slate: "UFC Macau"
         note: "5th validation; Pavlovich-not-Zhang lineups produced top-5% finishes in two contests."
+      - date: "2026-06-14"
+        slate: "UFC Freedom 250 (White House) — captain-mode showdown, 5,945 field"
+        note: >
+          6th validation, captain-mode. The mandatory Gane(48%)/Pereira(52%) co-main
+          pick'em was captained on both sides (L5 Gane, L6 Pereira) and repped both
+          sides across flex. Gane WON big (152.94, 91-pt overperform) and Pereira
+          BUSTED (4.8). The Gane-side lineups survived (the user's best, L4, carried
+          Gane and went rank 14/5,945); the Pereira-side lineups cratered. Had the
+          build gone one-sided on Pereira — the slightly-chalkier 52% side the field
+          favored — the entire portfolio dies. Mechanism confirmed: equivalent chalk
+          anchors are substitutable to the field, so both-sides presence is what
+          captured the live side.
     contradictions: []
     codified_in: "rules/shared/anchor_equivalence.md"
     retired_reason: null
@@ -200,4 +245,114 @@ lessons:
     confirmations: []
     contradictions: []
     codified_in: "philosophy.md — Conviction vs. Contrarian in SE; framework.md — Steps 1-2"
+    retired_reason: null
+
+  # ---- 2026-06-14 — UFC Freedom 250 (White House), captain-mode showdown ----
+
+  - id: mma-se-2026-06-14-showdown-flex-spine-diversity
+    born: "2026-06-14"
+    origin: "rules/mma_se/history/2026-06-20__ufc-250-freedom-6-14-26"
+    statement: >
+      In captain-mode showdown, "distinct captains" can mask a shared 5/6 flex spine:
+      lineups with different captain hats but the same five flex fighters are a single
+      bet, so one fighter's bust craters the whole cluster together. The red team
+      flagged exactly this (L1/L9/L10 all carried the Topuria+Pereira+Zahabi+Chandler
+      spine and differed only by one flex plus the captain) and the FIX was ignored;
+      Pereira then busted (4.8) and the trio finished 58.8% / 50.0% / 76.2% as a
+      block, the predicted failure mode realized. Enforce flex-spine diversity (cap
+      shared flex at <=4/6 across any pair), not just distinct captains, when judging
+      portfolio uniqueness in showdown.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-06-14-showdown-cap-single-favorite-exposure
+    born: "2026-06-14"
+    origin: "rules/mma_se/history/2026-06-20__ufc-250-freedom-6-14-26"
+    statement: >
+      A single non-captain favorite carried in 7-9 of 10 showdown lineups is a
+      portfolio-level correlated bet, not diversification — when that chalk favorite
+      busts it sinks the bulk of the portfolio at once. Topuria (81% main-event chalk,
+      proj 90) was in 7/10 lineups and LOST to Gaethje; the only two lineups to clear
+      500 points (L4 rank 14/5,945, L7 rank 821) were the two Topuria-free builds, and
+      both also carried the upset dog. The portfolio was saved by two fades that were
+      accidents of salary relief, not a deliberate hedge. Rule to test: cap any single
+      favorite's flex share (~<=60% of lineups) and ALWAYS carry >=2 lineups that fade
+      the chalkiest favorite / the main-event chalk. Links [[mma-se-2026-06-14-showdown-flex-spine-diversity]];
+      generalizes the red team's "Bo in 9/10 with zero hedge" finding (Bo won, so the
+      realized evidence is Topuria, but the mechanism is identical).
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own
+    born: "2026-06-14"
+    origin: "rules/mma_se/history/2026-06-20__ufc-250-freedom-6-14-26"
+    statement: >
+      In 150-Max captain-mode showdown the field fragments across captains, so
+      projected OVERALL own% (the DailyFan number that sums to ~600 over 6 slots)
+      massively overstates real exposure: the consensus top fighter Hokit projected
+      ~75 overall but drew only ~12.6% actual captain own, and the entire "chalk" sat
+      in single digits to low-teens actual. DailyFan's CAPTAIN-own column, by contrast,
+      was well calibrated (Hokit 16->12.6, Bo 7->6.1, Ruffy 3->4.0, Gane 10->7.8). The
+      upset finisher that won (Gaethje) hid behind 44% projected overall / 7.9% actual.
+      Implication: make leverage/fade calls off CPT-own, not projected overall own —
+      "fading chalk" by overall own often fades something the field barely rosters, and
+      a low-actual-own converting favorite is the real edge. (Calibration weight is a
+      note, not a rule yet — small sample; see vendor_calibration.jsonl.)
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-06-14-showdown-cheap-slot-prefer-floor-or-live-dog
+    born: "2026-06-14"
+    origin: "rules/mma_se/history/2026-06-20__ufc-250-freedom-6-14-26"
+    statement: >
+      The cheap salary-relief slot in showdown frequently decides the lineup, so it
+      should prefer a decision-floor fighter or the live finishing dog over pure
+      "makes-the-math-work" chalk relief. Chandler (44% proj, pure relief) was carried
+      in 8/10 lineups and scored 1.2 (busted); the winning roster and the user's best
+      lineup (L4) instead used Zahabi (decision floor — his fight went the distance for
+      volume) and Gaethje (the live KO dog who hit). The build leaned Chandler (8) over
+      Zahabi (6) despite its own analysis naming Zahabi the only dog with a decision
+      floor. Confirms the red team's cheap-slot field-duplication finding in hindsight.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-06-14-showdown-captain-the-ceiling-pair-the-smash
+    born: "2026-06-14"
+    origin: "rules/mma_se/history/2026-06-20__ufc-250-freedom-6-14-26"
+    statement: >
+      In captain-mode showdown the winning lineup is an assembled COMBINATION, not a set
+      of correct individual reads — with limited bullets two construction rules close most
+      of the gap to the optimal: (1) your highest-CEILING play must occupy the 1.5x CPT
+      slot in >=1 lineup (the captain is the single highest-leverage decision; a top-ceiling
+      fighter left in flex every lineup caps win equity), and (2) your lowest-owned
+      high-ceiling smash must appear alongside your STRONGEST flex core in >=1 build, not
+      isolated. Evidence (UFC 250 Freedom, contest 191363697, field 5,945): the user's
+      reads were elite — 100% overperformer capture, lineups +13% vs projection, best build
+      rank 14/5,945 (top 0.24%) — yet finished 3.06 pts behind moklovin's winning lineup
+      (CPT Gaethje + Ruffy + Hokit/Nickal/Gane/Zahabi). Gaethje (the winning captain) was
+      rostered 2/10 but captained 0/10; Ruffy (4% own, 177.3 pts — the slate-defining smash)
+      appeared in 1/10 and was captained there AWAY from the optimal core (that build finished
+      821st). The winning combination existed across the pool but was never assembled in one
+      lineup. This is the volume-independent half of the coverage gap (the captain fix needs
+      no extra bullets). Links [[mma-se-2026-06-14-showdown-flex-spine-diversity]],
+      [[mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own]]; the cross-sport
+      analog is the golf [[feedback_cpt_anchor_equivalence]] / never-zero-top3-anchor coverage
+      point. Per [[feedback_play_like_sharks]], moklovin landed the exact combination on 150
+      bullets; on 10 the captain discipline is the recoverable edge.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
     retired_reason: null

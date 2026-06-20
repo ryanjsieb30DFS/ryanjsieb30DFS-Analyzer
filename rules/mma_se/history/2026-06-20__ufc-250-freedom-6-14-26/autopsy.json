@@ -1,0 +1,530 @@
+[
+  {
+    "timestamp": "2026-06-20 08:40",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-191363697.csv",
+    "entries": 5945,
+    "winning_score": 618.43,
+    "cash_line_p80": 489.38201599999985,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": true,
+      "source": "DailyFan-Projections-Sheet-MMA-DK-43.csv",
+      "matched": 0,
+      "total": 28
+    },
+    "user_summary": {
+      "avg_own_mean": null,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 45520.0,
+      "entry_count": 10,
+      "best_rank": 14,
+      "best_percentile": 0.2
+    },
+    "user_lineups": [
+      {
+        "rank": 14,
+        "entry_name": "RyvlesGaming30 (4/10)",
+        "points": 615.37,
+        "percentile": 0.2,
+        "players": [
+          "Josh Hokit",
+          "Bo Nickal",
+          "Diego Lopes",
+          "Ciryl Gane",
+          "Aiemann Zahabi",
+          "Justin Gaethje"
+        ],
+        "avg_own": null,
+        "low_own_count": 0,
+        "salary_used": 45000,
+        "proj_total": 364.92,
+        "dup_count": 40,
+        "stack_shape": null
+      },
+      {
+        "rank": 821,
+        "entry_name": "RyvlesGaming30 (7/10)",
+        "points": 518.42505,
+        "percentile": 13.8,
+        "players": [
+          "Mauricio Ruffy",
+          "Bo Nickal",
+          "Ciryl Gane",
+          "Steve Garcia",
+          "Aiemann Zahabi",
+          "Justin Gaethje"
+        ],
+        "avg_own": null,
+        "low_own_count": 0,
+        "salary_used": 44200,
+        "proj_total": 345.12,
+        "dup_count": 8,
+        "stack_shape": null
+      },
+      {
+        "rank": 1830,
+        "entry_name": "RyvlesGaming30 (3/10)",
+        "points": 450.86002,
+        "percentile": 30.8,
+        "players": [
+          "Steve Garcia",
+          "Ilia Topuria",
+          "Josh Hokit",
+          "Bo Nickal",
+          "Ciryl Gane",
+          "Michael Chandler"
+        ],
+        "avg_own": null,
+        "low_own_count": 0,
+        "salary_used": 46600,
+        "proj_total": 397.32,
+        "dup_count": 84,
+        "stack_shape": null
+      },
+      {
+        "rank": 2149,
+        "entry_name": "RyvlesGaming30 (5/10)",
+        "points": 440.66998,
+        "percentile": 36.1,
+        "players": [
+          "Ciryl Gane",
+          "Ilia Topuria",
+          "Bo Nickal",
+          "Diego Lopes",
+          "Aiemann Zahabi",
+          "Michael Chandler"
+        ],
+        "avg_own": null,
+        "low_own_count": 0,
+        "salary_used": 45200,
+        "proj_total": 368.42,
+        "dup_count": 31,
+        "stack_shape": null
+      },
+      {
+        "rank": 2830,
+        "entry_name": "RyvlesGaming30 (2/10)",
+        "points": 404.7,
+        "percentile": 47.6,
+        "players": [
+          "Kyle Daukaus",
+          "Ilia Topuria",
+          "Sean O'Malley",
+          "Josh Hokit",
+          "Ciryl Gane",
+          "Michael Chandler"
+        ],
+        "avg_own": null,
+        "low_own_count": 0,
+        "salary_used": 46600,
+        "proj_total": 384.96,
+        "dup_count": 15,
+        "stack_shape": null
+      },
+      {
+        "rank": 2970,
+        "entry_name": "RyvlesGaming30 (9/10)",
+        "points": 399.71002,
+        "percentile": 50.0,
+        "players": [
+          "Bo Nickal",
+          "Ilia Topuria",
+          "Josh Hokit",
+          "Alex Pereira",
+          "Aiemann Zahabi",
+          "Michael Chandler"
+        ],
+        "avg_own": null,
+        "low_own_count": 0,
+        "salary_used": 45600,
+        "proj_total": 390.38,
+        "dup_count": 71,
+        "stack_shape": null
+      },
+      {
+        "rank": 3331,
+        "entry_name": "RyvlesGaming30 (6/10)",
+        "points": 382.00003,
+        "percentile": 56.0,
+        "players": [
+          "Alex Pereira",
+          "Sean O'Malley",
+          "Josh Hokit",
+          "Bo Nickal",
+          "Steve Garcia",
+          "Michael Chandler"
+        ],
+        "avg_own": null,
+        "low_own_count": 0,
+        "salary_used": 46000,
+        "proj_total": 385.6,
+        "dup_count": 32,
+        "stack_shape": null
+      },
+      {
+        "rank": 3495,
+        "entry_name": "RyvlesGaming30 (1/10)",
+        "points": 372.99,
+        "percentile": 58.8,
+        "players": [
+          "Josh Hokit",
+          "Ilia Topuria",
+          "Diego Lopes",
+          "Alex Pereira",
+          "Aiemann Zahabi",
+          "Michael Chandler"
+        ],
+        "avg_own": null,
+        "low_own_count": 0,
+        "salary_used": 45200,
+        "proj_total": 378.99,
+        "dup_count": 86,
+        "stack_shape": null
+      },
+      {
+        "rank": 4124,
+        "entry_name": "RyvlesGaming30 (8/10)",
+        "points": 343.405,
+        "percentile": 69.4,
+        "players": [
+          "Diego Lopes",
+          "Ilia Topuria",
+          "Bo Nickal",
+          "Alex Pereira",
+          "Steve Garcia",
+          "Michael Chandler"
+        ],
+        "avg_own": null,
+        "low_own_count": 0,
+        "salary_used": 45800,
+        "proj_total": 382.6,
+        "dup_count": 4,
+        "stack_shape": null
+      },
+      {
+        "rank": 4531,
+        "entry_name": "RyvlesGaming30 (10/10)",
+        "points": 323.11002,
+        "percentile": 76.2,
+        "players": [
+          "Ilia Topuria",
+          "Bo Nickal",
+          "Diego Lopes",
+          "Alex Pereira",
+          "Aiemann Zahabi",
+          "Michael Chandler"
+        ],
+        "avg_own": null,
+        "low_own_count": 0,
+        "salary_used": 45000,
+        "proj_total": 372.04,
+        "dup_count": 18,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Josh Hokit",
+        "proj_points": 85.07,
+        "actual_fpts": 203.28,
+        "fpts_delta": 118.21,
+        "ownership": 75.0,
+        "actual_own": 12.6
+      },
+      {
+        "name": "Bo Nickal",
+        "proj_points": 78.12,
+        "actual_fpts": 184.23,
+        "fpts_delta": 106.11,
+        "ownership": 45.0,
+        "actual_own": 6.14
+      },
+      {
+        "name": "Mauricio Ruffy",
+        "proj_points": 84.9,
+        "actual_fpts": 177.29,
+        "fpts_delta": 92.39,
+        "ownership": 27.0,
+        "actual_own": 3.97
+      },
+      {
+        "name": "Ciryl Gane",
+        "proj_points": 61.8,
+        "actual_fpts": 152.94,
+        "fpts_delta": 91.14,
+        "ownership": 48.0,
+        "actual_own": 7.77
+      },
+      {
+        "name": "Justin Gaethje",
+        "proj_points": 36.66,
+        "actual_fpts": 127.14,
+        "fpts_delta": 90.48,
+        "ownership": 44.0,
+        "actual_own": 7.91
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Alex Pereira",
+        "proj_points": 65.42,
+        "actual_fpts": 4.8,
+        "fpts_delta": -60.62,
+        "ownership": 52.0,
+        "actual_own": 46.66
+      },
+      {
+        "name": "Alex Pereira",
+        "proj_points": 65.42,
+        "actual_fpts": 7.2,
+        "fpts_delta": -58.22,
+        "ownership": 52.0,
+        "actual_own": 9.87
+      },
+      {
+        "name": "Michael Chandler",
+        "proj_points": 34.95,
+        "actual_fpts": 1.2,
+        "fpts_delta": -33.75,
+        "ownership": 44.0,
+        "actual_own": 35.14
+      },
+      {
+        "name": "Michael Chandler",
+        "proj_points": 34.95,
+        "actual_fpts": 1.8,
+        "fpts_delta": -33.15,
+        "ownership": 44.0,
+        "actual_own": 4.29
+      },
+      {
+        "name": "Kyle Daukaus",
+        "proj_points": 37.92,
+        "actual_fpts": 5.6,
+        "fpts_delta": -32.32,
+        "ownership": 31.0,
+        "actual_own": 34.97
+      }
+    ],
+    "slate_defining_plays": [],
+    "winners_structure": {
+      "top_n": 59,
+      "avg_own_mean": null,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 45420.0,
+      "dup_max": 40,
+      "unique_pct": 1.7,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "moklovin (49/150)",
+          "points": 618.43,
+          "percentile": 0.0,
+          "players": [
+            "Justin Gaethje",
+            "Mauricio Ruffy",
+            "Josh Hokit",
+            "Bo Nickal",
+            "Ciryl Gane",
+            "Aiemann Zahabi"
+          ],
+          "avg_own": null,
+          "low_own_count": 0,
+          "salary_used": 46600,
+          "proj_total": 383.09,
+          "dup_count": 18,
+          "stack_shape": null
+        },
+        {
+          "rank": 1,
+          "entry_name": "Wanna_Square_Up1567 (41/150)",
+          "points": 618.43,
+          "percentile": 0.0,
+          "players": [
+            "Justin Gaethje",
+            "Mauricio Ruffy",
+            "Josh Hokit",
+            "Bo Nickal",
+            "Ciryl Gane",
+            "Aiemann Zahabi"
+          ],
+          "avg_own": null,
+          "low_own_count": 0,
+          "salary_used": 46600,
+          "proj_total": 383.09,
+          "dup_count": 18,
+          "stack_shape": null
+        },
+        {
+          "rank": 1,
+          "entry_name": "BDholla89 (48/150)",
+          "points": 618.43,
+          "percentile": 0.0,
+          "players": [
+            "Justin Gaethje",
+            "Mauricio Ruffy",
+            "Josh Hokit",
+            "Bo Nickal",
+            "Ciryl Gane",
+            "Aiemann Zahabi"
+          ],
+          "avg_own": null,
+          "low_own_count": 0,
+          "salary_used": 46600,
+          "proj_total": 383.09,
+          "dup_count": 18,
+          "stack_shape": null
+        },
+        {
+          "rank": 1,
+          "entry_name": "ALLOFIT29",
+          "points": 618.43,
+          "percentile": 0.0,
+          "players": [
+            "Justin Gaethje",
+            "Mauricio Ruffy",
+            "Josh Hokit",
+            "Bo Nickal",
+            "Ciryl Gane",
+            "Aiemann Zahabi"
+          ],
+          "avg_own": null,
+          "low_own_count": 0,
+          "salary_used": 46600,
+          "proj_total": 383.09,
+          "dup_count": 18,
+          "stack_shape": null
+        },
+        {
+          "rank": 1,
+          "entry_name": "RyanKingss (36/80)",
+          "points": 618.43,
+          "percentile": 0.0,
+          "players": [
+            "Justin Gaethje",
+            "Mauricio Ruffy",
+            "Josh Hokit",
+            "Bo Nickal",
+            "Ciryl Gane",
+            "Aiemann Zahabi"
+          ],
+          "avg_own": null,
+          "low_own_count": 0,
+          "salary_used": 46600,
+          "proj_total": 383.09,
+          "dup_count": 18,
+          "stack_shape": null
+        },
+        {
+          "rank": 1,
+          "entry_name": "plutz18",
+          "points": 618.43,
+          "percentile": 0.0,
+          "players": [
+            "Justin Gaethje",
+            "Mauricio Ruffy",
+            "Josh Hokit",
+            "Bo Nickal",
+            "Ciryl Gane",
+            "Aiemann Zahabi"
+          ],
+          "avg_own": null,
+          "low_own_count": 0,
+          "salary_used": 46600,
+          "proj_total": 383.09,
+          "dup_count": 18,
+          "stack_shape": null
+        },
+        {
+          "rank": 1,
+          "entry_name": "marcusaurelius25 (21/50)",
+          "points": 618.43,
+          "percentile": 0.0,
+          "players": [
+            "Justin Gaethje",
+            "Mauricio Ruffy",
+            "Josh Hokit",
+            "Bo Nickal",
+            "Ciryl Gane",
+            "Aiemann Zahabi"
+          ],
+          "avg_own": null,
+          "low_own_count": 0,
+          "salary_used": 46600,
+          "proj_total": 383.09,
+          "dup_count": 18,
+          "stack_shape": null
+        },
+        {
+          "rank": 1,
+          "entry_name": "Deener23 (47/150)",
+          "points": 618.43,
+          "percentile": 0.0,
+          "players": [
+            "Justin Gaethje",
+            "Mauricio Ruffy",
+            "Josh Hokit",
+            "Bo Nickal",
+            "Ciryl Gane",
+            "Aiemann Zahabi"
+          ],
+          "avg_own": null,
+          "low_own_count": 0,
+          "salary_used": 46600,
+          "proj_total": 383.09,
+          "dup_count": 18,
+          "stack_shape": null
+        },
+        {
+          "rank": 1,
+          "entry_name": "xXxPLOSIVE (6/11)",
+          "points": 618.43,
+          "percentile": 0.0,
+          "players": [
+            "Justin Gaethje",
+            "Mauricio Ruffy",
+            "Josh Hokit",
+            "Bo Nickal",
+            "Ciryl Gane",
+            "Aiemann Zahabi"
+          ],
+          "avg_own": null,
+          "low_own_count": 0,
+          "salary_used": 46600,
+          "proj_total": 383.09,
+          "dup_count": 18,
+          "stack_shape": null
+        },
+        {
+          "rank": 1,
+          "entry_name": "birdyt",
+          "points": 618.43,
+          "percentile": 0.0,
+          "players": [
+            "Justin Gaethje",
+            "Mauricio Ruffy",
+            "Josh Hokit",
+            "Bo Nickal",
+            "Ciryl Gane",
+            "Aiemann Zahabi"
+          ],
+          "avg_own": null,
+          "low_own_count": 0,
+          "salary_used": 46600,
+          "proj_total": 383.09,
+          "dup_count": 18,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": null,
+        "low_own_count_delta": 0.0,
+        "salary_used_delta": -100.0
+      }
+    }
+  }
+]
