@@ -136,12 +136,25 @@ def select_portfolio(
             menu.append(alt)
             anchor_added += 1
 
+    # Leverage coverage: guarantee the menu offers ≥1 lineup carrying a sub-5%
+    # piece (the shark envelope), so the final pick can satisfy it.
+    leverage_added = 0
+    if not any((m.get("sub5_skill") or 0) >= 1 for m in menu):
+        dart = next((c for c in candidates
+                     if (c.get("sub5_skill") or 0) >= 1
+                     and (c["source"], c["row"]) not in
+                     {(m["source"], m["row"]) for m in menu}), None)
+        if dart is not None:
+            menu.append(dart)
+            leverage_added += 1
+
     report = {
         "n_in": len(candidates),
         "n_menu": len(menu),
         "n_rejected_dupe": len(rejected),
         "n_overlap_relaxed": relaxed,
         "n_anchor_coverage_added": anchor_added,
+        "n_leverage_coverage_added": leverage_added,
         "max_overlap": max_overlap,
     }
     return menu, rejected, report
@@ -190,10 +203,75 @@ def validate_portfolio(
     return violations
 
 
+# Shark envelope targets per sport (own%/slot band + min share of lineups that
+# should carry a sub-5% leverage piece). Defaults from sharp_playbook.md; the
+# backfilled shark_baseline.json overrides per sport when present.
+_ENVELOPE_DEFAULTS = {
+    "golf":   {"own_lo": 12.0, "own_hi": 16.0, "min_leverage_pct": 60.0},
+    "nascar": {"own_lo": 28.0, "own_hi": 33.0, "min_leverage_pct": 6.0},
+    "mma":    {"own_lo": 14.0, "own_hi": 19.0, "min_leverage_pct": 60.0},
+    "mlb":    {"own_lo": 12.0, "own_hi": 18.0, "min_leverage_pct": 60.0},
+}
+
+
+def envelope_target(sport: str | None) -> dict | None:
+    """The shark own%/slot band + leverage target for a sport — from the
+    backfilled baseline (shark_envelope) when available, else playbook defaults."""
+    if not sport:
+        return None
+    base = dict(_ENVELOPE_DEFAULTS.get(sport, {})) or None
+    try:
+        from src.shark_baseline import load_baseline
+        sb = (load_baseline().get("sports") or {}).get(sport, {}).get("shark_envelope")
+        if sb and sb.get("own_per_slot") is not None and base:
+            own = sb["own_per_slot"]
+            base = {"own_lo": round(own - 2, 1), "own_hi": round(own + 2, 1),
+                    "min_leverage_pct": sb.get("leverage_pct") or base["min_leverage_pct"]}
+    except Exception:  # noqa: BLE001 — baseline is optional
+        pass
+    return base
+
+
+def envelope_compliance(selected: list[dict], sport: str | None) -> dict | None:
+    """Did the chosen set hit the shark envelope? (own%/slot in band; ≥1 lineup
+    carries a sub-5% leverage piece)."""
+    tgt = envelope_target(sport)
+    if not tgt or not selected:
+        return None
+    owns = [c.get("avg_own") for c in selected if c.get("avg_own") is not None]
+    own_slot = round(sum(owns) / len(owns), 1) if owns else None
+    n = len(selected)
+    lev = sum(1 for c in selected if (c.get("sub5_skill") or 0) >= 1)
+    lev_pct = round(lev / n * 100, 1) if n else 0.0
+    return {
+        "own_per_slot": own_slot, "own_band": (tgt["own_lo"], tgt["own_hi"]),
+        "in_band": own_slot is not None and tgt["own_lo"] <= own_slot <= tgt["own_hi"],
+        "leverage_pct": lev_pct, "has_leverage": lev >= 1,
+        "min_leverage_pct": tgt["min_leverage_pct"],
+    }
+
+
+def envelope_md(selected: list[dict], sport: str | None) -> list[str]:
+    """Envelope-compliance lines for the computed audit (empty if no target)."""
+    c = envelope_compliance(selected, sport)
+    if not c:
+        return []
+    lo, hi = c["own_band"]
+    own_flag = "✅" if c["in_band"] else "⚠️"
+    lev_flag = "✅" if c["has_leverage"] else "⚠️ none — add a sub-5% piece"
+    return [
+        "",
+        f"### Shark envelope ({sport})",
+        f"- **own%/slot:** {c['own_per_slot']} vs target {lo}–{hi} {own_flag}",
+        f"- **sub-5% leverage piece:** {c['leverage_pct']}% of lineups {lev_flag}",
+    ]
+
+
 def exposure_report_md(
     selected: list[dict],
     params: dict,
     anchor_groups: list[dict] | None = None,
+    sport: str | None = None,
 ) -> str:
     """The authoritative, Python-computed '## Portfolio audit (computed)' block —
     per-player exposure, max pairwise overlap, and pass/flag lines."""
@@ -220,6 +298,7 @@ def exposure_report_md(
         f"- **Exposure cap:** {int(params['exposure_cap'] * 100)}% "
         f"(max {math.ceil(params['exposure_cap'] * n)}/{n} lineups per player)",
         f"- **Check:** {status}",
+        *envelope_md(selected, sport),
         "",
         "### Player exposure",
         *table,

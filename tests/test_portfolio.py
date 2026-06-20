@@ -101,6 +101,27 @@ def test_exposure_report_renders():
     assert "Max pairwise overlap:** 3" in md
 
 
+def test_select_guarantees_a_leverage_piece_when_available():
+    params = portfolio.default_params(6)
+    # All overlap-disjoint so diversity doesn't drop anyone; only #3 has a dart.
+    cands = [
+        dict(_cand(1, [1, 2, 3, 4, 5, 6], ceil=200), sub5_skill=0),
+        dict(_cand(2, [10, 11, 12, 13, 14, 15], ceil=190), sub5_skill=0),
+        dict(_cand(3, [20, 21, 22, 23, 24, 25], ceil=50), sub5_skill=1),  # the dart
+    ]
+    menu, _, report = portfolio.select_portfolio(cands, n_target=2, params=params)
+    assert any((m.get("sub5_skill") or 0) >= 1 for m in menu), "menu must offer a leverage piece"
+
+
+def test_envelope_compliance_flags_own_band_and_leverage():
+    sel = [dict(_cand(1, [1, 2, 3, 4, 5, 6]), avg_own=14.0, sub5_skill=1),
+           dict(_cand(2, [7, 8, 9, 10, 11, 12]), avg_own=15.0, sub5_skill=0)]
+    c = portfolio.envelope_compliance(sel, "golf")  # band 12-16, min lev 60
+    assert c["in_band"] is True            # mean own 14.5 in 12-16
+    assert c["has_leverage"] is True       # one lineup has a dart
+    assert c["leverage_pct"] == 50.0
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
     for fn in fns:

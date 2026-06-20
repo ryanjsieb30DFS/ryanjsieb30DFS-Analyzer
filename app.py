@@ -150,6 +150,14 @@ with tab_proj:
                 continue
             sessions.save_source(slug, f.name, df, vendor_name)
             st.success(f"✅ {f.name} — detected as **{vendor_name}** ({len(df)} players)")
+            _conf = df.attrs.get("vendor_confidence") or {}
+            if _conf.get("ambiguous"):
+                st.warning(f"⚠️ Ambiguous match — {f.name} also fits {', '.join(_conf['matched'][1:])}. "
+                           "Verify the detected vendor is right.")
+            for _vn, _missing in _conf.get("near_misses", []):
+                if _vn != vendor_name:
+                    st.caption(f"↳ Near-miss: looks almost like **{_vn}** but missing "
+                               f"`{', '.join(_missing)}` — a renamed header? Update src/vendors.py if so.")
         # Re-attach a previously uploaded DK-ID map so IDs stick to the
         # projections regardless of upload order.
         _dk_map = dk_ids.load_map(slug)

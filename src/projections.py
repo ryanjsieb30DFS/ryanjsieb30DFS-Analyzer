@@ -53,6 +53,8 @@ def load_projections(csv_path_or_buffer) -> pd.DataFrame:
     projections = _clean_columns(projections)
 
     vendor_name: str | None = None
+    from src.vendors import detect_vendor_confidence
+    _vendor_conf = detect_vendor_confidence(projections)
     signature = detect_vendor(projections)
     if signature is not None:
         # Non-projection files (team stacks, rankings) skip the player
@@ -101,15 +103,7 @@ def load_projections(csv_path_or_buffer) -> pd.DataFrame:
         if col in projections.columns:
             projections[col] = projections[col].astype(str).str.strip()
 
-    # Derive stddev from ceiling if missing
-    if "stddev" not in projections.columns and "ceiling" in projections.columns:
-        projections["stddev"] = ((projections["ceiling"] - projections["proj_points"]) / 1.28).clip(lower=0.01)
-    elif "stddev" in projections.columns and "ceiling" in projections.columns:
-        # Fill NaN stddev from ceiling where available
-        mask = projections["stddev"].isna() & projections["ceiling"].notna()
-        projections.loc[mask, "stddev"] = (
-            (projections.loc[mask, "ceiling"] - projections.loc[mask, "proj_points"]) / 1.28
-        ).clip(lower=0.01)
+    # stddev is derived in one place below (after opponent derivation).
 
     # Normalize win_prob: accept 0–1 or 0–100, store as 0–1
     if "win_prob" in projections.columns:
@@ -127,22 +121,15 @@ def load_projections(csv_path_or_buffer) -> pd.DataFrame:
     if "matchup" in projections.columns and "opponent" not in projections.columns:
         projections["opponent"] = _derive_opponent_from_matchup(projections)
 
-    # Final fallback: if no stddev and no ceiling, default to 30% of projection
-    if "stddev" not in projections.columns:
-        projections["stddev"] = (projections["proj_points"] * 0.30).clip(lower=0.01)
-    else:
-        # Fill any remaining NaN stddevs with 30% of projection
-        mask = projections["stddev"].isna()
-        if mask.any():
-            projections.loc[mask, "stddev"] = (
-                projections.loc[mask, "proj_points"] * 0.30
-            ).clip(lower=0.01)
+    # Single source of truth for stddev (ceiling-derived, else 30% of proj).
+    projections["stddev"] = _derive_stddev(projections)
 
     if projections["stddev"].min() < 0:
         raise ValueError("Standard deviation cannot be negative.")
 
     result = projections.reset_index(drop=True)
     result.attrs["vendor"] = vendor_name
+    result.attrs["vendor_confidence"] = _vendor_conf
     return result
 
 
@@ -177,6 +164,21 @@ def _clean_ownership(val) -> float:
     if not s:
         return 0.0
     return float(s)
+
+
+def _derive_stddev(df: pd.DataFrame) -> pd.Series:
+    """One place for stddev: use the given column where present, fill gaps from
+    ceiling ((ceiling - proj)/1.28), then any remainder with 30% of projection.
+    Floored at 0.01. Vendors that ship a real stddev (e.g. SaberSim) keep theirs."""
+    if "stddev" in df.columns:
+        sd = pd.to_numeric(df["stddev"], errors="coerce")
+    else:
+        sd = pd.Series(float("nan"), index=df.index, dtype="float64")
+    if "ceiling" in df.columns:
+        from_ceiling = (df["ceiling"] - df["proj_points"]) / 1.28
+        sd = sd.where(sd.notna(), from_ceiling)
+    sd = sd.where(sd.notna(), df["proj_points"] * 0.30)
+    return sd.clip(lower=0.01)
 
 
 def _normalize_ownership_column(series: pd.Series) -> pd.Series:

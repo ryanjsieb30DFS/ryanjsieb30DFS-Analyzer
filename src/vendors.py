@@ -270,6 +270,31 @@ def detect_vendor(df: pd.DataFrame) -> dict | None:
     return best
 
 
+def detect_vendor_confidence(df: pd.DataFrame) -> dict:
+    """Diagnostic companion to detect_vendor — surfaces WHY a match is shaky so a
+    changed vendor header isn't a silent misdetect. Returns:
+      matched      — vendor names whose required columns are fully present
+      ambiguous    — True if 2+ signatures tie at the top required-column count
+      near_misses  — [(vendor, [missing_col]), ...] for signatures missing exactly
+                     one required column (a likely renamed header)
+    """
+    columns = set(df.columns)
+    full = [(sig["name"], len(sig["required_columns"]))
+            for sig in VENDOR_SIGNATURES if sig["required_columns"].issubset(columns)]
+    near = [(sig["name"], sorted(sig["required_columns"] - columns))
+            for sig in VENDOR_SIGNATURES
+            if len(sig["required_columns"] - columns) == 1]
+    ambiguous = False
+    if full:
+        top = max(c for _, c in full)
+        ambiguous = sum(1 for _, c in full if c == top) > 1
+    return {
+        "matched": [v for v, _ in sorted(full, key=lambda x: -x[1])],
+        "ambiguous": ambiguous,
+        "near_misses": near[:5],
+    }
+
+
 def normalize_to_canonical(df: pd.DataFrame, signature: dict) -> pd.DataFrame:
     """Apply rename + drop based on a vendor signature."""
     df = df.copy()

@@ -239,6 +239,20 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
         L += ["", shark_trend,
               "_This is the play-like-the-sharks target: drive each structural delta toward 0._"]
 
+    # Shark envelope targets for THIS sport, from the backfilled baseline — the
+    # numeric build target (own%/slot band + sub-5% leverage rate).
+    try:
+        from src.shark_baseline import load_baseline
+        _sb = (load_baseline().get("sports") or {}).get(sport, {})
+        _se = _sb.get("shark_envelope")
+        if _se and _se.get("own_per_slot") is not None:
+            L += ["", f"### Shark envelope target ({sport}, {_sb.get('n_contests', 0)} contests)",
+                  f"- Aim own%/slot near **{_se['own_per_slot']}** "
+                  f"(±2); carry a sub-5% leverage piece in ~**{_se.get('leverage_pct')}%** of lineups; "
+                  f"chalk-anchor exposure ~**{_se.get('anchor_exposure')}**; all-unique rosters."]
+    except Exception:  # noqa: BLE001 — baseline optional
+        pass
+
     strategy = load_strategy(slug)
     lessons = strategy.get("recent_lessons", [])[:3]
     if lessons:

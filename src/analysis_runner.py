@@ -309,7 +309,8 @@ def _as_int(v):
         return None
 
 
-def _append_computed_audit(slug: str, out_path: Path, sel_path: Path, meta: dict) -> dict:
+def _append_computed_audit(slug: str, out_path: Path, sel_path: Path, meta: dict,
+                           sport: str | None = None) -> dict:
     """Read the LLM's structured pick sidecar, map each pick back to its resolved
     menu candidate, and APPEND the Python-computed '## Portfolio audit (computed)'
     block (per-player exposure, max pairwise overlap, Anchor-Equivalence) to the
@@ -354,7 +355,7 @@ def _append_computed_audit(slug: str, out_path: Path, sel_path: Path, meta: dict
         return status
 
     violations = portfolio.validate_portfolio(selected, params, anchor_groups)
-    audit_md = portfolio.exposure_report_md(selected, params, anchor_groups)
+    audit_md = portfolio.exposure_report_md(selected, params, anchor_groups, sport=sport)
     if unresolved:
         audit_md += (f"\n\n*Note: {len(unresolved)} pick(s) couldn't be matched to the resolved "
                      f"pool and are excluded from these numbers.*")
@@ -468,7 +469,7 @@ def run_select_lineups(slug: str, contest_label: str, sport: str, n_target: int)
         "notes": meta.get("notes") or [],
     }
     if result.get("ok"):
-        result["audit"] = _append_computed_audit(slug, out_path, sel_path, meta)
+        result["audit"] = _append_computed_audit(slug, out_path, sel_path, meta, sport=sport)
     return result
 
 
