@@ -190,6 +190,29 @@ def score_vendors(slug: str, players: pd.DataFrame) -> list[dict]:
                     "actual": _json_safe(round(float(worst[actual_col]), 2)),
                     "delta": _json_safe(round(float(worst[actual_col] - worst[proj_col]), 2)),
                 }
+            # Tiered accuracy: split by the vendor's PROJECTED ownership band so we
+            # can ask "who's sharpest on leverage vs chalk", not just global MAE.
+            if "ownership" in joined.columns:
+                tiers = {"chalk": (15.0, 1e9), "mid": (8.0, 15.0), "leverage": (0.0, 8.0)}
+                proj_by_tier, own_by_tier, n_by_tier = {}, {}, {}
+                for tname, (lo, hi) in tiers.items():
+                    own = joined["ownership"]
+                    band = joined[(own >= lo) & (own < hi)]
+                    n_by_tier[tname] = int(len(band))
+                    for proj_col, actual_col, store in (
+                        ("proj_points", "actual_fpts", proj_by_tier),
+                        ("ownership", "actual_own", own_by_tier),
+                    ):
+                        store[tname] = None
+                        if proj_col in band.columns:
+                            sub = band[[proj_col, actual_col]].dropna()
+                            if not sub.empty:
+                                store[tname] = round(
+                                    float((sub[actual_col] - sub[proj_col]).abs().mean()), 2
+                                )
+                row["proj_mae_by_tier"] = proj_by_tier
+                row["own_mae_by_tier"] = own_by_tier
+                row["n_by_tier"] = n_by_tier
         rows.append(row)
     return rows
 
@@ -445,7 +468,9 @@ def build_autopsy_record(*, ts: str, contest_label: str, slug: str, sport: str,
             "total": analysis["proj_match"]["total"],
         },
         "user_summary": analysis["user_summary"],
-        "user_lineups": _lineup_records(analysis["user_lineups_df"], field),
+        # cap=150 (DK max-entry) so OUR entries are never silently truncated —
+        # the accuracy layer + autopsy grade off this full set. Winners stay at 10.
+        "user_lineups": _lineup_records(analysis["user_lineups_df"], field, cap=150),
         "top_overperformers": analysis["overperformers"],
         "top_underperformers": analysis["underperformers"],
         "slate_defining_plays": analysis["slate_defining"],

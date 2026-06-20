@@ -171,7 +171,10 @@ def _mlb_signals(df: pd.DataFrame, team_data: pd.DataFrame | None = None) -> dic
     """Team stacks (the core MLB lever) + the pitcher pool."""
     out: dict = {}
     has_pos = "position" in df.columns and df["position"].notna().any()
-    pos_lower = df["position"].astype(str).str.strip().str.lower() if has_pos else None
+    # fillna("") so a missing position cleans to "" rather than the literal
+    # "nan"/"None" token before matching the pitcher set. (A row with no position
+    # is genuinely unclassifiable and still falls to the hitter side either way.)
+    pos_lower = df["position"].fillna("").astype(str).str.strip().str.lower() if has_pos else None
 
     # Team-stack table: hitters grouped by team (MLB analog to NASCAR's dom pool).
     if "team" in df.columns and df["team"].notna().any():

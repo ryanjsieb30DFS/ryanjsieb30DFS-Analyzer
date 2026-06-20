@@ -64,13 +64,22 @@ CONTEST_TYPES = {
 }
 
 
-def clear_articles(slug: str) -> None:
-    """Delete the slate's uploaded Slate Data files (articles/<slug>/)."""
+def clear_articles(slug: str) -> list[str]:
+    """Delete the slate's uploaded Slate Data files (articles/<slug>/).
+
+    Best-effort: a locked/undeletable file is skipped (its name returned) rather
+    than crashing the clear mid-way and leaving the slate in an inconsistent state.
+    """
     articles_dir = REPO_ROOT / "articles" / slug
+    failed: list[str] = []
     if articles_dir.exists():
         for f in articles_dir.glob("*"):
             if f.is_file():
-                f.unlink()
+                try:
+                    f.unlink()
+                except OSError:
+                    failed.append(f.name)
+    return failed
 
 
 st.set_page_config(page_title="DFS Slate Analyzer", layout="wide")
@@ -254,8 +263,11 @@ with tab_slate:
                     continue
             ts = datetime.now().strftime("%Y-%m-%d")
             dest = articles_dir / f"{ts}__{f.name}"
-            dest.write_bytes(data)
-            st.success(f"Saved {dest.name}")
+            try:
+                dest.write_bytes(data)
+                st.success(f"Saved {dest.name}")
+            except OSError as e:
+                st.error(f"Couldn't save {f.name}: {e}")
 
     uploaded_photos = st.file_uploader(
         "Upload photos / screenshots",
@@ -267,8 +279,11 @@ with tab_slate:
         for f in uploaded_photos:
             ts = datetime.now().strftime("%Y-%m-%d")
             dest = articles_dir / f"{ts}__{f.name}"
-            dest.write_bytes(f.read())
-            st.success(f"Saved {dest.name}")
+            try:
+                dest.write_bytes(f.read())
+                st.success(f"Saved {dest.name}")
+            except OSError as e:
+                st.error(f"Couldn't save {f.name}: {e}")
 
     team_data = sessions.load_team_data(slug)
     if team_data is not None:
@@ -278,7 +293,7 @@ with tab_slate:
             f"`{team_data.attrs.get('vendor')}` · {len(team_data)} teams "
             f"(feeds the {sport.upper()} stack signals)"
         )
-        if cols[1].button("Drop", key="drop_team_data"):
+        if cols[1].button("Drop", key=f"drop_team_data_{slug}"):
             sessions.drop_team_data(slug)
             st.rerun()
 
@@ -292,8 +307,11 @@ with tab_slate:
             suffix = f.suffix.lower()
             icon = "🖼️" if suffix in (".png", ".jpg", ".jpeg") else ("📊" if suffix == ".csv" else "📄")
             cols[0].write(f"{icon} {f.name}")
-            if cols[1].button("Delete", key=f"del_{f.name}"):
-                f.unlink()
+            if cols[1].button("Delete", key=f"del_{slug}_{f.name}"):
+                try:
+                    f.unlink()
+                except OSError as e:
+                    st.error(f"Couldn't delete {f.name}: {e}")
                 st.rerun()
 
 
@@ -331,7 +349,10 @@ with tab_sim:
                 f"📄 `{sim['filename']}` · {sim['n_rows']:,} rows · {sim['n_cols']} cols · **{kind}**"
             )
             if cols[1].button("Drop", key=f"sim_drop_{slug}_{sim['filename']}"):
-                drop_sim_file(slug, sim["filename"])
+                try:
+                    drop_sim_file(slug, sim["filename"])
+                except OSError as e:
+                    st.error(f"Couldn't drop {sim['filename']}: {e}")
                 st.rerun()
             if sim.get("error"):
                 st.warning(sim["error"])
@@ -518,7 +539,7 @@ with tab_analyze:
         if slug == "nascar":
             track_files = strategy["track_files"]
             if track_files:
-                picked = st.selectbox("Track notes", track_files, key="nascar_track_pick")
+                picked = st.selectbox("Track notes", track_files, key=f"nascar_track_pick_{slug}")
                 with st.expander(f"🏁 Track notes — {picked}", expanded=False):
                     st.markdown(load_track(picked))
             else:
@@ -606,6 +627,10 @@ with tab_analyze:
         if sresult["ok"]:
             cost = sresult.get("cost_usd")
             cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
+            st.session_state[f"select_flash_{slug}"] = {
+                "audit": sresult.get("audit") or {},
+                "pool": sresult.get("pool") or {},
+            }
             st.success(f"Lineups selected in {sresult['duration_s']:.0f}s{cost_note}.")
             st.rerun()
         else:
@@ -638,6 +663,33 @@ with tab_analyze:
                 st.rerun()
             else:
                 st.error(f"Couldn't build lineups: {lresult['error']}")
+
+    _flash = st.session_state.pop(f"select_flash_{slug}", None)
+    if _flash:
+        _pool = _flash.get("pool") or {}
+        if _pool.get("n_total") is not None:
+            st.caption(
+                f"Pool resolved: {_pool['n_total']:,} unique candidate lineup(s) → "
+                f"{_pool.get('n_shortlist', 0)} diverse menu rows the LLM picked from."
+            )
+        for _n in _pool.get("notes") or []:
+            st.warning(f"Pool note: {_n}")
+
+        _audit = _flash.get("audit") or {}
+        if _audit.get("computed"):
+            _v = _audit.get("violations") or []
+            if _v:
+                st.warning(
+                    "🧮 Computed portfolio audit (Python, not the LLM) flagged: "
+                    + "; ".join(_v)
+                )
+            else:
+                st.success(
+                    f"🧮 Computed portfolio audit: {_audit.get('n_selected', 0)} selected "
+                    "lineup(s), no overlap/exposure cap violations — verified in Python."
+                )
+        elif _audit.get("note"):
+            st.info("🧮 Computed audit: " + _audit["note"])
 
     lineups_blob = load_lineups(slug)
     if lineups_blob:
@@ -1176,6 +1228,22 @@ with tab_autopsy:
                     st.markdown("### Slate-defining plays")
                     st.caption("In ≥30% of top lineups at <20% field ownership.")
                     st.dataframe(pd.DataFrame(analysis["slate_defining"]), use_container_width=True)
+
+                # Self-grade: did OUR entered lineups capture the leverage/edges?
+                if analysis.get("user_lineups_df") is not None and not analysis["user_lineups_df"].empty:
+                    from src import accuracy
+                    from src.autopsy import _lineup_records
+                    _field = len(parsed["lineups"])
+                    _grade_rec = {
+                        "user_lineups": _lineup_records(analysis["user_lineups_df"], _field),
+                        "slate_defining_plays": analysis["slate_defining"],
+                        "top_overperformers": analysis["overperformers"],
+                        "top_underperformers": analysis["underperformers"],
+                    }
+                    with st.container(border=True):
+                        st.markdown(accuracy.slate_accuracy_md([_grade_rec]))
+                        st.caption("Computed in Python from this contest's actuals — trended into "
+                                   "the next slate's bundle when you log the autopsy.")
 
                 notes = st.text_area(
                     "Lessons / patterns to log (appended to autopsies.md)",

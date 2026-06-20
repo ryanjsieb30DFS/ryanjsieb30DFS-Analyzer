@@ -48,8 +48,12 @@ MLB_TEAM_KEYS = {
 }
 
 
-def mlb_team_key(team) -> str:
+def mlb_team_key(team) -> str | None:
+    if team is None:
+        return None
     s = str(team).strip()
+    if not s or s.lower() == "nan":  # None/NaN/blank -> not a real team
+        return None
     return MLB_TEAM_KEYS.get(s.upper(), s)
 
 

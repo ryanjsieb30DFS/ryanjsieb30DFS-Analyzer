@@ -114,18 +114,43 @@ def _contest_context(slug: str) -> str:
     )
 
 
-def _pool_shortlist_md(slug: str, limit: int = 140, anchor_cap: int = 18) -> tuple[str, dict]:
+def _anchor_groups(slug: str) -> list[dict]:
+    """Chalk-tier anchor-equivalence groups for this slate (names + own range),
+    used to guarantee the diverse menu can satisfy Anchor-Equivalence and to
+    audit the final picks. Best-effort — returns [] if projections aren't loaded."""
+    try:
+        from src import sessions
+        from src.landscape import anchor_equivalence_check
+        sources = sessions.merge_same_vendor(sessions.load_sources(slug))
+        if not sources:
+            return []
+        pname = max(sources, key=lambda k: len(sources[k]["df"]))
+        return anchor_equivalence_check(sources[pname]["df"])
+    except Exception:  # noqa: BLE001 — never break selection over the audit helper
+        return []
+
+
+def _pool_shortlist_md(slug: str, limit: int = 140, anchor_cap: int = 18,
+                       n_target: int | None = None) -> tuple[str, dict]:
     """Resolve the lineup pool in PYTHON (not the LLM) and return a compact, ranked,
     already-resolved candidate shortlist as markdown. This is the fix for the
     Select/Fix hang: the LLM picks from a small resolved set instead of crunching
     a multi-MB CSV with text tools. Rank is shark-like (ceiling up, chalk down,
-    bonus for 2+ skill-floored leverage darts)."""
+    bonus for 2+ skill-floored leverage darts).
+
+    When `n_target` is given (the Select path), the ranked pool is additionally
+    pruned by `src.portfolio.select_portfolio` into a genuinely DIVERSE menu — no
+    two rows share more than the overlap cap — so the LLM picks edge-fit + thesis
+    from already-distinct options instead of being asked to eyeball diversity
+    across 160 near-duplicates. The resolved menu candidates, params, and anchor
+    groups are returned in `meta` so the caller can run the post-LLM audit/gate."""
     from src.lineups import resolve_pool_candidates, roster_spec
     cands, notes = resolve_pool_candidates(slug)
     meta = {"n_total": len(cands), "n_shortlist": 0, "notes": notes}
     if not cands:
         return "", meta
-    cap = roster_spec(slug)["cap"]
+    spec = roster_spec(slug)
+    cap = spec["cap"]
     elig = [c for c in cands
             if c["salary"] <= cap and c["sub5_skill"] >= 1
             and c["min_sub5_mc"] >= 0.48 and c["avg_own"] <= 17]
@@ -137,19 +162,33 @@ def _pool_shortlist_md(slug: str, limit: int = 140, anchor_cap: int = 18) -> tup
 
     elig.sort(key=score, reverse=True)
 
-    def anchor(c):
-        return max(c["players"], key=lambda p: int(p.get("salary") or 0))["name"]
+    if n_target is not None:
+        # Deterministic diversity prune — the menu the LLM picks from is already
+        # free of near-duplicates and exposure-skewed cores.
+        from src import portfolio
+        params = portfolio.default_params(len(spec["slots"]))
+        anchor_groups = _anchor_groups(slug)
+        picked, _rejected, sel_report = portfolio.select_portfolio(
+            elig, n_target, params, anchor_groups=anchor_groups
+        )
+        meta["params"] = params
+        meta["anchor_groups"] = anchor_groups
+        meta["select_report"] = sel_report
+        meta["candidates"] = picked
+    else:
+        def anchor(c):
+            return max(c["players"], key=lambda p: int(p.get("salary") or 0))["name"]
 
-    per: dict = {}
-    picked = []
-    for c in elig:
-        a = anchor(c)
-        if per.get(a, 0) >= anchor_cap:
-            continue
-        per[a] = per.get(a, 0) + 1
-        picked.append(c)
-        if len(picked) >= limit:
-            break
+        per: dict = {}
+        picked = []
+        for c in elig:
+            a = anchor(c)
+            if per.get(a, 0) >= anchor_cap:
+                continue
+            per[a] = per.get(a, 0) + 1
+            picked.append(c)
+            if len(picked) >= limit:
+                break
     meta["n_shortlist"] = len(picked)
 
     def _cm(c):
@@ -263,6 +302,69 @@ def run_build_lineups(slug: str, contest_label: str, sport: str, n_target: int) 
     return _run_claude(prompt, out_path)
 
 
+def _as_int(v):
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def _append_computed_audit(slug: str, out_path: Path, sel_path: Path, meta: dict) -> dict:
+    """Read the LLM's structured pick sidecar, map each pick back to its resolved
+    menu candidate, and APPEND the Python-computed '## Portfolio audit (computed)'
+    block (per-player exposure, max pairwise overlap, Anchor-Equivalence) to the
+    portfolio file. This is the hard gate that replaces the LLM eyeballing the
+    pool. Returns a small status dict for the UI."""
+    from src import portfolio
+
+    candidates = meta.get("candidates") or []
+    params = meta.get("params") or portfolio.default_params(6)
+    anchor_groups = meta.get("anchor_groups") or []
+    index = {(c["source"], c["row"]): c for c in candidates}
+
+    status = {"computed": False, "n_selected": 0, "violations": [], "note": None}
+    if not sel_path.exists():
+        status["note"] = "No pick sidecar was written — skipped the computed audit."
+        return status
+    try:
+        picks = json.loads(sel_path.read_text())
+    except (json.JSONDecodeError, OSError) as e:
+        status["note"] = f"Couldn't read the pick sidecar ({e}) — skipped the computed audit."
+        return status
+
+    selected, unresolved = [], []
+    for p in picks if isinstance(picks, list) else []:
+        if not isinstance(p, dict):  # e.g. the LLM wrote a bare string / number
+            unresolved.append(p)
+            continue
+        src = str(p.get("source", "")).strip()
+        row = _as_int(p.get("row"))
+        if not src or row is None:
+            unresolved.append(p)
+            continue
+        cand = index.get((src, row))
+        if cand is None:  # tolerate basename-only / path-prefixed source mismatches
+            cand = next((c for (s, r), c in index.items()
+                         if r == row and Path(s).name == Path(src).name), None)
+        (selected.append(cand) if cand else unresolved.append(p))
+
+    if not selected:
+        status["note"] = ("Couldn't match any of the LLM's picks to the resolved menu — "
+                          "the portfolio stands, but no computed audit was appended.")
+        return status
+
+    violations = portfolio.validate_portfolio(selected, params, anchor_groups)
+    audit_md = portfolio.exposure_report_md(selected, params, anchor_groups)
+    if unresolved:
+        audit_md += (f"\n\n*Note: {len(unresolved)} pick(s) couldn't be matched to the resolved "
+                     f"pool and are excluded from these numbers.*")
+    with out_path.open("a") as f:
+        f.write("\n\n---\n\n" + audit_md + "\n")
+
+    status.update(computed=True, n_selected=len(selected), violations=violations)
+    return status
+
+
 def run_select_lineups(slug: str, contest_label: str, sport: str, n_target: int) -> dict:
     """Select the best lineups from the uploaded lineup pool(s) via headless Claude.
 
@@ -287,9 +389,11 @@ def run_select_lineups(slug: str, contest_label: str, sport: str, n_target: int)
                 "error": "Upload at least one lineup-pool CSV in the Sim Data tab first.",
                 "duration_s": 0.0, "cost_usd": None}
 
-    # Resolve + rank the pool in PYTHON (the fix for the old hang) — the LLM picks
-    # from a small, already-resolved shortlist, never the raw multi-MB CSV.
-    shortlist, meta = _pool_shortlist_md(slug, limit=160)
+    # Resolve + rank the pool in PYTHON, then DETERMINISTICALLY prune it into a
+    # diverse menu (no near-duplicates / exposure-skewed cores) — the LLM picks
+    # edge-fit + thesis from already-distinct options and never has to count
+    # overlap/exposure by eye (the PGA Classic failure mode).
+    shortlist, meta = _pool_shortlist_md(slug, n_target=n_target)
     if not shortlist:
         why = meta["notes"][0] if meta.get("notes") else "no resolvable candidate rows."
         return {"ok": False,
@@ -298,6 +402,11 @@ def run_select_lineups(slug: str, contest_label: str, sport: str, n_target: int)
 
     out_path = _REPO_ROOT / "data" / "lineups" / f"{slug}.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
+    # Structured sidecar of the LLM's picks (source+row each) — Python reads it
+    # back to compute the authoritative exposure/overlap audit. Clear any stale one.
+    sel_path = out_path.parent / f"{slug}_selected.json"
+    if sel_path.exists():
+        sel_path.unlink()
     bundle_path = build_bundle(slug, contest_label, sport)
     contest_ctx = _contest_context(slug)
 
@@ -307,45 +416,60 @@ def run_select_lineups(slug: str, contest_label: str, sport: str, n_target: int)
         f"files it references, `rules/{slug}/framework.md` + `rules/{slug}/autopsies.md`, "
         f"`rules/{slug}/lessons.yaml`, the venue file, and `rules/shared/sharp_playbook.md`.\n\n"
         f"CONTESTS — select FOR THESE (very important):\n{contest_ctx}\n\n"
-        f"CANDIDATE POOL — already resolved to players for you ({meta['n_shortlist']} of "
-        f"{meta['n_total']:,} unique pool rows, pre-ranked ceiling-up / chalk-down with a "
-        f"skill-floored leverage piece in each; each line shows source file + 1-based row index, "
-        f"total salary, avg own%, sub-5%-owned skill darts (count/total, min make-cut), ceiling sum, "
-        f"expected made-cuts, and per-declared-contest ROI/Dupes where available). **Pick ONLY from "
+        f"CANDIDATE MENU — already resolved to players AND deterministically pruned to be DIVERSE "
+        f"for you ({meta['n_shortlist']} of {meta['n_total']:,} unique pool rows; pre-ranked "
+        f"ceiling-up / chalk-down with a skill-floored leverage piece in each, and pruned so no two "
+        f"menu rows share more than {meta.get('params', {}).get('max_overlap', 3)} players — the "
+        f"near-duplicates are already gone). Each line shows source file + 1-based row index, total "
+        f"salary, avg own%, sub-5%-owned skill darts (count/total, min make-cut), ceiling sum, "
+        f"expected made-cuts, and per-declared-contest ROI/Dupes where available. **Pick ONLY from "
         f"these rows — each is a real pool lineup; cite its `source row N` for traceability:**\n\n"
         f"{shortlist}\n\n"
-        f"SELECT EXACTLY {n_target} lineup(s) from the candidates above. Discipline (enforce strictly):\n"
-        f"- PLAY LIKE THE SHARKS (`rules/shared/sharp_playbook.md`): all lineups unique (no shared "
-        f"full core); ≥1 sub-5% skill-floored leverage piece in most; ~12–16% avg own/slot "
-        f"(field-size-calibrated per the contests above); elite anchor + downstream differentiation; "
-        f"judged on CEILING, not median.\n"
+        f"SELECT EXACTLY {n_target} lineup(s) from the menu above. Your job is JUDGMENT, not "
+        f"arithmetic — the menu is already diverse, so spend your effort on EDGE-FIT and THESIS:\n"
         f"- EXPRESS the slate analysis's edges and '## Player board' calls — the candidate rank above "
         f"is a starting sort, NOT the quality filter; a mid-ranked row that nails the slate's edges "
-        f"beats a top-ranked row that fights them.\n"
-        f"- Apply every open lesson in `lessons.yaml` (name each in the thesis it shaped) and the "
-        f"Anchor-Equivalence pre-lock check: if 2+ chalk-tier anchors sit at similar ownership, ≥1 "
-        f"selected lineup MUST run the alternative.\n"
-        f"- The chosen lineups MUST answer DIFFERENT questions — distinct theses, no near-duplicates, "
-        f"no shared full conviction core. Honor every sport hard rule (MLB: never a hitter vs your "
-        f"own pitcher; RD4 SD: flat 6, no captain).\n"
-        f"- COUNT IS A HARD REQUIREMENT: return exactly {n_target}. If fewer than {n_target} candidates "
+        f"beats a top-ranked row that fights them. THIS is where you add value.\n"
+        f"- PLAY LIKE THE SHARKS (`rules/shared/sharp_playbook.md`): ≥1 sub-5% skill-floored leverage "
+        f"piece in most; ~12–16% avg own/slot (field-size-calibrated per the contests above); elite "
+        f"anchor + downstream differentiation; judged on CEILING, not median.\n"
+        f"- Apply every open lesson in `lessons.yaml` (name each in the thesis it shaped) and prefer, "
+        f"where the Anchor-Equivalence check flags 2+ similar-own chalk anchors, a set in which ≥1 "
+        f"pick runs the alternative (the menu includes one).\n"
+        f"- The chosen lineups should answer DIFFERENT questions — distinct theses. Honor every sport "
+        f"hard rule (MLB: never a hitter vs your own pitcher; RD4 SD: flat 6, no captain).\n"
+        f"- COUNT IS A HARD REQUIREMENT: return exactly {n_target}. If fewer than {n_target} menu rows "
         f"answer fully-distinct questions, STILL return {n_target} using the most-differentiated "
-        f"remaining rows (labeled coverage/variant). Only return fewer if the shortlist literally has "
+        f"remaining rows (labeled coverage/variant). Only return fewer if the menu literally has "
         f"fewer than {n_target} rows (then say so).\n\n"
         f"For EACH selected lineup, in the SAME format run_build_lineups uses: a one-sentence thesis "
         f"('how it wins'); a roster markdown table (player, salary, own%, ceiling, role); total salary "
         f"verified <= $50,000 (show the addition); a 'What if?' line; and the heading tagged as "
         f"selected from the pool with its source FILE + ROW INDEX.\n\n"
-        f"The output MUST begin with the '## Pre-flight checklist' block (CLAUDE.md). End with a "
-        f"'## Portfolio audit': player overlap, hedges, Anchor-Equivalence compliance, exposures vs "
-        f"the contests, and which slate-analysis edges each selection expresses.\n\n"
+        f"The output MUST begin with the '## Pre-flight checklist' block (CLAUDE.md). Do NOT compute or "
+        f"write a player-overlap / exposure audit yourself — that math is now computed in Python and "
+        f"appended automatically; you only need to express WHICH edges each selection plays.\n\n"
+        f"ALSO WRITE a machine-readable sidecar to `{sel_path}` — a JSON array, in selection order, of "
+        f'your picks as {{"source": "<file>", "row": <1-based row index>}} objects (exactly the source '
+        f"file + row index from the menu line you chose). This is how Python verifies your picks; it "
+        f"must list exactly the {n_target} lineups you selected.\n\n"
         f"IMPORTANT: if `{out_path}` already exists with lineups (e.g. handbuilt), PRESERVE them "
         f"verbatim, append after them, continue numbering, count them toward {n_target}, and ensure "
         f"your picks answer DIFFERENT questions.\n"
-        f"HARD RULE: write ONLY `{out_path}` — never edit the analysis, bundle, pool, or other data "
-        f"files. Do not ask questions — produce the file."
+        f"HARD RULE: write ONLY `{out_path}` and `{sel_path}` — never edit the analysis, bundle, pool, "
+        f"or other data files. Do not ask questions — produce the files."
     )
-    return _run_claude(prompt, out_path)
+    result = _run_claude(prompt, out_path)
+    # Surface how much of the pool actually resolved — so a pool that silently
+    # dropped most rows (bad IDs, unreadable file) is visible, not a mystery.
+    result["pool"] = {
+        "n_total": meta.get("n_total"),
+        "n_shortlist": meta.get("n_shortlist"),
+        "notes": meta.get("notes") or [],
+    }
+    if result.get("ok"):
+        result["audit"] = _append_computed_audit(slug, out_path, sel_path, meta)
+    return result
 
 
 def run_fix_lineups(slug: str, contest_label: str, sport: str) -> dict:

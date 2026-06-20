@@ -28,7 +28,9 @@ def diff_table(sources: dict[str, dict], metric: str = "proj_points") -> pd.Data
     wide["max"] = wide[value_cols].max(axis=1)
     wide["min"] = wide[value_cols].min(axis=1)
     wide["delta"] = wide["max"] - wide["min"]
-    wide["delta_pct"] = (wide["delta"] / wide[value_cols].mean(axis=1) * 100).round(1)
+    # clip the denominator so a zero/near-zero vendor mean (e.g. mixed-sign
+    # values cancelling) yields a finite delta_pct, never inf.
+    wide["delta_pct"] = (wide["delta"] / wide[value_cols].mean(axis=1).clip(lower=1e-6) * 100).round(1)
 
     return wide.sort_values("delta", ascending=False).reset_index(drop=True)
 

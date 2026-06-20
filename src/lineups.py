@@ -275,9 +275,10 @@ def validate_lineup(slug: str, players: list[dict], thesis: str, what_if: str) -
 
     seen = set()
     for p in players:
-        if p["name"] in seen:
-            errors.append(f"Duplicate player: {p['name']}.")
-        seen.add(p["name"])
+        nm = p.get("name")  # backstop must not itself KeyError on a malformed row
+        if nm in seen:
+            errors.append(f"Duplicate player: {nm}.")
+        seen.add(nm)
 
     if spec["positional"]:
         for p in players:

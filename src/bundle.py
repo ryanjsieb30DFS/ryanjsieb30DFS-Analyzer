@@ -197,12 +197,16 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
             flag = " ⚠️ <3 slates — note only, do not weight" if a["slates"] < 3 else ""
             proj = a["proj_mae"] if a["proj_mae"] is not None else "n/a"
             own = a["own_mae"] if a["own_mae"] is not None else "n/a"
+            lev, chalk = a.get("own_mae_leverage"), a.get("own_mae_chalk")
+            tier = (f" · own MAE by tier: leverage {lev if lev is not None else 'n/a'}, "
+                    f"chalk {chalk if chalk is not None else 'n/a'}") if (lev is not None or chalk is not None) else ""
             L.append(
-                f"- **{a['vendor']}** — {a['slates']} slate(s): proj MAE {proj}, own MAE {own}{flag}"
+                f"- **{a['vendor']}** — {a['slates']} slate(s): proj MAE {proj}, own MAE {own}{tier}{flag}"
             )
         L.append(
             "_When vendors disagree, weight the vendor with the lower demonstrated MAE for that "
-            "metric; ownership MAE drives leverage calls._"
+            "metric; ownership MAE drives leverage calls. Prefer the vendor with lower LEVERAGE-tier "
+            "own MAE for sub-8%-owned calls, lower CHALK-tier own MAE for the chalk read._"
         )
 
     # Last 3 slate results inline so the headless run can't skip them.
@@ -217,6 +221,15 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
                 f"ROI {roi}, best finish {pct} (archive: `{r.get('history_dir')}`)"
             )
         L.append("_GPP ROI is noise under ~10 slates — read these for process notes, not conclusions._")
+
+    # Self-grade: how our PAST reads actually performed (edge/leverage capture +
+    # lineup actual-vs-proj), so this slate's analysis self-corrects on real data.
+    from src.accuracy import rollup_md
+    self_grade = rollup_md(slug)
+    if self_grade:
+        L += ["", self_grade,
+              "_Low leverage capture → we're missing the cheap plays that win; high bust exposure → "
+              "tighten fades on proj-missers; use this to correct THIS slate's reads, not as ROI._"]
 
     strategy = load_strategy(slug)
     lessons = strategy.get("recent_lessons", [])[:3]

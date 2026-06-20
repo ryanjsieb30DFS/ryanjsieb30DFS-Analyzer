@@ -135,6 +135,10 @@ def vendor_accuracy(slug: str, last_n_slates: int = 10) -> list[dict]:
         vals = [v for v in vals if v is not None]
         return round(sum(vals) / len(vals), nd) if vals else None
 
+    def _tier_mean(vrows: list, field: str, tier: str):
+        vals = [(r.get(field) or {}).get(tier) for r in vrows]
+        return _mean([v for v in vals if v is not None])
+
     out = []
     for vendor, vrows in by_vendor.items():
         out.append({
@@ -143,6 +147,12 @@ def vendor_accuracy(slug: str, last_n_slates: int = 10) -> list[dict]:
             "proj_mae": _mean([r.get("proj_mae") for r in vrows]),
             "own_mae": _mean([r.get("own_mae") for r in vrows]),
             "match_rate": _mean([r.get("match_rate") for r in vrows], 1),
+            # By-ownership-tier (None for legacy rows lacking the field) — lets the
+            # bundle say which vendor is sharpest on leverage vs chalk.
+            "own_mae_leverage": _tier_mean(vrows, "own_mae_by_tier", "leverage"),
+            "own_mae_chalk": _tier_mean(vrows, "own_mae_by_tier", "chalk"),
+            "proj_mae_leverage": _tier_mean(vrows, "proj_mae_by_tier", "leverage"),
+            "proj_mae_chalk": _tier_mean(vrows, "proj_mae_by_tier", "chalk"),
         })
     out.sort(key=lambda r: (r["proj_mae"] is None, r["proj_mae"]))
     return out
@@ -210,6 +220,12 @@ def archive_slate(
     (hist_dir / "manifest.json").write_text(json.dumps(manifest, indent=2))
     (hist_dir / "autopsy.json").write_text(json.dumps(autopsy_records, indent=2))
 
+    # Self-grade: did our entered lineups / leverage bets actually pay off?
+    # Graded deterministically against the structured actuals just archived.
+    from src import accuracy
+    acc = accuracy.slate_accuracy(autopsy_records)
+    (hist_dir / "accuracy.json").write_text(json.dumps(acc, indent=2))
+
     contests_out = []
     for c in roi_contests:
         roi = compute_roi(c.get("entry_fee"), c.get("my_entries"), c.get("winnings"))
@@ -252,6 +268,11 @@ def archive_slate(
         "best_rank": min(ranks) if ranks else None,
         "best_percentile": min(percentiles) if percentiles else None,
         "entries_total": sum(int(c["my_entries"] or 0) for c in contests_out),
+        # Self-grade summary (None when not gradable) — trended in the bundle.
+        "edge_leverage_capture": acc["edges"].get("leverage_capture"),
+        "edge_overperformer_capture": acc["edges"].get("overperformer_capture"),
+        "edge_bust_exposure": acc["edges"].get("underperformer_exposure"),
+        "lineup_avg_ratio": acc["lineups"].get("avg_ratio"),
     }
     (hist_dir / "results.json").write_text(json.dumps(row, indent=2))
     append_results(slug, row)
