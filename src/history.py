@@ -175,11 +175,13 @@ def archive_slate(
     autopsy_records: list[dict],
     roi_contests: list[dict],
     proj_source: str | None = None,
+    shark_gap: dict | None = None,
 ) -> Path:
     """Archive the slate's artifacts + results. Returns the history dir.
 
     roi_contests rows: {name, type, source_file, field_size, my_entries,
     entry_fee, winnings (None if unreported), best_rank, best_percentile}.
+    shark_gap: optional structural us-vs-sharks profile (from src.shark_gap).
     """
     date_str = datetime.now().strftime("%Y-%m-%d")
     root = _history_root(slug)
@@ -225,6 +227,10 @@ def archive_slate(
     from src import accuracy
     acc = accuracy.slate_accuracy(autopsy_records)
     (hist_dir / "accuracy.json").write_text(json.dumps(acc, indent=2))
+
+    # Structural shark-gap (did we play like the sharks, not just cash?).
+    if shark_gap is not None:
+        (hist_dir / "shark_gap.json").write_text(json.dumps(shark_gap, indent=2))
 
     contests_out = []
     for c in roi_contests:
@@ -273,6 +279,11 @@ def archive_slate(
         "edge_overperformer_capture": acc["edges"].get("overperformer_capture"),
         "edge_bust_exposure": acc["edges"].get("underperformer_exposure"),
         "lineup_avg_ratio": acc["lineups"].get("avg_ratio"),
+        # Structural shark gap: the single biggest you-vs-shark delta this slate.
+        "shark_gap_top": (
+            {"dim": shark_gap["deltas"][0]["dim"], "delta": shark_gap["deltas"][0]["delta"]}
+            if shark_gap and shark_gap.get("deltas") else None
+        ),
     }
     (hist_dir / "results.json").write_text(json.dumps(row, indent=2))
     append_results(slug, row)

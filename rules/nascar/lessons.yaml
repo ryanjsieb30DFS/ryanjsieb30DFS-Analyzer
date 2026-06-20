@@ -22,7 +22,8 @@ lessons:
     status: codified
     confirmations:
       - {date: "2026-05-01", slate: "Watkins Glen", note: "SVG held at 43% exposure under the rule; SVG scored 78.35 and SVG-in lineups averaged 199.5 vs 158 without."}
-    contradictions: []
+    contradictions:
+      - {date: "2026-06-20", slate: "Pocono Raceway", note: "SCOPING REFINEMENT (not result-based): Keselowski 52% own (highest on slate) scored 2.0 from P37. The rule's mechanism is 'market rarely wrong about price/START math at the extremes' — but a worse-than-30th starter has NO reliable price/start floor; his entire score is a deep-back PD gamble in a thin optimal bucket (Pocono worse-than-30th = 9.5% of optimal; best-ever NextGen finish from there = Haley 22nd/32). The mechanism that justifies riding 50%+ chalk is absent when the chalk's start is deep-back at a thin-back track — there it is a chalk trap, not market wisdom. Pairs with [[nascar-2026-06-20-midpack-pd-over-deep-back-chalk]]. Single mechanism-scoping note; does NOT trigger retirement (codified, 1 scoping refinement)."}
     codified_in: "philosophy.md — On Ownership Leverage; framework.md — Step 5 Portfolio Review + Quick-Reference Decision Heuristics"
     retired_reason: null
 
@@ -49,8 +50,9 @@ lessons:
       price points and team archetypes) are independent shots at different point
       distributions, not interchangeable substitutes — both can hit on the same
       slate. Rostering one does not "cover" the other.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - {date: "2026-06-20", slate: "Pocono Raceway", note: "Nemechek (P8, $5.9K, 9.43% actual own) scored 58.55 AND Erik Jones (P7, $7.5K, 19.85% own) scored 44.2 on the SAME slate — two deep-value PD plays at different prices/teams both hit. Field winner ran Nemechek; #2 ran Nemechek+EJ together. First mechanism confirmation: rostering one did not 'cover' the other."}
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -388,7 +390,8 @@ lessons:
       held none. At least 2 of N lineups must contain a sub-15% own / sub-$6K
       driver projected for >=15 spots of place differential.
     status: codified
-    confirmations: []
+    confirmations:
+      - {date: "2026-06-20", slate: "Pocono Raceway", note: "Re-scoped to the 11th-30th start band per the Pocono venue file (worse-than-30th is only 9.5% of optimal here) — and the re-scope held: Gilliland P29 ($5.3K, 6.61% own) scored 35.5 and Stenhouse P21 ($5.7K, 7.77% own) scored 34.45, both sub-15%/sub-$6K from the 11-30 band. The deep-back version (P37/P38) did NOT pay (Keselowski 2.0). Confirms both the floor mechanism AND the venue-conditioned re-scope toward mid-pack starts."}
     contradictions: []
     codified_in: "framework.md — Step 6 mandatory check #9 (sleeper-spike floor)"
     retired_reason: null
@@ -441,4 +444,50 @@ lessons:
     confirmations: []
     contradictions: []
     codified_in: "framework.md — Step 6 mandatory check #12; philosophy.md — On Process Discipline (use post_roi_pct as the gold-standard retroactive equity metric)"
+    retired_reason: null
+
+  # ---------------------------------------------------------------
+  # Pocono Raceway — 2026-06-20 (Slate #4 autopsy)
+  # ---------------------------------------------------------------
+
+  - id: nascar-2026-06-20-midpack-pd-over-deep-back-chalk
+    born: "2026-06-20"
+    origin: "rules/nascar/history/2026-06-20__pocono-raceway-2026/autopsy_review.md"
+    statement: >
+      At tracks whose venue history shows the worse-than-30th bucket is a thin
+      optimal path and the 11th-30th band is the meat (Pocono: 9.5% vs 57% of
+      optimal spots), the optimal place-differential points come from MID-PACK
+      (P11-30) high-floor cars, NOT deep-back chalk — and the field's habit of
+      piling into deep-back chalk PD leaves the mid-pack band as the leverage.
+      Mechanism: a PD ceiling from P11-30 is reliably reachable, while a P37-38
+      car needs a near-impossible run (best-ever NextGen worse-than-30th finish =
+      Haley 22nd/32). Pre-lock: when the field over-owns deep-back chalk, source
+      PD from the 11-30 band instead and do not fade a high-floor mid-pack car on
+      track-fit narrative when its start sits in the optimal band.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nascar-2026-06-20-anchor-equivalence-not-parity
+    born: "2026-06-20"
+    origin: "rules/nascar/history/2026-06-20__pocono-raceway-2026/autopsy_review.md"
+    statement: >
+      The Anchor-Equivalence Rule requires the equivalent alternative in AT LEAST
+      ONE lineup as coverage — it is not a mandate to split the dominator coin
+      flip 50/50. Expanding the alternative to portfolio parity (Pocono: 4 Hamlin
+      / 4 Larson when the rule needed only >=1 Larson) converts a coverage
+      requirement into a full hedge, leaving the portfolio's win equity in only
+      half the lineups when the modal/chalk dominator hits. Mechanism: hedging
+      both sides of the dom coin flip guarantees you cannot fully capitalize on
+      either outcome (philosophy: "not hedge players"). Pocono: Hamlin (modal,
+      P1, 48%) delivered while the 4 Larson lineups capped modal-world equity.
+      Size the alternative for leverage (1-2 lineups when the field is mispricing
+      it), not for parity. Complements [[nascar-2026-05-24-anchor-equivalence]]
+      and [[nascar-2026-05-01-bet-sizing-reflects-inverse]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
     retired_reason: null

@@ -1,0 +1,47 @@
+# Per-sport shark watchlists — the handles we benchmark against in contest
+# standings. PGA/NFL are the 12 reverse-engineered in sharp_playbook.md. MMA and
+# NASCAR have no minable archive, so their lists are built incrementally from the
+# heavy-MME top finishers we observe each slate (add names as they recur).
+#
+# user: the handles that are OURS (RyvlesGaming30 etc.) — used to profile our own
+# side of the gap. Editable as we learn who the real per-sport sharks are.
+
+user:
+  - RyvlesGaming30
+  - ryanjsieb30
+
+# The 12 from the playbook (PGA + NFL validated). Also the default golf list.
+core_twelve: &core
+  - moklovin
+  - PetrGibbons
+  - skyhoke
+  - sullybrochill
+  - JBCJBCJBC
+  - youdacao
+  - needlunchmoney
+  - hishboo
+  - rsbathla
+  - vishy2773
+  - ShaidyAdvice
+  - bpcologna
+
+sharks_by_sport:
+  golf: *core          # pga_classic + pga_rd4_sd
+  nfl: *core
+  mma:                 # moklovin won UFC 250; expand as specialists recur
+    - moklovin
+  nascar:              # NASCAR has its own ecosystem (not the golf/NFL crowd)
+    - SpartyOn34       # won Pocono 25K (20 entries)
+    - Hunter4ever89    # 20 entries, top 4.2% Pocono
+    - TLambertFB       # 20 entries, top 10.6% Pocono
+    - JRSobeski
+    - NoWay_KemoSabi
+    - CbusGeeb
+
+# Map each contest slug to its sport key above.
+slug_sport:
+  pga_classic: golf
+  pga_rd4_sd: golf
+  mma_se: mma
+  nascar: nascar
+  mlb_classic: nfl    # closest stacking analog until an MLB shark set exists

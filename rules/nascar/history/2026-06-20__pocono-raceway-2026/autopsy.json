@@ -1,0 +1,552 @@
+[
+  {
+    "timestamp": "2026-06-20 09:14",
+    "contest_type": "NASCAR",
+    "source_file": "contest-standings-191218206.csv",
+    "entries": 25260,
+    "winning_score": 320.59998,
+    "cash_line_p80": 229.4,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nascar",
+    "sport": "nascar",
+    "projections": {
+      "available": true,
+      "source": "DailyFan-Projections-Sheet-NASCAR-DK-3 (1).csv",
+      "matched": 38,
+      "total": 38
+    },
+    "user_summary": {
+      "avg_own_mean": 26.79,
+      "low_own_count_mean": 0.9,
+      "salary_used_mean": 49670.0,
+      "entry_count": 10,
+      "best_rank": 1023,
+      "best_percentile": 4.0
+    },
+    "user_lineups": [
+      {
+        "rank": 1023,
+        "entry_name": "RyvlesGaming30 (3/10)",
+        "points": 262.9,
+        "percentile": 4.0,
+        "players": [
+          "Denny Hamlin",
+          "Chase Elliott",
+          "Carson Hocevar",
+          "Chris Buescher",
+          "John H. Nemechek",
+          "Austin Dillon"
+        ],
+        "avg_own": 29.54,
+        "low_own_count": 1,
+        "salary_used": 49100,
+        "proj_total": 267.4,
+        "dup_count": 4,
+        "stack_shape": null
+      },
+      {
+        "rank": 1626,
+        "entry_name": "RyvlesGaming30 (4/10)",
+        "points": 255.2,
+        "percentile": 6.4,
+        "players": [
+          "Denny Hamlin",
+          "Chase Briscoe",
+          "Carson Hocevar",
+          "Bubba Wallace",
+          "Riley Herbst",
+          "John H. Nemechek"
+        ],
+        "avg_own": 29.09,
+        "low_own_count": 1,
+        "salary_used": 49500,
+        "proj_total": 268.05,
+        "dup_count": 2,
+        "stack_shape": null
+      },
+      {
+        "rank": 2436,
+        "entry_name": "RyvlesGaming30 (5/10)",
+        "points": 247.7,
+        "percentile": 9.6,
+        "players": [
+          "Denny Hamlin",
+          "William Byron",
+          "Chris Buescher",
+          "Bubba Wallace",
+          "Austin Cindric",
+          "Austin Dillon"
+        ],
+        "avg_own": 27.74,
+        "low_own_count": 1,
+        "salary_used": 50000,
+        "proj_total": 267.75,
+        "dup_count": 4,
+        "stack_shape": null
+      },
+      {
+        "rank": 3629,
+        "entry_name": "RyvlesGaming30 (6/10)",
+        "points": 237.45,
+        "percentile": 14.4,
+        "players": [
+          "Kyle Larson",
+          "Tyler Reddick",
+          "Chris Buescher",
+          "Brad Keselowski",
+          "Erik Jones",
+          "Todd Gilliland"
+        ],
+        "avg_own": 25.19,
+        "low_own_count": 1,
+        "salary_used": 50000,
+        "proj_total": 250.85,
+        "dup_count": 3,
+        "stack_shape": null
+      },
+      {
+        "rank": 4814,
+        "entry_name": "RyvlesGaming30 (1/10)",
+        "points": 230.59999,
+        "percentile": 19.1,
+        "players": [
+          "Denny Hamlin",
+          "Chase Elliott",
+          "Bubba Wallace",
+          "Brad Keselowski",
+          "Erik Jones",
+          "Riley Herbst"
+        ],
+        "avg_own": 36.83,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 282.65,
+        "dup_count": 39,
+        "stack_shape": null
+      },
+      {
+        "rank": 7519,
+        "entry_name": "RyvlesGaming30 (7/10)",
+        "points": 219.4,
+        "percentile": 29.8,
+        "players": [
+          "Denny Hamlin",
+          "Carson Hocevar",
+          "Bubba Wallace",
+          "Erik Jones",
+          "Austin Cindric",
+          "Shane Van Gisbergen"
+        ],
+        "avg_own": 30.25,
+        "low_own_count": 1,
+        "salary_used": 49400,
+        "proj_total": 249.65,
+        "dup_count": 2,
+        "stack_shape": null
+      },
+      {
+        "rank": 9711,
+        "entry_name": "RyvlesGaming30 (9/10)",
+        "points": 209.8,
+        "percentile": 38.4,
+        "players": [
+          "Ryan Blaney",
+          "William Byron",
+          "Chase Elliott",
+          "Bubba Wallace",
+          "Brad Keselowski",
+          "Todd Gilliland"
+        ],
+        "avg_own": 27.99,
+        "low_own_count": 1,
+        "salary_used": 50000,
+        "proj_total": 254.3,
+        "dup_count": 7,
+        "stack_shape": null
+      },
+      {
+        "rank": 15803,
+        "entry_name": "RyvlesGaming30 (2/10)",
+        "points": 187.1,
+        "percentile": 62.6,
+        "players": [
+          "Kyle Larson",
+          "William Byron",
+          "Carson Hocevar",
+          "Chris Buescher",
+          "Zane Smith",
+          "Todd Gilliland"
+        ],
+        "avg_own": 18.2,
+        "low_own_count": 1,
+        "salary_used": 49300,
+        "proj_total": 242,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 17283,
+        "entry_name": "RyvlesGaming30 (10/10)",
+        "points": 181.54999,
+        "percentile": 68.4,
+        "players": [
+          "Kyle Larson",
+          "Ryan Blaney",
+          "Ty Gibbs",
+          "Daniel Su\u00e1rez",
+          "Shane Van Gisbergen",
+          "Ricky Stenhouse Jr"
+        ],
+        "avg_own": 13.53,
+        "low_own_count": 1,
+        "salary_used": 49900,
+        "proj_total": 206.9,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 20021,
+        "entry_name": "RyvlesGaming30 (8/10)",
+        "points": 166.9,
+        "percentile": 79.3,
+        "players": [
+          "Kyle Larson",
+          "Chase Elliott",
+          "Ty Gibbs",
+          "Bubba Wallace",
+          "Brad Keselowski",
+          "Noah Gragson"
+        ],
+        "avg_own": 29.54,
+        "low_own_count": 1,
+        "salary_used": 49900,
+        "proj_total": 262.35,
+        "dup_count": 7,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "John H. Nemechek",
+        "proj_points": 25.0,
+        "actual_fpts": 58.55,
+        "fpts_delta": 33.55,
+        "ownership": 5.0,
+        "actual_own": 9.43
+      },
+      {
+        "name": "Tyler Reddick",
+        "proj_points": 48.25,
+        "actual_fpts": 70.55,
+        "fpts_delta": 22.3,
+        "ownership": 29.0,
+        "actual_own": 34.39
+      },
+      {
+        "name": "Ross Chastain",
+        "proj_points": 35.0,
+        "actual_fpts": 53.8,
+        "fpts_delta": 18.8,
+        "ownership": 17.0,
+        "actual_own": 11.36
+      },
+      {
+        "name": "Todd Gilliland",
+        "proj_points": 19.0,
+        "actual_fpts": 35.5,
+        "fpts_delta": 16.5,
+        "ownership": 7.0,
+        "actual_own": 6.61
+      },
+      {
+        "name": "Ricky Stenhouse Jr",
+        "proj_points": 21.0,
+        "actual_fpts": 34.45,
+        "fpts_delta": 13.45,
+        "ownership": 5.0,
+        "actual_own": 7.77
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Joey Logano",
+        "proj_points": 35.0,
+        "actual_fpts": -16.0,
+        "fpts_delta": -51.0,
+        "ownership": 10.0,
+        "actual_own": 7.56
+      },
+      {
+        "name": "Brad Keselowski",
+        "proj_points": 48.0,
+        "actual_fpts": 2.0,
+        "fpts_delta": -46.0,
+        "ownership": 52.0,
+        "actual_own": 48.84
+      },
+      {
+        "name": "Zane Smith",
+        "proj_points": 29.0,
+        "actual_fpts": -15.0,
+        "fpts_delta": -44.0,
+        "ownership": 7.0,
+        "actual_own": 12.3
+      },
+      {
+        "name": "Josh Berry",
+        "proj_points": 20.0,
+        "actual_fpts": -4.55,
+        "fpts_delta": -24.55,
+        "ownership": 5.0,
+        "actual_own": 4.47
+      },
+      {
+        "name": "Alex Bowman",
+        "proj_points": 21.0,
+        "actual_fpts": 0.45,
+        "fpts_delta": -20.55,
+        "ownership": 6.0,
+        "actual_own": 7.88
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "John H. Nemechek",
+        "salary": 5900,
+        "actual_fpts": 58.55,
+        "actual_own": 9.43,
+        "top_lineup_pct": 96.0
+      },
+      {
+        "name": "Erik Jones",
+        "salary": 7500,
+        "actual_fpts": 44.2,
+        "actual_own": 19.85,
+        "top_lineup_pct": 47.0
+      },
+      {
+        "name": "Riley Herbst",
+        "salary": 6000,
+        "actual_fpts": 36.0,
+        "actual_own": 13.08,
+        "top_lineup_pct": 48.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 100,
+      "avg_own_mean": 26.09,
+      "low_own_count_mean": 1.42,
+      "salary_used_mean": 49733.0,
+      "dup_max": 11,
+      "unique_pct": 40.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "SpartyOn34 (2/20)",
+          "points": 320.59998,
+          "percentile": 0.0,
+          "players": [
+            "Denny Hamlin",
+            "Tyler Reddick",
+            "Ross Chastain",
+            "Bubba Wallace",
+            "Riley Herbst",
+            "John H. Nemechek"
+          ],
+          "avg_own": 28.61,
+          "low_own_count": 1,
+          "salary_used": 49300,
+          "proj_total": 255.55,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "Thumper20 (2/2)",
+          "points": 319.69998,
+          "percentile": 0.0,
+          "players": [
+            "Denny Hamlin",
+            "Tyler Reddick",
+            "Chase Elliott",
+            "Erik Jones",
+            "Riley Herbst",
+            "John H. Nemechek"
+          ],
+          "avg_own": 27.56,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 258.9,
+          "dup_count": 5,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "JRSobeski (8/20)",
+          "points": 319.69998,
+          "percentile": 0.0,
+          "players": [
+            "Denny Hamlin",
+            "Tyler Reddick",
+            "Chase Elliott",
+            "Erik Jones",
+            "Riley Herbst",
+            "John H. Nemechek"
+          ],
+          "avg_own": 27.56,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 258.9,
+          "dup_count": 5,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "NoWay_KemoSabi (8/20)",
+          "points": 319.69998,
+          "percentile": 0.0,
+          "players": [
+            "Denny Hamlin",
+            "Tyler Reddick",
+            "Chase Elliott",
+            "Erik Jones",
+            "Riley Herbst",
+            "John H. Nemechek"
+          ],
+          "avg_own": 27.56,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 258.9,
+          "dup_count": 5,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "CbusGeeb (6/20)",
+          "points": 319.69998,
+          "percentile": 0.0,
+          "players": [
+            "Denny Hamlin",
+            "Tyler Reddick",
+            "Chase Elliott",
+            "Erik Jones",
+            "Riley Herbst",
+            "John H. Nemechek"
+          ],
+          "avg_own": 27.56,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 258.9,
+          "dup_count": 5,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "jtmas",
+          "points": 319.69998,
+          "percentile": 0.0,
+          "players": [
+            "Denny Hamlin",
+            "Tyler Reddick",
+            "Chase Elliott",
+            "Erik Jones",
+            "Riley Herbst",
+            "John H. Nemechek"
+          ],
+          "avg_own": 27.56,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 258.9,
+          "dup_count": 5,
+          "stack_shape": null
+        },
+        {
+          "rank": 7,
+          "entry_name": "lee__D (11/20)",
+          "points": 314.3,
+          "percentile": 0.0,
+          "players": [
+            "Denny Hamlin",
+            "Tyler Reddick",
+            "Chase Elliott",
+            "Ross Chastain",
+            "John H. Nemechek",
+            "Austin Hill"
+          ],
+          "avg_own": 24.18,
+          "low_own_count": 2,
+          "salary_used": 50000,
+          "proj_total": 234.9,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "mclocker (2/5)",
+          "points": 313.4,
+          "percentile": 0.0,
+          "players": [
+            "Denny Hamlin",
+            "Tyler Reddick",
+            "Carson Hocevar",
+            "Ross Chastain",
+            "Riley Herbst",
+            "John H. Nemechek"
+          ],
+          "avg_own": 26.35,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 254.9,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "JW405",
+          "points": 313.0,
+          "percentile": 0.0,
+          "players": [
+            "Denny Hamlin",
+            "Tyler Reddick",
+            "Chase Elliott",
+            "Bubba Wallace",
+            "John H. Nemechek",
+            "Todd Gilliland"
+          ],
+          "avg_own": 31.61,
+          "low_own_count": 2,
+          "salary_used": 49700,
+          "proj_total": 257.9,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 10,
+          "entry_name": "csmst256 (3/4)",
+          "points": 312.55,
+          "percentile": 0.0,
+          "players": [
+            "Kyle Larson",
+            "Tyler Reddick",
+            "Chase Elliott",
+            "Ross Chastain",
+            "Riley Herbst",
+            "John H. Nemechek"
+          ],
+          "avg_own": 20.83,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 249.8,
+          "dup_count": 1,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -0.7,
+        "low_own_count_delta": 0.52,
+        "salary_used_delta": 63.0
+      }
+    }
+  }
+]

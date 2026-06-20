@@ -1,0 +1,77 @@
+{
+  "field": 25260,
+  "anchors": [
+    "denny hamlin",
+    "bubba wallace",
+    "brad keselowski"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 120,
+    "own_per_slot": 29.1,
+    "leverage_pct": 6.7,
+    "anchor_exposure": 0.533,
+    "anchor_exposure_by_player": {
+      "denny hamlin": 0.492,
+      "bubba wallace": 0.592,
+      "brad keselowski": 0.517
+    },
+    "max_overlap": 6,
+    "unique_pct": 94.2,
+    "best_pctile": 0.0,
+    "median_pctile": 41.39
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 10,
+    "own_per_slot": 26.8,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.5,
+    "anchor_exposure_by_player": {
+      "denny hamlin": 0.5,
+      "bubba wallace": 0.6,
+      "brad keselowski": 0.4
+    },
+    "max_overlap": 3,
+    "unique_pct": 100.0,
+    "best_pctile": 4.05,
+    "median_pctile": 29.77
+  },
+  "deltas": [
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 0.0,
+      "shark": 6.7,
+      "delta": -6.7
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 94.2,
+      "delta": 5.8
+    },
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 26.8,
+      "shark": 29.1,
+      "delta": -2.3
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.5,
+      "shark": 0.533,
+      "delta": -0.033
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "nascar",
+  "sport": "nascar"
+}

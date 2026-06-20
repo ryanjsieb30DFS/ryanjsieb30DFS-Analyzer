@@ -1245,6 +1245,22 @@ with tab_autopsy:
                         st.caption("Computed in Python from this contest's actuals — trended into "
                                    "the next slate's bundle when you log the autopsy.")
 
+                # Shark gap — structural us-vs-sharks fingerprint for THIS field.
+                try:
+                    from src import shark_gap as _sg
+                    _gap = _sg.gap_for_slug(slug, parsed)
+                    with st.container(border=True):
+                        st.markdown(_sg.gap_md(_gap))
+                        if not _gap.get("sport"):
+                            st.caption("No sport→shark mapping for this slug yet — add it in "
+                                       "rules/shared/shark_handles.yaml.")
+                        elif not _gap.get("sharks_in_field"):
+                            st.caption(f"No tracked {_gap.get('sport')} sharks entered this contest. "
+                                       "Add the heavy-MME top finishers to shark_handles.yaml to "
+                                       "build the watchlist.")
+                except Exception:  # noqa: BLE001 — panel is best-effort
+                    pass
+
                 notes = st.text_area(
                     "Lessons / patterns to log (appended to autopsies.md)",
                     key=f"autopsy_notes_{slug}_{i}",
@@ -1350,6 +1366,15 @@ with tab_autopsy:
                             fmd.write(f"\n{notes.strip()}\n")
                         fjl.write(json.dumps(record) + "\n")
                         records.append(record)
+                # Structural shark-gap on the largest-field contest (where the
+                # sharks are most likely to be entered). Never blocks the log.
+                sgap = None
+                try:
+                    from src import shark_gap as _shark_gap
+                    _biggest = max(parsed_contests, key=lambda pc: len(pc["lineups"]))
+                    sgap = _shark_gap.gap_for_slug(slug, _biggest["parsed"])
+                except Exception:  # noqa: BLE001
+                    sgap = None
                 # Archive the slate BEFORE clearing — lineups, analysis, and
                 # ROI survive in rules/<slug>/history/ + results.jsonl.
                 hist_dir = history.archive_slate(
@@ -1360,6 +1385,7 @@ with tab_autopsy:
                     autopsy_records=records,
                     roi_contests=[pc["roi"] for pc in parsed_contests],
                     proj_source=proj_source,
+                    shark_gap=sgap,
                 )
                 # Vendor calibration: score every uploaded vendor against the
                 # actuals from the largest-field contest. Never blocks the log.

@@ -231,6 +231,14 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
               "_Low leverage capture → we're missing the cheap plays that win; high bust exposure → "
               "tighten fades on proj-missers; use this to correct THIS slate's reads, not as ROI._"]
 
+    # Structural shark gap: how our BUILD behavior differs from the in-field sharks
+    # (own envelope, leverage rate, anchor exposure, uniqueness) — aim builds at 0.
+    from src.shark_gap import rollup_md as _shark_rollup
+    shark_trend = _shark_rollup(slug)
+    if shark_trend:
+        L += ["", shark_trend,
+              "_This is the play-like-the-sharks target: drive each structural delta toward 0._"]
+
     strategy = load_strategy(slug)
     lessons = strategy.get("recent_lessons", [])[:3]
     if lessons:

@@ -2,7 +2,7 @@
 
 **Slug:** `pocono_raceway`
 **Track type:** intermediate/superspeedway hybrid (2.5-mile asphalt "Tricky Triangle")
-**Reference provided:** 2026-06-14 — **UNVERIFIED — built from this slate's articles only** (Dustin's Deep Dive 6.14.26 + DailyFan optimal/position/value tables). No prior in-repo Pocono slate; confirm against a second source before treating as settled.
+**Reference provided:** 2026-06-14 — built from the 6.14.26 articles (Dustin's Deep Dive + DailyFan optimal/position/value tables). **2026-06-20 race results CONFIRM the core thesis** (11th-30th band = the optimal PD source; deep-back chalk is thin/trap; value-tier practice-speed leverage held) — see the 2026-06-20 per-slate observation. Still one in-repo slate of evidence; treat the optimal-bucket percentages as supported-but-single-sample.
 
 ## Physical profile
 
@@ -29,3 +29,4 @@ Per Dustin: **no true correlating track** (longest straightaway, unique triangle
 ## Per-slate observations
 
 - **2026-06-14 (this slate, pre-race):** Field piled onto deep-back elite PD — Bubba Wallace P38 (50% own), Brad Keselowski P37 (52%), plus Elliott P23 (42%) and Preece P35 (36%) — i.e. heavy ownership in the 9.5%-frequency worse-than-30th bucket. Hamlin P1 (48%) the consensus dominator off his best track. Christopher Bell starting P22 carried a fractured wrist (driving one-handed) and a Brandon Jones relief-driver risk — a binary the 17% field own underpriced. Confirm actual results into this file post-autopsy.
+- **2026-06-20 (race result — CONFIRMS the venue thesis hard):** Winning lineup (320.6) = Hamlin (dom from P1) + **mid-pack PD**: Reddick P16→70.55, Chastain P24→53.8, Bubba P38, Herbst P25→36.0, Nemechek P8→58.55. Nearly all top-10 field lineups were Hamlin + the SAME 11th-30th PD cluster (Reddick/Nemechek/Herbst/Chastain), NOT the deep-back chalk. **The 11th-30th band (57% of optimal) delivered; the worse-than-30th chalk did not** — Keselowski (P37, 52% own, the slate's highest) scored **2.0**, a total bust, while Bubba (P38) was only middling. The doubling of Bubba+Keselowski sank every lineup that ran both. **The value-tier-practice-speed leverage held too:** field over-owned Preece (36%, busted) while the low-owned value scorers came from lower ownership — Nemechek 9.43% actual own, Erik Jones 44.2 — exactly the 2024 pattern. Two-dom not required: a single strong dom (Hamlin) + a stack of mid-pack PD was optimal. **Practice/qualifying mid-pack starters with high floors are the engine here; deep-back chalk is a trap.** Born this slate: [[nascar-2026-06-20-midpack-pd-over-deep-back-chalk]]. Rain threat did NOT materialize (full-length race; 320.6 winning score is normal, not compressed).

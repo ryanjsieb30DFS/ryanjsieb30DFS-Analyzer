@@ -319,3 +319,14 @@ The pool generated winning lineups — best actual was 369.9, 100+ points above 
 ### Pre-lock validator (removed 2026-05-25)
 
 A 5-check pre-lock validator was prototyped and then removed across all sports. The checks generated more noise than signal at the slate-by-slate level, and the user opted to manage the underlying principles manually via the framework.md rules rather than as tool-enforced warnings. The framework Step 8-12 mandatory checks remain valid as a manual pre-lock checklist; they're no longer automated.
+
+
+## 2026-06-20 09:14 — NASCAR (contest-standings-191218206.csv)
+- Entries: 25,260
+- Winning score: 320.6
+- Cash line (top 20%): 229.4
+- My entries: 10 · best rank 1,023/25,260 (top 4.0%)
+- Winners (top 100): avg own 26.09% vs mine 26.79% · sub-10% plays/lineup 1.42 vs mine 0.9 · salary Δ +63
+- Overperformed proj: John H. Nemechek, Tyler Reddick, Ross Chastain
+- Underperformed proj: Joey Logano, Brad Keselowski, Zane Smith
+- Slate-defining plays: John H. Nemechek (58.5 pts @ 9.4%), Erik Jones (44.2 pts @ 19.9%), Riley Herbst (36.0 pts @ 13.1%)

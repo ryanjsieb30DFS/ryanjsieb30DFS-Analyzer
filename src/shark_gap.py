@@ -1,0 +1,251 @@
+"""Shark-gap: quantify what the sharks do differently than us, structurally.
+
+The self-grade (`src.accuracy`) measures OUTCOMES (did our bets pay off). This
+module measures BEHAVIOR — the structural fingerprint that defines shark play
+(ownership envelope, leverage rate, chalk-anchor exposure, lineup uniqueness) —
+for any set of handles in a contest's standings, so we can put real numbers on
+"what are the sharks doing differently than me" and trend convergence over time.
+
+It reuses `src.autopsy.parse_dk_results` (its `{lineups, players}` shape), so it
+runs on any DK contest-standings CSV. Everything here is pure/deterministic.
+
+Per the [[feedback_play_like_sharks]] goal: the sharks are the benchmark; this
+puts the gap on every measurable axis, per slate, per sport.
+"""
+from __future__ import annotations
+
+import json
+from itertools import combinations
+from pathlib import Path
+
+from src.autopsy import _norm_name
+
+_REPO_ROOT = Path(__file__).parent.parent
+_HANDLES_PATH = _REPO_ROOT / "rules" / "shared" / "shark_handles.yaml"
+
+# A play is a "leverage piece" below this field ownership; the sharks carry one
+# in the majority of lineups (sharp_playbook: PGA 60-80%, NFL 64-86%).
+_LEVERAGE_OWN = 5.0
+# How many of the field's chalkiest plays count as the "chalk anchors" whose
+# exposure the recurring leak under-weights (RD4 SD Fitzpatrick, NASCAR Reddick).
+_N_ANCHORS = 3
+
+
+def _handle(entry_name) -> str:
+    return str(entry_name).split("(")[0].strip().lower()
+
+
+def _lineups_for(parsed: dict, handles) -> list[list[str]]:
+    """Rosters (list of player-name lists) for the given handles; handles=None
+    matches nothing. Use the sentinel set to pull a specific player's entries."""
+    wanted = {h.lower() for h in (handles or [])}
+    L = parsed["lineups"]
+    return [list(r) for r, h in zip(L["Lineup_parsed"], L["EntryName"].map(_handle))
+            if h in wanted and r]
+
+
+def _ranks_for(parsed: dict, handles) -> list[int]:
+    wanted = {h.lower() for h in (handles or [])}
+    L = parsed["lineups"]
+    return [int(rk) for rk, h in zip(L["Rank"], L["EntryName"].map(_handle)) if h in wanted]
+
+
+def chalk_anchors(parsed: dict, n: int = _N_ANCHORS) -> list[str]:
+    """The field's n highest-owned plays (normalized names) — the chalk anchors
+    whose exposure separates disciplined sharks from over-faders."""
+    P = parsed["players"].dropna(subset=["actual_own"])
+    top = P.sort_values("actual_own", ascending=False).head(n)
+    return [_norm_name(x) for x in top["name"]]
+
+
+def structural_profile(parsed: dict, handles, anchors: list[str] | None = None) -> dict:
+    """The behavioral fingerprint for a set of handles in this contest.
+
+    Dimensions (all field-ownership based, so they're decisions, not results):
+      own_per_slot   — mean per-lineup average field own% (the envelope number)
+      leverage_pct   — share of lineups carrying a sub-5%-owned play
+      anchor_exposure— mean exposure across the slate's chalk anchors (0-1)
+      max_overlap    — worst shared-player count between any two of their lineups
+      unique_pct     — share of lineups with a distinct roster
+      best/median_pctile — finish distribution
+    Returns {gradable: False} if the handles have no lineups here.
+    """
+    field = len(parsed["lineups"])
+    lineups = _lineups_for(parsed, handles)
+    n = len(lineups)
+    if not n:
+        return {"gradable": False, "n_entries": 0}
+
+    P = parsed["players"]
+    own = {_norm_name(nm): o for nm, o in zip(P["name"], P["actual_own"])
+           if o is not None and o == o}
+    anchors = anchors if anchors is not None else chalk_anchors(parsed)
+
+    norm_sets = [set(_norm_name(p) for p in lp) for lp in lineups]
+
+    # ownership envelope: per-lineup average field own%, then mean over lineups
+    per_lineup_own = []
+    lev_hits = 0
+    for lp in lineups:
+        owns = [own.get(_norm_name(p)) for p in lp]
+        owns = [o for o in owns if o is not None]
+        if owns:
+            per_lineup_own.append(sum(owns) / len(owns))
+            if any(o < _LEVERAGE_OWN for o in owns):
+                lev_hits += 1
+    own_per_slot = round(sum(per_lineup_own) / len(per_lineup_own), 1) if per_lineup_own else None
+
+    # chalk-anchor exposure: mean over anchors of (share of lineups rostering it)
+    if anchors:
+        anchor_exp = sum(
+            sum(1 for s in norm_sets if a in s) / n for a in anchors
+        ) / len(anchors)
+        anchor_exposure = round(anchor_exp, 3)
+        per_anchor = {a: round(sum(1 for s in norm_sets if a in s) / n, 3) for a in anchors}
+    else:
+        anchor_exposure, per_anchor = None, {}
+
+    max_overlap = max((len(a & b) for a, b in combinations(norm_sets, 2)), default=0)
+    unique_pct = round(len({frozenset(s) for s in norm_sets}) / n * 100, 1)
+
+    ranks = _ranks_for(parsed, handles)
+    pct = sorted(round(r / field * 100, 2) for r in ranks) if (ranks and field) else []
+
+    return {
+        "gradable": True,
+        "n_entries": n,
+        "own_per_slot": own_per_slot,
+        "leverage_pct": round(lev_hits / n * 100, 1),
+        "anchor_exposure": anchor_exposure,
+        "anchor_exposure_by_player": per_anchor,
+        "max_overlap": max_overlap,
+        "unique_pct": unique_pct,
+        "best_pctile": pct[0] if pct else None,
+        "median_pctile": pct[len(pct) // 2] if pct else None,
+    }
+
+
+# Dimensions where we compare us to the sharks, with how to read the delta.
+_DIMS = [
+    ("own_per_slot", "avg own%/slot", "lower = more contrarian"),
+    ("leverage_pct", "% lineups w/ sub-5% piece", "sharks carry one in most"),
+    ("anchor_exposure", "exposure to chalk anchors", "under-owning these is the recurring leak"),
+    ("unique_pct", "% unique rosters", "sharks are all-unique"),
+]
+
+
+def shark_gap(parsed: dict, shark_handles, user_handles) -> dict:
+    """Us vs the in-field sharks on every structural axis, with the deltas."""
+    anchors = chalk_anchors(parsed)
+    sharks = structural_profile(parsed, shark_handles, anchors)
+    user = structural_profile(parsed, user_handles, anchors)
+
+    deltas = []
+    if sharks.get("gradable") and user.get("gradable"):
+        for key, label, read in _DIMS:
+            sv, uv = sharks.get(key), user.get(key)
+            if sv is None or uv is None:
+                continue
+            deltas.append({
+                "dim": key, "label": label, "read": read,
+                "user": uv, "shark": sv, "delta": round(uv - sv, 3),
+            })
+        deltas.sort(key=lambda d: -abs(d["delta"]))
+
+    return {
+        "field": len(parsed["lineups"]),
+        "anchors": anchors,
+        "sharks": sharks,
+        "user": user,
+        "deltas": deltas,
+        "sharks_in_field": sharks.get("gradable", False),
+    }
+
+
+def load_handles() -> dict:
+    """Read the per-sport shark watchlist config (empty dict if missing/bad)."""
+    try:
+        import yaml
+        return yaml.safe_load(_HANDLES_PATH.read_text()) or {}
+    except Exception:  # noqa: BLE001 — config is optional; never break the autopsy
+        return {}
+
+
+def gap_for_slug(slug: str, parsed: dict) -> dict:
+    """Compute the shark-gap for a slate slug using the configured handles."""
+    cfg = load_handles()
+    sport = (cfg.get("slug_sport") or {}).get(slug)
+    sharks = (cfg.get("sharks_by_sport") or {}).get(sport, [])
+    user = cfg.get("user", [])
+    g = shark_gap(parsed, sharks, user)
+    g["slug"], g["sport"] = slug, sport
+    return g
+
+
+def _gap_root(slug: str) -> Path:
+    return _REPO_ROOT / "rules" / slug / "history"
+
+
+def shark_gap_rollup(slug: str, last_n: int = 10) -> dict:
+    """Trend the structural deltas across archived slates that carry shark_gap.json."""
+    root = _gap_root(slug)
+    if not root.exists():
+        return {"n": 0, "slates": []}
+    dirs = sorted(d for d in root.iterdir() if d.is_dir())[-last_n:]
+    slates = []
+    for d in dirs:
+        gp = d / "shark_gap.json"
+        if not gp.exists():
+            continue
+        try:
+            g = json.loads(gp.read_text())
+        except (json.JSONDecodeError, OSError):
+            continue
+        if not g.get("sharks_in_field"):
+            continue
+        slates.append({"slate": d.name,
+                       "deltas": {x["dim"]: x["delta"] for x in g.get("deltas", [])}})
+
+    def _avg(dim):
+        vals = [s["deltas"].get(dim) for s in slates if s["deltas"].get(dim) is not None]
+        return round(sum(vals) / len(vals), 3) if vals else None
+
+    return {
+        "n": len(slates),
+        "slates": slates,
+        "mean_deltas": {dim: _avg(dim) for dim, _, _ in _DIMS},
+    }
+
+
+def rollup_md(slug: str, last_n: int = 10) -> str:
+    """Shark-gap trend for the bundle — so each build aims at closing the gap."""
+    r = shark_gap_rollup(slug, last_n)
+    if not r["n"]:
+        return ""
+    lines = [f"## Shark gap trend (vs in-field sharks — last {r['n']} slate(s))", "",
+             "Mean structural delta (you − sharks); aim each build to drive these toward 0:"]
+    labels = {dim: lab for dim, lab, _ in _DIMS}
+    for dim, lab, read in _DIMS:
+        d = r["mean_deltas"].get(dim)
+        if d is not None:
+            lines.append(f"- **{lab}**: {d:+} ({read})")
+    return "\n".join(lines)
+
+
+def gap_md(gap: dict) -> str:
+    """Render the shark-gap as a compact markdown block."""
+    out = ["### Shark gap — what they did differently (structural)"]
+    if not gap.get("sharks_in_field"):
+        out.append("- *No tracked sharks in this contest — can't compute a structural gap.*")
+        return "\n".join(out)
+    s, u = gap["sharks"], gap["user"]
+    out.append(f"- **Entries:** sharks {s['n_entries']} · you {u['n_entries']}")
+    out.append("")
+    out.append("| Dimension | You | Sharks | Δ |")
+    out.append("|---|---|---|---|")
+    for d in gap["deltas"]:
+        out.append(f"| {d['label']} | {d['user']} | {d['shark']} | {d['delta']:+} |")
+    out.append("")
+    out.append(f"_Read top-down — biggest gap first. {gap['deltas'][0]['label']}: "
+               f"{gap['deltas'][0]['read']}._" if gap["deltas"] else "")
+    return "\n".join(out)

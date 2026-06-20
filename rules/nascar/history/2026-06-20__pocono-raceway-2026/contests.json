@@ -1,0 +1,14 @@
+{
+  "contests": [
+    {
+      "name": "NAS $100k Chrome Horn ($20K to 1st)",
+      "type": "20-Max",
+      "field_size": 29726,
+      "max_entries": 20,
+      "my_entries": 10,
+      "entry_fee": 4.0,
+      "prize_pool": 20000,
+      "id": "f66491f5"
+    }
+  ]
+}

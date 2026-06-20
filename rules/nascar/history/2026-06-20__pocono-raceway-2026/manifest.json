@@ -1,0 +1,23 @@
+{
+  "slug": "nascar",
+  "sport": "nascar",
+  "contest_label": "NASCAR",
+  "date": "2026-06-20",
+  "slate_label": "Pocono Raceway 2026",
+  "archived_at": "2026-06-20 09:14",
+  "archived": [
+    "slate_analysis.md",
+    "lineups.md",
+    "bundle.md",
+    "contests.json",
+    "red_team.md"
+  ],
+  "missing": [],
+  "article_files": [
+    "articles/nascar/2026-06-14__DDD 6.14.26.pdf",
+    "articles/nascar/2026-06-14__DFR 1 6.14.26.pdf",
+    "articles/nascar/2026-06-14__DFR 2 6.14.26.pdf",
+    "articles/nascar/2026-06-14__DFR 3 6.14.26.pdf"
+  ],
+  "proj_source": "DailyFan-Projections-Sheet-NASCAR-DK-3 (1).csv"
+}

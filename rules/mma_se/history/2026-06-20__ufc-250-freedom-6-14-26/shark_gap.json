@@ -1,0 +1,77 @@
+{
+  "field": 5945,
+  "anchors": [
+    "alex pereira",
+    "josh hokit",
+    "ilia topuria"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 150,
+    "own_per_slot": 7.4,
+    "leverage_pct": 88.7,
+    "anchor_exposure": 0.498,
+    "anchor_exposure_by_player": {
+      "alex pereira": 0.54,
+      "josh hokit": 0.533,
+      "ilia topuria": 0.42
+    },
+    "max_overlap": 6,
+    "unique_pct": 78.7,
+    "best_pctile": 0.02,
+    "median_pctile": 46.93
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 10,
+    "own_per_slot": 7.6,
+    "leverage_pct": 100.0,
+    "anchor_exposure": 0.6,
+    "anchor_exposure_by_player": {
+      "alex pereira": 0.5,
+      "josh hokit": 0.6,
+      "ilia topuria": 0.7
+    },
+    "max_overlap": 5,
+    "unique_pct": 100.0,
+    "best_pctile": 0.24,
+    "median_pctile": 49.96
+  },
+  "deltas": [
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 78.7,
+      "delta": 21.3
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 100.0,
+      "shark": 88.7,
+      "delta": 11.3
+    },
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 7.6,
+      "shark": 7.4,
+      "delta": 0.2
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.6,
+      "shark": 0.498,
+      "delta": 0.102
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "mma_se",
+  "sport": "mma"
+}
