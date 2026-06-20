@@ -116,15 +116,17 @@ VENDOR_SIGNATURES: list[dict] = [
     {
         "name": "DailyFan MMA",
         "sport": "mma",
+        # Identify on the STABLE distinctive columns. DailyFan renamed
+        # "Salary DK"/"Ownership DK" -> "Salary"/"Ownership" (6/2026), so those are
+        # mapped-if-present (below) not required — keeps both old + new formats working.
         "required_columns": {
-            "fighter", "matchup", "win_%", "salary_dk",
-            "ownership_dk", "projection_dk_(mean)",
+            "fighter", "matchup", "win_%", "projection_dk_(mean)",
             "projection_dk_(win)", "projection_dk_(loss)",
         },
         "column_map": {
             "fighter": "name",
-            "salary_dk": "salary",
-            "ownership_dk": "ownership",
+            "salary_dk": "salary",          # old format (mapped if present)
+            "ownership_dk": "ownership",     # old format (mapped if present)
             "projection_dk_(mean)": "proj_points",
             "projection_dk_(win)": "proj_win",
             "projection_dk_(loss)": "proj_loss",
@@ -132,6 +134,19 @@ VENDOR_SIGNATURES: list[dict] = [
             "dk_id": "dk_id",
         },
         "drop_columns": ["win_odds", "finish_odds", "mean_ppd", "win_ppd"],
+    },
+    {
+        # Ship It Nation MMA simple export: NAME, SAL, PROJ, OWN, PT/$ (no ceiling,
+        # so it won't collide with PGA Simple which requires `ceil`).
+        "name": "Ship It Nation MMA",
+        "sport": "mma",
+        "required_columns": {"name", "sal", "proj", "own"},
+        "column_map": {
+            "sal": "salary",
+            "proj": "proj_points",
+            "own": "ownership",
+        },
+        "drop_columns": ["pt/$"],
     },
     {
         # DailyFan's newer MMA sheet adds Captain/Flex pricing (Salary CPT/Flex,

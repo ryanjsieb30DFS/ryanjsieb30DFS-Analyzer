@@ -43,6 +43,20 @@ OPTIONAL_INT_COLUMNS = ["starting_position", "dk_id", "matchup", "batting_order"
 OPTIONAL_STR_COLUMNS = ["opponent", "tee_time", "position", "team", "hand"]
 
 
+def drop_junk_rows(projections: pd.DataFrame) -> pd.DataFrame:
+    """Drop vendor junk rows (blank / trailing rows in the CSV): a row with no
+    usable name or no projection can't be analyzed and pollutes chalk/leverage
+    tiers. DailyFan's MMA export ships exactly such a trailing row (name "nan",
+    NaN proj)."""
+    if "proj_points" not in projections.columns or "name" not in projections.columns:
+        return projections
+    name_lower = projections["name"].astype(str).str.strip().str.lower()
+    keep = pd.to_numeric(projections["proj_points"], errors="coerce").notna() & ~name_lower.isin(
+        ["", "nan", "none"]
+    )
+    return projections[keep].reset_index(drop=True)
+
+
 def load_projections(csv_path_or_buffer) -> pd.DataFrame:
     """Read the projections CSV and return a cleaned DataFrame.
 
@@ -90,6 +104,7 @@ def load_projections(csv_path_or_buffer) -> pd.DataFrame:
 
     projections["salary"] = projections["salary"].apply(_clean_salary).astype(int)
     projections["proj_points"] = projections["proj_points"].astype(float)
+    projections = drop_junk_rows(projections)
     projections["ownership"] = _normalize_ownership_column(projections["ownership"])
 
     for col in OPTIONAL_FLOAT_COLUMNS:
