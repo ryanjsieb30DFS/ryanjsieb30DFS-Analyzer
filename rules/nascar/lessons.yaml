@@ -491,3 +491,30 @@ lessons:
     contradictions: []
     codified_in: null
     retired_reason: null
+
+  - id: nascar-2026-06-20-carry-a-sub5-leverage-dart-mme
+    born: "2026-06-20"
+    origin: "rules/nascar/history/2026-06-20__pocono-raceway-2026 (shark_gap.json)"
+    statement: >
+      In MME NASCAR (10+ entries) at least one lineup should carry a genuine
+      sub-5%-owned leverage driver — a low-owned dog with real upside (Tier 4
+      mid-pack flex or a position-differential sleeper), not chalk relief. The
+      structural shark-gap at Pocono showed the in-field NASCAR sharks (SpartyOn34,
+      Hunter4ever89, TLambertFB et al.) carried a sub-5% piece in ~7% of their
+      lineups while OUR portfolio carried one in 0% — every lineup sat at or above
+      the chalk band, so no roster was positioned to catch a low-owned spike in a
+      large field. NASCAR is chalky, so the rate is low (~1 in 14 lineups): this is
+      ">=1 deep dart across a 10-bullet portfolio," NOT "a dart in every lineup."
+      Scope: MME only — for SINGLE entry the framework's caution holds (a sub-10%
+      punt with a Dustin "MME or fade" warning is not a single-entry leverage play).
+      Mechanism: in a 25k+ field a portfolio with zero sub-5% exposure cannot reach
+      the win tail when a low-owned driver spikes. Caveat: one slate, ~6 shark
+      handles — small sample; confirm before codifying. Complements the framework's
+      Tier 4 "best leverage tier" and
+      [[nascar-2026-06-20-midpack-pd-over-deep-back-chalk]]; measured every slate now
+      via src/shark_gap.py (leverage_pct delta vs the in-field sharks).
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
