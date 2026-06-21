@@ -18,8 +18,6 @@ from collections import Counter
 
 import pandas as pd
 
-from src import sessions
-
 
 # DK entry names use the account's display name, not the login email prefix.
 USER_ALIASES = ("ryvlesgaming30", "ryanjsieb30")
@@ -123,109 +121,6 @@ def is_user_entry(entry_name) -> bool:
         return False
     base = entry_name.split(" (")[0].strip().casefold()
     return base in USER_ALIASES
-
-
-def load_session_projections(slug: str):
-    """Return (projections df with a _norm join key, source name), or (None, None).
-
-    Uses the active session's merged player pool so over/underperformer and
-    salary analysis can join standings names to projections.
-    """
-    sources = sessions.merge_same_vendor(sessions.load_sources(slug))
-    if not sources:
-        return None, None
-    name = max(sources, key=lambda k: len(sources[k]["df"]))
-    df = sources[name]["df"].copy()
-    df["_norm"] = df["name"].apply(_norm_name)
-    return df, name
-
-
-def score_vendors(slug: str, players: pd.DataFrame) -> list[dict]:
-    """Calibrate EVERY vendor source against DK actuals — one dict per vendor.
-
-    `players` is parse_dk_results()['players'] from the slate's largest-field
-    contest (actual_own is per-contest; actual_fpts is slate-wide). Unlike
-    load_session_projections this scores all sources, not just the largest.
-    Metrics are None when nothing matched or the column is all-NaN.
-    """
-    actuals = players[["name", "actual_fpts", "actual_own"]].copy()
-    actuals["_norm"] = actuals["name"].apply(_norm_name)
-    # Namesakes can't be told apart in standings — never grade a vendor
-    # against the wrong player's actuals.
-    actuals = actuals[~actuals["_norm"].isin(ambiguous_actual_norms(players))]
-    # DK lists multi-position players once per roster spot — dedupe so the
-    # join can't multiply rows (keep first; FPTS is identical across listings).
-    actuals = actuals.drop_duplicates("_norm")
-
-    rows = []
-    for source_name, blob in sessions.merge_same_vendor(sessions.load_sources(slug)).items():
-        df = blob["df"].copy()
-        if not df.empty:
-            df["_norm"] = df["name"].apply(_norm_name)
-            # Two-way players (e.g. hitter + pitcher rows in SIN MLB) appear
-            # twice in the vendor pool — keep the higher-projection role.
-            df = df.sort_values("proj_points", ascending=False).drop_duplicates("_norm")
-        row = {
-            "vendor": blob.get("vendor"),
-            "source_name": source_name,
-            "n_players_vendor": int(len(df)),
-            "n_matched": 0,
-            "match_rate": None,
-            "proj_mae": None, "proj_corr": None,
-            "own_mae": None, "own_corr": None,
-            "worst_proj_miss": None, "worst_own_miss": None,
-        }
-        if not df.empty:
-            joined = df.merge(actuals[["_norm", "actual_fpts", "actual_own"]], on="_norm", how="inner")
-            row["n_matched"] = int(len(joined))
-            row["match_rate"] = round(len(joined) / len(df) * 100, 1)
-        if row["n_matched"]:
-            for proj_col, actual_col, prefix in (
-                ("proj_points", "actual_fpts", "proj"),
-                ("ownership", "actual_own", "own"),
-            ):
-                if proj_col not in joined.columns:
-                    continue
-                sub = joined[[proj_col, actual_col, "name"]].dropna()
-                if sub.empty:
-                    continue
-                err = (sub[actual_col] - sub[proj_col]).abs()
-                row[f"{prefix}_mae"] = round(float(err.mean()), 2)
-                if len(sub) >= 3:
-                    corr = sub[proj_col].corr(sub[actual_col])
-                    row[f"{prefix}_corr"] = None if pd.isna(corr) else round(float(corr), 3)
-                worst = sub.loc[err.idxmax()]
-                row[f"worst_{prefix}_miss"] = {
-                    "name": str(worst["name"]),
-                    "proj": _json_safe(round(float(worst[proj_col]), 2)),
-                    "actual": _json_safe(round(float(worst[actual_col]), 2)),
-                    "delta": _json_safe(round(float(worst[actual_col] - worst[proj_col]), 2)),
-                }
-            # Tiered accuracy: split by the vendor's PROJECTED ownership band so we
-            # can ask "who's sharpest on leverage vs chalk", not just global MAE.
-            if "ownership" in joined.columns:
-                tiers = {"chalk": (15.0, 1e9), "mid": (8.0, 15.0), "leverage": (0.0, 8.0)}
-                proj_by_tier, own_by_tier, n_by_tier = {}, {}, {}
-                for tname, (lo, hi) in tiers.items():
-                    own = joined["ownership"]
-                    band = joined[(own >= lo) & (own < hi)]
-                    n_by_tier[tname] = int(len(band))
-                    for proj_col, actual_col, store in (
-                        ("proj_points", "actual_fpts", proj_by_tier),
-                        ("ownership", "actual_own", own_by_tier),
-                    ):
-                        store[tname] = None
-                        if proj_col in band.columns:
-                            sub = band[[proj_col, actual_col]].dropna()
-                            if not sub.empty:
-                                store[tname] = round(
-                                    float((sub[actual_col] - sub[proj_col]).abs().mean()), 2
-                                )
-                row["proj_mae_by_tier"] = proj_by_tier
-                row["own_mae_by_tier"] = own_by_tier
-                row["n_by_tier"] = n_by_tier
-        rows.append(row)
-    return rows
 
 
 def _opt_round(values: list, ndigits: int = 2):

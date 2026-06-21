@@ -1,11 +1,10 @@
 """DFS Slate Analyzer — Streamlit app.
 
-Multi-sport DFS slate analyzer for DraftKings.
-Flow: Projections → Slate Data → Sim Data → Analyze → Autopsy.
+Article-driven, multi-sport DFS slate-strategy tool for DraftKings.
+Flow: Slate Data → Slate Strategy → Autopsy.
 """
 from __future__ import annotations
 
-import io
 import json
 import re
 from datetime import datetime
@@ -14,39 +13,20 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-from src import sessions
-from src import dk_ids
-from src.projections import load_projections, warn_missing_for_sport
-from src.landscape import chalk_summary, leverage_table, anchor_equivalence_check
-from src.projections_diff import flagged_disagreements
 from src.autopsy import (
-    parse_dk_results, analyze_contest, load_session_projections,
-    build_autopsy_record, record_md_summary, score_vendors,
+    parse_dk_results, analyze_contest,
+    build_autopsy_record, record_md_summary,
 )
-from src.strategy import load_strategy, load_track, load_shared
-from src.slate_analysis import snapshot, top_chalk, sport_signals, load_persisted, clear_persisted
+from src.slate_analysis import load_persisted, clear_persisted
 from src.contests import (
     CONTEST_TYPES as CONTEST_ENTRY_TYPES,
     load_contests, add_contest, remove_contest,
     clear_contests, portfolio_summary,
 )
 from src.contest_templates import load_templates, save_template, remove_template
-from src.sim_data import save_sim, load_sim_files, drop_sim_file, clear_sim
 from src.bundle import clear_bundle
 from src.analysis_runner import (
-    run_analysis, run_build_lineups, run_select_lineups, lineup_target,
-    run_autopsy_review, run_apply_proposals, run_red_team,
-    run_handbuild_analysis, run_rank_lineups,
-    run_fix_lineups, run_apply_lineup_fixes,
-)
-from src.lineups import (
-    load_lineups, clear_lineups, load_red_team, clear_red_team,
-    red_team_verdicts, flagged_lineups, load_lineup_fixes, clear_lineup_fixes,
-    roster_spec, lineup_totals, validate_lineup,
-    append_handbuilt_lineup, assign_slots,
-    load_handbuild_analysis, clear_handbuild_analysis,
-    resolve_id_lineups, load_lineup_ranking, clear_lineup_ranking,
-    load_ranking_theses, load_ranking_input,
+    run_analysis, run_autopsy_review, run_apply_proposals,
 )
 from src import history
 
@@ -84,7 +64,7 @@ def clear_articles(slug: str) -> list[str]:
 
 st.set_page_config(page_title="DFS Slate Analyzer", layout="wide")
 st.title("DFS Slate Analyzer")
-st.caption("Multi-sport DFS slate analyzer for DraftKings.")
+st.caption("Article-driven DFS slate-strategy tool for DraftKings.")
 
 # ---------- Sidebar ---------- #
 with st.sidebar:
@@ -95,147 +75,31 @@ with st.sidebar:
 
     st.divider()
     if st.button("Clear this sport's slate", type="secondary"):
-        sessions.clear(slug)
         clear_articles(slug)
-        clear_lineup_ranking(slug)
-        clear_lineup_fixes(slug)
-        dk_ids.clear_map(slug)
+        clear_persisted(slug)
+        clear_contests(slug)
+        clear_bundle(slug)
         st.rerun()
-
-# Load active sport's strategy bundle (used by the Analyze tab)
-strategy = load_strategy(slug)
 
 
 # ---------- Tabs ---------- #
-tab_proj, tab_slate, tab_sim, tab_analyze, tab_hand, tab_autopsy = st.tabs(
-    ["Projections", "Slate Data", "Sim Data", "Analyze", "Handbuild", "Autopsy"]
+tab_slate, tab_strategy, tab_autopsy = st.tabs(
+    ["Slate Data", "Slate Strategy", "Autopsy"]
 )
 
 
-# ===== Tab 1: Projections =====
-with tab_proj:
-    st.subheader(f"Step 1: Upload {contest_label} projections")
-    st.caption(
-        "Drop any vendor CSV — ETR, Ship It Nation, DailyFan, DK. "
-        "Vendor is auto-detected. Upload multiple to surface cross-vendor "
-        "disagreement in the Analyze tab."
-    )
-
-    uploaded = st.file_uploader(
-        "Vendor CSV",
-        type="csv",
-        accept_multiple_files=True,
-        key=f"upload_{slug}",
-    )
-
-    if uploaded:
-        for f in uploaded:
-            try:
-                df = load_projections(f)
-            except Exception as e:
-                st.error(f"❌ Failed to load {f.name}: {e}")
-                continue
-            if df.attrs.get("kind") is not None:
-                st.info(
-                    f"📊 {f.name} is {df.attrs['vendor']} data, not player "
-                    "projections — upload it in the **Slate Data** tab instead."
-                )
-                continue
-            vendor_name = df.attrs.get("vendor")
-            if vendor_name is None:
-                st.error(
-                    f"❌ Couldn't detect vendor for {f.name}. "
-                    f"Headers seen: {list(df.columns)}"
-                )
-                continue
-            sessions.save_source(slug, f.name, df, vendor_name)
-            st.success(f"✅ {f.name} — detected as **{vendor_name}** ({len(df)} players)")
-            _conf = df.attrs.get("vendor_confidence") or {}
-            if _conf.get("ambiguous"):
-                st.warning(f"⚠️ Ambiguous match — {f.name} also fits {', '.join(_conf['matched'][1:])}. "
-                           "Verify the detected vendor is right.")
-            for _vn, _missing in _conf.get("near_misses", []):
-                if _vn != vendor_name:
-                    st.caption(f"↳ Near-miss: looks almost like **{_vn}** but missing "
-                               f"`{', '.join(_missing)}` — a renamed header? Update src/vendors.py if so.")
-        # Re-attach a previously uploaded DK-ID map so IDs stick to the
-        # projections regardless of upload order.
-        _dk_map = dk_ids.load_map(slug)
-        if _dk_map is not None and not _dk_map.empty:
-            dk_ids.apply_to_sessions(slug, _dk_map)
-
-    sources = sessions.load_sources(slug)
-    if sources:
-        st.divider()
-        st.markdown(f"**Loaded sources ({len(sources)}):**")
-        for name, blob in sources.items():
-            cols = st.columns([4, 2, 1])
-            cols[0].write(f"📄 {name}")
-            cols[1].write(f"`{blob['vendor']}` · {len(blob['df'])} players")
-            if cols[2].button("Drop", key=f"drop_{name}"):
-                sessions.drop_source(slug, name)
-                st.rerun()
-
-        st.divider()
-        pool = sessions.merge_same_vendor(sources)
-        primary_name = st.selectbox("Primary source for the analysis", list(pool.keys()))
-        df = pool[primary_name]["df"]
-
-        warnings = warn_missing_for_sport(df, sport)
-        for w in warnings:
-            st.warning(w)
-
-        st.dataframe(df, use_container_width=True, height=500)
-
-        # ---- DK player IDs ---- #
-        _id_count = dk_ids.projections_id_count(slug)
-        with st.expander(f"DK player IDs ({_id_count} attached)", expanded=_id_count == 0):
-            st.caption(
-                "Upload a DraftKings **DKEntries** or **DKSalaries** CSV to attach DK "
-                "IDs to your projections by player name. Needed for **Select lineups** — "
-                "especially NASCAR / DailyFan, whose projections ship no IDs."
-            )
-            if _id_count:
-                st.info(f"Your projections already carry DK IDs for **{_id_count}** players. Upload a DK file only to add/override.")
-            _existing = dk_ids.load_map(slug)
-            if _existing is not None and not _existing.empty:
-                st.caption(f"Uploaded DK file on record: **{len(_existing)}** player IDs (re-applied when projections change).")
-            dk_upload = st.file_uploader("DK player-ID CSV", type="csv", key=f"dk_ids_upload_{slug}")
-            if dk_upload is not None and st.button("Load DK player IDs", key=f"dk_ids_load_{slug}"):
-                try:
-                    dk_df = dk_ids.parse_dk_player_ids(dk_upload)
-                except Exception as exc:
-                    st.error(f"Failed to parse DK player-ID CSV: {exc}")
-                    dk_df = None
-                if dk_df is not None:
-                    if dk_df.empty:
-                        st.warning("No players parsed — is this a DKEntries/DKSalaries CSV with a 'Name + ID' column?")
-                    else:
-                        dk_ids.save_map(slug, dk_df)
-                        stats = dk_ids.apply_to_sessions(slug, dk_df)
-                        st.success(
-                            f"Loaded {len(dk_df)} DK IDs — matched "
-                            f"**{stats['matched']}/{stats['total']}** projection players."
-                        )
-                        if stats["unmatched"]:
-                            st.warning(
-                                "Unmatched names (spelling drift vs DK — fix in the DK file or "
-                                "the vendor export): " + ", ".join(stats["unmatched"])
-                            )
-                        st.rerun()
-    else:
-        st.info("No projections uploaded yet.")
-
-
-# ===== Tab 2: Slate Data =====
+# ===== Tab 1: Slate Data =====
 with tab_slate:
     st.subheader(f"Slate Data — {contest_label}")
-    st.caption("Upload articles, notes, data CSVs, photos, and screenshots for the slate. Claude reads these when writing the analysis.")
+    st.caption(
+        "Upload the slate's articles, notes, data files, photos, and screenshots. "
+        "Claude reads these when writing the slate strategy."
+    )
     articles_dir = REPO_ROOT / "articles" / slug
     articles_dir.mkdir(parents=True, exist_ok=True)
 
     uploaded_pdfs = st.file_uploader(
-        "Upload article PDFs / notes / data CSVs",
+        "Upload article PDFs / notes / data files",
         type=["pdf", "txt", "md", "csv"],
         accept_multiple_files=True,
         key=f"articles_{slug}",
@@ -243,32 +107,6 @@ with tab_slate:
     if uploaded_pdfs:
         for f in uploaded_pdfs:
             data = f.read()
-            # CSVs get routed: team-level vendor files (e.g. SIN MLB stacks)
-            # become session team data feeding the sport signals; player
-            # projections are redirected; everything else is saved as context.
-            if f.name.lower().endswith(".csv"):
-                detected = None
-                try:
-                    detected = load_projections(io.BytesIO(data))
-                except Exception:
-                    pass
-                if detected is not None and detected.attrs.get("kind") == "team_stacks":
-                    sessions.save_team_data(slug, f.name, detected, detected.attrs["vendor"])
-                    st.success(
-                        f"📊 {f.name} — detected as **{detected.attrs['vendor']}** "
-                        f"({len(detected)} teams). Feeds the {sport.upper()} stack signals."
-                    )
-                    continue
-                if detected is not None and detected.attrs.get("kind") is not None:
-                    # Recognized non-projection data (e.g. SIN rankings):
-                    # falls through and is saved below as slate context.
-                    pass
-                elif detected is not None and detected.attrs.get("vendor") is not None:
-                    st.warning(
-                        f"{f.name} looks like **{detected.attrs['vendor']}** player "
-                        "projections — upload it in the **Projections** tab instead."
-                    )
-                    continue
             ts = datetime.now().strftime("%Y-%m-%d")
             dest = articles_dir / f"{ts}__{f.name}"
             try:
@@ -293,22 +131,10 @@ with tab_slate:
             except OSError as e:
                 st.error(f"Couldn't save {f.name}: {e}")
 
-    team_data = sessions.load_team_data(slug)
-    if team_data is not None:
-        cols = st.columns([5, 1])
-        cols[0].write(
-            f"📊 {team_data.attrs.get('filename', 'team data')} — "
-            f"`{team_data.attrs.get('vendor')}` · {len(team_data)} teams "
-            f"(feeds the {sport.upper()} stack signals)"
-        )
-        if cols[1].button("Drop", key=f"drop_team_data_{slug}"):
-            sessions.drop_team_data(slug)
-            st.rerun()
-
     files = sorted(articles_dir.glob("*"))
-    if not files and team_data is None:
+    if not files:
         st.info("No slate data uploaded yet for this contest type.")
-    elif files:
+    else:
         st.markdown(f"**{len(files)} file(s):**")
         for f in files:
             cols = st.columns([5, 1])
@@ -323,80 +149,26 @@ with tab_slate:
                 st.rerun()
 
 
-# ===== Tab 3: Sim Data =====
-with tab_sim:
-    st.subheader(f"Sim Data — {contest_label}")
+# ===== Tab 2: Slate Strategy =====
+with tab_strategy:
+    st.subheader(f"Slate Strategy — {contest_label}")
     st.caption(
-        "Optional. Upload one or more lineup-pool CSVs — a SaberSim export (with sims) "
-        "or a traditional optimizer's files (projection-/ceiling-/50-50-weighted, often "
-        "without sims). Upload several at once; they're stored as-is and the **Select "
-        "lineups** action in the Analyze tab picks from all of them. Sim columns are optional."
-    )
-
-    up = st.file_uploader(
-        "Lineup-pool CSV(s)", type="csv", accept_multiple_files=True, key=f"sim_{slug}"
-    )
-    if up and st.button("Store file(s)", type="primary", key=f"sim_save_{slug}"):
-        for f in up:
-            meta = save_sim(slug, f)
-            if meta.get("error"):
-                st.warning(f"Stored {meta['filename']}, but {meta['error']}")
-            else:
-                kind = "with sims" if meta.get("has_sim_cols") else "rosters only"
-                st.success(f"Stored {meta['filename']} — {meta['n_rows']:,} rows × {meta['n_cols']} cols ({kind})")
-        st.rerun()
-
-    sim_files = load_sim_files(slug)
-    if sim_files:
-        st.divider()
-        st.markdown(f"### Stored lineup pools ({len(sim_files)})")
-        for sim in sim_files:
-            kind = "with sims" if sim.get("has_sim_cols") else "rosters only"
-            cols = st.columns([5, 1])
-            cols[0].markdown(
-                f"📄 `{sim['filename']}` · {sim['n_rows']:,} rows · {sim['n_cols']} cols · **{kind}**"
-            )
-            if cols[1].button("Drop", key=f"sim_drop_{slug}_{sim['filename']}"):
-                try:
-                    drop_sim_file(slug, sim["filename"])
-                except OSError as e:
-                    st.error(f"Couldn't drop {sim['filename']}: {e}")
-                st.rerun()
-            if sim.get("error"):
-                st.warning(sim["error"])
-        with st.expander("Preview columns / rows"):
-            for sim in sim_files:
-                st.caption(f"`{sim['filename']}` columns: " + ", ".join(sim.get("columns", [])))
-                if sim.get("preview"):
-                    st.dataframe(pd.DataFrame(sim["preview"]), use_container_width=True)
-        if st.button("Remove all", key=f"sim_clear_{slug}"):
-            clear_sim(slug)
-            st.rerun()
-    else:
-        st.info("No lineup pools stored for this slate.")
-
-
-# ===== Tab 4: Analyze =====
-with tab_analyze:
-    st.subheader(f"Analyze — {contest_label}")
-    st.caption(
-        "Set your contests, review the auto-snapshot, then bundle everything for Claude. "
-        "Claude's written analysis appears at the bottom."
+        "Declare your contests, then generate the article-driven slate strategy. "
+        "Claude reads your uploaded articles + strategy docs and writes the strategy below."
     )
 
     # ----- (a) Contest config (folded in) -----
     contests_list = load_contests(slug)
     with st.expander("Contests", expanded=not contests_list):
         st.caption(
-            "Declare which contests you're entering. Field size + your entry count drive how "
-            "contrarian the read is and how many unique lineups Claude builds."
+            "Declare which contests you're entering. Field size frames how contrarian "
+            "the read should be."
         )
         if contests_list:
             csum = portfolio_summary(slug)
-            c1, c2, c3 = st.columns(3)
+            c1, c2 = st.columns(2)
             c1.metric("Contests", csum["n_contests"])
             c2.metric("Total entries", csum["total_entries"])
-            c3.metric("Unique lineups needed", csum["unique_lineups_needed"])
 
         templates = load_templates(slug)
         if templates:
@@ -489,676 +261,41 @@ with tab_analyze:
                 remove_contest(slug, c["id"])
                 st.rerun()
 
-    # ----- (b) Auto-snapshot -----
+    # ----- (b) Generate the slate strategy (one click) -----
     st.markdown("---")
-    sources = sessions.merge_same_vendor(sessions.load_sources(slug))
-    if not sources:
-        st.info("Upload projections in the Projections tab — the snapshot pulls from your active session.")
-    else:
-        primary_name = list(sources.keys())[0]
-        df = sources[primary_name]["df"]
-        st.caption(f"Reading from: **{primary_name}** ({sources[primary_name]['vendor']})")
-
-        snap = snapshot(df)
-        c1, c2, c3, c4 = st.columns(4)
-        c1.metric("Players", f"{snap['n_players']}")
-        c2.metric("Top-5 own concentration", f"{snap['top5_own_concentration_pct']}%")
-        c3.metric("Chalk (≥15%)", f"{snap['n_chalk']}")
-        c4.metric("Leverage pool (<5% own)", f"{snap['n_leverage_candidates']}")
-        st.caption(
-            f"Avg salary ${snap['avg_salary']:,.0f} · range ${snap['min_salary']:,}–${snap['max_salary']:,} · avg proj {snap['avg_proj']}"
-        )
-
-        st.markdown("### Chalk tiers")
-        st.dataframe(chalk_summary(df), use_container_width=True)
-
-        st.markdown("### Top chalk")
-        chalk = top_chalk(df)
-        if chalk.empty:
-            st.info("No players above 15% ownership.")
-        else:
-            st.dataframe(chalk, use_container_width=True)
-
-        st.markdown("### Top leverage candidates")
-        st.caption("Sorted by `upside / (ownership + 1)`. Higher = better GPP leverage.")
-        st.dataframe(leverage_table(df), use_container_width=True)
-
-        st.markdown("### Anchor-Equivalence pre-lock check")
-        with st.expander("📖 Read the rule"):
-            st.markdown(load_shared("anchor_equivalence") or "_Missing._")
-        groups = anchor_equivalence_check(df)
-        if not groups:
-            st.success("✅ No anchor-equivalence pairs at similar ownership.")
-        else:
-            for g in groups:
-                st.warning(
-                    f"**{', '.join(g['players'])}** (own% {g['own_range'][0]:.1f}–{g['own_range'][1]:.1f}) — {g['rule']}"
-                )
-
-        # Sport-specific signals
-        signals = sport_signals(df, sport, team_data=sessions.load_team_data(slug))
-        if signals:
-            st.markdown(f"### {sport.upper()} signals")
-            for key, table in signals.items():
-                st.markdown(f"**{key.replace('_', ' ').title()}**")
-                st.dataframe(table, use_container_width=True)
-
-        # NASCAR track reminder
-        if slug == "nascar":
-            track_files = strategy["track_files"]
-            if track_files:
-                picked = st.selectbox("Track notes", track_files, key=f"nascar_track_pick_{slug}")
-                with st.expander(f"🏁 Track notes — {picked}", expanded=False):
-                    st.markdown(load_track(picked))
-            else:
-                st.warning("No NASCAR track notes yet. Add `rules/nascar/tracks/<slug>.md`.")
-        if slug == "pga_rd4_sd":
-            st.warning("⛳ **RD4 Showdown**: flat 6-golfer lineup — NO captain, NO 1.5x multiplier.")
-
-        # Cross-vendor disagreement (auto)
-        if len(sources) >= 2:
-            st.markdown("### Vendor disagreement (top 5 on proj_points)")
-            flagged = flagged_disagreements(sources, metric="proj_points", pct_threshold=15.0)
-            if flagged.empty:
-                st.success("Vendors broadly agree at the 15% threshold.")
-            else:
-                st.dataframe(flagged.head(5), use_container_width=True)
-
-    # ----- (d) Generate the slate analysis (one click) -----
-    st.markdown("---")
-    st.markdown("### Generate slate analysis")
+    st.markdown("### Generate slate strategy")
     st.caption(
-        "Runs Claude on your uploaded projections, articles, and strategy docs and writes "
-        "the analysis below — no need to leave the app. Takes ~1–3 minutes. "
+        "Runs Claude on your uploaded articles + strategy docs and writes the slate "
+        "strategy below — no need to leave the app. Takes ~1–3 minutes. "
         "Uses your Claude subscription."
     )
-    if not sources:
-        st.info("Upload projections first — the analysis reads from your active session.")
-    elif st.button("✨ Generate slate analysis", type="primary", key=f"analyze_{slug}"):
-        with st.spinner("Analyzing the slate — reading your projections, articles, and strategy docs… (~1–3 min)"):
+    article_files = sorted((REPO_ROOT / "articles" / slug).glob("*"))
+    if not article_files:
+        st.info("Upload articles in the **Slate Data** tab first — the strategy reads from them.")
+    elif st.button("✨ Generate slate strategy", type="primary", key=f"strategy_{slug}"):
+        with st.spinner("Building the slate strategy — reading your articles and strategy docs… (~1–3 min)"):
             result = run_analysis(slug, contest_label, sport)
         if result["ok"]:
             cost = result.get("cost_usd")
             cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
-            st.success(f"Analysis written in {result['duration_s']:.0f}s{cost_note}.")
+            st.success(f"Slate strategy written in {result['duration_s']:.0f}s{cost_note}.")
             st.rerun()
         else:
-            st.error(f"Couldn't generate the analysis: {result['error']}")
+            st.error(f"Couldn't generate the slate strategy: {result['error']}")
 
-    # ----- (e) The written analysis -----
+    # ----- (c) The written slate strategy -----
     st.markdown("---")
-    st.markdown("## Slate analysis")
+    st.markdown("## Slate strategy")
     persisted = load_persisted(slug)
     if persisted:
         with st.container(border=True):
             st.caption(f"Last updated: {persisted['mtime']}")
             st.markdown(persisted["markdown"])
     else:
-        st.info("**No saved analysis yet.** Click **Generate slate analysis** above and it appears here.")
-
-    # ----- (f) Select lineups (PRIMARY path — pick from the uploaded pool) -----
-    st.markdown("---")
-    st.markdown("### Select lineups (from uploaded lineup pool)")
-    st.caption(
-        "**Your default path.** You've already built lineups in SaberSim or an optimizer — "
-        "upload the lineup-pool CSV(s) in the Sim Data tab (multiple files OK — proj/ceiling/"
-        "50-50), then click below. Claude picks the best lineups FROM your pool that express "
-        "this slate's edges (NOT just the top sim rows), each with a distinct thesis, and "
-        "writes them as your portfolio — exactly the number you ask for. Sim columns optional. "
-        "Takes ~3–15 minutes; uses your Claude subscription."
-    )
-    n_select = st.number_input(
-        "How many lineups?",
-        min_value=1, max_value=150,
-        value=lineup_target(slug),
-        key=f"select_n_{slug}",
-        help="You'll get exactly this many — override the default freely.",
-    )
-    sim_files = load_sim_files(slug)
-    pool_has_ids = any("dk_id" in s["df"].columns for s in sources.values())
-    if not persisted:
-        st.info("Generate the slate analysis first — selections are judged against it.")
-    elif not sim_files:
-        st.info(
-            "Upload your lineup-pool CSV(s) in the **Sim Data** tab — these are the lineups "
-            "Claude picks from (SaberSim or any optimizer export; one or many files)."
-        )
-    elif not pool_has_ids:
-        st.info(
-            "The loaded projections carry no DK IDs, so the pool's rows can't be matched to "
-            "players. Load a pool with an ID column (e.g. the SaberSim **projections** export) "
-            "in the Projections tab — Ship It Nation has no IDs."
-        )
-    elif st.button("🎯 Select lineups", type="primary", key=f"select_lineups_{slug}"):
-        with st.spinner(f"Selecting {n_select} lineup(s) from your pool… (~3–15 min — leave this tab open)"):
-            sresult = run_select_lineups(slug, contest_label, sport, n_select)
-        if sresult["ok"]:
-            cost = sresult.get("cost_usd")
-            cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
-            st.session_state[f"select_flash_{slug}"] = {
-                "audit": sresult.get("audit") or {},
-                "pool": sresult.get("pool") or {},
-            }
-            st.success(f"Lineups selected in {sresult['duration_s']:.0f}s{cost_note}.")
-            st.rerun()
-        else:
-            st.error(f"Couldn't select lineups: {sresult['error']}")
-
-    # ----- (f2) Build lineups from scratch (secondary — only when there's NO pool) -----
-    with st.expander("🏗️ Build lineups from scratch (no pool)", expanded=False):
-        st.caption(
-            "Use this **only when you have no uploaded pool** — Claude invents rosters from the "
-            "analysis. Produces exactly the number you ask for (distinct theses prioritized). "
-            "Handbuilt lineups already saved are kept and built around. "
-            "Takes ~3–15 minutes on big slates; uses your Claude subscription."
-        )
-        n_target = st.number_input(
-            "How many lineups?",
-            min_value=1, max_value=150,
-            value=lineup_target(slug),
-            key=f"build_n_{slug}",
-            help="You'll get exactly this many — override the default freely.",
-        )
-        if not persisted:
-            st.info("Generate the slate analysis first — lineups are built from it.")
-        elif st.button("🏗️ Build lineups", type="secondary", key=f"build_lineups_{slug}"):
-            with st.spinner(f"Building {n_target} lineup(s) from the analysis… (~3–15 min — leave this tab open)"):
-                lresult = run_build_lineups(slug, contest_label, sport, n_target)
-            if lresult["ok"]:
-                cost = lresult.get("cost_usd")
-                cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
-                st.success(f"Lineups built in {lresult['duration_s']:.0f}s{cost_note}.")
-                st.rerun()
-            else:
-                st.error(f"Couldn't build lineups: {lresult['error']}")
-
-    _flash = st.session_state.pop(f"select_flash_{slug}", None)
-    if _flash:
-        _pool = _flash.get("pool") or {}
-        if _pool.get("n_total") is not None:
-            st.caption(
-                f"Pool resolved: {_pool['n_total']:,} unique candidate lineup(s) → "
-                f"{_pool.get('n_shortlist', 0)} diverse menu rows the LLM picked from."
-            )
-        for _n in _pool.get("notes") or []:
-            st.warning(f"Pool note: {_n}")
-
-        _audit = _flash.get("audit") or {}
-        if _audit.get("computed"):
-            _v = _audit.get("violations") or []
-            if _v:
-                st.warning(
-                    "🧮 Computed portfolio audit (Python, not the LLM) flagged: "
-                    + "; ".join(_v)
-                )
-            else:
-                st.success(
-                    f"🧮 Computed portfolio audit: {_audit.get('n_selected', 0)} selected "
-                    "lineup(s), no overlap/exposure cap violations — verified in Python."
-                )
-        elif _audit.get("note"):
-            st.info("🧮 Computed audit: " + _audit["note"])
-
-    lineups_blob = load_lineups(slug)
-    if lineups_blob:
-        with st.container(border=True):
-            st.caption(f"Last updated: {lineups_blob['mtime']}")
-            st.markdown(lineups_blob["markdown"])
-
-        # ----- Export to DraftKings (upload-ready) -----
-        with st.expander("🏈 Export to DraftKings (upload-ready)"):
-            st.caption(
-                "On DraftKings: enter the contest → **My Entries → Export to CSV** to download your "
-                "reserved entries (a `DKEntries-….csv`). Drop it here and I'll fill your portfolio "
-                "lineups into it — one lineup per entry, in DK's exact `Name (ID)` format — so you "
-                "upload one file back instead of hand-entering."
-            )
-            from src.dk_export import (read_dk_entries, fill_dk_template,
-                                       parse_portfolio_rosters, rosters_to_lineups)
-            _rsize = len(roster_spec(slug)["slots"])
-            _rosters = parse_portfolio_rosters(lineups_blob["markdown"], roster_size=_rsize)
-            _src = sessions.merge_same_vendor(sessions.load_sources(slug))
-            _pdf = max(_src.values(), key=lambda v: len(v["df"]))["df"] if _src else None
-            if _pdf is None or "dk_id" not in _pdf.columns:
-                st.warning("Your loaded pool has no `dk_id` column — DK upload needs player IDs "
-                           "(golf/MMA vendor CSVs include them; SIN MLB doesn't yet).")
-            elif not _rosters:
-                st.info("No roster tables parsed from the portfolio yet.")
-            else:
-                _lineups, _unresolved = rosters_to_lineups(_rosters, dict(zip(_pdf["name"], _pdf["dk_id"])))
-                st.write(f"Parsed **{len(_lineups)}** lineups from your portfolio.")
-                if _unresolved:
-                    st.warning("Couldn't match these names to a DK ID (check spelling vs the pool): "
-                               + ", ".join(_unresolved))
-                _dk_file = st.file_uploader("DK entries CSV (DKEntries-….csv)", type="csv",
-                                            key=f"dk_tmpl_{slug}")
-                if _dk_file is not None:
-                    try:
-                        _tmpl = read_dk_entries(_dk_file)
-                    except Exception as _e:  # noqa: BLE001
-                        st.error(f"Couldn't read that as a DK entries file: {_e}")
-                        _tmpl = None
-                    if _tmpl is not None and not _tmpl.empty:
-                        _counts = _tmpl["Contest Name"].value_counts() if "Contest Name" in _tmpl.columns else {}
-                        _opts = ["(all entries, in order)"] + list(_counts.index)
-                        _pick = st.selectbox("Fill entries for", _opts, key=f"dk_contest_{slug}")
-                        _cn = None if _pick.startswith("(all") else _pick
-                        _filled, _info = fill_dk_template(_tmpl, _lineups, contest_name=_cn)
-                        st.write(f"**{_info['filled']}** of **{_info['n_entries']}** entries filled.")
-                        for _w in _info.get("warnings", []):
-                            st.warning(_w)
-                        st.download_button(
-                            "⬇️ Download DK-ready CSV", data=_filled.to_csv(index=False),
-                            file_name=f"DKEntries_filled_{slug}.csv", mime="text/csv", type="primary",
-                            help="Upload this back on DraftKings (My Entries → Import/Upload).",
-                        )
-
-        # ----- (g) Red team (adversarial pre-lock review) -----
-        st.markdown("---")
-        st.markdown("### Red team")
-        st.caption(
-            "Adversarial pre-lock review: tries to refute each lineup's thesis, audits the "
-            "leverage math and the pre-flight checklist, and hunts shared failure modes. "
-            "Verdicts are SHIP / FIX / KILL — findings only, nothing is rewritten. "
-            "Takes ~1–3 minutes; uses your Claude subscription."
-        )
-        if st.button("🔪 Red team the lineups", key=f"red_team_{slug}"):
-            with st.spinner("Red-teaming the portfolio — attacking each thesis… (~1–3 min)"):
-                rt = run_red_team(slug, contest_label, sport)
-            if rt["ok"]:
-                cost = rt.get("cost_usd")
-                cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
-                st.success(f"Red-team review written in {rt['duration_s']:.0f}s{cost_note}.")
-                st.rerun()
-            else:
-                st.error(f"Couldn't run the red team: {rt['error']}")
-
-        rt_blob = load_red_team(slug)
-        rt_current = bool(rt_blob) and rt_blob["mtime"] >= lineups_blob["mtime"]
-        if rt_blob:
-            if not rt_current:
-                st.warning("Lineups changed since this red-team review — re-run it.")
-            with st.container(border=True):
-                st.caption(f"Last updated: {rt_blob['mtime']}")
-                st.markdown(rt_blob["markdown"])
-
-        # ----- (h) Fix flagged lineups (re-select replacements from the pool) -----
-        if rt_blob:
-            st.markdown("---")
-            st.markdown("### Fix flagged lineups")
-            st.caption(
-                "For each lineup the Red Team marked FIX or KILL, Claude proposes a replacement "
-                "**re-selected from your uploaded pool** (never built from scratch) — SHIP lineups "
-                "are left untouched. Review the proposals, then apply them to your portfolio. "
-                "Takes ~2–5 minutes; uses your Claude subscription."
-            )
-            flagged = flagged_lineups(slug)
-            if not rt_current:
-                st.info("Re-run the Red Team first — the review is older than your current lineups.")
-            elif not flagged:
-                st.info("Every lineup is a SHIP — nothing flagged to fix. 🎉")
-            elif not sim_files:
-                st.info(
-                    "Fixes are re-selected from your pool — upload your lineup-pool CSV(s) in the "
-                    "**Sim Data** tab first."
-                )
-            elif not pool_has_ids:
-                st.info(
-                    "The loaded projections carry no DK IDs, so pool rows can't be matched to players. "
-                    "Attach DK IDs in the **Projections** tab first."
-                )
-            else:
-                st.caption(f"**{len(flagged)} lineup(s) flagged:** " + "; ".join(flagged))
-                if st.button("🔧 Fix flagged lineups (re-select from pool)", key=f"fix_lineups_{slug}"):
-                    with st.spinner(f"Re-selecting replacements for {len(flagged)} lineup(s) from your pool… (~2–5 min)"):
-                        fr = run_fix_lineups(slug, contest_label, sport)
-                    if fr["ok"]:
-                        cost = fr.get("cost_usd")
-                        cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
-                        st.success(f"Fix proposals written in {fr['duration_s']:.0f}s{cost_note}. Review below, then apply.")
-                        st.rerun()
-                    else:
-                        st.error(f"Couldn't propose fixes: {fr['error']}")
-
-            fx_blob = load_lineup_fixes(slug)
-            if fx_blob:
-                if fx_blob["mtime"] < rt_blob["mtime"]:
-                    st.warning("These proposals predate the latest red-team review — re-run Fix.")
-                with st.container(border=True):
-                    st.caption(f"Proposals · {fx_blob['mtime']}")
-                    st.markdown(fx_blob["markdown"])
-                fa_col, _ = st.columns([1, 2])
-                if fa_col.button("✅ Apply fixes to portfolio", type="primary", key=f"apply_fixes_{slug}"):
-                    with st.spinner("Applying fixes — keeping SHIP lineups, swapping the flagged ones…"):
-                        ar = run_apply_lineup_fixes(slug, contest_label, sport)
-                    if ar["ok"]:
-                        clear_lineup_fixes(slug)
-                        st.success(f"Portfolio updated in {ar['duration_s']:.0f}s. Re-run the Red Team to confirm the fixes.")
-                        st.rerun()
-                    else:
-                        st.error(f"Couldn't apply fixes: {ar['error']}")
+        st.info("**No saved strategy yet.** Click **Generate slate strategy** above and it appears here.")
 
 
-# ===== Tab 5: Handbuild =====
-with tab_hand:
-    st.subheader(f"Handbuild — {contest_label}")
-    st.caption(
-        "Build a lineup by hand from your loaded projections. Live salary / projection / "
-        "ownership totals as you pick. Saved lineups join the portfolio — covered by "
-        "Red Team, archived on autopsy."
-    )
-
-    hb_pool = sessions.merge_same_vendor(sessions.load_sources(slug))
-    if not hb_pool:
-        st.info("Upload projections first — handbuilding picks from your loaded player pool.")
-    else:
-        hb_src = st.selectbox("Player pool source", list(hb_pool.keys()), key=f"hb_src_{slug}")
-        hb_df = hb_pool[hb_src]["df"]
-        if slug == "pga_rd4_sd":
-            st.caption("⛳ Flat 6-golfer lineup — no captain, no multiplier.")
-
-        spec = roster_spec(slug)
-        n_slots = len(spec["slots"])
-
-        # Slot labels: "P 1, P 2, C, 1B…" for MLB; "Golfer 1…6" for flat sports
-        slot_labels = []
-        seen_slots = {}
-        for s in spec["slots"]:
-            seen_slots[s] = seen_slots.get(s, 0) + 1
-            count_of = spec["slots"].count(s)
-            if spec["positional"]:
-                slot_labels.append(f"{s} {seen_slots[s]}" if count_of > 1 else s)
-            else:
-                slot_labels.append(f"{spec['slot_label']} {seen_slots[s]}")
-
-        # Pool view: pinned order — selection indices map into THIS df, so its
-        # row order must never change between reruns.
-        view = hb_df.copy()
-        view["value"] = (view["proj_points"] / view["salary"] * 1000).round(2)
-        view["sub10"] = view["ownership"] < 10
-        view = view.sort_values(["salary", "name"], ascending=[False, True]).reset_index(drop=True)
-        extras = {
-            "golf": ["current_score", "tee_time", "ceiling", "make_cut_odds"],
-            "mma": ["win_prob", "ko_pct", "sub_pct", "dec_pct"],
-            "nascar": ["starting_position", "dominator_points", "fast_laps"],
-            "mlb": [],
-        }.get(sport, [])
-        wanted = ["name", "position", "team", "opponent", "salary", "proj_points",
-                  "ownership", "value", "sub10"] + extras
-        cols = [c for c in wanted if c in view.columns]
-
-        nonce_key = f"hb_nonce_{slug}"
-        nonce = st.session_state.setdefault(nonce_key, 0)
-        left, right = st.columns([3, 2], gap="medium")
-
-        with left:
-            event = st.dataframe(
-                view[cols], hide_index=True, height=500,
-                use_container_width=True,
-                on_select="rerun", selection_mode="multi-row",
-                key=f"hb_table_{slug}_{hb_src}_{nonce}",
-                column_config={
-                    "sub10": st.column_config.CheckboxColumn("<10% own"),
-                    "ownership": st.column_config.NumberColumn("own%", format="%.1f"),
-                    "proj_points": st.column_config.NumberColumn("proj", format="%.1f"),
-                },
-            )
-            st.caption(
-                "Click rows to add players · deselect to remove. Sorting a column "
-                "clears your picks — use the table's 🔍 search instead."
-            )
-
-        sel_rows = sorted(event.selection.rows)
-        ignored = sel_rows[n_slots:]
-        sel_rows = sel_rows[:n_slots]
-        selected = [
-            {k: (None if pd.isna(v) else v) for k, v in view.iloc[i].items()}
-            for i in sel_rows
-        ]
-        picked, assign_errors = assign_slots(selected, spec)
-
-        with right:
-            totals = lineup_totals(picked, spec["cap"])
-            open_slots = n_slots - totals["n_players"]
-            rem_per = totals["salary_left"] // open_slots if open_slots else None
-            st.markdown(f"#### Lineup ({totals['n_players']}/{n_slots})")
-            a1, a2, a3 = st.columns(3)
-            a1.metric("Salary", f"${totals['salary_used']:,}")
-            a2.metric("Remaining", f"${totals['salary_left']:,}")
-            a3.metric("Rem/Player", f"${rem_per:,}" if rem_per is not None else "—")
-            b1, b2, b3 = st.columns(3)
-            b1.metric("Proj", totals["proj_total"])
-            b2.metric("Own%", f"{totals['own_total']}%")
-            b3.metric("Sub-10%", totals["n_sub10"])
-
-            if ignored:
-                names = ", ".join(view.iloc[i]["name"] for i in ignored)
-                st.warning(
-                    f"{len(ignored)} too many players selected — ignoring: {names}. "
-                    "Deselect rows to fix."
-                )
-
-            # Slot list — picked is in spec slot order, so a pointer-walk lines
-            # each player up with its label (handles P/P and OF×3 duplicates).
-            ptr = 0
-            lines = []
-            for i, label in enumerate(slot_labels):
-                if ptr < len(picked) and picked[ptr]["slot"] == spec["slots"][i]:
-                    p = picked[ptr]
-                    ptr += 1
-                    own = f"{float(p['ownership']):.1f}%" if p.get("ownership") is not None else "—"
-                    proj = f"{float(p['proj_points']):.1f}" if p.get("proj_points") is not None else "—"
-                    lines.append(f"**{label}** · {p['name']} · ${int(p['salary']):,} · {proj} · {own}")
-                else:
-                    lines.append(f"**{label}** · *— empty —*")
-            st.markdown("\n\n".join(lines))
-            st.caption("To remove a player, deselect their row in the table.")
-
-            for e in assign_errors:
-                st.error(e)
-
-            # Live structural errors only — don't nag about incomplete slots mid-build
-            if picked:
-                live_errors = [
-                    e for e in validate_lineup(slug, picked, thesis="x", what_if="x")
-                    if e.startswith("Over the") or e.startswith("House rule")
-                    or "not eligible" in e or e.startswith("Duplicate")
-                ]
-                for e in live_errors:
-                    st.error(e)
-
-            # Analyze & save block — Claude writes the thesis/'What if?'; the
-            # user never types them. Analyze first, then save with its output.
-            st.markdown("##### Claude analyze & save")
-            hb_name = st.text_input(
-                "Lineup name (optional)", key=f"hb_name_{slug}",
-                placeholder='e.g. "Braves Freight Train"',
-            )
-            hb_analysis = load_handbuild_analysis(slug)
-            analysis_is_current = (
-                hb_analysis is not None
-                and sorted(hb_analysis["players"]) == sorted(p["name"] for p in picked)
-            )
-            # Table picks live in the browser session — a refresh, dropped
-            # connection, or server restart clears them. The analyzed lineup
-            # snapshot survives on disk, so saving still works from it.
-            analysis_recoverable = (
-                not picked and hb_analysis is not None and bool(hb_analysis["player_rows"])
-            )
-            if analysis_recoverable:
-                st.info(
-                    "Table picks were reset (page refresh / lost connection), but your "
-                    "analyzed lineup is intact: "
-                    f"{', '.join(hb_analysis['players'])}. 💾 Save lineup still saves it — "
-                    "or re-click the players to keep editing."
-                )
-
-            c1, c2, c3 = st.columns([1, 1, 1])
-            if c1.button("🧠 Claude analyze", type="primary", key=f"hb_analyze_{slug}"):
-                errors = assign_errors + validate_lineup(slug, picked, thesis="x", what_if="x")
-                if errors:
-                    for e in errors:
-                        st.error(e)
-                else:
-                    with st.spinner("Claude is analyzing your handbuild… (~1–2 min)"):
-                        res = run_handbuild_analysis(slug, contest_label, sport, picked, totals)
-                    if res["ok"]:
-                        st.rerun()
-                    else:
-                        st.error(res["error"])
-            if c2.button("💾 Save lineup", key=f"hb_save_{slug}"):
-                if analysis_is_current:
-                    save_rows = picked
-                elif analysis_recoverable:
-                    save_rows = hb_analysis["player_rows"]
-                else:
-                    save_rows = None
-                if save_rows is None:
-                    st.error(
-                        "Run 🧠 Claude analyze first — it writes the thesis and 'What if?' "
-                        "this lineup is saved with."
-                    )
-                elif not (hb_analysis["thesis"] and hb_analysis["what_if"]):
-                    st.error(
-                        "Couldn't read a Thesis / 'What if?' from the analysis — "
-                        "re-run 🧠 Claude analyze."
-                    )
-                else:
-                    errors = assign_errors + validate_lineup(
-                        slug, save_rows, hb_analysis["thesis"], hb_analysis["what_if"]
-                    )
-                    if errors:
-                        for e in errors:
-                            st.error(e)
-                    else:
-                        n = append_handbuilt_lineup(
-                            slug, contest_label, hb_name,
-                            hb_analysis["thesis"], hb_analysis["what_if"], save_rows,
-                        )
-                        clear_handbuild_analysis(slug)
-                        st.session_state[nonce_key] = nonce + 1
-                        st.session_state.pop(f"hb_name_{slug}", None)
-                        st.success(
-                            f"Saved Lineup {n} (handbuilt) to data/lineups/{slug}.md — it shows "
-                            "in the Analyze tab and is covered by Red Team."
-                        )
-                        st.rerun()
-            if c3.button("Clear lineup", key=f"hb_clear_{slug}"):
-                clear_handbuild_analysis(slug)
-                st.session_state[nonce_key] = nonce + 1
-                st.session_state.pop(f"hb_name_{slug}", None)
-                st.rerun()
-
-        # Claude's read on the current handbuild
-        if hb_analysis:
-            st.markdown("#### 🧠 Claude's read on this handbuild")
-            if not analysis_is_current and not analysis_recoverable:
-                st.warning(
-                    "Lineup changed since this analysis — re-run 🧠 Claude analyze "
-                    "before saving."
-                )
-            with st.container(border=True):
-                st.caption(f"Last updated: {hb_analysis['mtime']}")
-                st.markdown(hb_analysis["markdown"])
-
-        # Current portfolio
-        hb_lineups = load_lineups(slug)
-        if hb_lineups:
-            with st.expander("Current lineups on this slate", expanded=False):
-                st.caption(f"data/lineups/{slug}.md · last updated {hb_lineups['mtime']}")
-                st.markdown(hb_lineups["markdown"])
-
-        # ----- Rank candidate lineups (construction coach) -----
-        st.markdown("---")
-        st.markdown("#### 📊 Rank candidate lineups")
-        st.caption(
-            "Built lineups elsewhere (SaberSim, etc.) and torn between them? Paste them as DK "
-            "player IDs — one lineup per line, IDs separated by spaces or commas. Claude ranks "
-            "them against your slate analysis and explains which construction is best and why. "
-            "Nothing here is submitted — it's a second opinion on your own builds."
-        )
-        if "dk_id" not in hb_df.columns:
-            st.info(
-                "The selected player pool doesn't carry DK IDs, so pasted IDs can't be "
-                "matched to players. Pick a source with an ID column in the **Player pool "
-                "source** dropdown above — for MLB, select the **SaberSim** pool (Ship It "
-                "Nation has no IDs). Golf and MMA pools always carry IDs."
-            )
-        else:
-            rank_text = st.text_area(
-                "Candidate lineups (DK player IDs)", key=f"rank_ids_{slug}", height=140,
-                placeholder=("43247065 43247064 43247066 43247070 43247072 43247080\n"
-                             "43247065, 43247064, 43247090, 43247095, 43247100, 43247110"),
-            )
-            resolved, _ = (resolve_id_lineups(rank_text, hb_df, slug)
-                           if rank_text.strip() else ([], []))
-            n_slots = len(roster_spec(slug)["slots"])
-            for ln in resolved:
-                t = ln["totals"]
-                st.markdown(
-                    f"**{ln['label']}** · {t['n_players']}/{n_slots} · ${t['salary_used']:,} · "
-                    f"proj {t['proj_total']} · own {t['own_total']}%"
-                )
-                st.caption(", ".join(p["name"] for p in ln["players"]) or "—")
-                for e in ln["errors"]:
-                    st.caption(f"⚠️ {e}")
-            valid_lineups = [ln for ln in resolved if not ln["errors"]]
-            if resolved:
-                if st.button(
-                    f"📊 Rank these lineups ({len(valid_lineups)} valid)",
-                    type="primary", key=f"rank_btn_{slug}", disabled=not valid_lineups,
-                ):
-                    with st.spinner("Claude is ranking your lineups… (~1–2 min)"):
-                        res = run_rank_lineups(slug, contest_label, sport, valid_lineups)
-                    if res["ok"]:
-                        st.rerun()
-                    else:
-                        st.error(res["error"])
-
-        ranking = load_lineup_ranking(slug)
-        if ranking:
-            with st.container(border=True):
-                st.caption(f"Ranking · last updated {ranking['mtime']}")
-                st.markdown(ranking["markdown"])
-
-            # Save the keepers into the portfolio WITH the ranker's thesis, so
-            # they're covered by red team like every other lineup. Reads the
-            # ranked snapshot (not the live text box) so edits can't desync.
-            ranked_snapshot = load_ranking_input(slug)
-            theses = load_ranking_theses(slug)
-            if ranked_snapshot:
-                st.markdown("##### Save keepers to your portfolio")
-                st.caption(
-                    "Each saved lineup carries the thesis the ranker argued and is reviewed "
-                    "by the Analyze tab's 🔪 Red team button, same as any other lineup."
-                )
-                for ln in ranked_snapshot:
-                    label = ln.get("label", "")
-                    th = theses.get(label, {})
-                    thesis, what_if = th.get("thesis", ""), th.get("what_if", "")
-                    cols = st.columns([6, 2])
-                    names = ", ".join(p["name"] for p in ln["players"])
-                    cols[0].markdown(f"**{label}** — {names}")
-                    if cols[1].button(
-                        "💾 Save", key=f"rank_save_{slug}_{label}",
-                        disabled=not (thesis and what_if),
-                        help=None if (thesis and what_if)
-                        else "No thesis yet — re-run the ranking.",
-                    ):
-                        try:
-                            num = append_handbuilt_lineup(
-                                slug, contest_label, label, thesis, what_if,
-                                ln["players"], tag="from uploaded pool",
-                            )
-                            st.success(
-                                f"Saved Lineup {num} (from uploaded pool) to data/lineups/{slug}.md. "
-                                "Run 🔪 Red team in the Analyze tab to review it."
-                            )
-                        except ValueError as e:
-                            st.error(str(e))
-
-
-# ===== Tab 6: Autopsy =====
+# ===== Tab 3: Autopsy =====
 with tab_autopsy:
     st.subheader(f"Post-slate autopsy — {contest_label}")
 
@@ -1175,8 +312,9 @@ with tab_autopsy:
     if dk_csvs:
         # Parse + display each contest in its own section, collecting a per-CSV
         # payload (with its own notes) for the single Log button below. A bad
-        # CSV is reported but doesn't block the others.
-        proj_df, proj_source = load_session_projections(slug)
+        # CSV is reported but doesn't block the others. No projections in this
+        # tool — the autopsy works from DK standings alone.
+        proj_df, proj_source = None, None
         parsed_contests = []
         for i, dk_csv in enumerate(dk_csvs):
             try:
@@ -1209,28 +347,11 @@ with tab_autopsy:
                 ]
                 st.dataframe(top_players, use_container_width=True)
 
-                pm = analysis["proj_match"]
-                if pm["available"]:
-                    st.caption(
-                        f"Projections joined from **{proj_source}** — matched "
-                        f"{pm['matched']}/{pm['total']} players."
-                    )
-                    if pm["matched"] < pm["total"] * 0.7:
-                        st.warning(
-                            "Low projection match rate — the session may hold a "
-                            "different slate's projections. Salary/proj columns "
-                            "may be incomplete."
-                        )
-                else:
-                    st.warning(
-                        "No projections in the active session — salary, proj-vs-actual, "
-                        "and stack-shape analysis unavailable for this autopsy."
-                    )
                 if analysis.get("ambiguous_players"):
                     st.warning(
                         "Ambiguous in DK standings (two different players share this "
                         "name, and DK provides no team to tell them apart) — excluded "
-                        "from proj-vs-actual and vendor calibration: "
+                        "from the structural analysis: "
                         + ", ".join(analysis["ambiguous_players"])
                     )
 
@@ -1271,14 +392,6 @@ with tab_autopsy:
                     shapes = ", ".join(f"{k}×{v}" for k, v in list(ws["stack_shapes"].items())[:5])
                     dup_note += f" · winning stack shapes: {shapes}"
                 st.caption(dup_note)
-
-                if analysis["overperformers"] or analysis["underperformers"]:
-                    st.markdown("### Proj vs actual")
-                    c1, c2 = st.columns(2)
-                    c1.markdown("**Overperformed**")
-                    c1.dataframe(pd.DataFrame(analysis["overperformers"]), use_container_width=True)
-                    c2.markdown("**Underperformed**")
-                    c2.dataframe(pd.DataFrame(analysis["underperformers"]), use_container_width=True)
 
                 if analysis["slate_defining"]:
                     st.markdown("### Slate-defining plays")
@@ -1431,8 +544,8 @@ with tab_autopsy:
                     sgap = _shark_gap.gap_for_slug(slug, _biggest["parsed"])
                 except Exception:  # noqa: BLE001
                     sgap = None
-                # Archive the slate BEFORE clearing — lineups, analysis, and
-                # ROI survive in rules/<slug>/history/ + results.jsonl.
+                # Archive the slate BEFORE clearing — analysis and ROI survive
+                # in rules/<slug>/history/ + results.jsonl.
                 hist_dir = history.archive_slate(
                     slug=slug,
                     sport=sport,
@@ -1443,48 +556,17 @@ with tab_autopsy:
                     proj_source=proj_source,
                     shark_gap=sgap,
                 )
-                # Vendor calibration: score every uploaded vendor against the
-                # actuals from the largest-field contest. Never blocks the log.
-                cal_note = ""
-                try:
-                    biggest = max(parsed_contests, key=lambda pc: len(pc["lineups"]))
-                    cal_rows = score_vendors(slug, biggest["parsed"]["players"])
-                    for row in cal_rows:
-                        row.update({
-                            "schema_version": 1,
-                            "date": ts.split(" ")[0],
-                            "slug": slug,
-                            "sport": sport,
-                            "slate_label": slate_label.strip() or contest_label,
-                            "history_dir": str(hist_dir.relative_to(REPO_ROOT)),
-                            "calibrated_against": {
-                                "source_file": biggest["name"],
-                                "field_size": len(biggest["lineups"]),
-                            },
-                        })
-                    if cal_rows:
-                        history.append_calibration(slug, cal_rows)
-                        cal_note = f" Calibrated {len(cal_rows)} vendor(s) vs actuals."
-                except Exception as e:
-                    cal_note = f" (Vendor calibration skipped: {e})"
                 # Clear all per-slate state — next slate starts fresh
                 clear_persisted(slug)
-                clear_lineups(slug)
-                clear_red_team(slug)
-                clear_lineup_fixes(slug)
-                clear_handbuild_analysis(slug)
-                clear_lineup_ranking(slug)
                 clear_contests(slug)
-                clear_sim(slug)
                 clear_bundle(slug)
                 clear_articles(slug)
-                dk_ids.clear_map(slug)
                 st.success(
                     f"Logged {len(parsed_contests)} contest(s) to rules/{slug}/autopsies.md "
                     "+ autopsy_data.jsonl, and archived the slate to "
-                    f"`{hist_dir.relative_to(REPO_ROOT)}`.{cal_note} Cleared the slate "
-                    "analysis, lineups, red-team review, contests, sim data, slate data "
-                    "files, and bundle for next time. Now run the post-autopsy review below."
+                    f"`{hist_dir.relative_to(REPO_ROOT)}`. Cleared the slate strategy, "
+                    "contests, slate data files, and bundle for next time. Now run the "
+                    "post-autopsy review below."
                 )
 
     # ----- Post-autopsy review (the learning loop) ----- #
@@ -1495,7 +577,7 @@ with tab_autopsy:
         review_path = latest_hist / "autopsy_review.md"
         st.caption(
             f"Latest archived slate: `{latest_hist.relative_to(REPO_ROOT)}`. "
-            "The review grades the build process, updates the lesson ledger "
+            "The review grades the process, updates the lesson ledger "
             f"(rules/{slug}/lessons.yaml) and venue notes, and proposes framework "
             "changes for your approval. Takes ~1–3 minutes."
         )
@@ -1559,17 +641,6 @@ with tab_autopsy:
             for r in reversed(results_rows)
         ])
         st.dataframe(ledger, use_container_width=True)
-
-    # ----- Vendor accuracy ----- #
-    acc = history.vendor_accuracy(slug)
-    if acc:
-        st.divider()
-        st.markdown("### Vendor accuracy (last 10 slates)")
-        st.caption(
-            "Projection / ownership mean absolute error vs DK actuals from the "
-            "largest-field contest per slate. Under 3 slates = small sample, note only."
-        )
-        st.dataframe(pd.DataFrame(acc), use_container_width=True)
 
     st.divider()
     st.markdown("### Cross-slate patterns (autopsies.md)")
