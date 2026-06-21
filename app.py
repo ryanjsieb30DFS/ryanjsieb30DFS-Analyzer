@@ -705,6 +705,54 @@ with tab_analyze:
             st.caption(f"Last updated: {lineups_blob['mtime']}")
             st.markdown(lineups_blob["markdown"])
 
+        # ----- Export to DraftKings (upload-ready) -----
+        with st.expander("🏈 Export to DraftKings (upload-ready)"):
+            st.caption(
+                "On DraftKings: enter the contest → **My Entries → Export to CSV** to download your "
+                "reserved entries (a `DKEntries-….csv`). Drop it here and I'll fill your portfolio "
+                "lineups into it — one lineup per entry, in DK's exact `Name (ID)` format — so you "
+                "upload one file back instead of hand-entering."
+            )
+            from src.dk_export import (read_dk_entries, fill_dk_template,
+                                       parse_portfolio_rosters, rosters_to_lineups)
+            _rsize = len(roster_spec(slug)["slots"])
+            _rosters = parse_portfolio_rosters(lineups_blob["markdown"], roster_size=_rsize)
+            _src = sessions.merge_same_vendor(sessions.load_sources(slug))
+            _pdf = max(_src.values(), key=lambda v: len(v["df"]))["df"] if _src else None
+            if _pdf is None or "dk_id" not in _pdf.columns:
+                st.warning("Your loaded pool has no `dk_id` column — DK upload needs player IDs "
+                           "(golf/MMA vendor CSVs include them; SIN MLB doesn't yet).")
+            elif not _rosters:
+                st.info("No roster tables parsed from the portfolio yet.")
+            else:
+                _lineups, _unresolved = rosters_to_lineups(_rosters, dict(zip(_pdf["name"], _pdf["dk_id"])))
+                st.write(f"Parsed **{len(_lineups)}** lineups from your portfolio.")
+                if _unresolved:
+                    st.warning("Couldn't match these names to a DK ID (check spelling vs the pool): "
+                               + ", ".join(_unresolved))
+                _dk_file = st.file_uploader("DK entries CSV (DKEntries-….csv)", type="csv",
+                                            key=f"dk_tmpl_{slug}")
+                if _dk_file is not None:
+                    try:
+                        _tmpl = read_dk_entries(_dk_file)
+                    except Exception as _e:  # noqa: BLE001
+                        st.error(f"Couldn't read that as a DK entries file: {_e}")
+                        _tmpl = None
+                    if _tmpl is not None and not _tmpl.empty:
+                        _counts = _tmpl["Contest Name"].value_counts() if "Contest Name" in _tmpl.columns else {}
+                        _opts = ["(all entries, in order)"] + list(_counts.index)
+                        _pick = st.selectbox("Fill entries for", _opts, key=f"dk_contest_{slug}")
+                        _cn = None if _pick.startswith("(all") else _pick
+                        _filled, _info = fill_dk_template(_tmpl, _lineups, contest_name=_cn)
+                        st.write(f"**{_info['filled']}** of **{_info['n_entries']}** entries filled.")
+                        for _w in _info.get("warnings", []):
+                            st.warning(_w)
+                        st.download_button(
+                            "⬇️ Download DK-ready CSV", data=_filled.to_csv(index=False),
+                            file_name=f"DKEntries_filled_{slug}.csv", mime="text/csv", type="primary",
+                            help="Upload this back on DraftKings (My Entries → Import/Upload).",
+                        )
+
         # ----- (g) Red team (adversarial pre-lock review) -----
         st.markdown("---")
         st.markdown("### Red team")
