@@ -1,0 +1,22 @@
+{
+  "slug": "mma_se",
+  "sport": "mma",
+  "contest_label": "MMA",
+  "date": "2026-06-20",
+  "slate_label": "UFC 6.20.26",
+  "archived_at": "2026-06-20 23:11",
+  "archived": [
+    "slate_analysis.md",
+    "lineups.md",
+    "bundle.md",
+    "contests.json",
+    "red_team.md"
+  ],
+  "missing": [],
+  "article_files": [
+    "articles/mma_se/2026-06-20__DailyFan MMA Matchups 6.20.26.pdf",
+    "articles/mma_se/2026-06-20__DalyFan MMA Top Plays 6.20.26.pdf",
+    "articles/mma_se/2026-06-20__SIN The Stone MMA 6.20.26.pdf"
+  ],
+  "proj_source": "Ship It mma-projections-dk-20260620.csv"
+}

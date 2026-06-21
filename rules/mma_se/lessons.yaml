@@ -108,9 +108,18 @@ lessons:
           variance that small fields punish — the build correctly inverted the rule
           for this field size, though it used Gaethje only as salary relief rather
           than as the deliberate binary swing.
-    contradictions: []
-    codified_in: "framework.md — Binary-Dependent Leverage Plays (5/16/26) + Step 3 — Field-Size Calibration"
-    retired_reason: null
+      - date: "2026-06-20"
+        slate: "UFC Fight Night 6/20 (classic — 784/1,189 SEs + 47,562 mini-MAX)"
+        note: >
+          Both directions confirmed in one slate. SMALL-FIELD side: the two SE bullets
+          correctly filled the cheap slot with value-favorite floors, not pure punts
+          (post-red-team the cheap slot became Horiguchi, a +135 grappling decision floor),
+          and both SEs cleared their fields cleanly (16.1%ile / 31.8%ile) without binary
+          variance. LARGE-FIELD side: the pure binary punts (Bolanos +330, Borjas +475)
+          that the build confined to the 47,562 mini-MAX were the two slate-defining plays
+          and Borjas was in the field winner — the exact extreme-variance the small fields
+          punish but the large field rewards. The build put binary leverage on the right
+          side of the field-size line in both directions.
 
   - id: mma-se-2026-05-16-secondary-plays-are-not-leverage
     born: "2026-05-16"
@@ -182,10 +191,20 @@ lessons:
       at 0%/10% exposure). Keep the threshold but reserve at least one lineup for the
       field-fade secondary tier — sub-25%-owned fighters with a live finishing/volume path.
     status: codified
-    confirmations: []
-    contradictions: []
-    codified_in: "framework.md — Win-Case Ceiling Under-Rates Low-Own Finishers (5/30/26 — UFC Macau)"
-    retired_reason: null
+    confirmations:
+      - date: "2026-06-20"
+        slate: "UFC Fight Night 6/20 (classic, 47,562 mini-MAX field)"
+        note: >
+          Strong large-field confirmation. The two slate-defining plays per the autopsy
+          were the two cheapest punts the analysis reserved for the field-fade builds:
+          Bolanos ($6.8K, 13% proj / 15.0% actual, 71.86 pts, in 68% of top lineups) and
+          Borjas ($6.5K, 11% / 9.4% actual, 50.84 pts, in 33% of top lineups). The
+          47,562-field WINNER (606.69) was Stirling/BORJAS/Rodriguez/Santos/Chokheli/
+          Oliveira and the user's own best lineup (553.52, rank 799, 1.7%ile) was
+          Kape/BORJAS/Santos/Magomedov/Chokheli/Oliveira — a sub-12% punt anchored the
+          ceiling of both. The build correctly confined the punts to the mini-MAX
+          field-fade lineups (L4-L10) and kept them OUT of the two SE bullets, exactly as
+          the lesson prescribes. The reserved-field-fade rule produced the winning structure.
 
   - id: mma-se-2026-05-30-anchor-equivalence-fifth-validation
     born: "2026-05-30"   # rule predates this ledger (4-slate-validated before Macau); this entry logs the MMA confirmation
@@ -283,8 +302,27 @@ lessons:
       the chalkiest favorite / the main-event chalk. Links [[mma-se-2026-06-14-showdown-flex-spine-diversity]];
       generalizes the red team's "Bo in 9/10 with zero hedge" finding (Bo won, so the
       realized evidence is Topuria, but the mechanism is identical).
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-06-20"
+        slate: "UFC Fight Night 6/20 (CLASSIC, not showdown — mechanism is format-agnostic)"
+        note: >
+          Classic-format confirmation of the cap mechanism, WITH a boundary correction.
+          Confirm: Rodriguez (21% leverage favorite) was capped at 6/10 with four
+          deliberate Rodriguez-free hedge builds; he hit (114.29) but the cap cost nothing
+          because the hedges existed, and the field winner itself faded the main-event
+          chalk (606.69 = Stirling/Borjas/Rodriguez/Santos/Chokheli/Oliveira, zero
+          main-event fighters) — capping/hedging the chalkiest favorite was directionally
+          right. BOUNDARY: the build over-applied "fade the main-event chalk" all the way
+          to 0/10 exposure on BOTH sides (Horiguchi 47% + Kape 42%), which the red team
+          flagged as an Anchor-Equivalence violation (the rule requires running the
+          alternative anchor in >=1 lineup; 0/10 satisfies neither side). The user HEEDED
+          the red team and restored the main event before lock (actual entries: Horiguchi
+          ~22.7%, Kape in the SEs + several mini-MAX) — and that restoration produced the
+          user's single best lineup (553.52, 1.7%ile, which carried Kape). Mechanism
+          refinement to carry forward: "cap + carry >=2 fades" must NOT collapse into
+          "zero exposure," which crosses from diversification into an anchor-equivalence
+          breach. Cap the favorite; do not zero it. Links [[mma-se-2026-05-30-anchor-equivalence-fifth-validation]].
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -322,8 +360,24 @@ lessons:
       volume) and Gaethje (the live KO dog who hit). The build leaned Chandler (8) over
       Zahabi (6) despite its own analysis naming Zahabi the only dog with a decision
       floor. Confirms the red team's cheap-slot field-duplication finding in hindsight.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-06-20"
+        slate: "UFC Fight Night 6/20 (classic — same cheap-slot decision, split by field)"
+        note: >
+          Format split validated. The analysis's Decision 4 split the cheap slot by field
+          size: decision-floor favorite for the small SEs, live finishing dog for the big
+          field. BIG-FIELD live-dog half CONFIRMED — Borjas/Bolanos (the live finishing
+          punts) were the two slate-defining plays and Borjas anchored both the field winner
+          and the user's best lineup. SMALL-FIELD floor half CONFIRMED with a process catch:
+          the build's selected SE bullet (L1) initially filled the cheap slot with a
+          live DOG (Shahbazyan, +310, NO floor) instead of the decision FLOOR (Horiguchi)
+          the analysis prescribed — the red team flagged exactly this ("swap Shahbazyan ->
+          Horiguchi to restore the prescribed value-favorite floor"), the user heeded it,
+          and Shahbazyan scored 0.0 while the restored-Horiguchi SE entries cleared their
+          fields (16.1%ile / 31.8%ile). The lesson's core claim — the cheap slot decides
+          the lineup, so prefer a floor or a LIVE finishing dog over no-floor variance —
+          held on both halves of the field split.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -351,6 +405,60 @@ lessons:
       analog is the golf [[feedback_cpt_anchor_equivalence]] / never-zero-top3-anchor coverage
       point. Per [[feedback_play_like_sharks]], moklovin landed the exact combination on 150
       bullets; on 10 the captain discipline is the recoverable edge.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-06-20 — UFC Fight Night 6/20 (classic 6-fighter) ----
+
+  - id: mma-se-2026-06-20-fade-on-structure-not-narrative
+    born: "2026-06-20"
+    origin: "rules/mma_se/history/2026-06-20__ufc-6-20-26"
+    statement: >
+      Distinguish STRUCTURAL fades from NARRATIVE fades of live chalk-tier pieces. A
+      structural fade rests on a measurable edge (ceiling-capped favorite priced above a
+      live alternative, KO-or-bust with no decision floor, salary inefficiency, ownership
+      leverage). A narrative fade rests on a soft scouting read ("best opponent she's
+      faced," "toughest matchup, will go the distance") — that is a low-conviction coin-flip
+      guess, not an edge, and the field winner can punish it. 6/20 evidence: the analysis
+      narrative-faded Santos ("best opponent faced," prefer Rosa) and weighted Stirling
+      UNDER ("distance-prone debut") — and BOTH were in the 47,562-field winner (Santos
+      won her pick'em; Stirling posted 105.59 as the winning anchor), while Rosa (the
+      leverage side) lost the coin flip and dragged her lineups to the bottom of the pool.
+      The slate's one STRUCTURAL fade — Kape (ceiling-capped -155 favorite, $1K more than
+      the live Horiguchi side) — was neutral-to-correct (Kape neither over- nor
+      under-performed; the winner faded him). GPP guard: a pick'em resolving to the faded
+      side and a boom/bust debut booming are VARIANCE, not contradictions of leverage
+      theory — this is a hypothesis about fade QUALITY, not about whether to take leverage.
+      Rule to test: only fade or under-weight a live, real-ceiling chalk piece when the
+      fade has a structural mechanism; downgrade narrative-only fades to a note, keep the
+      piece at neutral exposure. Links [[mma-se-2026-05-16-secondary-plays-are-not-leverage]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-06-20-finish-capable-favorite-is-not-secondary-chalk
+    born: "2026-06-20"
+    origin: "rules/mma_se/history/2026-06-20__ufc-6-20-26"
+    statement: >
+      Ownership alone does not make a mid-priced favorite a leak. The "secondary plays are
+      not leverage, trim the 20-25% chalk" instinct (and the red team's "unearned chalk
+      concentration" finding) should EXEMPT a finish-capable favorite in a clean matchup —
+      that is a legitimate high-exposure core, structurally distinct from a no-ceiling
+      decision-grinder at the same ownership. 6/20 evidence: the red team flagged Oliveira
+      at 60% exposure (25% own, analysis-rated MIX, "secondary not leverage") as chalk to
+      trim to 3-4; in hindsight Oliveira was a slate-defining OVERPERFORMER (122.51, +44.05
+      vs proj) and appeared in BOTH the field winner (606.69) and the user's best lineup
+      (553.52). Trimming him would have weakened the portfolio's best builds. Evidence
+      against over-trusting the red-team "trim secondary chalk" heuristic when the piece is
+      a finisher in a clean spot. Mechanism to test: separate "secondary chalk" (mid-own,
+      capped ceiling, decision-dependent — trimmable) from "finish-capable favorite" (mid-own
+      but real finishing path in a clean matchup — high exposure is fine). Links
+      [[mma-se-2026-05-16-secondary-plays-are-not-leverage]].
     status: hypothesis
     confirmations: []
     contradictions: []

@@ -1,0 +1,32 @@
+{
+  "field": 47562,
+  "anchors": [
+    "kyoji horiguchi",
+    "levan chokheli",
+    "murtazali magomedov"
+  ],
+  "sharks": {
+    "gradable": false,
+    "n_entries": 0
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 22,
+    "own_per_slot": 26.6,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.333,
+    "anchor_exposure_by_player": {
+      "kyoji horiguchi": 0.227,
+      "levan chokheli": 0.364,
+      "murtazali magomedov": 0.409
+    },
+    "max_overlap": 5,
+    "unique_pct": 100.0,
+    "best_pctile": 1.68,
+    "median_pctile": 34.46
+  },
+  "deltas": [],
+  "sharks_in_field": false,
+  "slug": "mma_se",
+  "sport": "mma"
+}

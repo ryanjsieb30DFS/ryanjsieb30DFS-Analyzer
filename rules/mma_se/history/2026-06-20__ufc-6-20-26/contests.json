@@ -1,0 +1,34 @@
+{
+  "contests": [
+    {
+      "name": "UFC $8K Flying Knee ($2K to 1st)",
+      "type": "SE",
+      "field_size": 784,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "prize_pool": 8000,
+      "id": "e23b0ebc"
+    },
+    {
+      "name": "UFC $5K Clinch",
+      "type": "SE",
+      "field_size": 1189,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 5.0,
+      "prize_pool": 5000,
+      "id": "dfcfd9bf"
+    },
+    {
+      "name": "UFC $20K mini-MAX",
+      "type": "150-Max",
+      "field_size": 47562,
+      "max_entries": 150,
+      "my_entries": 10,
+      "entry_fee": 0.5,
+      "prize_pool": 20000,
+      "id": "f9c7eb59"
+    }
+  ]
+}

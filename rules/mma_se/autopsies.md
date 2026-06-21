@@ -190,3 +190,35 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 - My entries: 10 · best rank 14/5,945 (top 0.2%)
 - Overperformed proj: Josh Hokit, Bo Nickal, Mauricio Ruffy
 - Underperformed proj: Alex Pereira, Alex Pereira, Michael Chandler
+
+
+## 2026-06-20 23:11 — MMA (contest-standings-191390358.csv)
+- Entries: 1,189
+- Winning score: 578.1
+- Cash line (top 20%): 476.5
+- My entries: 1 · best rank 378/1,189 (top 31.8%)
+- Winners (top 20): avg own 33.63% vs mine 33.11% · sub-10% plays/lineup 0.2 vs mine 0.0 · salary Δ +135
+- Overperformed proj: Vinicius Oliveira, Levan Chokheli, Christian Rodriguez
+- Underperformed proj: Andre Lima, Hyder Amil, Melsik Baghdasaryan
+
+
+## 2026-06-20 23:11 — MMA (contest-standings-191390369.csv)
+- Entries: 784
+- Winning score: 594.1
+- Cash line (top 20%): 487.2
+- My entries: 1 · best rank 126/784 (top 16.1%)
+- Winners (top 20): avg own 35.46% vs mine 39.22% · sub-10% plays/lineup 0.5 vs mine 0.0 · salary Δ -100
+- Overperformed proj: Vinicius Oliveira, Levan Chokheli, Christian Rodriguez
+- Underperformed proj: Andre Lima, Hyder Amil, Melsik Baghdasaryan
+- Slate-defining plays: Gaston Bolanos (71.9 pts @ 9.7%)
+
+
+## 2026-06-20 23:11 — MMA (contest-standings-191390371.csv)
+- Entries: 47,562
+- Winning score: 606.7
+- Cash line (top 20%): 471.1
+- My entries: 22 · best rank 799/47,562 (top 1.7%)
+- Winners (top 100): avg own 29.44% vs mine 26.57% · sub-10% plays/lineup 0.33 vs mine 0.32 · salary Δ +59
+- Overperformed proj: Vinicius Oliveira, Levan Chokheli, Christian Rodriguez
+- Underperformed proj: Andre Lima, Hyder Amil, Melsik Baghdasaryan
+- Slate-defining plays: Gaston Bolanos (71.9 pts @ 15.0%), Kevin Borjas (50.8 pts @ 9.4%)
