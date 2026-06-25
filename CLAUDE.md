@@ -8,7 +8,7 @@ A pre-slate / post-slate **slate-strategy** tool for **PGA Classic, PGA RD4 Show
 
 **No lineup building. No selecting, ranking, red-teaming, or fixing lineups.** Lineup construction lives solely in the separate sim tool. This tool is a strategy doc the user hand-builds from — the **slate strategy and autopsy are derived purely from the uploaded articles**, cross-checked against the strategy docs.
 
-There is a **Projections** tab for uploading vendor projection CSVs (auto-detected, stored per slate as a personal reference). It is a convenience store/viewer **only** — the generated slate strategy and the autopsy do NOT read projections; they stay article-driven.
+There is a **Projections** tab for uploading vendor projection CSVs (auto-detected, stored per slate). Besides storing/viewing them it computes a **Breakdown** that surfaces non-obvious edges (chalk tiers + concentration, leverage board, ownership-vs-ceiling mispricing, value-by-tier, AM/PM tee-wave split, boom/bust, auto-flagged "edges to notice", and cross-vendor disagreement when ≥2 sources are loaded). This is a personal analysis/reference view **only** — the generated slate strategy and the autopsy do NOT read projections; they stay article-driven.
 
 Four tabs: **Projections → Slate Data → Slate Strategy → Autopsy**.
 
@@ -29,6 +29,8 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas. **Restar
 | `src/projections.py` | Vendor CSV loader → canonical schema (`load_projections`, `warn_missing_for_sport`); powers the Projections tab only |
 | `src/vendors.py` | Vendor signature auto-detection (ETR / Ship It Nation / DailyFan / DK) |
 | `src/sessions.py` | Per-slug projection session at `data/sessions/<slug>.json` (`save_source` / `load_sources` / `drop_source` / `merge_same_vendor` / `clear`); cleared with the slate |
+| `src/landscape.py` | Projections-tab Breakdown: chalk tiers, leverage board, ownership-vs-ceiling mispricing, value-by-tier, tee-wave split, boom/bust, anchor-equivalence, `breakdown_flags` |
+| `src/projections_diff.py` | Cross-vendor projection disagreement (`flagged_disagreements`) — shown when ≥2 sources loaded |
 | `src/contests.py` | Per-sport contest registry at `data/contests/<slug>.json` |
 | `src/contest_templates.py` | Reusable saved-contest templates per slug |
 | `src/bundle.py` | `build_bundle` — consolidates the declared contests + the `articles/<slug>/` file paths + strategy-doc paths into `data/bundle/<slug>.md` for Claude to read |

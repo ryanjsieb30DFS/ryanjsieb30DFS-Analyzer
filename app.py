@@ -28,8 +28,9 @@ from src.bundle import clear_bundle
 from src.analysis_runner import (
     run_analysis, run_autopsy_review, run_apply_proposals,
 )
-from src import history, sessions
+from src import history, sessions, landscape
 from src.projections import load_projections, warn_missing_for_sport
+from src.projections_diff import flagged_disagreements
 
 
 # resolve() is required: under `streamlit run app.py` __file__ is relative,
@@ -160,6 +161,64 @@ with tab_proj:
         for w in warn_missing_for_sport(df, sport):
             st.warning(w)
         st.dataframe(df, use_container_width=True, height=500)
+
+        # ---------- Breakdown — surface non-obvious edges ---------- #
+        st.divider()
+        st.markdown("### 🔍 Breakdown — what you'd miss")
+        st.caption(
+            f"Computed from **{primary_name}** ({pool[primary_name]['vendor']}). A reference "
+            "view only — your slate strategy and autopsy stay article-driven."
+        )
+
+        # Edges to notice (synthesized headline flags first)
+        st.markdown("#### Edges to notice")
+        for bullet in landscape.breakdown_flags(df):
+            st.markdown(f"- {bullet}")
+
+        c1, c2 = st.columns(2)
+        with c1:
+            st.markdown("#### Underowned vs ceiling (field blind spots)")
+            mis = landscape.mispricing_table(df, top_n=10)
+            st.dataframe(mis["underowned"], use_container_width=True, hide_index=True)
+        with c2:
+            st.markdown("#### Overowned vs ceiling (fade candidates)")
+            st.dataframe(mis["overowned"], use_container_width=True, hide_index=True)
+
+        st.markdown("#### Leverage board (ceiling vs ownership)")
+        st.dataframe(landscape.leverage_table(df, top_n=15), use_container_width=True, hide_index=True)
+
+        c3, c4 = st.columns(2)
+        with c3:
+            st.markdown("#### Slate shape — chalk tiers")
+            st.dataframe(landscape.chalk_summary(df), use_container_width=True, hide_index=True)
+        with c4:
+            st.markdown("#### Value leaders by salary tier")
+            st.dataframe(landscape.value_by_tier(df), use_container_width=True, hide_index=True)
+
+        waves = landscape.tee_wave_split(df)
+        st.markdown("#### Tee-wave split (AM / PM)")
+        if waves.empty:
+            st.caption("No `tee_time` column — wave split unavailable for this vendor file.")
+        else:
+            st.dataframe(waves, use_container_width=True, hide_index=True)
+
+        vol = landscape.volatility_table(df, top_n=10)
+        c5, c6 = st.columns(2)
+        with c5:
+            st.markdown("#### Boom (highest ceiling-volatility)")
+            st.dataframe(vol["boom"], use_container_width=True, hide_index=True)
+        with c6:
+            st.markdown("#### Fragile chalk (owned, capped ceiling)")
+            st.dataframe(vol["fragile_chalk"], use_container_width=True, hide_index=True)
+
+        # Cross-vendor disagreement — only when 2+ sources loaded
+        if len(sources) >= 2:
+            st.markdown("#### Cross-vendor disagreement (≥15% spread)")
+            disagree = flagged_disagreements(sources, metric="proj_points", pct_threshold=15.0)
+            if disagree.empty:
+                st.caption("No players with ≥15% projection spread across loaded vendors.")
+            else:
+                st.dataframe(disagree, use_container_width=True, hide_index=True)
     else:
         st.info("No projections uploaded yet.")
 
