@@ -6,9 +6,11 @@ Article-driven, multi-sport DFS slate-strategy tool for DraftKings. Streamlit we
 
 A pre-slate / post-slate **slate-strategy** tool for **PGA Classic, PGA RD4 Showdown, MMA, NASCAR, MLB Classic**. The user uploads the slate's **articles** (PDFs, notes, data files, screenshots) and Claude synthesizes a written **slate strategy**: top plays, how to approach the slate, key themes, leverage & fades, and the decisions that define the slate. After the contest, the user uploads DK contest-standings and the Analyzer drives a post-mortem + learning loop.
 
-**No projections. No lineup building. No selecting, ranking, red-teaming, or fixing lineups.** Lineup construction lives solely in the separate sim tool. This tool is a strategy doc the user hand-builds from — everything is derived from the uploaded articles, cross-checked against the strategy docs.
+**No lineup building. No selecting, ranking, red-teaming, or fixing lineups.** Lineup construction lives solely in the separate sim tool. This tool is a strategy doc the user hand-builds from — the **slate strategy and autopsy are derived purely from the uploaded articles**, cross-checked against the strategy docs.
 
-Three tabs only: **Slate Data → Slate Strategy → Autopsy**.
+There is a **Projections** tab for uploading vendor projection CSVs (auto-detected, stored per slate as a personal reference). It is a convenience store/viewer **only** — the generated slate strategy and the autopsy do NOT read projections; they stay article-driven.
+
+Four tabs: **Projections → Slate Data → Slate Strategy → Autopsy**.
 
 ## Run
 
@@ -23,7 +25,10 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas. **Restar
 
 | Path | Purpose |
 |---|---|
-| `app.py` | Streamlit UI: 3 tabs (Slate Data, Slate Strategy, Autopsy) |
+| `app.py` | Streamlit UI: 4 tabs (Projections, Slate Data, Slate Strategy, Autopsy) |
+| `src/projections.py` | Vendor CSV loader → canonical schema (`load_projections`, `warn_missing_for_sport`); powers the Projections tab only |
+| `src/vendors.py` | Vendor signature auto-detection (ETR / Ship It Nation / DailyFan / DK) |
+| `src/sessions.py` | Per-slug projection session at `data/sessions/<slug>.json` (`save_source` / `load_sources` / `drop_source` / `merge_same_vendor` / `clear`); cleared with the slate |
 | `src/contests.py` | Per-sport contest registry at `data/contests/<slug>.json` |
 | `src/contest_templates.py` | Reusable saved-contest templates per slug |
 | `src/bundle.py` | `build_bundle` — consolidates the declared contests + the `articles/<slug>/` file paths + strategy-doc paths into `data/bundle/<slug>.md` for Claude to read |
@@ -147,7 +152,7 @@ The slate's scoreboard is **best-percentile trend + process/mechanism metrics** 
 
 ## Hard rules
 
-- **Articles only.** No projections, no sim/lineup pools, no lineup building/selecting/ranking/red-teaming/fixing — that lives in the sim tool. This tool derives the strategy from the uploaded articles, cross-checked against the strategy docs.
+- **Strategy & autopsy are articles-only.** The generated slate strategy and the autopsy derive from the uploaded articles (cross-checked against the strategy docs) and never read projections. The **Projections tab** is a standalone upload/reference store for the user — no sim/lineup pools, no lineup building/selecting/ranking/red-teaming/fixing (that lives in the sim tool), and projections are NOT an input to the strategy or autopsy.
 - **No scraping.** DK ToS prohibits it; never build scrapers. Use user-pasted/uploaded data only.
 - **GPP-only framing.** Leverage / ceiling / contrarian. Never propose cash-game features.
 - **Anchor-Equivalence Rule** is a **mandatory call** in every slate strategy's `## Decisions`. 4-slate-validated structural leak: if 2+ chalk-tier anchors at similar ownership (per the articles), the build must run the alternative.

@@ -28,7 +28,8 @@ from src.bundle import clear_bundle
 from src.analysis_runner import (
     run_analysis, run_autopsy_review, run_apply_proposals,
 )
-from src import history
+from src import history, sessions
+from src.projections import load_projections, warn_missing_for_sport
 
 
 # resolve() is required: under `streamlit run app.py` __file__ is relative,
@@ -79,13 +80,88 @@ with st.sidebar:
         clear_persisted(slug)
         clear_contests(slug)
         clear_bundle(slug)
+        sessions.clear(slug)
         st.rerun()
 
 
 # ---------- Tabs ---------- #
-tab_slate, tab_strategy, tab_autopsy = st.tabs(
-    ["Slate Data", "Slate Strategy", "Autopsy"]
+tab_proj, tab_slate, tab_strategy, tab_autopsy = st.tabs(
+    ["Projections", "Slate Data", "Slate Strategy", "Autopsy"]
 )
+
+
+# ===== Tab: Projections =====
+with tab_proj:
+    st.subheader(f"Projections — {contest_label}")
+    st.caption(
+        "Drop any vendor projection CSV — ETR, Ship It Nation, DailyFan, DK. "
+        "Vendor is auto-detected. This is a stored reference for your own use; the "
+        "slate strategy and autopsy stay article-driven and don't read it."
+    )
+
+    uploaded = st.file_uploader(
+        "Vendor projection CSV",
+        type="csv",
+        accept_multiple_files=True,
+        key=f"proj_upload_{slug}",
+    )
+
+    if uploaded:
+        for f in uploaded:
+            try:
+                df = load_projections(f)
+            except Exception as e:
+                st.error(f"❌ Failed to load {f.name}: {e}")
+                continue
+            if df.attrs.get("kind") is not None:
+                st.info(
+                    f"📊 {f.name} is {df.attrs.get('vendor')} data, not player "
+                    "projections — upload it in the **Slate Data** tab instead."
+                )
+                continue
+            vendor_name = df.attrs.get("vendor")
+            if vendor_name is None:
+                st.error(
+                    f"❌ Couldn't detect vendor for {f.name}. "
+                    f"Headers seen: {list(df.columns)}"
+                )
+                continue
+            sessions.save_source(slug, f.name, df, vendor_name)
+            st.success(f"✅ {f.name} — detected as **{vendor_name}** ({len(df)} players)")
+            _conf = df.attrs.get("vendor_confidence") or {}
+            if _conf.get("ambiguous"):
+                st.warning(
+                    f"⚠️ Ambiguous match — {f.name} also fits "
+                    f"{', '.join(_conf['matched'][1:])}. Verify the detected vendor is right."
+                )
+            for _vn, _missing in _conf.get("near_misses", []):
+                if _vn != vendor_name:
+                    st.caption(
+                        f"↳ Near-miss: looks almost like **{_vn}** but missing "
+                        f"`{', '.join(_missing)}` — a renamed header? Update src/vendors.py if so."
+                    )
+
+    sources = sessions.load_sources(slug)
+    if sources:
+        st.divider()
+        st.markdown(f"**Loaded sources ({len(sources)}):**")
+        for name, blob in sources.items():
+            cols = st.columns([4, 2, 1])
+            cols[0].write(f"📄 {name}")
+            cols[1].write(f"`{blob['vendor']}` · {len(blob['df'])} players")
+            if cols[2].button("Drop", key=f"proj_drop_{name}"):
+                sessions.drop_source(slug, name)
+                st.rerun()
+
+        st.divider()
+        pool = sessions.merge_same_vendor(sources)
+        primary_name = st.selectbox("View source", list(pool.keys()))
+        df = pool[primary_name]["df"]
+        for w in warn_missing_for_sport(df, sport):
+            st.warning(w)
+        st.dataframe(df, use_container_width=True, height=500)
+    else:
+        st.info("No projections uploaded yet.")
 
 
 # ===== Tab 1: Slate Data =====
@@ -561,11 +637,12 @@ with tab_autopsy:
                 clear_contests(slug)
                 clear_bundle(slug)
                 clear_articles(slug)
+                sessions.clear(slug)
                 st.success(
                     f"Logged {len(parsed_contests)} contest(s) to rules/{slug}/autopsies.md "
                     "+ autopsy_data.jsonl, and archived the slate to "
                     f"`{hist_dir.relative_to(REPO_ROOT)}`. Cleared the slate strategy, "
-                    "contests, slate data files, and bundle for next time. Now run the "
+                    "contests, slate data files, projections, and bundle for next time. Now run the "
                     "post-autopsy review below."
                 )
 
