@@ -1,6 +1,6 @@
-# San Diego Street Course (Naval Base Coronado) — **UNVERIFIED — built from this slate's articles only**
+# Naval Base Coronado (San Diego street course) — **UNVERIFIED — built from one slate's articles only**
 
-**Slug:** `san_diego_street_course`
+**Slug:** `naval_base_coronado`
 **Track type:** street/road course (inaugural — first-ever Cup race here)
 **Reference provided:** 2026-06-21 — built from the 6.21.26 articles (Dustin's Deep Dive + DailyFan road-course optimal/position tables). **The articles never explicitly name the track**; the name here is inferred from the strong, converging signals (a brand-new course, June 21 2026 date, repeated "street race" comparisons to Chicago, SVG on pole). Treat the track *identity* as a best-guess and everything below as single-slate, pre-race, unconfirmed.
 
