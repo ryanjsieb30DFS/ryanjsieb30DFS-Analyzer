@@ -39,6 +39,19 @@ lessons:
           concentrating on the primary value chalk captured the win; the primary value
           chalk (Rai, 2/3) busted (31.0). Not zeroing the alt anchor was the difference
           between a 5% finish and nothing. Third confirming slate of the mechanism.
+      - date: "2026-06-24"
+        slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
+        note: >
+          Fourth confirming slate. The Anchor-Equivalence alternative inside the value
+          tier — Matt Fitzpatrick (2022 U.S. Open champ, the lower-conviction half of
+          the Si Woo/Fitz pair) — was carried 2/6 (NOT zeroed) and was a slate-defining
+          anchor: present in winning lineups across both contests (Eagle ranks 2/3/9;
+          Mulligan ranks 1/2/8/10). Rory (value-chalk star) was likewise carried 2/6 and
+          anchored the Eagle overall winner. The asymmetry held once more — small hedge
+          cost, large coverage payoff for refusing to zero the alternative value-chalk
+          anchor. (The slate was still capped at ~52nd pct overall, but for the
+          orthogonal reason that the mid-owned DIFFERENTIATOR — Wyndham Clark — was
+          missed, not because any value-chalk anchor was wrongly zeroed.)
     contradictions: []
     codified_in: "framework.md — Section 6 Anchor Selection Logic (Default policy); philosophy.md — Section 5 Chalk Has a Purpose"
     retired_reason: null
@@ -270,6 +283,24 @@ lessons:
           own). The skill/form gate produced the cheap slate-definer exactly as the
           lesson predicts; the un-gated CH boost carried no signal at 0.06 stickiness.
           First mechanism confirmation.
+      - date: "2026-06-24"
+        slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
+        note: >
+          Second mechanism confirmation, and the cleanest yet — a controlled
+          natural experiment on the same slate. Brooks Koepka carried the single
+          strongest course-history signal possible (he WON the 2018 U.S. Open at
+          this exact course) but had no current form; he came in at 7.2% and BUSTED
+          (the analysis's L3/M3 chaos build that leaned on his 2018 trophy finished
+          2931/2941). Meanwhile Wyndham Clark — 2023 U.S. Open champ but, decisively,
+          in current form — was THE slate-definer: 102.0 FPTS at ~10% own, in
+          70.8-79.3% of all winning lineups across both contests. Pedigree without a
+          form floor = lottery bust (Koepka); pedigree GATED ON FORM via the
+          form/value engine = the slate-definer (Clark). The analysis also correctly
+          rejected the pure-CH narrative darts (Cam Smith / Uihlein / Rodgers) and
+          the sub-40%-MC amateurs on the gate, and none of them hit — the gate
+          worked prospectively too. Origin (Memorial) + 2 confirmations (RBC,
+          Shinnecock) = 3 mechanism slates; meets the promotion bar. See Proposed
+          codifications.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -341,6 +372,22 @@ lessons:
           one cannot even be credited as process (we don't know if Rai-fade was reasoned
           or incidental). First mechanism confirmation; the traceability gap is now a
           two-slate pattern.
+      - date: "2026-06-24"
+        slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
+        note: >
+          Second mechanism confirmation — the CONVERSE/positive demonstration, and the
+          first slate where the gap CLOSED. All six entered lineups trace exactly to
+          the archived lineups.md (E1=L6, E2=L4, E3=L5, M1=L2, M2=L1, M3=L3), lineups.md
+          AND red_team.md were both archived (manifest 'missing': []), and the red-team's
+          one FIX verdict (L1 Woodland -> Kitayama) actually reached the entered M2
+          lineup (Kitayama in, Woodland out). Because the lineups traced, the slate is
+          FULLY process-gradeable for the first time in three slates and the red-team
+          safety net functioned end to end — exactly the value the lesson asserts is
+          forfeited when deviations go undocumented. The corrective behavior the prior
+          two slates lacked was adopted here. Origin (Memorial, gap born) + RBC (gap
+          recurred, mechanism confirmed negatively) + Shinnecock (gap closed, mechanism
+          confirmed positively) = 3 mechanism slates; meets the count. See Proposed
+          codifications for the post-pivot caveat.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -405,6 +452,18 @@ lessons:
           why the best entries reached ~5%; missing Fox and the very-cheap winners
           (Sudarshan Yellamaraju, Pendrith, Potgieter, Nakajima in the top-10) kept them
           out of the top 1%.
+      - date: "2026-06-24"
+        slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
+        note: >
+          Confirmed again, and a textbook case of the cost of the scan MISSING its
+          target. The slate's defining low-owned smash was Wyndham Clark ($-mid, 102.0
+          FPTS, ~9.9-10.5% own — under the 20% line — in 70.8-79.3% of all winners),
+          with Hatton (69.5, 14.9%, 33% of top lineups) as a secondary. The structural
+          truth held (a sub-20% smash defined the slate, as it does in 96% of slates),
+          but the build's mandatory low-owned-smash scan did not surface Clark at all —
+          zero exposure across 6 lineups — which is precisely why the slate capped at
+          ~52nd pct. The scan must not just confirm 'a smash will exist'; it has to NAME
+          the candidate. See [[pga-classic-2026-06-24-major-pedigree-in-form-leverage]].
     contradictions: []
     codified_in: "framework.md — Section 2 Slate Diagnostics (mandatory low-owned-smash scan)"
     retired_reason: null
@@ -436,6 +495,21 @@ lessons:
           ~2-dart birdie-fest structure — mild support for the ~2 default when scoring
           is reachable, but NOT clean evidence for the tough->3 branch (the course never
           fully closed up). Treat as a half-confirmation of the ~2 end only.
+      - date: "2026-06-24"
+        slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
+        note: >
+          Refinement data point at the tough/penal end. Shinnecock was an unambiguously
+          tough course (penal U.S. Open, ~even-par-ish, 36-hole cut to top 60+ties), so
+          the lesson predicts the tough -> ~3-dart branch. Winners instead ran ~2.1-2.7
+          sub-10% pieces (Eagle top-24 low_own_count_mean 2.08; Mulligan top-29 2.69) —
+          between the ~2 birdie-fest and ~3 tough targets, NOT a full 3. Likely
+          mechanism for the shortfall: the 36-hole cut is a hard governor on dart count
+          — every sub-10% cut-coinflip you add multiplies binary cut-out risk, so a
+          penal CUT course cannot safely carry the full ~3 a non-cut tough course might.
+          Proposed refinement (not a verdict on one slate): branch the dart count on cut
+          format as well as scoring variance — tough+cut caps closer to ~2-2.5, not 3.
+          Our entered builds sat at low_own_count 2.0-3.0 (portfolio mean ~2.8), right in
+          the winning band on COUNT — the miss was dart SELECTION, not dart count.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -461,7 +535,33 @@ lessons:
       (form, skill, course-fit) before treating it as conviction.
     status: hypothesis
     confirmations: []
-    contradictions: []
+    contradictions:
+      - date: "2026-06-24"
+        slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
+        note: >
+          First mechanism contradiction. The analysis invoked this lesson to OVERRIDE
+          ETR's coffin "HAMMER Sam Burns (+21.5)" down to a full PASS (Burns 1/6 in
+          the entered pool, never a core). The lesson's falsifiable prong — actual
+          own drifts UP toward the published optimal, compressing the overweight —
+          demonstrably did NOT fire for Burns: he came in at 19.18% actual vs ETR's
+          19.2% projection (dead flat, zero drift), AND he hit (77.0 FPTS, in 62.5%
+          of the Eagle top-24 winners) — the slate's #2 defining play. Fading a
+          coffin overweight whose own stayed flat AND who had a genuine floor on a
+          penal cut course cost a slate-definer. This is the mirror of
+          [[pga-classic-2026-06-10-fade-needs-ownership-to-materialize]]: just as a
+          FADE needs its projected ownership to materialize, an overweight-FADE needs
+          the projected own-INFLATION to materialize — absent a reason to expect the
+          own to rise (Burns was a stable, floored value-chalk play, not a trendy
+          rising name), the self-erosion override should NOT fire and the default
+          reverts to [[pga-classic-2026-05-17-trap-vs-value-chalk]] (play the coffin
+          overweight). DISCRIMINATOR vs the RBC origin (Rai), where the lesson was
+          right: Rai's own DREW UP to ~30% (drift fired) and he busted; Burns's own
+          held flat (drift did not fire) and he hit. REFINED GUARD: only let
+          self-erosion override "play the coffin overweight" when there is a concrete
+          reason to expect the own to inflate (narrative/trendy/rising late own); a
+          floored value-chalk play already sitting at stable projected own is not a
+          self-erosion fade. GPP guard satisfied: the contradiction is logged on the
+          falsified own-DRIFT prediction, not on the loss itself.
     codified_in: null
     retired_reason: null
 
@@ -512,7 +612,28 @@ lessons:
       from leverage-play-mandatory (which is about the sub-20% smashes) — this is specifically
       that the 10–16% own band, not just <5%, is where value-course slates are won.
     status: hypothesis
-    confirmations: []
+    confirmations:
+      - date: "2026-06-24"
+        slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
+        note: >
+          First mechanism confirmation, cross-archetype (penal major, not a value
+          course — the mid-owned-multiplier mechanism held anyway). The slate was
+          decided by a ~10%-owned mid-priced multiplier: Wyndham Clark, 102.0 FPTS at
+          ~9.9-10.5% own, in 70.8-79.3% of ALL winning lineups across both contests —
+          layered on top of elite anchors (Rory/Xander/Fleetwood/Fitzpatrick), exactly
+          the 'elite anchor + one mid-owned differentiator' winning shape. The other
+          definers were also mid-owned multipliers, not deep darts: Burns (77.0, 19%)
+          and Hatton (69.5, 14.9%). Our portfolio had ZERO Wyndham Clark on any of the
+          6 entered lineups, and our value-spine SELECTION (Kitayama/English/Spaun/
+          McNealy/Morikawa/Hovland) — though correctly rostered in the 10-16% band per
+          [[pga-classic-2026-06-17-design-exposures-before-lineups]] — caught none of
+          the actual hitters. This is the THIRD STRAIGHT slate where the actual
+          cheap/mid slate-definer was absent from our pool entirely (Memorial:
+          Poston/Cole; RBC: Fox/Yellamaraju; Shinnecock: Clark). Mechanism confirmed
+          (the band is where it is won) but with a sharp caveat that keeps it a
+          hypothesis: owning the band is necessary, not sufficient — we keep owning the
+          WRONG members of it. The identification gap is the subject of the new
+          [[pga-classic-2026-06-24-major-pedigree-in-form-leverage]] hypothesis.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -543,7 +664,29 @@ lessons:
       mid-owned-value-spine-over-darts (which is WHICH players to roster) — this is the
       portfolio CONSTRUCTION METHOD (exposures-first) that gets them rostered consistently.
     status: hypothesis
-    confirmations: []
+    confirmations:
+      - date: "2026-06-24"
+        slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
+        note: >
+          First mechanism confirmation — the exposures-first method was actually
+          executed this slate (red-team-enforced) and produced exactly the coherent
+          portfolio the lesson promises, with the RBC failure mode (an incoherent
+          quadruple-chalk-anchor build slipping in unchallenged) NOT recurring. The
+          build wrote target exposures before selecting pool rows (Scottie 2/6, Rory
+          2/6, Fitz 2/6, Si Woo capped 1/6, Rai 0/6, value band guaranteed); the red
+          team caught two exposure failures pre-lock and BOTH were fixed in the
+          entered lineups — P1 (Kitayama AND English 0/6) was closed by re-selecting
+          L1 (Woodland -> Kitayama; English also rostered), and an emergent undesigned
+          Spieth 3/6 was trimmed to a designed 2/6 (L5 Spieth -> Lowry). Result: all 6
+          entered lineups were unique, traceable, and on the ~12% own envelope, and
+          the single worst entry (M3, 142.5, 2931/2941) was a DELIBERATELY DESIGNED
+          deep-contrarian build, not an accidental rogue roster — the opposite of the
+          RBC quad-anchor accident. The construction method worked; the portfolio's
+          shortfall was player IDENTIFICATION (no Wyndham Clark anywhere), which is the
+          domain of [[pga-classic-2026-06-17-mid-owned-value-spine-over-darts]] and the
+          new [[pga-classic-2026-06-24-major-pedigree-in-form-leverage]], not of the
+          exposures-first method. GPP guard: logged as a mechanism (coherence-preserved)
+          confirmation, independent of the result.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -563,6 +706,57 @@ lessons:
       while the build faded the distance scenario almost entirely. SHIP-but-flagged is
       a signal to add a documented hedge or cap at the portfolio layer (e.g. one
       bomber-leaning lineup, a Rai exposure cap below 2/3), not a clean bill of health.
+    status: hypothesis
+    confirmations:
+      - date: "2026-06-24"
+        slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
+        note: >
+          First mechanism confirmation, procedural. The red team raised P1
+          (Kitayama AND English 0/6 — the named value engines zeroed despite the
+          checklist claiming the spine was designed) on an otherwise 5-of-6-SHIP
+          portfolio, and this time the SHIP-but-flagged finding got a documented
+          pre-lock RESPONSE rather than a pass: L1 was re-selected (Woodland ->
+          Kitayama) and the fix actually reached the entered M2 lineup (Kitayama +
+          English both in). The mechanism — a SHIP verdict does not absolve a
+          portfolio-level exposure gap — was honored end to end. IMPORTANT CAVEAT
+          that keeps it a hypothesis: acting on the finding only helps if the finding
+          names the right players, and here it did not surface the slate-definer
+          (Wyndham Clark) — both the build AND the red team were inside the
+          single-vendor (ETR) bubble, so the closed gap (Kitayama/English) caught none
+          of the actual hitters. P2 (tee-time/draw blindness on a wind-defense major)
+          was documented but not acted on; it remains un-graded (no wave-scoring data
+          in the autopsy). Confirms the act-on-findings discipline; does not yet
+          confirm it changes outcomes.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-06-24-major-pedigree-in-form-leverage
+    born: "2026-06-24"
+    origin: "rules/pga_classic/history/2026-06-24__pga-us-open-2026 — U.S. Open at Shinnecock Hills (Wyndham Clark slate-definer blind spot)"
+    statement: >
+      At a major specifically, a recent major champion who is ALSO in current form but
+      drawing sub-15% ownership is a systematic leverage blind spot. Mechanism: the
+      field and the primary projection source anchor on season-long baseline form and
+      under-credit 'major gear' — proven major closers re-find a higher ceiling at the
+      majors — so the in-form recent champ is both under-projected and under-owned, the
+      exact profile of a slate-defining mid-owned multiplier. This is pedigree GATED ON
+      FORM (the discriminator from [[pga-classic-2026-05-17-course-history-sub5-scan]],
+      now retired/revised, and the partner of
+      [[pga-classic-2026-06-10-ch-scan-needs-skill-gate]]): pedigree WITHOUT current
+      form is a lottery bust, pedigree WITH form is the play. Born from Shinnecock,
+      where Wyndham Clark (2023 U.S. Open champ, in form, ~10% own) posted 102.0 and
+      appeared in 70.8-79.3% of all winners while being ABSENT from our entire analysis
+      and all 6 lineups — the single biggest miss of the slate — whereas Brooks Koepka
+      (2018 Shinnecock champ but cold/LIV-rusty, 7.2% own) busted. Supporting prior:
+      Matt Fitzpatrick (2022 U.S. Open champ, in form) was a slate-definer at BOTH the
+      RBC and here. Proposed scan: at every major, explicitly list recent major
+      champions (last ~5 yrs), gate each on a current-form floor, and flag any that
+      survive the gate at sub-15% projected own as a leverage play — do NOT rely on the
+      single vendor's projection/coffin to surface them (it systematically will not).
+      Distinct from [[pga-classic-2026-06-17-mid-owned-value-spine-over-darts]] (which
+      says the 10-16% band is where slates are won) — this names a repeatable SOURCE for
+      an under-projected member of that band at majors.
     status: hypothesis
     confirmations: []
     contradictions: []

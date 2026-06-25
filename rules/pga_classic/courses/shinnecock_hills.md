@@ -1,6 +1,8 @@
 # Shinnecock Hills Golf Club — Southampton, NY (U.S. Open host)
 
-**UNVERIFIED — built from general major-championship knowledge only, NOT from this slate's articles** (no Slate Data files were uploaded for the 6/18/2026 U.S. Open slate). Verify against this slate's autopsy and future articles before treating as ground truth.
+**PARTIALLY CALIBRATED — the physical-profile section below was built from general major-championship knowledge (no Slate Data files were uploaded for the 6/18/2026 U.S. Open); the 2026-06-18 autopsy now calibrates the contested assumptions (see Per-slate observations).** Verify the still-uncalibrated lines against future slates.
+
+> **CALIBRATION CORRECTION (2026-06-18):** The pre-slate profile ASSUMED above-average course-history stickiness (~0.42 Muirfield analog). The slate disproved it — stickiness here is effectively **NOISE (~0.06 per the slate's stickiness article)**. The two strongest pure-course-history plays on the board both busted (Brooks Koepka, 2018 Shinnecock champ, and Bryson, course-fit #2), while the slate-definer was won on FORM. Treat Shinnecock pedigree as **gated on current form**, not as a standalone CH signal.
 
 ## Physical profile (general knowledge, pre-slate)
 - Par 70, ~7,400 yds — plays long for a par 70. William Flynn classic links/heathland design on eastern Long Island.
@@ -11,4 +13,7 @@
 - Predictive narrative signals (UNVERIFIED weighting): prior U.S. Open / major finishes, Open Championship (links) pedigree, demonstrated accuracy off the tee. Course-history stickiness assumed **above-average** for a penal classic test (Muirfield analog 0.42) — treat as a lean, not a number, until calibrated.
 
 ## Per-slate observations
-- *(none yet — first slate at this venue in the tool; log the autopsy to begin calibrating the assumptions above)*
+- **2026-06-18 — U.S. Open (first calibrated slate; contests: $10K Eagle 2,378 / $20K Mulligan 2,941, both 5-Max).** Winning 6-golfer scores 420.5 (Eagle) / 428.5 (Mulligan); cash line (p80) ~301-302. **Penal "limit-the-damage" prior CONFIRMED** — winners paired elite anchors (Rory / Xander / Fleetwood / Fitzpatrick all recurred across top lineups) with ONE mid-owned differentiator. **The slate-definer was a ~10%-owned mid-priced multiplier, not a deep dart or an anchor: Wyndham Clark — 102.0 FPTS at ~9.9-10.5% own, in 70.8-79.3% of ALL winning lineups across both contests.** Secondary definers: Sam Burns (77.0, 19% own, 62.5% of Eagle top-24) and Tyrrell Hatton (69.5, 14.9%, 33%). 
+  - **Stickiness = noise, pedigree gated on form (the headline venue lesson):** the in-form recent major champs hit (Clark, 2023 USO champ; Fitzpatrick, 2022 USO champ — slate-definer), while the cold-form former champs busted (Koepka, who literally won here in 2018; Bryson). Course history alone carried zero signal; the article's 0.06 read beat the file's 0.42 assumption.
+  - **Winning structure:** winners' per-player avg own ~14.65-14.83% (slightly chalkier than our ~12.5%), sub-10% count ~2.1-2.7 (NOT a full 3 despite the tough setup — the 36-hole cut caps how many sub-10% cut-coinflips are safe), 91-93% unique. The cut to top 60+ties was a real binary roster-killer for the way-back tier, exactly as the prior assumed.
+  - **Our result / lesson for next time:** best finish ~52nd pct (rank 1266/2378); the entire shortfall traces to ZERO Wyndham Clark exposure — the recent-major-champ-in-form leverage profile was absent from the analysis. Next Shinnecock/U.S. Open slate: run a recent-major-champion-gated-on-form scan before lock (see lessons.yaml `pga-classic-2026-06-24-major-pedigree-in-form-leverage`).

@@ -1,0 +1,24 @@
+{
+  "slug": "pga_classic",
+  "sport": "golf",
+  "contest_label": "PGA Classic",
+  "date": "2026-06-24",
+  "slate_label": "PGA US Open 2026",
+  "archived_at": "2026-06-24 21:04",
+  "archived": [
+    "slate_analysis.md",
+    "lineups.md",
+    "bundle.md",
+    "contests.json",
+    "red_team.md"
+  ],
+  "missing": [],
+  "article_files": [
+    "articles/pga_classic/2026-06-17__PGA Course Fits 6.18.26.pdf",
+    "articles/pga_classic/2026-06-17__PGA Course Stickiness .pdf",
+    "articles/pga_classic/2026-06-17__PGA Large Field 6.18.26.pdf",
+    "articles/pga_classic/2026-06-17__PGA Leverge 6.18.26.pdf",
+    "articles/pga_classic/2026-06-17__PGA Models 6.18.26.pdf"
+  ],
+  "proj_source": null
+}

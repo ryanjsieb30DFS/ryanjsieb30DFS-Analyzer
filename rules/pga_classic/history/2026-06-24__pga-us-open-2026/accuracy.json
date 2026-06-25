@@ -1,0 +1,76 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 28,
+    "leverage_capture": 0.333,
+    "leverage_hit": [
+      "Sam Burns"
+    ],
+    "leverage_missed": [
+      "Wyndham Clark",
+      "Tyrrell Hatton"
+    ],
+    "overperformer_capture": null,
+    "overperformer_hit": [],
+    "underperformer_exposure": null,
+    "underperformer_hit": []
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 6,
+    "avg_ratio": null,
+    "best_percentile": 51.9,
+    "median_percentile": 78.8,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30 (3/3)",
+        "points": 258.0,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 53.2,
+        "avg_own": 14.45
+      },
+      {
+        "entry_name": "RyvlesGaming30 (1/3)",
+        "points": 227.0,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 78.8,
+        "avg_own": 12.21
+      },
+      {
+        "entry_name": "RyvlesGaming30 (2/3)",
+        "points": 216.0,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 85.5,
+        "avg_own": 11.01
+      },
+      {
+        "entry_name": "RyvlesGaming30 (2/3)",
+        "points": 260.5,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 51.9,
+        "avg_own": 16.72
+      },
+      {
+        "entry_name": "RyvlesGaming30 (1/3)",
+        "points": 259.0,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 53.4,
+        "avg_own": 11.77
+      },
+      {
+        "entry_name": "RyvlesGaming30 (3/3)",
+        "points": 142.5,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 99.7,
+        "avg_own": 9.08
+      }
+    ]
+  }
+}

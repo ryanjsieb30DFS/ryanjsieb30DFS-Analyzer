@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "date": "2026-06-24",
+  "slug": "pga_classic",
+  "sport": "golf",
+  "slate_label": "PGA US Open 2026",
+  "history_dir": "rules/pga_classic/history/2026-06-24__pga-us-open-2026",
+  "contests": [
+    {
+      "name": "PGA $10K Eagle",
+      "type": "5-Max",
+      "source_file": "contest-standings-191298124.csv",
+      "field_size": 2378,
+      "my_entries": 3,
+      "entry_fee": 5.0,
+      "buy_in": 15.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 1266,
+      "best_percentile": 53.2
+    },
+    {
+      "name": "PGA $20K Mulligan",
+      "type": "5-Max",
+      "source_file": "contest-standings-191298126.csv",
+      "field_size": 2941,
+      "my_entries": 3,
+      "entry_fee": 8.0,
+      "buy_in": 24.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 1527,
+      "best_percentile": 51.9
+    }
+  ],
+  "total_buy_in": 39.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 1266,
+  "best_percentile": 51.9,
+  "entries_total": 6,
+  "edge_leverage_capture": 0.333,
+  "edge_overperformer_capture": null,
+  "edge_bust_exposure": null,
+  "lineup_avg_ratio": null,
+  "shark_gap_top": {
+    "dim": "leverage_pct",
+    "delta": 53.3
+  }
+}

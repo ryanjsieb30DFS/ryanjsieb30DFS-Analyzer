@@ -1,0 +1,24 @@
+{
+  "contests": [
+    {
+      "name": "PGA $20K Mulligan",
+      "type": "5-Max",
+      "field_size": 2941,
+      "max_entries": 5,
+      "my_entries": 3,
+      "entry_fee": 8.0,
+      "prize_pool": 20000,
+      "id": "741f1bc5"
+    },
+    {
+      "name": "PGA $10K Eagle",
+      "type": "5-Max",
+      "field_size": 2378,
+      "max_entries": 5,
+      "my_entries": 3,
+      "entry_fee": 5.0,
+      "prize_pool": 10000,
+      "id": "3f3b392b"
+    }
+  ]
+}

@@ -1,0 +1,644 @@
+[
+  {
+    "timestamp": "2026-06-24 21:04",
+    "contest_type": "PGA Classic",
+    "source_file": "contest-standings-191298124.csv",
+    "entries": 2378,
+    "winning_score": 420.5,
+    "cash_line_p80": 302.0,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "pga_classic",
+    "sport": "golf",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 117
+    },
+    "user_summary": {
+      "avg_own_mean": 12.56,
+      "low_own_count_mean": 2.67,
+      "salary_used_mean": null,
+      "entry_count": 3,
+      "best_rank": 1266,
+      "best_percentile": 53.2
+    },
+    "user_lineups": [
+      {
+        "rank": 1266,
+        "entry_name": "RyvlesGaming30 (3/3)",
+        "points": 258.0,
+        "percentile": 53.2,
+        "players": [
+          "Rory McIlroy",
+          "Collin Morikawa",
+          "Viktor Hovland",
+          "J.J. Spaun",
+          "Si Woo Kim",
+          "J.T. Poston"
+        ],
+        "avg_own": 14.45,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 1875,
+        "entry_name": "RyvlesGaming30 (1/3)",
+        "points": 227.0,
+        "percentile": 78.8,
+        "players": [
+          "Jon Rahm",
+          "Xander Schauffele",
+          "Russell Henley",
+          "Jordan Spieth",
+          "Corey Conners",
+          "Alex Noren"
+        ],
+        "avg_own": 12.21,
+        "low_own_count": 3,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 2033,
+        "entry_name": "RyvlesGaming30 (2/3)",
+        "points": 216.0,
+        "percentile": 85.5,
+        "players": [
+          "Scottie Scheffler",
+          "Viktor Hovland",
+          "Shane Lowry",
+          "Maverick McNealy",
+          "Kurt Kitayama",
+          "Harry Hall"
+        ],
+        "avg_own": 11.01,
+        "low_own_count": 3,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Wyndham Clark",
+        "salary": null,
+        "actual_fpts": 102.0,
+        "actual_own": 10.51,
+        "top_lineup_pct": 70.8
+      },
+      {
+        "name": "Sam Burns",
+        "salary": null,
+        "actual_fpts": 77.0,
+        "actual_own": 19.18,
+        "top_lineup_pct": 62.5
+      },
+      {
+        "name": "Tyrrell Hatton",
+        "salary": null,
+        "actual_fpts": 69.5,
+        "actual_own": 14.89,
+        "top_lineup_pct": 33.3
+      }
+    ],
+    "winners_structure": {
+      "top_n": 24,
+      "avg_own_mean": 14.65,
+      "low_own_count_mean": 2.08,
+      "salary_used_mean": null,
+      "dup_max": 2,
+      "unique_pct": 91.7,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "ballushuski (5/5)",
+          "points": 420.5,
+          "percentile": 0.0,
+          "players": [
+            "Rory McIlroy",
+            "Tyrrell Hatton",
+            "Wyndham Clark",
+            "Joaquin Niemann",
+            "Robert MacIntyre",
+            "Aaron Rai"
+          ],
+          "avg_own": 11.01,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "pricegrant (2/5)",
+          "points": 406.0,
+          "percentile": 0.1,
+          "players": [
+            "Rory McIlroy",
+            "Matt Fitzpatrick",
+            "Justin Rose",
+            "Wyndham Clark",
+            "Corey Conners",
+            "Tom Kim"
+          ],
+          "avg_own": 13.33,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 3,
+          "entry_name": "Oliveira088 (4/5)",
+          "points": 398.5,
+          "percentile": 0.1,
+          "players": [
+            "Xander Schauffele",
+            "Matt Fitzpatrick",
+            "Collin Morikawa",
+            "Wyndham Clark",
+            "Sam Burns",
+            "Alex Fitzpatrick"
+          ],
+          "avg_own": 18.85,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "berlin48 (2/2)",
+          "points": 393.0,
+          "percentile": 0.2,
+          "players": [
+            "Scottie Scheffler",
+            "Wyndham Clark",
+            "Sam Burns",
+            "Alex Fitzpatrick",
+            "Ryan Fox",
+            "Bud Cauley"
+          ],
+          "avg_own": 11.16,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 5,
+          "entry_name": "tomapj12",
+          "points": 392.5,
+          "percentile": 0.2,
+          "players": [
+            "Scottie Scheffler",
+            "Justin Rose",
+            "Sam Burns",
+            "Sungjae Im",
+            "Jackson Koivun",
+            "J.T. Poston"
+          ],
+          "avg_own": 8.52,
+          "low_own_count": 4,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 6,
+          "entry_name": "rsumrall (4/5)",
+          "points": 392.0,
+          "percentile": 0.3,
+          "players": [
+            "Cameron Young",
+            "Xander Schauffele",
+            "Wyndham Clark",
+            "Sam Burns",
+            "Ben Griffin",
+            "Aaron Rai"
+          ],
+          "avg_own": 12.75,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 7,
+          "entry_name": "mikey.goldman (1/5)",
+          "points": 391.5,
+          "percentile": 0.3,
+          "players": [
+            "Xander Schauffele",
+            "Tommy Fleetwood",
+            "Russell Henley",
+            "Wyndham Clark",
+            "Sam Burns",
+            "Alex Fitzpatrick"
+          ],
+          "avg_own": 18.93,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "gmbaumann (5/5)",
+          "points": 386.0,
+          "percentile": 0.3,
+          "players": [
+            "Scottie Scheffler",
+            "Xander Schauffele",
+            "Gary Woodland",
+            "Jackson Koivun",
+            "Benjamin James",
+            "J.T. Poston"
+          ],
+          "avg_own": 9.05,
+          "low_own_count": 4,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "Rotomania (1/2)",
+          "points": 384.5,
+          "percentile": 0.4,
+          "players": [
+            "Xander Schauffele",
+            "Matt Fitzpatrick",
+            "Collin Morikawa",
+            "Justin Rose",
+            "Wyndham Clark",
+            "Ryan Fox"
+          ],
+          "avg_own": 15.92,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 10,
+          "entry_name": "laken04",
+          "points": 381.0,
+          "percentile": 0.4,
+          "players": [
+            "Rory McIlroy",
+            "Justin Thomas",
+            "Wyndham Clark",
+            "Sam Burns",
+            "Hideki Matsuyama",
+            "Sungjae Im"
+          ],
+          "avg_own": 11.41,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 2.09,
+        "low_own_count_delta": -0.59,
+        "salary_used_delta": null
+      }
+    }
+  },
+  {
+    "timestamp": "2026-06-24 21:04",
+    "contest_type": "PGA Classic",
+    "source_file": "contest-standings-191298126.csv",
+    "entries": 2941,
+    "winning_score": 428.5,
+    "cash_line_p80": 301.0,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "pga_classic",
+    "sport": "golf",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 122
+    },
+    "user_summary": {
+      "avg_own_mean": 12.52,
+      "low_own_count_mean": 3.0,
+      "salary_used_mean": null,
+      "entry_count": 3,
+      "best_rank": 1527,
+      "best_percentile": 51.9
+    },
+    "user_lineups": [
+      {
+        "rank": 1527,
+        "entry_name": "RyvlesGaming30 (2/3)",
+        "points": 260.5,
+        "percentile": 51.9,
+        "players": [
+          "Rory McIlroy",
+          "Matt Fitzpatrick",
+          "Chris Gotterup",
+          "J.J. Spaun",
+          "Jacob Bridgeman",
+          "Bud Cauley"
+        ],
+        "avg_own": 16.72,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 1571,
+        "entry_name": "RyvlesGaming30 (1/3)",
+        "points": 259.0,
+        "percentile": 53.4,
+        "players": [
+          "Scottie Scheffler",
+          "Sam Burns",
+          "Jordan Spieth",
+          "Nicolai Hojgaard",
+          "Harris English",
+          "Kurt Kitayama"
+        ],
+        "avg_own": 11.77,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 2931,
+        "entry_name": "RyvlesGaming30 (3/3)",
+        "points": 142.5,
+        "percentile": 99.7,
+        "players": [
+          "Bryson DeChambeau",
+          "Brooks Koepka",
+          "Matt Fitzpatrick",
+          "Sepp Straka",
+          "Kristoffer Reitan",
+          "Nicolai Hojgaard"
+        ],
+        "avg_own": 9.08,
+        "low_own_count": 5,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Wyndham Clark",
+        "salary": null,
+        "actual_fpts": 102.0,
+        "actual_own": 9.86,
+        "top_lineup_pct": 79.3
+      }
+    ],
+    "winners_structure": {
+      "top_n": 29,
+      "avg_own_mean": 14.83,
+      "low_own_count_mean": 2.69,
+      "salary_used_mean": null,
+      "dup_max": 2,
+      "unique_pct": 93.1,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "erog30 (2/5)",
+          "points": 428.5,
+          "percentile": 0.0,
+          "players": [
+            "Tommy Fleetwood",
+            "Matt Fitzpatrick",
+            "Collin Morikawa",
+            "Wyndham Clark",
+            "Sam Burns",
+            "Joaquin Niemann"
+          ],
+          "avg_own": 19.14,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "jsibby20 (4/5)",
+          "points": 407.5,
+          "percentile": 0.1,
+          "players": [
+            "Xander Schauffele",
+            "Matt Fitzpatrick",
+            "Tyrrell Hatton",
+            "Wyndham Clark",
+            "Sam Burns",
+            "Maverick McNealy"
+          ],
+          "avg_own": 20.07,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 3,
+          "entry_name": "scott412 (1/3)",
+          "points": 404.5,
+          "percentile": 0.1,
+          "players": [
+            "Scottie Scheffler",
+            "Wyndham Clark",
+            "Sam Burns",
+            "Aaron Rai",
+            "Kurt Kitayama",
+            "Ryan Fox"
+          ],
+          "avg_own": 11.98,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "bquaile (4/5)",
+          "points": 403.5,
+          "percentile": 0.1,
+          "players": [
+            "Xander Schauffele",
+            "Tommy Fleetwood",
+            "Patrick Reed",
+            "Wyndham Clark",
+            "Sam Burns",
+            "Tom Kim"
+          ],
+          "avg_own": 19.32,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 5,
+          "entry_name": "ruarnold22 (4/5)",
+          "points": 397.5,
+          "percentile": 0.2,
+          "players": [
+            "Cameron Young",
+            "Xander Schauffele",
+            "Wyndham Clark",
+            "Sam Burns",
+            "Maverick McNealy",
+            "Gary Woodland"
+          ],
+          "avg_own": 13.97,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 5,
+          "entry_name": "bquaile (2/5)",
+          "points": 397.5,
+          "percentile": 0.2,
+          "players": [
+            "Tommy Fleetwood",
+            "Tyrrell Hatton",
+            "Russell Henley",
+            "Wyndham Clark",
+            "Sam Burns",
+            "Maverick McNealy"
+          ],
+          "avg_own": 18.36,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 7,
+          "entry_name": "tomapj12 (3/3)",
+          "points": 392.5,
+          "percentile": 0.2,
+          "players": [
+            "Scottie Scheffler",
+            "Justin Rose",
+            "Sam Burns",
+            "Sungjae Im",
+            "Jackson Koivun",
+            "J.T. Poston"
+          ],
+          "avg_own": 8.3,
+          "low_own_count": 4,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "Hoggs1972 (5/5)",
+          "points": 390.5,
+          "percentile": 0.3,
+          "players": [
+            "Tommy Fleetwood",
+            "Ludvig Aberg",
+            "Matt Fitzpatrick",
+            "Tyrrell Hatton",
+            "Wyndham Clark",
+            "Ben Kohles"
+          ],
+          "avg_own": 18.45,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "DuckHarborWarrior (3/4)",
+          "points": 388.5,
+          "percentile": 0.3,
+          "players": [
+            "Tyrrell Hatton",
+            "Collin Morikawa",
+            "Justin Rose",
+            "Viktor Hovland",
+            "Wyndham Clark",
+            "Sam Burns"
+          ],
+          "avg_own": 11.97,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 10,
+          "entry_name": "fatmcb1 (2/2)",
+          "points": 387.5,
+          "percentile": 0.3,
+          "players": [
+            "Xander Schauffele",
+            "Matt Fitzpatrick",
+            "Collin Morikawa",
+            "Wyndham Clark",
+            "Joaquin Niemann",
+            "Jordan Spieth"
+          ],
+          "avg_own": 15.73,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 2.31,
+        "low_own_count_delta": -0.31,
+        "salary_used_delta": null
+      }
+    }
+  }
+]

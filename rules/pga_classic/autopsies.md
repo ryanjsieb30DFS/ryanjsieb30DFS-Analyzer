@@ -292,3 +292,21 @@ Per Philosophy Section 4:
 - Overperformed proj: Bud Cauley, Jimmy Stanger, Brice Garnett
 - Underperformed proj: Mark Hubbard, Paul Waring, Alex Noren
 - Slate-defining plays: Bud Cauley (135.5 pts @ 13.6%), Matt Fitzpatrick (111.5 pts @ 14.9%), Ryan Fox (103.5 pts @ 12.1%), Jacob Bridgeman (84.5 pts @ 15.8%)
+
+
+## 2026-06-24 21:04 — PGA Classic (contest-standings-191298124.csv)
+- Entries: 2,378
+- Winning score: 420.5
+- Cash line (top 20%): 302.0
+- My entries: 3 · best rank 1,266/2,378 (top 53.2%)
+- Winners (top 24): avg own 14.65% vs mine 12.56% · sub-10% plays/lineup 2.08 vs mine 2.67
+- Slate-defining plays: Wyndham Clark (102.0 pts @ 10.5%), Sam Burns (77.0 pts @ 19.2%), Tyrrell Hatton (69.5 pts @ 14.9%)
+
+
+## 2026-06-24 21:04 — PGA Classic (contest-standings-191298126.csv)
+- Entries: 2,941
+- Winning score: 428.5
+- Cash line (top 20%): 301.0
+- My entries: 3 · best rank 1,527/2,941 (top 51.9%)
+- Winners (top 29): avg own 14.83% vs mine 12.52% · sub-10% plays/lineup 2.69 vs mine 3.0
+- Slate-defining plays: Wyndham Clark (102.0 pts @ 9.9%)
