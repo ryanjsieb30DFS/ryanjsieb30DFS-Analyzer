@@ -1,0 +1,920 @@
+[
+  {
+    "timestamp": "2026-06-27 21:10",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-191602426.csv",
+    "entries": 490,
+    "winning_score": 660.86,
+    "cash_line_p80": 428.71200000000005,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 43.37,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 442,
+      "best_percentile": 90.2
+    },
+    "user_lineups": [
+      {
+        "rank": 442,
+        "entry_name": "RyvlesGaming30",
+        "points": 213.19,
+        "percentile": 90.2,
+        "players": [
+          "Manuel Torres",
+          "Ikram Aliskerov",
+          "Jean Matsumoto",
+          "Michal Oleksiejczuk",
+          "Javier Reyes",
+          "Jefferson Nascimento"
+        ],
+        "avg_own": 43.37,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 15,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Kaan Ofli",
+        "salary": null,
+        "actual_fpts": 112.76,
+        "actual_own": 5.71,
+        "top_lineup_pct": 45.0
+      },
+      {
+        "name": "Abus Magomedov",
+        "salary": null,
+        "actual_fpts": 105.08,
+        "actual_own": 17.35,
+        "top_lineup_pct": 35.0
+      },
+      {
+        "name": "Matheus Camilo",
+        "salary": null,
+        "actual_fpts": 101.69,
+        "actual_own": 19.8,
+        "top_lineup_pct": 60.0
+      },
+      {
+        "name": "Tahir Abdullayev",
+        "salary": null,
+        "actual_fpts": 80.16,
+        "actual_own": 8.78,
+        "top_lineup_pct": 30.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 24.1,
+      "low_own_count_mean": 0.85,
+      "salary_used_mean": null,
+      "dup_max": 1,
+      "unique_pct": 100.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "coopjs23",
+          "points": 660.86,
+          "percentile": 0.2,
+          "players": [
+            "Rafael Fiziev",
+            "Abus Magomedov",
+            "Asu Almabayev",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Tahir Abdullayev"
+          ],
+          "avg_own": 16.57,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "Testudo1111",
+          "points": 646.12006,
+          "percentile": 0.4,
+          "players": [
+            "Shara Magomedov",
+            "Nursulton Ruziboev",
+            "Matheus Camilo",
+            "Abus Magomedov",
+            "Farman Hasanov",
+            "Kaan Ofli"
+          ],
+          "avg_own": 15.61,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 3,
+          "entry_name": "Savagebliss",
+          "points": 628.52,
+          "percentile": 0.6,
+          "players": [
+            "Rafael Fiziev",
+            "Nursulton Ruziboev",
+            "Jean Matsumoto",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Tahir Abdullayev"
+          ],
+          "avg_own": 18.4,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "GunnarusMaximus",
+          "points": 620.72003,
+          "percentile": 0.8,
+          "players": [
+            "Rafael Fiziev",
+            "Nursulton Ruziboev",
+            "Bekzat Almakhan",
+            "Asu Almabayev",
+            "Farman Hasanov",
+            "Kaan Ofli"
+          ],
+          "avg_own": 16.57,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 5,
+          "entry_name": "ShaunFeeser",
+          "points": 602.03,
+          "percentile": 1.0,
+          "players": [
+            "Rafael Fiziev",
+            "Nursulton Ruziboev",
+            "Charles Johnson",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Daniil Donchenko"
+          ],
+          "avg_own": 19.52,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 6,
+          "entry_name": "puppet0311",
+          "points": 601.26,
+          "percentile": 1.2,
+          "players": [
+            "Michel Pereira",
+            "Ikram Aliskerov",
+            "Matheus Camilo",
+            "Abdul Rakhman Yakhyaev",
+            "Kaan Ofli",
+            "Daniil Donchenko"
+          ],
+          "avg_own": 24.01,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 7,
+          "entry_name": "supremexjp",
+          "points": 594.79,
+          "percentile": 1.4,
+          "players": [
+            "Rafael Fiziev",
+            "Ikram Aliskerov",
+            "Matheus Camilo",
+            "Abdul Rakhman Yakhyaev",
+            "Charles Johnson",
+            "Farman Hasanov"
+          ],
+          "avg_own": 27.99,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "isitcoffeytime",
+          "points": 582.04,
+          "percentile": 1.6,
+          "players": [
+            "Rafael Fiziev",
+            "Ikram Aliskerov",
+            "Abus Magomedov",
+            "Asu Almabayev",
+            "Farman Hasanov",
+            "Theodor Berggren"
+          ],
+          "avg_own": 20.38,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "Godson94",
+          "points": 580.83997,
+          "percentile": 1.8,
+          "players": [
+            "Rafael Fiziev",
+            "Brunno Ferreira",
+            "Abdul Rakhman Yakhyaev",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Tahir Abdullayev"
+          ],
+          "avg_own": 21.02,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 10,
+          "entry_name": "ssj262",
+          "points": 567.99005,
+          "percentile": 2.0,
+          "players": [
+            "Rafael Fiziev",
+            "Ikram Aliskerov",
+            "Nursulton Ruziboev",
+            "Bekzat Almakhan",
+            "Abus Magomedov",
+            "Kaan Ofli"
+          ],
+          "avg_own": 18.67,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -19.27,
+        "low_own_count_delta": 0.85,
+        "salary_used_delta": null
+      }
+    }
+  },
+  {
+    "timestamp": "2026-06-27 21:10",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-191602427.csv",
+    "entries": 1189,
+    "winning_score": 671.42004,
+    "cash_line_p80": 428.162032,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 36.78,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 141,
+      "best_percentile": 11.9
+    },
+    "user_lineups": [
+      {
+        "rank": 141,
+        "entry_name": "RyvlesGaming30",
+        "points": 467.55,
+        "percentile": 11.9,
+        "players": [
+          "Manuel Torres",
+          "Matheus Camilo",
+          "Jean Matsumoto",
+          "Michal Oleksiejczuk",
+          "Abdul Rakhman Yakhyaev",
+          "Farman Hasanov"
+        ],
+        "avg_own": 36.78,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Kaan Ofli",
+        "salary": null,
+        "actual_fpts": 112.76,
+        "actual_own": 9.42,
+        "top_lineup_pct": 70.0
+      },
+      {
+        "name": "Nursulton Ruziboev",
+        "salary": null,
+        "actual_fpts": 107.24,
+        "actual_own": 16.57,
+        "top_lineup_pct": 35.0
+      },
+      {
+        "name": "Abus Magomedov",
+        "salary": null,
+        "actual_fpts": 105.08,
+        "actual_own": 16.99,
+        "top_lineup_pct": 35.0
+      },
+      {
+        "name": "Matheus Camilo",
+        "salary": null,
+        "actual_fpts": 101.69,
+        "actual_own": 18.25,
+        "top_lineup_pct": 55.0
+      },
+      {
+        "name": "Tahir Abdullayev",
+        "salary": null,
+        "actual_fpts": 80.16,
+        "actual_own": 10.26,
+        "top_lineup_pct": 40.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 21.46,
+      "low_own_count_mean": 0.7,
+      "salary_used_mean": null,
+      "dup_max": 2,
+      "unique_pct": 70.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "Leeleebee",
+          "points": 671.42004,
+          "percentile": 0.1,
+          "players": [
+            "Nursulton Ruziboev",
+            "Matheus Camilo",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Daniil Donchenko",
+            "Tahir Abdullayev"
+          ],
+          "avg_own": 17.19,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "MTVJake",
+          "points": 660.86,
+          "percentile": 0.2,
+          "players": [
+            "Rafael Fiziev",
+            "Abus Magomedov",
+            "Asu Almabayev",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Tahir Abdullayev"
+          ],
+          "avg_own": 17.03,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "coopjs23",
+          "points": 660.86,
+          "percentile": 0.2,
+          "players": [
+            "Rafael Fiziev",
+            "Abus Magomedov",
+            "Asu Almabayev",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Tahir Abdullayev"
+          ],
+          "avg_own": 17.03,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "flattopschmitt",
+          "points": 628.52,
+          "percentile": 0.3,
+          "players": [
+            "Rafael Fiziev",
+            "Nursulton Ruziboev",
+            "Jean Matsumoto",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Tahir Abdullayev"
+          ],
+          "avg_own": 18.89,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "Troha77",
+          "points": 628.52,
+          "percentile": 0.3,
+          "players": [
+            "Rafael Fiziev",
+            "Nursulton Ruziboev",
+            "Jean Matsumoto",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Tahir Abdullayev"
+          ],
+          "avg_own": 18.89,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2,
+          "stack_shape": null
+        },
+        {
+          "rank": 6,
+          "entry_name": "sportspalace",
+          "points": 614.91003,
+          "percentile": 0.5,
+          "players": [
+            "Andrey Pulyaev",
+            "Matheus Camilo",
+            "Abdul Rakhman Yakhyaev",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Daniil Donchenko"
+          ],
+          "avg_own": 22.04,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 7,
+          "entry_name": "scn462",
+          "points": 610.51,
+          "percentile": 0.6,
+          "players": [
+            "Michel Pereira",
+            "Nursulton Ruziboev",
+            "Jean Matsumoto",
+            "Abdul Rakhman Yakhyaev",
+            "Farman Hasanov",
+            "Kaan Ofli"
+          ],
+          "avg_own": 22.51,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "Amazin11000",
+          "points": 609.22,
+          "percentile": 0.7,
+          "players": [
+            "Rafael Fiziev",
+            "Brunno Ferreira",
+            "Matheus Camilo",
+            "Abdul Rakhman Yakhyaev",
+            "Farman Hasanov",
+            "Daniil Donchenko"
+          ],
+          "avg_own": 25.31,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "rbnk",
+          "points": 609.11005,
+          "percentile": 0.8,
+          "players": [
+            "Michel Pereira",
+            "Matheus Camilo",
+            "Abdul Rakhman Yakhyaev",
+            "Asu Almabayev",
+            "Kaan Ofli",
+            "Daniil Donchenko"
+          ],
+          "avg_own": 22.12,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 10,
+          "entry_name": "ShaunFeeser",
+          "points": 602.03,
+          "percentile": 0.8,
+          "players": [
+            "Rafael Fiziev",
+            "Nursulton Ruziboev",
+            "Charles Johnson",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Daniil Donchenko"
+          ],
+          "avg_own": 19.33,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -15.32,
+        "low_own_count_delta": 0.7,
+        "salary_used_delta": null
+      }
+    }
+  },
+  {
+    "timestamp": "2026-06-27 21:10",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-191602431.csv",
+    "entries": 594,
+    "winning_score": 628.52,
+    "cash_line_p80": 433.58,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 32.5,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "entry_count": 3,
+      "best_rank": 8,
+      "best_percentile": 1.3
+    },
+    "user_lineups": [
+      {
+        "rank": 8,
+        "entry_name": "RyvlesGaming30 (3/3)",
+        "points": 576.32996,
+        "percentile": 1.3,
+        "players": [
+          "Rafael Fiziev",
+          "Matheus Camilo",
+          "Jean Matsumoto",
+          "Abdul Rakhman Yakhyaev",
+          "Farman Hasanov",
+          "Jefferson Nascimento"
+        ],
+        "avg_own": 29.15,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 397,
+        "entry_name": "RyvlesGaming30 (2/3)",
+        "points": 293.92,
+        "percentile": 66.8,
+        "players": [
+          "Manuel Torres",
+          "Bekzat Almakhan",
+          "Abus Magomedov",
+          "Javier Reyes",
+          "Daniil Donchenko",
+          "Jefferson Nascimento"
+        ],
+        "avg_own": 34.04,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 2,
+        "stack_shape": null
+      },
+      {
+        "rank": 583,
+        "entry_name": "RyvlesGaming30 (1/3)",
+        "points": 130.79999,
+        "percentile": 98.1,
+        "players": [
+          "Manuel Torres",
+          "Nursulton Ruziboev",
+          "Nazim Sadykhov",
+          "Michal Oleksiejczuk",
+          "Eric Nolan",
+          "Javier Reyes"
+        ],
+        "avg_own": 34.31,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Kaan Ofli",
+        "salary": null,
+        "actual_fpts": 112.76,
+        "actual_own": 6.23,
+        "top_lineup_pct": 35.0
+      },
+      {
+        "name": "Abus Magomedov",
+        "salary": null,
+        "actual_fpts": 105.08,
+        "actual_own": 19.87,
+        "top_lineup_pct": 40.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 25.46,
+      "low_own_count_mean": 0.55,
+      "salary_used_mean": null,
+      "dup_max": 3,
+      "unique_pct": 60.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "bigshirlyandthem (2/3)",
+          "points": 628.52,
+          "percentile": 0.2,
+          "players": [
+            "Rafael Fiziev",
+            "Nursulton Ruziboev",
+            "Jean Matsumoto",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Tahir Abdullayev"
+          ],
+          "avg_own": 18.27,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "lmc33 (3/3)",
+          "points": 626.36,
+          "percentile": 0.3,
+          "players": [
+            "Rafael Fiziev",
+            "Jean Matsumoto",
+            "Abus Magomedov",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Tahir Abdullayev"
+          ],
+          "avg_own": 19.5,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 3,
+          "entry_name": "JTGJJ (1/3)",
+          "points": 623.5,
+          "percentile": 0.5,
+          "players": [
+            "Rafael Fiziev",
+            "Matheus Camilo",
+            "Jean Matsumoto",
+            "Asu Almabayev",
+            "Kaan Ofli",
+            "Daniil Donchenko"
+          ],
+          "avg_own": 24.1,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "sportspalace (1/3)",
+          "points": 614.91003,
+          "percentile": 0.7,
+          "players": [
+            "Andrey Pulyaev",
+            "Matheus Camilo",
+            "Abdul Rakhman Yakhyaev",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Daniil Donchenko"
+          ],
+          "avg_own": 22.31,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "sportspalace (2/3)",
+          "points": 614.91003,
+          "percentile": 0.7,
+          "players": [
+            "Andrey Pulyaev",
+            "Matheus Camilo",
+            "Abdul Rakhman Yakhyaev",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Daniil Donchenko"
+          ],
+          "avg_own": 22.31,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "sportspalace (3/3)",
+          "points": 614.91003,
+          "percentile": 0.7,
+          "players": [
+            "Andrey Pulyaev",
+            "Matheus Camilo",
+            "Abdul Rakhman Yakhyaev",
+            "Farman Hasanov",
+            "Kaan Ofli",
+            "Daniil Donchenko"
+          ],
+          "avg_own": 22.31,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3,
+          "stack_shape": null
+        },
+        {
+          "rank": 7,
+          "entry_name": "eptxguy (2/3)",
+          "points": 586.52997,
+          "percentile": 1.2,
+          "players": [
+            "Rafael Fiziev",
+            "Ikram Aliskerov",
+            "Matheus Camilo",
+            "Asu Almabayev",
+            "Farman Hasanov",
+            "Jefferson Nascimento"
+          ],
+          "avg_own": 26.43,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "RyvlesGaming30 (3/3)",
+          "points": 576.32996,
+          "percentile": 1.3,
+          "players": [
+            "Rafael Fiziev",
+            "Matheus Camilo",
+            "Jean Matsumoto",
+            "Abdul Rakhman Yakhyaev",
+            "Farman Hasanov",
+            "Jefferson Nascimento"
+          ],
+          "avg_own": 29.15,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "Mr._Bad (2/3)",
+          "points": 575.83,
+          "percentile": 1.5,
+          "players": [
+            "Rafael Fiziev",
+            "Michel Pereira",
+            "Ikram Aliskerov",
+            "Matheus Camilo",
+            "Abus Magomedov",
+            "Abdul Rakhman Yakhyaev"
+          ],
+          "avg_own": 25.87,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 10,
+          "entry_name": "mnicely32 (3/3)",
+          "points": 573.91003,
+          "percentile": 1.7,
+          "players": [
+            "Rafael Fiziev",
+            "Michel Pereira",
+            "Ikram Aliskerov",
+            "Matheus Camilo",
+            "Asu Almabayev",
+            "Daniil Donchenko"
+          ],
+          "avg_own": 25.06,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -7.04,
+        "low_own_count_delta": 0.55,
+        "salary_used_delta": null
+      }
+    }
+  }
+]

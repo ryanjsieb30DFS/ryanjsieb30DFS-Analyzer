@@ -1,0 +1,24 @@
+{
+  "slug": "mma_se",
+  "sport": "mma",
+  "contest_label": "MMA",
+  "date": "2026-06-27",
+  "slate_label": "UFC Baku 6.27.26",
+  "archived_at": "2026-06-27 21:10",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json"
+  ],
+  "missing": [
+    "red_team.md"
+  ],
+  "article_files": [
+    "articles/mma_se/2026-06-26__MMA Matchups 6.27.26.pdf",
+    "articles/mma_se/2026-06-26__MMA Top Plays 6.27.26.pdf",
+    "articles/mma_se/2026-06-26__SIN MMA Slate Plan 6.27.26.pdf",
+    "articles/mma_se/2026-06-26__SIN MMA-Stone 6.27.26.pdf"
+  ],
+  "proj_source": null
+}

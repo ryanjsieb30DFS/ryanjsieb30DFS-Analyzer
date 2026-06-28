@@ -1,0 +1,24 @@
+{
+  "contests": [
+    {
+      "name": "UFC $5K Flying Knee",
+      "type": "SE",
+      "field_size": 490,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "prize_pool": 5000,
+      "id": "b7e0ca79"
+    },
+    {
+      "name": "UFC $5k Clinch",
+      "type": "SE",
+      "field_size": 1189,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 5.0,
+      "prize_pool": 5000,
+      "id": "3ff3321d"
+    }
+  ]
+}

@@ -222,3 +222,30 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 - Overperformed proj: Vinicius Oliveira, Levan Chokheli, Christian Rodriguez
 - Underperformed proj: Andre Lima, Hyder Amil, Melsik Baghdasaryan
 - Slate-defining plays: Gaston Bolanos (71.9 pts @ 15.0%), Kevin Borjas (50.8 pts @ 9.4%)
+
+
+## 2026-06-27 21:10 — MMA (contest-standings-191602426.csv)
+- Entries: 490
+- Winning score: 660.9
+- Cash line (top 20%): 428.7
+- My entries: 1 · best rank 442/490 (top 90.2%)
+- Winners (top 20): avg own 24.1% vs mine 43.37% · sub-10% plays/lineup 0.85 vs mine 0.0
+- Slate-defining plays: Kaan Ofli (112.8 pts @ 5.7%), Abus Magomedov (105.1 pts @ 17.4%), Matheus Camilo (101.7 pts @ 19.8%), Tahir Abdullayev (80.2 pts @ 8.8%)
+
+
+## 2026-06-27 21:10 — MMA (contest-standings-191602427.csv)
+- Entries: 1,189
+- Winning score: 671.4
+- Cash line (top 20%): 428.2
+- My entries: 1 · best rank 141/1,189 (top 11.9%)
+- Winners (top 20): avg own 21.46% vs mine 36.78% · sub-10% plays/lineup 0.7 vs mine 0.0
+- Slate-defining plays: Kaan Ofli (112.8 pts @ 9.4%), Nursulton Ruziboev (107.2 pts @ 16.6%), Abus Magomedov (105.1 pts @ 17.0%), Matheus Camilo (101.7 pts @ 18.2%)
+
+
+## 2026-06-27 21:10 — MMA (contest-standings-191602431.csv)
+- Entries: 594
+- Winning score: 628.5
+- Cash line (top 20%): 433.6
+- My entries: 3 · best rank 8/594 (top 1.3%)
+- Winners (top 20): avg own 25.46% vs mine 32.5% · sub-10% plays/lineup 0.55 vs mine 0.0
+- Slate-defining plays: Kaan Ofli (112.8 pts @ 6.2%), Abus Magomedov (105.1 pts @ 19.9%)

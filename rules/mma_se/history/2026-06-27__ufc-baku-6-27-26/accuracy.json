@@ -1,0 +1,70 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 16,
+    "leverage_capture": 0.6,
+    "leverage_hit": [
+      "Abus Magomedov",
+      "Matheus Camilo",
+      "Nursulton Ruziboev"
+    ],
+    "leverage_missed": [
+      "Kaan Ofli",
+      "Tahir Abdullayev"
+    ],
+    "overperformer_capture": null,
+    "overperformer_hit": [],
+    "underperformer_exposure": null,
+    "underperformer_hit": []
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 5,
+    "avg_ratio": null,
+    "best_percentile": 1.3,
+    "median_percentile": 66.8,
+    "n_top_10pct": 1,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 213.19,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 90.2,
+        "avg_own": 43.37
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 467.55,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 11.9,
+        "avg_own": 36.78
+      },
+      {
+        "entry_name": "RyvlesGaming30 (3/3)",
+        "points": 576.32996,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 1.3,
+        "avg_own": 29.15
+      },
+      {
+        "entry_name": "RyvlesGaming30 (2/3)",
+        "points": 293.92,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 66.8,
+        "avg_own": 34.04
+      },
+      {
+        "entry_name": "RyvlesGaming30 (1/3)",
+        "points": 130.79999,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 98.1,
+        "avg_own": 34.31
+      }
+    ]
+  }
+}

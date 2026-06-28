@@ -120,6 +120,17 @@ lessons:
           and Borjas was in the field winner — the exact extreme-variance the small fields
           punish but the large field rewards. The build put binary leverage on the right
           side of the field-size line in both directions.
+      - date: "2026-06-27"
+        slate: "UFC Fight Night, Baku (classic; 490 small SE + 1,189 medium SE)"
+        note: >
+          Small-field-floor half confirmed again. Decision 5 filled the 490 cheap slot with
+          a value-favorite FLOOR (Matheus Camilo, $7.2k) rather than a binary punt; Camilo
+          hit 101.69 and appeared in 55-60% of the small-field top lineups. The medium-field
+          half exposed a refinement, not a contradiction: the chosen large-field binary DOG
+          (Walker, +425 vs Yakhyaev) busted, and the 1,189 field was actually won by
+          low-owned FINISHERS (Ofli/Abdullayev/Ruziboev), not a KO-or-bust dog — i.e. the
+          large-field leverage horse should have been a sub-10% finisher, not the
+          article-named long-shot. Feeds [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]].
 
   - id: mma-se-2026-05-16-secondary-plays-are-not-leverage
     born: "2026-05-16"
@@ -231,6 +242,17 @@ lessons:
           favored — the entire portfolio dies. Mechanism confirmed: equivalent chalk
           anchors are substitutable to the field, so both-sides presence is what
           captured the live side.
+      - date: "2026-06-27"
+        slate: "UFC Fight Night, Baku (classic 6-fighter; 490/594/1189 fields)"
+        note: >
+          7th validation, classic format. Decision 1 ran the cheaper anchor-equivalent
+          alternative (Donchenko, ~28% own) opposite the slate's chalkiest finisher
+          (Yakhyaev, SIN 49/DF 36) across the two SEs. Donchenko-not-Yakhyaev anchored
+          the 1,189-field WINNER (Leeleebee 671.42 = Ruziboev/Camilo/Hasanov/Ofli/
+          Donchenko/Abdullayev) and recurred through the top of all three contests, while
+          Yakhyaev-anchored lineups also cleared (he was not a bust) — exactly the
+          substitutable-anchor outcome: running the cheaper equivalent captured the
+          uncontested win without sacrificing the chalk side.
     contradictions: []
     codified_in: "rules/shared/anchor_equivalence.md"
     retired_reason: null
@@ -435,8 +457,23 @@ lessons:
       Rule to test: only fade or under-weight a live, real-ceiling chalk piece when the
       fade has a structural mechanism; downgrade narrative-only fades to a note, keep the
       piece at neutral exposure. Links [[mma-se-2026-05-16-secondary-plays-are-not-leverage]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-06-27"
+        slate: "UFC Fight Night, Baku (classic 6-fighter)"
+        note: >
+          Directional confirmation. Every fade on this slate was STRUCTURAL and none was a
+          narrative scouting guess: Shara Magomedov was faded as a ceiling-capped -400
+          favorite (Decision 4) and the Torres+Fiziev pile was faded as main-event
+          over-concentration (Leverage & fades). Shara was neutral-to-correct — not a
+          slate-defining overperformer (his lone top-20 appearance, 490 rank 2, was carried
+          by the other five), so the structural fade did not cost. The structural main-event
+          read was vindicated hard: the strategy preferred the lower-owned Fiziev over the
+          chalk Torres, Fiziev WON and anchored nearly every top lineup across all three
+          contests, and the user's best build (594 L3, rank 8 / 1.3%ile) was a Fiziev build
+          while every Torres entry he ran underperformed. Structural fades held; no narrative
+          fade was made to be punished, so this confirms the structural half of the
+          mechanism (the narrative-punishment half still awaits a test).
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -459,6 +496,71 @@ lessons:
       capped ceiling, decision-dependent — trimmable) from "finish-capable favorite" (mid-own
       but real finishing path in a clean matchup — high exposure is fine). Links
       [[mma-se-2026-05-16-secondary-plays-are-not-leverage]].
+    status: validated
+    confirmations:
+      - date: "2026-06-27"
+        slate: "UFC Fight Night, Baku (classic 6-fighter)"
+        note: >
+          Confirmed. Decision 2 played the Abus/Oleksiejczuk banger as a legit PLAY core
+          (not trimmed as secondary chalk) and Decision 3 kept Reyes/Camilo as
+          finish-capable value cores exempt from the chalk-trim instinct. Abus Magomedov
+          (17% own) hit 105.08 and was in 35-40% of every contest's top lineups; Matheus
+          Camilo (18-20% own) hit 101.69 and was in 55-60% of small-field top lineups. Both
+          were mid-owned finish-capable favorites in clean spots, both were slate-definers —
+          trimming either as "secondary chalk" would have cut two of the slate's cheap
+          definers. Mechanism holds: finish path in a clean matchup, not ownership, decides
+          whether a mid-own favorite is a core or a trimmable leak.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-06-27 — UFC Fight Night, Baku ----
+
+  - id: mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog
+    born: "2026-06-27"
+    origin: "rules/mma_se/history/2026-06-27__ufc-baku-6-27-26"
+    statement: >
+      In finish-heavy classic MMA the slate-defining sub-10%-owned leverage piece is
+      almost always a LOW-OWNED CONVERTING FIGHTER/FINISHER below the articles'
+      spotlight — not the KO-or-bust underdog the articles name. The 6/27 Baku
+      slate-definer was Kaan Ofli (112.76 pts at 5.71%/6.23%/9.42% own, in 45-70% of
+      every contest's top lineups) — never mentioned anywhere in the strategy — joined by
+      Tahir Abdullayev (80.16 at ~9% own, 30-40% of top lineups) and Nursulton Ruziboev
+      (107.24 at 16.6%, ~35%). Meanwhile the strategy's deliberately-chosen sub-10%
+      leverage piece was Julius Walker (+425 KO-or-bust dog vs Yakhyaev), who busted. The
+      sharp-envelope "carry >=1 sub-10% piece" was nominally satisfied but with the wrong
+      horse: the build hunted leverage only among the article-spotlighted long-shot DOGS
+      and never screened the full rosterable pool for low-owned FINISHERS who win outright.
+      Rule to test: before locking, screen EVERY rosterable fighter under ~10% projected
+      own for a real finish path (favorites and live dogs alike) and surface them as
+      leverage candidates — do not let the sub-10% slot default to the article-named binary
+      dog. Links [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]],
+      [[mma-se-2026-06-14-showdown-cheap-slot-prefer-floor-or-live-dog]],
+      [[mma-se-2026-06-20-finish-capable-favorite-is-not-secondary-chalk]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-06-27-finish-heavy-small-fields-still-won-by-differentiation
+    born: "2026-06-27"
+    origin: "rules/mma_se/history/2026-06-27__ufc-baku-6-27-26"
+    statement: >
+      On finish-heavy boards even small (~500-entry) fields are won by DIFFERENTIATED
+      builds, not chalk — so the "small field -> lean chalk-with-one-swing" field-size
+      calibration needs a finish-heavy caveat. 6/27 Baku: all three contest winners ran
+      ~16-18% avg own (490 winner coopjs23 16.57 / 2 sub-10; 594 winner 18.27; 1189 winner
+      17.19), while the user's chalkiest build (490 entry, 43.37% avg own, 0 sub-10)
+      finished 90.2%ile — dead last of his entries — and his most differentiated build
+      (594 L3, 29.15% avg own, carrying Fiziev+Camilo+Hasanov) finished rank 8 / 1.3%ile.
+      Mechanism: 10-of-13 finish equity produces wide outcome dispersion that lets
+      low-owned finishers separate even in a 490 field, so chalk concentration that would
+      be survivable on a decision-heavy slate gets buried. Rule to test: on slates with
+      >=70% of fights projected to finish, hold the small-field build to the same ~16-20%
+      avg-own / >=1 sub-10 differentiation target as the medium field — do not relax to
+      chalk just because the field is small. Links [[mma-se-2026-05-17-field-size-calibration]],
+      [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]].
     status: hypothesis
     confirmations: []
     contradictions: []
