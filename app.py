@@ -27,8 +27,9 @@ from src.contest_templates import load_templates, save_template, remove_template
 from src.bundle import clear_bundle
 from src.analysis_runner import (
     run_analysis, run_autopsy_review, run_apply_proposals, run_player_pool,
+    run_ledger_review, run_apply_ledger_proposals,
 )
-from src import history, sessions, landscape, player_pool
+from src import history, sessions, landscape, player_pool, contest_selection, ledger_hygiene
 from src.projections import load_projections, warn_missing_for_sport
 from src.projections_diff import flagged_disagreements
 
@@ -87,8 +88,8 @@ with st.sidebar:
 
 
 # ---------- Tabs ---------- #
-tab_proj, tab_slate, tab_strategy, tab_autopsy = st.tabs(
-    ["Projections", "Slate Data", "Slate Strategy", "Autopsy"]
+tab_proj, tab_slate, tab_strategy, tab_autopsy, tab_trends = st.tabs(
+    ["Projections", "Slate Data", "Slate Strategy", "Autopsy", "Trends"]
 )
 
 
@@ -438,6 +439,15 @@ with tab_strategy:
     st.markdown("## Slate strategy")
     persisted = load_persisted(slug)
     if persisted:
+        _src = sessions.load_sources(slug)
+        if _src:
+            _cands = landscape.leverage_candidates(player_pool.build_pool(_src))
+            _missing = landscape.uncovered_candidates(persisted["markdown"], _cands)
+            if _missing:
+                st.warning(
+                    "⚠️ **Coverage gap** — sub-10% leverage candidates the strategy never "
+                    "addresses (PLAY or PASS each): " + ", ".join(_missing)
+                )
         with st.container(border=True):
             st.caption(f"Last updated: {persisted['mtime']}")
             st.markdown(persisted["markdown"])
@@ -788,6 +798,47 @@ with tab_autopsy:
                     else:
                         st.error(f"Couldn't apply the proposals: {aresult['error']}")
 
+    # ----- Lesson-ledger hygiene ----- #
+    if (REPO_ROOT / "rules" / slug / "lessons.yaml").exists():
+        st.divider()
+        st.markdown("### Lesson-ledger hygiene")
+        st.caption(
+            "Keeps the ledger sharp as it grows: stale hypotheses, lessons near the "
+            "3-slate promotion bar, and likely-duplicate lessons. Flags below are computed "
+            "instantly; the review turns them into proposals you approve."
+        )
+        with st.container(border=True):
+            st.markdown(ledger_hygiene.report_md(ledger_hygiene.hygiene_report(slug)))
+
+        ledger_review_path = REPO_ROOT / "rules" / slug / "ledger_review.md"
+        lbtn = "🔄 Re-run ledger review" if ledger_review_path.exists() else "🧹 Review ledger"
+        if st.button(lbtn, key=f"ledger_review_{slug}"):
+            with st.spinner("Reviewing the lesson ledger — retire / merge / promote proposals…"):
+                lresult = run_ledger_review(slug)
+            if lresult["ok"]:
+                cost = lresult.get("cost_usd")
+                cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
+                st.success(f"Ledger review written in {lresult['duration_s']:.0f}s{cost_note}.")
+                st.rerun()
+            else:
+                st.error(f"Couldn't run the ledger review: {lresult['error']}")
+
+        if ledger_review_path.exists():
+            with st.container(border=True):
+                st.markdown(ledger_review_path.read_text())
+            st.warning(
+                "Approving applies the ledger review's retire / merge / codify decisions to "
+                "lessons.yaml (and framework/philosophy for any codifications)."
+            )
+            if st.button("✅ Approve & apply ledger changes", key=f"apply_ledger_{slug}"):
+                with st.spinner("Applying the approved ledger changes…"):
+                    lapply = run_apply_ledger_proposals(slug)
+                if lapply["ok"]:
+                    st.success("Ledger changes applied.")
+                    st.rerun()
+                else:
+                    st.error(f"Couldn't apply the ledger changes: {lapply['error']}")
+
     # ----- ROI ledger ----- #
     results_rows = history.load_results(slug)
     if results_rows:
@@ -830,3 +881,37 @@ with tab_autopsy:
         st.markdown("".join(_ordered))
     else:
         st.info("No autopsies logged yet for this contest type.")
+
+
+# ===== Tab: Trends — contest-selection analytics (cross-sport) =====
+with tab_trends:
+    st.subheader("Trends — where you win")
+    st.caption(
+        "Cross-sport, from every logged slate's results ledger. **Best-percentile is the "
+        "scoreboard** (lower = better; 1 = top of the field) — ROI lives in your third-party "
+        "tracker, so it shows only as a coverage count. Use this to decide which contest shapes "
+        "to put bullets in."
+    )
+    _rows = contest_selection.load_contest_rows()
+    if _rows.empty:
+        st.info("No logged contests yet — log a few autopsies and this fills in.")
+    else:
+        _ww = contest_selection.where_you_win(_rows, min_n=3)
+        if _ww:
+            st.metric(
+                "Best contest shape (median %ile, n≥3)",
+                f"{_ww['type']} · {_ww['field_bucket']}",
+                f"median {_ww['median_pctile']}%ile over {_ww['contests']} contests",
+                delta_color="off",
+            )
+        else:
+            st.caption("_Not enough contests in any one (type × field-size) bucket yet for a headline call (need ≥3)._")
+
+        st.markdown("**By contest type**")
+        st.dataframe(contest_selection.by_type(_rows), use_container_width=True, hide_index=True)
+
+        st.markdown("**By field-size bucket**")
+        st.dataframe(contest_selection.by_field_bucket(_rows), use_container_width=True, hide_index=True)
+
+        st.caption(f"{len(_rows)} contests across {_rows['slate_label'].nunique()} slates · "
+                   f"{_rows['sport'].nunique()} sports.")

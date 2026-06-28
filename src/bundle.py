@@ -111,6 +111,30 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
                          else str(v) for c in cols]
                 L.append("| " + " | ".join(cells) + " |")
 
+    # --- Leverage candidates to address (coverage guard) --- #
+    if proj_sources:
+        from src import landscape
+        from src.player_pool import build_pool
+        pool = build_pool(proj_sources)
+        cands = landscape.leverage_candidates(pool) if not pool.empty else pd.DataFrame()
+        if not cands.empty:
+            L += ["", "## Leverage candidates to address (sub-10% own, high ceiling)"]
+            L.append(
+                "COVERAGE RULE: the slate strategy's `## Leverage & fades` or `## Decisions` "
+                "AND the player pool must explicitly PLAY or PASS **each** player below, each "
+                "with a one-line mechanism. Never silently omit one — a sub-10% high-ceiling "
+                "play left unaddressed is a coverage leak (the play that decides the slate "
+                "from nowhere). Individual plays only; build no lineups."
+            )
+            for _, r in cands.iterrows():
+                own = f"{r['ownership']:.0f}%" if pd.notna(r.get("ownership")) else "n/a"
+                proj = (f"{r['proj_points']:.1f}" if "proj_points" in cands.columns
+                        and pd.notna(r.get("proj_points")) else "n/a")
+                ceil = f"{r['upside']:.1f}" if pd.notna(r.get("upside")) else "n/a"
+                sal = (f"${int(r['salary']):,}" if "salary" in cands.columns
+                       and pd.notna(r.get("salary")) else "n/a")
+                L.append(f"- {r['name']} — {sal}, {own} own, proj {proj}, ceiling {ceil}")
+
     # --- References for Claude --- #
     L += ["", "## References for Claude (read as needed)"]
     rules_dir = _REPO_ROOT / "rules" / slug

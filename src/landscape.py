@@ -62,6 +62,47 @@ def leverage_table(projections: pd.DataFrame, top_n: int = 20) -> pd.DataFrame:
     return df.sort_values("leverage_score", ascending=False).head(top_n)[cols].reset_index(drop=True)
 
 
+def leverage_candidates(projections: pd.DataFrame, own_max: float = 10.0,
+                        top_n: int = 12) -> pd.DataFrame:
+    """The sub-`own_max`%-owned, high-ceiling plays the strategy MUST address.
+
+    Ranked by ceiling (`_upside`, which degrades to proj_points when no vendor
+    ships ceiling) descending. These are the coverage-guard candidates: each must
+    be an explicit PLAY/PASS in the strategy + player pool — the Kaan Ofli leak
+    was one of these going unmentioned. Columns: name, salary, ownership,
+    proj_points, upside."""
+    df = projections.copy()
+    if df.empty or "ownership" not in df.columns or "proj_points" not in df.columns:
+        return pd.DataFrame()
+    df["upside"] = _upside(df)
+    own = pd.to_numeric(df["ownership"], errors="coerce")
+    df = df[own.notna() & (own < own_max)]
+    if df.empty:
+        return pd.DataFrame()
+    cols = [c for c in ["name", "salary", "ownership", "proj_points", "upside"] if c in df.columns]
+    return df.sort_values("upside", ascending=False).head(top_n)[cols].reset_index(drop=True)
+
+
+def uncovered_candidates(text: str, candidates: pd.DataFrame) -> list[str]:
+    """Names from `candidates` NOT mentioned in `text` (case-insensitive, by full
+    name OR last-name token). Powers the app's coverage-gap warning."""
+    if candidates is None or candidates.empty or not text or "name" not in candidates.columns:
+        return []
+    low = text.lower()
+    missing: list[str] = []
+    for name in candidates["name"].astype(str):
+        full = name.strip().lower()
+        if not full:
+            continue
+        if full in low:
+            continue
+        last = full.split()[-1]
+        if len(last) >= 4 and last in low:
+            continue
+        missing.append(name)
+    return missing
+
+
 def anchor_equivalence_check(projections: pd.DataFrame, own_window: float = 5.0) -> list[dict]:
     """Find chalk-tier anchor pairs at similar own%. Returns groups of equivalent anchors.
 

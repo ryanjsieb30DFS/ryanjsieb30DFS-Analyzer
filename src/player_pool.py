@@ -71,6 +71,8 @@ def build_pool(sources: dict[str, dict]) -> pd.DataFrame:
         sal = pd.to_numeric(g.get("salary"), errors="coerce").dropna()
         own = pd.to_numeric(g.get("ownership"), errors="coerce").dropna()
         proj = pd.to_numeric(g.get("proj_points"), errors="coerce").dropna()
+        ceil = (pd.to_numeric(g.get("ceiling"), errors="coerce").dropna()
+                if "ceiling" in g.columns else pd.Series(dtype=float))
         opp = ""
         if "opponent" in g.columns:
             opp = next((str(v) for v in g["opponent"] if isinstance(v, str) and v.strip()), "")
@@ -79,6 +81,7 @@ def build_pool(sources: dict[str, dict]) -> pd.DataFrame:
             "salary": int(sal.max()) if not sal.empty else None,
             "ownership": round(float(own.mean()), 1) if not own.empty else None,
             "proj_points": round(float(proj.mean()), 1) if not proj.empty else None,
+            "ceiling": round(float(ceil.mean()), 1) if not ceil.empty else None,
             "opponent": opp,
             "vendors": int(g["__vendor"].nunique()),
         })

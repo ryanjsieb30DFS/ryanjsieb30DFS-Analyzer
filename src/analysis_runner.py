@@ -118,6 +118,11 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"sample/example lineups or player groupings presented as a build. Name plays INDIVIDUALLY "
         f"only; this is a strategy doc the user hand-builds from — construction lives in the "
         f"separate sim tool, not here.\n\n"
+        f"LEVERAGE COVERAGE — MANDATORY: if the bundle has a `## Leverage candidates to address` "
+        f"section, EVERY player listed there must appear in `## Leverage & fades` or `## Decisions` "
+        f"as an explicit PLAY or PASS with a one-line mechanism. A sub-10% high-ceiling play left "
+        f"unmentioned is a coverage leak (the play that decides the slate from nowhere) — never "
+        f"silently omit one.\n\n"
         f"MANDATORY pre-flight: confirm the article files are for the CURRENT slate (compare the "
         f"bundle's generation date + the article file dates against today; if they look stale, SAY "
         f"SO in the checklist instead of analyzing a prior slate). In the checklist, state how many "
@@ -216,6 +221,11 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
         f"the role (Core / Pivot / Dart), HOW IT WINS (the ceiling path / the edge), and the key "
         f"risk or condition. Keep each write-up tight and specific to this slate — no filler.\n"
         f"- Tier tag must be one of Core, Pivot, or Dart based on your read.\n"
+        f"- Then a `## Leverage candidates addressed` section: if the bundle at `{bundle_path}` "
+        f"lists a `## Leverage candidates to address` section, confirm EACH player there is either "
+        f"ranked above (name it + its rank) or was faded out of the pool (name it + the one-line "
+        f"reason). Never silently drop a sub-10% high-ceiling candidate — that is the coverage leak "
+        f"this guard exists to catch.\n"
         f"- End the file with a `## Sources read` section: state how many `articles/{slug}/` "
         f"slate-data files you read (e.g. 'All 4 files read'), and EXPLICITLY LIST any file you "
         f"could NOT read or parse, with the reason (e.g. a PDF that wouldn't extract). If every file "
@@ -292,5 +302,61 @@ def run_apply_proposals(slug: str) -> dict:
         f"or 'retired' (with retired_reason). Finally append a line "
         f"'## Applied' with the current changes summarized to the end of `{review_path}`. "
         f"Do not ask any questions."
+    )
+    return _run_claude(prompt, review_path)
+
+
+def run_ledger_review(slug: str) -> dict:
+    """Lesson-ledger hygiene review: turn the deterministic flags (stale, near-/
+    overdue-promotion, merge candidates) into reasoned PROPOSALS at
+    rules/<slug>/ledger_review.md. Edits nothing in the ledger — proposals only."""
+    from src import ledger_hygiene
+
+    lessons_path = _REPO_ROOT / "rules" / slug / "lessons.yaml"
+    if not lessons_path.exists():
+        return {"ok": False, "error": "No lessons.yaml for this sport yet.",
+                "duration_s": 0.0, "cost_usd": None}
+
+    report_md = ledger_hygiene.report_md(ledger_hygiene.hygiene_report(slug))
+    out_path = _REPO_ROOT / "rules" / slug / "ledger_review.md"
+    prompt = (
+        f"Review the lesson ledger at `{lessons_path}` for HYGIENE. A deterministic pre-pass already "
+        f"flagged candidates (below) — turn them into reasoned PROPOSALS; do NOT apply anything. "
+        f"Read `{lessons_path}` in full first.\n\n"
+        f"Deterministic flags:\n{report_md}\n\n"
+        f"Write `{out_path}` with these sections:\n"
+        f"1. `## Retire candidates` — for each flagged stale hypothesis, decide RETIRE or KEEP with a "
+        f"one-line MECHANISM reason. GPP guard: a lesson untested only because no RELEVANT slate "
+        f"occurred (e.g. a showdown lesson with no showdown slate since `born`) is KEEP, not retire. "
+        f"Name the retired_reason to write if retiring.\n"
+        f"2. `## Near-promotion` — for each lesson at 2 of 3 confirming slates, name the exact "
+        f"mechanism a third slate must confirm to promote, so the next autopsy knows what to watch.\n"
+        f"3. `## Overdue promotion` — for any lesson already at ≥3 confirming slates but not codified, "
+        f"propose the exact framework.md / philosophy.md edit to codify it.\n"
+        f"4. `## Merge candidates` — for each flagged pair, decide MERGE or KEEP-SEPARATE with a "
+        f"reason; if merge, name which id survives and give the combined statement.\n\n"
+        f"Every change is a PROPOSAL — do NOT edit lessons.yaml, framework.md, or philosophy.md in "
+        f"this run; the user approves in the app. Do not ask any questions — produce the file."
+    )
+    return _run_claude(prompt, out_path)
+
+
+def run_apply_ledger_proposals(slug: str) -> dict:
+    """Apply the user-approved ledger_review.md to lessons.yaml (+ framework/
+    philosophy for any approved codifications)."""
+    review_path = _REPO_ROOT / "rules" / slug / "ledger_review.md"
+    if not review_path.exists():
+        return {"ok": False, "error": "No ledger review found — run the review first.",
+                "duration_s": 0.0, "cost_usd": None}
+
+    prompt = (
+        f"Read `{review_path}`. The user has APPROVED these ledger-hygiene proposals. Apply them to "
+        f"`rules/{slug}/lessons.yaml`: set RETIRE-decided lessons' status to 'retired' with the "
+        f"retired_reason; MERGE each pair marked merge (keep the surviving id with the combined "
+        f"statement, set the other to 'retired' with retired_reason 'merged into <id>'); for approved "
+        f"codifications apply the exact `rules/{slug}/framework.md` / `rules/{slug}/philosophy.md` "
+        f"edit and set the lesson status to 'codified' with codified_in naming the doc + section. "
+        f"Leave every KEEP / KEEP-SEPARATE lesson untouched. Append a '## Applied' summary line to "
+        f"`{review_path}`. Do not ask any questions."
     )
     return _run_claude(prompt, review_path)

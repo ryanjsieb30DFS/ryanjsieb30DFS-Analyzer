@@ -10,7 +10,7 @@ A pre-slate / post-slate **slate-strategy** tool for **PGA Classic, PGA RD4 Show
 
 There is a **Projections** tab for uploading vendor projection CSVs (auto-detected, stored per slate). Besides storing/viewing them it computes a **Breakdown** that surfaces non-obvious edges (chalk tiers + concentration, leverage board, ownership-vs-ceiling mispricing, value-by-tier, AM/PM tee-wave split, boom/bust, auto-flagged "edges to notice", and cross-vendor disagreement when ≥2 sources are loaded). The loaded projections are **also folded into the bundle** so the slate strategy reads them alongside the articles. The autopsy still does NOT read projections.
 
-Four tabs: **Projections → Slate Data → Slate Strategy → Autopsy**. The Slate Strategy tab also has a **Player pool** below the written strategy — a Claude-generated, ranked, annotated board of every rosterable player (loaded projections minus the fades the strategy names), each with a short GPP write-up. Built automatically as part of the slate-strategy generation (no separate button).
+Five tabs: **Projections → Slate Data → Slate Strategy → Autopsy → Trends** (Trends is a cross-sport, read-only "where you win" view — best-percentile by contest type + field size). The Slate Strategy tab also has a **Player pool** below the written strategy — a Claude-generated, ranked, annotated board of every rosterable player (loaded projections minus the fades the strategy names), each with a short GPP write-up. Built automatically as part of the slate-strategy generation (no separate button).
 
 ## Run
 
@@ -38,10 +38,12 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas. **Restar
 | `src/analysis_runner.py` | `run_analysis` (writes the slate strategy) + `run_autopsy_review` + `run_apply_proposals` — build the bundle and run `claude -p` headlessly (subscription auth). Power the Slate Strategy tab's "Generate slate strategy" button and the Autopsy tab's review/approve buttons |
 | `src/slate_analysis.py` | Persisted slate-strategy read/write/clear at `data/slate_analysis/<slug>.md` |
 | `src/strategy.py` | Loads per-sport philosophy/framework/autopsies + recent lessons (no UI tab) |
+| `src/ledger_hygiene.py` | **Lesson-ledger hygiene** (Autopsy tab): deterministic flags over `lessons.yaml` — `stale_hypotheses` (0 confirmations, had their shot), `near_promotion` (2/3 confirming slates), `overdue_promotion` (≥3, not codified), `merge_candidates` (`[[id]]` cross-links or token overlap), `hygiene_report` + `report_md`. Feeds `analysis_runner.run_ledger_review` → `rules/<slug>/ledger_review.md` (proposals) → `run_apply_ledger_proposals` (user-approved) |
 | `src/autopsy.py` | DK contest-standings parser + structural analysis (works from standings alone, no projections) |
 | `src/accuracy.py` | Self-grade: did our ENTERED lineups capture the leverage / slate-defining plays (graded against DK actuals) |
 | `src/shark_gap.py` | Structural us-vs-sharks fingerprint for a contest's standings |
 | `src/history.py` | Per-slate archive (`rules/<slug>/history/`) + cross-slate results ledger (`rules/<slug>/results.jsonl`) — written by the Autopsy tab's Log button BEFORE the workspace clears |
+| `src/contest_selection.py` | **Trends tab** (cross-sport, read-only): flattens every `results.jsonl` into one row per contest, buckets best-percentile by contest **type** + **field-size** (`load_contest_rows` / `by_type` / `by_field_bucket` / `where_you_win`) so the user sees which contest shapes pay them. Best-percentile is the scoreboard; ROI is a coverage count only (usually null) |
 | `articles/<slug>/` | Per-contest-type "Slate Data" uploads — PDFs, notes, data CSVs, and photos/screenshots (e.g. DailyFan). Tab label is "Slate Data"; the on-disk dir stays `articles/`. Per-slate: deleted on autopsy log and on the sidebar "Clear this sport's slate" button (filenames survive in the archive's `manifest.json`) |
 | `rules/<slug>/` | Philosophy / framework / autopsies docs per contest type — Claude reads these as context (no UI tab; surfaced via the bundle) |
 | `rules/<slug>/lessons.yaml` | The lesson ledger — structured lessons with a lifecycle (hypothesis → validated → codified/retired). Claude-edited during the post-autopsy review; user approves codifications |
@@ -87,6 +89,8 @@ This normally runs **in-app**: the Slate Strategy tab's **Generate slate strateg
 
 **Source-of-truth rule:** synthesize from EVERYTHING uploaded — the articles AND every loaded vendor projection — cross-checked against the framework and open lessons. Blend the qualitative article reads with the projection ownership/projections; cite each number from its source (name the **article OR the vendor**). Where vendors disagree with each other, or a vendor disagrees with the articles, surface that gap — it is leverage signal. Write **no lineup tables** and build **no rosters**; this is a strategy doc the user hand-builds from.
 
+**Leverage-coverage rule:** when projections are loaded, the bundle includes a `## Leverage candidates to address` section — the sub-10%-owned, high-ceiling plays (`src/landscape.py::leverage_candidates`). **Every** listed player MUST appear in the slate strategy's `## Leverage & fades` or `## Decisions` as an explicit PLAY or PASS with a one-line mechanism, and the Player pool must confirm each in its `## Leverage candidates addressed` footer (ranked or faded-with-reason). A sub-10% high-ceiling play left unmentioned is a coverage leak — the play that decides the slate from nowhere (the Kaan Ofli failure, 6/27 Baku). The app shows a **coverage-gap warning** if the rendered strategy omits any candidate.
+
 ### Slate strategy format (mandatory, all sports)
 
 The file contains these sections, in order. GPP-framed throughout; concise and scannable.
@@ -131,6 +135,10 @@ Structured lessons with a lifecycle: `hypothesis` → `validated` → `codified`
 - **Codifying into framework.md/philosophy.md and retiring both require user approval** — the review writes proposals; the user clicks "Approve & apply" in the Autopsy tab.
 - Promotion criteria: 3 total confirming slates (origin + 2 confirmations of the MECHANISM, not just the result) → propose codifying. 2 mechanism contradictions → propose retiring.
 - **GPP guard: a lost contest is never evidence by itself** — only mechanism confirmations/contradictions count. Variance is the game.
+
+### Lesson-ledger hygiene (Autopsy tab)
+
+As ledgers grow past ~20 lessons/sport, the **Lesson-ledger hygiene** block (Autopsy tab, below the post-autopsy review) keeps them sharp. `src/ledger_hygiene.py` computes deterministic flags instantly — **stale** hypotheses (0 confirmations that have had ≥3 logged slates or ≥30 days), **near-promotion** (2 of 3 confirming slates), **overdue promotion** (≥3 confirming slates, not yet codified), and **merge candidates** (`[[id]]` cross-links or high statement-token overlap). The **🧹 Review ledger** button runs `claude -p` to turn those flags into reasoned proposals at `rules/<slug>/ledger_review.md` (retire / keep / merge / codify, each with a mechanism), editing nothing; **✅ Approve & apply ledger changes** then applies the approved decisions to `lessons.yaml` (+ framework/philosophy for codifications). Same approve-gate + GPP guard as the post-autopsy review: a lesson untested only because no relevant slate occurred is KEEP, not retire.
 
 New ledger file header (when creating lessons.yaml for a sport):
 
