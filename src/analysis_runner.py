@@ -90,52 +90,142 @@ def _run_claude(prompt: str, out_path: Path) -> dict:
 
 
 def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
-    """Build the bundle and run headless Claude to write the article-driven slate
-    strategy to data/slate_analysis/<slug>.md."""
+    """Build the bundle (articles + every loaded vendor projection) and run headless
+    Claude to write the slate strategy to data/slate_analysis/<slug>.md."""
     out_path = _REPO_ROOT / "data" / "slate_analysis" / f"{slug}.md"
     bundle_path = build_bundle(slug, contest_label, sport)
     prompt = (
-        f"Write the {contest_label} slate strategy. This is a PURE ARTICLE-DRIVEN read — "
-        f"there are NO projections, NO lineup pools, and you build NO lineups. "
-        f"Read the bundle at `{bundle_path}` and EVERY slate-data file it lists under "
-        f"`articles/{slug}/` (the article PDFs, notes, data CSVs read as text tables, and "
-        f"images — use the Read tool on images, it reads them visually). Then read the strategy "
-        f"docs the bundle references for sport `{sport}`: `rules/{slug}/philosophy.md`, "
+        f"Write the {contest_label} slate strategy from EVERYTHING uploaded for this slate — "
+        f"the articles AND every vendor projection. "
+        f"Read the bundle at `{bundle_path}`: this is MANDATORY — EVERY single slate-data file it "
+        f"lists under `articles/{slug}/`, no exceptions (the article PDFs, notes/.txt/.md, data CSVs "
+        f"read as text tables, AND every photo/screenshot/image — use the Read tool on images, it "
+        f"reads them visually; do not skip a file because it looks redundant) AND the `## Projections` "
+        f"tables in the bundle (every loaded vendor's ownership/projection numbers). Then read the "
+        f"strategy docs the bundle references for sport `{sport}`: `rules/{slug}/philosophy.md`, "
         f"`rules/{slug}/framework.md`, `rules/{slug}/autopsies.md`, `rules/{slug}/lessons.yaml`, "
         f"`rules/shared/anchor_equivalence.md`, `rules/shared/sharp_playbook.md`, and the venue "
         f"file for this slate's venue (golf → rules/pga_classic/courses, nascar → "
         f"rules/nascar/tracks, mlb → rules/mlb_classic/parks; mma has none — create a stub marked "
         f"UNVERIFIED if the venue file is missing).\n\n"
-        f"SOURCE-OF-TRUTH RULE: derive EVERYTHING from the uploaded articles, cross-checked against "
-        f"the framework and the OPEN lessons in lessons.yaml. There is no projection math here — "
-        f"cite ownership and plays AS THE ARTICLES STATE THEM (name the source). Write NO lineup "
-        f"tables and build NO rosters; this is a strategy doc the user hand-builds from.\n\n"
+        f"SOURCE-OF-TRUTH RULE: synthesize from BOTH the articles AND the vendor projections, "
+        f"cross-checked against the framework and the OPEN lessons in lessons.yaml. BLEND the "
+        f"qualitative article reads with the projection ownership/projections; cite each ownership "
+        f"or projection number from its source (name the article OR the vendor). Where the vendors "
+        f"disagree with each other, or a vendor disagrees with the articles, SURFACE that gap — it "
+        f"is leverage signal (put it in Key themes / Leverage & fades).\n\n"
+        f"HARD RULE — NEVER CREATE LINEUPS: write NO lineup tables, build NO rosters, and give NO "
+        f"sample/example lineups or player groupings presented as a build. Name plays INDIVIDUALLY "
+        f"only; this is a strategy doc the user hand-builds from — construction lives in the "
+        f"separate sim tool, not here.\n\n"
         f"MANDATORY pre-flight: confirm the article files are for the CURRENT slate (compare the "
         f"bundle's generation date + the article file dates against today; if they look stale, SAY "
-        f"SO in the checklist instead of analyzing a prior slate). Read the venue file. Read "
+        f"SO in the checklist instead of analyzing a prior slate). In the checklist, state how many "
+        f"`articles/{slug}/` files you read and EXPLICITLY LIST any file you could NOT read or parse "
+        f"(with the reason) — coverage must be visible, never silently skip a file. Read the venue file. Read "
         f"`rules/{slug}/lessons.yaml` — every open lesson (hypothesis/validated) must be applied "
         f"(name where) or rejected (name the mechanism reason). Run the framework's pre-lock checks "
         f"including Anchor-Equivalence.\n\n"
         f"Write a concise, scannable, GPP-framed slate strategy to `{out_path}` with EXACTLY these "
         f"sections, in order:\n"
-        f"1. `## Pre-flight checklist` — article-driven: slate confirmed (article dates), venue file "
+        f"1. `## Pre-flight checklist` — slate confirmed (article dates), venue file "
         f"read, open lessons applied-or-rejected, framework pre-lock checks (incl. Anchor-Equivalence), "
         f"prior autopsy notes scanned, sharp envelope noted as the target. Each line checked `[x]` "
         f"with specifics or `[ ]` with the reason. No checklist, no valid output.\n"
         f"2. `## Slate at a glance` — brief facts table from the articles (games/fights/races, "
         f"implied totals or win probs, weather, contests + field sizes). Keep it short.\n"
-        f"3. `## Top plays` — tiered (e.g. core / pivots / darts). Each play: the article-cited "
-        f"ownership (name the source) + a one-line WHY. These are the plays the articles surface, "
-        f"weighted by your read.\n"
+        f"3. `## Top plays` — tiered (e.g. core / pivots / darts). Each play: the cited ownership "
+        f"(name the source — article or vendor projection) + a one-line WHY. The plays the articles "
+        f"AND projections surface, weighted by your read.\n"
         f"4. `## How to approach the slate` — the plain-English game plan for a hand-builder: what "
         f"the winning shape looks like, how chalk-vs-contrarian to lean (field-size aware), the "
         f"sharp-envelope target (≥1 sub-5% leverage piece, ceiling over median, all-unique lineups).\n"
-        f"5. `## Key themes` — the structural storylines, INCLUDING where the articles DISAGREE with "
-        f"each other — that disagreement is the edge; name both sides and which you trust and why.\n"
+        f"5. `## Key themes` — the structural storylines, INCLUDING where the sources DISAGREE — "
+        f"article vs article, vendor vs vendor, or article vs projection — that disagreement is the "
+        f"edge; name both sides and which you trust and why.\n"
         f"6. `## Leverage & fades` — the underowned plays worth the leverage and the chalk worth "
         f"fading, each with the mechanism (a fade is a bet — price the world it needs).\n"
         f"7. `## Decisions` — 2–5 PLAY/PASS/MIX calls, in priority order, each with a one-sentence "
         f"mechanism. The Anchor-Equivalence call MUST appear here as one of the decisions.\n\n"
+        f"Do not ask any questions — read the inputs and produce the file."
+    )
+    return _run_claude(prompt, out_path)
+
+
+def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
+    """Build the ranked, annotated player pool: every rosterable player from the
+    loaded projections minus the strategy's fades, ranked for GPP with a short
+    write-up each. Membership is computed deterministically here; Claude only
+    ranks + writes up, grounded in the articles + slate strategy.
+
+    Writes data/player_pool/<slug>.md. Returns {ok, error, duration_s, cost_usd}.
+    """
+    from src import sessions
+    from src.slate_analysis import load_persisted
+    from src.player_pool import build_pool, extract_fades, apply_fades
+
+    sources = sessions.load_sources(slug)
+    if not sources:
+        return {"ok": False, "error": "No projections loaded — upload vendor CSVs in the "
+                "Projections tab first.", "duration_s": 0.0, "cost_usd": None}
+    persisted = load_persisted(slug)
+    if not persisted:
+        return {"ok": False, "error": "No slate strategy yet — generate it first so the fades "
+                "are known.", "duration_s": 0.0, "cost_usd": None}
+
+    full = build_pool(sources)
+    kept, removed = apply_fades(full, extract_fades(persisted["markdown"]))
+    if kept.empty:
+        return {"ok": False, "error": "Player pool is empty after removing fades — check the "
+                "loaded projections.", "duration_s": 0.0, "cost_usd": None}
+
+    # The exact playable set, as a fixed table Claude must rank without adding/dropping.
+    def _row(r):
+        own = f"{r['ownership']:.0f}%" if r.get("ownership") is not None else "n/a"
+        proj = f"{r['proj_points']:.1f}" if r.get("proj_points") is not None else "n/a"
+        sal = f"${int(r['salary']):,}" if r.get("salary") is not None else "n/a"
+        opp = f" vs {r['opponent']}" if r.get("opponent") else ""
+        return f"- {r['name']} — {sal}, proj own {own}, proj pts {proj}{opp}"
+
+    player_lines = "\n".join(_row(r) for _, r in kept.iterrows())
+    removed_note = (", ".join(removed)) if removed else "none"
+    out_path = _REPO_ROOT / "data" / "player_pool" / f"{slug}.md"
+    bundle_path = build_bundle(slug, contest_label, sport)
+
+    prompt = (
+        f"Write the {contest_label} PLAYER POOL — a ranked, annotated board of the rosterable "
+        f"players, for a GPP hand-builder.\n\n"
+        f"The pool membership is FIXED — these {len(kept)} players, and ONLY these. Fades are "
+        f"already removed (excluded: {removed_note}). Do NOT add, drop, or rename any player:\n"
+        f"{player_lines}\n\n"
+        f"Read for grounding: the bundle at `{bundle_path}` and — this is MANDATORY — EVERY single "
+        f"slate-data file it lists under `articles/{slug}/`. Read ALL of them, no exceptions: article "
+        f"PDFs, notes (.txt/.md), data CSVs (read as text tables), AND every photo/screenshot/image "
+        f"(.png/.jpg/.jpeg — use the Read tool, it reads images visually). Do not skip a file because "
+        f"it looks redundant. Also read the written slate strategy at `data/slate_analysis/{slug}.md` "
+        f"and the strategy docs `rules/{slug}/philosophy.md` + `rules/{slug}/framework.md`.\n\n"
+        f"SOURCE-OF-TRUTH RULE: the ranking and every write-up come from those documents + the "
+        f"slate strategy. Cite ownership AS THE ARTICLES STATE IT (the projected own above is a "
+        f"reference, not the source of truth). GPP-framed throughout (ceiling/leverage, not floor).\n\n"
+        f"Rank ALL {len(kept)} players 1..N by GPP play-priority for this slate (best play = 1). "
+        f"Write `{out_path}` as:\n"
+        f"- A one-line header `# {contest_label} — Player pool` and a one-sentence note that fades "
+        f"are removed and this is a hand-build reference.\n"
+        f"- Then a single continuous numbered list, best to worst. Each entry on its own line:\n"
+        f"  `**N. Player Name** ($salary, own% per source) — *tier* —` then a 1–2 sentence write-up: "
+        f"the role (Core / Pivot / Dart), HOW IT WINS (the ceiling path / the edge), and the key "
+        f"risk or condition. Keep each write-up tight and specific to this slate — no filler.\n"
+        f"- Tier tag must be one of Core, Pivot, or Dart based on your read.\n"
+        f"- End the file with a `## Sources read` section: state how many `articles/{slug}/` "
+        f"slate-data files you read (e.g. 'All 4 files read'), and EXPLICITLY LIST any file you "
+        f"could NOT read or parse, with the reason (e.g. a PDF that wouldn't extract). If every file "
+        f"parsed, say so. This is mandatory — coverage must be visible.\n\n"
+        f"Every one of the {len(kept)} players gets exactly one ranked entry.\n\n"
+        f"HARD RULE — NEVER CREATE LINEUPS: this is a board of INDIVIDUAL players ranked "
+        f"independently. Do NOT assemble, suggest, or imply any lineup, roster, or combination "
+        f"of players — no N-man builds, no 'play these together', no sample/example lineups, no "
+        f"stacks or pairings presented as a build. Each entry stands alone; construction lives in "
+        f"the separate sim tool, not here.\n\n"
         f"Do not ask any questions — read the inputs and produce the file."
     )
     return _run_claude(prompt, out_path)

@@ -14,6 +14,9 @@ from __future__ import annotations
 from datetime import datetime
 from pathlib import Path
 
+import pandas as pd
+
+from src import sessions
 from src.contests import load_contests, portfolio_summary
 
 _REPO_ROOT = Path(__file__).parent.parent
@@ -41,9 +44,10 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
         f"# Slate bundle — {contest_label}",
         f"_Generated {ts} · slug `{slug}` · sport `{sport}`_",
         "",
-        "This file consolidates everything for the active slate. Read it, then "
-        "read the article/slate-data files it points to and the strategy docs, then "
-        f"write the slate strategy to `data/slate_analysis/{slug}.md`.",
+        "This file consolidates everything for the active slate: the article/slate-data "
+        "files AND every loaded vendor projection. Read it, then read the article files it "
+        "points to + the strategy docs + the projection tables below, then write the slate "
+        f"strategy to `data/slate_analysis/{slug}.md`.",
     ]
 
     # --- Contest config --- #
@@ -80,6 +84,32 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
             L.append(f"- `{f}`")
     else:
         L.append("_No slate-data files uploaded — there is nothing to synthesize from._")
+
+    # --- Projections (vendor data — a primary input too) --- #
+    proj_sources = sessions.load_sources(slug)
+    if proj_sources:
+        L += ["", "## Projections (vendor data — read and use these too)"]
+        L.append(
+            "Every vendor projection loaded for this slate. Use these ownership/projection "
+            "numbers alongside the articles. Where the two vendors disagree — or where a vendor "
+            "disagrees with the articles — that gap is signal worth surfacing."
+        )
+        _pref = ["name", "salary", "ownership", "proj_points", "ceiling",
+                 "win_prob", "opponent", "team", "position", "batting_order"]
+        for name, blob in proj_sources.items():
+            df = blob.get("df")
+            if df is None or df.empty:
+                continue
+            cols = [c for c in _pref if c in df.columns]
+            if not cols:
+                cols = list(df.columns)
+            L += ["", f"### {blob.get('vendor', 'Unknown vendor')} — `{name}` ({len(df)} players)"]
+            L.append("| " + " | ".join(cols) + " |")
+            L.append("| " + " | ".join("---" for _ in cols) + " |")
+            for _, r in df.iterrows():
+                cells = ["" if (v := r[c]) is None or (isinstance(v, float) and pd.isna(v))
+                         else str(v) for c in cols]
+                L.append("| " + " | ".join(cells) + " |")
 
     # --- References for Claude --- #
     L += ["", "## References for Claude (read as needed)"]

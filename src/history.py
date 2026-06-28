@@ -27,7 +27,7 @@ _REPO_ROOT = Path(__file__).parent.parent
 # Per-slate workspace artifacts worth preserving (source path per slug).
 _ARCHIVE_SOURCES = {
     "slate_analysis.md": lambda slug: _REPO_ROOT / "data" / "slate_analysis" / f"{slug}.md",
-    "lineups.md": lambda slug: _REPO_ROOT / "data" / "lineups" / f"{slug}.md",
+    "player_pool.md": lambda slug: _REPO_ROOT / "data" / "player_pool" / f"{slug}.md",
     "bundle.md": lambda slug: _REPO_ROOT / "data" / "bundle" / f"{slug}.md",
     "contests.json": lambda slug: _REPO_ROOT / "data" / "contests" / f"{slug}.json",
     "red_team.md": lambda slug: _REPO_ROOT / "data" / "red_team" / f"{slug}.md",

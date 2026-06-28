@@ -26,9 +26,9 @@ from src.contests import (
 from src.contest_templates import load_templates, save_template, remove_template
 from src.bundle import clear_bundle
 from src.analysis_runner import (
-    run_analysis, run_autopsy_review, run_apply_proposals,
+    run_analysis, run_autopsy_review, run_apply_proposals, run_player_pool,
 )
-from src import history, sessions, landscape
+from src import history, sessions, landscape, player_pool
 from src.projections import load_projections, warn_missing_for_sport
 from src.projections_diff import flagged_disagreements
 
@@ -79,6 +79,7 @@ with st.sidebar:
     if st.button("Clear this sport's slate", type="secondary"):
         clear_articles(slug)
         clear_persisted(slug)
+        player_pool.clear_pool(slug)
         clear_contests(slug)
         clear_bundle(slug)
         sessions.clear(slug)
@@ -96,8 +97,9 @@ with tab_proj:
     st.subheader(f"Projections — {contest_label}")
     st.caption(
         "Drop any vendor projection CSV — ETR, Ship It Nation, DailyFan, DK. "
-        "Vendor is auto-detected. This is a stored reference for your own use; the "
-        "slate strategy and autopsy stay article-driven and don't read it."
+        "Vendor is auto-detected. Stored per slate, viewable here, AND folded into the "
+        "bundle so the slate strategy reads them alongside your articles. (The autopsy "
+        "still works from DK standings alone.)"
     )
 
     uploaded = st.file_uploader(
@@ -167,7 +169,7 @@ with tab_proj:
         st.markdown("### 🔍 Breakdown — what you'd miss")
         st.caption(
             f"Computed from **{primary_name}** ({pool[primary_name]['vendor']}). A reference "
-            "view only — your slate strategy and autopsy stay article-driven."
+            "view of this one source — the slate strategy reads all loaded vendors via the bundle."
         )
 
         # Edges to notice (synthesized headline flags first)
@@ -288,8 +290,9 @@ with tab_slate:
 with tab_strategy:
     st.subheader(f"Slate Strategy — {contest_label}")
     st.caption(
-        "Declare your contests, then generate the article-driven slate strategy. "
-        "Claude reads your uploaded articles + strategy docs and writes the strategy below."
+        "Declare your contests, then generate the slate strategy. Claude reads everything "
+        "you uploaded — your articles + every loaded vendor projection + strategy docs — and "
+        "writes the strategy below."
     )
 
     # ----- (a) Contest config (folded in) -----
@@ -396,27 +399,39 @@ with tab_strategy:
                 remove_contest(slug, c["id"])
                 st.rerun()
 
-    # ----- (b) Generate the slate strategy (one click) -----
+    # ----- (b) Generate the slate strategy + player pool (one click) -----
     st.markdown("---")
-    st.markdown("### Generate slate strategy")
+    st.markdown("### Generate slate strategy + player pool")
     st.caption(
-        "Runs Claude on your uploaded articles + strategy docs and writes the slate "
-        "strategy below — no need to leave the app. Takes ~1–3 minutes. "
-        "Uses your Claude subscription."
+        "Runs Claude on everything you uploaded — articles + every loaded vendor projection + "
+        "strategy docs — and writes both the slate strategy and the ranked player pool below. "
+        "No need to leave the app. Takes ~2–6 minutes. Uses your Claude subscription."
     )
     article_files = sorted((REPO_ROOT / "articles" / slug).glob("*"))
     if not article_files:
         st.info("Upload articles in the **Slate Data** tab first — the strategy reads from them.")
-    elif st.button("✨ Generate slate strategy", type="primary", key=f"strategy_{slug}"):
-        with st.spinner("Building the slate strategy — reading your articles and strategy docs… (~1–3 min)"):
+    elif st.button("✨ Generate slate strategy + player pool", type="primary", key=f"strategy_{slug}"):
+        with st.spinner("Building the slate strategy — reading your articles, projections, and strategy docs… (~1–3 min)"):
             result = run_analysis(slug, contest_label, sport)
-        if result["ok"]:
-            cost = result.get("cost_usd")
-            cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
-            st.success(f"Slate strategy written in {result['duration_s']:.0f}s{cost_note}.")
-            st.rerun()
-        else:
+        if not result["ok"]:
             st.error(f"Couldn't generate the slate strategy: {result['error']}")
+        else:
+            cost = result.get("cost_usd") or 0.0
+            msg = f"Slate strategy written in {result['duration_s']:.0f}s."
+            # Chain the player pool — it reads the strategy just written for fades.
+            if sessions.load_sources(slug):
+                with st.spinner("Building the player pool — ranking your players from the documents… (~1–3 min)"):
+                    pool_result = run_player_pool(slug, contest_label, sport)
+                if pool_result["ok"]:
+                    cost += pool_result.get("cost_usd") or 0.0
+                    msg += f" Player pool written in {pool_result['duration_s']:.0f}s."
+                else:
+                    msg += f" (Player pool step failed: {pool_result['error']})"
+            else:
+                msg += " (No projections loaded — skipped the player pool.)"
+            cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
+            st.success(msg + cost_note)
+            st.rerun()
 
     # ----- (c) The written slate strategy -----
     st.markdown("---")
@@ -428,6 +443,24 @@ with tab_strategy:
             st.markdown(persisted["markdown"])
     else:
         st.info("**No saved strategy yet.** Click **Generate slate strategy** above and it appears here.")
+
+    # ----- (d) Player pool — ranked board, built with the strategy -----
+    st.markdown("---")
+    st.markdown("## Player pool")
+    st.caption(
+        "Every player you could roster, ranked for GPP with a short write-up each — built "
+        "automatically with the slate strategy above. Membership = the projections you loaded "
+        "(Projections tab) minus the fades your strategy names; ranking + write-ups from your documents."
+    )
+    saved_pool = player_pool.load_pool(slug)
+    if saved_pool:
+        with st.container(border=True):
+            st.caption(f"Last updated: {saved_pool['mtime']}")
+            st.markdown(saved_pool["markdown"])
+    elif not sessions.load_sources(slug):
+        st.info("Upload projections in the **Projections** tab, then generate the slate strategy — the pool is built with it.")
+    else:
+        st.info("Generate the **slate strategy** above — the player pool is built along with it.")
 
 
 # ===== Tab 3: Autopsy =====
@@ -693,6 +726,7 @@ with tab_autopsy:
                 )
                 # Clear all per-slate state — next slate starts fresh
                 clear_persisted(slug)
+                player_pool.clear_pool(slug)
                 clear_contests(slug)
                 clear_bundle(slug)
                 clear_articles(slug)

@@ -4,13 +4,13 @@ Article-driven, multi-sport DFS slate-strategy tool for DraftKings. Streamlit we
 
 ## What this is
 
-A pre-slate / post-slate **slate-strategy** tool for **PGA Classic, PGA RD4 Showdown, MMA, NASCAR, MLB Classic**. The user uploads the slate's **articles** (PDFs, notes, data files, screenshots) and Claude synthesizes a written **slate strategy**: top plays, how to approach the slate, key themes, leverage & fades, and the decisions that define the slate. After the contest, the user uploads DK contest-standings and the Analyzer drives a post-mortem + learning loop.
+A pre-slate / post-slate **slate-strategy** tool for **PGA Classic, PGA RD4 Showdown, MMA, NASCAR, MLB Classic**. The user uploads the slate's **articles** (PDFs, notes, data files, screenshots) AND vendor **projections**, and Claude synthesizes a written **slate strategy**: top plays, how to approach the slate, key themes, leverage & fades, and the decisions that define the slate. After the contest, the user uploads DK contest-standings and the Analyzer drives a post-mortem + learning loop.
 
-**No lineup building. No selecting, ranking, red-teaming, or fixing lineups.** Lineup construction lives solely in the separate sim tool. This tool is a strategy doc the user hand-builds from — the **slate strategy and autopsy are derived purely from the uploaded articles**, cross-checked against the strategy docs.
+**No lineup building. No selecting, ranking, red-teaming, or fixing lineups.** Lineup construction lives solely in the separate sim tool. This tool is a strategy doc the user hand-builds from — the **slate strategy is derived from everything uploaded (articles + every loaded vendor projection)**, cross-checked against the strategy docs. The **autopsy stays standings-only** (no projections exist at autopsy time).
 
-There is a **Projections** tab for uploading vendor projection CSVs (auto-detected, stored per slate). Besides storing/viewing them it computes a **Breakdown** that surfaces non-obvious edges (chalk tiers + concentration, leverage board, ownership-vs-ceiling mispricing, value-by-tier, AM/PM tee-wave split, boom/bust, auto-flagged "edges to notice", and cross-vendor disagreement when ≥2 sources are loaded). This is a personal analysis/reference view **only** — the generated slate strategy and the autopsy do NOT read projections; they stay article-driven.
+There is a **Projections** tab for uploading vendor projection CSVs (auto-detected, stored per slate). Besides storing/viewing them it computes a **Breakdown** that surfaces non-obvious edges (chalk tiers + concentration, leverage board, ownership-vs-ceiling mispricing, value-by-tier, AM/PM tee-wave split, boom/bust, auto-flagged "edges to notice", and cross-vendor disagreement when ≥2 sources are loaded). The loaded projections are **also folded into the bundle** so the slate strategy reads them alongside the articles. The autopsy still does NOT read projections.
 
-Four tabs: **Projections → Slate Data → Slate Strategy → Autopsy**.
+Four tabs: **Projections → Slate Data → Slate Strategy → Autopsy**. The Slate Strategy tab also has a **Player pool** below the written strategy — a Claude-generated, ranked, annotated board of every rosterable player (loaded projections minus the fades the strategy names), each with a short GPP write-up. Built automatically as part of the slate-strategy generation (no separate button).
 
 ## Run
 
@@ -31,6 +31,7 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas. **Restar
 | `src/sessions.py` | Per-slug projection session at `data/sessions/<slug>.json` (`save_source` / `load_sources` / `drop_source` / `merge_same_vendor` / `clear`); cleared with the slate |
 | `src/landscape.py` | Projections-tab Breakdown: chalk tiers, leverage board, ownership-vs-ceiling mispricing, value-by-tier, tee-wave split, boom/bust, anchor-equivalence, `breakdown_flags` |
 | `src/projections_diff.py` | Cross-vendor projection disagreement (`flagged_disagreements`) — shown when ≥2 sources loaded |
+| `src/player_pool.py` | **Player pool** (Slate Strategy tab, below the written strategy): a Claude-generated **ranked, annotated board**. Membership is computed deterministically — the rosterable universe from the loaded projections (`build_pool`) minus the fades named in the strategy's `## Leverage & fades` → Fades subsection (`extract_fades` / `apply_fades`) — then `analysis_runner.run_player_pool` runs `claude -p` to rank those exact players + write a short write-up each from the documents. **Runs automatically right after `run_analysis`** when the "Generate slate strategy + player pool" button is clicked (chained in app.py; no separate button) — needs projections loaded + the strategy just written for fades. Persisted at `data/player_pool/<slug>.md` (`load_pool`/`save_pool`/`clear_pool`); cleared + archived with the slate |
 | `src/contests.py` | Per-sport contest registry at `data/contests/<slug>.json` |
 | `src/contest_templates.py` | Reusable saved-contest templates per slug |
 | `src/bundle.py` | `build_bundle` — consolidates the declared contests + the `articles/<slug>/` file paths + strategy-doc paths into `data/bundle/<slug>.md` for Claude to read |
@@ -71,26 +72,28 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas. **Restar
 
 This normally runs **in-app**: the Slate Strategy tab's **Generate slate strategy** button calls `src/analysis_runner.py::run_analysis`, which builds the bundle and invokes `claude -p` headlessly (subscription auth, no API key) to read the bundle + referenced files and write `data/slate_analysis/<slug>.md`. That headless Claude loads this `CLAUDE.md` and follows the steps below. The same can be triggered manually from chat (fallback): click the button once to build the bundle, then ask **"read the bundle and write the slate strategy"**. Either way:
 
-1. Read the bundle: `data/bundle/<slug>.md` — it lists the declared contests, absolute paths to every `articles/<slug>/` file (the primary input), and the strategy-doc paths. Start here.
-2. Read every slate-data file it lists under `articles/<slug>/` — `*.pdf`, `*.txt`/`*.md`, `*.csv` (misc data like vegas odds or course/track history — read as text tables), and `*.png`/`*.jpg`/`*.jpeg` (use the Read tool — it reads images visually, so DailyFan screenshots work; PDFs may require poppler — note in the file if anything couldn't be parsed).
+1. Read the bundle: `data/bundle/<slug>.md` — it lists the declared contests, absolute paths to every `articles/<slug>/` file, the `## Projections` tables (every loaded vendor), and the strategy-doc paths. Start here.
+2. Read every slate-data file it lists under `articles/<slug>/` — `*.pdf`, `*.txt`/`*.md`, `*.csv` (misc data like vegas odds or course/track history — read as text tables), and `*.png`/`*.jpg`/`*.jpeg` (use the Read tool — it reads images visually, so DailyFan screenshots work; PDFs may require poppler — note in the file if anything couldn't be parsed). Then read the `## Projections` tables in the bundle — every loaded vendor's ownership/projections.
 3. Read strategy: `rules/<slug>/{philosophy,framework,autopsies}.md` + `rules/shared/anchor_equivalence.md` + `rules/shared/sharp_playbook.md` (paths are in the bundle).
 4. Read recent autopsies: tail of `rules/<slug>/autopsy_data.jsonl`.
 5. For NASCAR: also read `rules/nascar/tracks/<track>.md`.
-6. Synthesize from the ARTICLES, cross-checked against the framework + open lessons:
-   - What do the articles surface as the top plays, and where do they DISAGREE with each other (that disagreement is the edge)?
-   - Which qualitative reads should drive the build? What's the Anchor-Equivalence call?
+6. Synthesize from the ARTICLES **and the projections together**, cross-checked against the framework + open lessons:
+   - What do the articles + projections surface as the top plays, and where do they DISAGREE — article vs article, vendor vs vendor, or article vs projection (that disagreement is the edge)?
+   - Which qualitative reads should drive the build, and where do the projection numbers confirm or challenge them? What's the Anchor-Equivalence call?
    - Which framework rules / open lessons activate?
 7. Write to `data/slate_analysis/<slug>.md` in the format below. It renders in the Slate Strategy tab with a "Last updated" timestamp and is cleared automatically when the user logs an autopsy.
 
-**Source-of-truth rule:** derive EVERYTHING from the uploaded articles, cross-checked against the framework and open lessons. There is no projection math — cite ownership and plays **as the articles state them** (name the source). Write **no lineup tables** and build **no rosters**; this is a strategy doc the user hand-builds from.
+**Coverage rule:** read EVERY uploaded slate-data file — every article PDF, note, data CSV, AND photo/screenshot — never silently skip one. Both generated outputs must make coverage visible: the slate strategy's pre-flight checklist states how many files were read and lists any it couldn't parse; the Player pool ends with a `## Sources read` line doing the same.
 
-### Slate strategy format (article-driven — mandatory, all sports)
+**Source-of-truth rule:** synthesize from EVERYTHING uploaded — the articles AND every loaded vendor projection — cross-checked against the framework and open lessons. Blend the qualitative article reads with the projection ownership/projections; cite each number from its source (name the **article OR the vendor**). Where vendors disagree with each other, or a vendor disagrees with the articles, surface that gap — it is leverage signal. Write **no lineup tables** and build **no rosters**; this is a strategy doc the user hand-builds from.
+
+### Slate strategy format (mandatory, all sports)
 
 The file contains these sections, in order. GPP-framed throughout; concise and scannable.
 
-1. `## Pre-flight checklist` — first, always (see Pre-flight ritual). Article-driven.
-2. `## Slate at a glance` — brief facts table from the articles (games/fights/races, implied totals or win probs, weather, contests + field sizes). Keep it short.
-3. `## Top plays` — tiered (e.g. core / pivots / darts). Each play: the **article-cited ownership** (name the source) + a one-line WHY.
+1. `## Pre-flight checklist` — first, always (see Pre-flight ritual).
+2. `## Slate at a glance` — brief facts table from the articles + projections (games/fights/races, implied totals or win probs, weather, contests + field sizes). Keep it short.
+3. `## Top plays` — tiered (e.g. core / pivots / darts). Each play: the **cited ownership** (name the source — article or vendor) + a one-line WHY.
 4. `## How to approach the slate` — the plain-English game plan for a hand-builder: what the winning shape looks like, how chalk-vs-contrarian to lean (field-size aware), the sharp-envelope target (≥1 sub-5% leverage piece, ceiling over median, all-unique lineups).
 5. `## Key themes` — the structural storylines, INCLUDING **where the articles disagree** with each other — name both sides and which you trust and why.
 6. `## Leverage & fades` — the underowned plays worth the leverage and the chalk worth fading, each with the mechanism (a fade is a bet — price the world it needs).
@@ -154,7 +157,8 @@ The slate's scoreboard is **best-percentile trend + process/mechanism metrics** 
 
 ## Hard rules
 
-- **Strategy & autopsy are articles-only.** The generated slate strategy and the autopsy derive from the uploaded articles (cross-checked against the strategy docs) and never read projections. The **Projections tab** is a standalone upload/reference store for the user — no sim/lineup pools, no lineup building/selecting/ranking/red-teaming/fixing (that lives in the sim tool), and projections are NOT an input to the strategy or autopsy.
+- **NEVER create lineups.** This tool builds NO lineups — ever. Both generated outputs name **individual plays only**: the slate strategy writes no roster tables / sample builds / "core build" groupings, and the Player pool is a board of single players ranked independently (never combined into a roster, stack, or pairing presented as a build). Applies to in-app generation AND chat sessions. Lineup construction lives solely in the separate sim tool.
+- **Slate strategy = everything uploaded (articles + every loaded vendor projection); autopsy stays standings-only.** The generated slate strategy synthesizes the uploaded articles AND the loaded projections (folded into the bundle), cross-checked against the strategy docs. The **autopsy** still derives from DK contest-standings alone — there are no projections at autopsy time. The **Projections tab** is also a standalone upload/reference store — but no sim/lineup pools, no lineup building/selecting/ranking/red-teaming/fixing (that lives in the sim tool).
 - **No scraping.** DK ToS prohibits it; never build scrapers. Use user-pasted/uploaded data only.
 - **GPP-only framing.** Leverage / ceiling / contrarian. Never propose cash-game features.
 - **Anchor-Equivalence Rule** is a **mandatory call** in every slate strategy's `## Decisions`. 4-slate-validated structural leak: if 2+ chalk-tier anchors at similar ownership (per the articles), the build must run the alternative.
