@@ -27,9 +27,12 @@ from src.contest_templates import load_templates, save_template, remove_template
 from src.bundle import clear_bundle
 from src.analysis_runner import (
     run_analysis, run_autopsy_review, run_apply_proposals, run_player_pool,
-    run_ledger_review, run_apply_ledger_proposals,
+    run_ledger_review, run_apply_ledger_proposals, run_sim_review,
 )
-from src import history, sessions, landscape, player_pool, contest_selection, ledger_hygiene
+from src import (
+    history, sessions, landscape, player_pool, contest_selection, ledger_hygiene,
+    sim_data, sim_sessions, dk_ids,
+)
 from src.projections import load_projections, warn_missing_for_sport
 from src.projections_diff import flagged_disagreements
 
@@ -84,12 +87,13 @@ with st.sidebar:
         clear_contests(slug)
         clear_bundle(slug)
         sessions.clear(slug)
+        sim_sessions.clear(slug)
         st.rerun()
 
 
 # ---------- Tabs ---------- #
-tab_proj, tab_slate, tab_strategy, tab_autopsy, tab_trends = st.tabs(
-    ["Projections", "Slate Data", "Slate Strategy", "Autopsy", "Trends"]
+tab_proj, tab_slate, tab_strategy, tab_sim, tab_autopsy, tab_trends = st.tabs(
+    ["Projections", "Slate Data", "Slate Strategy", "Sim Data", "Autopsy", "Trends"]
 )
 
 
@@ -178,16 +182,22 @@ with tab_proj:
         for bullet in landscape.breakdown_flags(df):
             st.markdown(f"- {bullet}")
 
-        c1, c2 = st.columns(2)
-        with c1:
-            st.markdown("#### Underowned vs ceiling (field blind spots)")
-            mis = landscape.mispricing_table(df, top_n=10)
-            st.dataframe(mis["underowned"], use_container_width=True, hide_index=True)
-        with c2:
-            st.markdown("#### Overowned vs ceiling (fade candidates)")
-            st.dataframe(mis["overowned"], use_container_width=True, hide_index=True)
+        # Ceiling-based panels only when the vendor ships a REAL ceiling (golf/MLB).
+        # NASCAR / names-only vendors ship none — we never fabricate one.
+        real_ceil = landscape.has_real_ceiling(df)
 
-        st.markdown("#### Leverage board (ceiling vs ownership)")
+        if real_ceil:
+            c1, c2 = st.columns(2)
+            with c1:
+                st.markdown("#### Underowned vs ceiling (field blind spots)")
+                mis = landscape.mispricing_table(df, top_n=10)
+                st.dataframe(mis["underowned"], use_container_width=True, hide_index=True)
+            with c2:
+                st.markdown("#### Overowned vs ceiling (fade candidates)")
+                st.dataframe(mis["overowned"], use_container_width=True, hide_index=True)
+
+        _lev_title = "Leverage board (ceiling vs ownership)" if real_ceil else "Leverage board (proj vs ownership)"
+        st.markdown(f"#### {_lev_title}")
         st.dataframe(landscape.leverage_table(df, top_n=15), use_container_width=True, hide_index=True)
 
         c3, c4 = st.columns(2)
@@ -205,14 +215,21 @@ with tab_proj:
         else:
             st.dataframe(waves, use_container_width=True, hide_index=True)
 
-        vol = landscape.volatility_table(df, top_n=10)
-        c5, c6 = st.columns(2)
-        with c5:
-            st.markdown("#### Boom (highest ceiling-volatility)")
-            st.dataframe(vol["boom"], use_container_width=True, hide_index=True)
-        with c6:
-            st.markdown("#### Fragile chalk (owned, capped ceiling)")
-            st.dataframe(vol["fragile_chalk"], use_container_width=True, hide_index=True)
+        if real_ceil:
+            vol = landscape.volatility_table(df, top_n=10)
+            c5, c6 = st.columns(2)
+            with c5:
+                st.markdown("#### Boom (highest ceiling-volatility)")
+                st.dataframe(vol["boom"], use_container_width=True, hide_index=True)
+            with c6:
+                st.markdown("#### Fragile chalk (owned, capped ceiling)")
+                st.dataframe(vol["fragile_chalk"], use_container_width=True, hide_index=True)
+        else:
+            st.caption(
+                "ℹ️ Ceiling-based views (boom/bust, mispricing-vs-ceiling) need a vendor that ships a "
+                "real ceiling — hidden here because this slate's projections are projection-only "
+                "(no fabricated ceiling)."
+            )
 
         # Cross-vendor disagreement — only when 2+ sources loaded
         if len(sources) >= 2:
@@ -741,6 +758,7 @@ with tab_autopsy:
                 clear_bundle(slug)
                 clear_articles(slug)
                 sessions.clear(slug)
+                sim_sessions.clear(slug)
                 st.success(
                     f"Logged {len(parsed_contests)} contest(s) to rules/{slug}/autopsies.md "
                     "+ autopsy_data.jsonl, and archived the slate to "
@@ -915,3 +933,102 @@ with tab_trends:
 
         st.caption(f"{len(_rows)} contests across {_rows['slate_label'].nunique()} slates · "
                    f"{_rows['sport'].nunique()} sports.")
+
+
+# ===== Tab: Sim Data — SaberSim analytics (analytics ONLY, never lineups) =====
+with tab_sim:
+    st.subheader(f"Sim Data — {contest_label}")
+    st.caption(
+        "Upload a **SaberSim lineup-pool export** to see what the sim likes, fades, and piles "
+        "into. **Analytics only — this never builds or picks lineups.** Combinations are shown "
+        "as duplication/leverage signal to be aware of, not lineups to play."
+    )
+
+    up = st.file_uploader("SaberSim lineup-pool CSV", type=["csv"], key=f"simpool_{slug}")
+    if up is not None:
+        sim_sessions.save_pool(slug, up)
+        st.success(f"Saved sim pool ({up.name}).")
+
+    dk_up = st.file_uploader(
+        "DK Name + ID file (optional — only needed if your projections lack DK IDs)",
+        type=["csv"], key=f"simdkmap_{slug}",
+    )
+    if dk_up is not None:
+        sim_sessions.save_dkmap(slug, dk_up)
+        st.success(f"Saved DK Name+ID map ({dk_up.name}).")
+
+    pool_path = sim_sessions.pool_path(slug)
+    if pool_path is None:
+        st.info("No sim pool loaded yet — upload a SaberSim export above.")
+    else:
+        pool = sim_data.load_sim_pool(str(pool_path))
+        if pool.get("n", 0) == 0:
+            st.error("Couldn't parse that file as a SaberSim lineup pool. Check the export format.")
+        else:
+            dkmap_path = sim_sessions.dkmap_path(slug)
+            uploaded_map = dk_ids.parse_id_to_name(str(dkmap_path)) if dkmap_path else None
+            id_to_name = dk_ids.resolve_id_to_name(slug, uploaded_map)
+            proj = player_pool.build_pool(sessions.load_sources(slug))
+            exp = sim_data.player_exposure(pool, id_to_name, proj if not proj.empty else None)
+
+            resolved = exp["player"].apply(lambda p: not str(p).isdigit()).sum() if not exp.empty else 0
+            st.caption(
+                f"{pool['n']:,} sim lineups · {len(pool['roster_slots'])} roster slots · "
+                f"{len(exp)} players ({resolved} name-resolved). "
+                + ("" if id_to_name else "No DK IDs found — upload a DK Name+ID file to show names.")
+            )
+
+            gb = sim_data.good_bad_plays(exp)
+            has_field = "field_own_pct" in exp.columns and exp["field_own_pct"].notna().any()
+
+            st.markdown("**Player exposure** — how often the sim rosters each player")
+            _cols = [c for c in ["player", "sim_exposure_pct", "field_own_pct", "avg_saber", "lineups"]
+                     if c in exp.columns]
+            st.dataframe(exp[_cols], use_container_width=True, hide_index=True)
+
+            c1, c2 = st.columns(2)
+            with c1:
+                st.markdown("**✅ Good plays — sim core**")
+                st.dataframe(gb["good"][[c for c in ["player", "sim_exposure_pct", "field_own_pct"]
+                                         if c in gb["good"].columns]],
+                             use_container_width=True, hide_index=True)
+            with c2:
+                st.markdown("**🚫 Bad plays — sim fades**")
+                st.dataframe(gb["bad"][[c for c in ["player", "sim_exposure_pct", "field_own_pct"]
+                                        if c in gb["bad"].columns]],
+                             use_container_width=True, hide_index=True)
+
+            if has_field:
+                c3, c4 = st.columns(2)
+                with c3:
+                    st.markdown("**📈 Leverage — sim ≫ field own**")
+                    st.dataframe(gb["leverage"], use_container_width=True, hide_index=True)
+                with c4:
+                    st.markdown("**🪤 Traps — field own ≫ sim**")
+                    st.dataframe(gb["trap"], use_container_width=True, hide_index=True)
+            else:
+                st.caption("_Load projections in the Projections tab to unlock the leverage/trap "
+                           "view (sim exposure vs field ownership)._")
+
+            st.markdown("**Chalky combinations** — most over-represented player groups (duplication risk to fade)")
+            combos = sim_data.chalky_combinations(pool, id_to_name)
+            st.dataframe(combos, use_container_width=True, hide_index=True)
+
+            st.divider()
+            st.markdown("### Sim summary (Claude)")
+            st.caption("A written read of the sim — core, fades, leverage, chalky combos — vs the slate strategy.")
+            sim_md_path = sim_sessions.analysis_path(slug)
+            sbtn = "🔄 Re-run sim summary" if sim_md_path.exists() else "🧪 Write sim summary"
+            if st.button(sbtn, key=f"sim_review_{slug}"):
+                with st.spinner("Reading the sim pool + strategy and writing the summary…"):
+                    sres = run_sim_review(slug, contest_label, sport)
+                if sres["ok"]:
+                    cost = sres.get("cost_usd")
+                    cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
+                    st.success(f"Sim summary written in {sres['duration_s']:.0f}s{cost_note}.")
+                    st.rerun()
+                else:
+                    st.error(f"Couldn't write the sim summary: {sres['error']}")
+            if sim_md_path.exists():
+                with st.container(border=True):
+                    st.markdown(sim_md_path.read_text())

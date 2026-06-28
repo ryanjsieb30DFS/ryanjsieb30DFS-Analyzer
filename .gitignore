@@ -10,6 +10,7 @@ data/lineups/
 data/contests/
 data/sabersim/
 data/sim_data/
+data/sim_analysis/
 data/bundle/
 articles/*/
 !articles/.gitkeep

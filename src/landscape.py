@@ -6,16 +6,21 @@ from __future__ import annotations
 import pandas as pd
 
 
+def has_real_ceiling(df: pd.DataFrame) -> bool:
+    """True only when the vendor shipped a real `ceiling` column (golf: ETR/Ship It;
+    MLB: 95th pct). NASCAR (DailyFan) and names-only vendors ship none — we never
+    fabricate one, so ceiling-based views must gate on this."""
+    return "ceiling" in df.columns and pd.to_numeric(df["ceiling"], errors="coerce").notna().any()
+
+
 def _upside(df: pd.DataFrame) -> pd.Series:
-    """Per-player ceiling: vendor 'ceiling' if present, else proj + 1.28*stddev,
-    else just proj_points. (1.28 sigma ~ 90th percentile.)"""
-    if "ceiling" in df.columns and df["ceiling"].notna().any():
+    """Per-player ceiling = the vendor's REAL `ceiling` if present, else just
+    `proj_points`. We do NOT fabricate a ceiling from a derived stddev — a flat
+    30%-of-proj guess is identical for every player and carries zero information.
+    Callers must gate ceiling-based panels on `has_real_ceiling(df)`."""
+    if has_real_ceiling(df):
         ceil = pd.to_numeric(df["ceiling"], errors="coerce")
-        if "stddev" in df.columns:
-            ceil = ceil.where(ceil.notna(), df["proj_points"] + 1.28 * pd.to_numeric(df["stddev"], errors="coerce"))
         return ceil.fillna(df["proj_points"])
-    if "stddev" in df.columns and df["stddev"].notna().any():
-        return df["proj_points"] + 1.28 * pd.to_numeric(df["stddev"], errors="coerce").fillna(0)
     return df["proj_points"]
 
 
@@ -50,12 +55,17 @@ def chalk_summary(projections: pd.DataFrame) -> pd.DataFrame:
 
 
 def leverage_table(projections: pd.DataFrame, top_n: int = 20) -> pd.DataFrame:
-    """Low ownership + high upside. Uses ceiling if available, else proj."""
+    """Leverage = upside / (ownership + 1). `upside` is the real ceiling when the
+    vendor ships one; otherwise upside == proj_points and the redundant `upside`
+    column is dropped (leverage_score is then proj ÷ (own+1))."""
     df = projections.copy()
-    upside = df["ceiling"] if "ceiling" in df.columns and df["ceiling"].notna().any() else df["proj_points"]
-    df["upside"] = upside
+    real_ceil = has_real_ceiling(df)
+    df["upside"] = _upside(df)
     df["leverage_score"] = df["upside"] / (df["ownership"].fillna(0) + 1)
-    cols = ["name", "salary", "proj_points", "upside", "ownership"]
+    cols = ["name", "salary", "proj_points"]
+    if real_ceil:
+        cols.append("upside")
+    cols.append("ownership")
     if "current_score" in df.columns:  # golf RD4 SD live leaderboard position
         cols.append("current_score")
     cols.append("leverage_score")
@@ -183,6 +193,7 @@ def value_by_tier(projections: pd.DataFrame) -> pd.DataFrame:
     """Per salary tier: the best ceiling-per-$1k and proj-per-$1k leader (where to spend /
     cheap leverage the field under-weights)."""
     df = projections.copy()
+    real_ceil = has_real_ceiling(df)
     df["upside"] = _upside(df)
     sal = df["salary"].replace(0, pd.NA)
     df["ceil_per_1k"] = (df["upside"] / sal * 1000).round(2)
@@ -193,15 +204,14 @@ def value_by_tier(projections: pd.DataFrame) -> pd.DataFrame:
         sub = df[df["tier"] == tier]
         if sub.empty:
             continue
-        best_ceil = sub.loc[sub["ceil_per_1k"].idxmax()]
         best_proj = sub.loc[sub["proj_per_1k"].idxmax()]
-        rows.append({
-            "tier": tier,
-            "n": len(sub),
-            "best ceiling/$1k": f"{best_ceil['name']} ({best_ceil['ceil_per_1k']})",
-            "best proj/$1k": f"{best_proj['name']} ({best_proj['proj_per_1k']})",
-            "avg own%": round(float(sub["ownership"].fillna(0).mean()), 1),
-        })
+        row = {"tier": tier, "n": len(sub)}
+        if real_ceil:  # only show a ceiling column when it's real, not fabricated
+            best_ceil = sub.loc[sub["ceil_per_1k"].idxmax()]
+            row["best ceiling/$1k"] = f"{best_ceil['name']} ({best_ceil['ceil_per_1k']})"
+        row["best proj/$1k"] = f"{best_proj['name']} ({best_proj['proj_per_1k']})"
+        row["avg own%"] = round(float(sub["ownership"].fillna(0).mean()), 1)
+        rows.append(row)
     return pd.DataFrame(rows)
 
 
@@ -269,17 +279,18 @@ def breakdown_flags(projections: pd.DataFrame) -> list[str]:
     df = projections.copy()
     own = df["ownership"].fillna(0)
 
-    # Top mispriced (underowned vs ceiling)
-    mis = mispricing_table(df, top_n=3)["underowned"]
-    if not mis.empty:
-        names = ", ".join(f"{r['name']} (+{int(r['edge'])})" for _, r in mis.iterrows() if r["edge"] > 0)
-        if names:
-            flags.append(f"**Most underowned vs ceiling** (field blind spots): {names}")
-    over = mispricing_table(df, top_n=3)["overowned"]
-    if not over.empty:
-        names = ", ".join(f"{r['name']} ({int(r['edge'])})" for _, r in over.iterrows() if r["edge"] < 0)
-        if names:
-            flags.append(f"**Overowned vs ceiling** (chalk paying up for less upside): {names}")
+    # Top mispriced (underowned vs ceiling) — only when there's a REAL ceiling.
+    if has_real_ceiling(df):
+        mis = mispricing_table(df, top_n=3)["underowned"]
+        if not mis.empty:
+            names = ", ".join(f"{r['name']} (+{int(r['edge'])})" for _, r in mis.iterrows() if r["edge"] > 0)
+            if names:
+                flags.append(f"**Most underowned vs ceiling** (field blind spots): {names}")
+        over = mispricing_table(df, top_n=3)["overowned"]
+        if not over.empty:
+            names = ", ".join(f"{r['name']} ({int(r['edge'])})" for _, r in over.iterrows() if r["edge"] < 0)
+            if names:
+                flags.append(f"**Overowned vs ceiling** (chalk paying up for less upside): {names}")
 
     # Anchor-equivalence pairs (only tight, actionable groups of 2-4)
     for g in anchor_equivalence_check(df):

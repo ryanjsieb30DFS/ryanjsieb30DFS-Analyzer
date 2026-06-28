@@ -31,6 +31,8 @@ _ARCHIVE_SOURCES = {
     "bundle.md": lambda slug: _REPO_ROOT / "data" / "bundle" / f"{slug}.md",
     "contests.json": lambda slug: _REPO_ROOT / "data" / "contests" / f"{slug}.json",
     "red_team.md": lambda slug: _REPO_ROOT / "data" / "red_team" / f"{slug}.md",
+    "sim_analysis.md": lambda slug: _REPO_ROOT / "data" / "sim_analysis" / f"{slug}.md",
+    "sim_pool.csv": lambda slug: _REPO_ROOT / "data" / "sim_data" / f"{slug}__pool.csv",
 }
 
 
