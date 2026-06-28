@@ -1,0 +1,52 @@
+# Custom lineup metrics — built by the user in SaberSim, recorded here so we can
+# refer back and track how each performs slate-over-slate. This is a record only:
+# the Analyzer never scores or builds lineups.
+#
+# Iteration convention (the metric WILL be edited from results):
+#   - When graded slates say to change weights/variables, bump `version`, append a
+#     `changelog` entry (date, what changed, why / which slate evidence), and update
+#     `status` (testing -> validated | retired) as the metric earns it.
+#   - Graded-slate results land in the `performance_log` file (written by the deferred
+#     performance tracker); the changelog records the edits made in response.
+metrics:
+  - id: nascar-pd-leverage-score
+    name: PD-Leverage Score
+    sport: nascar
+    version: 1
+    status: testing
+    created: "2026-06-28"
+    built_in: "SaberSim — Custom Lineup Metric (GPP)"
+    transform: "Normalized Value (0-100)"   # applied to every variable
+    aggregation: "Sum"                       # across the 6 drivers
+    variables:
+      - stat: "Detailed Stats → Place Diff"
+        weight: 1.0
+      - stat: "Detailed Stats → Fastest Laps"
+        weight: 0.5
+      - stat: "Detailed Stats → Laps Led"
+        weight: 0.3
+      - stat: "Adj Own"
+        weight: -0.3
+    rationale: >
+      GPP metric. PD-first (Place Diff is the #1 NASCAR lever — codified lesson
+      nascar-2026-05-24-sleeper-spike-floor), plus dominator equity (Fastest Laps +
+      Laps Led = the >=1-dominator requirement), minus an ownership-leverage discount
+      (Adj Own negative weight rewards differentiation — codified lesson
+      nascar-2026-05-24-chalky-combos-scrub). Weights are a v1 hypothesis to be tuned
+      from logged performance.
+    guardrails:
+      - >
+        Do NOT use Contest Sims → ROI as a variable: codified lesson
+        nascar-2026-05-24-sim-roi-not-a-selector — pre-slate Sim ROI was
+        anti-informative for NASCAR (Spearman -0.054 vs actual; worse than random).
+      - >
+        Treat the top-N-by-metric cut as a TEST, not a conviction bet, until graded
+        slates show its scores correlate with actual finishes. For GPP multi-entry,
+        de-dupe cores so the top lineups are distinct "what if?" bets, not one bet
+        entered N times (lesson no-competing-lineups / correlated-leverage-one-bet).
+    performance_log: "rules/nascar/metric_performance.jsonl"   # written when a slate is graded
+    changelog:
+      - version: 1
+        date: "2026-06-28"
+        change: "Initial build — PD 1.0 / Fastest Laps 0.5 / Laps Led 0.3 / Adj Own -0.3."
+        reason: "v1 hypothesis from codified NASCAR lessons; no graded slates yet."
