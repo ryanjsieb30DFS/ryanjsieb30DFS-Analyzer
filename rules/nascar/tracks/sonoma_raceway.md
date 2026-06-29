@@ -1,6 +1,6 @@
 # Sonoma Raceway
 
-**UNVERIFIED — built from this slate's articles only (2026-06-28, DFR/Dustin's Deep Dive). Verify against a second source before treating as settled.**
+**PARTIALLY VERIFIED — built from articles (2026-06-28, DFR/Dustin's Deep Dive); one NextGen race now observed live (2026-06-28 autopsy below). The multi-year start-distribution base rates still need a second source; the live race already qualified one of them (see deep-back note).**
 
 1.99-mile road course, 10 turns, ~160-ft elevation change (high point Turn 3a, low point Turn 10). Technical, precision-demanding. One of NASCAR's two original road courses (with Watkins Glen); deep history to mine.
 
@@ -24,3 +24,4 @@
 ## Date-stamped observations
 
 - **2026-06-28 (pre-slate, UNVERIFIED):** Built file from DFR road-course/Sonoma history + Dustin's Deep Dive. Key read for this slate: deep-back (>P30) bucket is only 6.7% of optimal here, so the field's deep-back PD chalk (Keselowski P35 @ 24%) is a likely trap; the 11–30 band is the leverage. Trackhouse (SVG P6, Zilisch P17) reportedly a step off in practice — flagged the $14K SVG chalk as capped. Awaiting autopsy to verify.
+- **2026-06-28 (POST-slate / live, Toyota/Save Mart 350):** Race winner 291.55 (490 field) / 323.90 (3,567 field). The actual race **partly disproved the "deep-back is dead (6.7%)" read for this running**: deep-back PD revived on caution/strategy — **Keselowski (P35, 24% own) was in ~7 of the top 10 (490 field) and both top lineups of the 3,567 field; Erik Jones (P32) = 28; Austin Dillon (deep) anchored the 490 winner.** BUT the mid-pack 11–30 band also paid heavily and was additive, not substituted: **Cindric (P23, 6.53%) = 40, Preece (P19, 18.9%) = 47, Custer (P27, 12.45%) = 30.45, Stenhouse (P21, 6.28%) = 33.** Winning shape = **SVG/Gibbs dominator(s) + a mix of mid-pack PD AND a deep-back PD car** (Keselowski/Custer/Cindric the most common). **SVG (P6) chalk HIT** and was in nearly every winning lineup despite the "Trackhouse a step off" practice flag — the pre-slate SVG-underweight (Decision 3) was marginally costly. **Bell (fractured wrist, P-deep, 12% own) was in the #1 overall lineup** — the injury fade was wrong. **Blaney** was in ~half the top lineups and was entirely absent from the slate strategy (coverage leak). Takeaway for next Sonoma: do NOT fade a deep-back CHALK purely on the 6.7% base rate — a single caution sequence revives the deep-back path; roster the deep-back band alongside the mid-pack band, not instead of it. The 11–30 sleeper floor remains the most reliable mechanism.

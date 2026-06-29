@@ -1,0 +1,205 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 24,
+    "leverage_capture": 1.0,
+    "leverage_hit": [
+      "Austin Cindric",
+      "Ryan Preece",
+      "Ricky Stenhouse Jr",
+      "Cole Custer",
+      "Erik Jones"
+    ],
+    "leverage_missed": [],
+    "overperformer_capture": null,
+    "overperformer_hit": [],
+    "underperformer_exposure": null,
+    "underperformer_hit": []
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 22,
+    "avg_ratio": null,
+    "best_percentile": 0.3,
+    "median_percentile": 28.7,
+    "n_top_10pct": 4,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 257.9,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 6.5,
+        "avg_own": 24.25
+      },
+      {
+        "entry_name": "RyvlesGaming30 (7/20)",
+        "points": 294.85004,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 0.3,
+        "avg_own": 23.78
+      },
+      {
+        "entry_name": "RyvlesGaming30 (10/20)",
+        "points": 275.1,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 1.9,
+        "avg_own": 25.94
+      },
+      {
+        "entry_name": "RyvlesGaming30 (8/20)",
+        "points": 258.65002,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 7.2,
+        "avg_own": 27.3
+      },
+      {
+        "entry_name": "RyvlesGaming30 (4/20)",
+        "points": 240.25,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 16.4,
+        "avg_own": 25.88
+      },
+      {
+        "entry_name": "RyvlesGaming30 (13/20)",
+        "points": 239.65,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 16.7,
+        "avg_own": 23.77
+      },
+      {
+        "entry_name": "RyvlesGaming30 (20/20)",
+        "points": 234.1,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 20.8,
+        "avg_own": 23.03
+      },
+      {
+        "entry_name": "RyvlesGaming30 (11/20)",
+        "points": 232.65001,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 21.6,
+        "avg_own": 27.52
+      },
+      {
+        "entry_name": "RyvlesGaming30 (12/20)",
+        "points": 232.65,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 21.6,
+        "avg_own": 26.26
+      },
+      {
+        "entry_name": "RyvlesGaming30 (2/20)",
+        "points": 230.65001,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 23.0,
+        "avg_own": 23.11
+      },
+      {
+        "entry_name": "RyvlesGaming30 (5/20)",
+        "points": 224.20001,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 28.2,
+        "avg_own": 19.16
+      },
+      {
+        "entry_name": "RyvlesGaming30 (1/20)",
+        "points": 223.40001,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 28.7,
+        "avg_own": 20.23
+      },
+      {
+        "entry_name": "RyvlesGaming30 (15/20)",
+        "points": 222.25,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 29.7,
+        "avg_own": 23.09
+      },
+      {
+        "entry_name": "RyvlesGaming30 (18/20)",
+        "points": 213.34999,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 36.2,
+        "avg_own": 23.35
+      },
+      {
+        "entry_name": "RyvlesGaming30 (6/20)",
+        "points": 211.65001,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 38.1,
+        "avg_own": 22.2
+      },
+      {
+        "entry_name": "RyvlesGaming30 (3/20)",
+        "points": 209.40001,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 39.8,
+        "avg_own": 21.1
+      },
+      {
+        "entry_name": "RyvlesGaming30 (14/20)",
+        "points": 208.5,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 40.3,
+        "avg_own": 21.81
+      },
+      {
+        "entry_name": "RyvlesGaming30 (9/20)",
+        "points": 207.1,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 41.2,
+        "avg_own": 25.12
+      },
+      {
+        "entry_name": "RyvlesGaming30 (16/20)",
+        "points": 201.65001,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 45.9,
+        "avg_own": 27.45
+      },
+      {
+        "entry_name": "RyvlesGaming30 (17/20)",
+        "points": 193.20001,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 53.3,
+        "avg_own": 25.75
+      },
+      {
+        "entry_name": "RyvlesGaming30 (19/20)",
+        "points": 120.15,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 92.3,
+        "avg_own": 21.79
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 212.05,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 37.3,
+        "avg_own": 26.07
+      }
+    ]
+  }
+}

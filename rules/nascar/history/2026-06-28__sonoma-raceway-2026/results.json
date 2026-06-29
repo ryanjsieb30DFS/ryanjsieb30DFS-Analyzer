@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "date": "2026-06-28",
+  "slug": "nascar",
+  "sport": "nascar",
+  "slate_label": "Sonoma Raceway 2026",
+  "history_dir": "rules/nascar/history/2026-06-28__sonoma-raceway-2026",
+  "contests": [
+    {
+      "name": "contest-standings-191689621.csv",
+      "type": null,
+      "source_file": "contest-standings-191689621.csv",
+      "field_size": 490,
+      "my_entries": 1,
+      "entry_fee": null,
+      "buy_in": 0.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 32,
+      "best_percentile": 6.5
+    },
+    {
+      "name": "contest-standings-191788716.csv",
+      "type": null,
+      "source_file": "contest-standings-191788716.csv",
+      "field_size": 3567,
+      "my_entries": 20,
+      "entry_fee": null,
+      "buy_in": 0.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 9,
+      "best_percentile": 0.3
+    },
+    {
+      "name": "contest-standings-191689637.csv",
+      "type": null,
+      "source_file": "contest-standings-191689637.csv",
+      "field_size": 980,
+      "my_entries": 1,
+      "entry_fee": null,
+      "buy_in": 0.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 366,
+      "best_percentile": 37.3
+    }
+  ],
+  "total_buy_in": 0.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 9,
+  "best_percentile": 0.3,
+  "entries_total": 22,
+  "edge_leverage_capture": 1.0,
+  "edge_overperformer_capture": null,
+  "edge_bust_exposure": null,
+  "lineup_avg_ratio": null,
+  "shark_gap_top": null
+}

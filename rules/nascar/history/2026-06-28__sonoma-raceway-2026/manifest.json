@@ -1,0 +1,27 @@
+{
+  "slug": "nascar",
+  "sport": "nascar",
+  "contest_label": "NASCAR",
+  "date": "2026-06-28",
+  "slate_label": "Sonoma Raceway 2026",
+  "archived_at": "2026-06-28 20:52",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "sim_analysis.md",
+    "sim_pool.csv"
+  ],
+  "missing": [
+    "contests.json",
+    "red_team.md"
+  ],
+  "article_files": [
+    "articles/nascar/2026-06-28__DDD 6.28.26.pdf",
+    "articles/nascar/2026-06-28__DFR Image 1 6.28.26.pdf",
+    "articles/nascar/2026-06-28__DFR Image 2 6.28.26.pdf",
+    "articles/nascar/2026-06-28__DFR Image 3 6.28.26.pdf",
+    "articles/nascar/2026-06-28__DFR Image 4 6.28.26.pdf"
+  ],
+  "proj_source": null
+}

@@ -53,6 +53,7 @@ lessons:
     status: validated
     confirmations:
       - {date: "2026-06-20", slate: "Pocono Raceway", note: "Nemechek (P8, $5.9K, 9.43% actual own) scored 58.55 AND Erik Jones (P7, $7.5K, 19.85% own) scored 44.2 on the SAME slate — two deep-value PD plays at different prices/teams both hit. Field winner ran Nemechek; #2 ran Nemechek+EJ together. First mechanism confirmation: rostering one did not 'cover' the other."}
+      - {date: "2026-06-28", slate: "Sonoma Raceway", note: "FOUR independent PD/value plays hit the same slate at different prices/teams: Cindric (40.0, 6.53%), Preece (47.0, 18.9%), Stenhouse (33.0, 6.28%), Custer (30.45, 12.45%). Winners stacked multiples (3567 #1 = Preece+Cindric; 490 #1 = Cindric+Keselowski; many ran Custer+Keselowski). Rostering one did not cover the others — second mechanism confirmation. Origin Texas + Pocono + Sonoma = 3 confirming slates -> meets promotion criteria; see autopsy_review Proposed codifications."}
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -392,6 +393,7 @@ lessons:
     status: codified
     confirmations:
       - {date: "2026-06-20", slate: "Pocono Raceway", note: "Re-scoped to the 11th-30th start band per the Pocono venue file (worse-than-30th is only 9.5% of optimal here) — and the re-scope held: Gilliland P29 ($5.3K, 6.61% own) scored 35.5 and Stenhouse P21 ($5.7K, 7.77% own) scored 34.45, both sub-15%/sub-$6K from the 11-30 band. The deep-back version (P37/P38) did NOT pay (Keselowski 2.0). Confirms both the floor mechanism AND the venue-conditioned re-scope toward mid-pack starts."}
+      - {date: "2026-06-28", slate: "Sonoma Raceway", note: "Re-scoped 11-30 band confirmed a third time: Cindric (P23, 6.53% own) 40.0, Stenhouse (P21, 6.28%) 33.0, Custer (P27, 12.45%) 30.45 — three sub-15% mid-pack starters each 20+ FPTS and each in 30-35% of winning lineups; the user captured Stenhouse+Custer in the best lineup (rank 9, 0.3%). NOTE: unlike Pocono, the deep-back version ALSO paid here (Keselowski P35) — see [[nascar-2026-06-28-roadcourse-deepback-revives-on-strategy]]; the mid-pack floor mechanism is unaffected (it is additive, not a deep-back substitute)."}
     contradictions: []
     codified_in: "framework.md — Step 6 mandatory check #9 (sleeper-spike floor)"
     retired_reason: null
@@ -465,8 +467,10 @@ lessons:
       PD from the 11-30 band instead and do not fade a high-floor mid-pack car on
       track-fit narrative when its start sits in the optimal band.
     status: hypothesis
-    confirmations: []
-    contradictions: []
+    confirmations:
+      - {date: "2026-06-28", slate: "Sonoma Raceway", note: "The MID-PACK half held strongly: Cindric (P23, 6.53% own) 40.0, Preece (P19, 18.9%) 47.0, Custer (P27, 12.45%) 30.45, Stenhouse (P21, 6.28%) 33.0 — four 11-30-band cars each 20+ FPTS and each in 30-35% of winning lineups; the user captured Stenhouse+Custer in the best lineup (rank 9, 0.3%). Mid-pack PD is real leverage."}
+    contradictions:
+      - {date: "2026-06-28", slate: "Sonoma Raceway", note: "MECHANISM CONTRADICTION of the 'fade the deep-back chalk' half. The venue file's 6.7% deep-back-optimal rate flagged Keselowski (P35, 24% own) as the Pocono trap and the strategy faded him relative to field (Decision 2) — but Keselowski was in ~7 of the top 10 (490 field) and BOTH top lineups of the 3567 field; Erik Jones (P32) scored 28 and Austin Dillon (deep) anchored the 490 winner. Winners COMBINED deep-back chalk WITH mid-pack PD around SVG/Gibbs, they did not substitute one for the other. So 'source PD from mid-pack INSTEAD OF deep-back chalk, fade the deep-back chalk' failed: you needed Keselowski too. Re-scope toward [[nascar-2026-06-28-roadcourse-deepback-revives-on-strategy]] — ADD mid-pack PD, do NOT treat a low multi-year deep-back-optimal rate as a per-race mandate to fade a deep-back CHALK. 1 mechanism contradiction (born Pocono, where it worked); does not trigger retirement."}
     codified_in: null
     retired_reason: null
 
@@ -486,8 +490,9 @@ lessons:
       Size the alternative for leverage (1-2 lineups when the field is mispricing
       it), not for parity. Complements [[nascar-2026-05-24-anchor-equivalence]]
       and [[nascar-2026-05-01-bet-sizing-reflects-inverse]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - {date: "2026-06-28", slate: "Sonoma Raceway", note: "Applied as Decision 1 — SVG (modal/chalk dominator) in ~95% of the user's lineups with Gibbs as the alt in a few, NOT a 50/50 hedge. SVG hit and was in nearly every winning lineup across all three contests, so hedging the dom coin flip to parity would have capped modal-world equity exactly as the mechanism warns; the best lineup (rank 9, 0.3%) ran SVG+Gibbs+Zilisch. First mechanism confirmation — promoted to validated."}
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -513,6 +518,56 @@ lessons:
       Tier 4 "best leverage tier" and
       [[nascar-2026-06-20-midpack-pd-over-deep-back-chalk]]; measured every slate now
       via src/shark_gap.py (leverage_pct delta vs the in-field sharks).
+    status: hypothesis
+    confirmations:
+      - {date: "2026-06-28", slate: "Sonoma Raceway", note: "Partial confirmation + THRESHOLD scoping. The MME carried low-own pieces (mean low_own_count 1.35 vs 0% at Pocono — shark-gap fixed), and the best lineup (rank 9, 0.3%) carried Stenhouse (6.28%) + Custer (12.45%). But the low-owned spikes that PAID were 6-7% (Cindric 6.53%, Stenhouse 6.28%), NOT sub-5% — and the one genuine sub-5% on the board (Cody Ware, 4%) busted and sank every lineup that carried him (ranks 1007/1024/1359/1420/1900). 'Carry a low-owned leverage dart' is confirmed; the paying threshold here was sub-10%, not sub-5%, on a low-chaos road course. Scope may be track-conditioned: sub-5% at chaos tracks, sub-10% where deep PD needs a caution to materialize. Keep hypothesis."}
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---------------------------------------------------------------
+  # Sonoma Raceway — 2026-06-28 (Slate #5 autopsy)
+  # ---------------------------------------------------------------
+
+  - id: nascar-2026-06-28-roadcourse-deepback-revives-on-strategy
+    born: "2026-06-28"
+    origin: "rules/nascar/history/2026-06-28__sonoma-raceway-2026/autopsy_review.md"
+    statement: >
+      A low historical deep-back-optimal rate (Sonoma: worse-than-30th = 6.7% of
+      optimal across 5 years) is a multi-year BASE RATE, not a per-race lock: on a
+      road course a single caution/fuel-strategy sequence can compress the field
+      and revive the deep-back place-differential path within one race. Sonoma 2026
+      proved it — Keselowski (P35, 24% field own) was in ~7 of the top 10 (490
+      field) and both top lineups of the 3567 field, Erik Jones (P32) scored 28,
+      Austin Dillon (deep) anchored the 490 winner; winners combined deep-back PD
+      WITH mid-pack PD around the SVG/Gibbs dominators. Mechanism: caution timing is
+      exogenous to start position and can hand 20+ PD to deep starters regardless of
+      the base rate. Pre-lock: do NOT fade a deep-back CHALK on a road course purely
+      on a low historical deep-back-optimal rate — treat the deep-back band as live
+      (rosterable ALONGSIDE mid-pack PD, not instead of it), and reserve the deep-back
+      fade for drivers the FIELD is also low on. Re-scopes
+      [[nascar-2026-06-20-midpack-pd-over-deep-back-chalk]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nascar-2026-06-28-injury-narrative-not-a-fade-thesis
+    born: "2026-06-28"
+    origin: "rules/nascar/history/2026-06-28__sonoma-raceway-2026/autopsy_review.md"
+    statement: >
+      A physical-injury narrative (Bell's fractured wrist on a precision road
+      course) is a risk factor, not a fade thesis — exactly like a backup car. The
+      strategy faded Bell (Decision 5, "Bell is the trap," only 12% field own) and
+      Bell finished in the #1 OVERALL lineup (beardgrylls, 323.9) plus multiple
+      top-10s across all three contests. Mechanism: when the field ALREADY discounts
+      a driver for the injury (low own), an elite driver in elite equipment
+      overcoming the narrative is a leverage SPIKE, not a trap; the injury lowers the
+      floor but does not erase the equipment/skill edge. Demand evidence the injury
+      actually degraded output (practice speed, qualifying pace) before fading — a
+      narrative alone is not it, and a field-shared narrative fade is negative
+      leverage. Complements [[nascar-2026-05-01-backup-car-not-auto-fade]].
     status: hypothesis
     confirmations: []
     contradictions: []

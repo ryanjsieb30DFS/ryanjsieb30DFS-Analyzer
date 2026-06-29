@@ -1,0 +1,32 @@
+{
+  "field": 3567,
+  "anchors": [
+    "shane van gisbergen",
+    "chris buescher",
+    "ryan blaney"
+  ],
+  "sharks": {
+    "gradable": false,
+    "n_entries": 0
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 20,
+    "own_per_slot": 23.9,
+    "leverage_pct": 60.0,
+    "anchor_exposure": 0.45,
+    "anchor_exposure_by_player": {
+      "shane van gisbergen": 1.0,
+      "chris buescher": 0.05,
+      "ryan blaney": 0.3
+    },
+    "max_overlap": 5,
+    "unique_pct": 100.0,
+    "best_pctile": 0.25,
+    "median_pctile": 28.71
+  },
+  "deltas": [],
+  "sharks_in_field": false,
+  "slug": "nascar",
+  "sport": "nascar"
+}

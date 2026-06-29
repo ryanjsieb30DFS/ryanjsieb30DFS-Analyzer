@@ -330,3 +330,30 @@ A 5-check pre-lock validator was prototyped and then removed across all sports. 
 - Overperformed proj: John H. Nemechek, Tyler Reddick, Ross Chastain
 - Underperformed proj: Joey Logano, Brad Keselowski, Zane Smith
 - Slate-defining plays: John H. Nemechek (58.5 pts @ 9.4%), Erik Jones (44.2 pts @ 19.9%), Riley Herbst (36.0 pts @ 13.1%)
+
+
+## 2026-06-28 20:52 — NASCAR (contest-standings-191689621.csv)
+- Entries: 490
+- Winning score: 291.6
+- Cash line (top 20%): 237.7
+- My entries: 1 · best rank 32/490 (top 6.5%)
+- Winners (top 20): avg own 27.94% vs mine 24.25% · sub-10% plays/lineup 0.95 vs mine 0.0
+- Slate-defining plays: Austin Cindric (40.0 pts @ 6.5%)
+
+
+## 2026-06-28 20:52 — NASCAR (contest-standings-191788716.csv)
+- Entries: 3,567
+- Winning score: 323.9
+- Cash line (top 20%): 235.0
+- My entries: 20 · best rank 9/3,567 (top 0.3%)
+- Winners (top 36): avg own 25.04% vs mine 23.88% · sub-10% plays/lineup 1.17 vs mine 1.35
+- Slate-defining plays: Ryan Preece (47.0 pts @ 18.9%), Ricky Stenhouse Jr (33.0 pts @ 6.3%)
+
+
+## 2026-06-28 20:52 — NASCAR (contest-standings-191689637.csv)
+- Entries: 980
+- Winning score: 304.1
+- Cash line (top 20%): 234.2
+- My entries: 1 · best rank 366/980 (top 37.3%)
+- Winners (top 20): avg own 26.4% vs mine 26.07% · sub-10% plays/lineup 1.15 vs mine 1.0
+- Slate-defining plays: Cole Custer (30.4 pts @ 12.4%), Erik Jones (28.0 pts @ 9.7%)

@@ -1,0 +1,1218 @@
+[
+  {
+    "timestamp": "2026-06-28 20:52",
+    "contest_type": "NASCAR",
+    "source_file": "contest-standings-191689621.csv",
+    "entries": 490,
+    "winning_score": 291.55002,
+    "cash_line_p80": 237.74998,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nascar",
+    "sport": "nascar",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 36
+    },
+    "user_summary": {
+      "avg_own_mean": 24.25,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 32,
+      "best_percentile": 6.5
+    },
+    "user_lineups": [
+      {
+        "rank": 32,
+        "entry_name": "RyvlesGaming30",
+        "points": 257.9,
+        "percentile": 6.5,
+        "players": [
+          "Connor Zilisch",
+          "Ty Gibbs",
+          "Chase Briscoe",
+          "Chase Elliott",
+          "Ryan Preece",
+          "Zane Smith"
+        ],
+        "avg_own": 24.25,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Austin Cindric",
+        "salary": null,
+        "actual_fpts": 40.0,
+        "actual_own": 6.53,
+        "top_lineup_pct": 35.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 27.94,
+      "low_own_count_mean": 0.95,
+      "salary_used_mean": null,
+      "dup_max": 2,
+      "unique_pct": 80.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "az350z",
+          "points": 291.55002,
+          "percentile": 0.2,
+          "players": [
+            "Shane Van Gisbergen",
+            "Ty Gibbs",
+            "Ryan Blaney",
+            "Austin Cindric",
+            "Brad Keselowski",
+            "Austin Dillon"
+          ],
+          "avg_own": 26.33,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "silencetheg",
+          "points": 285.75,
+          "percentile": 0.4,
+          "players": [
+            "Shane Van Gisbergen",
+            "Ryan Blaney",
+            "Christopher Bell",
+            "Bubba Wallace",
+            "Zane Smith",
+            "Brad Keselowski"
+          ],
+          "avg_own": 31.77,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 3,
+          "entry_name": "darcmaniluk",
+          "points": 283.5,
+          "percentile": 0.6,
+          "players": [
+            "Shane Van Gisbergen",
+            "Connor Zilisch",
+            "Christopher Bell",
+            "Bubba Wallace",
+            "Brad Keselowski",
+            "Cole Custer"
+          ],
+          "avg_own": 28.98,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "JDub210",
+          "points": 281.95,
+          "percentile": 0.8,
+          "players": [
+            "Shane Van Gisbergen",
+            "Ty Gibbs",
+            "Chase Elliott",
+            "Zane Smith",
+            "Austin Cindric",
+            "Brad Keselowski"
+          ],
+          "avg_own": 27.65,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "gorrelll15",
+          "points": 281.95,
+          "percentile": 0.8,
+          "players": [
+            "Shane Van Gisbergen",
+            "Ty Gibbs",
+            "Chase Elliott",
+            "Zane Smith",
+            "Austin Cindric",
+            "Brad Keselowski"
+          ],
+          "avg_own": 27.65,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2,
+          "stack_shape": null
+        },
+        {
+          "rank": 6,
+          "entry_name": "kfalik",
+          "points": 281.2,
+          "percentile": 1.2,
+          "players": [
+            "Shane Van Gisbergen",
+            "Kyle Larson",
+            "William Byron",
+            "Alex Bowman",
+            "Brad Keselowski",
+            "Ricky Stenhouse Jr"
+          ],
+          "avg_own": 22.86,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 7,
+          "entry_name": "jiggy0227",
+          "points": 278.35,
+          "percentile": 1.4,
+          "players": [
+            "Shane Van Gisbergen",
+            "Ty Gibbs",
+            "Chase Elliott",
+            "Christopher Bell",
+            "Brad Keselowski",
+            "Josh Berry"
+          ],
+          "avg_own": 24.73,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "DFSguru420",
+          "points": 277.1,
+          "percentile": 1.6,
+          "players": [
+            "Shane Van Gisbergen",
+            "Connor Zilisch",
+            "Bubba Wallace",
+            "Zane Smith",
+            "Alex Bowman",
+            "Brad Keselowski"
+          ],
+          "avg_own": 29.49,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "jason11b",
+          "points": 274.6,
+          "percentile": 1.8,
+          "players": [
+            "Shane Van Gisbergen",
+            "Chris Buescher",
+            "Ryan Blaney",
+            "Ryan Preece",
+            "Alex Bowman",
+            "Cole Custer"
+          ],
+          "avg_own": 26.63,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 10,
+          "entry_name": "Nunzi389",
+          "points": 274.45,
+          "percentile": 2.0,
+          "players": [
+            "Connor Zilisch",
+            "Kyle Larson",
+            "Ty Gibbs",
+            "Ryan Blaney",
+            "Zane Smith",
+            "Brad Keselowski"
+          ],
+          "avg_own": 29.45,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 3.69,
+        "low_own_count_delta": 0.95,
+        "salary_used_delta": null
+      }
+    }
+  },
+  {
+    "timestamp": "2026-06-28 20:52",
+    "contest_type": "NASCAR",
+    "source_file": "contest-standings-191788716.csv",
+    "entries": 3567,
+    "winning_score": 323.90002,
+    "cash_line_p80": 235.0,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nascar",
+    "sport": "nascar",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 36
+    },
+    "user_summary": {
+      "avg_own_mean": 23.88,
+      "low_own_count_mean": 1.35,
+      "salary_used_mean": null,
+      "entry_count": 20,
+      "best_rank": 9,
+      "best_percentile": 0.3
+    },
+    "user_lineups": [
+      {
+        "rank": 9,
+        "entry_name": "RyvlesGaming30 (7/20)",
+        "points": 294.85004,
+        "percentile": 0.3,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Ty Gibbs",
+          "Brad Keselowski",
+          "Ricky Stenhouse Jr",
+          "Cole Custer"
+        ],
+        "avg_own": 23.78,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 68,
+        "entry_name": "RyvlesGaming30 (10/20)",
+        "points": 275.1,
+        "percentile": 1.9,
+        "players": [
+          "Shane Van Gisbergen",
+          "Ty Gibbs",
+          "Ryan Blaney",
+          "Zane Smith",
+          "Brad Keselowski",
+          "Noah Gragson"
+        ],
+        "avg_own": 25.94,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 256,
+        "entry_name": "RyvlesGaming30 (8/20)",
+        "points": 258.65002,
+        "percentile": 7.2,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Bubba Wallace",
+          "Zane Smith",
+          "Brad Keselowski",
+          "Erik Jones"
+        ],
+        "avg_own": 27.3,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 585,
+        "entry_name": "RyvlesGaming30 (4/20)",
+        "points": 240.25,
+        "percentile": 16.4,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Ryan Blaney",
+          "Todd Gilliland",
+          "Brad Keselowski",
+          "Ty Dillon"
+        ],
+        "avg_own": 25.88,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 2,
+        "stack_shape": null
+      },
+      {
+        "rank": 594,
+        "entry_name": "RyvlesGaming30 (13/20)",
+        "points": 239.65,
+        "percentile": 16.7,
+        "players": [
+          "Shane Van Gisbergen",
+          "Ty Gibbs",
+          "Ryan Blaney",
+          "Zane Smith",
+          "Todd Gilliland",
+          "Noah Gragson"
+        ],
+        "avg_own": 23.77,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 741,
+        "entry_name": "RyvlesGaming30 (20/20)",
+        "points": 234.1,
+        "percentile": 20.8,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Chase Elliott",
+          "Austin Dillon",
+          "Erik Jones",
+          "Ricky Stenhouse Jr"
+        ],
+        "avg_own": 23.03,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 770,
+        "entry_name": "RyvlesGaming30 (11/20)",
+        "points": 232.65001,
+        "percentile": 21.6,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Daniel Su\u00e1rez",
+          "Bubba Wallace",
+          "Brad Keselowski",
+          "Ricky Stenhouse Jr"
+        ],
+        "avg_own": 27.52,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 3,
+        "stack_shape": null
+      },
+      {
+        "rank": 770,
+        "entry_name": "RyvlesGaming30 (12/20)",
+        "points": 232.65,
+        "percentile": 21.6,
+        "players": [
+          "Shane Van Gisbergen",
+          "Ty Gibbs",
+          "Ryan Blaney",
+          "Bubba Wallace",
+          "Todd Gilliland",
+          "Noah Gragson"
+        ],
+        "avg_own": 26.26,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 2,
+        "stack_shape": null
+      },
+      {
+        "rank": 819,
+        "entry_name": "RyvlesGaming30 (2/20)",
+        "points": 230.65001,
+        "percentile": 23.0,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Zane Smith",
+          "Todd Gilliland",
+          "Brad Keselowski",
+          "Noah Gragson"
+        ],
+        "avg_own": 23.11,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 1007,
+        "entry_name": "RyvlesGaming30 (5/20)",
+        "points": 224.20001,
+        "percentile": 28.2,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Ryan Preece",
+          "Erik Jones",
+          "Noah Gragson",
+          "Cody Ware"
+        ],
+        "avg_own": 19.16,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 1024,
+        "entry_name": "RyvlesGaming30 (1/20)",
+        "points": 223.40001,
+        "percentile": 28.7,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Ty Gibbs",
+          "Austin Dillon",
+          "Noah Gragson",
+          "Cody Ware"
+        ],
+        "avg_own": 20.23,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 1058,
+        "entry_name": "RyvlesGaming30 (15/20)",
+        "points": 222.25,
+        "percentile": 29.7,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Ryan Blaney",
+          "Todd Gilliland",
+          "Cole Custer",
+          "Ty Dillon"
+        ],
+        "avg_own": 23.09,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 1293,
+        "entry_name": "RyvlesGaming30 (18/20)",
+        "points": 213.34999,
+        "percentile": 36.2,
+        "players": [
+          "Shane Van Gisbergen",
+          "Ryan Blaney",
+          "Chase Elliott",
+          "Todd Gilliland",
+          "Ricky Stenhouse Jr",
+          "Noah Gragson"
+        ],
+        "avg_own": 23.35,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 1359,
+        "entry_name": "RyvlesGaming30 (6/20)",
+        "points": 211.65001,
+        "percentile": 38.1,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Chase Elliott",
+          "Todd Gilliland",
+          "Ricky Stenhouse Jr",
+          "Cody Ware"
+        ],
+        "avg_own": 22.2,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 1420,
+        "entry_name": "RyvlesGaming30 (3/20)",
+        "points": 209.40001,
+        "percentile": 39.8,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Kyle Larson",
+          "Austin Dillon",
+          "Noah Gragson",
+          "Cody Ware"
+        ],
+        "avg_own": 21.1,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 1439,
+        "entry_name": "RyvlesGaming30 (14/20)",
+        "points": 208.5,
+        "percentile": 40.3,
+        "players": [
+          "Shane Van Gisbergen",
+          "Ty Gibbs",
+          "Daniel Su\u00e1rez",
+          "Brad Keselowski",
+          "Noah Gragson",
+          "Josh Berry"
+        ],
+        "avg_own": 21.81,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 1468,
+        "entry_name": "RyvlesGaming30 (9/20)",
+        "points": 207.1,
+        "percentile": 41.2,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Daniel Su\u00e1rez",
+          "Todd Gilliland",
+          "Brad Keselowski",
+          "Austin Dillon"
+        ],
+        "avg_own": 25.12,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 1638,
+        "entry_name": "RyvlesGaming30 (16/20)",
+        "points": 201.65001,
+        "percentile": 45.9,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Daniel Su\u00e1rez",
+          "Bubba Wallace",
+          "Brad Keselowski",
+          "Ty Dillon"
+        ],
+        "avg_own": 27.45,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 1900,
+        "entry_name": "RyvlesGaming30 (17/20)",
+        "points": 193.20001,
+        "percentile": 53.3,
+        "players": [
+          "Shane Van Gisbergen",
+          "Connor Zilisch",
+          "Daniel Su\u00e1rez",
+          "Bubba Wallace",
+          "Zane Smith",
+          "Cody Ware"
+        ],
+        "avg_own": 25.75,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      },
+      {
+        "rank": 3294,
+        "entry_name": "RyvlesGaming30 (19/20)",
+        "points": 120.15,
+        "percentile": 92.3,
+        "players": [
+          "Shane Van Gisbergen",
+          "Tyler Reddick",
+          "Chris Buescher",
+          "Todd Gilliland",
+          "Noah Gragson",
+          "Cody Ware"
+        ],
+        "avg_own": 21.79,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Ryan Preece",
+        "salary": null,
+        "actual_fpts": 47.0,
+        "actual_own": 18.9,
+        "top_lineup_pct": 30.6
+      },
+      {
+        "name": "Ricky Stenhouse Jr",
+        "salary": null,
+        "actual_fpts": 33.0,
+        "actual_own": 6.28,
+        "top_lineup_pct": 33.3
+      }
+    ],
+    "winners_structure": {
+      "top_n": 36,
+      "avg_own_mean": 25.04,
+      "low_own_count_mean": 1.17,
+      "salary_used_mean": null,
+      "dup_max": 4,
+      "unique_pct": 52.8,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "beardgrylls (17/20)",
+          "points": 323.90002,
+          "percentile": 0.0,
+          "players": [
+            "Shane Van Gisbergen",
+            "Ty Gibbs",
+            "Christopher Bell",
+            "Ryan Preece",
+            "Austin Cindric",
+            "Brad Keselowski"
+          ],
+          "avg_own": 22.83,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "btown86 (7/20)",
+          "points": 310.55002,
+          "percentile": 0.1,
+          "players": [
+            "Shane Van Gisbergen",
+            "Ty Gibbs",
+            "Ryan Blaney",
+            "Ryan Preece",
+            "Brad Keselowski",
+            "Cole Custer"
+          ],
+          "avg_own": 26.87,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 3,
+          "entry_name": "giboceps (3/5)",
+          "points": 302.05,
+          "percentile": 0.1,
+          "players": [
+            "Shane Van Gisbergen",
+            "Chase Elliott",
+            "Christopher Bell",
+            "Ryan Preece",
+            "Alex Bowman",
+            "Brad Keselowski"
+          ],
+          "avg_own": 24.04,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "porterj1223 (10/20)",
+          "points": 295.7,
+          "percentile": 0.1,
+          "players": [
+            "Shane Van Gisbergen",
+            "Connor Zilisch",
+            "Ryan Blaney",
+            "Austin Cindric",
+            "Brad Keselowski",
+            "Cole Custer"
+          ],
+          "avg_own": 25.64,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "Fe203ynail (15/20)",
+          "points": 295.7,
+          "percentile": 0.1,
+          "players": [
+            "Shane Van Gisbergen",
+            "Connor Zilisch",
+            "Ryan Blaney",
+            "Austin Cindric",
+            "Brad Keselowski",
+            "Cole Custer"
+          ],
+          "avg_own": 25.64,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "wphsu99 (15/20)",
+          "points": 295.7,
+          "percentile": 0.1,
+          "players": [
+            "Shane Van Gisbergen",
+            "Connor Zilisch",
+            "Ryan Blaney",
+            "Austin Cindric",
+            "Brad Keselowski",
+            "Cole Custer"
+          ],
+          "avg_own": 25.64,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3,
+          "stack_shape": null
+        },
+        {
+          "rank": 7,
+          "entry_name": "jbmetz69 (16/20)",
+          "points": 295.5,
+          "percentile": 0.2,
+          "players": [
+            "Connor Zilisch",
+            "Ty Gibbs",
+            "Chase Briscoe",
+            "Ryan Blaney",
+            "Ryan Preece",
+            "Alex Bowman"
+          ],
+          "avg_own": 20.96,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "bnwininger (6/10)",
+          "points": 295.15002,
+          "percentile": 0.2,
+          "players": [
+            "Shane Van Gisbergen",
+            "Chase Briscoe",
+            "Ryan Blaney",
+            "Ryan Preece",
+            "Austin Cindric",
+            "Cole Custer"
+          ],
+          "avg_own": 22.38,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "RyvlesGaming30 (7/20)",
+          "points": 294.85004,
+          "percentile": 0.3,
+          "players": [
+            "Shane Van Gisbergen",
+            "Connor Zilisch",
+            "Ty Gibbs",
+            "Brad Keselowski",
+            "Ricky Stenhouse Jr",
+            "Cole Custer"
+          ],
+          "avg_own": 23.78,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 10,
+          "entry_name": "terror31",
+          "points": 294.45,
+          "percentile": 0.3,
+          "players": [
+            "Shane Van Gisbergen",
+            "Kyle Larson",
+            "Christopher Bell",
+            "Ryan Preece",
+            "Austin Cindric",
+            "Ricky Stenhouse Jr"
+          ],
+          "avg_own": 20.41,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 1.16,
+        "low_own_count_delta": -0.18,
+        "salary_used_delta": null
+      }
+    }
+  },
+  {
+    "timestamp": "2026-06-28 20:52",
+    "contest_type": "NASCAR",
+    "source_file": "contest-standings-191689637.csv",
+    "entries": 980,
+    "winning_score": 304.09998,
+    "cash_line_p80": 234.189998,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nascar",
+    "sport": "nascar",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 36
+    },
+    "user_summary": {
+      "avg_own_mean": 26.07,
+      "low_own_count_mean": 1.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 366,
+      "best_percentile": 37.3
+    },
+    "user_lineups": [
+      {
+        "rank": 366,
+        "entry_name": "RyvlesGaming30",
+        "points": 212.05,
+        "percentile": 37.3,
+        "players": [
+          "Shane Van Gisbergen",
+          "Ty Gibbs",
+          "Daniel Su\u00e1rez",
+          "Bubba Wallace",
+          "Austin Cindric",
+          "Todd Gilliland"
+        ],
+        "avg_own": 26.07,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Cole Custer",
+        "salary": null,
+        "actual_fpts": 30.45,
+        "actual_own": 12.45,
+        "top_lineup_pct": 35.0
+      },
+      {
+        "name": "Erik Jones",
+        "salary": null,
+        "actual_fpts": 28.0,
+        "actual_own": 9.69,
+        "top_lineup_pct": 30.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 26.4,
+      "low_own_count_mean": 1.15,
+      "salary_used_mean": null,
+      "dup_max": 3,
+      "unique_pct": 80.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "mlief",
+          "points": 304.09998,
+          "percentile": 0.1,
+          "players": [
+            "Shane Van Gisbergen",
+            "Ty Gibbs",
+            "Ryan Blaney",
+            "Alex Bowman",
+            "Austin Cindric",
+            "Ricky Stenhouse Jr"
+          ],
+          "avg_own": 19.63,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "schaszberger",
+          "points": 289.55002,
+          "percentile": 0.2,
+          "players": [
+            "Shane Van Gisbergen",
+            "Kyle Larson",
+            "Ryan Blaney",
+            "Austin Cindric",
+            "Brad Keselowski",
+            "Cole Custer"
+          ],
+          "avg_own": 26.87,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 3,
+          "entry_name": "mrirond",
+          "points": 287.55002,
+          "percentile": 0.3,
+          "players": [
+            "Shane Van Gisbergen",
+            "Ty Gibbs",
+            "Ryan Blaney",
+            "Bubba Wallace",
+            "Brad Keselowski",
+            "Cole Custer"
+          ],
+          "avg_own": 31.22,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "Biscuit2013",
+          "points": 286.2,
+          "percentile": 0.4,
+          "players": [
+            "Shane Van Gisbergen",
+            "Ryan Blaney",
+            "Chase Elliott",
+            "Christopher Bell",
+            "Brad Keselowski",
+            "Erik Jones"
+          ],
+          "avg_own": 27.5,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 5,
+          "entry_name": "TON80",
+          "points": 285.5,
+          "percentile": 0.5,
+          "players": [
+            "Shane Van Gisbergen",
+            "Ty Gibbs",
+            "Ryan Preece",
+            "Bubba Wallace",
+            "Zane Smith",
+            "Brad Keselowski"
+          ],
+          "avg_own": 30.19,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 6,
+          "entry_name": "YaboyBrice",
+          "points": 283.5,
+          "percentile": 0.6,
+          "players": [
+            "Shane Van Gisbergen",
+            "Connor Zilisch",
+            "Christopher Bell",
+            "Bubba Wallace",
+            "Brad Keselowski",
+            "Cole Custer"
+          ],
+          "avg_own": 28.44,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 7,
+          "entry_name": "jwbur04",
+          "points": 282.55,
+          "percentile": 0.7,
+          "players": [
+            "Shane Van Gisbergen",
+            "Connor Zilisch",
+            "Chase Elliott",
+            "Alex Bowman",
+            "Brad Keselowski",
+            "Ricky Stenhouse Jr"
+          ],
+          "avg_own": 25.02,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "kfalik",
+          "points": 281.2,
+          "percentile": 0.8,
+          "players": [
+            "Shane Van Gisbergen",
+            "Kyle Larson",
+            "William Byron",
+            "Alex Bowman",
+            "Brad Keselowski",
+            "Ricky Stenhouse Jr"
+          ],
+          "avg_own": 22.36,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "moklovin",
+          "points": 278.35,
+          "percentile": 0.9,
+          "players": [
+            "Shane Van Gisbergen",
+            "Connor Zilisch",
+            "William Byron",
+            "Austin Cindric",
+            "Brad Keselowski",
+            "Cole Custer"
+          ],
+          "avg_own": 23.66,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 10,
+          "entry_name": "SBUBONNIES",
+          "points": 277.3,
+          "percentile": 1.0,
+          "players": [
+            "Shane Van Gisbergen",
+            "Ryan Blaney",
+            "Christopher Bell",
+            "Bubba Wallace",
+            "Zane Smith",
+            "Austin Cindric"
+          ],
+          "avg_own": 27.4,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 0.33,
+        "low_own_count_delta": 0.15,
+        "salary_used_delta": null
+      }
+    }
+  }
+]
