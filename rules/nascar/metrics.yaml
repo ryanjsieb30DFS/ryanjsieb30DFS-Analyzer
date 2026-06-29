@@ -16,6 +16,7 @@ metrics:
     status: testing
     created: "2026-06-28"
     built_in: "SaberSim — Custom Lineup Metric (GPP)"
+    export_column: "NAS Metric v1"           # column name in the SaberSim lineup export (for auto-grading)
     transform: "Normalized Value (0-100)"   # applied to every variable
     aggregation: "Sum"                       # across the 6 drivers
     variables:

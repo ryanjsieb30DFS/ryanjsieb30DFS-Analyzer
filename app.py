@@ -31,8 +31,9 @@ from src.analysis_runner import (
 )
 from src import (
     history, sessions, landscape, player_pool, contest_selection, ledger_hygiene,
-    sim_data, sim_sessions, dk_ids,
+    sim_data, sim_sessions, dk_ids, metrics_registry, metric_tracker,
 )
+from datetime import datetime as _dt
 from src.projections import load_projections, warn_missing_for_sport
 from src.projections_diff import flagged_disagreements
 
@@ -1032,3 +1033,73 @@ with tab_sim:
             if sim_md_path.exists():
                 with st.container(border=True):
                     st.markdown(sim_md_path.read_text())
+
+    # ----- Grade a custom metric (post-race) -----
+    st.divider()
+    st.markdown("### Grade a custom metric (post-race)")
+    st.caption(
+        "Upload a POST-race SaberSim export (your custom-metric column + a populated `Actual` "
+        "column) to measure how the metric correlated with actual scoring, and log it to the "
+        "performance ledger. Analytics only — no lineups built."
+    )
+    reg_metrics = metrics_registry.list_metrics(slug)
+    if not reg_metrics:
+        st.info(f"No custom metric recorded for {contest_label} yet (rules/{slug}/metrics.yaml).")
+    else:
+        grade_up = st.file_uploader("Post-race SaberSim export (CSV)", type=["csv"], key=f"grade_{slug}")
+        if grade_up is not None:
+            gpool = sim_data.load_sim_pool(grade_up)
+            glu = gpool.get("lineups")
+            if glu is None or gpool.get("n", 0) == 0:
+                st.error("Couldn't parse that file as a SaberSim lineup export.")
+            else:
+                names = [m.get("name", m.get("id")) for m in reg_metrics]
+                pick = st.selectbox("Which metric is this?", names, key=f"gradepick_{slug}")
+                metric = reg_metrics[names.index(pick)]
+                num_cols = [c for c in glu.columns if c != "__ids"]
+                dcol = metric.get("export_column")
+                didx = num_cols.index(dcol) if dcol in num_cols else 0
+                metric_col = st.selectbox("Metric column in the export", num_cols, index=didx, key=f"gradecol_{slug}")
+                if not metric_tracker.actual_is_populated(glu):
+                    st.warning("⚠️ The `Actual` column is empty/all-zero — this is a PRE-race export. "
+                               "Re-export after the race so Actual is filled, then grade.")
+                else:
+                    g = metric_tracker.grade_metric(glu, metric_col)
+                    if g is None:
+                        st.error("Couldn't grade — check the metric column has numeric values.")
+                    else:
+                        verdict = ("positive" if g["spearman"] > 0.1 else
+                                   "flat/none" if g["spearman"] > -0.1 else "ANTI-informative")
+                        st.metric(f"Spearman(metric → actual)  ·  n={g['n']:,}", f"{g['spearman']:+.3f}", verdict, delta_color="off")
+                        st.caption(
+                            f"Pearson {g['pearson']:+.3f}  ·  decile lift **+{g['decile_lift']}** "
+                            f"(top decile {g['top_decile_avg']} vs bottom {g['bottom_decile_avg']}, pool {g['pool_mean']})  ·  "
+                            f"best lineup {g['best_actual']} sat at the {g['best_metric_pctile']:.0f}th pct by metric "
+                            f"— the metric raises the average, it doesn't crown the nuke."
+                        )
+                        slate_lbl = st.text_input("Slate label (for the ledger)", key=f"gradelbl_{slug}")
+                        contest_id = st.text_input("Contest id (optional)", key=f"gradecid_{slug}")
+                        dup = bool(contest_id) and metric_tracker.already_logged(slug, metric["id"], contest_id)
+                        if dup:
+                            st.info("This metric + contest is already in the ledger — it won't double-log.")
+                        if st.button("📌 Log to performance ledger", key=f"gradelog_{slug}",
+                                     disabled=dup or not slate_lbl):
+                            row = {"metric_id": metric["id"], "version": metric.get("version"),
+                                   "date": _dt.now().strftime("%Y-%m-%d"), "slate": slate_lbl,
+                                   "contest": contest_id or None, "metric_col": metric_col,
+                                   "status": metric.get("status"), **g}
+                            metric_tracker.log_performance(slug, row)
+                            st.success(f"Logged {pick} performance for {slate_lbl}.")
+                            st.rerun()
+
+        # ----- Metric performance trend -----
+        rows = metric_tracker.load_performance(slug)
+        if rows:
+            st.markdown("#### Metric performance over time")
+            trend = pd.DataFrame([{
+                "date": r.get("date"), "slate": r.get("slate"), "metric": r.get("metric_id"),
+                "n": r.get("n"), "spearman": r.get("spearman"),
+                "decile_lift": r.get("decile_lift"), "status": r.get("status"),
+            } for r in rows])
+            st.dataframe(trend, use_container_width=True, hide_index=True)
+            st.caption("Promotion out of `testing` is a human call once several slates trend positive.")
