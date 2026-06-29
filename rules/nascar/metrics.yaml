@@ -50,3 +50,13 @@ metrics:
         date: "2026-06-28"
         change: "Initial build — PD 1.0 / Fastest Laps 0.5 / Laps Led 0.3 / Adj Own -0.3."
         reason: "v1 hypothesis from codified NASCAR lessons; no graded slates yet."
+      - version: 1
+        date: "2026-06-28"
+        change: "First graded slate (Sonoma, contest 191788716) — no weight change."
+        reason: >
+          Validated-this-slate: Spearman +0.331 metric->actual across the full 5000-lineup
+          pool (n=20 entered estimate was +0.32), monotonic decile lift (bottom 183.5 ->
+          top 224.2, +41 pts). Directionally opposite of sim-ROI (-0.05). Limit: the
+          metric raises the average, it does NOT crown the nuke (pool-best lineup at 72nd
+          pct by metric; user's 9th/3567 near-win was mid-pack of 20 by metric). Status
+          stays 'testing' — one slate. See rules/nascar/metric_performance.jsonl.
