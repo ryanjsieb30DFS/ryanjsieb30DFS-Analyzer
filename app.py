@@ -69,6 +69,43 @@ def clear_articles(slug: str) -> list[str]:
     return failed
 
 
+def _file_mtime(p: Path | None) -> float:
+    return p.stat().st_mtime if p and p.exists() else 0.0
+
+
+@st.cache_data(show_spinner=False)
+def _cached_sources(slug: str, _mtime: float) -> dict:
+    return sessions.load_sources(slug)
+
+
+def cached_sources(slug: str) -> dict:
+    """sessions.load_sources, cached on the session file's mtime (self-invalidating
+    when a source is saved/dropped/cleared, since those rewrite or delete the file)."""
+    return _cached_sources(slug, _file_mtime(REPO_ROOT / "data" / "sessions" / f"{slug}.json"))
+
+
+@st.cache_data(show_spinner=False)
+def _cached_sim_analytics(slug: str, _pool_mtime: float, _dkmap_mtime: float, _src_mtime: float) -> dict:
+    """Load the persisted 5,000-lineup sim pool and compute every exposure/combo ONCE,
+    cached on the underlying file mtimes. Without this the whole crunch reran on every
+    interaction of every tab (Streamlit executes all tabs' bodies on each rerun)."""
+    pool = sim_data.load_sim_pool(str(sim_sessions.pool_path(slug)))
+    if pool.get("n", 0) == 0:
+        return {"pool": pool}
+    dkmap_path = sim_sessions.dkmap_path(slug)
+    uploaded_map = dk_ids.parse_id_to_name(str(dkmap_path)) if dkmap_path else None
+    id_to_name = dk_ids.resolve_id_to_name(slug, uploaded_map)
+    proj = player_pool.build_pool(sessions.load_sources(slug))
+    exp = sim_data.player_exposure(pool, id_to_name, proj if not proj.empty else None)
+    return {
+        "pool": pool,
+        "id_to_name": id_to_name,
+        "exp": exp,
+        "gb": sim_data.good_bad_plays(exp),
+        "combos": sim_data.chalky_combinations(pool, id_to_name),
+    }
+
+
 st.set_page_config(page_title="DFS Slate Analyzer", layout="wide")
 st.title("DFS Slate Analyzer")
 st.caption("Article-driven DFS slate-strategy tool for DraftKings.")
@@ -81,20 +118,44 @@ with st.sidebar:
     sport = cfg["sport"]
 
     st.divider()
-    if st.button("Clear this sport's slate", type="secondary"):
-        clear_articles(slug)
-        clear_persisted(slug)
-        player_pool.clear_pool(slug)
-        clear_contests(slug)
-        clear_bundle(slug)
-        sessions.clear(slug)
-        sim_sessions.clear(slug)
+    # --- Slate readiness at a glance (no tab-hopping to see what's loaded) ---
+    _arts = REPO_ROOT / "articles" / slug
+    _n_articles = len([f for f in _arts.glob("*") if f.is_file()]) if _arts.exists() else 0
+    _n_src = len(cached_sources(slug))
+    _n_contests = len(load_contests(slug))
+    _has_strategy = bool(load_persisted(slug))
+    _has_pool = sim_sessions.pool_path(slug) is not None
+    st.markdown("**Slate readiness**")
+    st.caption(
+        f"Articles: {_n_articles}  ·  Projections: {_n_src}  ·  Contests: {_n_contests}\n\n"
+        f"Strategy: {'✅' if _has_strategy else '—'}  ·  Sim pool: {'✅' if _has_pool else '—'}"
+    )
+
+    st.divider()
+    if st.session_state.get(f"confirm_clear_{slug}"):
+        st.warning("Deletes this slate's articles, projections, strategy, pool, and contests — not recoverable.")
+        cc1, cc2 = st.columns(2)
+        if cc1.button("Confirm clear", type="primary", key=f"do_clear_{slug}"):
+            clear_articles(slug)
+            clear_persisted(slug)
+            player_pool.clear_pool(slug)
+            clear_contests(slug)
+            clear_bundle(slug)
+            sessions.clear(slug)
+            sim_sessions.clear(slug)
+            st.session_state[f"confirm_clear_{slug}"] = False
+            st.rerun()
+        if cc2.button("Cancel", key=f"cancel_clear_{slug}"):
+            st.session_state[f"confirm_clear_{slug}"] = False
+            st.rerun()
+    elif st.button("Clear this sport's slate", type="secondary"):
+        st.session_state[f"confirm_clear_{slug}"] = True
         st.rerun()
 
 
 # ---------- Tabs ---------- #
-tab_proj, tab_slate, tab_strategy, tab_sim, tab_postsim, tab_autopsy, tab_trends = st.tabs(
-    ["Projections", "Slate Data", "Slate Strategy", "Sim Data", "Post-Contest Sim Data", "Autopsy", "Trends"]
+tab_proj, tab_slate, tab_strategy, tab_sim, tab_autopsy, tab_postsim, tab_trends = st.tabs(
+    ["Projections", "Slate Data", "Slate Strategy", "Sim Data", "Autopsy", "Post-Contest Sim Data", "Trends"]
 )
 
 
@@ -150,7 +211,7 @@ with tab_proj:
                         f"`{', '.join(_missing)}` — a renamed header? Update src/vendors.py if so."
                     )
 
-    sources = sessions.load_sources(slug)
+    sources = cached_sources(slug)
     if sources:
         st.divider()
         st.markdown(f"**Loaded sources ({len(sources)}):**")
@@ -270,6 +331,20 @@ with tab_slate:
                 st.success(f"Saved {dest.name}")
             except OSError as e:
                 st.error(f"Couldn't save {f.name}: {e}")
+                continue
+            # Misfile guard: a vendor projections CSV belongs in the Projections tab.
+            if f.name.lower().endswith(".csv"):
+                try:
+                    import io as _io
+                    _probe = load_projections(_io.BytesIO(data))
+                    if _probe.attrs.get("kind") is None and _probe.attrs.get("vendor"):
+                        st.info(
+                            f"ℹ️ {f.name} looks like **{_probe.attrs['vendor']}** projections — "
+                            "if so, upload it in the **Projections** tab instead (it won't fold "
+                            "into the breakdown/player-pool from here)."
+                        )
+                except Exception:  # noqa: BLE001 — best-effort hint only
+                    pass
 
     uploaded_photos = st.file_uploader(
         "Upload photos / screenshots",
@@ -427,6 +502,15 @@ with tab_strategy:
         "No need to leave the app. Takes ~2–6 minutes. Uses your Claude subscription."
     )
     article_files = sorted((REPO_ROOT / "articles" / slug).glob("*"))
+    _src_n = len(cached_sources(slug))
+    _con_n = len(load_contests(slug))
+    st.caption(
+        f"{'✅' if article_files else '⚠️'} {len(article_files)} article file(s)  ·  "
+        f"{'✅' if _src_n else '⚠️'} {_src_n} projection source(s)"
+        + ("" if _src_n else " — player pool will be skipped") + "  ·  "
+        f"{'✅' if _con_n else '⚠️'} {_con_n} contest(s) declared"
+        + ("" if _con_n else " — no field-size framing")
+    )
     if not article_files:
         st.info("Upload articles in the **Slate Data** tab first — the strategy reads from them.")
     elif st.button("✨ Generate slate strategy + player pool", type="primary", key=f"strategy_{slug}"):
@@ -438,7 +522,7 @@ with tab_strategy:
             cost = result.get("cost_usd") or 0.0
             msg = f"Slate strategy written in {result['duration_s']:.0f}s."
             # Chain the player pool — it reads the strategy just written for fades.
-            if sessions.load_sources(slug):
+            if cached_sources(slug):
                 with st.spinner("Building the player pool — ranking your players from the documents… (~1–3 min)"):
                     pool_result = run_player_pool(slug, contest_label, sport)
                 if pool_result["ok"]:
@@ -457,7 +541,7 @@ with tab_strategy:
     st.markdown("## Slate strategy")
     persisted = load_persisted(slug)
     if persisted:
-        _src = sessions.load_sources(slug)
+        _src = cached_sources(slug)
         if _src:
             _cands = landscape.leverage_candidates(player_pool.build_pool(_src))
             _missing = landscape.uncovered_candidates(persisted["markdown"], _cands)
@@ -485,7 +569,7 @@ with tab_strategy:
         with st.container(border=True):
             st.caption(f"Last updated: {saved_pool['mtime']}")
             st.markdown(saved_pool["markdown"])
-    elif not sessions.load_sources(slug):
+    elif not cached_sources(slug):
         st.info("Upload projections in the **Projections** tab, then generate the slate strategy — the pool is built with it.")
     else:
         st.info("Generate the **slate strategy** above — the player pool is built along with it.")
@@ -699,7 +783,9 @@ with tab_autopsy:
                 key=f"autopsy_slate_label_{slug}",
                 placeholder="e.g. Nashville Superspeedway / Memorial Tournament / UFC 320",
             )
-            if st.button("📝 Log autopsy", type="primary"):
+            if not slate_label.strip():
+                st.caption("Enter a slate label to enable logging — it names the archive folder.")
+            if st.button("📝 Log autopsy", type="primary", disabled=not slate_label.strip()):
                 ts = datetime.now().strftime("%Y-%m-%d %H:%M")
                 md_path = REPO_ROOT / "rules" / slug / "autopsies.md"
                 md_path.parent.mkdir(parents=True, exist_ok=True)
@@ -962,15 +1048,18 @@ with tab_sim:
     if pool_path is None:
         st.info("No sim pool loaded yet — upload a SaberSim export above.")
     else:
-        pool = sim_data.load_sim_pool(str(pool_path))
+        _sim = _cached_sim_analytics(
+            slug,
+            _file_mtime(pool_path),
+            _file_mtime(sim_sessions.dkmap_path(slug)),
+            _file_mtime(REPO_ROOT / "data" / "sessions" / f"{slug}.json"),
+        )
+        pool = _sim["pool"]
         if pool.get("n", 0) == 0:
             st.error("Couldn't parse that file as a SaberSim lineup pool. Check the export format.")
         else:
-            dkmap_path = sim_sessions.dkmap_path(slug)
-            uploaded_map = dk_ids.parse_id_to_name(str(dkmap_path)) if dkmap_path else None
-            id_to_name = dk_ids.resolve_id_to_name(slug, uploaded_map)
-            proj = player_pool.build_pool(sessions.load_sources(slug))
-            exp = sim_data.player_exposure(pool, id_to_name, proj if not proj.empty else None)
+            id_to_name = _sim["id_to_name"]
+            exp = _sim["exp"]
 
             resolved = exp["player"].apply(lambda p: not str(p).isdigit()).sum() if not exp.empty else 0
             st.caption(
@@ -979,7 +1068,7 @@ with tab_sim:
                 + ("" if id_to_name else "No DK IDs found — upload a DK Name+ID file to show names.")
             )
 
-            gb = sim_data.good_bad_plays(exp)
+            gb = _sim["gb"]
             has_field = "field_own_pct" in exp.columns and exp["field_own_pct"].notna().any()
 
             st.markdown("**Player exposure** — how often the sim rosters each player")
@@ -1012,8 +1101,7 @@ with tab_sim:
                            "view (sim exposure vs field ownership)._")
 
             st.markdown("**Chalky combinations** — most over-represented player groups (duplication risk to fade)")
-            combos = sim_data.chalky_combinations(pool, id_to_name)
-            st.dataframe(combos, use_container_width=True, hide_index=True)
+            st.dataframe(_sim["combos"], use_container_width=True, hide_index=True)
 
             st.divider()
             st.markdown("### Sim summary (Claude)")

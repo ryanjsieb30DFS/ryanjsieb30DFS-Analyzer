@@ -281,12 +281,13 @@ def breakdown_flags(projections: pd.DataFrame) -> list[str]:
 
     # Top mispriced (underowned vs ceiling) — only when there's a REAL ceiling.
     if has_real_ceiling(df):
-        mis = mispricing_table(df, top_n=3)["underowned"]
+        _mp = mispricing_table(df, top_n=3)
+        mis = _mp["underowned"]
         if not mis.empty:
             names = ", ".join(f"{r['name']} (+{int(r['edge'])})" for _, r in mis.iterrows() if r["edge"] > 0)
             if names:
                 flags.append(f"**Most underowned vs ceiling** (field blind spots): {names}")
-        over = mispricing_table(df, top_n=3)["overowned"]
+        over = _mp["overowned"]
         if not over.empty:
             names = ", ".join(f"{r['name']} ({int(r['edge'])})" for _, r in over.iterrows() if r["edge"] < 0)
             if names:
