@@ -54,3 +54,12 @@ Best result: **rank 9 / 3,567 = 0.3 percentile** (SVG · Zilisch · Gibbs · Kes
 **(2) Retirements:** None this slate. The one contradiction logged (`midpack-pd-over-deep-back-chalk`) is the first against that hypothesis and is a scoping contradiction (re-scope, not retire); retirement needs 2 mechanism contradictions.
 
 **Note (no codification yet):** `anchor-equivalence-not-parity` advanced to `validated` (1/3) and `roadcourse-deepback-revives-on-strategy` / `injury-narrative-not-a-fade-thesis` were born as hypotheses — none meet the 3-slate bar yet. Hold for confirmations.
+
+## Applied
+
+User approved the proposed codifications (2026-06-29). Changes applied:
+
+- **Codified `nascar-2026-05-01-correlation-not-substitution`** (`validated` → `codified`). Set `codified_in: "philosophy.md — On Ownership Leverage; framework.md — Quick-Reference Decision Heuristics"` in `lessons.yaml`.
+- **philosophy.md — On Ownership Leverage:** appended the "Two plays sharing a thesis are independent shots, not substitutes" bullet after the "Cumulative ownership" bullet (Pocono Nemechek+EJ / Sonoma Cindric+Preece+Stenhouse+Custer examples).
+- **framework.md — Quick-Reference Decision Heuristics:** appended "Two same-thesis PD plays → independent shots, roster both" heuristic, with the note distinguishing it from the correlated-leverage rule (3+ overweights on ONE outcome).
+- **(2) Retirements:** none — no lesson met the 2-mechanism-contradiction bar this slate.

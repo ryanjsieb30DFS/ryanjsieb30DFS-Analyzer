@@ -50,12 +50,12 @@ lessons:
       price points and team archetypes) are independent shots at different point
       distributions, not interchangeable substitutes — both can hit on the same
       slate. Rostering one does not "cover" the other.
-    status: validated
+    status: codified
     confirmations:
       - {date: "2026-06-20", slate: "Pocono Raceway", note: "Nemechek (P8, $5.9K, 9.43% actual own) scored 58.55 AND Erik Jones (P7, $7.5K, 19.85% own) scored 44.2 on the SAME slate — two deep-value PD plays at different prices/teams both hit. Field winner ran Nemechek; #2 ran Nemechek+EJ together. First mechanism confirmation: rostering one did not 'cover' the other."}
       - {date: "2026-06-28", slate: "Sonoma Raceway", note: "FOUR independent PD/value plays hit the same slate at different prices/teams: Cindric (40.0, 6.53%), Preece (47.0, 18.9%), Stenhouse (33.0, 6.28%), Custer (30.45, 12.45%). Winners stacked multiples (3567 #1 = Preece+Cindric; 490 #1 = Cindric+Keselowski; many ran Custer+Keselowski). Rostering one did not cover the others — second mechanism confirmation. Origin Texas + Pocono + Sonoma = 3 confirming slates -> meets promotion criteria; see autopsy_review Proposed codifications."}
     contradictions: []
-    codified_in: null
+    codified_in: "philosophy.md — On Ownership Leverage; framework.md — Quick-Reference Decision Heuristics"
     retired_reason: null
 
   - id: nascar-2026-05-01-hms-intermediate-double-up

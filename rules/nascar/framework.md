@@ -196,3 +196,4 @@ This is non-optional. The compounding edge comes from the autopsy database.
 - **"MME or fade" in Dustin = fade in single entry** (Dover lesson — Ty Dillon swap)
 - **Autopsy patterns require mechanism check before re-application** (Dover lesson — Texas pattern didn't transfer to concrete)
 - **Format-driven slates (All-Star, eliminations, inversions) break normal scoring assumptions** — Step 1 track profile must explicitly map format overlays before tiering
+- **Two same-thesis PD plays → independent shots, roster both** (Texas/Pocono/Sonoma: paired deep/mid PD plays hit together; one does not cover the other). *Distinct from the correlated-leverage rule, which is about 3+ overweights on ONE outcome — here the plays resolve on independent point distributions.*

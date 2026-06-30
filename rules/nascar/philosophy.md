@@ -24,6 +24,8 @@ Strategic principles that govern every decision. These are timeless beliefs — 
 
 - **Cumulative ownership matters more than peak ownership.** A lineup with one 50%-owned chalk + five 15-25% players is healthier than one with three 35%-owned plays + three 10% pivots.
 
+- **Two plays sharing a thesis are independent shots, not substitutes.** Two deep-PD drivers at different prices/teams can both hit the same slate (Pocono: Nemechek 58.55 + Erik Jones 44.2; Sonoma: Cindric 40 + Preece 47 + Stenhouse 33 + Custer 30). Rostering one does not "cover" the other — when the venue rewards PD, roster more than one of the band, don't pick a single representative.
+
 - **Distribution shapes outcomes.** Different ownership profiles win different slate shapes. Always know what slate shape your portfolio is built to win.
 
 ## On Roster Construction
