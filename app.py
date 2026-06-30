@@ -93,8 +93,8 @@ with st.sidebar:
 
 
 # ---------- Tabs ---------- #
-tab_proj, tab_slate, tab_strategy, tab_sim, tab_autopsy, tab_trends = st.tabs(
-    ["Projections", "Slate Data", "Slate Strategy", "Sim Data", "Autopsy", "Trends"]
+tab_proj, tab_slate, tab_strategy, tab_sim, tab_postsim, tab_autopsy, tab_trends = st.tabs(
+    ["Projections", "Slate Data", "Slate Strategy", "Sim Data", "Post-Contest Sim Data", "Autopsy", "Trends"]
 )
 
 
@@ -1034,6 +1034,48 @@ with tab_sim:
                 with st.container(border=True):
                     st.markdown(sim_md_path.read_text())
 
+
+# ===== Tab: Post-Contest Sim Data — custom-metric definition + grading (analytics ONLY) =====
+with tab_postsim:
+    st.subheader(f"Post-Contest Sim Data — {contest_label}")
+    st.caption(
+        "Your SaberSim custom metric and how it grades out after the race. "
+        "Analytics only — this never builds or picks lineups."
+    )
+
+    # ----- Custom metric — definition -----
+    reg_metrics = metrics_registry.list_metrics(slug)
+    if reg_metrics:
+        st.markdown("### Custom metric — definition")
+        for m in reg_metrics:
+            st.markdown(f"**{m.get('name', m.get('id'))}**")
+            st.caption(
+                f"v{m.get('version')} · {m.get('status')} · export column "
+                f"`{m.get('export_column')}` · {m.get('transform')}, "
+                f"{m.get('aggregation')} across 6 drivers"
+            )
+            variables = m.get("variables", []) or []
+            if variables:
+                vdf = pd.DataFrame(
+                    [{"Variable": v.get("stat"), "Weight": v.get("weight")} for v in variables]
+                )
+                st.dataframe(vdf, use_container_width=True, hide_index=True)
+            if m.get("rationale"):
+                st.markdown(m["rationale"])
+            guardrails = m.get("guardrails", []) or []
+            if guardrails:
+                with st.expander("Guardrails"):
+                    st.markdown("\n".join(f"- {g.strip()}" for g in guardrails))
+            changelog = m.get("changelog", []) or []
+            if changelog:
+                with st.expander("Changelog"):
+                    cdf = pd.DataFrame(
+                        [{"v": c.get("version"), "date": c.get("date"),
+                          "change": c.get("change"), "reason": c.get("reason")}
+                         for c in changelog]
+                    )
+                    st.dataframe(cdf, use_container_width=True, hide_index=True)
+
     # ----- Grade a custom metric (post-race) -----
     st.divider()
     st.markdown("### Grade a custom metric (post-race)")
@@ -1042,7 +1084,6 @@ with tab_sim:
         "column) to measure how the metric correlated with actual scoring, and log it to the "
         "performance ledger. Analytics only — no lineups built."
     )
-    reg_metrics = metrics_registry.list_metrics(slug)
     if not reg_metrics:
         st.info(f"No custom metric recorded for {contest_label} yet (rules/{slug}/metrics.yaml).")
     else:
