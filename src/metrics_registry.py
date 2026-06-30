@@ -26,7 +26,3 @@ def list_metrics(slug: str) -> list[dict]:
     except Exception:  # noqa: BLE001 — never break the UI on a bad file
         return []
     return data.get("metrics") or []
-
-
-def get_metric(slug: str, metric_id: str) -> dict | None:
-    return next((m for m in list_metrics(slug) if m.get("id") == metric_id), None)

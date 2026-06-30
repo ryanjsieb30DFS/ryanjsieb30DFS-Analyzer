@@ -14,7 +14,6 @@ puts the gap on every measurable axis, per slate, per sport.
 """
 from __future__ import annotations
 
-import json
 from itertools import combinations
 from pathlib import Path
 
@@ -180,56 +179,6 @@ def gap_for_slug(slug: str, parsed: dict) -> dict:
     g = shark_gap(parsed, sharks, user)
     g["slug"], g["sport"] = slug, sport
     return g
-
-
-def _gap_root(slug: str) -> Path:
-    return _REPO_ROOT / "rules" / slug / "history"
-
-
-def shark_gap_rollup(slug: str, last_n: int = 10) -> dict:
-    """Trend the structural deltas across archived slates that carry shark_gap.json."""
-    root = _gap_root(slug)
-    if not root.exists():
-        return {"n": 0, "slates": []}
-    dirs = sorted(d for d in root.iterdir() if d.is_dir())[-last_n:]
-    slates = []
-    for d in dirs:
-        gp = d / "shark_gap.json"
-        if not gp.exists():
-            continue
-        try:
-            g = json.loads(gp.read_text())
-        except (json.JSONDecodeError, OSError):
-            continue
-        if not g.get("sharks_in_field"):
-            continue
-        slates.append({"slate": d.name,
-                       "deltas": {x["dim"]: x["delta"] for x in g.get("deltas", [])}})
-
-    def _avg(dim):
-        vals = [s["deltas"].get(dim) for s in slates if s["deltas"].get(dim) is not None]
-        return round(sum(vals) / len(vals), 3) if vals else None
-
-    return {
-        "n": len(slates),
-        "slates": slates,
-        "mean_deltas": {dim: _avg(dim) for dim, _, _ in _DIMS},
-    }
-
-
-def rollup_md(slug: str, last_n: int = 10) -> str:
-    """Shark-gap trend for the bundle — so each build aims at closing the gap."""
-    r = shark_gap_rollup(slug, last_n)
-    if not r["n"]:
-        return ""
-    lines = [f"## Shark gap trend (vs in-field sharks — last {r['n']} slate(s))", "",
-             "Mean structural delta (you − sharks); aim each build to drive these toward 0:"]
-    labels = {dim: lab for dim, lab, _ in _DIMS}
-    for dim, lab, read in _DIMS:
-        d = r["mean_deltas"].get(dim)
-        if d is not None:
-            lines.append(f"- **{lab}**: {d:+} ({read})")
-    return "\n".join(lines)
 
 
 def gap_md(gap: dict) -> str:

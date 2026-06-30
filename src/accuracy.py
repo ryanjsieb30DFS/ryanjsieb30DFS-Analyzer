@@ -16,7 +16,6 @@ pure and grades against actuals — it never recomputes them.
 """
 from __future__ import annotations
 
-import json
 from pathlib import Path
 
 from src.autopsy import _norm_name
@@ -139,51 +138,6 @@ def slate_accuracy(autopsy) -> dict:
     return {"edges": grade_edges(autopsy), "lineups": grade_lineups(autopsy)}
 
 
-def _history_root(slug: str) -> Path:
-    return _REPO_ROOT / "rules" / slug / "history"
-
-
-def accuracy_rollup(slug: str, last_n: int = 10) -> dict:
-    """Trend the self-grade across the most recent archived slates."""
-    root = _history_root(slug)
-    if not root.exists():
-        return {"n": 0, "slates": []}
-    dirs = sorted(d for d in root.iterdir() if d.is_dir())[-last_n:]
-
-    slates: list[dict] = []
-    for d in dirs:
-        ap = d / "autopsy.json"
-        if not ap.exists():
-            continue
-        try:
-            rec = json.loads(ap.read_text())
-        except (json.JSONDecodeError, OSError):
-            continue
-        e, ln = grade_edges(rec), grade_lineups(rec)
-        slates.append({
-            "slate": d.name,
-            "leverage_capture": e.get("leverage_capture"),
-            "overperformer_capture": e.get("overperformer_capture"),
-            "underperformer_exposure": e.get("underperformer_exposure"),
-            "avg_ratio": ln.get("avg_ratio"),
-            "best_percentile": ln.get("best_percentile"),
-        })
-
-    def _avg(key: str, nd: int = 3):
-        vals = [s[key] for s in slates if s.get(key) is not None]
-        return round(sum(vals) / len(vals), nd) if vals else None
-
-    return {
-        "n": len(slates),
-        "slates": slates,
-        "mean_leverage_capture": _avg("leverage_capture"),
-        "mean_overperformer_capture": _avg("overperformer_capture"),
-        "mean_underperformer_exposure": _avg("underperformer_exposure"),
-        "mean_lineup_ratio": _avg("avg_ratio"),
-        "mean_best_percentile": _avg("best_percentile", 1),
-    }
-
-
 def _pct(v) -> str:
     return f"{round(v * 100)}%" if v is not None else "—"
 
@@ -216,31 +170,3 @@ def slate_accuracy_md(autopsy) -> str:
     else:
         out.append(f"- *Lineups not gradable: {ln.get('reason')}*")
     return "\n".join(out)
-
-
-def rollup_md(slug: str, last_n: int = 10) -> str:
-    """Self-grade trend for the bundle — so the next slate's analysis is anchored
-    to how our past reads ACTUALLY did, not vibes."""
-    r = accuracy_rollup(slug, last_n)
-    if not r["n"]:
-        return ""
-    lines = [
-        f"## Self-grade (how our past reads actually did — last {r['n']} slate(s))",
-        "",
-        f"- Mean **leverage capture**: {_pct(r['mean_leverage_capture'])} "
-        f"(share of slate-defining low-owned plays we owned)",
-        f"- Mean **overperformer capture**: {_pct(r['mean_overperformer_capture'])}",
-        f"- Mean **bust exposure**: {_pct(r['mean_underperformer_exposure'])} (lower is better)",
-        f"- Mean **lineup actual/proj ratio**: {r['mean_lineup_ratio']}",
-        f"- Mean **best finish**: {r['mean_best_percentile']}th percentile",
-        "",
-        "| Slate | Lev capture | Over capture | Bust expo | Ratio | Best pct |",
-        "|---|---|---|---|---|---|",
-    ]
-    for s in r["slates"]:
-        lines.append(
-            f"| {s['slate']} | {_pct(s['leverage_capture'])} | {_pct(s['overperformer_capture'])} | "
-            f"{_pct(s['underperformer_exposure'])} | {s['avg_ratio'] if s['avg_ratio'] is not None else '—'} | "
-            f"{s['best_percentile'] if s['best_percentile'] is not None else '—'} |"
-        )
-    return "\n".join(lines)

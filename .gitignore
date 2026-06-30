@@ -6,17 +6,11 @@ venv/
 data/sessions/
 data/dk_ids/
 data/slate_analysis/
-data/lineups/
 data/contests/
-data/sabersim/
 data/sim_data/
 data/sim_analysis/
 data/bundle/
 articles/*/
 !articles/.gitkeep
-data/red_team/
-data/lineup_fixes/
-data/handbuild_analysis/
 data/contest_templates/
-data/lineup_ranking/
 data/player_pool/

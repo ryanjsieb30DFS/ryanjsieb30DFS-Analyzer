@@ -89,34 +89,6 @@ def merge_same_vendor(sources: dict[str, dict]) -> dict[str, dict]:
     return out
 
 
-def save_team_data(slug: str, filename: str, df: pd.DataFrame, vendor: str) -> None:
-    """Persist team-level data (e.g. SIN MLB stack rankings) as a side-channel."""
-    session = load(slug)
-    session["team_data"] = {
-        "filename": filename,
-        "vendor": vendor,
-        "rows": df.to_dict(orient="records"),
-    }
-    save(slug, session)
-
-
-def load_team_data(slug: str) -> pd.DataFrame | None:
-    """Return the stored team-level DataFrame, or None if absent."""
-    blob = load(slug).get("team_data")
-    if not blob:
-        return None
-    df = pd.DataFrame(blob.get("rows", []))
-    df.attrs["filename"] = blob.get("filename")
-    df.attrs["vendor"] = blob.get("vendor")
-    return df
-
-
-def drop_team_data(slug: str) -> None:
-    session = load(slug)
-    session.pop("team_data", None)
-    save(slug, session)
-
-
 def clear(slug: str) -> None:
     p = _path(slug)
     if p.exists():

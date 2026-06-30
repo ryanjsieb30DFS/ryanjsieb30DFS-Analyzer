@@ -30,7 +30,6 @@ _ARCHIVE_SOURCES = {
     "player_pool.md": lambda slug: _REPO_ROOT / "data" / "player_pool" / f"{slug}.md",
     "bundle.md": lambda slug: _REPO_ROOT / "data" / "bundle" / f"{slug}.md",
     "contests.json": lambda slug: _REPO_ROOT / "data" / "contests" / f"{slug}.json",
-    "red_team.md": lambda slug: _REPO_ROOT / "data" / "red_team" / f"{slug}.md",
     "sim_analysis.md": lambda slug: _REPO_ROOT / "data" / "sim_analysis" / f"{slug}.md",
     "sim_pool.csv": lambda slug: _REPO_ROOT / "data" / "sim_data" / f"{slug}__pool.csv",
 }
@@ -88,76 +87,6 @@ def load_results(slug: str, n: int | None = None) -> list[dict]:
         except json.JSONDecodeError:
             continue
     return rows[-n:] if n else rows
-
-
-def _calibration_path(slug: str) -> Path:
-    # NOT calibrations.jsonl (plural) — those are orphaned legacy sim artifacts.
-    return _REPO_ROOT / "rules" / slug / "vendor_calibration.jsonl"
-
-
-def append_calibration(slug: str, rows: list[dict]) -> None:
-    p = _calibration_path(slug)
-    p.parent.mkdir(parents=True, exist_ok=True)
-    with p.open("a") as f:
-        for row in rows:
-            f.write(json.dumps(row) + "\n")
-
-
-def load_calibration(slug: str, n: int | None = None) -> list[dict]:
-    """All vendor-calibration rows, oldest first. n caps to the most recent n."""
-    p = _calibration_path(slug)
-    if not p.exists():
-        return []
-    rows = []
-    for line in p.read_text().splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        try:
-            rows.append(json.loads(line))
-        except json.JSONDecodeError:
-            continue
-    return rows[-n:] if n else rows
-
-
-def vendor_accuracy(slug: str, last_n_slates: int = 10) -> list[dict]:
-    """Per-vendor accuracy rollup over the most recent slates: slate count and
-    mean proj/own MAE + match rate. Sorted best proj MAE first, None last."""
-    rows = load_calibration(slug)
-    if not rows:
-        return []
-    recent_slates = sorted({r.get("history_dir") or r.get("date") for r in rows})[-last_n_slates:]
-    rows = [r for r in rows if (r.get("history_dir") or r.get("date")) in recent_slates]
-
-    by_vendor: dict = {}
-    for r in rows:
-        by_vendor.setdefault(r.get("vendor") or "?", []).append(r)
-
-    def _mean(vals: list, nd: int = 2):
-        vals = [v for v in vals if v is not None]
-        return round(sum(vals) / len(vals), nd) if vals else None
-
-    def _tier_mean(vrows: list, field: str, tier: str):
-        vals = [(r.get(field) or {}).get(tier) for r in vrows]
-        return _mean([v for v in vals if v is not None])
-
-    out = []
-    for vendor, vrows in by_vendor.items():
-        out.append({
-            "vendor": vendor,
-            "slates": len({r.get("history_dir") or r.get("date") for r in vrows}),
-            "proj_mae": _mean([r.get("proj_mae") for r in vrows]),
-            "own_mae": _mean([r.get("own_mae") for r in vrows]),
-            "match_rate": _mean([r.get("match_rate") for r in vrows], 1),
-            # By-ownership-tier (None for legacy rows lacking the field) — lets the
-            # bundle say which vendor is sharpest on leverage vs chalk.
-            "own_mae_leverage": _tier_mean(vrows, "own_mae_by_tier", "leverage"),
-            "own_mae_chalk": _tier_mean(vrows, "own_mae_by_tier", "chalk"),
-            "proj_mae_leverage": _tier_mean(vrows, "proj_mae_by_tier", "leverage"),
-            "proj_mae_chalk": _tier_mean(vrows, "proj_mae_by_tier", "chalk"),
-        })
-    out.sort(key=lambda r: (r["proj_mae"] is None, r["proj_mae"]))
-    return out
 
 
 def latest_history_dir(slug: str) -> Path | None:

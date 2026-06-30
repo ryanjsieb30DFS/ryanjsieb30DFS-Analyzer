@@ -352,7 +352,7 @@ def build_autopsy_record(*, ts: str, contest_label: str, slug: str, sport: str,
                          source_file: str, parsed: dict, analysis: dict,
                          proj_source: str | None, notes: str) -> dict:
     """Assemble the schema-v2 jsonl record. Top-level fields are a strict
-    superset of the legacy 7-field rows so strategy.py/bundle.py keep working."""
+    superset of the legacy 7-field rows so bundle.py keeps working."""
     lineups = parsed["lineups"]
     field = len(lineups)
     winners = analysis["winners_summary"]
