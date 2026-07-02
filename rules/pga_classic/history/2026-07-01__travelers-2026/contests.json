@@ -1,0 +1,24 @@
+{
+  "contests": [
+    {
+      "name": "PGA Tour $50K Dogleg",
+      "type": "SE",
+      "field_size": 1766,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 33.0,
+      "prize_pool": 50000,
+      "id": "bb542bef"
+    },
+    {
+      "name": "PGA Tour $35K Albatross",
+      "type": "SE",
+      "field_size": 3431,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "prize_pool": 35000,
+      "id": "fa8eac1e"
+    }
+  ]
+}

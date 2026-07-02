@@ -55,6 +55,8 @@ Fading chalk for its own sake is as much a failure mode as blindly playing it. C
 
 The cost of being wrong about value chalk (zero exposure when they win) is higher than the cost of being wrong about trap chalk (small exposure when they win). Asymmetry rules favor the hedge.
 
+**A fade is conditional on the ownership materializing.** Before locking any coffin/writer fade, sanity-check the player's actual/late ownership read: if it is sub-~12%, the fade premise is void and the player is mispriced leverage, not trap chalk. A sub-10% "fade" is not a fade — it just zeroes cheap upside. (Repeatedly cost slate-definers: Reitan/Clark at the Memorial, Reitan at the RBC, Fitzpatrick at the Travelers.)
+
 ## 6. Leverage Is Asymmetric Bet Construction
 
 A coffin-list overweight at sub-15% ownership is structurally equivalent to a chalk play at 25%+ ownership in terms of ceiling outcome — but with materially lower duplication risk. This is the core leverage trade.

@@ -31,6 +31,7 @@ Before constructing any lineup, answer these:
 - **Does the coffin list have ≥2 high-conviction overweight plays at sub-15% projected ownership?** If yes, this is the "leverage spine" opportunity.
 - **Course history boost list cross-referenced with sub-5% projected ownership.** This is a required pre-build scan as of May 2026. Players appearing on ETR's course history boost list with sub-5% projected ownership are structurally high-leverage and historically produce slate-defining outcomes (PGA Championship 2026: Smalley and Rai both met this criterion and appeared in 60-73% of top-100 winning lineups). Always check this list explicitly before locking the construction.
 - **Name the slate's low-owned smash (mandatory scan).** Across 168 slates (2023-2026), **96% had ≥1 golfer rostered in ≥30% of winning lineups while drawing <20% field ownership** (median ~12% own). There is essentially always a sub-radar golfer who smashes and defines the winners — the scan must surface the candidate leverage tier, and a build with zero sub-10% plays fails the structure check.
+- **The 10-16% mid-owned band is where Classic slates are decided, not the sub-5% tier alone.** Guarantee explicit PLAY/PASS coverage of *every* mid-priced play projecting a 100+ ceiling in the ~7-20% own band before adding deep darts. Caveat (necessary-not-sufficient): owning the band is required but does not itself win — four straight slates we sat in the band and missed the actual hitters, so this rule must be paired with the vendor-independent ceiling scan (the primary pre-slate identification discipline) that governs *which* members of the band get rostered.
 
 ## 3. Ownership Tier Framework
 
@@ -114,6 +115,8 @@ When 2 or more players appear on the coffin list as significant overweights (≥
 
 **Trap chalk vs value chalk:** Distinguishing these is the highest-stakes anchor decision. Use the coffin list as the primary signal. If a top-end player is projected at 20%+ ownership AND on the coffin list as overowned, that's the easiest fade in the portfolio. If a top-end player is projected at 20%+ AND on the coffin list as underowned, that's the lock.
 
+**A fade is conditional on the ownership materializing.** Before locking any coffin/writer fade, sanity-check the player's actual/late ownership read: if it is sub-~12%, the fade premise is void and the player is mispriced leverage, not trap chalk. A sub-10% "fade" is not a fade — it just zeroes cheap upside. (Repeatedly cost slate-definers: Reitan/Clark at the Memorial, Reitan at the RBC, Fitzpatrick at the Travelers.)
+
 ## 7. Exposure Caps (Multi-Lineup Portfolios)
 
 For multi-lineup portfolios, the exposure ceiling scales with portfolio size:
@@ -140,6 +143,8 @@ The portfolio cap protects against the reverse failure mode — when a high-conv
 Leaving more than $300 in unused salary is a sign of either over-conservative pricing or a missing player in the build.
 
 ## 9. Pre-Submission Checklist
+
+**Every entered lineup must trace to the written plan, or the deviation is logged pre-lock with a one-line rationale.** A checklist line at submission: for each entered lineup, name the plan lineup/Decision it maps to; any player not in the plan requires a recorded reason. Undocumented deviations forfeit the process grade and any red-team/portfolio safety net (Memorial, RBC, and Travelers all off-plan with no `lineups.md`; Shinnecock on-plan and fully gradeable — the discipline is the difference).
 
 ### A. Single Entry Checklist
 

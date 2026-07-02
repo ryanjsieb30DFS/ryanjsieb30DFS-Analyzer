@@ -1,0 +1,599 @@
+[
+  {
+    "timestamp": "2026-07-01 20:04",
+    "contest_type": "PGA Classic",
+    "source_file": "contest-standings-191595740.csv",
+    "entries": 3431,
+    "winning_score": 681.0,
+    "cash_line_p80": 578.0,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "pga_classic",
+    "sport": "golf",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 72
+    },
+    "user_summary": {
+      "avg_own_mean": 13.91,
+      "low_own_count_mean": 2.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 3373,
+      "best_percentile": 98.3
+    },
+    "user_lineups": [
+      {
+        "rank": 3373,
+        "entry_name": "RyvlesGaming30",
+        "points": 453.5,
+        "percentile": 98.3,
+        "players": [
+          "Ludvig Aberg",
+          "Si Woo Kim",
+          "Kurt Kitayama",
+          "Aaron Rai",
+          "Gary Woodland",
+          "J.T. Poston"
+        ],
+        "avg_own": 13.91,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Viktor Hovland",
+        "salary": null,
+        "actual_fpts": 144.0,
+        "actual_own": 7.84,
+        "top_lineup_pct": 85.3
+      },
+      {
+        "name": "Collin Morikawa",
+        "salary": null,
+        "actual_fpts": 124.0,
+        "actual_own": 17.55,
+        "top_lineup_pct": 64.7
+      },
+      {
+        "name": "Akshay Bhatia",
+        "salary": null,
+        "actual_fpts": 115.0,
+        "actual_own": 11.8,
+        "top_lineup_pct": 35.3
+      }
+    ],
+    "winners_structure": {
+      "top_n": 34,
+      "avg_own_mean": 12.82,
+      "low_own_count_mean": 2.56,
+      "salary_used_mean": null,
+      "dup_max": 1,
+      "unique_pct": 100.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "cstorako",
+          "points": 681.0,
+          "percentile": 0.0,
+          "players": [
+            "Matt Fitzpatrick",
+            "Collin Morikawa",
+            "Viktor Hovland",
+            "Alex Fitzpatrick",
+            "Bud Cauley",
+            "Keith Mitchell"
+          ],
+          "avg_own": 11.64,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "Daturner18",
+          "points": 677.0,
+          "percentile": 0.1,
+          "players": [
+            "Matt Fitzpatrick",
+            "Collin Morikawa",
+            "Viktor Hovland",
+            "Brian Harman",
+            "Alex Fitzpatrick",
+            "Rickie Fowler"
+          ],
+          "avg_own": 13.71,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 3,
+          "entry_name": "UIGEA",
+          "points": 676.0,
+          "percentile": 0.1,
+          "players": [
+            "Scottie Scheffler",
+            "Viktor Hovland",
+            "Akshay Bhatia",
+            "Jacob Bridgeman",
+            "Corey Conners",
+            "Matthew McCarty"
+          ],
+          "avg_own": 10.11,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "teddy356",
+          "points": 675.0,
+          "percentile": 0.1,
+          "players": [
+            "Matt Fitzpatrick",
+            "Collin Morikawa",
+            "Viktor Hovland",
+            "Aaron Rai",
+            "J.J. Spaun",
+            "Tom Hoge"
+          ],
+          "avg_own": 11.56,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "IDIZWUDIDIZ",
+          "points": 675.0,
+          "percentile": 0.1,
+          "players": [
+            "Collin Morikawa",
+            "Russell Henley",
+            "Viktor Hovland",
+            "Aaron Rai",
+            "J.J. Spaun",
+            "Akshay Bhatia"
+          ],
+          "avg_own": 14.36,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 6,
+          "entry_name": "wheelithoss",
+          "points": 670.5,
+          "percentile": 0.2,
+          "players": [
+            "Matt Fitzpatrick",
+            "Collin Morikawa",
+            "Kurt Kitayama",
+            "Alex Fitzpatrick",
+            "Akshay Bhatia",
+            "Hideki Matsuyama"
+          ],
+          "avg_own": 12.86,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 7,
+          "entry_name": "PopThePig",
+          "points": 668.0,
+          "percentile": 0.2,
+          "players": [
+            "Collin Morikawa",
+            "Justin Thomas",
+            "Viktor Hovland",
+            "Aaron Rai",
+            "Brian Harman",
+            "Akshay Bhatia"
+          ],
+          "avg_own": 18.38,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "SAL2018",
+          "points": 667.5,
+          "percentile": 0.2,
+          "players": [
+            "Matt Fitzpatrick",
+            "Collin Morikawa",
+            "Keegan Bradley",
+            "Alex Fitzpatrick",
+            "Akshay Bhatia",
+            "Hideki Matsuyama"
+          ],
+          "avg_own": 13.61,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "stickman6",
+          "points": 665.5,
+          "percentile": 0.3,
+          "players": [
+            "Scottie Scheffler",
+            "Robert MacIntyre",
+            "Brian Harman",
+            "Akshay Bhatia",
+            "Corey Conners",
+            "Matthew McCarty"
+          ],
+          "avg_own": 11.49,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "millerda27",
+          "points": 665.5,
+          "percentile": 0.3,
+          "players": [
+            "Collin Morikawa",
+            "Si Woo Kim",
+            "Viktor Hovland",
+            "Kurt Kitayama",
+            "J.J. Spaun",
+            "Hideki Matsuyama"
+          ],
+          "avg_own": 11.66,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -1.09,
+        "low_own_count_delta": 0.56,
+        "salary_used_delta": null
+      }
+    }
+  },
+  {
+    "timestamp": "2026-07-01 20:04",
+    "contest_type": "PGA Classic",
+    "source_file": "contest-standings-191595748.csv",
+    "entries": 1766,
+    "winning_score": 690.5,
+    "cash_line_p80": 581.5,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "pga_classic",
+    "sport": "golf",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 72
+    },
+    "user_summary": {
+      "avg_own_mean": 13.87,
+      "low_own_count_mean": 2.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 1760,
+      "best_percentile": 99.7
+    },
+    "user_lineups": [
+      {
+        "rank": 1760,
+        "entry_name": "RyvlesGaming30",
+        "points": 431.5,
+        "percentile": 99.7,
+        "players": [
+          "Tommy Fleetwood",
+          "Russell Henley",
+          "Si Woo Kim",
+          "Jordan Spieth",
+          "J.T. Poston",
+          "Sepp Straka"
+        ],
+        "avg_own": 13.87,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Viktor Hovland",
+        "salary": null,
+        "actual_fpts": 144.0,
+        "actual_own": 7.64,
+        "top_lineup_pct": 80.0
+      },
+      {
+        "name": "Collin Morikawa",
+        "salary": null,
+        "actual_fpts": 124.0,
+        "actual_own": 19.71,
+        "top_lineup_pct": 60.0
+      },
+      {
+        "name": "Matt Fitzpatrick",
+        "salary": null,
+        "actual_fpts": 121.0,
+        "actual_own": 9.74,
+        "top_lineup_pct": 35.0
+      },
+      {
+        "name": "Akshay Bhatia",
+        "salary": null,
+        "actual_fpts": 115.0,
+        "actual_own": 12.8,
+        "top_lineup_pct": 45.0
+      },
+      {
+        "name": "Corey Conners",
+        "salary": null,
+        "actual_fpts": 114.5,
+        "actual_own": 7.3,
+        "top_lineup_pct": 35.0
+      },
+      {
+        "name": "Hideki Matsuyama",
+        "salary": null,
+        "actual_fpts": 104.0,
+        "actual_own": 11.95,
+        "top_lineup_pct": 35.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 12.85,
+      "low_own_count_mean": 2.5,
+      "salary_used_mean": null,
+      "dup_max": 1,
+      "unique_pct": 100.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "jewcup",
+          "points": 690.5,
+          "percentile": 0.1,
+          "players": [
+            "Tommy Fleetwood",
+            "Collin Morikawa",
+            "Viktor Hovland",
+            "Brian Harman",
+            "Akshay Bhatia",
+            "Corey Conners"
+          ],
+          "avg_own": 15.45,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 2,
+          "entry_name": "bttaiter",
+          "points": 683.0,
+          "percentile": 0.1,
+          "players": [
+            "Collin Morikawa",
+            "Justin Thomas",
+            "Viktor Hovland",
+            "J.J. Spaun",
+            "Brian Harman",
+            "Hideki Matsuyama"
+          ],
+          "avg_own": 17.18,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 3,
+          "entry_name": "STEVEWOODS47",
+          "points": 682.5,
+          "percentile": 0.2,
+          "players": [
+            "Xander Schauffele",
+            "Collin Morikawa",
+            "Viktor Hovland",
+            "J.J. Spaun",
+            "Akshay Bhatia",
+            "Corey Conners"
+          ],
+          "avg_own": 12.63,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "gyphin",
+          "points": 669.5,
+          "percentile": 0.2,
+          "players": [
+            "Collin Morikawa",
+            "Russell Henley",
+            "Patrick Cantlay",
+            "Viktor Hovland",
+            "Alex Fitzpatrick",
+            "Corey Conners"
+          ],
+          "avg_own": 15.52,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 5,
+          "entry_name": "rlm5037",
+          "points": 667.5,
+          "percentile": 0.3,
+          "players": [
+            "Collin Morikawa",
+            "Justin Thomas",
+            "Viktor Hovland",
+            "Aaron Rai",
+            "J.J. Spaun",
+            "Hideki Matsuyama"
+          ],
+          "avg_own": 16.82,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 6,
+          "entry_name": "MangoFloat",
+          "points": 660.0,
+          "percentile": 0.3,
+          "players": [
+            "Matt Fitzpatrick",
+            "Chris Gotterup",
+            "Viktor Hovland",
+            "Justin Rose",
+            "Akshay Bhatia",
+            "Hideki Matsuyama"
+          ],
+          "avg_own": 8.98,
+          "low_own_count": 4,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 7,
+          "entry_name": "zachjs94",
+          "points": 656.5,
+          "percentile": 0.4,
+          "players": [
+            "Collin Morikawa",
+            "Viktor Hovland",
+            "Keegan Bradley",
+            "Ben Griffin",
+            "Aaron Rai",
+            "Hideki Matsuyama"
+          ],
+          "avg_own": 13.98,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "jbmarkos",
+          "points": 656.0,
+          "percentile": 0.5,
+          "players": [
+            "Matt Fitzpatrick",
+            "Collin Morikawa",
+            "Justin Thomas",
+            "Akshay Bhatia",
+            "Shane Lowry",
+            "Corey Conners"
+          ],
+          "avg_own": 13.89,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "DrEvil1996",
+          "points": 653.5,
+          "percentile": 0.5,
+          "players": [
+            "Viktor Hovland",
+            "Keegan Bradley",
+            "Kurt Kitayama",
+            "Ben Griffin",
+            "Robert MacIntyre",
+            "Brian Harman"
+          ],
+          "avg_own": 10.92,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 10,
+          "entry_name": "steinstein44",
+          "points": 653.0,
+          "percentile": 0.6,
+          "players": [
+            "Collin Morikawa",
+            "Justin Thomas",
+            "Chris Gotterup",
+            "Viktor Hovland",
+            "Hideki Matsuyama",
+            "Nicolai Hojgaard"
+          ],
+          "avg_own": 12.42,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -1.02,
+        "low_own_count_delta": 0.5,
+        "salary_used_delta": null
+      }
+    }
+  }
+]

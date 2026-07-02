@@ -310,3 +310,21 @@ Per Philosophy Section 4:
 - My entries: 3 · best rank 1,527/2,941 (top 51.9%)
 - Winners (top 29): avg own 14.83% vs mine 12.52% · sub-10% plays/lineup 2.69 vs mine 3.0
 - Slate-defining plays: Wyndham Clark (102.0 pts @ 9.9%)
+
+
+## 2026-07-01 20:04 — PGA Classic (contest-standings-191595740.csv)
+- Entries: 3,431
+- Winning score: 681.0
+- Cash line (top 20%): 578.0
+- My entries: 1 · best rank 3,373/3,431 (top 98.3%)
+- Winners (top 34): avg own 12.82% vs mine 13.91% · sub-10% plays/lineup 2.56 vs mine 2.0
+- Slate-defining plays: Viktor Hovland (144.0 pts @ 7.8%), Collin Morikawa (124.0 pts @ 17.6%), Akshay Bhatia (115.0 pts @ 11.8%)
+
+
+## 2026-07-01 20:04 — PGA Classic (contest-standings-191595748.csv)
+- Entries: 1,766
+- Winning score: 690.5
+- Cash line (top 20%): 581.5
+- My entries: 1 · best rank 1,760/1,766 (top 99.7%)
+- Winners (top 20): avg own 12.85% vs mine 13.87% · sub-10% plays/lineup 2.5 vs mine 2.0
+- Slate-defining plays: Viktor Hovland (144.0 pts @ 7.6%), Collin Morikawa (124.0 pts @ 19.7%), Matt Fitzpatrick (121.0 pts @ 9.7%), Akshay Bhatia (115.0 pts @ 12.8%)

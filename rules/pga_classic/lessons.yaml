@@ -317,7 +317,7 @@ lessons:
       Wyndham Clark (writer fade) all came in at 7-11% actual own and all landed
       in winning structures (Reitan 96.5, Clark 102). Where late/actual ownership
       signals exist, sanity-check the fade list against them before lock.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-17"
         slate: "RBC Canadian Open at TPC Toronto Osprey Valley North (rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26)"
@@ -334,8 +334,20 @@ lessons:
           Reitan hit. The fade-direction was corrected; the relative-weight call inside
           the tier still leaned on the wrong (uncalibrated-coffin) anchor — see the new
           single-vendor-overweight-self-erosion hypothesis.
+      - date: "2026-07-01"
+        slate: "Travelers Championship at TPC River Highlands (rules/pga_classic/history/2026-07-01__travelers-2026)"
+        note: >
+          Second mechanism confirmation. The strategy FADED Matt Fitzpatrick (ETR -7.0),
+          but his actual ownership came in at 9.74% — a fade premised on ownership that
+          never materialized. At sub-10% he was mispriced leverage, not trap chalk, and he
+          posted 121.0 FPTS and anchored the overall Albatross winner (cstorako 681) plus
+          multiple top lineups across both contests. Exactly the failure mode the lesson
+          names: fading a player whose projected ownership never shows up simply zeroes
+          cheap leverage. A sub-10% 'fade' is not a fade — sanity-check every fade against a
+          low-own read before lock. Origin (Memorial) + RBC + Travelers = 3 mechanism
+          slates; meets the promotion count. See Proposed codifications.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Section 6 Anchor Selection Logic (Trap chalk vs value chalk); philosophy.md — Section 5 Chalk Has a Purpose"
     retired_reason: null
 
   - id: pga-classic-2026-06-10-entered-lineups-must-trace-to-plan
@@ -350,7 +362,7 @@ lessons:
       and 2.24) — exactly the structure the written plan avoided (62.6% cumulative
       own, 4 sub-8% pieces). Undocumented deviations cannot be process-graded and
       forfeit the red-team and portfolio-audit safety nets.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-17"
         slate: "RBC Canadian Open at TPC Toronto Osprey Valley North (rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26)"
@@ -388,8 +400,28 @@ lessons:
           recurred, mechanism confirmed negatively) + Shinnecock (gap closed, mechanism
           confirmed positively) = 3 mechanism slates; meets the count. See Proposed
           codifications for the post-pivot caveat.
+      - date: "2026-07-01"
+        slate: "Travelers Championship at TPC River Highlands (rules/pga_classic/history/2026-07-01__travelers-2026)"
+        note: >
+          Gap RE-OPENED after closing at Shinnecock — third confirmation, negative
+          direction. The two entered SE carried three off-plan players with no recorded
+          thesis and violated an explicit Decision: SE-A (Albatross) anchored Ludvig Aberg
+          (named in the doc only as ranked BELOW Tommy, never recommended) alongside Gary
+          Woodland (un-named anywhere in the strategy), and ZEROED Scottie despite
+          Decision 2 mandating "carry Scottie in SE-B as the value-chalk hedge (never zero
+          the #1)"; SE-B (Dogleg) inserted Jordan Spieth (un-thesised) and moved Tommy from
+          the planned SE-A to SE-B. The Anchor-Equivalence split was not executed as
+          written. Mechanism confirmed (undocumented deviation forfeits process-grading):
+          the Aberg/Woodland/Spieth calls cannot be credited or debited — no pre-lock
+          rationale exists. GPP guard: the deviation did NOT demonstrably cost this slate —
+          the written plan ALSO missed all six slate-definers, so a plan-traced build would
+          have finished just as poorly; the failure is upstream in the strategy's player
+          identification, not in the deviation. Logged as a mechanism (traceability)
+          confirmation independent of the result. Adherence is now inconsistent
+          slate-to-slate (Memorial off, RBC off, Shinnecock on, Travelers off),
+          strengthening the case to codify the discipline. See Proposed codifications.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Section 9 Pre-Submission Checklist (trace-to-plan rule)"
     retired_reason: null
 
   - id: pga-classic-2026-06-13-winning-structure-13own-2to3-darts
@@ -464,6 +496,20 @@ lessons:
           zero exposure across 6 lineups — which is precisely why the slate capped at
           ~52nd pct. The scan must not just confirm 'a smash will exist'; it has to NAME
           the candidate. See [[pga-classic-2026-06-24-major-pedigree-in-form-leverage]].
+      - date: "2026-07-01"
+        slate: "Travelers Championship at TPC River Highlands (rules/pga_classic/history/2026-07-01__travelers-2026)"
+        note: >
+          Confirmed again — the structural truth held and the scan again failed to NAME
+          the candidate. The slate's defining low-owned smash was Viktor Hovland (144.0
+          FPTS at 7.6-7.8% own — under the 20% line — in 80-85% of ALL winning lineups),
+          the single most valuable play on the board, layered under chalk-stud Morikawa.
+          Hovland is a top-25 OWGR elite, not an obscure dart, yet he appeared NOWHERE in
+          the strategy doc (not Top plays, not leverage, not even mentioned) and on neither
+          entered lineup. The 96%-of-slates structural truth (a sub-20% smash defines the
+          slate) held; the mandatory low-owned-smash scan did not surface him. Reinforces
+          that the scan must NAME the candidate, and see the new
+          [[pga-classic-2026-07-01-vendor-independent-ceiling-scan]] on WHY an elite this
+          obvious was missed (outside the single-vendor coffin/panel lens).
     contradictions: []
     codified_in: "framework.md — Section 2 Slate Diagnostics (mandatory low-owned-smash scan)"
     retired_reason: null
@@ -510,6 +556,18 @@ lessons:
           format as well as scoring variance — tough+cut caps closer to ~2-2.5, not 3.
           Our entered builds sat at low_own_count 2.0-3.0 (portfolio mean ~2.8), right in
           the winning band on COUNT — the miss was dart SELECTION, not dart count.
+      - date: "2026-07-01"
+        slate: "Travelers Championship at TPC River Highlands (rules/pga_classic/history/2026-07-01__travelers-2026)"
+        note: >
+          No-cut birdie-fest data point. TPC River Highlands played as the predicted
+          soft/short birdie-fest (winning scores 681 / 690.5), and with NO cut the binary
+          cut-out governor was absent — the lesson's prediction that a no-cut birdie-fest
+          can safely run slightly above the ~2 birdie-fest default. Winners ran ~2.5 sub-10%
+          pieces (Albatross top-34 low_own_count_mean 2.56; Dogleg top-20 2.5), between the
+          ~2 birdie-fest and ~3 tough targets. Our entered builds ran exactly 2.0 sub-10%
+          each — a touch light vs the winners' 2.5; the count was close and, as at
+          Shinnecock, the miss was dart SELECTION, not dart count. Mild support for a no-cut
+          birdie-fest running ~2.5 rather than a flat 2.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -611,7 +669,7 @@ lessons:
       is the finishing piece on top of a complete value spine, not a substitute for it. Distinct
       from leverage-play-mandatory (which is about the sub-20% smashes) — this is specifically
       that the 10–16% own band, not just <5%, is where value-course slates are won.
-    status: hypothesis
+    status: codified
     confirmations:
       - date: "2026-06-24"
         slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
@@ -634,8 +692,30 @@ lessons:
           hypothesis: owning the band is necessary, not sufficient — we keep owning the
           WRONG members of it. The identification gap is the subject of the new
           [[pga-classic-2026-06-24-major-pedigree-in-form-leverage]] hypothesis.
+      - date: "2026-07-01"
+        slate: "Travelers Championship at TPC River Highlands (rules/pga_classic/history/2026-07-01__travelers-2026)"
+        note: >
+          Second mechanism confirmation, and the starkest yet — promote to validated. The
+          no-cut Signature slate was decided entirely by mid-owned multipliers: Viktor
+          Hovland (144.0 @ 7.6-7.8%, in 80-85% of top lineups), Collin Morikawa (124.0 @
+          17.6-19.7%, ~60-65%), Matt Fitzpatrick (121.0 @ 9.7%, anchored the overall
+          winner), Akshay Bhatia (115.0 @ 11.8-12.8%), Corey Conners (114.5 @ 7.3%), Hideki
+          Matsuyama (104.0 @ 12.0%) — all in the ~7-20% own band, ZERO deep sub-5% darts
+          among the six definers. The user sat squarely in the winning OWN band (13.9% avg,
+          2 sub-10%, within a point of the winners' 12.8% / 2.5) yet caught NONE of the six
+          on either lineup — the 'own the band is necessary, not sufficient' caveat firing
+          again. This is now the FOURTH straight slate the actual cheap/mid slate-definer
+          was absent from our pool (Memorial: Poston/Cole; RBC: Fox/Yellamaraju; Shinnecock:
+          Clark; Travelers: Hovland/Morikawa/Bhatia/Hideki). Even the right anchor did not
+          save it: SE-B correctly ran Tommy Fleetwood (who anchored the Dogleg overall
+          winner jewcup) but paired him with Henley/Si Woo/Spieth/Poston/Straka instead of
+          the Morikawa+Hovland+Harman+Bhatia+Conners core the actual winner ran — anchor
+          right, mid-owned spine entirely wrong. Origin (RBC) + Shinnecock + Travelers = 3
+          mechanism slates. The actionable fix for the identification half now lives in
+          [[pga-classic-2026-07-01-vendor-independent-ceiling-scan]]. See Proposed
+          codifications (with the necessary-not-sufficient caveat).
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Section 2 Slate Diagnostics (10-16% mid-owned band coverage)"
     retired_reason: null
 
   - id: pga-classic-2026-06-17-design-exposures-before-lineups
@@ -757,6 +837,60 @@ lessons:
       Distinct from [[pga-classic-2026-06-17-mid-owned-value-spine-over-darts]] (which
       says the 10-16% band is where slates are won) — this names a repeatable SOURCE for
       an under-projected member of that band at majors.
+    status: hypothesis
+    confirmations: []
+    contradictions:
+      - date: "2026-07-01"
+        slate: "Travelers Championship at TPC River Highlands (rules/pga_classic/history/2026-07-01__travelers-2026)"
+        note: >
+          First contradiction — the 'at a major specifically' SCOPE is too narrow. The
+          strategy invoked this lesson's own boundary to REJECT flagging Matt Fitzpatrick
+          at the Travelers ("major-pedigree... does not apply at a non-major, so the fade
+          is more defensible here"), and Fitzpatrick — 2022 U.S. Open champ, in current
+          form, 9.74% own — then posted 121.0 FPTS and ANCHORED the overall winner of a
+          NON-major Signature Event (cstorako 681, contest 191595740) plus multiple top
+          lineups. The falsifiable prong (the under-owned in-form proven closer is a blind
+          spot 'at a major specifically') is contradicted: the same in-form-champ-under-
+          owned profile paid at a non-major. GPP guard satisfied — logged on the falsified
+          SCOPE claim (Fitz defining a non-major), not on the loss. REFINEMENT: broaden the
+          mechanism from 'majors only' to any event — an in-form proven closer / elite
+          drawing sub-15% own is a systematic leverage blind spot regardless of major
+          status; majors merely amplify it. Feeds the broader
+          [[pga-classic-2026-07-01-vendor-independent-ceiling-scan]] (Fitz being a repeat
+          definer the single-vendor lens keeps under-flagging — 3 straight slates: RBC,
+          Shinnecock, Travelers).
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-07-01-vendor-independent-ceiling-scan
+    born: "2026-07-01"
+    origin: "rules/pga_classic/history/2026-07-01__travelers-2026 — Travelers Championship at TPC River Highlands (Hovland/Morikawa slate-definer blind spot)"
+    statement: >
+      The slate strategy must run a VENDOR-INDEPENDENT scan of the full elite/mid field
+      for ceiling before writing Top plays, because building the doc off one vendor's
+      coffin-overweight list (ETR) plus one panel show's named 'best plays' (ETG) is a
+      narrow lens that systematically omits in-form studs who are not that vendor's
+      leverage darlings. Mechanism: a coffin list surfaces optimal-minus-own GAPS and a
+      panel surfaces its hosts' favorite plays — neither is a complete ceiling board, so
+      elite players the vendor happens not to flag as leverage never enter the strategy at
+      all. Born from the Travelers, where the two biggest scores on the slate — Viktor
+      Hovland (144.0 @ 7.6-7.8% own, in 80-85% of winners) AND Collin Morikawa (124.0 @
+      ~17.6-19.7%, in ~60-65% of winners) — are both top-25 OWGR elites, NOT obscure darts,
+      yet neither appeared anywhere in the strategy doc because neither was an ETR coffin
+      overweight or an ETG panel 'best play.' This is the FOURTH straight slate the actual
+      slate-definer was outside the ETR-coffin/ETG-panel lens (Memorial: Poston/Cole; RBC:
+      Fox/Yellamaraju; Shinnecock: Wyndham Clark; Travelers: Hovland/Morikawa/Bhatia/
+      Hideki), and it produced the worst finish of the sample (98.3 / 99.7 pct) with zero
+      of the six slate-definers rostered. Guard/expression: before writing Top plays,
+      independently list the ~12-15 highest-ceiling players for the week from the
+      projections + form (best ball-strikers / hottest approach numbers / elite anchors),
+      REGARDLESS of whether ETR's coffin or the panel flagged them; then reconcile that
+      board against the coffin/panel — every elite or mid player with a real ceiling gets
+      an explicit PLAY/PASS with a mechanism, so no top-of-the-board stud is silently
+      omitted. Encompasses the identification half of
+      [[pga-classic-2026-06-17-mid-owned-value-spine-over-darts]], the single-vendor bubble
+      of [[pga-classic-2026-06-17-single-vendor-overweight-self-erosion]], and the broadened
+      [[pga-classic-2026-06-24-major-pedigree-in-form-leverage]].
     status: hypothesis
     confirmations: []
     contradictions: []

@@ -1,0 +1,77 @@
+{
+  "field": 3431,
+  "anchors": [
+    "justin thomas",
+    "brian harman",
+    "aaron rai"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 3,
+    "own_per_slot": 14.1,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.222,
+    "anchor_exposure_by_player": {
+      "justin thomas": 0.0,
+      "brian harman": 0.0,
+      "aaron rai": 0.667
+    },
+    "max_overlap": 1,
+    "unique_pct": 100.0,
+    "best_pctile": 0.87,
+    "median_pctile": 54.36
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 13.9,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.333,
+    "anchor_exposure_by_player": {
+      "justin thomas": 0.0,
+      "brian harman": 0.0,
+      "aaron rai": 1.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 98.31,
+    "median_pctile": 98.31
+  },
+  "deltas": [
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 13.9,
+      "shark": 14.1,
+      "delta": -0.2
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.333,
+      "shark": 0.222,
+      "delta": 0.111
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 0.0,
+      "shark": 0.0,
+      "delta": 0.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "pga_classic",
+  "sport": "golf"
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "pga_classic",
+  "sport": "golf",
+  "contest_label": "PGA Classic",
+  "date": "2026-07-01",
+  "slate_label": "Travelers 2026",
+  "archived_at": "2026-07-01 20:04",
+  "archived": [
+    "slate_analysis.md",
+    "bundle.md",
+    "contests.json"
+  ],
+  "missing": [
+    "player_pool.md",
+    "sim_analysis.md",
+    "sim_pool.csv"
+  ],
+  "article_files": [
+    "articles/pga_classic/2026-06-24__ETR Coffin List 6.25.26.pdf",
+    "articles/pga_classic/2026-06-24__ETR Course Fits 6.25.26.pdf",
+    "articles/pga_classic/2026-06-24__ETR PGA Golf Models 6.25.26.pdf",
+    "articles/pga_classic/2026-06-24__ETR PGA Values 6.25.26.pdf",
+    "articles/pga_classic/2026-06-24__ETR Sim Analysis 6.25.26.pdf",
+    "articles/pga_classic/2026-06-24__Establish-The-Green-Travelers-Championship-1.pdf"
+  ],
+  "proj_source": null
+}
