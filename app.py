@@ -231,76 +231,76 @@ with tab_proj:
             st.warning(w)
         st.dataframe(df, use_container_width=True, height=500)
 
-        # ---------- Breakdown — surface non-obvious edges ---------- #
+        # ---------- Breakdown — surface non-obvious edges (collapsed by default) ---------- #
         st.divider()
-        st.markdown("### 🔍 Breakdown — what you'd miss")
-        st.caption(
-            f"Computed from **{primary_name}** ({pool[primary_name]['vendor']}). A reference "
-            "view of this one source — the slate strategy reads all loaded vendors via the bundle."
-        )
-
-        # Edges to notice (synthesized headline flags first)
-        st.markdown("#### Edges to notice")
-        for bullet in landscape.breakdown_flags(df):
-            st.markdown(f"- {bullet}")
-
-        # Ceiling-based panels only when the vendor ships a REAL ceiling (golf/MLB).
-        # NASCAR / names-only vendors ship none — we never fabricate one.
-        real_ceil = landscape.has_real_ceiling(df)
-
-        if real_ceil:
-            c1, c2 = st.columns(2)
-            with c1:
-                st.markdown("#### Underowned vs ceiling (field blind spots)")
-                mis = landscape.mispricing_table(df, top_n=10)
-                st.dataframe(mis["underowned"], use_container_width=True, hide_index=True)
-            with c2:
-                st.markdown("#### Overowned vs ceiling (fade candidates)")
-                st.dataframe(mis["overowned"], use_container_width=True, hide_index=True)
-
-        _lev_title = "Leverage board (ceiling vs ownership)" if real_ceil else "Leverage board (proj vs ownership)"
-        st.markdown(f"#### {_lev_title}")
-        st.dataframe(landscape.leverage_table(df, top_n=15), use_container_width=True, hide_index=True)
-
-        c3, c4 = st.columns(2)
-        with c3:
-            st.markdown("#### Slate shape — chalk tiers")
-            st.dataframe(landscape.chalk_summary(df), use_container_width=True, hide_index=True)
-        with c4:
-            st.markdown("#### Value leaders by salary tier")
-            st.dataframe(landscape.value_by_tier(df), use_container_width=True, hide_index=True)
-
-        waves = landscape.tee_wave_split(df)
-        st.markdown("#### Tee-wave split (AM / PM)")
-        if waves.empty:
-            st.caption("No `tee_time` column — wave split unavailable for this vendor file.")
-        else:
-            st.dataframe(waves, use_container_width=True, hide_index=True)
-
-        if real_ceil:
-            vol = landscape.volatility_table(df, top_n=10)
-            c5, c6 = st.columns(2)
-            with c5:
-                st.markdown("#### Boom (highest ceiling-volatility)")
-                st.dataframe(vol["boom"], use_container_width=True, hide_index=True)
-            with c6:
-                st.markdown("#### Fragile chalk (owned, capped ceiling)")
-                st.dataframe(vol["fragile_chalk"], use_container_width=True, hide_index=True)
-        else:
+        with st.expander("🔍 Breakdown — what you'd miss", expanded=False):
             st.caption(
-                "ℹ️ Ceiling-based views (boom/bust, mispricing-vs-ceiling) need a vendor that ships a "
-                "real ceiling — hidden here because this slate's projections are projection-only "
-                "(no fabricated ceiling)."
+                f"Computed from **{primary_name}** ({pool[primary_name]['vendor']}). A reference "
+                "view of this one source — the slate strategy reads all loaded vendors via the bundle."
             )
 
-        # Cross-vendor disagreement — only when 2+ sources loaded
-        if len(sources) >= 2:
-            st.markdown("#### Cross-vendor disagreement (≥15% spread)")
-            disagree = flagged_disagreements(sources, metric="proj_points", pct_threshold=15.0)
-            if disagree.empty:
-                st.caption("No players with ≥15% projection spread across loaded vendors.")
+            # Edges to notice (synthesized headline flags first)
+            st.markdown("#### Edges to notice")
+            for bullet in landscape.breakdown_flags(df):
+                st.markdown(f"- {bullet}")
+
+            # Ceiling-based panels only when the vendor ships a REAL ceiling (golf/MLB).
+            # NASCAR / names-only vendors ship none — we never fabricate one.
+            real_ceil = landscape.has_real_ceiling(df)
+
+            if real_ceil:
+                c1, c2 = st.columns(2)
+                with c1:
+                    st.markdown("#### Underowned vs ceiling (field blind spots)")
+                    mis = landscape.mispricing_table(df, top_n=10)
+                    st.dataframe(mis["underowned"], use_container_width=True, hide_index=True)
+                with c2:
+                    st.markdown("#### Overowned vs ceiling (fade candidates)")
+                    st.dataframe(mis["overowned"], use_container_width=True, hide_index=True)
+
+            _lev_title = "Leverage board (ceiling vs ownership)" if real_ceil else "Leverage board (proj vs ownership)"
+            st.markdown(f"#### {_lev_title}")
+            st.dataframe(landscape.leverage_table(df, top_n=15), use_container_width=True, hide_index=True)
+
+            c3, c4 = st.columns(2)
+            with c3:
+                st.markdown("#### Slate shape — chalk tiers")
+                st.dataframe(landscape.chalk_summary(df), use_container_width=True, hide_index=True)
+            with c4:
+                st.markdown("#### Value leaders by salary tier")
+                st.dataframe(landscape.value_by_tier(df), use_container_width=True, hide_index=True)
+
+            waves = landscape.tee_wave_split(df)
+            st.markdown("#### Tee-wave split (AM / PM)")
+            if waves.empty:
+                st.caption("No `tee_time` column — wave split unavailable for this vendor file.")
             else:
-                st.dataframe(disagree, use_container_width=True, hide_index=True)
+                st.dataframe(waves, use_container_width=True, hide_index=True)
+
+            if real_ceil:
+                vol = landscape.volatility_table(df, top_n=10)
+                c5, c6 = st.columns(2)
+                with c5:
+                    st.markdown("#### Boom (highest ceiling-volatility)")
+                    st.dataframe(vol["boom"], use_container_width=True, hide_index=True)
+                with c6:
+                    st.markdown("#### Fragile chalk (owned, capped ceiling)")
+                    st.dataframe(vol["fragile_chalk"], use_container_width=True, hide_index=True)
+            else:
+                st.caption(
+                    "ℹ️ Ceiling-based views (boom/bust, mispricing-vs-ceiling) need a vendor that ships a "
+                    "real ceiling — hidden here because this slate's projections are projection-only "
+                    "(no fabricated ceiling)."
+                )
+
+            # Cross-vendor disagreement — only when 2+ sources loaded
+            if len(sources) >= 2:
+                st.markdown("#### Cross-vendor disagreement (≥15% spread)")
+                disagree = flagged_disagreements(sources, metric="proj_points", pct_threshold=15.0)
+                if disagree.empty:
+                    st.caption("No players with ≥15% projection spread across loaded vendors.")
+                else:
+                    st.dataframe(disagree, use_container_width=True, hide_index=True)
     else:
         st.info("No projections uploaded yet.")
 
@@ -906,86 +906,86 @@ with tab_autopsy:
     # ----- Lesson-ledger hygiene ----- #
     if (REPO_ROOT / "rules" / slug / "lessons.yaml").exists():
         st.divider()
-        st.markdown("### Lesson-ledger hygiene")
-        st.caption(
-            "Keeps the ledger sharp as it grows: stale hypotheses, lessons near the "
-            "3-slate promotion bar, and likely-duplicate lessons. Flags below are computed "
-            "instantly; the review turns them into proposals you approve."
-        )
-        with st.container(border=True):
-            st.markdown(ledger_hygiene.report_md(ledger_hygiene.hygiene_report(slug)))
-
-        ledger_review_path = REPO_ROOT / "rules" / slug / "ledger_review.md"
-        lbtn = "🔄 Re-run ledger review" if ledger_review_path.exists() else "🧹 Review ledger"
-        if st.button(lbtn, key=f"ledger_review_{slug}"):
-            with st.spinner("Reviewing the lesson ledger — retire / merge / promote proposals…"):
-                lresult = run_ledger_review(slug)
-            if lresult["ok"]:
-                cost = lresult.get("cost_usd")
-                cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
-                st.success(f"Ledger review written in {lresult['duration_s']:.0f}s{cost_note}.")
-                st.rerun()
-            else:
-                st.error(f"Couldn't run the ledger review: {lresult['error']}")
-
-        if ledger_review_path.exists():
-            with st.container(border=True):
-                st.markdown(ledger_review_path.read_text())
-            st.warning(
-                "Approving applies the ledger review's retire / merge / codify decisions to "
-                "lessons.yaml (and framework/philosophy for any codifications)."
+        with st.expander("Lesson-ledger hygiene", expanded=False):
+            st.caption(
+                "Keeps the ledger sharp as it grows: stale hypotheses, lessons near the "
+                "3-slate promotion bar, and likely-duplicate lessons. Flags below are computed "
+                "instantly; the review turns them into proposals you approve."
             )
-            if st.button("✅ Approve & apply ledger changes", key=f"apply_ledger_{slug}"):
-                with st.spinner("Applying the approved ledger changes…"):
-                    lapply = run_apply_ledger_proposals(slug)
-                if lapply["ok"]:
-                    st.success("Ledger changes applied.")
+            with st.container(border=True):
+                st.markdown(ledger_hygiene.report_md(ledger_hygiene.hygiene_report(slug)))
+
+            ledger_review_path = REPO_ROOT / "rules" / slug / "ledger_review.md"
+            lbtn = "🔄 Re-run ledger review" if ledger_review_path.exists() else "🧹 Review ledger"
+            if st.button(lbtn, key=f"ledger_review_{slug}"):
+                with st.spinner("Reviewing the lesson ledger — retire / merge / promote proposals…"):
+                    lresult = run_ledger_review(slug)
+                if lresult["ok"]:
+                    cost = lresult.get("cost_usd")
+                    cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
+                    st.success(f"Ledger review written in {lresult['duration_s']:.0f}s{cost_note}.")
                     st.rerun()
                 else:
-                    st.error(f"Couldn't apply the ledger changes: {lapply['error']}")
+                    st.error(f"Couldn't run the ledger review: {lresult['error']}")
+
+            if ledger_review_path.exists():
+                with st.container(border=True):
+                    st.markdown(ledger_review_path.read_text())
+                st.warning(
+                    "Approving applies the ledger review's retire / merge / codify decisions to "
+                    "lessons.yaml (and framework/philosophy for any codifications)."
+                )
+                if st.button("✅ Approve & apply ledger changes", key=f"apply_ledger_{slug}"):
+                    with st.spinner("Applying the approved ledger changes…"):
+                        lapply = run_apply_ledger_proposals(slug)
+                    if lapply["ok"]:
+                        st.success("Ledger changes applied.")
+                        st.rerun()
+                    else:
+                        st.error(f"Couldn't apply the ledger changes: {lapply['error']}")
 
     # ----- ROI ledger ----- #
     results_rows = history.load_results(slug)
     if results_rows:
         st.divider()
-        st.markdown("### Results ledger (all archived slates)")
-        st.caption(
-            "Best-percentile and process metrics are the scoreboard here — "
-            "ROI lives in your third-party tracker, so winnings are usually blank."
-        )
-        ledger = pd.DataFrame([
-            {
-                "date": r.get("date"),
-                "slate": r.get("slate_label"),
-                "entries": r.get("entries_total"),
-                "buy-in $": r.get("total_buy_in"),
-                "winnings $": r.get("total_winnings"),
-                "ROI %": r.get("roi_pct"),
-                "best %ile": r.get("best_percentile"),
-                "best rank": r.get("best_rank"),
-            }
-            for r in reversed(results_rows)
-        ])
-        st.dataframe(ledger, use_container_width=True)
+        with st.expander("Results ledger (all archived slates)", expanded=False):
+            st.caption(
+                "Best-percentile and process metrics are the scoreboard here — "
+                "ROI lives in your third-party tracker, so winnings are usually blank."
+            )
+            ledger = pd.DataFrame([
+                {
+                    "date": r.get("date"),
+                    "slate": r.get("slate_label"),
+                    "entries": r.get("entries_total"),
+                    "buy-in $": r.get("total_buy_in"),
+                    "winnings $": r.get("total_winnings"),
+                    "ROI %": r.get("roi_pct"),
+                    "best %ile": r.get("best_percentile"),
+                    "best rank": r.get("best_rank"),
+                }
+                for r in reversed(results_rows)
+            ])
+            st.dataframe(ledger, use_container_width=True)
 
     st.divider()
-    st.markdown("### Cross-slate patterns (autopsies.md)")
-    st.caption("Most recent slate first; older slates below.")
-    autopsies_md = REPO_ROOT / "rules" / slug / "autopsies.md"
-    if autopsies_md.exists():
-        _text = autopsies_md.read_text()
-        # Render dated slate sections newest-first. Keep the file preamble
-        # (title/intro) pinned on top and any non-dated section (e.g. the
-        # "Template for Future SE Entries") at the bottom.
-        _chunks = re.split(r"(?m)^(?=## )", _text)
-        _preamble = _chunks[0] if _chunks and not _chunks[0].startswith("## ") else ""
-        _sections = _chunks[1:] if _preamble else _chunks
-        _dated = [c for c in _sections if re.match(r"## \d{4}-", c)]
-        _other = [c for c in _sections if not re.match(r"## \d{4}-", c)]
-        _ordered = ([_preamble] if _preamble else []) + list(reversed(_dated)) + _other
-        st.markdown("".join(_ordered))
-    else:
-        st.info("No autopsies logged yet for this contest type.")
+    with st.expander("Cross-slate patterns (autopsies.md)", expanded=False):
+        st.caption("Most recent slate first; older slates below.")
+        autopsies_md = REPO_ROOT / "rules" / slug / "autopsies.md"
+        if autopsies_md.exists():
+            _text = autopsies_md.read_text()
+            # Render dated slate sections newest-first. Keep the file preamble
+            # (title/intro) pinned on top and any non-dated section (e.g. the
+            # "Template for Future SE Entries") at the bottom.
+            _chunks = re.split(r"(?m)^(?=## )", _text)
+            _preamble = _chunks[0] if _chunks and not _chunks[0].startswith("## ") else ""
+            _sections = _chunks[1:] if _preamble else _chunks
+            _dated = [c for c in _sections if re.match(r"## \d{4}-", c)]
+            _other = [c for c in _sections if not re.match(r"## \d{4}-", c)]
+            _ordered = ([_preamble] if _preamble else []) + list(reversed(_dated)) + _other
+            st.markdown("".join(_ordered))
+        else:
+            st.info("No autopsies logged yet for this contest type.")
 
 
 # ===== Tab: Trends — contest-selection analytics (cross-sport) =====

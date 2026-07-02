@@ -77,7 +77,7 @@ def test_upside_fallback_without_ceiling():
     df = _pool().drop(columns=["ceiling"])
     df["stddev"] = 12.0
     up = landscape._upside(df)
-    assert (up > df["proj_points"]).all()  # proj + 1.28*stddev
+    assert (up == df["proj_points"]).all()  # no real ceiling → passthrough, no fabricated upside
 
 
 if __name__ == "__main__":
