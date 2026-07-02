@@ -74,7 +74,9 @@ def _file_mtime(p: Path | None) -> float:
 
 
 @st.cache_data(show_spinner=False)
-def _cached_sources(slug: str, _mtime: float) -> dict:
+def _cached_sources(slug: str, mtime: float) -> dict:
+    # `mtime` must NOT start with an underscore — st.cache_data excludes
+    # underscore-prefixed args from the key, which would defeat invalidation.
     return sessions.load_sources(slug)
 
 
@@ -85,10 +87,12 @@ def cached_sources(slug: str) -> dict:
 
 
 @st.cache_data(show_spinner=False)
-def _cached_sim_analytics(slug: str, _pool_mtime: float, _dkmap_mtime: float, _src_mtime: float) -> dict:
+def _cached_sim_analytics(slug: str, pool_mtime: float, dkmap_mtime: float, src_mtime: float) -> dict:
     """Load the persisted 5,000-lineup sim pool and compute every exposure/combo ONCE,
     cached on the underlying file mtimes. Without this the whole crunch reran on every
-    interaction of every tab (Streamlit executes all tabs' bodies on each rerun)."""
+    interaction of every tab (Streamlit executes all tabs' bodies on each rerun).
+    The mtime args must NOT be underscore-prefixed — st.cache_data drops those from
+    the cache key, which would make the cache never invalidate on a new upload."""
     pool = sim_data.load_sim_pool(str(sim_sessions.pool_path(slug)))
     if pool.get("n", 0) == 0:
         return {"pool": pool}
