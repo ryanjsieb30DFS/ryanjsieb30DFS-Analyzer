@@ -108,43 +108,98 @@ def player_exposure(pool: dict, id_to_name: dict[str, str],
 
     if projections is not None and not projections.empty \
             and {"name", "ownership"}.issubset(projections.columns):
-        own = {_norm_name(nm): o for nm, o in zip(projections["name"], projections["ownership"])
-               if pd.notna(o)}
+        # Per-name projection lookups. `ownership` is the field/projected ownership
+        # the user uploads; also carry proj_points / ceiling / salary so good/bad
+        # plays can be judged on projection leverage, not sim exposure.
+        def _colmap(col):
+            if col not in projections.columns:
+                return {}
+            return {_norm_name(nm): v for nm, v in zip(projections["name"], projections[col])
+                    if pd.notna(v)}
+        own = _colmap("ownership")
+        proj_pts = _colmap("proj_points")
+        ceil = _colmap("ceiling")
+        sal = _colmap("salary")
         # Include projection players the sim never used (exposure 0) — the fades.
         seen = {_norm_name(p) for p in exp["player"]}
         extra = []
-        for nm, o in zip(projections["name"], projections["ownership"]):
+        for nm in projections["name"]:
             if _norm_name(nm) in seen:
                 continue
             extra.append({"dk_id": None, "player": str(nm), "sim_exposure_pct": 0.0,
                           "lineups": 0, "avg_saber": None})
         if extra:
             exp = pd.concat([exp, pd.DataFrame(extra)], ignore_index=True)
-        exp["field_own_pct"] = exp["player"].apply(lambda nm: own.get(_norm_name(nm)))
+        key = exp["player"].apply(_norm_name)
+        exp["field_own_pct"] = key.map(own)
+        exp["proj_points"] = key.map(proj_pts)
+        exp["ceiling"] = key.map(ceil)
+        exp["salary"] = key.map(sal)
 
     return exp.sort_values("sim_exposure_pct", ascending=False).reset_index(drop=True)
 
 
 def good_bad_plays(exposure: pd.DataFrame, top_n: int = 12) -> dict:
-    """Split exposure into the actionable buckets.
+    """Split players into actionable buckets by PROJECTION-ownership leverage.
 
-    good = sim core (top exposure); bad = sim fades (lowest exposure / 0). When
-    field ownership is present: leverage = sim>>field (sim sees value the field
-    sleeps on); trap = field>>sim (field chalk the sim won't touch)."""
+    Good/bad are judged from the uploaded projections (field/projected ownership +
+    projected upside), NOT sim exposure:
+      upside   = ceiling when the vendor ships a real one (golf/MLB), else proj_points
+                 (never fabricate a ceiling — matches landscape._upside).
+      leverage = pctile(upside) - pctile(field_own_pct), 0-100 scale. Positive = strong
+                 upside the field is under-owning; negative = owned past what the upside earns.
+      good = upside >= median upside (rosterable, not punts), highest leverage (underowned value).
+      bad  = field_own_pct in the top ownership tier (>= 70th pct = real chalk), lowest
+             leverage (overowned relative to upside).
+    sim_exposure_pct is kept as a context column but does not drive the split.
+
+    leverage/trap remain the sim-vs-field view: leverage = sim>>field, trap = field>>sim."""
     out: dict[str, pd.DataFrame] = {"good": pd.DataFrame(), "bad": pd.DataFrame(),
                                     "leverage": pd.DataFrame(), "trap": pd.DataFrame()}
     if exposure.empty:
         return out
-    out["good"] = exposure.head(top_n)
-    out["bad"] = exposure.sort_values("sim_exposure_pct").head(top_n).reset_index(drop=True)
 
-    if "field_own_pct" in exposure.columns and exposure["field_own_pct"].notna().any():
-        e = exposure.dropna(subset=["field_own_pct"]).copy()
-        e["edge"] = (e["sim_exposure_pct"] - e["field_own_pct"]).round(1)
-        cols = ["player", "sim_exposure_pct", "field_own_pct", "edge", "avg_saber"]
-        cols = [c for c in cols if c in e.columns]
-        out["leverage"] = e.sort_values("edge", ascending=False).head(top_n)[cols].reset_index(drop=True)
-        out["trap"] = e.sort_values("edge").head(top_n)[cols].reset_index(drop=True)
+    has_field = "field_own_pct" in exposure.columns and exposure["field_own_pct"].notna().any()
+    if has_field:
+        e = exposure.copy()
+        # upside: real ceiling if any player carries one, else projected points.
+        has_ceiling = "ceiling" in e.columns and e["ceiling"].notna().any()
+        upside = e["ceiling"] if has_ceiling else e.get("proj_points")
+        e["upside"] = pd.to_numeric(upside, errors="coerce") if upside is not None else pd.NA
+        own = pd.to_numeric(e["field_own_pct"], errors="coerce")
+        # value = upside per $1k salary (context; only when salary present).
+        if "salary" in e.columns and e["salary"].notna().any():
+            sal = pd.to_numeric(e["salary"], errors="coerce")
+            e["value"] = (e["upside"] / (sal / 1000.0)).round(2)
+        # Rank only players that have BOTH an upside and an ownership number.
+        r = e.dropna(subset=["upside", "field_own_pct"]).copy()
+        if not r.empty:
+            up_pct = r["upside"].rank(pct=True) * 100.0
+            own_pct = pd.to_numeric(r["field_own_pct"], errors="coerce").rank(pct=True) * 100.0
+            r["leverage"] = (up_pct - own_pct).round(0)
+            up_med = r["upside"].median()
+            # Chalk floor: only genuinely high-owned players can be "overowned". Median
+            # ownership is near-zero in golf's long tail, so gate on the top tier.
+            own_num = pd.to_numeric(r["field_own_pct"], errors="coerce")
+            own_floor = own_num.quantile(0.70)
+            cols = [c for c in ["player", "field_own_pct", "proj_points", "ceiling",
+                                "value", "leverage", "sim_exposure_pct"] if c in r.columns]
+            good = r[r["upside"] >= up_med].sort_values("leverage", ascending=False)
+            bad = r[own_num >= own_floor].sort_values("leverage", ascending=True)
+            out["good"] = good.head(top_n)[cols].reset_index(drop=True)
+            out["bad"] = bad.head(top_n)[cols].reset_index(drop=True)
+
+        # sim-vs-field leverage/trap (unchanged): where the sim disagrees with the field.
+        ef = e.dropna(subset=["field_own_pct"]).copy()
+        ef["edge"] = (ef["sim_exposure_pct"] - pd.to_numeric(ef["field_own_pct"], errors="coerce")).round(1)
+        lt_cols = [c for c in ["player", "sim_exposure_pct", "field_own_pct", "edge", "avg_saber"]
+                   if c in ef.columns]
+        out["leverage"] = ef.sort_values("edge", ascending=False).head(top_n)[lt_cols].reset_index(drop=True)
+        out["trap"] = ef.sort_values("edge").head(top_n)[lt_cols].reset_index(drop=True)
+    else:
+        # No projections loaded — fall back to sim exposure so the tab still shows something.
+        out["good"] = exposure.head(top_n)
+        out["bad"] = exposure.sort_values("sim_exposure_pct").head(top_n).reset_index(drop=True)
     return out
 
 

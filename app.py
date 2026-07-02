@@ -1080,16 +1080,18 @@ with tab_sim:
                      if c in exp.columns]
             st.dataframe(exp[_cols], use_container_width=True, hide_index=True)
 
+            _gb_cols = ["player", "field_own_pct", "proj_points", "ceiling",
+                        "value", "leverage", "sim_exposure_pct"]
             c1, c2 = st.columns(2)
             with c1:
-                st.markdown("**✅ Good plays — sim core**")
-                st.dataframe(gb["good"][[c for c in ["player", "sim_exposure_pct", "field_own_pct"]
-                                         if c in gb["good"].columns]],
+                st.markdown("**✅ Good plays — underowned value**")
+                st.caption("Strong projected upside the field is under-owning (leverage = upside pct − own pct).")
+                st.dataframe(gb["good"][[c for c in _gb_cols if c in gb["good"].columns]],
                              use_container_width=True, hide_index=True)
             with c2:
-                st.markdown("**🚫 Bad plays — sim fades**")
-                st.dataframe(gb["bad"][[c for c in ["player", "sim_exposure_pct", "field_own_pct"]
-                                        if c in gb["bad"].columns]],
+                st.markdown("**🚫 Bad plays — overowned chalk**")
+                st.caption("Owned more than the projected upside earns — chalk to fade.")
+                st.dataframe(gb["bad"][[c for c in _gb_cols if c in gb["bad"].columns]],
                              use_container_width=True, hide_index=True)
 
             if has_field:
