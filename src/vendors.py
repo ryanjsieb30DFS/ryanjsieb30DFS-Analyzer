@@ -62,7 +62,10 @@ def mlb_team_key(team) -> str | None:
 VENDOR_SIGNATURES: list[dict] = [
     {
         # Vendor unverified — the user labels projection sources going forward.
-        "name": "PGA Simple (unconfirmed vendor)",
+        # Simple PGA export (NAME/SAL/PROJ/CEIL/OWN). Default attribution is ETR
+        # (user-confirmed 7/5/26); SIN ships the same shape for Showdowns — the
+        # filename hint below relabels those.
+        "name": "ETR PGA",
         "sport": "golf",
         "required_columns": {"name", "sal", "proj", "ceil", "own"},
         "column_map": {
@@ -137,7 +140,7 @@ VENDOR_SIGNATURES: list[dict] = [
     },
     {
         # Ship It Nation MMA simple export: NAME, SAL, PROJ, OWN, PT/$ (no ceiling,
-        # so it won't collide with PGA Simple which requires `ceil`).
+        # so it won't collide with the simple PGA format which requires `ceil`).
         "name": "Ship It Nation MMA",
         "sport": "mma",
         "required_columns": {"name", "sal", "proj", "own"},
@@ -300,7 +303,7 @@ def detect_vendor(df: pd.DataFrame, source_name: str | None = None) -> dict | No
             best = sig
             best_match_count = len(required)
     if (best is not None
-            and best["name"] in ("ETR PGA", "PGA Simple (unconfirmed vendor)")
+            and best["name"] == "ETR PGA"
             and _filename_hints_sin(source_name)):
         best = dict(best, name="Ship It Nation PGA (simple)")
     return best

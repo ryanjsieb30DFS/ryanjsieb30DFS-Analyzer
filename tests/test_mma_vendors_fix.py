@@ -27,9 +27,9 @@ def test_ship_it_mma_detected_and_no_pga_collision():
     sin = pd.DataFrame(columns=["NAME", "SAL", "PROJ", "OWN", "PT/$"])
     sig = detect_vendor(_norm(sin))
     assert sig is not None and sig["name"] == "Ship It Nation MMA"
-    # PGA Simple (has CEIL) must still win for a golf file, not Ship It MMA.
+    # The simple PGA signature (has CEIL) must still win for a golf file, not Ship It MMA.
     pga = pd.DataFrame(columns=["NAME", "SAL", "PROJ", "CEIL", "OWN", "PT/$"])
-    assert detect_vendor(_norm(pga))["name"] == "PGA Simple (unconfirmed vendor)"
+    assert detect_vendor(_norm(pga))["name"] == "ETR PGA"
 
 
 def test_drop_junk_rows():

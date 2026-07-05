@@ -59,8 +59,8 @@ def test_sin_filename_relabels_identical_etr_schema():
         "name": ["A"], "sal": [10000], "proj": [50.0],
         "ceil": [70.0], "own": [20.0], "pt/$": [5.0],
     })
-    # In the Analyzer the simple shape's base label is "PGA Simple (unconfirmed vendor)".
+    # Simple shape defaults to ETR PGA (user-confirmed 7/5/26); SIN filename overrides.
     assert detect_vendor(df, source_name="SIN pga-sd-projections-dk.csv")["name"] == "Ship It Nation PGA (simple)"
-    assert detect_vendor(df, source_name="PGA Projections DK.csv")["name"] == "PGA Simple (unconfirmed vendor)"
-    assert detect_vendor(df, source_name="wisconsin.csv")["name"] == "PGA Simple (unconfirmed vendor)"
-    assert detect_vendor(df)["name"] == "PGA Simple (unconfirmed vendor)"
+    assert detect_vendor(df, source_name="PGA Projections DK.csv")["name"] == "ETR PGA"
+    assert detect_vendor(df, source_name="wisconsin.csv")["name"] == "ETR PGA"
+    assert detect_vendor(df)["name"] == "ETR PGA"
