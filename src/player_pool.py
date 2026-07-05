@@ -101,12 +101,67 @@ def _leading_name(raw: str) -> str:
     return s.strip(" :—-").strip()
 
 
-def extract_fades(strategy_md: str) -> list[str]:
-    """Names from the strategy's '## Leverage & fades' -> Fades subsection.
+# Verdict tokens for per-player calls in the Leverage & fades section. Order
+# matters: longer/more-specific first so "LEAN FADE" isn't read as "FADE" and
+# "PASS/MIX" isn't read as "PASS".
+_VERDICT_TOKENS = [
+    ("LEAN FADE", "lean_fade"),
+    ("UNDERWEIGHT", "underweight"),
+    ("PASS/MIX", "pass_mix"),
+    ("FADE", "fade"),
+    ("PASS", "pass"),
+    ("PLAY", "play"),
+]
 
-    Returns the leading subject name of each bolded fade bullet (e.g.
-    'Shara Magomedov', 'Donchenko', 'Ruziboev'). Non-name directives like 'PASS'
-    fall through harmlessly — they won't match any player in apply_fades.
+
+def _verdict_for(bold_text: str, after_bold: str, line: str) -> str | None:
+    """The call's verdict, read where the convention puts it: inside the bolded
+    lead ('**Keith Mitchell $10,000 — FADE.**'), else the first clause after the
+    bold ('— PASS/MIX.'), else anywhere in the line (last resort)."""
+    for scope in (bold_text, after_bold.split(".")[0], line):
+        u = scope.upper()
+        for token, verdict in _VERDICT_TOKENS:
+            if token in u:
+                return verdict
+    return None
+
+
+def parse_calls(strategy_md: str) -> list[dict]:
+    """Per-player calls from the '## Leverage & fades' section: one
+    {name, verdict} per bolded bullet line with a recognizable verdict."""
+    if not strategy_md:
+        return []
+    sec = re.search(r"##\s*Leverage\s*&\s*fades(.*?)(?:\n##\s|\Z)", strategy_md, re.S | re.I)
+    if not sec:
+        return []
+    calls = []
+    for line in sec.group(1).splitlines():
+        m = re.search(r"\*\*(.+?)\*\*", line)
+        if not m:
+            continue
+        name = _leading_name(m.group(1))
+        if not name:
+            continue
+        verdict = _verdict_for(m.group(1), line[m.end():], line)
+        if verdict:
+            calls.append({"name": name, "verdict": verdict})
+    return calls
+
+
+def extract_fades(strategy_md: str) -> list[str]:
+    """Names the strategy actually ZEROES, from '## Leverage & fades'.
+
+    Verdict-aware: a bolded bullet is a fade only when its line carries a hard
+    FADE verdict — PLAY / PASS / PASS-MIX / UNDERWEIGHT / LEAN FADE calls are
+    NOT fades (under-own ≠ zero). Legacy format is still honored: under a
+    literal '**Fades**' subheading, plain bolded names WITHOUT any verdict
+    token count as fades (that subsection is unambiguous).
+
+    Previously this swept EVERY bolded name in the section when the strategy
+    used a heading like 'Additional fades / underweights' instead of a literal
+    '**Fades**' — which marked the strategy's own PLAY calls as fades and
+    silently dropped them from the player pool (caught on the 7/2/26 John
+    Deere strategy: 6 PLAY calls + a 'Do NOT zero' underweight were swept).
     """
     if not strategy_md:
         return []
@@ -117,9 +172,15 @@ def extract_fades(strategy_md: str) -> list[str]:
     head = re.search(r"\*\*Fades[^*]*\*\*", section, re.I)
     block = section[head.end():] if head else section
     names = []
-    for raw in re.findall(r"\*\*(.+?)\*\*", block):
-        cand = _leading_name(raw)
-        if cand:
+    for line in block.splitlines():
+        m = re.search(r"\*\*(.+?)\*\*", line)
+        if not m:
+            continue
+        cand = _leading_name(m.group(1))
+        if not cand:
+            continue
+        verdict = _verdict_for(m.group(1), line[m.end():], line)
+        if verdict == "fade" or (verdict is None and head is not None):
             names.append(cand)
     return names
 

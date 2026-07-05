@@ -11,74 +11,26 @@ The Sim tool shows the calls in its Build tab and one-clicks ONLY the hard
 display-only (the strategy says under-own, not zero), and PLAY calls are never
 touched — the Analyzer still never builds lineups; the user decides.
 
-NOTE: this module parses verdicts itself instead of `player_pool.extract_fades`
-— that helper sweeps every bolded name in the section when the strategy doesn't
-use a literal "**Fades**" subheading (e.g. "Additional fades / underweights"),
-which would have marked PLAY calls as fades. Names are additionally filtered to
-the loaded projections universe so section headings never leak through.
+Verdict parsing lives in `player_pool.parse_calls` (shared with the
+verdict-aware `extract_fades` that feeds pool membership); this module filters
+the parsed names to the loaded projections universe so section headings never
+leak through, and serializes the hand-off.
 """
 from __future__ import annotations
 
 import json
-import re
 from datetime import datetime
 from pathlib import Path
 
 from src import player_pool, landscape
-from src.player_pool import _leading_name
+from src.player_pool import parse_calls  # noqa: F401 — shared parser, re-exported
 from src.autopsy import _norm_name
 
 _CONTRACT_DIR = Path(__file__).parent.parent / "data" / "strategy_contract"
 
-# Order matters: longer/more-specific tokens first so "LEAN FADE" isn't read as
-# "FADE" and "PASS/MIX" isn't read as "PASS".
-_VERDICT_TOKENS = [
-    ("LEAN FADE", "lean_fade"),
-    ("UNDERWEIGHT", "underweight"),
-    ("PASS/MIX", "pass_mix"),
-    ("FADE", "fade"),
-    ("PASS", "pass"),
-    ("PLAY", "play"),
-]
-
 
 def _path(slug: str) -> Path:
     return _CONTRACT_DIR / f"{slug}.json"
-
-
-def _verdict_for(bold_text: str, after_bold: str, line: str) -> str | None:
-    """The call's verdict, read where the convention puts it: inside the bolded
-    lead ('**Keith Mitchell $10,000 — FADE.**'), else the first clause after the
-    bold ('— PASS/MIX.'), else anywhere in the line (last resort)."""
-    for scope in (bold_text, after_bold.split(".")[0], line):
-        u = scope.upper()
-        for token, verdict in _VERDICT_TOKENS:
-            if token in u:
-                return verdict
-    return None
-
-
-def parse_calls(strategy_md: str) -> list[dict]:
-    """Per-player calls from the '## Leverage & fades' section: one entry per
-    bolded bullet with a recognizable verdict. Names are NOT yet filtered to the
-    projections universe — `write_contract` does that."""
-    if not strategy_md:
-        return []
-    sec = re.search(r"##\s*Leverage\s*&\s*fades(.*?)(?:\n##\s|\Z)", strategy_md, re.S | re.I)
-    if not sec:
-        return []
-    calls = []
-    for line in sec.group(1).splitlines():
-        m = re.search(r"\*\*(.+?)\*\*", line)
-        if not m:
-            continue
-        name = _leading_name(m.group(1))
-        if not name:
-            continue
-        verdict = _verdict_for(m.group(1), line[m.end():], line)
-        if verdict:
-            calls.append({"name": name, "verdict": verdict})
-    return calls
 
 
 def write_contract(slug: str, strategy_md: str, sources: dict) -> Path:
