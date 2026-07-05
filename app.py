@@ -110,6 +110,60 @@ def _cached_sim_analytics(slug: str, pool_mtime: float, dkmap_mtime: float, src_
     }
 
 
+@st.cache_data(show_spinner=False)
+def _cached_breakdown(slug: str, src_mtime: float, primary_name: str, sport_: str | None) -> dict:
+    """The entire Projections-tab Breakdown suite, computed once per (sources,
+    selected view). Streamlit expanders are NOT lazy — a collapsed expander's
+    body still executes every rerun — so without this the ~10 landscape tables
+    recomputed on every interaction of every tab."""
+    sources = sessions.load_sources(slug)
+    pool = sessions.merge_same_vendor(sources)
+    if primary_name not in pool:
+        return {}
+    df = pool[primary_name]["df"]
+    real_ceil = landscape.has_real_ceiling(df)
+    out = {
+        "vendor": pool[primary_name].get("vendor"),
+        "warnings": warn_missing_for_sport(df, sport_),
+        "df": df,
+        "flags": landscape.breakdown_flags(df),
+        "real_ceil": real_ceil,
+        "leverage": landscape.leverage_table(df, top_n=15),
+        "chalk": landscape.chalk_summary(df),
+        "value": landscape.value_by_tier(df),
+        "waves": landscape.tee_wave_split(df),
+        "mis": landscape.mispricing_table(df, top_n=10) if real_ceil else None,
+        "vol": landscape.volatility_table(df, top_n=10) if real_ceil else None,
+        "disagree": (flagged_disagreements(sources, metric="proj_points", pct_threshold=15.0)
+                     if len(sources) >= 2 else None),
+    }
+    return out
+
+
+@st.cache_data(show_spinner=False)
+def _cached_dk_analysis(csv_bytes: bytes, sport_: str | None, slug_: str):
+    """Autopsy per-CSV heavy lifting (parse + structural analysis + shark gap),
+    cached on the uploaded file's bytes. Without this, every keystroke in the
+    notes/ROI widgets re-parsed and re-analyzed EVERY uploaded standings CSV
+    (~270ms each). Raises ValueError for unparseable CSVs (handled at call site)."""
+    import io
+    parsed = parse_dk_results(io.BytesIO(csv_bytes))
+    analysis = analyze_contest(parsed, None, sport_)
+    try:
+        from src import shark_gap as _sg
+        gap = _sg.gap_for_slug(slug_, parsed)
+    except Exception:  # noqa: BLE001 — the gap panel is best-effort
+        gap = None
+    return parsed, analysis, gap
+
+
+@st.cache_data(show_spinner=False)
+def _cached_hygiene_md(slug: str, lessons_mtime: float) -> str:
+    """Lesson-ledger hygiene report, cached on lessons.yaml's mtime (the ledger
+    only changes via review-apply, which rewrites the file)."""
+    return ledger_hygiene.report_md(ledger_hygiene.hygiene_report(slug))
+
+
 st.set_page_config(page_title="DFS Slate Analyzer", layout="wide")
 st.title("DFS Slate Analyzer")
 st.caption("Article-driven DFS slate-strategy tool for DraftKings.")
@@ -232,66 +286,68 @@ with tab_proj:
         st.divider()
         pool = sessions.merge_same_vendor(sources)
         primary_name = st.selectbox("View source", list(pool.keys()))
-        df = pool[primary_name]["df"]
-        for w in warn_missing_for_sport(df, sport):
+        # Every table below comes from the cached suite — recomputes only when the
+        # sources file or the selected view changes, not on every rerun.
+        bd = _cached_breakdown(
+            slug, _file_mtime(REPO_ROOT / "data" / "sessions" / f"{slug}.json"),
+            primary_name, sport,
+        )
+        for w in bd.get("warnings") or []:
             st.warning(w)
-        st.dataframe(df, use_container_width=True, height=500)
+        st.dataframe(bd["df"], use_container_width=True, height=500)
 
         # ---------- Breakdown — surface non-obvious edges (collapsed by default) ---------- #
         st.divider()
         with st.expander("🔍 Breakdown — what you'd miss", expanded=False):
             st.caption(
-                f"Computed from **{primary_name}** ({pool[primary_name]['vendor']}). A reference "
+                f"Computed from **{primary_name}** ({bd.get('vendor')}). A reference "
                 "view of this one source — the slate strategy reads all loaded vendors via the bundle."
             )
 
             # Edges to notice (synthesized headline flags first)
             st.markdown("#### Edges to notice")
-            for bullet in landscape.breakdown_flags(df):
+            for bullet in bd["flags"]:
                 st.markdown(f"- {bullet}")
 
             # Ceiling-based panels only when the vendor ships a REAL ceiling (golf/MLB).
             # NASCAR / names-only vendors ship none — we never fabricate one.
-            real_ceil = landscape.has_real_ceiling(df)
+            real_ceil = bd["real_ceil"]
 
             if real_ceil:
                 c1, c2 = st.columns(2)
                 with c1:
                     st.markdown("#### Underowned vs ceiling (field blind spots)")
-                    mis = landscape.mispricing_table(df, top_n=10)
-                    st.dataframe(mis["underowned"], use_container_width=True, hide_index=True)
+                    st.dataframe(bd["mis"]["underowned"], use_container_width=True, hide_index=True)
                 with c2:
                     st.markdown("#### Overowned vs ceiling (fade candidates)")
-                    st.dataframe(mis["overowned"], use_container_width=True, hide_index=True)
+                    st.dataframe(bd["mis"]["overowned"], use_container_width=True, hide_index=True)
 
             _lev_title = "Leverage board (ceiling vs ownership)" if real_ceil else "Leverage board (proj vs ownership)"
             st.markdown(f"#### {_lev_title}")
-            st.dataframe(landscape.leverage_table(df, top_n=15), use_container_width=True, hide_index=True)
+            st.dataframe(bd["leverage"], use_container_width=True, hide_index=True)
 
             c3, c4 = st.columns(2)
             with c3:
                 st.markdown("#### Slate shape — chalk tiers")
-                st.dataframe(landscape.chalk_summary(df), use_container_width=True, hide_index=True)
+                st.dataframe(bd["chalk"], use_container_width=True, hide_index=True)
             with c4:
                 st.markdown("#### Value leaders by salary tier")
-                st.dataframe(landscape.value_by_tier(df), use_container_width=True, hide_index=True)
+                st.dataframe(bd["value"], use_container_width=True, hide_index=True)
 
-            waves = landscape.tee_wave_split(df)
             st.markdown("#### Tee-wave split (AM / PM)")
-            if waves.empty:
+            if bd["waves"].empty:
                 st.caption("No `tee_time` column — wave split unavailable for this vendor file.")
             else:
-                st.dataframe(waves, use_container_width=True, hide_index=True)
+                st.dataframe(bd["waves"], use_container_width=True, hide_index=True)
 
             if real_ceil:
-                vol = landscape.volatility_table(df, top_n=10)
                 c5, c6 = st.columns(2)
                 with c5:
                     st.markdown("#### Boom (highest ceiling-volatility)")
-                    st.dataframe(vol["boom"], use_container_width=True, hide_index=True)
+                    st.dataframe(bd["vol"]["boom"], use_container_width=True, hide_index=True)
                 with c6:
                     st.markdown("#### Fragile chalk (owned, capped ceiling)")
-                    st.dataframe(vol["fragile_chalk"], use_container_width=True, hide_index=True)
+                    st.dataframe(bd["vol"]["fragile_chalk"], use_container_width=True, hide_index=True)
             else:
                 st.caption(
                     "ℹ️ Ceiling-based views (boom/bust, mispricing-vs-ceiling) need a vendor that ships a "
@@ -300,13 +356,12 @@ with tab_proj:
                 )
 
             # Cross-vendor disagreement — only when 2+ sources loaded
-            if len(sources) >= 2:
+            if bd.get("disagree") is not None:
                 st.markdown("#### Cross-vendor disagreement (≥15% spread)")
-                disagree = flagged_disagreements(sources, metric="proj_points", pct_threshold=15.0)
-                if disagree.empty:
+                if bd["disagree"].empty:
                     st.caption("No players with ≥15% projection spread across loaded vendors.")
                 else:
-                    st.dataframe(disagree, use_container_width=True, hide_index=True)
+                    st.dataframe(bd["disagree"], use_container_width=True, hide_index=True)
     else:
         st.info("No projections uploaded yet.")
 
@@ -613,13 +668,15 @@ with tab_autopsy:
         parsed_contests = []
         for i, dk_csv in enumerate(dk_csvs):
             try:
-                parsed = parse_dk_results(dk_csv)
+                # Cached on the file's bytes — typing in the notes/ROI widgets no
+                # longer re-parses and re-analyzes every uploaded CSV per keystroke.
+                parsed, analysis, _gap_cached = _cached_dk_analysis(
+                    dk_csv.getvalue(), sport, slug)
             except ValueError as e:
                 st.error(f"{dk_csv.name}: {e}")
                 continue
             lineups = parsed["lineups"]
             players = parsed["players"]
-            analysis = analyze_contest(parsed, proj_df, sport)
 
             with st.expander(
                 f"{dk_csv.name} — {len(lineups):,} entries, winning "
@@ -709,10 +766,11 @@ with tab_autopsy:
                         st.caption("Computed in Python from this contest's actuals — trended into "
                                    "the next slate's bundle when you log the autopsy.")
 
-                # Shark gap — structural us-vs-sharks fingerprint for THIS field.
-                try:
+                # Shark gap — structural us-vs-sharks fingerprint for THIS field
+                # (computed once in _cached_dk_analysis; None = best-effort failure).
+                if _gap_cached is not None:
                     from src import shark_gap as _sg
-                    _gap = _sg.gap_for_slug(slug, parsed)
+                    _gap = _gap_cached
                     with st.container(border=True):
                         st.markdown(_sg.gap_md(_gap))
                         if not _gap.get("sport"):
@@ -722,8 +780,6 @@ with tab_autopsy:
                             st.caption(f"No tracked {_gap.get('sport')} sharks entered this contest. "
                                        "Add the heavy-MME top finishers to shark_handles.yaml to "
                                        "build the watchlist.")
-                except Exception:  # noqa: BLE001 — panel is best-effort
-                    pass
 
                 notes = st.text_area(
                     "Lessons / patterns to log (appended to autopsies.md)",
@@ -930,7 +986,8 @@ with tab_autopsy:
                 "instantly; the review turns them into proposals you approve."
             )
             with st.container(border=True):
-                st.markdown(ledger_hygiene.report_md(ledger_hygiene.hygiene_report(slug)))
+                st.markdown(_cached_hygiene_md(
+                    slug, _file_mtime(REPO_ROOT / "rules" / slug / "lessons.yaml")))
 
             ledger_review_path = REPO_ROOT / "rules" / slug / "ledger_review.md"
             lbtn = "🔄 Re-run ledger review" if ledger_review_path.exists() else "🧹 Review ledger"
