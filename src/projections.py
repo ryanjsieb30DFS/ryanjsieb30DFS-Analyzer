@@ -57,19 +57,25 @@ def drop_junk_rows(projections: pd.DataFrame) -> pd.DataFrame:
     return projections[keep].reset_index(drop=True)
 
 
-def load_projections(csv_path_or_buffer) -> pd.DataFrame:
+def load_projections(csv_path_or_buffer, source_name: str | None = None) -> pd.DataFrame:
     """Read the projections CSV and return a cleaned DataFrame.
 
     The returned DataFrame has a `.attrs["vendor"]` key set to the detected
-    vendor name (or None) so the UI can show what was detected.
+    vendor name (or None) so the UI can show what was detected. `source_name`
+    (the uploaded filename) disambiguates identical-schema vendors — SIN's
+    simple PGA export shares ETR's exact headers. When omitted and the input is
+    a path, the path's filename is used.
     """
+    if source_name is None and isinstance(csv_path_or_buffer, str):
+        import os
+        source_name = os.path.basename(csv_path_or_buffer)
     projections = pd.read_csv(csv_path_or_buffer)
     projections = _clean_columns(projections)
 
     vendor_name: str | None = None
     from src.vendors import detect_vendor_confidence
     _vendor_conf = detect_vendor_confidence(projections)
-    signature = detect_vendor(projections)
+    signature = detect_vendor(projections, source_name=source_name)
     if signature is not None:
         # Non-projection files (team stacks, rankings) skip the player
         # schema entirely — normalized and returned with their kind tagged

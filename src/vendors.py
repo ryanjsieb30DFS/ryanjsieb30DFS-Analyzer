@@ -268,11 +268,28 @@ VENDOR_SIGNATURES: list[dict] = [
 ]
 
 
-def detect_vendor(df: pd.DataFrame) -> dict | None:
+def _filename_hints_sin(source_name: str | None) -> bool:
+    """True when a filename clearly indicates Ship It Nation ('SIN' as a word
+    token, or 'ship'). Word-boundary match so e.g. 'wisconsin' never triggers."""
+    if not source_name:
+        return False
+    import re as _re
+    low = source_name.lower()
+    return bool(_re.search(r"\bsin\b", low)) or "ship" in low
+
+
+def detect_vendor(df: pd.DataFrame, source_name: str | None = None) -> dict | None:
     """Return the matching vendor signature (or None if no match).
 
     Assumes df.columns has already been normalized to lowercase snake_case.
     Picks the signature with the most matched columns (best fit).
+
+    `source_name` (the uploaded filename) disambiguates schema COLLISIONS:
+    Ship It Nation's simple PGA export (e.g. their Showdown file) ships the
+    exact same headers as ETR PGA (NAME, SAL, PROJ, CEIL, OWN, PT/$) — when
+    that signature matches and the filename says SIN, relabel to
+    'Ship It Nation PGA (simple)' so blend-source and vendor-accuracy
+    attribution stay honest.
     """
     columns = set(df.columns)
     best: dict | None = None
@@ -282,6 +299,10 @@ def detect_vendor(df: pd.DataFrame) -> dict | None:
         if required.issubset(columns) and len(required) > best_match_count:
             best = sig
             best_match_count = len(required)
+    if (best is not None
+            and best["name"] in ("ETR PGA", "PGA Simple (unconfirmed vendor)")
+            and _filename_hints_sin(source_name)):
+        best = dict(best, name="Ship It Nation PGA (simple)")
     return best
 
 

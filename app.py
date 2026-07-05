@@ -239,7 +239,7 @@ with tab_proj:
     if uploaded:
         for f in uploaded:
             try:
-                df = load_projections(f)
+                df = load_projections(f, source_name=getattr(f, "name", None))
             except Exception as e:
                 st.error(f"❌ Failed to load {f.name}: {e}")
                 continue
@@ -397,7 +397,7 @@ with tab_slate:
             if f.name.lower().endswith(".csv"):
                 try:
                     import io as _io
-                    _probe = load_projections(_io.BytesIO(data))
+                    _probe = load_projections(_io.BytesIO(data), source_name=f.name)
                     if _probe.attrs.get("kind") is None and _probe.attrs.get("vendor"):
                         st.info(
                             f"ℹ️ {f.name} looks like **{_probe.attrs['vendor']}** projections — "

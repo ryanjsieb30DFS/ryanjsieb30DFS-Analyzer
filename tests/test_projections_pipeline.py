@@ -48,3 +48,19 @@ if __name__ == "__main__":
         fn()
         print(f"ok  {fn.__name__}")
     print(f"\n{len(fns)} passed")
+
+
+def test_sin_filename_relabels_identical_etr_schema():
+    """SIN's simple PGA export shares ETR's exact headers — the filename is the
+    only disambiguator. Without a SIN hint the label stays ETR PGA."""
+    import pandas as pd
+    from src.vendors import detect_vendor
+    df = pd.DataFrame({
+        "name": ["A"], "sal": [10000], "proj": [50.0],
+        "ceil": [70.0], "own": [20.0], "pt/$": [5.0],
+    })
+    # In the Analyzer the simple shape's base label is "PGA Simple (unconfirmed vendor)".
+    assert detect_vendor(df, source_name="SIN pga-sd-projections-dk.csv")["name"] == "Ship It Nation PGA (simple)"
+    assert detect_vendor(df, source_name="PGA Projections DK.csv")["name"] == "PGA Simple (unconfirmed vendor)"
+    assert detect_vendor(df, source_name="wisconsin.csv")["name"] == "PGA Simple (unconfirmed vendor)"
+    assert detect_vendor(df)["name"] == "PGA Simple (unconfirmed vendor)"
