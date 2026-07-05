@@ -147,6 +147,8 @@ with st.sidebar:
             clear_bundle(slug)
             sessions.clear(slug)
             sim_sessions.clear(slug)
+            from src.strategy_contract import clear_contract
+            clear_contract(slug)
             st.session_state[f"confirm_clear_{slug}"] = False
             st.rerun()
         if cc2.button("Cancel", key=f"cancel_clear_{slug}"):
@@ -536,6 +538,15 @@ with tab_strategy:
                     msg += f" (Player pool step failed: {pool_result['error']})"
             else:
                 msg += " (No projections loaded — skipped the player pool.)"
+            # Strategy contract → the Sim tool (fades + leverage candidates).
+            # Best-effort: a contract failure never blocks the strategy itself.
+            try:
+                from src.strategy_contract import write_contract
+                _persisted_md = (load_persisted(slug) or {}).get("markdown", "")
+                write_contract(slug, _persisted_md, cached_sources(slug))
+                msg += " Strategy contract written for the Sim tool."
+            except Exception as _ce:  # noqa: BLE001
+                msg += f" (Strategy contract skipped: {_ce})"
             cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
             st.success(msg + cost_note)
             st.rerun()
@@ -850,6 +861,8 @@ with tab_autopsy:
                 clear_articles(slug)
                 sessions.clear(slug)
                 sim_sessions.clear(slug)
+                from src.strategy_contract import clear_contract
+                clear_contract(slug)
                 st.success(
                     f"Logged {len(parsed_contests)} contest(s) to rules/{slug}/autopsies.md "
                     "+ autopsy_data.jsonl, and archived the slate to "

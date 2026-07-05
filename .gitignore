@@ -6,6 +6,7 @@ venv/
 data/sessions/
 data/dk_ids/
 data/slate_analysis/
+data/strategy_contract/
 data/contests/
 data/sim_data/
 data/sim_analysis/
