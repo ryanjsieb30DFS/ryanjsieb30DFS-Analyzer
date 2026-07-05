@@ -895,6 +895,15 @@ with tab_autopsy:
                     from src import shark_gap as _shark_gap
                     _biggest = max(parsed_contests, key=lambda pc: len(pc["lineups"]))
                     sgap = _shark_gap.gap_for_slug(slug, _biggest["parsed"])
+                    # Accumulate the observed shark structure into the living
+                    # envelope, then refresh the baseline the Sim tool reads.
+                    if sgap and sgap.get("sharks_in_field"):
+                        from src import shark_accumulate as _acc
+                        if _acc.record_observation(
+                            sgap.get("sport"), sgap.get("sharks"), slug,
+                            _dt.now().strftime("%Y-%m-%d"),
+                        ):
+                            _acc.refresh_baseline()
                 except Exception:  # noqa: BLE001
                     sgap = None
                 # Archive the slate BEFORE clearing — analysis and ROI survive
