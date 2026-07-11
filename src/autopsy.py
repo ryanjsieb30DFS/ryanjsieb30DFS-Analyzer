@@ -350,7 +350,8 @@ def _lineup_records(df: pd.DataFrame, field: int, cap: int = 10) -> list[dict]:
 
 def build_autopsy_record(*, ts: str, contest_label: str, slug: str, sport: str,
                          source_file: str, parsed: dict, analysis: dict,
-                         proj_source: str | None, notes: str) -> dict:
+                         proj_source: str | None, notes: str,
+                         field_profile: dict | None = None) -> dict:
     """Assemble the schema-v2 jsonl record. Top-level fields are a strict
     superset of the legacy 7-field rows so bundle.py keeps working."""
     lineups = parsed["lineups"]
@@ -388,6 +389,9 @@ def build_autopsy_record(*, ts: str, contest_label: str, slug: str, sport: str,
             "top_lineups": _lineup_records(analysis["winners_df"], field),
             "vs_user": analysis["vs_user"],
         },
+        # Field / Fish profile — how the crowd + the fish played (standings-only);
+        # the "leverage away from this" read, archived per contest.
+        "field_profile": field_profile or None,
     }
 
 

@@ -154,7 +154,12 @@ def _cached_dk_analysis(csv_bytes: bytes, sport_: str | None, slug_: str):
         gap = _sg.gap_for_slug(slug_, parsed)
     except Exception:  # noqa: BLE001 — the gap panel is best-effort
         gap = None
-    return parsed, analysis, gap
+    try:
+        from src import field_analysis as _fa
+        field = _fa.field_profile(parsed, sport_)
+    except Exception:  # noqa: BLE001 — the field panel is best-effort
+        field = None
+    return parsed, analysis, gap, field
 
 
 @st.cache_data(show_spinner=False)
@@ -670,7 +675,7 @@ with tab_autopsy:
             try:
                 # Cached on the file's bytes — typing in the notes/ROI widgets no
                 # longer re-parses and re-analyzes every uploaded CSV per keystroke.
-                parsed, analysis, _gap_cached = _cached_dk_analysis(
+                parsed, analysis, _gap_cached, _field_cached = _cached_dk_analysis(
                     dk_csv.getvalue(), sport, slug)
             except ValueError as e:
                 st.error(f"{dk_csv.name}: {e}")
@@ -781,6 +786,52 @@ with tab_autopsy:
                                        "Add the heavy-MME top finishers to shark_handles.yaml to "
                                        "build the watchlist.")
 
+                # --- Field / Fish: how opponents played → leverage away from it --- #
+                if _field_cached and _field_cached.get("gradable"):
+                    _fp = _field_cached
+                    with st.container(border=True):
+                        st.markdown("#### 🐟 Field / Fish — leverage away from this next time")
+                        for _b in _fp.get("read", []):
+                            st.markdown(f"- {_b}")
+                        fc1, fc2 = st.columns(2)
+                        with fc1:
+                            st.caption("**Crowd chalk** (field own — fade the traps)")
+                            st.dataframe(pd.DataFrame(_fp["crowded_players"]).rename(
+                                columns={"name": "Player", "field_own": "Field %", "actual_fpts": "FPTS"}),
+                                use_container_width=True, hide_index=True, height=240)
+                        with fc2:
+                            st.caption("**Fish traps** (loved by losers, faded by winners)")
+                            if _fp["fish_traps"]:
+                                st.dataframe(pd.DataFrame(_fp["fish_traps"])[["name", "fish_pct", "winner_pct", "gap"]].rename(
+                                    columns={"name": "Player", "fish_pct": "Fish %", "winner_pct": "Win %", "gap": "Gap"}),
+                                    use_container_width=True, hide_index=True, height=240)
+                            else:
+                                st.caption("None — fish and winners played similarly.")
+                        st.caption("**Dupe magnets** — pairs the field crowded (break these to get unique):")
+                        st.markdown("  ·  ".join(
+                            f"{c['players'][0]} + {c['players'][1]} ({c['field_pct']}%)"
+                            for c in _fp["crowded_combos"][:5]) or "_none_")
+                        _wp, _fpz = _fp.get("winners_profile"), _fp.get("fish_profile")
+                        if _wp and _fpz:
+                            st.caption(
+                                f"Structure — winners {_wp.get('avg_own_per_slot')}% own/slot, "
+                                f"{_wp.get('dart_pct')}% carried a dart · "
+                                f"fish {_fpz.get('avg_own_per_slot')}% own/slot, {_fpz.get('dart_pct')}% darts."
+                            )
+                        # Forward-looking: what THIS contest type reliably crowds.
+                        _ct_guess = None
+                        for _c in load_contests(slug):
+                            _fs = _c.get("field_size") or 0
+                            if _fs and abs(_fs - len(lineups)) / _fs <= 0.10:
+                                _ct_guess = _c.get("type"); break
+                        from src import field_tendencies as _ft
+                        _hist = _ft.summarize(slug, _ct_guess)
+                        if _hist:
+                            _rc = ", ".join(f"{d['name']} ({d['in_n']}/{d['of']})"
+                                            for d in _hist["reliably_crowded"][:6])
+                            st.info(f"📁 Across {_hist['n_contests']} past **{_ct_guess}** contests, "
+                                    f"the field reliably crowds: {_rc or '—'}")
+
                 notes = st.text_area(
                     "Lessons / patterns to log (appended to autopsies.md)",
                     key=f"autopsy_notes_{slug}_{i}",
@@ -833,6 +884,8 @@ with tab_autopsy:
                 "lineups": lineups,
                 "parsed": parsed,
                 "analysis": analysis,
+                "field_profile": _field_cached,
+                "contest_type": contest_type,
                 "notes": notes,
                 "roi": {
                     "name": picked_name if picked else dk_csv.name,
@@ -878,7 +931,16 @@ with tab_autopsy:
                             analysis=pc["analysis"],
                             proj_source=proj_source,
                             notes=notes,
+                            field_profile=pc.get("field_profile"),
                         )
+                        # Accumulate the field tendencies for this contest type
+                        # (append-only, cumulative — the "moving forward" substrate).
+                        try:
+                            from src import field_tendencies as _ft
+                            _ft.record(slug, pc.get("contest_type"), len(lineups),
+                                       pc.get("field_profile") or {}, ts)
+                        except Exception:  # noqa: BLE001 — never blocks the log
+                            pass
                         fmd.write(f"\n\n## {ts} — {contest_label} ({pc['name']})\n")
                         fmd.write(f"- Entries: {len(lineups):,}\n")
                         fmd.write(f"- Winning score: {lineups['Points'].max():.1f}\n")
