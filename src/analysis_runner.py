@@ -173,16 +173,23 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
     if not sources:
         return {"ok": False, "error": "No projections loaded — upload vendor CSVs in the "
                 "Projections tab first.", "duration_s": 0.0, "cost_usd": None}
+    # Fades come from the slate strategy WHEN one exists; without it, rank the full
+    # pool so a ranking can be pulled standalone (e.g. a no-prep week / quick board).
     persisted = load_persisted(slug)
-    if not persisted:
-        return {"ok": False, "error": "No slate strategy yet — generate it first so the fades "
-                "are known.", "duration_s": 0.0, "cost_usd": None}
-
     full = build_pool(sources)
-    kept, removed = apply_fades(full, extract_fades(persisted["markdown"]))
+    if persisted:
+        kept, removed = apply_fades(full, extract_fades(persisted["markdown"]))
+        strategy_note = ("Also read the written slate strategy at "
+                         f"`data/slate_analysis/{slug}.md`.")
+    else:
+        kept, removed = full, []
+        strategy_note = ("No slate strategy was generated for this slate — rank the FULL "
+                         "pool below (no fades removed); ground the ranking in the articles "
+                         "+ framework.")
     if kept.empty:
-        return {"ok": False, "error": "Player pool is empty after removing fades — check the "
-                "loaded projections.", "duration_s": 0.0, "cost_usd": None}
+        return {"ok": False, "error": "Player pool is empty — check the loaded projections.",
+                "duration_s": 0.0, "cost_usd": None}
+    is_mma = sport == "mma"
 
     # The exact playable set, as a fixed table Claude must rank without adding/dropping.
     def _row(r):
@@ -190,7 +197,12 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
         proj = f"{r['proj_points']:.1f}" if r.get("proj_points") is not None else "n/a"
         sal = f"${int(r['salary']):,}" if r.get("salary") is not None else "n/a"
         opp = f" vs {r['opponent']}" if r.get("opponent") else ""
-        return f"- {r['name']} — {sal}, proj own {own}, proj pts {proj}{opp}"
+        extra = ""
+        if is_mma:
+            ceil = f"{r['ceiling']:.1f}" if r.get("ceiling") is not None else "n/a"
+            wp = f"{r['win_prob'] * 100:.0f}%" if r.get("win_prob") is not None else "n/a"
+            extra = f", ceiling(win) {ceil}, win% {wp}"
+        return f"- {r['name']} — {sal}, proj own {own}, proj pts {proj}{extra}{opp}"
 
     player_lines = "\n".join(_row(r) for _, r in kept.iterrows())
     removed_note = (", ".join(removed)) if removed else "none"
@@ -207,16 +219,25 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
         f"slate-data file it lists under `articles/{slug}/`. Read ALL of them, no exceptions: article "
         f"PDFs, notes (.txt/.md), data CSVs (read as text tables), AND every photo/screenshot/image "
         f"(.png/.jpg/.jpeg — use the Read tool, it reads images visually). Do not skip a file because "
-        f"it looks redundant. Also read the written slate strategy at `data/slate_analysis/{slug}.md` "
-        f"and the strategy docs `rules/{slug}/philosophy.md` + `rules/{slug}/framework.md`.\n\n"
-        f"SOURCE-OF-TRUTH RULE: the ranking and every write-up come from those documents + the "
-        f"slate strategy. Cite ownership AS THE ARTICLES STATE IT (the projected own above is a "
+        f"it looks redundant. {strategy_note} "
+        f"Also read the strategy docs `rules/{slug}/philosophy.md` + `rules/{slug}/framework.md`.\n\n"
+        f"SOURCE-OF-TRUTH RULE: the ranking and every write-up come from those documents. "
+        f"Cite ownership AS THE ARTICLES STATE IT (the projected own above is a "
         f"reference, not the source of truth). GPP-framed throughout (ceiling/leverage, not floor).\n\n"
         f"Rank ALL {len(kept)} players 1..N by GPP play-priority for this slate (best play = 1). "
         f"Write `{out_path}` as:\n"
         f"- A one-line header `# {contest_label} — Player pool` and a one-sentence note that fades "
         f"are removed and this is a hand-build reference.\n"
-        f"- Then a single continuous numbered list, best to worst. Each entry on its own line:\n"
+        f"- FIRST, an easy-to-read **ranked Markdown table** — the whole board at a glance, best "
+        f"to worst, one row per player. Columns EXACTLY: "
+        + ("`| Rank | Fighter | Tier | Sal | Proj | Ceiling | Win% | Own | How it wins |`, where "
+           "Ceiling = the ceiling(win) value and Win% = the win% shown per player above, and "
+           "'How it wins' is ≤8 words.\n"
+           if is_mma else
+           "`| Rank | Player | Tier | Sal | Proj | Own | How it wins |`, where 'How it wins' is "
+           "≤8 words.\n") +
+        f"- THEN a single continuous numbered list (the detailed write-ups), best to worst. "
+        f"Each entry on its own line:\n"
         f"  `**N. Player Name** ($salary, own% per source) — *tier* —` then a 1–2 sentence write-up: "
         f"the role (Core / Pivot / Dart), HOW IT WINS (the ceiling path / the edge), and the key "
         f"risk or condition. Keep each write-up tight and specific to this slate — no filler.\n"

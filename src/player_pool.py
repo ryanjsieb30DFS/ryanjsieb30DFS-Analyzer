@@ -73,15 +73,28 @@ def build_pool(sources: dict[str, dict]) -> pd.DataFrame:
         proj = pd.to_numeric(g.get("proj_points"), errors="coerce").dropna()
         ceil = (pd.to_numeric(g.get("ceiling"), errors="coerce").dropna()
                 if "ceiling" in g.columns else pd.Series(dtype=float))
+        # MMA carries a real ceiling (proj_win = points if they win) + win prob,
+        # and its opponent lives in `matchup` (not `opponent`). Surface them so the
+        # fighter ranking can show ceiling / win% and use proj_win as the ceiling.
+        pwin = (pd.to_numeric(g.get("proj_win"), errors="coerce").dropna()
+                if "proj_win" in g.columns else pd.Series(dtype=float))
+        wprob = (pd.to_numeric(g.get("win_prob"), errors="coerce").dropna()
+                 if "win_prob" in g.columns else pd.Series(dtype=float))
         opp = ""
-        if "opponent" in g.columns:
-            opp = next((str(v) for v in g["opponent"] if isinstance(v, str) and v.strip()), "")
+        for _oc in ("opponent", "matchup"):
+            if _oc in g.columns:
+                opp = next((str(v) for v in g[_oc] if isinstance(v, str) and v.strip()), "")
+                if opp:
+                    break
+        ceil_val = round(float(ceil.mean()), 1) if not ceil.empty else (
+            round(float(pwin.mean()), 1) if not pwin.empty else None)
         rows.append({
             "name": g["name"].iloc[0],
             "salary": int(sal.max()) if not sal.empty else None,
             "ownership": round(float(own.mean()), 1) if not own.empty else None,
             "proj_points": round(float(proj.mean()), 1) if not proj.empty else None,
-            "ceiling": round(float(ceil.mean()), 1) if not ceil.empty else None,
+            "ceiling": ceil_val,
+            "win_prob": round(float(wprob.mean()), 3) if not wprob.empty else None,
             "opponent": opp,
             "vendors": int(g["__vendor"].nunique()),
         })
@@ -89,6 +102,8 @@ def build_pool(sources: dict[str, dict]) -> pd.DataFrame:
     pool = pd.DataFrame(rows)
     if "opponent" in pool.columns and not pool["opponent"].str.strip().any():
         pool = pool.drop(columns=["opponent"])
+    if "win_prob" in pool.columns and pool["win_prob"].isna().all():
+        pool = pool.drop(columns=["win_prob"])   # non-MMA: no win prob
     return pool.sort_values("salary", ascending=False, na_position="last").reset_index(drop=True)
 
 

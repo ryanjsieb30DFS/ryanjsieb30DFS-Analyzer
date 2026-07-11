@@ -162,6 +162,32 @@ def _cached_dk_analysis(csv_bytes: bytes, sport_: str | None, slug_: str):
     return parsed, analysis, gap, field
 
 
+def _split_leading_table(md: str):
+    """Split a player-pool markdown doc into (leading table as DataFrame, remainder
+    markdown). Returns (None, md) when no pipe-table is found near the top."""
+    lines = md.splitlines()
+    start = next((i for i, ln in enumerate(lines)
+                  if ln.strip().startswith("|") and ln.strip().endswith("|")), None)
+    if start is None:
+        return None, md
+    end = start
+    while end < len(lines) and lines[end].strip().startswith("|"):
+        end += 1
+    rows = [[c.strip() for c in ln.strip().strip("|").split("|")]
+            for ln in lines[start:end]]
+    # rows[0] = header, rows[1] = the |---| separator, rest = data
+    if len(rows) < 3:
+        return None, md
+    header = rows[0]
+    data = [r for r in rows[2:] if any(c for c in r) and not set("".join(r)) <= set("-: ")]
+    data = [r for r in data if len(r) == len(header)]
+    if not data:
+        return None, md
+    df = pd.DataFrame(data, columns=header)
+    remainder = "\n".join(lines[:start] + lines[end:]).strip()
+    return df, remainder
+
+
 @st.cache_data(show_spinner=False)
 def _cached_hygiene_md(slug: str, lessons_mtime: float) -> str:
     """Lesson-ledger hygiene report, cached on lessons.yaml's mtime (the ledger
@@ -631,23 +657,45 @@ with tab_strategy:
     else:
         st.info("**No saved strategy yet.** Click **Generate slate strategy** above and it appears here.")
 
-    # ----- (d) Player pool — ranked board, built with the strategy -----
+    # ----- (d) Player pool — ranked board (with the strategy, or standalone) -----
     st.markdown("---")
-    st.markdown("## Player pool")
+    _pnoun = "fighters" if sport == "mma" else "players"
+    st.markdown(f"## {_pnoun.capitalize()} ranked — all data")
     st.caption(
-        "Every player you could roster, ranked for GPP with a short write-up each — built "
-        "automatically with the slate strategy above. Membership = the projections you loaded "
-        "(Projections tab) minus the fades your strategy names; ranking + write-ups from your documents."
+        f"Every {_pnoun[:-1]} you could roster, ranked for GPP from **all your data** "
+        "(projections + ownership + articles) — an easy-to-read table first, a short write-up "
+        "each below. Built with the slate strategy above, or rank standalone anytime with the "
+        "button." + (" MMA shows ceiling (points if they win) + win%." if sport == "mma" else "")
     )
+    if cached_sources(slug):
+        if st.button(f"🏆 Rank {_pnoun} (all data)", key=f"rank_pool_{slug}",
+                     help="Runs the ranked board now — works even without a generated slate "
+                          "strategy (ranks the full pool). Reads your articles if any are loaded."):
+            with st.spinner(f"Ranking {_pnoun} from projections + ownership + articles… (~1–2 min)"):
+                _pr = run_player_pool(slug, contest_label, sport)
+            if _pr["ok"]:
+                st.success(f"Ranked in {_pr['duration_s']:.0f}s."
+                           + (f" · ~${_pr['cost_usd']:.2f}" if _pr.get("cost_usd") else ""))
+                st.rerun()
+            else:
+                st.error(_pr["error"])
     saved_pool = player_pool.load_pool(slug)
     if saved_pool:
         with st.container(border=True):
             st.caption(f"Last updated: {saved_pool['mtime']}")
-            st.markdown(saved_pool["markdown"])
+            # Render the leading ranked table as a dataframe (easy-to-read, sortable);
+            # the detailed write-ups follow below it.
+            _tbl, _rest = _split_leading_table(saved_pool["markdown"])
+            if _tbl is not None:
+                st.dataframe(_tbl, use_container_width=True, hide_index=True)
+                with st.expander("Detailed write-ups (how each wins)", expanded=False):
+                    st.markdown(_rest)
+            else:
+                st.markdown(saved_pool["markdown"])
     elif not cached_sources(slug):
-        st.info("Upload projections in the **Projections** tab, then generate the slate strategy — the pool is built with it.")
+        st.info(f"Upload projections in the **Projections** tab, then rank the {_pnoun}.")
     else:
-        st.info("Generate the **slate strategy** above — the player pool is built along with it.")
+        st.info(f"Click **🏆 Rank {_pnoun}** above (or generate the slate strategy) to build the board.")
 
 
 # ===== Tab 3: Autopsy =====

@@ -59,3 +59,31 @@ def test_parse_calls_shared_semantics():
 def test_empty_and_sectionless():
     assert extract_fades("") == []
     assert extract_fades("## Top plays\n- **X** PLAY") == []
+
+
+def test_build_pool_carries_mma_ceiling_and_winprob():
+    """MMA fighters must surface ceiling (proj_win) + win_prob for the ranking."""
+    import pandas as pd
+    from src.player_pool import build_pool
+    df = pd.DataFrame({
+        "name": ["Max Holloway", "Cory Sandhagen"],
+        "salary": [9000, 8300], "ownership": [45.0, 18.0],
+        "proj_points": [80.8, 66.5], "proj_win": [108.8, 91.1],
+        "win_prob": [0.66, 0.54], "matchup": ["vs X", "vs Y"],
+    })
+    pool = build_pool({"mma.csv": {"vendor": "DailyFan MMA", "df": df}})
+    assert "win_prob" in pool.columns
+    holl = pool[pool["name"] == "Max Holloway"].iloc[0]
+    assert holl["ceiling"] == 108.8          # proj_win used as the MMA ceiling
+    assert round(holl["win_prob"], 2) == 0.66
+    assert holl["opponent"] == "vs X"        # matchup → opponent
+
+
+def test_build_pool_drops_winprob_for_non_mma():
+    import pandas as pd
+    from src.player_pool import build_pool
+    df = pd.DataFrame({"name": ["A"], "salary": [10000], "ownership": [20.0],
+                       "proj_points": [70.0], "ceiling": [95.0]})
+    pool = build_pool({"g.csv": {"vendor": "ETR PGA", "df": df}})
+    assert "win_prob" not in pool.columns     # golf: no win prob column
+    assert pool.iloc[0]["ceiling"] == 95.0
