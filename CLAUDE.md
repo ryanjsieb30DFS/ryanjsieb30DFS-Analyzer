@@ -110,6 +110,7 @@ The file contains these sections, in order. GPP-framed throughout; concise and s
 5. `## Key themes` — the structural storylines, INCLUDING **where the articles disagree** with each other — name both sides and which you trust and why.
 6. `## Leverage & fades` — the underowned plays worth the leverage and the chalk worth fading, each with the mechanism (a fade is a bet — price the world it needs).
 7. `## Decisions` — 2–5 PLAY/PASS/MIX calls, in priority order, each with a one-sentence mechanism. The **Anchor-Equivalence call MUST appear here** as one of the decisions.
+8. `## Optimizer build rules` — LAST section: 4–8 **concise, copy-paste-ready** rules in the Grader Lineup Builder's EXACT vocabulary, so the user inserts them 1:1. Only these rule types exist: **Salary band** (`Min $X / Max $Y`); **Player Groups** (`At Least|At Most|Exactly N from: <names>`); **Restrictions** (`At Least|At Most|Exactly N with [Proj|Ceiling|Own %|Salary|Starting Pos] [Less Than|Greater Than|Equals|Between] <value>`); **IF-THEN** (`IF Contains ANY {players} THEN At Least|At Most|Exactly N of {players}`); **Min Uniques** / per-player **Exposure %**. Group by type, one rule/line + a ≤10-word why, every threshold a real projection number. Encodes the framework + sharp playbook + this slate's Top plays/Leverage&fades as build constraints — names constraints, never a lineup.
 
 ## Pre-flight ritual (mandatory — every slate strategy)
 
