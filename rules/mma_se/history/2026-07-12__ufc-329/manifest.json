@@ -1,0 +1,24 @@
+{
+  "slug": "mma_se",
+  "sport": "mma",
+  "contest_label": "MMA",
+  "date": "2026-07-12",
+  "slate_label": "UFC 329",
+  "archived_at": "2026-07-12 10:27",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json"
+  ],
+  "missing": [
+    "sim_analysis.md",
+    "sim_pool.csv"
+  ],
+  "article_files": [
+    "articles/mma_se/2026-07-11__DF Matchups 7.11.26.pdf",
+    "articles/mma_se/2026-07-11__DF Top Plays 7.11.26.pdf"
+  ],
+  "proj_source": null
+}

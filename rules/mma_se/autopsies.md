@@ -249,3 +249,21 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 - My entries: 3 · best rank 8/594 (top 1.3%)
 - Winners (top 20): avg own 25.46% vs mine 32.5% · sub-10% plays/lineup 0.55 vs mine 0.0
 - Slate-defining plays: Kaan Ofli (112.8 pts @ 6.2%), Abus Magomedov (105.1 pts @ 19.9%)
+
+
+## 2026-07-12 10:27 — MMA (contest-standings-192029294.csv)
+- Entries: 291
+- Winning score: 686.4
+- Cash line (top 20%): 543.5
+- My entries: 1 · best rank 98/291 (top 33.7%)
+- Winners (top 20): avg own 34.46% vs mine 38.38% · sub-10% plays/lineup 0.5 vs mine 0.0
+- Slate-defining plays: Mario Bautista (137.4 pts @ 16.5%), Wang Cong (90.5 pts @ 15.8%)
+
+
+## 2026-07-12 10:27 — MMA (contest-standings-192029304.csv)
+- Entries: 291
+- Winning score: 686.4
+- Cash line (top 20%): 516.0
+- My entries: 1 · best rank 76/291 (top 26.1%)
+- Winners (top 20): avg own 36.61% vs mine 34.54% · sub-10% plays/lineup 0.3 vs mine 0.0
+- Slate-defining plays: Mario Bautista (137.4 pts @ 15.1%), Brandon Royval (114.8 pts @ 19.9%)

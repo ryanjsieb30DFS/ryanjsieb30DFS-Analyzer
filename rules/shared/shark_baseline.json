@@ -22,7 +22,15 @@
         "leverage_pct": 12.72,
         "anchor_exposure": -0.05,
         "unique_pct": 0.0
-      }
+      },
+      "seed_envelope": {
+        "own_per_slot": 17.74,
+        "leverage_pct": 86.66,
+        "anchor_exposure": 0.54,
+        "unique_pct": 100.0
+      },
+      "seed_weight": 13,
+      "accumulated_contests": 0
     },
     "nascar": {
       "n_contests": 24,
@@ -44,7 +52,15 @@
         "leverage_pct": -4.05,
         "anchor_exposure": -0.2,
         "unique_pct": 0.72
-      }
+      },
+      "seed_envelope": {
+        "own_per_slot": 32.9,
+        "leverage_pct": 6.44,
+        "anchor_exposure": 0.62,
+        "unique_pct": 99.28
+      },
+      "seed_weight": 10,
+      "accumulated_contests": 0
     },
     "golf": {
       "n_contests": 22,
@@ -66,7 +82,15 @@
         "leverage_pct": -9.05,
         "anchor_exposure": -0.03,
         "unique_pct": 9.46
-      }
+      },
+      "seed_envelope": {
+        "own_per_slot": 16.19,
+        "leverage_pct": 48.76,
+        "anchor_exposure": 0.4,
+        "unique_pct": 90.54
+      },
+      "seed_weight": 21,
+      "accumulated_contests": 0
     },
     "showdown": {
       "n_contests": 1,
@@ -88,7 +112,15 @@
         "leverage_pct": 11.3,
         "anchor_exposure": 0.1,
         "unique_pct": 21.3
-      }
+      },
+      "seed_envelope": {
+        "own_per_slot": 7.4,
+        "leverage_pct": 88.7,
+        "anchor_exposure": 0.5,
+        "unique_pct": 78.7
+      },
+      "seed_weight": 1,
+      "accumulated_contests": 0
     }
   },
   "contests": [

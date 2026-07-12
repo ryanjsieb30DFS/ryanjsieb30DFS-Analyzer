@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-07-11 12:07",
+  "slug": "mma_se",
+  "calls": [],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "John Garza",
+      "own": 7.0
+    },
+    {
+      "name": "Cody Garbrandt",
+      "own": 9.0
+    },
+    {
+      "name": "Elisha Ellison",
+      "own": 2.0
+    }
+  ]
+}

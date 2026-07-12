@@ -143,6 +143,21 @@ A better leverage piece for the same salary slot would have been a fighter with 
 
 If your "leverage" play is owned 20%+, it's not leverage — it's a secondary chalk play. True leverage in SE context means sub-15% owned, ideally sub-12%. Petroski at 23% own in the $5 SE was not actually contrarian; he was just less-chalky chalk.
 
+### Finish-Capable Favorites Are Not Secondary Chalk (7/12/26 — 3-slate validated)
+
+Ownership alone does not make a mid-priced favorite a leak. EXEMPT from the "trim the
+20-25% chalk" instinct any **finish-capable favorite in a clean matchup** — a real
+finishing (or dominant-decision) path at mid ownership is a legitimate high-exposure
+core, structurally distinct from a no-ceiling decision-grinder at the same ownership.
+Screen the piece, not the number: a clean finish/dominance path → core; a capped,
+decision-dependent grinder → trimmable.
+
+Evidence (3 slates): 6/20 Oliveira (25% own, flagged "trim to 3-4") went 122.51 and
+anchored the field winner + the user's best build. 6/27 Abus (17%, 105.08) and Camilo
+(18-20%, 101.69) were slate-definers. 7/12 UFC 329 Pinas (26%, 110.7), Gandra (29-33%,
+104.2) and Green (28-35%, 120.1) were three mid-own finish-cores, all in the 686.38
+winner. Trimming any as "secondary chalk" would have cut the winning spine each slate.
+
 ### Asymmetric Anchor-Equivalence Weighting (5/30/26 — UFC Macau)
 
 The Anchor-Equivalence rule (run the pivot in ≥1 lineup) is about *presence*, not *weighting*. On 5/30/26 Zhang (44% own — chalkiest on the slate) and Pavlovich were an anchor-equiv pair; the portfolio split them 40%/40%. Zhang was KO-or-bust and busted to 10.09; Pavlovich smashed (128.6). Equal weighting meant 40% of the portfolio rode the play that died.

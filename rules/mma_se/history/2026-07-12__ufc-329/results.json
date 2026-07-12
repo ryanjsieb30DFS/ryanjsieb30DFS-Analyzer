@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-12",
+  "slug": "mma_se",
+  "sport": "mma",
+  "slate_label": "UFC 329",
+  "history_dir": "rules/mma_se/history/2026-07-12__ufc-329",
+  "contests": [
+    {
+      "name": "UFC $10K Counter Punch",
+      "type": "SE",
+      "source_file": "contest-standings-192029294.csv",
+      "field_size": 291,
+      "my_entries": 1,
+      "entry_fee": 40.0,
+      "buy_in": 40.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 98,
+      "best_percentile": 33.7
+    },
+    {
+      "name": "UFC $10K Counter Punch",
+      "type": "SE",
+      "source_file": "contest-standings-192029304.csv",
+      "field_size": 291,
+      "my_entries": 1,
+      "entry_fee": 40.0,
+      "buy_in": 40.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 76,
+      "best_percentile": 26.1
+    }
+  ],
+  "total_buy_in": 80.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 76,
+  "best_percentile": 26.1,
+  "entries_total": 2,
+  "edge_leverage_capture": 0.0,
+  "edge_overperformer_capture": null,
+  "edge_bust_exposure": null,
+  "lineup_avg_ratio": null,
+  "shark_gap_top": {
+    "dim": "own_per_slot",
+    "delta": 0.1
+  }
+}

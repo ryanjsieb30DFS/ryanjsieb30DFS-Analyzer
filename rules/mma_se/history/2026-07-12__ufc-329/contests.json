@@ -1,0 +1,24 @@
+{
+  "contests": [
+    {
+      "name": "UFC $10K Counter Punch",
+      "type": "SE",
+      "field_size": 291,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 40.0,
+      "prize_pool": 10000,
+      "id": "a0e06bf6"
+    },
+    {
+      "name": "UFC $10K Counter Jab",
+      "type": "5-Max",
+      "field_size": 291,
+      "max_entries": 5,
+      "my_entries": 1,
+      "entry_fee": 40.0,
+      "prize_pool": 10000,
+      "id": "021719a6"
+    }
+  ]
+}

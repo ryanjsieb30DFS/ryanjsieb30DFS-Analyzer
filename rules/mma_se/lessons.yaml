@@ -131,6 +131,18 @@ lessons:
           low-owned FINISHERS (Ofli/Abdullayev/Ruziboev), not a KO-or-bust dog — i.e. the
           large-field leverage horse should have been a sub-10% finisher, not the
           article-named long-shot. Feeds [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]].
+      - date: "2026-07-12"
+        slate: "UFC 329 — two 291-field SEs (small field)"
+        note: >
+          Small-field side re-confirmed via an execution deviation. The strategy CORRECTLY
+          applied the rule — Decision 4 PASSed the KO-or-bust dogs (Ellison 2%, Garbrandt
+          9%, Garza 7%) as core plays in a 291 field. The user's contest-2 entry then
+          deviated onto Conor McGregor (+225 main-event KO-or-bust dog, ~21% own), who
+          scored 1.0 and was a documented fish trap (24-31% of the fish, 0% of winners).
+          The single dead binary slot capped an otherwise-live build (Pimblett 117.7 /
+          Steveson 116.7 / Green 120.1 all in it) at 501.32 / 26.1%ile. Real-world
+          confirmation that pure binary dogs are structurally punished in small fields —
+          the rule was right; the deviation cost.
 
   - id: mma-se-2026-05-16-secondary-plays-are-not-leverage
     born: "2026-05-16"
@@ -474,6 +486,22 @@ lessons:
           while every Torres entry he ran underperformed. Structural fades held; no narrative
           fade was made to be punished, so this confirms the structural half of the
           mechanism (the narrative-punishment half still awaits a test).
+      - date: "2026-07-12"
+        slate: "UFC 329 (McGregor vs. Holloway) — classic 6-fighter, two 291-field SEs"
+        note: >
+          Narrative-punishment half now tested and CONFIRMED. The strategy narrative-faded
+          two whole fights on a pace read — Sandhagen/Bautista and Cong/Cortez tagged
+          "traps to fade — distance-leaning, low-dominance, no clear path to a smash, eat
+          salary without a ceiling." That is a soft scouting/pace narrative, not a
+          structural mechanism. It was punished catastrophically: Mario Bautista (the
+          faded side) posted 137.43 — the slate's #1 score and in both winning lineups —
+          and Wang Cong posted 90.46 (slate-defining, ~30% of a contest's top lineups).
+          A dominant paced decision is a real MMA ceiling; "goes the distance" was wrongly
+          equated with "low ceiling." NOTE: this was a fade of a whole fight / a live dog,
+          an EXTENSION of the original "live chalk piece" object, so treat as strengthening
+          evidence rather than a clean replication — the specific distance-lean error is
+          carried by [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]]. Near
+          promotion; leave validated pending one clean chalk-piece replication.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -496,7 +524,7 @@ lessons:
       capped ceiling, decision-dependent — trimmable) from "finish-capable favorite" (mid-own
       but real finishing path in a clean matchup — high exposure is fine). Links
       [[mma-se-2026-05-16-secondary-plays-are-not-leverage]].
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-27"
         slate: "UFC Fight Night, Baku (classic 6-fighter)"
@@ -510,8 +538,20 @@ lessons:
           trimming either as "secondary chalk" would have cut two of the slate's cheap
           definers. Mechanism holds: finish path in a clean matchup, not ownership, decides
           whether a mid-own favorite is a core or a trimmable leak.
+      - date: "2026-07-12"
+        slate: "UFC 329 (McGregor vs. Holloway) — classic 6-fighter, two 291-field SEs"
+        note: >
+          Third confirming slate — promotion candidate. Damian Pinas (26% own, played as a
+          top core, NOT trimmed) hit 110.7 and Ryan Gandra (29-33% own) hit 104.2 — both
+          mid-owned finish-capable favorites in clean spots, both slate-definers, both in
+          BOTH 686.38 winning lineups. King Green (28-35% own, the leverage side of the
+          -1200 fight) hit 120.1 as a third mid-own finisher-core. Trimming any as
+          "20%+ = secondary chalk" would have gutted the winning lineup's spine.
+          Ownership did not make them leaks; the clean finish path made them cores.
+          Origin (6/20) + 6/27 + 7/12 = three confirming mechanism slates → propose
+          codifying into framework.md.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Finish-Capable Favorites Are Not Secondary Chalk (7/12/26 — 3-slate validated)"
     retired_reason: null
 
   # ---- 2026-06-27 — UFC Fight Night, Baku ----
@@ -537,8 +577,26 @@ lessons:
       dog. Links [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]],
       [[mma-se-2026-06-14-showdown-cheap-slot-prefer-floor-or-live-dog]],
       [[mma-se-2026-06-20-finish-capable-favorite-is-not-secondary-chalk]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-07-12"
+        slate: "UFC 329 (McGregor vs. Holloway) — classic 6-fighter, two 291-field SEs"
+        note: >
+          Confirmed hard. The slate-definer was Mario Bautista (137.43 — the #1 score on
+          the board, 15.1-16.5% own, in 40-60% of every contest's top lineups and in BOTH
+          686.38 winning lineups), a low-owned converting fighter below the article
+          spotlight — exactly the pattern. Worse than 6/27: the strategy did not merely
+          fail to surface him, it actively FADED his entire fight (Sandhagen/Bautista
+          tagged a "trap to fade — distance-leaning, no path to a smash"). Brandon Royval
+          (114.79 at ~20% own, ~35% of a contest's top lineups) was a second
+          below-spotlight definer the strategy faded to play the chalkier favorite
+          (Kavanagh, who lost, 42.7). Every leverage piece the strategy DID hunt
+          (Kavanagh 17 / Costa 20 / Yanez 17 / Riley 11) was an article-named favorite and
+          none hit, while the two actual definers sat in fights the strategy dismissed.
+          Mechanism holds and sharpens: screen the FULL rosterable pool — 12-20% own
+          included, both dogs AND favorites — for low-owned converters, and never fade a
+          whole fight out of the search. Links
+          [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]].
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -561,6 +619,58 @@ lessons:
       avg-own / >=1 sub-10 differentiation target as the medium field — do not relax to
       chalk just because the field is small. Links [[mma-se-2026-05-17-field-size-calibration]],
       [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]].
+    status: hypothesis
+    confirmations:
+      - date: "2026-07-12"
+        slate: "UFC 329 — two 291-field SEs, finish-heavy board"
+        note: >
+          Low-own-DEFINER half confirmed. Both 686.38 winning lineups carried the
+          15-16%-owned slate-definer Mario Bautista, and every top-20 lineup carried at
+          least one sub-20% converter (Bautista / Royval / Gandra). Catching >=1 low-owned
+          definer was necessary to win — chalk-only builds could not reach 686.
+    contradictions:
+      - date: "2026-07-12"
+        slate: "UFC 329 — two 291-field SEs"
+        note: >
+          Avg-own TARGET half contradicted by the winning structure — a mechanism
+          refinement, not a retirement (GPP-guarded: this is the winner's structure, not
+          "we lost"). The winning lineup was ~40.2% avg own with 0 sub-10 plays
+          (Holloway 62% + Pimblett 50% + Pinas 41% + Bautista 15% + Gandra 32% +
+          Green 35%); winners_profile avg_own_per_slot 40.2, dart_pct 0.0. This 291
+          finish-heavy field was won by a chalk-ANCHORED build that caught ONE low-owned
+          definer — NOT by a 16-20% avg-own build. The user's more-differentiated ~34-38%
+          builds finished 26-34%ile. The edge here was not lower avg-own; it was running
+          six fighters who all WON (96-137 pts, zero busts) including one low-owned
+          converter, while the user's ceilings were capped by dead LOSING slots
+          (Reese 2.0, McGregor 1.0). Reframe toward: "differentiate through low-owned
+          WINNING favorites and carry no likely-loser slot," NOT "cut whole-build avg-own
+          to 16-20%." Links [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]],
+          [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]].
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-07-12 — UFC 329 (McGregor vs. Holloway) ----
+
+  - id: mma-se-2026-07-12-distance-fight-is-not-low-ceiling
+    born: "2026-07-12"
+    origin: "rules/mma_se/history/2026-07-12__ufc-329"
+    statement: >
+      "Goes the distance / distance-leaning" is NOT the same as "low ceiling," and a whole
+      fight must not be faded on that basis. MMA DK scoring rewards significant-strike
+      volume, control time and takedowns heavily, so a fighter who wins a dominant,
+      high-pace 15-minute decision can reach finish-level scores (120-140+) with no finish.
+      UFC 329 evidence: the strategy tagged Sandhagen/Bautista a "trap to fade —
+      distance-leaning, low-dominance, no path to a smash, eats salary without a ceiling,"
+      and Mario Bautista (15-16% own) then won a paced decision for 137.43 — the #1 score
+      on the board and in both 686.38 winning lineups. Wang Cong, from the other
+      "distance/low-dominance" faded fight (Cong/Cortez), posted 90.46 (slate-defining).
+      Mechanism: pace + volume + grappling control IS a ceiling; a distance projection caps
+      ceiling ONLY when it is also low-volume/low-control (a true point-fighting stalemate).
+      Rule to test: before fading a fight for going the distance, check projected
+      pace/volume/control — a high-output fighter favored to win a dominant decision carries
+      a real 100+ ceiling, and if low-owned that is leverage, not a trap. Links
+      [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]],
+      [[mma-se-2026-06-20-fade-on-structure-not-narrative]].
     status: hypothesis
     confirmations: []
     contradictions: []

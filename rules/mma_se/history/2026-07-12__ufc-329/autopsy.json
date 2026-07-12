@@ -1,0 +1,1144 @@
+[
+  {
+    "timestamp": "2026-07-12 10:27",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-192029294.csv",
+    "entries": 291,
+    "winning_score": 686.38,
+    "cash_line_p80": 543.48,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 28
+    },
+    "user_summary": {
+      "avg_own_mean": 38.38,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 98,
+      "best_percentile": 33.7
+    },
+    "user_lineups": [
+      {
+        "rank": 98,
+        "entry_name": "RyvlesGaming30",
+        "points": 487.93997,
+        "percentile": 33.7,
+        "players": [
+          "Max Holloway",
+          "Paddy Pimblett",
+          "Tracy Cortez",
+          "Gable Steveson",
+          "Zach Reese",
+          "King Green"
+        ],
+        "avg_own": 38.38,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 4,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Mario Bautista",
+        "salary": null,
+        "actual_fpts": 137.43,
+        "actual_own": 16.49,
+        "top_lineup_pct": 60.0
+      },
+      {
+        "name": "Wang Cong",
+        "salary": null,
+        "actual_fpts": 90.46,
+        "actual_own": 15.81,
+        "top_lineup_pct": 30.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 34.46,
+      "low_own_count_mean": 0.5,
+      "salary_used_mean": null,
+      "dup_max": 3,
+      "unique_pct": 75.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "geocloiv4",
+          "points": 686.38,
+          "percentile": 0.3,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Damian Pinas",
+            "Mario Bautista",
+            "Ryan Gandra",
+            "King Green"
+          ],
+          "avg_own": 40.21,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3,
+          "stack_shape": null
+        },
+        {
+          "rank": 1,
+          "entry_name": "MysticVinnyMac",
+          "points": 686.38,
+          "percentile": 0.3,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Damian Pinas",
+            "Mario Bautista",
+            "Ryan Gandra",
+            "King Green"
+          ],
+          "avg_own": 40.21,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3,
+          "stack_shape": null
+        },
+        {
+          "rank": 1,
+          "entry_name": "giantsquid",
+          "points": 686.38,
+          "percentile": 0.3,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Damian Pinas",
+            "Mario Bautista",
+            "Ryan Gandra",
+            "King Green"
+          ],
+          "avg_own": 40.21,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "spades20",
+          "points": 643.12,
+          "percentile": 1.4,
+          "players": [
+            "Paddy Pimblett",
+            "Nikita Krylov",
+            "Damian Pinas",
+            "Mario Bautista",
+            "Gable Steveson",
+            "King Green"
+          ],
+          "avg_own": 37.46,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 5,
+          "entry_name": "el_tri",
+          "points": 640.62,
+          "percentile": 1.7,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Brandon Royval",
+            "Damian Pinas",
+            "King Green",
+            "Alessandro Costa"
+          ],
+          "avg_own": 38.2,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 6,
+          "entry_name": "cdem06811",
+          "points": 628.74,
+          "percentile": 2.1,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Nikita Krylov",
+            "Mario Bautista",
+            "Gable Steveson",
+            "King Green"
+          ],
+          "avg_own": 40.89,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 7,
+          "entry_name": "wrestler87",
+          "points": 627.24,
+          "percentile": 2.4,
+          "players": [
+            "Paddy Pimblett",
+            "Robert Whittaker",
+            "Wang Cong",
+            "Damian Pinas",
+            "Mario Bautista",
+            "Ryan Gandra"
+          ],
+          "avg_own": 27.49,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "dkbhakta24",
+          "points": 625.81995,
+          "percentile": 2.7,
+          "players": [
+            "Max Holloway",
+            "Nikita Krylov",
+            "Brandon Royval",
+            "Mario Bautista",
+            "Gable Steveson",
+            "King Green"
+          ],
+          "avg_own": 35.45,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "shadywestie",
+          "points": 622.1,
+          "percentile": 3.1,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Adrian Yanez",
+            "Robert Whittaker",
+            "Brandon Royval",
+            "King Green"
+          ],
+          "avg_own": 30.81,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 10,
+          "entry_name": "jtpina",
+          "points": 614.07007,
+          "percentile": 3.4,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Robert Whittaker",
+            "Brandon Royval",
+            "Mario Bautista",
+            "Alessandro Costa"
+          ],
+          "avg_own": 29.04,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -3.92,
+        "low_own_count_delta": 0.5,
+        "salary_used_delta": null
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 291,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Max Holloway",
+          "field_own": 61.9,
+          "actual_fpts": 96.3
+        },
+        {
+          "name": "Paddy Pimblett",
+          "field_own": 53.3,
+          "actual_fpts": 117.7
+        },
+        {
+          "name": "Gable Steveson",
+          "field_own": 48.1,
+          "actual_fpts": 116.7
+        },
+        {
+          "name": "Damian Pinas",
+          "field_own": 41.2,
+          "actual_fpts": 110.7
+        },
+        {
+          "name": "Terrance McKinney",
+          "field_own": 39.2,
+          "actual_fpts": 29.8
+        },
+        {
+          "name": "King Green",
+          "field_own": 35.4,
+          "actual_fpts": 120.1
+        },
+        {
+          "name": "Ryan Gandra",
+          "field_own": 33.0,
+          "actual_fpts": 104.2
+        },
+        {
+          "name": "Benoit Saint Denis",
+          "field_own": 31.3,
+          "actual_fpts": 0.5
+        },
+        {
+          "name": "Nikita Krylov",
+          "field_own": 30.2,
+          "actual_fpts": 40.5
+        },
+        {
+          "name": "Conor McGregor",
+          "field_own": 21.3,
+          "actual_fpts": 1.0
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett"
+          ],
+          "field_pct": 30.7,
+          "count": 89
+        },
+        {
+          "players": [
+            "Gable Steveson",
+            "Max Holloway"
+          ],
+          "field_pct": 25.5,
+          "count": 74
+        },
+        {
+          "players": [
+            "Gable Steveson",
+            "Paddy Pimblett"
+          ],
+          "field_pct": 24.8,
+          "count": 72
+        },
+        {
+          "players": [
+            "Max Holloway",
+            "Terrance McKinney"
+          ],
+          "field_pct": 24.8,
+          "count": 72
+        },
+        {
+          "players": [
+            "King Green",
+            "Max Holloway"
+          ],
+          "field_pct": 24.5,
+          "count": 71
+        },
+        {
+          "players": [
+            "Damian Pinas",
+            "Paddy Pimblett"
+          ],
+          "field_pct": 24.1,
+          "count": 70
+        },
+        {
+          "players": [
+            "Paddy Pimblett",
+            "Terrance McKinney"
+          ],
+          "field_pct": 23.4,
+          "count": 68
+        },
+        {
+          "players": [
+            "Damian Pinas",
+            "Max Holloway"
+          ],
+          "field_pct": 21.7,
+          "count": 63
+        },
+        {
+          "players": [
+            "Max Holloway",
+            "Nikita Krylov"
+          ],
+          "field_pct": 20.7,
+          "count": 60
+        },
+        {
+          "players": [
+            "Benoit Saint Denis",
+            "Max Holloway"
+          ],
+          "field_pct": 20.7,
+          "count": 60
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Brandon Royval",
+            "Damian Pinas",
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Ryan Gandra",
+            "Terrance McKinney"
+          ],
+          "count": 5,
+          "field_pct": 1.7
+        },
+        {
+          "players": [
+            "Conor McGregor",
+            "Cory Sandhagen",
+            "Damian Pinas",
+            "Gable Steveson",
+            "King Green",
+            "Paddy Pimblett"
+          ],
+          "count": 4,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Benoit Saint Denis",
+            "Gable Steveson",
+            "Kai Kamaka III",
+            "King Green",
+            "Mario Bautista",
+            "Max Holloway"
+          ],
+          "count": 4,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Brandon Royval",
+            "Gable Steveson",
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Terrance McKinney",
+            "Zach Reese"
+          ],
+          "count": 4,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Gable Steveson",
+            "Kai Kamaka III",
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Terrance McKinney",
+            "Tracy Cortez"
+          ],
+          "count": 4,
+          "field_pct": 1.4
+        }
+      ],
+      "winners_profile": {
+        "n": 3,
+        "avg_own_per_slot": 40.2,
+        "dart_pct": 0.0,
+        "unique_pct": 33.3
+      },
+      "fish_profile": {
+        "n": 145,
+        "avg_own_per_slot": 31.5,
+        "dart_pct": 6.9,
+        "unique_pct": 82.8
+      },
+      "fish_traps": [
+        {
+          "name": "Benoit Saint Denis",
+          "fish_pct": 55.9,
+          "winner_pct": 0.0,
+          "gap": 55.9,
+          "actual_fpts": 0.5
+        },
+        {
+          "name": "Terrance McKinney",
+          "fish_pct": 52.4,
+          "winner_pct": 0.0,
+          "gap": 52.4,
+          "actual_fpts": 29.8
+        },
+        {
+          "name": "Gable Steveson",
+          "fish_pct": 49.7,
+          "winner_pct": 0.0,
+          "gap": 49.7,
+          "actual_fpts": 116.7
+        },
+        {
+          "name": "Nikita Krylov",
+          "fish_pct": 34.5,
+          "winner_pct": 0.0,
+          "gap": 34.5,
+          "actual_fpts": 40.5
+        },
+        {
+          "name": "Zach Reese",
+          "fish_pct": 28.3,
+          "winner_pct": 0.0,
+          "gap": 28.3,
+          "actual_fpts": 2.0
+        },
+        {
+          "name": "Kai Kamaka III",
+          "fish_pct": 27.6,
+          "winner_pct": 0.0,
+          "gap": 27.6,
+          "actual_fpts": 9.2
+        },
+        {
+          "name": "Conor McGregor",
+          "fish_pct": 24.1,
+          "winner_pct": 0.0,
+          "gap": 24.1,
+          "actual_fpts": 1.0
+        },
+        {
+          "name": "Cory Sandhagen",
+          "fish_pct": 18.6,
+          "winner_pct": 0.0,
+          "gap": 18.6,
+          "actual_fpts": 45.8
+        },
+        {
+          "name": "Lone'er Kavanagh",
+          "fish_pct": 18.6,
+          "winner_pct": 0.0,
+          "gap": 18.6,
+          "actual_fpts": 42.7
+        },
+        {
+          "name": "Wang Cong",
+          "fish_pct": 17.9,
+          "winner_pct": 0.0,
+          "gap": 17.9,
+          "actual_fpts": 90.5
+        }
+      ],
+      "read": [
+        "Field crowded **Max Holloway** at 61.9% (96.3 fpts) \u2014 the chalk to consider fading.",
+        "**Max Holloway + Paddy Pimblett** were together in 30.7% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Benoit Saint Denis** was a fish trap: 55.9% of the fish, only 0.0% of winners."
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-07-12 10:27",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-192029304.csv",
+    "entries": 291,
+    "winning_score": 686.38,
+    "cash_line_p80": 516.02,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 28
+    },
+    "user_summary": {
+      "avg_own_mean": 34.54,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 76,
+      "best_percentile": 26.1
+    },
+    "user_lineups": [
+      {
+        "rank": 76,
+        "entry_name": "RyvlesGaming30",
+        "points": 501.31998,
+        "percentile": 26.1,
+        "players": [
+          "Conor McGregor",
+          "Paddy Pimblett",
+          "Tracy Cortez",
+          "Damian Pinas",
+          "Gable Steveson",
+          "King Green"
+        ],
+        "avg_own": 34.54,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1,
+        "stack_shape": null
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Mario Bautista",
+        "salary": null,
+        "actual_fpts": 137.43,
+        "actual_own": 15.12,
+        "top_lineup_pct": 40.0
+      },
+      {
+        "name": "Brandon Royval",
+        "salary": null,
+        "actual_fpts": 114.79,
+        "actual_own": 19.93,
+        "top_lineup_pct": 35.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 36.61,
+      "low_own_count_mean": 0.3,
+      "salary_used_mean": null,
+      "dup_max": 3,
+      "unique_pct": 35.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "giantsquid",
+          "points": 686.38,
+          "percentile": 0.3,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Damian Pinas",
+            "Mario Bautista",
+            "Ryan Gandra",
+            "King Green"
+          ],
+          "avg_own": 38.89,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2,
+          "stack_shape": null
+        },
+        {
+          "rank": 1,
+          "entry_name": "ryanfeller (3/3)",
+          "points": 686.38,
+          "percentile": 0.3,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Damian Pinas",
+            "Mario Bautista",
+            "Ryan Gandra",
+            "King Green"
+          ],
+          "avg_own": 38.89,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2,
+          "stack_shape": null
+        },
+        {
+          "rank": 3,
+          "entry_name": "Skipbidder (1/5)",
+          "points": 656.05994,
+          "percentile": 1.0,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Brandon Royval",
+            "Wang Cong",
+            "Gable Steveson",
+            "King Green"
+          ],
+          "avg_own": 37.69,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 4,
+          "entry_name": "989michaels",
+          "points": 640.62,
+          "percentile": 1.4,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Brandon Royval",
+            "Damian Pinas",
+            "King Green",
+            "Alessandro Costa"
+          ],
+          "avg_own": 37.17,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 5,
+          "entry_name": "Taxman8 (4/5)",
+          "points": 634.07996,
+          "percentile": 1.7,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Brandon Royval",
+            "Ryan Gandra",
+            "King Green",
+            "Alessandro Costa"
+          ],
+          "avg_own": 36.26,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 6,
+          "entry_name": "USaki2meISaki2U",
+          "points": 628.74,
+          "percentile": 2.1,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Nikita Krylov",
+            "Mario Bautista",
+            "Gable Steveson",
+            "King Green"
+          ],
+          "avg_own": 39.06,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2,
+          "stack_shape": null
+        },
+        {
+          "rank": 6,
+          "entry_name": "dainb32 (2/2)",
+          "points": 628.74,
+          "percentile": 2.1,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Nikita Krylov",
+            "Mario Bautista",
+            "Gable Steveson",
+            "King Green"
+          ],
+          "avg_own": 39.06,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2,
+          "stack_shape": null
+        },
+        {
+          "rank": 8,
+          "entry_name": "gbird33 (1/5)",
+          "points": 604.54004,
+          "percentile": 2.7,
+          "players": [
+            "Paddy Pimblett",
+            "Nikita Krylov",
+            "Brandon Royval",
+            "Damian Pinas",
+            "Gable Steveson",
+            "Ryan Gandra"
+          ],
+          "avg_own": 34.71,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "whip99 (5/5)",
+          "points": 601.69,
+          "percentile": 3.1,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Damian Pinas",
+            "Gable Steveson",
+            "King Green",
+            "John Garza"
+          ],
+          "avg_own": 38.89,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2,
+          "stack_shape": null
+        },
+        {
+          "rank": 9,
+          "entry_name": "BlarneyBoys",
+          "points": 601.69,
+          "percentile": 3.1,
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Damian Pinas",
+            "Gable Steveson",
+            "King Green",
+            "John Garza"
+          ],
+          "avg_own": 38.89,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2,
+          "stack_shape": null
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 2.07,
+        "low_own_count_delta": 0.3,
+        "salary_used_delta": null
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 291,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Max Holloway",
+          "field_own": 62.9,
+          "actual_fpts": 96.3
+        },
+        {
+          "name": "Paddy Pimblett",
+          "field_own": 49.8,
+          "actual_fpts": 117.7
+        },
+        {
+          "name": "Gable Steveson",
+          "field_own": 43.0,
+          "actual_fpts": 116.7
+        },
+        {
+          "name": "Terrance McKinney",
+          "field_own": 42.6,
+          "actual_fpts": 29.8
+        },
+        {
+          "name": "Damian Pinas",
+          "field_own": 37.1,
+          "actual_fpts": 110.7
+        },
+        {
+          "name": "King Green",
+          "field_own": 36.8,
+          "actual_fpts": 120.1
+        },
+        {
+          "name": "Ryan Gandra",
+          "field_own": 31.6,
+          "actual_fpts": 104.2
+        },
+        {
+          "name": "Benoit Saint Denis",
+          "field_own": 29.2,
+          "actual_fpts": 0.5
+        },
+        {
+          "name": "Nikita Krylov",
+          "field_own": 26.8,
+          "actual_fpts": 40.5
+        },
+        {
+          "name": "Zach Reese",
+          "field_own": 25.8,
+          "actual_fpts": 2.0
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Max Holloway",
+            "Paddy Pimblett"
+          ],
+          "field_pct": 31.7,
+          "count": 92
+        },
+        {
+          "players": [
+            "King Green",
+            "Max Holloway"
+          ],
+          "field_pct": 28.6,
+          "count": 83
+        },
+        {
+          "players": [
+            "Max Holloway",
+            "Terrance McKinney"
+          ],
+          "field_pct": 25.9,
+          "count": 75
+        },
+        {
+          "players": [
+            "Paddy Pimblett",
+            "Terrance McKinney"
+          ],
+          "field_pct": 23.8,
+          "count": 69
+        },
+        {
+          "players": [
+            "Damian Pinas",
+            "Max Holloway"
+          ],
+          "field_pct": 23.1,
+          "count": 67
+        },
+        {
+          "players": [
+            "Gable Steveson",
+            "Max Holloway"
+          ],
+          "field_pct": 22.8,
+          "count": 66
+        },
+        {
+          "players": [
+            "Gable Steveson",
+            "Paddy Pimblett"
+          ],
+          "field_pct": 21.7,
+          "count": 63
+        },
+        {
+          "players": [
+            "Max Holloway",
+            "Ryan Gandra"
+          ],
+          "field_pct": 20.3,
+          "count": 59
+        },
+        {
+          "players": [
+            "Max Holloway",
+            "Nikita Krylov"
+          ],
+          "field_pct": 17.9,
+          "count": 52
+        },
+        {
+          "players": [
+            "Max Holloway",
+            "Zach Reese"
+          ],
+          "field_pct": 17.9,
+          "count": 52
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Brandon Royval",
+            "Damian Pinas",
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Ryan Gandra",
+            "Terrance McKinney"
+          ],
+          "count": 7,
+          "field_pct": 2.4
+        },
+        {
+          "players": [
+            "Brandon Royval",
+            "Gable Steveson",
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Terrance McKinney",
+            "Zach Reese"
+          ],
+          "count": 5,
+          "field_pct": 1.7
+        },
+        {
+          "players": [
+            "Benoit Saint Denis",
+            "Damian Pinas",
+            "Max Holloway",
+            "Nikita Krylov",
+            "Terrance McKinney",
+            "Zach Reese"
+          ],
+          "count": 4,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Adrian Yanez",
+            "King Green",
+            "Max Holloway",
+            "Nikita Krylov",
+            "Paddy Pimblett",
+            "Ryan Gandra"
+          ],
+          "count": 3,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Damian Pinas",
+            "King Green",
+            "Max Holloway",
+            "Paddy Pimblett",
+            "Ryan Gandra",
+            "Tracy Cortez"
+          ],
+          "count": 3,
+          "field_pct": 1.0
+        }
+      ],
+      "winners_profile": {
+        "n": 3,
+        "avg_own_per_slot": 38.5,
+        "dart_pct": 0.0,
+        "unique_pct": 66.7
+      },
+      "fish_profile": {
+        "n": 145,
+        "avg_own_per_slot": 30.6,
+        "dart_pct": 6.9,
+        "unique_pct": 86.2
+      },
+      "fish_traps": [
+        {
+          "name": "Terrance McKinney",
+          "fish_pct": 55.2,
+          "winner_pct": 0.0,
+          "gap": 55.2,
+          "actual_fpts": 29.8
+        },
+        {
+          "name": "Benoit Saint Denis",
+          "fish_pct": 50.3,
+          "winner_pct": 0.0,
+          "gap": 50.3,
+          "actual_fpts": 0.5
+        },
+        {
+          "name": "Zach Reese",
+          "fish_pct": 33.1,
+          "winner_pct": 0.0,
+          "gap": 33.1,
+          "actual_fpts": 2.0
+        },
+        {
+          "name": "Conor McGregor",
+          "fish_pct": 31.0,
+          "winner_pct": 0.0,
+          "gap": 31.0,
+          "actual_fpts": 1.0
+        },
+        {
+          "name": "Nikita Krylov",
+          "fish_pct": 28.3,
+          "winner_pct": 0.0,
+          "gap": 28.3,
+          "actual_fpts": 40.5
+        },
+        {
+          "name": "Kai Kamaka III",
+          "fish_pct": 27.6,
+          "winner_pct": 0.0,
+          "gap": 27.6,
+          "actual_fpts": 9.2
+        },
+        {
+          "name": "Cory Sandhagen",
+          "fish_pct": 23.4,
+          "winner_pct": 0.0,
+          "gap": 23.4,
+          "actual_fpts": 45.8
+        },
+        {
+          "name": "Lone'er Kavanagh",
+          "fish_pct": 20.7,
+          "winner_pct": 0.0,
+          "gap": 20.7,
+          "actual_fpts": 42.7
+        },
+        {
+          "name": "Tracy Cortez",
+          "fish_pct": 18.6,
+          "winner_pct": 0.0,
+          "gap": 18.6,
+          "actual_fpts": 35.1
+        },
+        {
+          "name": "Cesar Almeida",
+          "fish_pct": 16.6,
+          "winner_pct": 0.0,
+          "gap": 16.6,
+          "actual_fpts": 21.2
+        }
+      ],
+      "read": [
+        "Field crowded **Max Holloway** at 62.9% (96.3 fpts) \u2014 the chalk to consider fading.",
+        "**Max Holloway + Paddy Pimblett** were together in 31.7% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Terrance McKinney** was a fish trap: 55.2% of the fish, only 0.0% of winners."
+      ]
+    }
+  }
+]
