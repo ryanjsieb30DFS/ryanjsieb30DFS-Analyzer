@@ -388,63 +388,6 @@ def _sim_table(df, cols, n: int = 15) -> str:
     return "\n".join(lines)
 
 
-def run_sim_review(slug: str, contest_label: str, sport: str) -> dict:
-    """Write a 'what the sim says' summary from the uploaded SaberSim pool to
-    data/sim_analysis/<slug>.md. ANALYTICS ONLY — individual plays + combos to
-    fade, never an assembled lineup."""
-    from src import sim_data, sim_sessions, dk_ids, player_pool
-    from src import sessions as _sess
-
-    pool_p = sim_sessions.pool_path(slug)
-    if pool_p is None:
-        return {"ok": False, "error": "No sim pool uploaded — add a SaberSim export in the Sim Data tab first.",
-                "duration_s": 0.0, "cost_usd": None}
-    pool = sim_data.load_sim_pool(str(pool_p))
-    if pool.get("n", 0) == 0:
-        return {"ok": False, "error": "Couldn't parse the sim pool CSV.",
-                "duration_s": 0.0, "cost_usd": None}
-
-    dkmap_p = sim_sessions.dkmap_path(slug)
-    uploaded_map = dk_ids.parse_id_to_name(str(dkmap_p)) if dkmap_p else None
-    id_to_name = dk_ids.resolve_id_to_name(slug, uploaded_map)
-    proj = player_pool.build_pool(_sess.load_sources(slug))
-    exp = sim_data.player_exposure(pool, id_to_name, proj if not proj.empty else None)
-    gb = sim_data.good_bad_plays(exp)
-    combos = sim_data.chalky_combinations(pool, id_to_name)
-
-    out_path = _REPO_ROOT / "data" / "sim_analysis" / f"{slug}.md"
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    tables = (
-        f"SIM CORE (highest exposure):\n{_sim_table(gb.get('good'), ['player','sim_exposure_pct','field_own_pct','avg_saber'])}\n\n"
-        f"SIM FADES (lowest exposure):\n{_sim_table(gb.get('bad'), ['player','sim_exposure_pct','field_own_pct'])}\n\n"
-        f"LEVERAGE (sim >> field own):\n{_sim_table(gb.get('leverage'), ['player','sim_exposure_pct','field_own_pct','edge'])}\n\n"
-        f"TRAPS (field own >> sim):\n{_sim_table(gb.get('trap'), ['player','sim_exposure_pct','field_own_pct','edge'])}\n\n"
-        f"CHALKY COMBINATIONS (joint exposure across {pool['n']} sim lineups):\n{_sim_table(combos, ['size','combo','joint_exposure_pct'])}\n"
-    )
-    prompt = (
-        f"Write a concise GPP read of what SaberSim says for the {contest_label} slate, to "
-        f"`{out_path}`. The deterministic sim tables are below (computed from {pool['n']} sim "
-        f"lineups). Also read the written slate strategy at `data/slate_analysis/{slug}.md` if it "
-        f"exists, to compare the sim's read against the strategy.\n\n"
-        f"{tables}\n"
-        f"Write these sections:\n"
-        f"1. `## Sim core` — the plays SaberSim is heaviest on (name each + its sim exposure; note "
-        f"where field ownership is much lower = the sim likes a play the field sleeps on).\n"
-        f"2. `## Sim fades` — notable players the sim avoids (low/zero exposure), especially any the "
-        f"field is high on (trap chalk).\n"
-        f"3. `## Leverage the sim sees` — the biggest sim-exposure-over-field-ownership edges.\n"
-        f"4. `## Chalky combinations to be aware of` — the most over-represented player pairs/trios "
-        f"in the sim pool; frame them as DUPLICATION RISK to fade or differentiate from, never as "
-        f"combos to play together.\n"
-        f"5. `## Sim vs the strategy` — one short paragraph: where the sim agrees/disagrees with the "
-        f"slate strategy, and what that disagreement implies.\n\n"
-        f"HARD RULE — NEVER BUILD LINEUPS: name INDIVIDUAL plays and player combinations only. Do "
-        f"NOT assemble, suggest, rank, or imply any full lineup/roster — this is sim analytics the "
-        f"user hand-builds from, not a builder. Do not ask any questions — produce the file."
-    )
-    return _run_claude(prompt, out_path)
-
-
 def run_ledger_review(slug: str) -> dict:
     """Lesson-ledger hygiene review: turn the deterministic flags (stale, near-/
     overdue-promotion, merge candidates) into reasoned PROPOSALS at

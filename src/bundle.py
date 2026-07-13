@@ -77,8 +77,7 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
     if contests:
         try:
             from src import field_tendencies
-            block = field_tendencies.bundle_block(
-                slug, [c.get("type") for c in contests])
+            block = field_tendencies.bundle_block(slug, contests)
             if block:
                 L += ["", block]
         except Exception:  # noqa: BLE001 — never block the bundle

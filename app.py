@@ -27,11 +27,11 @@ from src.contest_templates import load_templates, save_template, remove_template
 from src.bundle import clear_bundle
 from src.analysis_runner import (
     run_analysis, run_autopsy_review, run_apply_proposals, run_player_pool,
-    run_ledger_review, run_apply_ledger_proposals, run_sim_review,
+    run_ledger_review, run_apply_ledger_proposals,
 )
 from src import (
-    history, sessions, landscape, player_pool, contest_selection, ledger_hygiene,
-    sim_data, sim_sessions, dk_ids, metrics_registry, metric_tracker,
+    history, sessions, landscape, player_pool, ledger_hygiene,
+    sim_sessions,
 )
 from datetime import datetime as _dt
 from src.projections import load_projections, warn_missing_for_sport
@@ -84,30 +84,6 @@ def cached_sources(slug: str) -> dict:
     """sessions.load_sources, cached on the session file's mtime (self-invalidating
     when a source is saved/dropped/cleared, since those rewrite or delete the file)."""
     return _cached_sources(slug, _file_mtime(REPO_ROOT / "data" / "sessions" / f"{slug}.json"))
-
-
-@st.cache_data(show_spinner=False)
-def _cached_sim_analytics(slug: str, pool_mtime: float, dkmap_mtime: float, src_mtime: float) -> dict:
-    """Load the persisted 5,000-lineup sim pool and compute every exposure/combo ONCE,
-    cached on the underlying file mtimes. Without this the whole crunch reran on every
-    interaction of every tab (Streamlit executes all tabs' bodies on each rerun).
-    The mtime args must NOT be underscore-prefixed — st.cache_data drops those from
-    the cache key, which would make the cache never invalidate on a new upload."""
-    pool = sim_data.load_sim_pool(str(sim_sessions.pool_path(slug)))
-    if pool.get("n", 0) == 0:
-        return {"pool": pool}
-    dkmap_path = sim_sessions.dkmap_path(slug)
-    uploaded_map = dk_ids.parse_id_to_name(str(dkmap_path)) if dkmap_path else None
-    id_to_name = dk_ids.resolve_id_to_name(slug, uploaded_map)
-    proj = player_pool.build_pool(sessions.load_sources(slug))
-    exp = sim_data.player_exposure(pool, id_to_name, proj if not proj.empty else None)
-    return {
-        "pool": pool,
-        "id_to_name": id_to_name,
-        "exp": exp,
-        "gb": sim_data.good_bad_plays(exp),
-        "combos": sim_data.chalky_combinations(pool, id_to_name),
-    }
 
 
 @st.cache_data(show_spinner=False)
@@ -213,11 +189,10 @@ with st.sidebar:
     _n_src = len(cached_sources(slug))
     _n_contests = len(load_contests(slug))
     _has_strategy = bool(load_persisted(slug))
-    _has_pool = sim_sessions.pool_path(slug) is not None
     st.markdown("**Slate readiness**")
     st.caption(
         f"Articles: {_n_articles}  ·  Projections: {_n_src}  ·  Contests: {_n_contests}\n\n"
-        f"Strategy: {'✅' if _has_strategy else '—'}  ·  Sim pool: {'✅' if _has_pool else '—'}"
+        f"Strategy: {'✅' if _has_strategy else '—'}"
     )
 
     st.divider()
@@ -245,8 +220,8 @@ with st.sidebar:
 
 
 # ---------- Tabs ---------- #
-tab_proj, tab_slate, tab_strategy, tab_sim, tab_autopsy, tab_postsim, tab_trends = st.tabs(
-    ["Projections", "Slate Data", "Slate Strategy", "Sim Data", "Autopsy", "Post-Contest Sim Data", "Trends"]
+tab_proj, tab_slate, tab_strategy, tab_autopsy = st.tabs(
+    ["Projections", "Slate Data", "Slate Strategy", "Autopsy"]
 )
 
 
@@ -485,8 +460,8 @@ with tab_strategy:
     contests_list = load_contests(slug)
     with st.expander("Contests", expanded=not contests_list):
         st.caption(
-            "Declare which contests you're entering. Field size frames how contrarian "
-            "the read should be."
+            "Declare the contests you're entering — the autopsy tracks how each one's "
+            "field plays over time, and that history feeds back into the strategy."
         )
         if contests_list:
             csum = portfolio_summary(slug)
@@ -866,19 +841,35 @@ with tab_autopsy:
                                 f"{_wp.get('dart_pct')}% carried a dart · "
                                 f"fish {_fpz.get('avg_own_per_slot')}% own/slot, {_fpz.get('dart_pct')}% darts."
                             )
-                        # Forward-looking: what THIS contest type reliably crowds.
-                        _ct_guess = None
+                        # Forward-looking: how the field has historically played
+                        # THIS contest — prefer the specific recurring contest
+                        # (by name), fall back to its entry-cap type.
+                        _c_match = None
                         for _c in load_contests(slug):
                             _fs = _c.get("field_size") or 0
                             if _fs and abs(_fs - len(lineups)) / _fs <= 0.10:
-                                _ct_guess = _c.get("type"); break
+                                _c_match = _c; break
                         from src import field_tendencies as _ft
-                        _hist = _ft.summarize(slug, _ct_guess)
+                        _hist = _ft.summarize_contest(slug, _c_match["name"]) if _c_match else None
+                        _scope = f"**{_c_match['name']}**" if (_hist and _c_match) else None
+                        if not _hist and _c_match:
+                            _hist = _ft.summarize(slug, _c_match.get("type"))
+                            _scope = f"**{_c_match.get('type')}** contests"
                         if _hist:
                             _rc = ", ".join(f"{d['name']} ({d['in_n']}/{d['of']})"
                                             for d in _hist["reliably_crowded"][:6])
-                            st.info(f"📁 Across {_hist['n_contests']} past **{_ct_guess}** contests, "
+                            _msg = (f"📁 Across {_hist['n_contests']} past logs of {_scope}, "
                                     f"the field reliably crowds: {_rc or '—'}")
+                            _opp = _hist.get("recurring_opponents") or []
+                            if _opp:
+                                _msg += ("  ·  recurring opponents: "
+                                         + ", ".join(f"{o['handle']} ({o['in_n']}/{o['of']})"
+                                                     for o in _opp[:6]))
+                            _tr = _hist.get("winners_own_trend")
+                            if _tr is not None and abs(_tr) >= 1.0:
+                                _msg += (f"  ·  winners trending "
+                                         f"{'chalkier' if _tr > 0 else 'sharper'} ({_tr:+} own/slot)")
+                            st.info(_msg)
 
                 notes = st.text_area(
                     "Lessons / patterns to log (appended to autopsies.md)",
@@ -934,6 +925,7 @@ with tab_autopsy:
                 "analysis": analysis,
                 "field_profile": _field_cached,
                 "contest_type": contest_type,
+                "contest_name": picked_name if picked else None,
                 "notes": notes,
                 "roi": {
                     "name": picked_name if picked else dk_csv.name,
@@ -981,12 +973,14 @@ with tab_autopsy:
                             notes=notes,
                             field_profile=pc.get("field_profile"),
                         )
-                        # Accumulate the field tendencies for this contest type
-                        # (append-only, cumulative — the "moving forward" substrate).
+                        # Accumulate the field tendencies for this contest — keyed
+                        # by the specific contest name (sharpest) with contest-type
+                        # fallback. Append-only "moving forward" substrate.
                         try:
                             from src import field_tendencies as _ft
                             _ft.record(slug, pc.get("contest_type"), len(lineups),
-                                       pc.get("field_profile") or {}, ts)
+                                       pc.get("field_profile") or {}, ts,
+                                       contest_name=pc.get("contest_name"))
                         except Exception:  # noqa: BLE001 — never blocks the log
                             pass
                         fmd.write(f"\n\n## {ts} — {contest_label} ({pc['name']})\n")
@@ -1035,23 +1029,38 @@ with tab_autopsy:
                     proj_source=proj_source,
                     shark_gap=sgap,
                 )
-                # Clear all per-slate state — next slate starts fresh
-                clear_persisted(slug)
-                player_pool.clear_pool(slug)
-                clear_contests(slug)
-                clear_bundle(slug)
-                clear_articles(slug)
-                sessions.clear(slug)
-                sim_sessions.clear(slug)
-                from src.strategy_contract import clear_contract
-                clear_contract(slug)
-                st.success(
-                    f"Logged {len(parsed_contests)} contest(s) to rules/{slug}/autopsies.md "
-                    "+ autopsy_data.jsonl, and archived the slate to "
-                    f"`{hist_dir.relative_to(REPO_ROOT)}`. Cleared the slate strategy, "
-                    "contests, slate data files, projections, and bundle for next time. Now run the "
-                    "post-autopsy review below."
-                )
+                # Logging + archive are done. Do NOT auto-clear — set a PERSISTENT
+                # completion flag and let the user clear the slate deliberately
+                # (so they get a lasting confirmation and can run the review first).
+                st.session_state[f"autopsy_done_{slug}"] = {
+                    "n": len(parsed_contests),
+                    "hist_dir": str(hist_dir.relative_to(REPO_ROOT)),
+                }
+                st.rerun()
+
+    # ----- Completion signal + user-controlled clear ----- #
+    _done = st.session_state.get(f"autopsy_done_{slug}")
+    if _done:
+        st.divider()
+        st.success(
+            f"✅ **Autopsy logged & archived** — {_done['n']} contest(s) saved to "
+            f"`rules/{slug}/autopsies.md` + `autopsy_data.jsonl`, archived to "
+            f"`{_done['hist_dir']}`. **Your data is safe.** Run the post-autopsy review below if "
+            "you want, then clear the slate when you're ready to start fresh."
+        )
+        if st.button("🧹 Clear slate data (start the next slate fresh)", key=f"clear_after_log_{slug}"):
+            clear_persisted(slug)
+            player_pool.clear_pool(slug)
+            clear_contests(slug)
+            clear_bundle(slug)
+            clear_articles(slug)
+            sessions.clear(slug)
+            sim_sessions.clear(slug)
+            from src.strategy_contract import clear_contract
+            clear_contract(slug)
+            del st.session_state[f"autopsy_done_{slug}"]
+            st.success("Slate data cleared — ready for the next slate.")
+            st.rerun()
 
     # ----- Post-autopsy review (the learning loop) ----- #
     latest_hist = history.latest_history_dir(slug)
@@ -1186,251 +1195,3 @@ with tab_autopsy:
             st.markdown("".join(_ordered))
         else:
             st.info("No autopsies logged yet for this contest type.")
-
-
-# ===== Tab: Trends — contest-selection analytics (cross-sport) =====
-with tab_trends:
-    st.subheader("Trends — where you win")
-    st.caption(
-        "Cross-sport, from every logged slate's results ledger. **Best-percentile is the "
-        "scoreboard** (lower = better; 1 = top of the field) — ROI lives in your third-party "
-        "tracker, so it shows only as a coverage count. Use this to decide which contest shapes "
-        "to put bullets in."
-    )
-    _rows = contest_selection.load_contest_rows()
-    if _rows.empty:
-        st.info("No logged contests yet — log a few autopsies and this fills in.")
-    else:
-        _ww = contest_selection.where_you_win(_rows, min_n=3)
-        if _ww:
-            st.metric(
-                "Best contest shape (median %ile, n≥3)",
-                f"{_ww['type']} · {_ww['field_bucket']}",
-                f"median {_ww['median_pctile']}%ile over {_ww['contests']} contests",
-                delta_color="off",
-            )
-        else:
-            st.caption("_Not enough contests in any one (type × field-size) bucket yet for a headline call (need ≥3)._")
-
-        st.markdown("**By contest type**")
-        st.dataframe(contest_selection.by_type(_rows), use_container_width=True, hide_index=True)
-
-        st.markdown("**By field-size bucket**")
-        st.dataframe(contest_selection.by_field_bucket(_rows), use_container_width=True, hide_index=True)
-
-        st.caption(f"{len(_rows)} contests across {_rows['slate_label'].nunique()} slates · "
-                   f"{_rows['sport'].nunique()} sports.")
-
-
-# ===== Tab: Sim Data — SaberSim analytics (analytics ONLY, never lineups) =====
-with tab_sim:
-    st.subheader(f"Sim Data — {contest_label}")
-    st.caption(
-        "Upload a **SaberSim lineup-pool export** to see what the sim likes, fades, and piles "
-        "into. **Analytics only — this never builds or picks lineups.** Combinations are shown "
-        "as duplication/leverage signal to be aware of, not lineups to play."
-    )
-
-    up = st.file_uploader("SaberSim lineup-pool CSV", type=["csv"], key=f"simpool_{slug}")
-    if up is not None:
-        sim_sessions.save_pool(slug, up)
-        st.success(f"Saved sim pool ({up.name}).")
-
-    dk_up = st.file_uploader(
-        "DK Name + ID file (optional — only needed if your projections lack DK IDs)",
-        type=["csv"], key=f"simdkmap_{slug}",
-    )
-    if dk_up is not None:
-        sim_sessions.save_dkmap(slug, dk_up)
-        st.success(f"Saved DK Name+ID map ({dk_up.name}).")
-
-    pool_path = sim_sessions.pool_path(slug)
-    if pool_path is None:
-        st.info("No sim pool loaded yet — upload a SaberSim export above.")
-    else:
-        _sim = _cached_sim_analytics(
-            slug,
-            _file_mtime(pool_path),
-            _file_mtime(sim_sessions.dkmap_path(slug)),
-            _file_mtime(REPO_ROOT / "data" / "sessions" / f"{slug}.json"),
-        )
-        pool = _sim["pool"]
-        if pool.get("n", 0) == 0:
-            st.error("Couldn't parse that file as a SaberSim lineup pool. Check the export format.")
-        else:
-            id_to_name = _sim["id_to_name"]
-            exp = _sim["exp"]
-
-            resolved = exp["player"].apply(lambda p: not str(p).isdigit()).sum() if not exp.empty else 0
-            st.caption(
-                f"{pool['n']:,} sim lineups · {len(pool['roster_slots'])} roster slots · "
-                f"{len(exp)} players ({resolved} name-resolved). "
-                + ("" if id_to_name else "No DK IDs found — upload a DK Name+ID file to show names.")
-            )
-
-            gb = _sim["gb"]
-            has_field = "field_own_pct" in exp.columns and exp["field_own_pct"].notna().any()
-
-            st.markdown("**Player exposure** — how often the sim rosters each player")
-            _cols = [c for c in ["player", "sim_exposure_pct", "field_own_pct", "avg_saber", "lineups"]
-                     if c in exp.columns]
-            st.dataframe(exp[_cols], use_container_width=True, hide_index=True)
-
-            _gb_cols = ["player", "field_own_pct", "proj_points", "ceiling",
-                        "value", "leverage", "sim_exposure_pct"]
-            c1, c2 = st.columns(2)
-            with c1:
-                st.markdown("**✅ Good plays — underowned value**")
-                st.caption("Strong projected upside the field is under-owning (leverage = upside pct − own pct).")
-                st.dataframe(gb["good"][[c for c in _gb_cols if c in gb["good"].columns]],
-                             use_container_width=True, hide_index=True)
-            with c2:
-                st.markdown("**🚫 Bad plays — overowned chalk**")
-                st.caption("Owned more than the projected upside earns — chalk to fade.")
-                st.dataframe(gb["bad"][[c for c in _gb_cols if c in gb["bad"].columns]],
-                             use_container_width=True, hide_index=True)
-
-            if has_field:
-                c3, c4 = st.columns(2)
-                with c3:
-                    st.markdown("**📈 Leverage — sim ≫ field own**")
-                    st.dataframe(gb["leverage"], use_container_width=True, hide_index=True)
-                with c4:
-                    st.markdown("**🪤 Traps — field own ≫ sim**")
-                    st.dataframe(gb["trap"], use_container_width=True, hide_index=True)
-            else:
-                st.caption("_Load projections in the Projections tab to unlock the leverage/trap "
-                           "view (sim exposure vs field ownership)._")
-
-            st.markdown("**Chalky combinations** — most over-represented player groups (duplication risk to fade)")
-            st.dataframe(_sim["combos"], use_container_width=True, hide_index=True)
-
-            st.divider()
-            st.markdown("### Sim summary (Claude)")
-            st.caption("A written read of the sim — core, fades, leverage, chalky combos — vs the slate strategy.")
-            sim_md_path = sim_sessions.analysis_path(slug)
-            sbtn = "🔄 Re-run sim summary" if sim_md_path.exists() else "🧪 Write sim summary"
-            if st.button(sbtn, key=f"sim_review_{slug}"):
-                with st.spinner("Reading the sim pool + strategy and writing the summary…"):
-                    sres = run_sim_review(slug, contest_label, sport)
-                if sres["ok"]:
-                    cost = sres.get("cost_usd")
-                    cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
-                    st.success(f"Sim summary written in {sres['duration_s']:.0f}s{cost_note}.")
-                    st.rerun()
-                else:
-                    st.error(f"Couldn't write the sim summary: {sres['error']}")
-            if sim_md_path.exists():
-                with st.container(border=True):
-                    st.markdown(sim_md_path.read_text())
-
-
-# ===== Tab: Post-Contest Sim Data — custom-metric definition + grading (analytics ONLY) =====
-with tab_postsim:
-    st.subheader(f"Post-Contest Sim Data — {contest_label}")
-    st.caption(
-        "Your SaberSim custom metric and how it grades out after the race. "
-        "Analytics only — this never builds or picks lineups."
-    )
-
-    # ----- Custom metric — definition -----
-    reg_metrics = metrics_registry.list_metrics(slug)
-    if reg_metrics:
-        st.markdown("### Custom metric — definition")
-        for m in reg_metrics:
-            st.markdown(f"**{m.get('name', m.get('id'))}**")
-            st.caption(
-                f"v{m.get('version')} · {m.get('status')} · export column "
-                f"`{m.get('export_column')}` · {m.get('transform')}, "
-                f"{m.get('aggregation')} across 6 drivers"
-            )
-            variables = m.get("variables", []) or []
-            if variables:
-                vdf = pd.DataFrame(
-                    [{"Variable": v.get("stat"), "Weight": v.get("weight")} for v in variables]
-                )
-                st.dataframe(vdf, use_container_width=True, hide_index=True)
-            if m.get("rationale"):
-                st.markdown(m["rationale"])
-            guardrails = m.get("guardrails", []) or []
-            if guardrails:
-                with st.expander("Guardrails"):
-                    st.markdown("\n".join(f"- {g.strip()}" for g in guardrails))
-            changelog = m.get("changelog", []) or []
-            if changelog:
-                with st.expander("Changelog"):
-                    cdf = pd.DataFrame(
-                        [{"v": c.get("version"), "date": c.get("date"),
-                          "change": c.get("change"), "reason": c.get("reason")}
-                         for c in changelog]
-                    )
-                    st.dataframe(cdf, use_container_width=True, hide_index=True)
-
-    # ----- Grade a custom metric (post-race) -----
-    st.divider()
-    st.markdown("### Grade a custom metric (post-race)")
-    st.caption(
-        "Upload a POST-race SaberSim export (your custom-metric column + a populated `Actual` "
-        "column) to measure how the metric correlated with actual scoring, and log it to the "
-        "performance ledger. Analytics only — no lineups built."
-    )
-    if not reg_metrics:
-        st.info(f"No custom metric recorded for {contest_label} yet (rules/{slug}/metrics.yaml).")
-    else:
-        grade_up = st.file_uploader("Post-race SaberSim export (CSV)", type=["csv"], key=f"grade_{slug}")
-        if grade_up is not None:
-            gpool = sim_data.load_sim_pool(grade_up)
-            glu = gpool.get("lineups")
-            if glu is None or gpool.get("n", 0) == 0:
-                st.error("Couldn't parse that file as a SaberSim lineup export.")
-            else:
-                names = [m.get("name", m.get("id")) for m in reg_metrics]
-                pick = st.selectbox("Which metric is this?", names, key=f"gradepick_{slug}")
-                metric = reg_metrics[names.index(pick)]
-                num_cols = [c for c in glu.columns if c != "__ids"]
-                dcol = metric.get("export_column")
-                didx = num_cols.index(dcol) if dcol in num_cols else 0
-                metric_col = st.selectbox("Metric column in the export", num_cols, index=didx, key=f"gradecol_{slug}")
-                if not metric_tracker.actual_is_populated(glu):
-                    st.warning("⚠️ The `Actual` column is empty/all-zero — this is a PRE-race export. "
-                               "Re-export after the race so Actual is filled, then grade.")
-                else:
-                    g = metric_tracker.grade_metric(glu, metric_col)
-                    if g is None:
-                        st.error("Couldn't grade — check the metric column has numeric values.")
-                    else:
-                        verdict = ("positive" if g["spearman"] > 0.1 else
-                                   "flat/none" if g["spearman"] > -0.1 else "ANTI-informative")
-                        st.metric(f"Spearman(metric → actual)  ·  n={g['n']:,}", f"{g['spearman']:+.3f}", verdict, delta_color="off")
-                        st.caption(
-                            f"Pearson {g['pearson']:+.3f}  ·  decile lift **+{g['decile_lift']}** "
-                            f"(top decile {g['top_decile_avg']} vs bottom {g['bottom_decile_avg']}, pool {g['pool_mean']})  ·  "
-                            f"best lineup {g['best_actual']} sat at the {g['best_metric_pctile']:.0f}th pct by metric "
-                            f"— the metric raises the average, it doesn't crown the nuke."
-                        )
-                        slate_lbl = st.text_input("Slate label (for the ledger)", key=f"gradelbl_{slug}")
-                        contest_id = st.text_input("Contest id (optional)", key=f"gradecid_{slug}")
-                        dup = bool(contest_id) and metric_tracker.already_logged(slug, metric["id"], contest_id)
-                        if dup:
-                            st.info("This metric + contest is already in the ledger — it won't double-log.")
-                        if st.button("📌 Log to performance ledger", key=f"gradelog_{slug}",
-                                     disabled=dup or not slate_lbl):
-                            row = {"metric_id": metric["id"], "version": metric.get("version"),
-                                   "date": _dt.now().strftime("%Y-%m-%d"), "slate": slate_lbl,
-                                   "contest": contest_id or None, "metric_col": metric_col,
-                                   "status": metric.get("status"), **g}
-                            metric_tracker.log_performance(slug, row)
-                            st.success(f"Logged {pick} performance for {slate_lbl}.")
-                            st.rerun()
-
-        # ----- Metric performance trend -----
-        rows = metric_tracker.load_performance(slug)
-        if rows:
-            st.markdown("#### Metric performance over time")
-            trend = pd.DataFrame([{
-                "date": r.get("date"), "slate": r.get("slate"), "metric": r.get("metric_id"),
-                "n": r.get("n"), "spearman": r.get("spearman"),
-                "decile_lift": r.get("decile_lift"), "status": r.get("status"),
-            } for r in rows])
-            st.dataframe(trend, use_container_width=True, hide_index=True)
-            st.caption("Promotion out of `testing` is a human call once several slates trend positive.")

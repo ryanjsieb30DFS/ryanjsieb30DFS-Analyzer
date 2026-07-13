@@ -143,6 +143,27 @@ def field_profile(parsed: dict, sport: str, contest_type: str | None = None,
             read.append(f"Fish ran {d} pts/slot more chalk than winners "
                         f"({fish_profile['avg_own_per_slot']}% vs {winners_profile['avg_own_per_slot']}%).")
 
+    # ---- Recurring opponents: the handles that finished HIGH in THIS contest
+    # (the players you're actually up against), best rank per handle. Accumulated
+    # per contest by field_tendencies to surface who recurs week to week.
+    def _handle(entry_name) -> str:
+        return str(entry_name).split("(")[0].strip()
+
+    top_opponents, _seen_h = [], set()
+    for _, orow in ranked.iterrows():
+        h = _handle(orow["EntryName"])
+        hn = h.casefold()
+        if not h or hn in _seen_h:
+            continue
+        _seen_h.add(hn)
+        top_opponents.append({
+            "handle": h,
+            "best_rank": int(orow["Rank"]),
+            "percentile": round(100.0 * int(orow["Rank"]) / field_size, 1),
+        })
+        if len(top_opponents) >= 15:
+            break
+
     return {
         "gradable": True,
         "field_size": field_size,
@@ -153,5 +174,6 @@ def field_profile(parsed: dict, sport: str, contest_type: str | None = None,
         "winners_profile": winners_profile,
         "fish_profile": fish_profile,
         "fish_traps": fish_traps,
+        "top_opponents": top_opponents,
         "read": read,
     }
