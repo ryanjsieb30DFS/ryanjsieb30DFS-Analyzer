@@ -14,14 +14,19 @@ from pathlib import Path
 _CONTESTS_DIR = Path(__file__).parent.parent / "data" / "contests"
 
 
-# Controlled vocabulary: DK entry-cap types
+# Controlled vocabulary: DK entry-cap types. The Analyzer is focused on
+# small-field GPPs — Single Entry, 3-Max, and 5-Max only. Everything downstream
+# (slate strategy, sharp envelope, field analysis) optimizes for this set; the
+# 150-max MME game is a different animal and is intentionally out of scope.
 CONTEST_TYPES = {
-    "SE":      {"default_max_entries": 1},
-    "3-Max":   {"default_max_entries": 3},
-    "5-Max":   {"default_max_entries": 5},
-    "20-Max":  {"default_max_entries": 20},
-    "150-Max": {"default_max_entries": 150},
+    "SE":     {"default_max_entries": 1},
+    "3-Max":  {"default_max_entries": 3},
+    "5-Max":  {"default_max_entries": 5},
 }
+
+# The focus set (also the keys above) — imported where downstream code must
+# gate on "is this an in-scope small-field contest".
+FOCUS_CONTEST_TYPES = frozenset(CONTEST_TYPES)
 
 
 def _path(slug: str) -> Path:

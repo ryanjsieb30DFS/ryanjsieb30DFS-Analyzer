@@ -82,3 +82,40 @@ def summarize(slug: str, contest_type: str | None) -> dict | None:
         "recurring_traps": [{"name": nm, "in_n": c, "of": n}
                             for nm, c in trap_ct.most_common(8) if c >= 2],
     }
+
+
+def bundle_block(slug: str, contest_types) -> str | None:
+    """Forward-feed block for the slate bundle: for each contest type the user is
+    entering this slate, roll up the field's RELIABLE tendencies from past contests
+    of that same type (≥2 needed). Returns a markdown block, or None when no type
+    has enough typed history. Pure synthesis — surfaces where the field crowds so
+    the user can leverage AWAY from it; issues no play/fade command."""
+    seen, blocks = set(), []
+    for ct in contest_types:
+        if not ct or ct in seen:
+            continue
+        seen.add(ct)
+        s = summarize(slug, ct)
+        if not s or (not s["reliably_crowded"] and not s["recurring_traps"]):
+            continue
+        n = s["n_contests"]
+        line = f"- **{ct}** (from your {n} past {ct} contests): "
+        parts = []
+        if s["reliably_crowded"]:
+            crowd = ", ".join(f"{c['name']} (in {c['in_n']} of {c['of']})"
+                              for c in s["reliably_crowded"])
+            parts.append(f"the field reliably crowds **{crowd}**")
+        if s["recurring_traps"]:
+            traps = ", ".join(f"{t['name']} (in {t['in_n']} of {t['of']})"
+                              for t in s["recurring_traps"])
+            parts.append(f"recurring fish-traps: **{traps}**")
+        blocks.append(line + "; ".join(parts) + ".")
+    if not blocks:
+        return None
+    return (
+        "## Field tendencies — your past contests, by type\n"
+        "FORWARD-LOOKING (accumulated from your logged autopsies of THIS contest type). "
+        "The field reliably piles into these — that is where leverage-AWAY lives. Surface "
+        "it as a tension; do NOT tell the user to fade anyone.\n"
+        + "\n".join(blocks)
+    )

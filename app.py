@@ -998,13 +998,19 @@ with tab_autopsy:
                             fmd.write(f"\n{notes.strip()}\n")
                         fjl.write(json.dumps(record) + "\n")
                         records.append(record)
-                # Structural shark-gap on the largest-field contest (where the
-                # sharks are most likely to be entered). Never blocks the log.
+                # Structural shark-gap on the largest SE/3-Max/5-Max contest — we
+                # benchmark against sharks' SMALL-FIELD play, never their 150-max
+                # MME dumps. Falls back to the biggest contest only for display
+                # (record_observation still refuses to accumulate a non-focus
+                # contest). Never blocks the log.
                 sgap = None
                 try:
                     from src import shark_gap as _shark_gap
-                    _biggest = max(parsed_contests, key=lambda pc: len(pc["lineups"]))
-                    sgap = _shark_gap.gap_for_slug(slug, _biggest["parsed"])
+                    from src.contests import FOCUS_CONTEST_TYPES
+                    _focus = [pc for pc in parsed_contests
+                              if pc.get("contest_type") in FOCUS_CONTEST_TYPES]
+                    _pick = max(_focus or parsed_contests, key=lambda pc: len(pc["lineups"]))
+                    sgap = _shark_gap.gap_for_slug(slug, _pick["parsed"])
                     # Accumulate the observed shark structure into the living
                     # envelope, then refresh the baseline the Sim tool reads.
                     if sgap and sgap.get("sharks_in_field"):
@@ -1012,6 +1018,7 @@ with tab_autopsy:
                         if _acc.record_observation(
                             sgap.get("sport"), sgap.get("sharks"), slug,
                             _dt.now().strftime("%Y-%m-%d"),
+                            contest_type=_pick.get("contest_type"),
                         ):
                             _acc.refresh_baseline()
                 except Exception:  # noqa: BLE001

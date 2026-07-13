@@ -64,11 +64,25 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
                 f"my entries {c.get('my_entries', '?')}/{c.get('max_entries', '?')}"
             )
         L.append(
-            "_Field size frames how contrarian the read should be — bigger field → "
-            "more ceiling/leverage; smaller field → tighter, higher-floor calls._"
+            "_This tool is focused on **small-field GPPs — Single Entry, 3-Max, and "
+            "5-Max**. Build for a tight all-unique set of 1/3/5 bullets: still "
+            "ceiling-and-leverage over median (GPP), but each of your few lineups is a "
+            "distinct thesis — no 150-max MME spray. Field size within this range tunes "
+            "the contrarian dial; it never flips you to a cash/floor game._"
         )
     else:
         L.append("_No contests declared._")
+
+    # --- Field tendencies (forward-feed: how the field plays THIS contest type) --- #
+    if contests:
+        try:
+            from src import field_tendencies
+            block = field_tendencies.bundle_block(
+                slug, [c.get("type") for c in contests])
+            if block:
+                L += ["", block]
+        except Exception:  # noqa: BLE001 — never block the bundle
+            pass
 
     # --- Slate data files (the primary input) --- #
     L += ["", "## Slate data files (read these — they are the primary input)"]
@@ -120,11 +134,11 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
         if not cands.empty:
             L += ["", "## Leverage candidates to address (sub-10% own, high ceiling)"]
             L.append(
-                "COVERAGE RULE: the slate strategy's `## Leverage & fades` or `## Decisions` "
-                "AND the player pool must explicitly PLAY or PASS **each** player below, each "
-                "with a one-line mechanism. Never silently omit one — a sub-10% high-ceiling "
-                "play left unaddressed is a coverage leak (the play that decides the slate "
-                "from nowhere). Individual plays only; build no lineups."
+                "COVERAGE RULE: the slate strategy's `## Leverage & fades` or `## Edges & tensions` "
+                "AND the player pool must ADDRESS **each** player below with a one-line synthesis "
+                "of their leverage/ceiling case (surface it — no play/fade command required). Never "
+                "silently omit one — a sub-10% high-ceiling play left unaddressed is a coverage leak "
+                "(the play that decides the slate from nowhere). Individual plays only; build no lineups."
             )
             for _, r in cands.iterrows():
                 own = f"{r['ownership']:.0f}%" if pd.notna(r.get("ownership")) else "n/a"

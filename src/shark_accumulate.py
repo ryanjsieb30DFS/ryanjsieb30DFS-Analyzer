@@ -21,6 +21,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from src.contests import FOCUS_CONTEST_TYPES
+
 _SHARED = Path(__file__).parent.parent / "rules" / "shared"
 _OBS_PATH = _SHARED / "shark_observations.jsonl"
 _BASELINE_PATH = _SHARED / "shark_baseline.json"
@@ -28,16 +30,27 @@ _BASELINE_PATH = _SHARED / "shark_baseline.json"
 FEATURES = ("own_per_slot", "leverage_pct", "anchor_exposure", "unique_pct")
 
 
-def record_observation(sport: str | None, shark_profile: dict, slug: str, date: str) -> bool:
+def _in_focus(contest_type: str | None) -> bool:
+    """Only SE/3-Max/5-Max feed the envelope — the Analyzer benchmarks against
+    sharks' SMALL-FIELD play, never their 150-max MME dumps (a different game)."""
+    return contest_type in FOCUS_CONTEST_TYPES
+
+
+def record_observation(sport: str | None, shark_profile: dict, slug: str, date: str,
+                       contest_type: str | None = None) -> bool:
     """Append one contest's in-field SHARK structural profile. Returns True if
-    recorded. Skips when sport is unknown, sharks weren't gradable, or any of the
-    4 envelope features is missing (an incomplete row would bias the blend)."""
+    recorded. Skips when sport is unknown, sharks weren't gradable, any of the 4
+    envelope features is missing (an incomplete row would bias the blend), or the
+    contest is NOT an in-focus SE/3-Max/5-Max small-field GPP."""
     if not sport or not shark_profile or not shark_profile.get("gradable"):
+        return False
+    if not _in_focus(contest_type):
         return False
     row = {f: shark_profile.get(f) for f in FEATURES}
     if any(row[f] is None for f in FEATURES):
         return False
     row.update({"date": date, "slug": slug, "sport": sport,
+                "contest_type": contest_type,
                 "n_entries": shark_profile.get("n_entries")})
     _OBS_PATH.parent.mkdir(parents=True, exist_ok=True)
     with _OBS_PATH.open("a") as f:
@@ -67,7 +80,10 @@ def refresh_baseline() -> dict:
         return {}
     base = json.loads(_BASELINE_PATH.read_text())
     sports = base.get("sports", {})
-    obs = _load_observations()
+    # Only SE/3-Max/5-Max observations feed the blend. Legacy rows written before
+    # contest_type was tagged are excluded (contest_type absent → not in focus),
+    # so an old 20-max MME row can never pollute the small-field envelope.
+    obs = [o for o in _load_observations() if _in_focus(o.get("contest_type"))]
     by_sport: dict[str, list[dict]] = {}
     for o in obs:
         by_sport.setdefault(o.get("sport"), []).append(o)
