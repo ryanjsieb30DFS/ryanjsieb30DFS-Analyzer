@@ -1,0 +1,25 @@
+{
+  "slug": "nascar",
+  "sport": "nascar",
+  "contest_label": "NASCAR",
+  "date": "2026-07-12",
+  "slate_label": "eero 400 at Chicagoland Speedway 7/5/2026",
+  "archived_at": "2026-07-12 11:48",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "strategy_contract.json",
+    "sim_analysis.md",
+    "sim_pool.csv"
+  ],
+  "missing": [
+    "contests.json"
+  ],
+  "article_files": [
+    "articles/nascar/2026-07-05__DDD 7.5.26.pdf",
+    "articles/nascar/2026-07-05__DFR Image 1 7.5.26.pdf",
+    "articles/nascar/2026-07-05__DFR Image 2 7.5.26.pdf"
+  ],
+  "proj_source": null
+}

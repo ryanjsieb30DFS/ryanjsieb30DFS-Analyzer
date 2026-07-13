@@ -107,6 +107,8 @@ Cross-lineup checks:
 - [ ] **Thesis-count check (Watkins Glen lesson):** Count the *theses* behind overweights, not the drivers. If 3+ overweights all bet on the same outcome (e.g. "Toyota wins" or "front-runners get caught in stage games"), that is ONE bet, not three. Reduce exposure on at least one driver to break the correlated stack.
 - [ ] **Must-advance concentration check (Dover lesson):** In format-driven slates with stage cuts, count drivers per lineup who must advance to score. 3+ must-advance per lineup is acceptable for MME variance but never for single entry.
 
+> **Carry a low-owned leverage dart in MME.** Across a 10+ -bullet NASCAR MME portfolio, at least one lineup must carry a genuinely low-owned leverage driver with real upside (a mid-pack flex or PD sleeper, not chalk relief). Threshold: **sub-10% own, tightening to sub-5% at high-chaos tracks** (Herbst 4% was in the #1 Chicagoland lineup; Byron 10-13% / Briscoe 6-10% / Gilliland 6% were the broader paying leverage). Scope: MME only — a sub-10% punt with a Dustin "MME or fade" tag is not a single-entry leverage play. Track every slate via `src/shark_gap.py` leverage_pct delta; the account's standing gap (-16.7 at Chicagoland) is the single biggest fixable NASCAR leak.
+
 ## Iteration Discipline (Watkins Glen lesson — updated 5/17/26)
 
 When using an optimizer to build a portfolio, the temptation is to keep iterating. Iteration is allowed, but it must be principled.
@@ -160,7 +162,7 @@ Ask before locking:
 
 ### Mandatory enforced checks (added post-Charlotte 600 — 4-slate Anchor-Equivalence confirmation)
 
-8. **Anchor-Equivalence:** For every chalk-tier (≥20% projected own) dominator candidate, identify the equivalent-profile alternative (within ±10% own, similar salary tier). **At least one lineup MUST run the alternative.** No exceptions — this has cost 4 consecutive slates across 2 sports.
+8. **Anchor-Equivalence:** For every chalk-tier (≥20% projected own) dominator candidate, identify the equivalent-profile alternative (within ±10% own, similar salary tier). **At least one lineup MUST run the alternative.** No exceptions — this has cost 4 consecutive slates across 2 sports — run the equivalent alternative in ≥1 lineup as *coverage*; do not hedge the dom coin flip to parity. Keep the modal dominator as anchor; size the alternative for leverage (1-2 lineups).
 9. **Sleeper-spike floor:** At least 2 of N lineups MUST contain a sub-15% own / sub-$6K driver projected for ≥15 SP (place differential). Charlotte 600 had 10 such plays score 23+ FPTS; zero coverage was a structural floor violation.
 10. **Chalky-Combos-to-Avoid scrub:** Open the Lineups tab → Sim-Rank Exposure section → Chalky-Combos-to-Avoid expander. Any 2-player combo appearing in **2+ of your selected lineups** must be dropped from at least one of them. The Hocevar+Chastain combo at Charlotte ran in 3 of 5 entered lineups; both were 0/50 in winners.
 11. **Sim ROI rank is informational, not a selector:** Verify lineup picks have lift > 1.5 on chalk-tier players (Exposure-tab lift column). If selecting by Sim ROI rank alone, you are using a metric that was Spearman −0.054 vs actual on Charlotte. Use lift + chalky-combos as primary selectors.
@@ -197,3 +199,5 @@ This is non-optional. The compounding edge comes from the autopsy database.
 - **Autopsy patterns require mechanism check before re-application** (Dover lesson — Texas pattern didn't transfer to concrete)
 - **Format-driven slates (All-Star, eliminations, inversions) break normal scoring assumptions** — Step 1 track profile must explicitly map format overlays before tiering
 - **Two same-thesis PD plays → independent shots, roster both** (Texas/Pocono/Sonoma: paired deep/mid PD plays hit together; one does not cover the other). *Distinct from the correlated-leverage rule, which is about 3+ overweights on ONE outcome — here the plays resolve on independent point distributions.*
+
+> **Mid-pack PD is the leverage meat (intermediates + PD tracks).** When venue history shows the P11-30 band supplies the bulk of optimal spots (~55% at Chicagoland/Pocono-type tracks), source place-differential from the 11-30 mid-pack band — the field habitually piles into deep-back chalk PD, leaving the mid-pack under-owned. **Do NOT read this as "fade the deep-back chalk"**: deep-back chalk can ALSO pay (Heim P28 55.1 Chicagoland; Keselowski P35 Sonoma) — ADD mid-pack PD, don't substitute it for the deep-back band. The deep-back *fade* is reserved for drivers the FIELD is also low on (see `roadcourse-deepback-revives-on-strategy`).

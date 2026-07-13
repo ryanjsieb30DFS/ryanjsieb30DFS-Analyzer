@@ -1,0 +1,67 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 13,
+    "leverage_capture": 0.0,
+    "leverage_hit": [],
+    "leverage_missed": [
+      "William Byron",
+      "Bubba Wallace",
+      "Chase Briscoe"
+    ],
+    "overperformer_capture": null,
+    "overperformer_hit": [],
+    "underperformer_exposure": null,
+    "underperformer_hit": []
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 5,
+    "avg_ratio": null,
+    "best_percentile": 27.1,
+    "median_percentile": 29.2,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 217.95001,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 34.9,
+        "avg_own": 31.22
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 223.30002,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 29.2,
+        "avg_own": 29.08
+      },
+      {
+        "entry_name": "RyvlesGaming30 (3/3)",
+        "points": 223.30002,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 27.1,
+        "avg_own": 26.79
+      },
+      {
+        "entry_name": "RyvlesGaming30 (1/3)",
+        "points": 221.15001,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 28.5,
+        "avg_own": 33.61
+      },
+      {
+        "entry_name": "RyvlesGaming30 (2/3)",
+        "points": 217.95001,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 30.8,
+        "avg_own": 27.93
+      }
+    ]
+  }
+}

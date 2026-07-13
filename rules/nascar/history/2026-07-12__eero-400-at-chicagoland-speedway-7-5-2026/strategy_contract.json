@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-07-05 13:21",
+  "slug": "nascar",
+  "calls": [
+    {
+      "name": "Zane Smith",
+      "verdict": "play"
+    },
+    {
+      "name": "Riley Herbst",
+      "verdict": "play"
+    },
+    {
+      "name": "John H. Nemechek",
+      "verdict": "play"
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "verdict": "play"
+    },
+    {
+      "name": "Todd Gilliland",
+      "verdict": "play"
+    },
+    {
+      "name": "Chase Briscoe",
+      "verdict": "play"
+    },
+    {
+      "name": "Tyler Reddick",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Alex Bowman",
+      "verdict": "fade"
+    },
+    {
+      "name": "Ross Chastain",
+      "verdict": "pass"
+    },
+    {
+      "name": "AJ Allmendinger",
+      "verdict": "fade"
+    },
+    {
+      "name": "Connor Zilisch",
+      "verdict": "fade"
+    },
+    {
+      "name": "Cody Ware",
+      "verdict": "fade"
+    },
+    {
+      "name": "Noah Gragson",
+      "verdict": "pass"
+    },
+    {
+      "name": "Cole Custer",
+      "verdict": "pass"
+    }
+  ],
+  "fades": [
+    "Alex Bowman",
+    "AJ Allmendinger",
+    "Connor Zilisch",
+    "Cody Ware"
+  ],
+  "leverage_candidates": [
+    {
+      "name": "Ross Chastain",
+      "own": 8.0
+    },
+    {
+      "name": "Riley Herbst",
+      "own": 4.0
+    },
+    {
+      "name": "Zane Smith",
+      "own": 5.0
+    },
+    {
+      "name": "John H. Nemechek",
+      "own": 5.0
+    },
+    {
+      "name": "Alex Bowman",
+      "own": 4.0
+    },
+    {
+      "name": "Noah Gragson",
+      "own": 8.0
+    },
+    {
+      "name": "Todd Gilliland",
+      "own": 6.0
+    },
+    {
+      "name": "Cole Custer",
+      "own": 8.0
+    },
+    {
+      "name": "AJ Allmendinger",
+      "own": 3.0
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "own": 7.0
+    },
+    {
+      "name": "Connor Zilisch",
+      "own": 3.0
+    },
+    {
+      "name": "Cody Ware",
+      "own": 3.0
+    }
+  ]
+}

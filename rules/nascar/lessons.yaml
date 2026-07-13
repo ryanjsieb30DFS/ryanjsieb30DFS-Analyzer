@@ -67,7 +67,8 @@ lessons:
       (Byron 43 + Elliott 95.95 cashed L3 at Texas). Track for Kansas, Vegas,
       Charlotte and other intermediates.
     status: codified
-    confirmations: []
+    confirmations:
+      - {date: "2026-07-12", slate: "Chicagoland Speedway", note: "William Byron (HMS) was the single best driver on the slate — 85.25 FPTS at only 10-13% own, in 40-80% of the top lineups across all three contests, and Alex Bowman (HMS) anchored the #1 lineup of the 23,461 field. The intermediate HMS speed edge showed up decisively. NOTE: the strategy DEMOTED this codified lesson on the strength of one article's 'Toyota > HMS in 2026' org read (Key themes; Byron filed as 'MME contrarian, not the primary path') and forfeited the slate's biggest leverage dominator. First mechanism confirmation of HMS-at-intermediates AND the trigger for the new [[nascar-2026-07-12-narrative-suppressed-elite-is-leverage]] hypothesis. Elliott (30.9) was mediocre so the literal teammate double-up was only half-expressed; the org-speed-at-intermediates mechanism held via Byron+Bowman."}
     contradictions: []
     codified_in: "framework.md — Quick-Reference Decision Heuristics (HMS + intermediates -> consider double-up)"
     retired_reason: null
@@ -375,7 +376,8 @@ lessons:
       identify the equivalent-profile alternative and run it in at least one
       lineup — a build-time enforced rule, 4-slate-validated across 2 sports.
     status: codified
-    confirmations: []
+    confirmations:
+      - {date: "2026-07-12", slate: "Chicagoland Speedway", note: "Reddick — the field's over-owned equivalent-profile Toyota dominator (43.6% / 51.2% / 54.2% own across the three contests) — busted to -10.8 FPTS and was in 0% of winning lineups (the #1 fish trap in all three fields), while equivalent dominators Hamlin (70.8) and Byron (85.25) hit. The strategy ran the alternative instead of concentrating on Reddick (Decision 1); the field's concentration on the substitutable anchor was punished exactly as the mechanism predicts. Mechanism confirmation — the codified rule keeps holding, stays codified."}
     contradictions: []
     codified_in: "rules/shared/anchor_equivalence.md; framework.md — Step 6 mandatory check #8; philosophy.md — On Process Discipline (The Anchor-Equivalence Rule cost us Charlotte 600)"
     retired_reason: null
@@ -466,12 +468,13 @@ lessons:
       Haley 22nd/32). Pre-lock: when the field over-owns deep-back chalk, source
       PD from the 11-30 band instead and do not fade a high-floor mid-pack car on
       track-fit narrative when its start sits in the optimal band.
-    status: hypothesis
+    status: validated
     confirmations:
       - {date: "2026-06-28", slate: "Sonoma Raceway", note: "The MID-PACK half held strongly: Cindric (P23, 6.53% own) 40.0, Preece (P19, 18.9%) 47.0, Custer (P27, 12.45%) 30.45, Stenhouse (P21, 6.28%) 33.0 — four 11-30-band cars each 20+ FPTS and each in 30-35% of winning lineups; the user captured Stenhouse+Custer in the best lineup (rank 9, 0.3%). Mid-pack PD is real leverage."}
+      - {date: "2026-07-12", slate: "Chicagoland Speedway", note: "MID-PACK half held a third time on a fresh intermediate: Cindric (P23) 45.9, Bubba Wallace 60.0, Daniel Suarez 41.5, plus Herbst (P18) and Gilliland (P29) in the top lineups — multiple 11-30-band cars each 20+ FPTS and each in a large share of winners, while the field piled into deep-back chalk. Origin Pocono + Sonoma + Chicagoland = 3 confirming slates for the mid-pack half -> promote to validated; see autopsy_review Proposed codifications (codify the mid-pack-is-the-meat half ONLY). The 'fade the deep-back CHALK' half was again NOT supported: Heim (P28, 46-59% own) scored 55.1 and was in most winners — deep-back chalk paid, consistent with the Sonoma contradiction and [[nascar-2026-06-28-roadcourse-deepback-revives-on-strategy]]."}
     contradictions:
       - {date: "2026-06-28", slate: "Sonoma Raceway", note: "MECHANISM CONTRADICTION of the 'fade the deep-back chalk' half. The venue file's 6.7% deep-back-optimal rate flagged Keselowski (P35, 24% own) as the Pocono trap and the strategy faded him relative to field (Decision 2) — but Keselowski was in ~7 of the top 10 (490 field) and BOTH top lineups of the 3567 field; Erik Jones (P32) scored 28 and Austin Dillon (deep) anchored the 490 winner. Winners COMBINED deep-back chalk WITH mid-pack PD around SVG/Gibbs, they did not substitute one for the other. So 'source PD from mid-pack INSTEAD OF deep-back chalk, fade the deep-back chalk' failed: you needed Keselowski too. Re-scope toward [[nascar-2026-06-28-roadcourse-deepback-revives-on-strategy]] — ADD mid-pack PD, do NOT treat a low multi-year deep-back-optimal rate as a per-race mandate to fade a deep-back CHALK. 1 mechanism contradiction (born Pocono, where it worked); does not trigger retirement."}
-    codified_in: null
+    codified_in: "PARTIAL — mid-pack-is-the-meat half codified 2026-07-12 to framework.md — Quick-Reference Decision Heuristics (Mid-pack PD is the leverage meat). Lesson STAYS OPEN (status validated): its literal 'fade the deep-back chalk' half carries the Sonoma mechanism contradiction and was NOT codified."
     retired_reason: null
 
   - id: nascar-2026-06-20-anchor-equivalence-not-parity
@@ -490,11 +493,12 @@ lessons:
       Size the alternative for leverage (1-2 lineups when the field is mispricing
       it), not for parity. Complements [[nascar-2026-05-24-anchor-equivalence]]
       and [[nascar-2026-05-01-bet-sizing-reflects-inverse]].
-    status: validated
+    status: codified
     confirmations:
       - {date: "2026-06-28", slate: "Sonoma Raceway", note: "Applied as Decision 1 — SVG (modal/chalk dominator) in ~95% of the user's lineups with Gibbs as the alt in a few, NOT a 50/50 hedge. SVG hit and was in nearly every winning lineup across all three contests, so hedging the dom coin flip to parity would have capped modal-world equity exactly as the mechanism warns; the best lineup (rank 9, 0.3%) ran SVG+Gibbs+Zilisch. First mechanism confirmation — promoted to validated."}
+      - {date: "2026-07-12", slate: "Chicagoland Speedway", note: "Second mechanism confirmation. Hamlin (modal P1 dom) was sized as the near-mandatory anchor with Bell/Larson/Briscoe as leverage-sized alternatives, NOT a 50/50 Reddick/Larson hedge (Decisions 1-2). Hamlin hit (70.8) and was in nearly every top lineup, while the two equivalent alternatives the field hedged toward BOTH busted — Reddick -10.8, Larson -12.5. Parity-hedging the dom coin flip to Reddick/Larson would have carried a busted dominator in half the portfolio and capped Hamlin-world equity, exactly the failure the mechanism describes. Origin Pocono + Sonoma + Chicagoland = 3 confirming slates -> meets promotion criteria; see autopsy_review Proposed codifications."}
     contradictions: []
-    codified_in: null
+    codified_in: "philosophy.md — On Process Discipline (Coverage, not parity); framework.md — Step 6 mandatory check #8 (Anchor-Equivalence coverage-not-parity amendment)"
     retired_reason: null
 
   - id: nascar-2026-06-20-carry-a-sub5-leverage-dart-mme
@@ -518,11 +522,12 @@ lessons:
       Tier 4 "best leverage tier" and
       [[nascar-2026-06-20-midpack-pd-over-deep-back-chalk]]; measured every slate now
       via src/shark_gap.py (leverage_pct delta vs the in-field sharks).
-    status: hypothesis
+    status: codified
     confirmations:
       - {date: "2026-06-28", slate: "Sonoma Raceway", note: "Partial confirmation + THRESHOLD scoping. The MME carried low-own pieces (mean low_own_count 1.35 vs 0% at Pocono — shark-gap fixed), and the best lineup (rank 9, 0.3%) carried Stenhouse (6.28%) + Custer (12.45%). But the low-owned spikes that PAID were 6-7% (Cindric 6.53%, Stenhouse 6.28%), NOT sub-5% — and the one genuine sub-5% on the board (Cody Ware, 4%) busted and sank every lineup that carried him (ranks 1007/1024/1359/1420/1900). 'Carry a low-owned leverage dart' is confirmed; the paying threshold here was sub-10%, not sub-5%, on a low-chaos road course. Scope may be track-conditioned: sub-5% at chaos tracks, sub-10% where deep PD needs a caution to materialize. Keep hypothesis."}
+      - {date: "2026-07-12", slate: "Chicagoland Speedway", note: "Second confirmation of the carry-a-low-owned-dart mechanism + the sub-10% threshold again. A genuine sub-5% dart reached the absolute win tail: Riley Herbst (4% own) was in the #1 lineup of the 23,461 field (362.5) and multiple other top lineups. But the broader leverage that paid was sub-10%, not strictly sub-5%: Byron (10-13%), Briscoe (6-10%), Gilliland (6%) — same pattern as Sonoma. Meanwhile the user's own leverage_pct shark-gap was -16.7 (still short of the in-field sharks) and one single-entry lineup (490 field) carried ZERO sub-5% pieces — the NASCAR leak persists. Origin Pocono + Sonoma + Chicagoland = 3 confirming slates for the mechanism; threshold has settled at 'sub-10%, sub-5% at chaos tracks' -> promote to validated; see autopsy_review Proposed codifications."}
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Step 5 Portfolio Review (Carry a low-owned leverage dart in MME)"
     retired_reason: null
 
   # ---------------------------------------------------------------
@@ -568,6 +573,38 @@ lessons:
       actually degraded output (practice speed, qualifying pace) before fading — a
       narrative alone is not it, and a field-shared narrative fade is negative
       leverage. Complements [[nascar-2026-05-01-backup-car-not-auto-fade]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---------------------------------------------------------------
+  # Chicagoland Speedway — 2026-07-05 (Slate #6 autopsy, logged 2026-07-12)
+  # ---------------------------------------------------------------
+
+  - id: nascar-2026-07-12-narrative-suppressed-elite-is-leverage
+    born: "2026-07-12"
+    origin: "rules/nascar/history/2026-07-12__eero-400-at-chicagoland-speedway-7-5-2026/autopsy_review.md"
+    statement: >
+      When the articles AND the field converge on an org-hierarchy narrative that
+      demotes an elite team at a track type where that team holds a CODIFIED
+      structural edge, the narrative does not lower the team's ceiling — it lowers
+      its OWNERSHIP, turning the demoted team's top driver into a low-owned elite
+      (leverage), not a fade. Chicagoland: the DDD "JGR/23XI unfuckwithable, HMS a
+      clear step off in 2026" org read led the strategy to demote the codified
+      HMS-intermediate edge and file William Byron as an "MME contrarian, not the
+      primary path"; the field read the same narrative and left Byron at 10-13%
+      own; Byron then scored 85.25 (slate high) and was in 40-80% of winning
+      lineups. Mechanism: a shared narrative compresses ownership on a
+      structurally-elite driver, so the codified track-type edge should OVERRIDE a
+      single slate's article org-opinion, and the ownership discount the narrative
+      creates is precisely the edge to buy. Pre-lock: do not let one slate's
+      article org-tier read demote a codified structural track-type lesson; when it
+      does, treat the narrative-suppressed elite as a leverage PLAY, not a
+      contrarian afterthought. Complements [[nascar-2026-05-01-hms-intermediate-double-up]],
+      [[nascar-2026-05-17-mechanism-check-before-reapplying-patterns]] and
+      [[nascar-2026-05-24-anchor-equivalence]].
     status: hypothesis
     confirmations: []
     contradictions: []

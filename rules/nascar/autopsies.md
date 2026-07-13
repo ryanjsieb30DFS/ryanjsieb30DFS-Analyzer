@@ -357,3 +357,30 @@ A 5-check pre-lock validator was prototyped and then removed across all sports. 
 - My entries: 1 · best rank 366/980 (top 37.3%)
 - Winners (top 20): avg own 26.4% vs mine 26.07% · sub-10% plays/lineup 1.15 vs mine 1.0
 - Slate-defining plays: Cole Custer (30.4 pts @ 12.4%), Erik Jones (28.0 pts @ 9.7%)
+
+
+## 2026-07-12 11:48 — NASCAR (contest-standings-191881244.csv)
+- Entries: 490
+- Winning score: 341.8
+- Cash line (top 20%): 232.0
+- My entries: 1 · best rank 171/490 (top 34.9%)
+- Winners (top 20): avg own 32.49% vs mine 31.22% · sub-10% plays/lineup 0.8 vs mine 0.0
+- Slate-defining plays: William Byron (85.2 pts @ 10.2%), Bubba Wallace (60.0 pts @ 19.4%)
+
+
+## 2026-07-12 11:48 — NASCAR (contest-standings-191881261.csv)
+- Entries: 1,176
+- Winning score: 352.2
+- Cash line (top 20%): 231.9
+- My entries: 1 · best rank 343/1,176 (top 29.2%)
+- Winners (top 20): avg own 30.6% vs mine 29.08% · sub-10% plays/lineup 0.95 vs mine 1.0
+- Slate-defining plays: William Byron (85.2 pts @ 12.2%), Chase Briscoe (71.8 pts @ 6.6%), Bubba Wallace (60.0 pts @ 17.4%)
+
+
+## 2026-07-12 11:48 — NASCAR (contest-standings-191881262.csv)
+- Entries: 23,461
+- Winning score: 362.5
+- Cash line (top 20%): 233.5
+- My entries: 3 · best rank 6,360/23,461 (top 27.1%)
+- Winners (top 100): avg own 27.89% vs mine 29.44% · sub-10% plays/lineup 0.76 vs mine 0.67
+- Slate-defining plays: William Byron (85.2 pts @ 13.4%), Chase Briscoe (71.8 pts @ 10.0%), Bubba Wallace (60.0 pts @ 18.9%)

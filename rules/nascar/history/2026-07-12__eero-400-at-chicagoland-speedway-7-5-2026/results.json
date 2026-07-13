@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-12",
+  "slug": "nascar",
+  "sport": "nascar",
+  "slate_label": "eero 400 at Chicagoland Speedway 7/5/2026",
+  "history_dir": "rules/nascar/history/2026-07-12__eero-400-at-chicagoland-speedway-7-5-2026",
+  "contests": [
+    {
+      "name": "contest-standings-191881244.csv",
+      "type": null,
+      "source_file": "contest-standings-191881244.csv",
+      "field_size": 490,
+      "my_entries": 1,
+      "entry_fee": null,
+      "buy_in": 0.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 171,
+      "best_percentile": 34.9
+    },
+    {
+      "name": "contest-standings-191881261.csv",
+      "type": null,
+      "source_file": "contest-standings-191881261.csv",
+      "field_size": 1176,
+      "my_entries": 1,
+      "entry_fee": null,
+      "buy_in": 0.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 343,
+      "best_percentile": 29.2
+    },
+    {
+      "name": "contest-standings-191881262.csv",
+      "type": null,
+      "source_file": "contest-standings-191881262.csv",
+      "field_size": 23461,
+      "my_entries": 3,
+      "entry_fee": null,
+      "buy_in": 0.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 6360,
+      "best_percentile": 27.1
+    }
+  ],
+  "total_buy_in": 0.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 171,
+  "best_percentile": 27.1,
+  "entries_total": 5,
+  "edge_leverage_capture": 0.0,
+  "edge_overperformer_capture": null,
+  "edge_bust_exposure": null,
+  "lineup_avg_ratio": null,
+  "shark_gap_top": {
+    "dim": "leverage_pct",
+    "delta": -16.7
+  }
+}
