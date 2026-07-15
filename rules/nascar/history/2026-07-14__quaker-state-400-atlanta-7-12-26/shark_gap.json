@@ -1,0 +1,77 @@
+{
+  "field": 490,
+  "anchors": [
+    "tyler reddick",
+    "christopher bell",
+    "denny hamlin"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 46.5,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 1.0,
+    "anchor_exposure_by_player": {
+      "tyler reddick": 1.0,
+      "christopher bell": 1.0,
+      "denny hamlin": 1.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 55.31,
+    "median_pctile": 55.31
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 30.8,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.333,
+    "anchor_exposure_by_player": {
+      "tyler reddick": 1.0,
+      "christopher bell": 0.0,
+      "denny hamlin": 0.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 84.08,
+    "median_pctile": 84.08
+  },
+  "deltas": [
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 30.8,
+      "shark": 46.5,
+      "delta": -15.7
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.333,
+      "shark": 1.0,
+      "delta": -0.667
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 0.0,
+      "shark": 0.0,
+      "delta": 0.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "nascar",
+  "sport": "nascar"
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "nascar",
+  "sport": "nascar",
+  "contest_label": "NASCAR",
+  "date": "2026-07-14",
+  "slate_label": "Quaker State 400 Atlanta 7.12.26",
+  "archived_at": "2026-07-14 20:37",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json"
+  ],
+  "missing": [
+    "sim_analysis.md",
+    "sim_pool.csv"
+  ],
+  "article_files": [
+    "articles/nascar/2026-07-12__DFR DDD 7.12.26.pdf",
+    "articles/nascar/2026-07-12__DFR Image 1 7.12.26.pdf",
+    "articles/nascar/2026-07-12__DFR Image 2 7.12.26.pdf",
+    "articles/nascar/2026-07-12__DFR Image 3 7.12.26.pdf",
+    "articles/nascar/2026-07-12__DFR Image 4 7.12.26.pdf",
+    "articles/nascar/2026-07-12__DFR Image 5 7.12.26.pdf"
+  ],
+  "proj_source": null
+}

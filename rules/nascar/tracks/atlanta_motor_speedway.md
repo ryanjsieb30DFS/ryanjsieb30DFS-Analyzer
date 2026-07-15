@@ -1,6 +1,6 @@
 # Atlanta Motor Speedway
 
-**UNVERIFIED — built from this slate's articles only (2026-07-12, DFR Deep Dive + graphics). Confirm against results at the next autopsy.**
+**PARTIALLY VERIFIED — profile built from 2026-07-12 articles (DFR Deep Dive + graphics); the 7/12/26 running is now results-verified (autopsy 2026-07-14). See Per-slate observations below. One results data point; confirm trends at the next Atlanta autopsy.**
 
 ## Track profile
 
@@ -38,3 +38,14 @@ Preece (9th spring), Zane Smith (7th), SVG (6th), Suarez (5th), McDowell, Berry 
 
 - Toyota teams reportedly brought a **high-downforce setup** this race (hurts qualifying, helps in-race maneuverability late).
 - **Salary can be non-binding**: with Bell/Byron/Hamlin/Reddick all expensive AND the front-dominators (Blaney/Logano) pricey, cheap PD cars matter more than usual.
+
+## Per-slate observations
+
+### 2026-07-12 — Quaker State 400 (first results-verified running; autopsy 2026-07-14)
+
+- **Chalk dominators HIT — "floor is lava" was OVERSTATED this running.** The front-draft studs scored big: **Blaney 91.35** (slate high — confirms the "8 top-10s in 9 races" elite plate floor), **Bell 74.6, Reddick 71.8, Ty Gibbs 70.6, Hamlin 48.4.** The winning shape STACKED multiple doms; it did not fade off them.
+- **Winning lineups were multi-dominator + moderately chalky, NOT contrarian.** #1 in both SE contests = **Reddick + Blaney + Bell + Ty Gibbs** + cheap filler (Zane Smith / Cole Custer / Noah Gragson), avg_own ~38%. Pack racing keeps the lead draft bunched, so several chalk doms finished together — they **correlated, not substituted**. The at-most-1 anchor cap would have blocked the winning Reddick+Bell combo. → [[nascar-2026-07-14-superspeedway-doms-correlate-not-substitute]]
+- **Multi-year avg laps-led was a WEAK per-race dominator signal.** The Image-5 avg-LL leaders under-delivered (**Logano 30.2**, a field fish trap; **Cindric** moderate) while the day's fast cars (Blaney/Bell/Reddick/Gibbs) dominated. Weight current form / practice / quali pace over career avg-LL here. → [[nascar-2026-07-14-multiyear-lapsled-weak-perrace-signal]]
+- **21-30 mid-pack PD CONFIRMED:** Gilliland (P21, 6% own) was in the #2 lineup of both contests. But the deep-back band (>30th, projected 16.7% of optimal) mostly did **not** pay this running — the min-salary carnage darts (McLeod/Finchum) missed.
+- **Mid-owned dominators were the winning GLUE, not just sub-10% cars.** **Ty Gibbs (22% own, 70.6)** and **Carson Hocevar (18% own, 65.45)** were slate-definers in 35-45% of top lineups. Do NOT skip the 15-25%-owned dominator band at Atlanta — the strategy omitted both entirely.
+- **Fish traps (loved by losers, absent from winners):** **Bubba Wallace 11.4** (50% of fish / 0% of winners), **AJ Allmendinger −4.2, Chase Briscoe −6.5.** Zane Smith busted (17.4) but was tolerated as min-salary filler by lineups whose doms hit.

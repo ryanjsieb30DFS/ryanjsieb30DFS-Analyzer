@@ -7,11 +7,15 @@ respect contest field sizes, entry counts, and ceiling targets.
 from __future__ import annotations
 
 import json
+import re
 import uuid
 from pathlib import Path
 
 
 _CONTESTS_DIR = Path(__file__).parent.parent / "data" / "contests"
+
+# DK EntryName multi-entry suffix, e.g. "ryanfeller (3/3)" → this entrant's 3rd of 3.
+_ENTRY_SUFFIX = re.compile(r"\((\d+)\s*/\s*(\d+)\)\s*$")
 
 
 # Controlled vocabulary: DK entry-cap types. The Analyzer is focused on
@@ -27,6 +31,69 @@ CONTEST_TYPES = {
 # The focus set (also the keys above) — imported where downstream code must
 # gate on "is this an in-scope small-field contest".
 FOCUS_CONTEST_TYPES = frozenset(CONTEST_TYPES)
+
+
+def infer_type(entry_names) -> str | None:
+    """Infer a contest's entry-cap type straight from the standings, so the type is
+    NEVER lost to a manual step. DK EntryNames carry a `(n/m)` suffix; the MAX `m`
+    across all entrants = the contest's max-entry cap (at least one entrant maxes in
+    a real GPP). Maps to the smallest focus cap that fits: SE(1)/3-Max(≤3)/5-Max(≤5).
+    Returns None when the cap is outside the focus set (20/150-max MME); defaults to
+    SE when there is no multi-entry suffix at all."""
+    max_m = 1
+    for nm in (entry_names if entry_names is not None else []):
+        match = _ENTRY_SUFFIX.search(str(nm))
+        if match:
+            max_m = max(max_m, int(match.group(2)))
+    if max_m <= 1:
+        return "SE"
+    if max_m <= 3:
+        return "3-Max"
+    if max_m <= 5:
+        return "5-Max"
+    return None  # out of focus (MME)
+
+
+def auto_link(csv_infos, declared, tol: float = 0.15) -> dict:
+    """Auto-assign uploaded standings CSVs to declared contests — one-to-one, so no
+    manual dropdown. Matches by field-size closeness (within `tol`), preferring a
+    same-inferred-type match, then the closest field. Never assigns one declared
+    contest to two CSVs.
+
+    `csv_infos`: list of {'name', 'field_size', 'inferred_type'}.
+    `declared`:  list of contest dicts (name / type / field_size).
+    Returns {csv_name: declared_contest_dict_or_None}."""
+    result = {ci["name"]: None for ci in csv_infos}
+    pairs = []
+    for ci in csv_infos:
+        cf = ci.get("field_size") or 0
+        for d in (declared or []):
+            df = d.get("field_size") or 0
+            if not cf or not df:
+                continue
+            rel = abs(cf - df) / df
+            if rel > tol:
+                continue
+            type_match = 0 if (ci.get("inferred_type") and d.get("type")
+                               and ci["inferred_type"] == d["type"]) else 1
+            pairs.append((type_match, rel, ci["name"], d))
+    pairs.sort(key=lambda p: (p[0], p[1]))  # same-type first, then closest field
+    used_csv, used_contest = set(), set()
+    for _tm, _rel, csv_name, d in pairs:
+        did = d.get("id") or d.get("name")
+        if csv_name in used_csv or did in used_contest:
+            continue
+        result[csv_name] = d
+        used_csv.add(csv_name)
+        used_contest.add(did)
+    return result
+
+
+def contest_id_from_filename(name) -> str | None:
+    """DK contest-standings files are named `contest-standings-<ID>.csv`; return the
+    ID (a stable per-instance key for dedup). None when the name doesn't match."""
+    m = re.search(r"contest-standings-(\d+)", str(name))
+    return m.group(1) if m else None
 
 
 def _path(slug: str) -> Path:

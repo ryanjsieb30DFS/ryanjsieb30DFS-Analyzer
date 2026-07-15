@@ -1,0 +1,24 @@
+{
+  "contests": [
+    {
+      "name": "NAS $8K Rainbow Warrior",
+      "type": "SE",
+      "field_size": 392,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 24.0,
+      "prize_pool": 8000,
+      "id": "a44d6ed0"
+    },
+    {
+      "name": "NAS $5K Engine Block",
+      "type": "SE",
+      "field_size": 490,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "prize_pool": 5000,
+      "id": "c41b2f7e"
+    }
+  ]
+}

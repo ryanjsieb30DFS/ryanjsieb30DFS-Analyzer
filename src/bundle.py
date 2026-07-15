@@ -83,6 +83,15 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
         except Exception:  # noqa: BLE001 — never block the bundle
             pass
 
+    # --- Shark reality (forward-feed: how the PROS in your contests actually play) --- #
+    try:
+        from src import shark_dossier
+        shark_block = shark_dossier.shark_reality_block(slug)
+        if shark_block:
+            L += ["", shark_block]
+    except Exception:  # noqa: BLE001 — never block the bundle
+        pass
+
     # --- Slate data files (the primary input) --- #
     L += ["", "## Slate data files (read these — they are the primary input)"]
     articles_dir = _REPO_ROOT / "articles" / slug

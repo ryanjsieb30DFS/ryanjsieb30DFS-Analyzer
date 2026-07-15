@@ -42,10 +42,10 @@
         "unique_pct": 100.0
       },
       "shark_envelope": {
-        "own_per_slot": 32.9,
-        "leverage_pct": 6.44,
-        "anchor_exposure": 0.62,
-        "unique_pct": 99.28
+        "own_per_slot": 34.136,
+        "leverage_pct": 5.855,
+        "anchor_exposure": 0.655,
+        "unique_pct": 99.345
       },
       "mean_gap": {
         "own_per_slot": -4.17,
@@ -60,7 +60,7 @@
         "unique_pct": 99.28
       },
       "seed_weight": 10,
-      "accumulated_contests": 0
+      "accumulated_contests": 1
     },
     "golf": {
       "n_contests": 22,

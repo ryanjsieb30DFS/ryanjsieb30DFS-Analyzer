@@ -3,11 +3,15 @@ Field/Fish autopsy analysis.
 
 Each logged autopsy appends one compact row per contest to
 `rules/<slug>/field_tendencies.jsonl` (append-only, NOT cleared with the slate,
-like results.jsonl). Keyed by `contest_type` — the "specific contests" dimension
-the user cares about ($5 mini-MAX fields play fishier than $1K single-entry).
-`summarize` rolls the history for a contest type into "the field reliably crowds
-X / Y is a recurring fish trap," surfaced in the autopsy panel when prior rows
-exist. (Auto-feeding this into the next slate's strategy is a deferred follow-up.)
+like results.jsonl). Rows carry both a `contest_type` and a `contest_name`/
+`contest_key` (the specific recurring contest), plus a `contest_id` (the DK
+contest instance) used to DEDUP re-logs — `_load` collapses rows sharing a
+`contest_id` to the latest, so re-uploading the same standings never inflates the
+"in N of M" reliability counts. Two rollups read through it: `summarize` (by
+type) and the sharper `summarize_contest` (by name — the same contest = the same
+field). Both surface "the field reliably crowds X / Y is a recurring fish trap"
+in the autopsy panel; `bundle_block` forward-feeds the same synthesis into the
+next slate's bundle so the slate strategy can leverage AWAY from the crowd.
 """
 from __future__ import annotations
 
@@ -30,11 +34,12 @@ def contest_key(name) -> str:
 
 
 def record(slug: str, contest_type: str | None, field_size: int,
-           profile: dict, date: str, contest_name: str | None = None) -> bool:
+           profile: dict, date: str, contest_name: str | None = None,
+           contest_id: str | None = None) -> bool:
     """Append one contest's field tendencies. Returns True if written; skips a
     non-gradable profile. `contest_name` (the declared contest's name) enables the
     SPECIFIC-contest rollup (`summarize_contest`); without it only the by-type
-    rollup applies."""
+    rollup applies. `contest_id` (the DK contest instance id) is stored for dedup."""
     if not profile or not profile.get("gradable"):
         return False
     win = profile.get("winners_profile") or {}
@@ -44,6 +49,7 @@ def record(slug: str, contest_type: str | None, field_size: int,
         "contest_type": contest_type or "unknown",
         "contest_name": contest_name or None,
         "contest_key": contest_key(contest_name),
+        "contest_id": contest_id,
         "field_size": field_size,
         "crowded_players": [c["name"] for c in profile.get("crowded_players", [])[:8]],
         "crowded_combos": [c["players"] for c in profile.get("crowded_combos", [])[:5]],
@@ -61,6 +67,27 @@ def record(slug: str, contest_type: str | None, field_size: int,
     return True
 
 
+def _dedup(rows: list[dict]) -> list[dict]:
+    """Collapse re-logs of the SAME contest instance. Rows sharing a non-null
+    `contest_id` (the DK contest instance) keep only the LATEST by `date` — so
+    re-uploading a standings CSV and re-logging never double-counts and inflates
+    the "in N of M" reliability numbers. Rows without a `contest_id` (older schema
+    or non-DK-filename logs) pass through unchanged. Order is otherwise preserved."""
+    latest: dict[str, dict] = {}
+    for r in rows:
+        cid = r.get("contest_id")
+        if cid and (cid not in latest or (r.get("date") or "") >= (latest[cid].get("date") or "")):
+            latest[cid] = r
+    out = []
+    for r in rows:
+        cid = r.get("contest_id")
+        if not cid:
+            out.append(r)
+        elif latest.get(cid) is r:
+            out.append(r)
+    return out
+
+
 def _load(slug: str) -> list[dict]:
     p = _path(slug)
     if not p.exists():
@@ -73,7 +100,7 @@ def _load(slug: str) -> list[dict]:
                 out.append(json.loads(line))
             except json.JSONDecodeError:
                 continue
-    return out
+    return _dedup(out)
 
 
 def summarize(slug: str, contest_type: str | None) -> dict | None:
@@ -216,3 +243,38 @@ def bundle_block(slug: str, contests) -> str | None:
         "it as a tension; do NOT tell the user to fade anyone.\n"
         + "\n".join(blocks)
     )
+
+
+def crowded_names(slug: str, contests) -> list[str]:
+    """The reliably-crowded player names that `bundle_block` surfaces for this
+    slate's declared contests — flat and de-duplicated. Uses the SAME select logic
+    (specific recurring contest when it has enough history, else by type) and the
+    SAME emit condition as `bundle_block`, so this is exactly the crowd set the
+    bundle shows — never a superset. Empty when there's no field-tendency history.
+    Powers the app's field-tendency coverage-gap check.
+
+    `contests` = the declared-contest dicts (each with `name` + `type`)."""
+    seen_keys, seen_types, names = set(), set(), []
+
+    def _add(summary):
+        for c in (summary.get("reliably_crowded") or []):
+            nm = c.get("name")
+            if nm and nm not in names:
+                names.append(nm)
+
+    for c in (contests or []):
+        name = (c or {}).get("name")
+        ctype = (c or {}).get("type")
+        key = contest_key(name)
+        if key and key not in seen_keys:
+            seen_keys.add(key)
+            sc = summarize_contest(slug, name)
+            if sc and _crowd_traps_str(sc):  # same emit test bundle_block uses
+                _add(sc)
+                continue
+        if ctype and ctype not in seen_types:
+            seen_types.add(ctype)
+            st_ = summarize(slug, ctype)
+            if st_ and _crowd_traps_str(st_):
+                _add(st_)
+    return names

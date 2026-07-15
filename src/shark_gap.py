@@ -21,6 +21,7 @@ from src.autopsy import _norm_name
 
 _REPO_ROOT = Path(__file__).parent.parent
 _HANDLES_PATH = _REPO_ROOT / "rules" / "shared" / "shark_handles.yaml"
+_LEARNED_PATH = _REPO_ROOT / "rules" / "shared" / "shark_handles_learned.yaml"
 
 # A play is a "leverage piece" below this field ownership; the sharks carry one
 # in the majority of lineups (sharp_playbook: PGA 60-80%, NFL 64-86%).
@@ -124,6 +125,27 @@ def structural_profile(parsed: dict, handles, anchors: list[str] | None = None) 
     }
 
 
+def present_handles(parsed: dict, handles) -> list[str]:
+    """The watchlist handles that actually have ≥1 entry in this contest, kept in
+    the caller's spelling (matched case-insensitively)."""
+    seen = set(parsed["lineups"]["EntryName"].map(_handle))
+    return [h for h in (handles or []) if str(h).lower() in seen]
+
+
+def per_pro_profiles(parsed: dict, handles) -> dict:
+    """Per-HANDLE structural fingerprint for each watchlist handle present in this
+    contest — the individual pros, not the aggregate bucket `structural_profile`
+    returns. Keyed by the handle as spelled in `handles`. Every pro is measured
+    against ONE shared set of chalk anchors (the same axis as the shark gap)."""
+    anchors = chalk_anchors(parsed)
+    out = {}
+    for h in present_handles(parsed, handles):
+        prof = structural_profile(parsed, [h], anchors)
+        if prof.get("gradable"):
+            out[h] = prof
+    return out
+
+
 # Dimensions where we compare us to the sharks, with how to read the delta.
 _DIMS = [
     ("own_per_slot", "avg own%/slot", "lower = more contrarian"),
@@ -161,13 +183,43 @@ def shark_gap(parsed: dict, shark_handles, user_handles) -> dict:
     }
 
 
-def load_handles() -> dict:
-    """Read the per-sport shark watchlist config (empty dict if missing/bad)."""
+def _load_learned() -> dict:
+    """Auto-discovered handles promoted from recurring opponents, kept in a
+    separate overlay (`shark_handles_learned.yaml`, shape `{sport: [handles]}`) so
+    the curated `shark_handles.yaml` (its `&core` anchor + comments) is never
+    rewritten. Empty dict if missing/bad."""
+    if not _LEARNED_PATH.exists():
+        return {}
     try:
         import yaml
-        return yaml.safe_load(_HANDLES_PATH.read_text()) or {}
-    except Exception:  # noqa: BLE001 — config is optional; never break the autopsy
+        data = yaml.safe_load(_LEARNED_PATH.read_text()) or {}
+        return data if isinstance(data, dict) else {}
+    except Exception:  # noqa: BLE001 — overlay is optional; never break the autopsy
         return {}
+
+
+def load_handles() -> dict:
+    """Read the per-sport shark watchlist config (empty dict if missing/bad),
+    unioned with the auto-discovered `shark_handles_learned.yaml` overlay so
+    promoted pros are benchmarked without touching the curated file."""
+    try:
+        import yaml
+        cfg = yaml.safe_load(_HANDLES_PATH.read_text()) or {}
+    except Exception:  # noqa: BLE001 — config is optional; never break the autopsy
+        cfg = {}
+    learned = _load_learned()
+    if learned:
+        by_sport = dict(cfg.get("sharks_by_sport") or {})
+        for sport, names in learned.items():
+            existing = list(by_sport.get(sport) or [])
+            lower = {n.lower() for n in existing}
+            for nm in (names or []):
+                if nm and nm.lower() not in lower:
+                    existing.append(nm)
+                    lower.add(nm.lower())
+            by_sport[sport] = existing
+        cfg["sharks_by_sport"] = by_sport
+    return cfg
 
 
 def gap_for_slug(slug: str, parsed: dict) -> dict:

@@ -1,0 +1,43 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 12,
+    "leverage_capture": 0.5,
+    "leverage_hit": [
+      "Ryan Blaney"
+    ],
+    "leverage_missed": [
+      "Carson Hocevar"
+    ],
+    "overperformer_capture": null,
+    "overperformer_hit": [],
+    "underperformer_exposure": null,
+    "underperformer_hit": []
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 2,
+    "avg_ratio": null,
+    "best_percentile": 56.9,
+    "median_percentile": 84.1,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 216.95,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 56.9,
+        "avg_own": 32.61
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 170.05,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 84.1,
+        "avg_own": 30.78
+      }
+    ]
+  }
+}

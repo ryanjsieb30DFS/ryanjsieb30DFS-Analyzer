@@ -378,7 +378,8 @@ lessons:
     status: codified
     confirmations:
       - {date: "2026-07-12", slate: "Chicagoland Speedway", note: "Reddick — the field's over-owned equivalent-profile Toyota dominator (43.6% / 51.2% / 54.2% own across the three contests) — busted to -10.8 FPTS and was in 0% of winning lineups (the #1 fish trap in all three fields), while equivalent dominators Hamlin (70.8) and Byron (85.25) hit. The strategy ran the alternative instead of concentrating on Reddick (Decision 1); the field's concentration on the substitutable anchor was punished exactly as the mechanism predicts. Mechanism confirmation — the codified rule keeps holding, stays codified."}
-    contradictions: []
+    contradictions:
+      - {date: "2026-07-14", slate: "Atlanta Motor Speedway (Quaker State 400)", note: "SCOPING REFINEMENT (mechanism-based, NOT result-based; does NOT trigger retirement). At DRAFTING/superspeedway tracks the rule's precondition — that chalk anchors are SUBSTITUTABLE coin-flips — is absent. In pack racing the lead draft stays bunched, so multiple chalk doms finish TOGETHER (positively correlated), not one-or-the-other. Atlanta: the #1 lineups in BOTH SE contests ran Reddick (71.8) + Bell (74.6) — both in the strategy's 'At Most 1 of Bell/Hamlin/Reddick/Byron' group — plus Blaney (91.35); the at-most-1 cap plus the 'fade off the 41-45% chalk wall' lean would have BLOCKED the winning stack. The substitution logic still holds at non-pack tracks (confirmed Chicagoland 3 days earlier). This scopes the rule OUT of drafting tracks only; codified lesson with 1 scoping contradiction -> stays codified. See new [[nascar-2026-07-14-superspeedway-doms-correlate-not-substitute]]."}
     codified_in: "rules/shared/anchor_equivalence.md; framework.md — Step 6 mandatory check #8; philosophy.md — On Process Discipline (The Anchor-Equivalence Rule cost us Charlotte 600)"
     retired_reason: null
 
@@ -472,6 +473,7 @@ lessons:
     confirmations:
       - {date: "2026-06-28", slate: "Sonoma Raceway", note: "The MID-PACK half held strongly: Cindric (P23, 6.53% own) 40.0, Preece (P19, 18.9%) 47.0, Custer (P27, 12.45%) 30.45, Stenhouse (P21, 6.28%) 33.0 — four 11-30-band cars each 20+ FPTS and each in 30-35% of winning lineups; the user captured Stenhouse+Custer in the best lineup (rank 9, 0.3%). Mid-pack PD is real leverage."}
       - {date: "2026-07-12", slate: "Chicagoland Speedway", note: "MID-PACK half held a third time on a fresh intermediate: Cindric (P23) 45.9, Bubba Wallace 60.0, Daniel Suarez 41.5, plus Herbst (P18) and Gilliland (P29) in the top lineups — multiple 11-30-band cars each 20+ FPTS and each in a large share of winners, while the field piled into deep-back chalk. Origin Pocono + Sonoma + Chicagoland = 3 confirming slates for the mid-pack half -> promote to validated; see autopsy_review Proposed codifications (codify the mid-pack-is-the-meat half ONLY). The 'fade the deep-back CHALK' half was again NOT supported: Heim (P28, 46-59% own) scored 55.1 and was in most winners — deep-back chalk paid, consistent with the Sonoma contradiction and [[nascar-2026-06-28-roadcourse-deepback-revives-on-strategy]]."}
+      - {date: "2026-07-14", slate: "Atlanta Motor Speedway (Quaker State 400)", note: "Mid-pack half held a fourth time, now on a superspeedway. Atlanta venue file: 21-30 = 40.7% of optimal (the meat). Todd Gilliland (P21, 6% own) hit and was in the #2 lineup of BOTH SE contests (Madb); the strategy sourced PD from the 21-30 band (Gilliland/Nemechek/Zilisch) per this lesson. Deep-back (worse-than-30th, 16.7% optimal here) was thinner this running: the min-salary carnage darts (McLeod/Finchum) mostly did not pay. Mid-pack-is-the-meat confirmed again; already codified 2026-07-12, stays validated."}
     contradictions:
       - {date: "2026-06-28", slate: "Sonoma Raceway", note: "MECHANISM CONTRADICTION of the 'fade the deep-back chalk' half. The venue file's 6.7% deep-back-optimal rate flagged Keselowski (P35, 24% own) as the Pocono trap and the strategy faded him relative to field (Decision 2) — but Keselowski was in ~7 of the top 10 (490 field) and BOTH top lineups of the 3567 field; Erik Jones (P32) scored 28 and Austin Dillon (deep) anchored the 490 winner. Winners COMBINED deep-back chalk WITH mid-pack PD around SVG/Gibbs, they did not substitute one for the other. So 'source PD from mid-pack INSTEAD OF deep-back chalk, fade the deep-back chalk' failed: you needed Keselowski too. Re-scope toward [[nascar-2026-06-28-roadcourse-deepback-revives-on-strategy]] — ADD mid-pack PD, do NOT treat a low multi-year deep-back-optimal rate as a per-race mandate to fade a deep-back CHALK. 1 mechanism contradiction (born Pocono, where it worked); does not trigger retirement."}
     codified_in: "PARTIAL — mid-pack-is-the-meat half codified 2026-07-12 to framework.md — Quick-Reference Decision Heuristics (Mid-pack PD is the leverage meat). Lesson STAYS OPEN (status validated): its literal 'fade the deep-back chalk' half carries the Sonoma mechanism contradiction and was NOT codified."
@@ -605,6 +607,65 @@ lessons:
       contrarian afterthought. Complements [[nascar-2026-05-01-hms-intermediate-double-up]],
       [[nascar-2026-05-17-mechanism-check-before-reapplying-patterns]] and
       [[nascar-2026-05-24-anchor-equivalence]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---------------------------------------------------------------
+  # Atlanta Motor Speedway (Quaker State 400) — 2026-07-12
+  # (Slate #7 autopsy, logged 2026-07-14)
+  # ---------------------------------------------------------------
+
+  - id: nascar-2026-07-14-superspeedway-doms-correlate-not-substitute
+    born: "2026-07-14"
+    origin: "rules/nascar/history/2026-07-14__quaker-state-400-atlanta-7-12-26/autopsy_review.md"
+    statement: >
+      At drafting/superspeedway tracks (Daytona, Talladega, reconfigured Atlanta) the
+      lead draft stays bunched, so multiple front-running chalk dominators finish
+      TOGETHER — they are POSITIVELY correlated, not substitutable coin-flips. The
+      Anchor-Equivalence "at most 1 of the chalk anchors" cap is therefore
+      miscalibrated for pack racing: it forbids exactly the multi-dominator stack that
+      wins. Atlanta 2026 — the #1 lineups in BOTH SE contests ran Reddick (71.8) + Bell
+      (74.6) together (both in the at-most-1 group) plus Blaney (91.35, slate high),
+      three chalk-tier doms all posting top scores; the strategy's "At Most 1 of
+      Bell/Hamlin/Reddick/Byron" cap and its "moderately contrarian, fade off the
+      41-45% chalk wall" lean would have blocked that winning stack. Mechanism: on a
+      pack track the top finishers are drawn from one bunched lead draft, so their
+      outcomes correlate (all-hit-or-all-wreck) instead of substituting, and the
+      field's concentration on several chalk doms is not a mispriced coin flip when
+      those doms can all cash on the same run. Pre-lock: at superspeedways treat chalk
+      dominators as a correlated STACK candidate, not an at-most-1 substitution set —
+      the winning shape is 3-4 dominators that finish together plus cheap PD
+      differentiation, NOT a contrarian fade off the chalk. Scope: drafting/pack tracks
+      ONLY; at non-pack tracks the codified Anchor-Equivalence substitution logic still
+      holds (validated Chicagoland 2026-07-12). Scopes [[nascar-2026-05-24-anchor-equivalence]]
+      and complements [[nascar-2026-05-17-mechanism-check-before-reapplying-patterns]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nascar-2026-07-14-multiyear-lapsled-weak-perrace-signal
+    born: "2026-07-14"
+    origin: "rules/nascar/history/2026-07-14__quaker-state-400-atlanta-7-12-26/autopsy_review.md"
+    statement: >
+      Multi-year average laps-led is a weak per-race dominator predictor at
+      superspeedways because pack-race track position is decided by in-race
+      draft/handling and caution timing, not by historical dom tendency. Atlanta 2026 —
+      the strategy built its "leverage dominator path" on the multi-year avg-LL leaders
+      (Cindric 40.8, Logano 39.2 per Image 5) and those under-delivered (Logano 30.2
+      and a field fish trap; Cindric moderate, not a smash), while the drivers who
+      actually dominated and anchored the winning lineups were the day's fast cars
+      (Blaney 91.35, Bell 74.6, Reddick 71.8, Ty Gibbs 70.6) — several of them low on
+      the multi-year avg-LL list. Mechanism: at drafting tracks laps led are sporadic
+      and driven by the day's draft, so a career-average LL number does not forecast
+      which car leads THIS race. Pre-lock: at superspeedways weight current-form
+      speed / practice / qualifying pace and the site's proven fast cars over
+      multi-year avg-LL when choosing dominators; use avg-LL as a tiebreaker, not a
+      thesis. Complements [[nascar-2026-07-14-superspeedway-doms-correlate-not-substitute]].
     status: hypothesis
     confirmations: []
     contradictions: []

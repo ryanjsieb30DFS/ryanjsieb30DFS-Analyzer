@@ -31,7 +31,7 @@ from src.analysis_runner import (
 )
 from src import (
     history, sessions, landscape, player_pool, ledger_hygiene,
-    sim_sessions,
+    sim_sessions, field_tendencies,
 )
 from datetime import datetime as _dt
 from src.projections import load_projections, warn_missing_for_sport
@@ -626,6 +626,19 @@ with tab_strategy:
                     "⚠️ **Coverage gap** — sub-10% leverage candidates the strategy never "
                     "addresses (PLAY or PASS each): " + ", ".join(_missing)
                 )
+        # Field-tendency coverage: the bundle surfaced recurring crowds, but the
+        # strategy names NONE of them — the leverage-away read got dropped.
+        _crowds = field_tendencies.crowded_names(slug, load_contests(slug))
+        if _crowds:
+            _crowd_missing = landscape.uncovered_candidates(
+                persisted["markdown"], pd.DataFrame({"name": _crowds})
+            )
+            if len(_crowd_missing) == len(_crowds):
+                st.warning(
+                    "⚠️ **Field-tendency coverage gap** — the strategy surfaces none of the "
+                    "plays your field reliably crowds (leverage lives AWAY from these): "
+                    + ", ".join(_crowds)
+                )
         with st.container(border=True):
             st.caption(f"Last updated: {persisted['mtime']}")
             st.markdown(persisted["markdown"])
@@ -694,6 +707,40 @@ with tab_autopsy:
         # tool — the autopsy works from DK standings alone.
         proj_df, proj_source = None, None
         parsed_contests = []
+
+        # Auto-link each CSV to a declared contest — ZERO manual selection. Infer
+        # the entry-cap type from the standings' (n/m) suffix, then match to the
+        # declared contest by field size. Computed once here; the per-CSV loop and
+        # the log step just read `_auto_links`. (_cached_dk_analysis is byte-cached,
+        # so this pre-pass is free.)
+        from src import contests as _C
+        _declared_all = load_contests(slug)
+        _csv_infos = []
+        for _dc in dk_csvs:
+            try:
+                _p, _a, _g, _f = _cached_dk_analysis(_dc.getvalue(), sport, slug)
+            except ValueError:
+                continue
+            _csv_infos.append({
+                "name": _dc.name,
+                "field_size": len(_p["lineups"]),
+                "inferred_type": _C.infer_type(_p["lineups"]["EntryName"]),
+            })
+        _auto_links = _C.auto_link(_csv_infos, _declared_all)
+        if _csv_infos:
+            _lines = []
+            for _ci in _csv_infos:
+                _d = _auto_links.get(_ci["name"])
+                _t = (_d.get("type") if _d else None) or _ci.get("inferred_type") or "?"
+                if _d:
+                    _lines.append(f"- **{_ci['name']}** → **{_d['name']}** ({_t})")
+                else:
+                    _lines.append(
+                        f"- **{_ci['name']}** → type **{_t}** from the standings "
+                        "(no declared match — declare it in Slate Strategy for "
+                        "specific-contest tracking)")
+            st.success("🔗 **Auto-linked** (no manual step):\n" + "\n".join(_lines))
+
         for i, dk_csv in enumerate(dk_csvs):
             try:
                 # Cached on the file's bytes — typing in the notes/ROI widgets no
@@ -809,6 +856,36 @@ with tab_autopsy:
                                        "Add the heavy-MME top finishers to shark_handles.yaml to "
                                        "build the watchlist.")
 
+                    # Per-pro dossier + auto-discovery: the named humans in your
+                    # contests, how they play vs you, and recurring top-finishers
+                    # not yet on the watchlist (one-click promote). Sport-level, so
+                    # only render on the first CSV to avoid repeating the table.
+                    if i == 0 and _gap.get("sport"):
+                        from src import shark_dossier as _sd
+                        _dmd = _sd.dossier_md(_gap["sport"])
+                        _cands = _sd.promotion_candidates(slug)
+                        if _dmd or _cands:
+                            with st.container(border=True):
+                                if _dmd:
+                                    st.markdown(_dmd)
+                                    st.caption("Accumulated from your logged autopsies — the specific "
+                                               "pros, how they play, and their record vs you.")
+                                if _cands:
+                                    st.markdown("**Recurring opponents not yet tracked** — pros who keep "
+                                                "finishing top of your contests but aren't on the watchlist:")
+                                    for _c in _cands:
+                                        _pc1, _pc2 = st.columns([4, 1])
+                                        with _pc1:
+                                            st.markdown(f"- **{_c['handle']}** — in {_c['in_n']} of your "
+                                                        f"{_c['sport']} contests, best finish "
+                                                        f"{_c['best_pctile']}%ile")
+                                        with _pc2:
+                                            if st.button("➕ Track", key=f"promote_{slug}_{_c['handle']}"):
+                                                if _sd.promote(_c["sport"], _c["handle"]):
+                                                    st.success(f"Added {_c['handle']} to the "
+                                                               f"{_c['sport']} watchlist.")
+                                                    st.rerun()
+
                 # --- Field / Fish: how opponents played → leverage away from it --- #
                 if _field_cached and _field_cached.get("gradable"):
                     _fp = _field_cached
@@ -877,35 +954,39 @@ with tab_autopsy:
                     height=120,
                 )
 
-                # --- ROI inputs: link to a declared contest + winnings --- #
+                # --- Contest link: AUTO by default (see top-level summary),
+                # override only if the auto-match is wrong. --- #
                 st.markdown("##### Results for the ROI ledger")
-                declared = load_contests(slug)
-                options = [c["name"] for c in declared] + ["(not declared)"]
-                # Default: declared contest whose field size is within ~10%
-                # of this CSV's entry count.
-                default_idx = len(options) - 1
-                for j, c in enumerate(declared):
-                    fs = c.get("field_size") or 0
-                    if fs and abs(fs - len(lineups)) / fs <= 0.10:
-                        default_idx = j
-                        break
-                picked_name = st.selectbox(
-                    "Declared contest", options, index=default_idx,
-                    key=f"autopsy_contest_{slug}_{i}",
+                declared = _declared_all
+                _linked = _auto_links.get(dk_csv.name)
+                _inferred = _C.infer_type(lineups["EntryName"])
+                _cid = _C.contest_id_from_filename(dk_csv.name)
+                ov = st.selectbox(
+                    "Contest link — auto-detected; override only if wrong",
+                    ["(auto)"] + [c["name"] for c in declared] + ["(not declared)"],
+                    index=0, key=f"autopsy_contest_{slug}_{i}",
                 )
-                picked = next((c for c in declared if c["name"] == picked_name), None)
-                if picked is None:
-                    fee = st.number_input(
-                        "Entry fee ($)", min_value=0.0, step=0.25, value=0.0,
-                        key=f"autopsy_fee_{slug}_{i}",
-                    )
-                    entry_fee = float(fee) if fee else None
-                    my_entries = (analysis["user_summary"] or {}).get("entry_count", 0)
-                    contest_type = None
+                if ov == "(auto)":
+                    picked = _linked
+                elif ov == "(not declared)":
+                    picked = None
                 else:
+                    picked = next((c for c in declared if c["name"] == ov), None)
+                # contest_type ALWAYS resolves — matched contest's type, else inferred
+                # from the standings' (n/m) suffix. Never None / "unknown".
+                contest_type = (picked.get("type") if picked else None) or _inferred
+                contest_name = picked.get("name") if picked else None
+                picked_name = picked["name"] if picked else dk_csv.name
+                if picked:
                     entry_fee = picked.get("entry_fee")
                     my_entries = picked.get("my_entries", 0)
-                    contest_type = picked.get("type")
+                    st.caption(f"🔗 Linked to **{picked['name']}** · type **{contest_type}** "
+                               f"· contest {_cid or '—'}")
+                else:
+                    entry_fee = None
+                    my_entries = (analysis["user_summary"] or {}).get("entry_count", 0)
+                    st.caption(f"🔗 No declared match · type **{contest_type or '?'}** inferred "
+                               f"from the standings · contest {_cid or '—'}")
                 win_raw = st.text_input(
                     "Winnings this contest ($) — optional, ROI lives in your third-party tracker",
                     key=f"autopsy_win_{slug}_{i}",
@@ -925,11 +1006,13 @@ with tab_autopsy:
                 "analysis": analysis,
                 "field_profile": _field_cached,
                 "contest_type": contest_type,
-                "contest_name": picked_name if picked else None,
+                "contest_name": contest_name,
+                "contest_id": _cid,
                 "notes": notes,
                 "roi": {
                     "name": picked_name if picked else dk_csv.name,
                     "type": contest_type,
+                    "contest_id": _cid,
                     "source_file": dk_csv.name,
                     "field_size": len(lineups),
                     "my_entries": my_entries,
@@ -980,7 +1063,8 @@ with tab_autopsy:
                             from src import field_tendencies as _ft
                             _ft.record(slug, pc.get("contest_type"), len(lineups),
                                        pc.get("field_profile") or {}, ts,
-                                       contest_name=pc.get("contest_name"))
+                                       contest_name=pc.get("contest_name"),
+                                       contest_id=pc.get("contest_id"))
                         except Exception:  # noqa: BLE001 — never blocks the log
                             pass
                         fmd.write(f"\n\n## {ts} — {contest_label} ({pc['name']})\n")
@@ -1015,6 +1099,17 @@ with tab_autopsy:
                             contest_type=_pick.get("contest_type"),
                         ):
                             _acc.refresh_baseline()
+                        # Per-pro dossier: one row per NAMED shark in-field (their
+                        # fingerprint + our side), so we track the specific humans
+                        # over time — not just the aggregate envelope.
+                        from src import shark_dossier as _dossier
+                        _dossier.record_pros(
+                            slug, sgap.get("sport"), _pick["parsed"], sgap,
+                            _dt.now().strftime("%Y-%m-%d"),
+                            contest_type=_pick.get("contest_type"),
+                            field_size=len(_pick["lineups"]),
+                            contest_id=_pick.get("contest_id"),
+                        )
                 except Exception:  # noqa: BLE001
                     sgap = None
                 # Archive the slate BEFORE clearing — analysis and ROI survive

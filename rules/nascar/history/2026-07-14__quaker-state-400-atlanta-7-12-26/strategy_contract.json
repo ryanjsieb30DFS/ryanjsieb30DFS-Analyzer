@@ -1,0 +1,117 @@
+{
+  "generated_at": "2026-07-12 18:15",
+  "slug": "nascar",
+  "calls": [
+    {
+      "name": "Todd Gilliland",
+      "verdict": "play"
+    },
+    {
+      "name": "John H. Nemechek",
+      "verdict": "play"
+    },
+    {
+      "name": "Connor Zilisch",
+      "verdict": "play"
+    },
+    {
+      "name": "Michael McDowell",
+      "verdict": "play"
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "verdict": "play"
+    },
+    {
+      "name": "Ross Chastain",
+      "verdict": "pass"
+    },
+    {
+      "name": "Kyle Larson",
+      "verdict": "pass"
+    },
+    {
+      "name": "Daniel Suarez",
+      "verdict": "pass"
+    },
+    {
+      "name": "Alex Bowman",
+      "verdict": "pass"
+    },
+    {
+      "name": "Shane Van Gisbergen",
+      "verdict": "pass"
+    },
+    {
+      "name": "BJ McLeod",
+      "verdict": "pass"
+    },
+    {
+      "name": "Chad Finchum",
+      "verdict": "pass"
+    },
+    {
+      "name": "William Byron",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Zane Smith",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Bubba Wallace",
+      "verdict": "underweight"
+    }
+  ],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "Kyle Larson",
+      "own": 8.0
+    },
+    {
+      "name": "BJ McLeod",
+      "own": 4.0
+    },
+    {
+      "name": "Daniel Suarez",
+      "own": 5.0
+    },
+    {
+      "name": "Chad Finchum",
+      "own": 3.0
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "own": 8.0
+    },
+    {
+      "name": "Todd Gilliland",
+      "own": 6.0
+    },
+    {
+      "name": "John H. Nemechek",
+      "own": 9.0
+    },
+    {
+      "name": "Ross Chastain",
+      "own": 7.0
+    },
+    {
+      "name": "Michael McDowell",
+      "own": 5.0
+    },
+    {
+      "name": "Alex Bowman",
+      "own": 5.0
+    },
+    {
+      "name": "Shane Van Gisbergen",
+      "own": 3.0
+    },
+    {
+      "name": "Connor Zilisch",
+      "own": 9.0
+    }
+  ]
+}

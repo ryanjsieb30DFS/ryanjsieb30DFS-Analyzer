@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-14",
+  "slug": "nascar",
+  "sport": "nascar",
+  "slate_label": "Quaker State 400 Atlanta 7.12.26",
+  "history_dir": "rules/nascar/history/2026-07-14__quaker-state-400-atlanta-7-12-26",
+  "contests": [
+    {
+      "name": "NAS $8K Rainbow Warrior",
+      "type": "SE",
+      "source_file": "contest-standings-192132064.csv",
+      "field_size": 392,
+      "my_entries": 1,
+      "entry_fee": 24.0,
+      "buy_in": 24.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 223,
+      "best_percentile": 56.9
+    },
+    {
+      "name": "NAS $5K Engine Block",
+      "type": "SE",
+      "source_file": "contest-standings-192132073.csv",
+      "field_size": 490,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "buy_in": 12.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 412,
+      "best_percentile": 84.1
+    }
+  ],
+  "total_buy_in": 36.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 223,
+  "best_percentile": 56.9,
+  "entries_total": 2,
+  "edge_leverage_capture": 0.5,
+  "edge_overperformer_capture": null,
+  "edge_bust_exposure": null,
+  "lineup_avg_ratio": null,
+  "shark_gap_top": {
+    "dim": "own_per_slot",
+    "delta": -15.7
+  }
+}
