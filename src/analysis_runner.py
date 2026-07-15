@@ -215,6 +215,37 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
     return _run_claude(prompt, out_path)
 
 
+def run_grade(slug: str, contest_label: str, sport: str, lineups_text: str) -> dict:
+    """Thesis check for HAND-BUILT lineups (the Grade tab's claude pass, on top of
+    the deterministic checks in src/grader.py). For each pasted lineup: a one-line
+    'how it wins' thesis grounded in the slate data — or THESIS-LESS — plus a
+    portfolio distinctness read. GRADES ONLY: never builds, swaps, or fixes.
+
+    Writes data/grade/<slug>.md. Returns {ok, error, duration_s, cost_usd}."""
+    out_path = _REPO_ROOT / "data" / "grade" / f"{slug}.md"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    prompt = (
+        f"You are grading the user's HAND-BUILT {contest_label} DK lineups (sport: {sport}) "
+        f"before lock. HARD RULE: you grade — you NEVER build, select, swap, fix, or suggest "
+        f"replacement players/lineups. Name weaknesses; the user decides.\n\n"
+        f"Read: the slate strategy at `data/slate_analysis/{slug}.md`, the player pool at "
+        f"`data/player_pool/{slug}.md`, and `rules/{slug}/lessons.yaml` (open lessons only).\n\n"
+        f"The lineups (one per line):\n{lineups_text}\n\n"
+        f"Write `{out_path}` with:\n"
+        f"1. `## Thesis check` — for EACH lineup, ONE line: **Lineup N** — its 'how it wins' "
+        f"thesis in one sentence, citing a specific data point (article read, own%, ceiling), "
+        f"OR `**THESIS-LESS**` if no coherent winning story exists. Every lineup needs an "
+        f"articulable thesis — vague labels don't count.\n"
+        f"2. `## Distinctness` — do the lineups answer DIFFERENT what-ifs? Name any pair that "
+        f"answers the same question (competing lineups).\n"
+        f"3. `## Lessons that activate` — any open lesson from lessons.yaml this set of "
+        f"lineups triggers (state the lesson id + mechanism), or 'None.'\n"
+        f"≤25 words per bullet. NO play/fade commands, NO alternative lineups, NO swap "
+        f"suggestions. Do not ask questions — produce the file."
+    )
+    return _run_claude(prompt, out_path)
+
+
 def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
     """Build the ranked, annotated player pool: every rosterable player from the
     loaded projections minus the strategy's fades, ranked for GPP with a short

@@ -33,6 +33,7 @@ _ARCHIVE_SOURCES = {
     "strategy_contract.json": lambda slug: _REPO_ROOT / "data" / "strategy_contract" / f"{slug}.json",
     "sim_analysis.md": lambda slug: _REPO_ROOT / "data" / "sim_analysis" / f"{slug}.md",
     "sim_pool.csv": lambda slug: _REPO_ROOT / "data" / "sim_data" / f"{slug}__pool.csv",
+    "lineup_grade.md": lambda slug: _REPO_ROOT / "data" / "grade" / f"{slug}.md",
 }
 
 

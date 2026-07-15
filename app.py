@@ -27,11 +27,11 @@ from src.contest_templates import load_templates, save_template, remove_template
 from src.bundle import clear_bundle
 from src.analysis_runner import (
     run_analysis, run_autopsy_review, run_apply_proposals, run_player_pool,
-    run_ledger_review, run_apply_ledger_proposals,
+    run_ledger_review, run_apply_ledger_proposals, run_grade,
 )
 from src import (
     history, sessions, landscape, player_pool, ledger_hygiene,
-    sim_sessions, field_tendencies,
+    sim_sessions, field_tendencies, grader,
 )
 from datetime import datetime as _dt
 from src.projections import load_projections, warn_missing_for_sport
@@ -242,6 +242,8 @@ with st.sidebar:
             sessions.clear(slug)
             sim_sessions.clear(slug)
             _clear_notes_drafts(slug)
+            grader.clear_draft(slug)
+            (REPO_ROOT / "data" / "grade" / f"{slug}.md").unlink(missing_ok=True)
             from src.strategy_contract import clear_contract
             clear_contract(slug)
             st.session_state[f"confirm_clear_{slug}"] = False
@@ -255,8 +257,8 @@ with st.sidebar:
 
 
 # ---------- Tabs ---------- #
-tab_proj, tab_slate, tab_strategy, tab_autopsy = st.tabs(
-    ["Projections", "Slate Data", "Slate Strategy", "Autopsy"]
+tab_proj, tab_slate, tab_strategy, tab_grade, tab_autopsy = st.tabs(
+    ["Projections", "Slate Data", "Slate Strategy", "✅ Grade", "Autopsy"]
 )
 
 
@@ -740,6 +742,56 @@ with tab_strategy:
         st.info(f"Upload projections in the **Projections** tab, then rank the {_pnoun}.")
     else:
         st.info(f"Click **🏆 Rank {_pnoun}** above (or generate the slate strategy) to build the board.")
+
+
+# ===== Tab: Grade (hand-built lineups, pre-lock) =====
+with tab_grade:
+    st.markdown("### ✅ Grade — check your hand-built lineups before lock")
+    st.caption(
+        "Paste the lineups you built in DK (one per line, names comma-separated). "
+        "Every threshold is calibrated to THIS sport's observed data — the shark "
+        "envelope, your contests' winners, your strategy's calls, the board's tiers, "
+        "and the field's dupe-magnet pairs. It grades and names weaknesses; it never "
+        "builds, swaps, or fixes — you decide."
+    )
+    _src_g = cached_sources(slug)
+    if not _src_g:
+        st.info("Load projections first (Projections tab) — grading needs ownership + salary.")
+    else:
+        _gk = f"grade_text_{slug}"
+        if _gk not in st.session_state:
+            st.session_state[_gk] = grader.load_draft(slug)
+        _gtext = st.text_area(
+            "Lineups (one per line — e.g. `Ryan Blaney, Joey Logano, Kyle Larson, ...`)",
+            key=_gk, height=160,
+        )
+        grader.save_draft(slug, _gtext)  # survives a crash/restart
+        _gpool = player_pool.build_pool(_src_g)
+        _glus = grader.parse_lineups(_gtext, _gpool)
+        if _glus:
+            _gcal = grader.calibration(slug, sport, load_contests(slug))
+            _ggrades = [grader.grade_lineup(l, _gcal) for l in _glus]
+            _gpf = grader.grade_portfolio(_ggrades)
+            with st.container(border=True):
+                st.markdown(grader.grade_md(_ggrades, _gpf, _gcal))
+            # Optional claude pass: the thesis check (every lineup needs an
+            # articulable one-sentence "how it wins").
+            if st.button("🧠 Thesis check — one-line 'how it wins' per lineup (claude)",
+                         key=f"grade_thesis_{slug}"):
+                with st.spinner("Reading the strategy + pool and checking each thesis…"):
+                    _gres = run_grade(slug, contest_label, sport, _gtext)
+                if _gres["ok"]:
+                    st.success(f"Thesis check done in {_gres['duration_s']:.0f}s.")
+                    st.rerun()
+                else:
+                    st.error(_gres["error"])
+            _gpath = REPO_ROOT / "data" / "grade" / f"{slug}.md"
+            if _gpath.exists():
+                with st.container(border=True):
+                    st.markdown(_gpath.read_text())
+        else:
+            st.caption("Paste lineups above to grade them — matching runs against the "
+                       "loaded projections.")
 
 
 # ===== Tab 3: Autopsy =====
@@ -1309,6 +1361,8 @@ with tab_autopsy:
             sessions.clear(slug)
             sim_sessions.clear(slug)
             _clear_notes_drafts(slug)
+            grader.clear_draft(slug)
+            (REPO_ROOT / "data" / "grade" / f"{slug}.md").unlink(missing_ok=True)
             from src.strategy_contract import clear_contract
             clear_contract(slug)
             del st.session_state[f"autopsy_done_{slug}"]
