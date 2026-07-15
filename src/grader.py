@@ -200,6 +200,14 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
             prod *= max(o, 0.1) / 100.0
         g["expected_dupes"] = round(prod * cal["field_size"], 2)
 
+    # 0) Salary sanity: DK wouldn't accept an over-cap lineup, so exceeding the
+    # cap here almost always means a token matched the WRONG player.
+    if g["salary_used"] is not None and g["salary_used"] > _SALARY_CAP:
+        g["flags"].append({"level": "warn",
+                           "msg": f"Salary ${g['salary_used']:,} exceeds the "
+                                  f"${_SALARY_CAP:,} cap — DK wouldn't accept this; "
+                                  f"check for a name matched to the wrong player"})
+
     # 1) Fade violations — your OWN strategy said zero exposure.
     fade_hits = [p["name"] for p in players if _norm_name(p["name"]) in cal.get("fades", set())]
     if fade_hits:
@@ -317,6 +325,56 @@ def grade_md(grades: list[dict], portfolio_flags: list[dict], cal: dict) -> str:
     for f in portfolio_flags:
         out.append(f"- {'⚠️' if f['level'] == 'warn' else 'ℹ️'} **Portfolio:** {f['msg']}")
     return "\n\n".join(out) if out else "_Nothing to grade yet._"
+
+
+# --------------------------------------------------- grader self-validation ----
+def retro_grade(records, cal: dict) -> dict:
+    """Auto-grade the ENTERED lineups at autopsy time — the grader grading
+    itself. Uses the same calibrated gates as the pre-lock grade, but against
+    the ACTUAL ownership already computed into each lineup record (avg_own /
+    low_own_count), and logs flags-vs-finish so results.jsonl accumulates the
+    evidence: do flagged lineups really underperform clean ones? After enough
+    slates the thresholds get validated (or corrected) by outcomes instead of
+    margins. Never blocks the log."""
+    lineups, seen = [], set()
+    for r in (records or []):
+        for ln in r.get("user_lineups") or []:
+            roster = frozenset(_norm_name(p) for p in (ln.get("players") or []) if p)
+            if roster and roster not in seen:
+                seen.add(roster)
+                lineups.append(ln)
+    if not lineups:
+        return {"gradable": False}
+
+    lev_gated = (cal.get("shark_leverage_pct") is not None
+                 and cal["shark_leverage_pct"] >= _LEV_GATE)
+    pair_norms = [set(p["norm"]) for p in (cal.get("pairs") or [])]
+    graded = []
+    for ln in lineups:
+        roster = {_norm_name(p) for p in (ln.get("players") or [])}
+        flags = []
+        avg_own = ln.get("avg_own")
+        if (avg_own is not None and cal.get("own_flag_above") is not None
+                and avg_own > cal["own_flag_above"]):
+            flags.append("chalk_heavy")
+        if lev_gated and (ln.get("low_own_count") or 0) == 0:
+            flags.append("no_leverage")
+        if roster & cal.get("fades", set()):
+            flags.append("fade_violation")
+        if any(pn <= roster for pn in pair_norms):
+            flags.append("crowded_pair")
+        graded.append({"players": sorted(ln.get("players") or []),
+                       "percentile": ln.get("percentile"),
+                       "flags": flags})
+    flagged = [g["percentile"] for g in graded if g["flags"] and g["percentile"] is not None]
+    clean = [g["percentile"] for g in graded if not g["flags"] and g["percentile"] is not None]
+    return {
+        "gradable": True,
+        "n_lineups": len(graded),
+        "lineups": graded,
+        "flagged_pctiles": [round(p, 1) for p in flagged],
+        "clean_pctiles": [round(p, 1) for p in clean],
+    }
 
 
 # ------------------------------------------------------------- draft persist ---

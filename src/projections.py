@@ -54,7 +54,14 @@ def drop_junk_rows(projections: pd.DataFrame) -> pd.DataFrame:
     keep = pd.to_numeric(projections["proj_points"], errors="coerce").notna() & ~name_lower.isin(
         ["", "nan", "none"]
     )
-    return projections[keep].reset_index(drop=True)
+    out = projections[keep].reset_index(drop=True)
+    # Surface what was silently filtered (a NAMED row with no projection could be
+    # a real player the vendor half-exported — the user should see it go).
+    out.attrs["junk_dropped"] = [
+        str(n) for n, k in zip(projections["name"], keep)
+        if not k and str(n).strip().lower() not in ("", "nan", "none")
+    ]
+    return out
 
 
 def load_projections(csv_path_or_buffer, source_name: str | None = None) -> pd.DataFrame:
@@ -311,4 +318,14 @@ def warn_missing_for_sport(projections: pd.DataFrame, sport: str | None) -> list
             warnings.append("MLB: 'team' column missing — team-stack analysis disabled.")
         if "position" not in projections.columns:
             warnings.append("MLB: 'position' column missing — pitcher/hitter split disabled.")
+    # Ceiling: golf + MLB vendors normally ship one. If it vanishes (a vendor
+    # format change), the file still loads but every ceiling panel (mispricing,
+    # boom/bust, leverage-vs-ceiling) silently hides — make that LOUD.
+    if sport in ("golf", "mlb"):
+        if "ceiling" not in projections.columns or projections["ceiling"].isna().all():
+            warnings.append(
+                f"{'PGA' if sport == 'golf' else 'MLB'}: no usable 'ceiling' column — this "
+                "vendor normally ships one. ALL ceiling-based panels (mispricing, boom/bust, "
+                "leverage-vs-ceiling) will be hidden. Vendor format change?"
+            )
     return warnings

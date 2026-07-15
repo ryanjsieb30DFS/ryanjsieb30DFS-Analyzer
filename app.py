@@ -301,6 +301,15 @@ with tab_proj:
                 continue
             sessions.save_source(slug, f.name, df, vendor_name)
             st.success(f"✅ {f.name} — detected as **{vendor_name}** ({len(df)} players)")
+            # Loud at UPLOAD time (not buried in the Breakdown): rows silently
+            # filtered + sport-critical columns this vendor stopped shipping.
+            _junk = df.attrs.get("junk_dropped") or []
+            if _junk:
+                st.caption(f"↳ Dropped {len(_junk)} unparseable row(s) from the export: "
+                           + ", ".join(_junk[:5])
+                           + ("…" if len(_junk) > 5 else ""))
+            for _w in warn_missing_for_sport(df, sport):
+                st.warning(f"⚠️ {f.name}: {_w}")
             _conf = df.attrs.get("vendor_confidence") or {}
             if _conf.get("ambiguous"):
                 st.warning(
@@ -327,6 +336,15 @@ with tab_proj:
                 st.rerun()
 
         st.divider()
+        # Name-hygiene: the same player under two spellings would sit on the
+        # board TWICE at different owns/salaries — flag it before it misleads.
+        _susp = player_pool.suspect_duplicates(player_pool.build_pool(sources))
+        if _susp:
+            st.warning(
+                "⚠️ **Possible duplicate players across sources** (spelling mismatch — "
+                "the pool counts them twice): "
+                + " · ".join(f"{a} ↔ {b}" for a, b in _susp)
+            )
         pool = sessions.merge_same_vendor(sources)
         primary_name = st.selectbox("View source", list(pool.keys()))
         # Every table below comes from the cached suite — recomputes only when the
@@ -770,6 +788,9 @@ with tab_grade:
         _glus = grader.parse_lineups(_gtext, _gpool)
         if _glus:
             _gcal = grader.calibration(slug, sport, load_contests(slug))
+            if not _gcal.get("fades") and not _gcal.get("soft_fades"):
+                st.caption("ℹ️ No strategy-contract calls loaded — the fade checks are "
+                           "inactive. Generate a slate strategy first to arm them.")
             _ggrades = [grader.grade_lineup(l, _gcal) for l in _glus]
             _gpf = grader.grade_portfolio(_ggrades)
             with st.container(border=True):
@@ -1298,6 +1319,16 @@ with tab_autopsy:
                 except Exception as _ce:  # noqa: BLE001
                     _cal = None
                     _log_warnings.append(f"Tier calibration NOT computed: {_ce}")
+                # Grader self-validation: auto-grade the ENTERED lineups with the
+                # same calibrated checks and log flags-vs-finish — the evidence
+                # that validates (or corrects) the Grade tab's thresholds.
+                _gv = None
+                try:
+                    _gv = grader.retro_grade(
+                        records, grader.calibration(slug, sport, load_contests(slug)))
+                except Exception as _ge:  # noqa: BLE001
+                    _gv = None
+                    _log_warnings.append(f"Grader self-validation NOT computed: {_ge}")
                 # Archive the slate BEFORE clearing — analysis and ROI survive
                 # in rules/<slug>/history/ + results.jsonl.
                 hist_dir = history.archive_slate(
@@ -1311,6 +1342,7 @@ with tab_autopsy:
                     shark_gap=sgap,
                     adherence=_adh,
                     pool_calibration=_cal,
+                    grader_validation=_gv,
                 )
                 # Logging + archive are done. Do NOT auto-clear — set a PERSISTENT
                 # completion flag and let the user clear the slate deliberately

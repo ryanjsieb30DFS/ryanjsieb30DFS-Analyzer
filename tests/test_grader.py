@@ -120,6 +120,53 @@ def test_grade_md_renders():
     assert "Lineup 1" in md and "Calibration" in md
 
 
+def test_salary_over_cap_warns():
+    import pandas as pd
+    big = pd.DataFrame({
+        "name": ["Rich One", "Rich Two"],
+        "ownership": [20.0, 20.0],
+        "salary": [30000, 30000],
+        "proj_points": [50, 50],
+    })
+    lus = grader.parse_lineups("Rich One, Rich Two", big)
+    g = grader.grade_lineup(lus[0], _cal())
+    assert any("exceeds" in w for w in _warns(g))
+
+
+def test_retro_grade_flags_vs_clean():
+    from src.autopsy import _norm_name
+    cal = _cal(fades={_norm_name("Bad Fade")}, own_flag_above=25.0,
+               shark_leverage_pct=49.0)
+    records = [{"user_lineups": [
+        # flagged: chalk-heavy AND fade violation
+        {"players": ["Bad Fade", "B"], "avg_own": 40.0, "low_own_count": 1,
+         "percentile": 60.0},
+        # clean: modest own, has a low-own piece
+        {"players": ["C", "D"], "avg_own": 15.0, "low_own_count": 1,
+         "percentile": 5.0},
+        # flagged: no leverage (gated ON since shark_leverage_pct=49)
+        {"players": ["E", "F"], "avg_own": 20.0, "low_own_count": 0,
+         "percentile": 45.0},
+    ]}]
+    rg = grader.retro_grade(records, cal)
+    assert rg["gradable"] and rg["n_lineups"] == 3
+    assert sorted(rg["flagged_pctiles"]) == [45.0, 60.0]
+    assert rg["clean_pctiles"] == [5.0]
+    flags = {tuple(l["players"]): l["flags"] for l in rg["lineups"]}
+    assert "fade_violation" in flags[("B", "Bad Fade")]
+    assert "no_leverage" in flags[("E", "F")]
+
+
+def test_retro_grade_leverage_gate_respected():
+    # MMA-style: no envelope leverage → no_leverage never flags retroactively.
+    cal = _cal(shark_leverage_pct=None, own_flag_above=None)
+    records = [{"user_lineups": [
+        {"players": ["A", "B"], "avg_own": 45.0, "low_own_count": 0, "percentile": 1.0},
+    ]}]
+    rg = grader.retro_grade(records, cal)
+    assert rg["lineups"][0]["flags"] == []
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
     for fn in fns:

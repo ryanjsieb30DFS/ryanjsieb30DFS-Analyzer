@@ -44,6 +44,40 @@ def clear_pool(slug: str) -> None:
         p.unlink()
 
 
+def suspect_duplicates(pool: pd.DataFrame) -> list[tuple[str, str]]:
+    """Likely the SAME player twice under different spellings — the silent
+    cross-vendor failure ('S. Scheffler' vs 'Scottie Scheffler') that makes the
+    board carry a player twice at different owns/salaries. Heuristic: same last
+    token (len ≥ 4), different norm keys, and either one first token is an
+    initial (≤ 2 chars) or one name's tokens are a subset of the other's.
+    Returns up to 8 pairs for an upload-time warning."""
+    if pool is None or pool.empty or "name" not in pool.columns:
+        return []
+    from src.autopsy import _norm_name
+    entries = []
+    for nm in pool["name"].astype(str):
+        toks = _norm_name(nm).split()
+        if toks:
+            entries.append((nm, toks))
+    by_last: dict[str, list] = {}
+    for nm, toks in entries:
+        if len(toks[-1]) >= 4:
+            by_last.setdefault(toks[-1], []).append((nm, toks))
+    out: list[tuple[str, str]] = []
+    for group in by_last.values():
+        for i in range(len(group)):
+            for j in range(i + 1, len(group)):
+                (na, ta), (nb, tb) = group[i], group[j]
+                if ta == tb:
+                    continue  # identical norm — build_pool already merges these
+                initial_style = (len(ta) > 1 and len(tb) > 1
+                                 and (len(ta[0]) <= 2 or len(tb[0]) <= 2))
+                subset = set(ta) <= set(tb) or set(tb) <= set(ta)
+                if initial_style or subset:
+                    out.append((na, nb))
+    return out[:8]
+
+
 def build_pool(sources: dict[str, dict]) -> pd.DataFrame:
     """Union every player across the loaded vendor sources into one row each.
 

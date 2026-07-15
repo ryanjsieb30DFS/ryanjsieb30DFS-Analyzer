@@ -165,6 +165,20 @@ def process_trend_block(slug: str, n: int = 5) -> str | None:
         lines.append(f"- **Player-pool tier calibration:** tier ordering held in "
                      f"{held} of {len(ordered)} graded slates"
                      + (" — the board's boundaries are suspect." if held < len(ordered) else "."))
+    # Grader self-validation: pool the per-lineup outcomes across slates. Only
+    # meaningful once BOTH buckets have a few lineups.
+    fl, cl = [], []
+    for r in rows:
+        gc = r.get("grader_check") or {}
+        fl += gc.get("flagged_pctiles") or []
+        cl += gc.get("clean_pctiles") or []
+    if len(fl) >= 3 and len(cl) >= 3:
+        med = lambda v: sorted(v)[len(v) // 2]  # noqa: E731
+        lines.append(f"- **Grader validation:** lineups the pre-lock checks would flag "
+                     f"finished median {med(fl):.1f}%ile (n={len(fl)}) vs clean "
+                     f"{med(cl):.1f}%ile (n={len(cl)}) — "
+                     + ("the checks are earning their keep." if med(fl) > med(cl)
+                        else "flags are NOT predicting worse finishes; recalibrate."))
     return "\n".join(lines)
 
 
@@ -188,6 +202,7 @@ def archive_slate(
     shark_gap: dict | None = None,
     adherence: dict | None = None,
     pool_calibration: dict | None = None,
+    grader_validation: dict | None = None,
 ) -> Path:
     """Archive the slate's artifacts + results. Returns the history dir.
 
@@ -253,6 +268,11 @@ def archive_slate(
     if pool_calibration is not None:
         (hist_dir / "pool_calibration.json").write_text(
             json.dumps(pool_calibration, indent=2))
+
+    # Grader self-validation (do flagged lineups actually finish worse?).
+    if grader_validation is not None:
+        (hist_dir / "grader_validation.json").write_text(
+            json.dumps(grader_validation, indent=2))
 
     contests_out = []
     for c in roi_contests:
@@ -321,6 +341,14 @@ def archive_slate(
                          if pool_calibration and pool_calibration.get("gradable") else None),
         "tiers_ordered": (pool_calibration.get("tiers_ordered")
                           if pool_calibration and pool_calibration.get("gradable") else None),
+        # Grader self-validation: per-lineup finish pctiles split by whether the
+        # calibrated pre-lock checks would have flagged them. Accumulates the
+        # evidence that validates (or corrects) the grader's thresholds.
+        "grader_check": (
+            {"flagged_pctiles": grader_validation["flagged_pctiles"],
+             "clean_pctiles": grader_validation["clean_pctiles"]}
+            if grader_validation and grader_validation.get("gradable") else None
+        ),
     }
     (hist_dir / "results.json").write_text(json.dumps(row, indent=2))
     append_results(slug, row)
