@@ -44,8 +44,25 @@ def _run_claude(prompt: str, out_path: Path) -> dict:
         return {"ok": False, "error": "Couldn't find the `claude` CLI on this machine.",
                 "duration_s": 0.0, "cost_usd": None}
 
-    # Snapshot the prior file mtime so we can confirm a fresh write below.
+    # Snapshot the prior file (mtime for the fresh-write check, bytes so a
+    # FAILED run that half-wrote the file never leaves a partial strategy
+    # rendering as if it were current — we roll back to the pre-run version).
     prior_mtime = out_path.stat().st_mtime if out_path.exists() else None
+    prior_bytes = out_path.read_bytes() if out_path.exists() else None
+
+    def _rollback_partial():
+        """On failure: undo any partial write claude left behind."""
+        try:
+            if not out_path.exists():
+                return
+            if out_path.stat().st_mtime == prior_mtime:
+                return  # untouched
+            if prior_bytes is None:
+                out_path.unlink()  # didn't exist before the run
+            else:
+                out_path.write_bytes(prior_bytes)
+        except OSError:
+            pass  # rollback is best-effort; the error is reported regardless
 
     cmd = [
         binary, "-p", prompt,
@@ -60,6 +77,7 @@ def _run_claude(prompt: str, out_path: Path) -> dict:
             capture_output=True, text=True, timeout=_TIMEOUT_S,
         )
     except subprocess.TimeoutExpired:
+        _rollback_partial()
         return {"ok": False, "error": f"Timed out after {_TIMEOUT_S // 60} minutes.",
                 "duration_s": time.time() - started, "cost_usd": None}
 
@@ -78,6 +96,7 @@ def _run_claude(prompt: str, out_path: Path) -> dict:
 
     if proc.returncode != 0 or cli_error:
         msg = cli_error or (proc.stderr.strip()[:500]) or f"claude exited with code {proc.returncode}."
+        _rollback_partial()
         return {"ok": False, "error": msg, "duration_s": duration, "cost_usd": cost}
 
     # Confirm a fresh output file actually landed.
@@ -132,7 +151,12 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"Read EVERY `articles/{slug}/` file (never silently skip one). Read the venue file. Read "
         f"`rules/{slug}/lessons.yaml` — apply every open lesson (hypothesis/validated) in the decisions "
         f"where it fits, and silently drop the ones whose mechanism doesn't. Run the framework's "
-        f"pre-lock checks including Anchor-Equivalence (surfaced as a tension in `## Edges & tensions`).\n\n"
+        f"pre-lock checks including Anchor-Equivalence (surfaced as a tension in `## Edges & tensions`). "
+        f"If the bundle has a `## Process trend` section, read the SEQUENCES: a recurring weakness "
+        f"(leverage capture repeatedly 0%, bust exposure climbing, violated fade calls, the same "
+        f"shark-gap axis) MUST shape the relevant section below — e.g. weak leverage capture makes the "
+        f"low-owned-definers screen the slate's priority. One bad slate is variance; a repeated "
+        f"pattern is process signal.\n\n"
         f"Write a **SYNTHESIS-FIRST, tight, scannable** GPP slate brief to `{out_path}`. **This tool "
         f"ORGANIZES and SYNTHESIZES the data — it does NOT tell the user who to play.** Surface the "
         f"edges, tensions, mispricings, and rankings; the user makes every play/fade/build decision "
@@ -182,8 +206,10 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"differentiation, all-unique). **If the bundle has a `## Shark reality` section, anchor the "
         f"sharp-envelope target to ITS observed numbers** (own/slot, leverage%, anchor-exposure from "
         f"the pros who actually played YOUR contests) and name the gap to close — not just the static "
-        f"playbook. Surface it as the target; issue no play/fade command. No restatement of the plays "
-        f"above.\n\n"
+        f"playbook. If that section lists NAMED pros, cite the most relevant archetype as coaching — "
+        f"e.g. 'moklovin (beat you 2/3) rides the chalk anchors and skips leverage — your edge vs him "
+        f"is the sub-5% piece he never carries.' Descriptive only; surface it as the target and issue "
+        f"no play/fade command. No restatement of the plays above.\n\n"
         f"Do not ask any questions — read the inputs and produce the file."
     )
     return _run_claude(prompt, out_path)
@@ -329,6 +355,11 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str) -> dict:
         f"Run the post-autopsy review for the archived {contest_label} slate at `{hist_dir}`. "
         f"Read its manifest.json, slate_analysis.md, autopsy.json, and results.json, "
         f"the shark head-to-head at `{hist_dir}/shark_gap.json` (structural you-vs-the-pros), "
+        f"the own-strategy adherence grade at `{hist_dir}/adherence.json` (if present), "
+        f"the player-pool tier calibration at `{hist_dir}/pool_calibration.json` (if present — "
+        f"did the board's tiers hold up, and who got buried?), "
+        f"the last few rows of `rules/{slug}/results.jsonl` (the process TREND — leverage capture, "
+        f"bust exposure, adherence across slates, not just this one), "
         f"the latest entries in `rules/{slug}/autopsy_data.jsonl`, "
         f"and the lesson ledger at "
         f"`rules/{slug}/lessons.yaml` (create it with the standard header from CLAUDE.md's "
@@ -343,6 +374,17 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str) -> dict:
         f"axis has separated before (check prior autopsy_data.jsonl / lessons), that is a RECURRING "
         f"structural leak — the sharpest kind of process lesson. State the mechanism ('I under-own the "
         f"field's chalk anchors the pros ride', etc.), not the result.\n"
+        f"1c. ADHERENCE: from `adherence.json` (when present), grade DISCIPLINE separately from "
+        f"analysis: did the entered lineups honor the strategy's own fade/under-own calls, and did "
+        f"any lineup carry the named leverage candidates? A violated own-call is a process finding "
+        f"even when it happened to score well (results don't launder discipline). If the results.jsonl "
+        f"trend shows the same violation pattern across slates, birth/confirm a mechanism lesson.\n"
+        f"1d. CODIFIED-RULE CHECK: for each lesson in `rules/{slug}/lessons.yaml` with status "
+        f"'codified', note whether the archived strategy actually APPLIED it (or it didn't trigger "
+        f"this slate) and whether its MECHANISM held against the DK actuals. Codification is not "
+        f"tenure: a codified rule whose mechanism has now failed in 2+ slates gets a demotion "
+        f"proposal in '## Proposed codifications' (retire or narrow its scope), with the exact "
+        f"framework.md edit. Same GPP guard — a lost contest alone is not a mechanism failure.\n"
         f"2. UPDATE `rules/{slug}/lessons.yaml` directly (Edit tool): add confirmations/contradictions "
         f"with this slate's date and history dir; promote status to 'validated' where confirmations "
         f"exist; add new 'hypothesis' lessons born from this autopsy — mechanism-based, not "

@@ -157,6 +157,52 @@ def merge_candidates(lessons: list[dict], min_overlap: float = 0.45) -> list[dic
     return pairs
 
 
+_ALL_SLUGS = ("pga_classic", "pga_rd4_sd", "mma_se", "nascar", "mlb_classic")
+
+
+def cross_sport_candidates(min_overlap: float = 0.45,
+                           slugs: tuple = _ALL_SLUGS) -> list[dict]:
+    """Lesson pairs from DIFFERENT sports whose statements token-overlap — the
+    same pattern learned twice. Anchor-Equivalence proved universal patterns
+    exist; this watches for the next one so it can be promoted to
+    `rules/shared/` instead of sitting duplicated. Non-retired lessons all
+    participate (a codified rule in one sport matching a hypothesis in another
+    is exactly the promotion signal). Sorted by overlap, capped at 10."""
+    per_sport = []
+    for s in slugs:
+        for l in load_lessons(s):
+            if l.get("status") == "retired":
+                continue
+            toks = _tokens(l.get("statement", ""))
+            if toks:
+                per_sport.append((s, l.get("id"), toks))
+    pairs = []
+    for i in range(len(per_sport)):
+        for j in range(i + 1, len(per_sport)):
+            sa, ida, ta = per_sport[i]
+            sb, idb, tb = per_sport[j]
+            if sa == sb:
+                continue  # within-sport dupes are merge_candidates' job
+            jac = len(ta & tb) / len(ta | tb)
+            if jac >= min_overlap:
+                pairs.append({"a": f"{sa}:{ida}", "b": f"{sb}:{idb}",
+                              "overlap": round(jac, 2)})
+    pairs.sort(key=lambda p: -p["overlap"])
+    return pairs[:10]
+
+
+def cross_sport_md(pairs: list[dict]) -> str | None:
+    if not pairs:
+        return None
+    out = ["#### Cross-sport lesson overlap — promotion candidates for `rules/shared/`",
+           "The same pattern learned in two sports is likely UNIVERSAL (the "
+           "Anchor-Equivalence path). Review each pair; if the mechanism matches, "
+           "promote one statement to `rules/shared/` and cross-link both ledgers."]
+    for p in pairs:
+        out.append(f"- `{p['a']}` ↔ `{p['b']}` — {p['overlap']:.0%} statement overlap")
+    return "\n".join(out)
+
+
 def hygiene_report(slug: str) -> dict:
     """Full deterministic flag set for a slug's ledger."""
     from src import history

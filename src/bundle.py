@@ -59,9 +59,27 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
             f"- {summ['n_contests']} contest(s), {summ['total_entries']} total entries"
         )
         for c in contests:
-            L.append(
+            line = (
                 f"  - **{c['name']}** ({c['type']}): field {c.get('field_size', '?'):,}, "
                 f"my entries {c.get('my_entries', '?')}/{c.get('max_entries', '?')}"
+            )
+            # Payout shape frames the contrarian dial: top-heavy pays the ceiling
+            # chase; flat pays tighter theses. Prize multiple = pool / total fees
+            # (higher = softer rake / overlay).
+            shape = c.get("payout_shape")
+            if shape:
+                line += f", payout **{shape}**"
+            fee, pool_, fs = c.get("entry_fee"), c.get("prize_pool"), c.get("field_size")
+            if fee and pool_ and fs:
+                line += f", prize multiple {pool_ / (fee * fs):.2f}x"
+            L.append(line)
+        if any(c.get("payout_shape") for c in contests):
+            L.append(
+                "_Payout shape read: **Top-heavy** → the win is everything; maximum-ceiling, "
+                "contrarian builds and the leverage-away reads matter most. **Flat** → many "
+                "similar payouts; a tight high-floor-of-ceiling thesis competes fine. "
+                "**Balanced** → in between. Surface it in `## How to approach the slate`; "
+                "never a play/fade command._"
             )
         L.append(
             "_This tool is focused on **small-field GPPs — Single Entry, 3-Max, and "
@@ -89,6 +107,17 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
         shark_block = shark_dossier.shark_reality_block(slug)
         if shark_block:
             L += ["", shark_block]
+    except Exception:  # noqa: BLE001 — never block the bundle
+        pass
+
+    # --- Process trend (forward-feed: the self-grade sequences from results.jsonl,
+    # so a recurring weakness — leverage capture at 0%, climbing bust exposure,
+    # violated fades — shapes THIS strategy instead of dying in the archive) --- #
+    try:
+        from src import history as _hist
+        trend_block = _hist.process_trend_block(slug)
+        if trend_block:
+            L += ["", trend_block]
     except Exception:  # noqa: BLE001 — never block the bundle
         pass
 

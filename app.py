@@ -73,6 +73,40 @@ def _file_mtime(p: Path | None) -> float:
     return p.stat().st_mtime if p and p.exists() else 0.0
 
 
+# ---- Autopsy-notes drafts: persisted to disk as the user types, so a Streamlit
+# crash/restart mid-autopsy never eats the lessons text. Keyed per CSV name;
+# deleted on log + on slate clear. ----
+def _notes_draft_path(slug: str) -> Path:
+    return REPO_ROOT / "data" / "autopsy_drafts" / f"{slug}.json"
+
+
+def _load_notes_drafts(slug: str) -> dict:
+    p = _notes_draft_path(slug)
+    if not p.exists():
+        return {}
+    try:
+        return json.loads(p.read_text()) or {}
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def _save_notes_draft(slug: str, csv_name: str, text: str) -> None:
+    drafts = _load_notes_drafts(slug)
+    if drafts.get(csv_name, "") == text:
+        return  # unchanged — skip the write
+    drafts[csv_name] = text
+    p = _notes_draft_path(slug)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(drafts))
+
+
+def _clear_notes_drafts(slug: str) -> None:
+    try:
+        _notes_draft_path(slug).unlink(missing_ok=True)
+    except OSError:
+        pass
+
+
 @st.cache_data(show_spinner=False)
 def _cached_sources(slug: str, mtime: float) -> dict:
     # `mtime` must NOT start with an underscore — st.cache_data excludes
@@ -207,6 +241,7 @@ with st.sidebar:
             clear_bundle(slug)
             sessions.clear(slug)
             sim_sessions.clear(slug)
+            _clear_notes_drafts(slug)
             from src.strategy_contract import clear_contract
             clear_contract(slug)
             st.session_state[f"confirm_clear_{slug}"] = False
@@ -498,6 +533,7 @@ with tab_strategy:
                     "my_entries": int(t_mine),
                     "entry_fee": chosen.get("entry_fee"),
                     "prize_pool": chosen.get("prize_pool"),
+                    "payout_shape": chosen.get("payout_shape"),
                 })
                 st.rerun()
             with st.expander("Manage saved templates"):
@@ -527,6 +563,13 @@ with tab_strategy:
                 entry_fee = st.number_input("Entry fee ($, optional)", min_value=0.0, value=0.0, step=0.25)
             with col_d:
                 prize_pool = st.number_input("Prize pool ($, optional)", min_value=0, value=0, step=100)
+            payout_shape = st.selectbox(
+                "Payout shape (optional — frames how contrarian to be)",
+                ["(unknown)", "Top-heavy", "Balanced", "Flat"],
+                help="Top-heavy (1st takes a big share) demands max-ceiling contrarian "
+                     "builds; Flat (min-cashes pay similar) rewards tighter theses. "
+                     "Check the contest's payout table on DK.",
+            )
             submitted = st.form_submit_button("Add contest", type="primary")
             if submitted and name.strip():
                 add_contest(slug, {
@@ -537,6 +580,7 @@ with tab_strategy:
                     "my_entries": int(my_entries),
                     "entry_fee": float(entry_fee) if entry_fee else None,
                     "prize_pool": int(prize_pool) if prize_pool else None,
+                    "payout_shape": None if payout_shape == "(unknown)" else payout_shape,
                 })
                 st.rerun()
 
@@ -639,6 +683,18 @@ with tab_strategy:
                     "plays your field reliably crowds (leverage lives AWAY from these): "
                     + ", ".join(_crowds)
                 )
+        # Ownership drift: if the loaded projections moved since the strategy was
+        # written (newer vendor upload), flag the leverage candidates whose
+        # thesis changed — no regen needed to SEE the move.
+        if _src:
+            try:
+                from src import drift as _drift
+                _d = _drift.ownership_drift(slug, player_pool.build_pool(_src))
+                _dmd = _drift.drift_md(_d) if _d else None
+                if _dmd:
+                    (st.warning if _d["drifted"] else st.caption)(_dmd)
+            except Exception:  # noqa: BLE001 — display-only
+                pass
         with st.container(border=True):
             st.caption(f"Last updated: {persisted['mtime']}")
             st.markdown(persisted["markdown"])
@@ -841,6 +897,18 @@ with tab_autopsy:
                         st.caption("Computed in Python from this contest's actuals — trended into "
                                    "the next slate's bundle when you log the autopsy.")
 
+                # Near-miss counterfactual + winner build story: one swap away,
+                # or a structural rebuild? And what leverage carried the winner?
+                try:
+                    from src import counterfactual as _cf
+                    _cf_md = _cf.counterfactual_md(
+                        _cf.winner_story(parsed), _cf.near_miss(parsed, analysis))
+                    if _cf_md:
+                        with st.container(border=True):
+                            st.markdown(_cf_md)
+                except Exception:  # noqa: BLE001 — display-only, never blocks
+                    pass
+
                 # Shark gap — structural us-vs-sharks fingerprint for THIS field
                 # (computed once in _cached_dk_analysis; None = best-effort failure).
                 if _gap_cached is not None:
@@ -948,11 +1016,16 @@ with tab_autopsy:
                                          f"{'chalkier' if _tr > 0 else 'sharper'} ({_tr:+} own/slot)")
                             st.info(_msg)
 
+                # Draft-persisted: survives a Streamlit crash/restart mid-autopsy.
+                _nk = f"autopsy_notes_{slug}_{i}"
+                if _nk not in st.session_state:
+                    st.session_state[_nk] = _load_notes_drafts(slug).get(dk_csv.name, "")
                 notes = st.text_area(
                     "Lessons / patterns to log (appended to autopsies.md)",
-                    key=f"autopsy_notes_{slug}_{i}",
+                    key=_nk,
                     height=120,
                 )
+                _save_notes_draft(slug, dk_csv.name, notes)
 
                 # --- Contest link: AUTO by default (see top-level summary),
                 # override only if the auto-match is wrong. --- #
@@ -1037,11 +1110,37 @@ with tab_autopsy:
                 md_path = REPO_ROOT / "rules" / slug / "autopsies.md"
                 md_path.parent.mkdir(parents=True, exist_ok=True)
                 jsonl_path = REPO_ROOT / "rules" / slug / "autopsy_data.jsonl"
+                # Write-time dedup: a contest whose DK id is already in the
+                # ledger is SKIPPED — an accidental second log of the same
+                # standings must never double-count results.jsonl / the
+                # autopsy history (the trend everything else reads).
+                _already_ids = history.logged_contest_ids(slug)
+                _to_log, _dupe_names = [], []
+                for pc in parsed_contests:
+                    _cid = pc.get("contest_id")
+                    if _cid and str(_cid) in _already_ids:
+                        _dupe_names.append(pc["name"])
+                    else:
+                        _to_log.append(pc)
+                if not _to_log:
+                    st.warning(
+                        f"⚠️ **Nothing logged** — all {len(parsed_contests)} uploaded contest(s) "
+                        "are already in the ledger (same DK contest id). Duplicate logs are "
+                        "skipped to keep results.jsonl and the trend honest."
+                    )
+                    st.stop()
+                # Best-effort steps must never block the log, but a silent
+                # failure loses learning data — collect and SHOW what failed.
+                _log_warnings: list[str] = []
+                if _dupe_names:
+                    _log_warnings.append(
+                        f"Skipped {len(_dupe_names)} already-logged contest(s): "
+                        + ", ".join(_dupe_names))
                 # One autopsies.md section + one autopsy_data.jsonl row per
                 # contest; source_file disambiguates same-type contests.
                 records = []
                 with md_path.open("a") as fmd, jsonl_path.open("a") as fjl:
-                    for pc in parsed_contests:
+                    for pc in _to_log:
                         lineups = pc["lineups"]
                         notes = pc["notes"]
                         record = build_autopsy_record(
@@ -1055,6 +1154,7 @@ with tab_autopsy:
                             proj_source=proj_source,
                             notes=notes,
                             field_profile=pc.get("field_profile"),
+                            contest_id=pc.get("contest_id"),
                         )
                         # Accumulate the field tendencies for this contest — keyed
                         # by the specific contest name (sharpest) with contest-type
@@ -1065,8 +1165,9 @@ with tab_autopsy:
                                        pc.get("field_profile") or {}, ts,
                                        contest_name=pc.get("contest_name"),
                                        contest_id=pc.get("contest_id"))
-                        except Exception:  # noqa: BLE001 — never blocks the log
-                            pass
+                        except Exception as _fte:  # noqa: BLE001 — never blocks the log
+                            _log_warnings.append(
+                                f"Field-tendency row NOT written for {pc['name']}: {_fte}")
                         fmd.write(f"\n\n## {ts} — {contest_label} ({pc['name']})\n")
                         fmd.write(f"- Entries: {len(lineups):,}\n")
                         fmd.write(f"- Winning score: {lineups['Points'].max():.1f}\n")
@@ -1085,9 +1186,9 @@ with tab_autopsy:
                 try:
                     from src import shark_gap as _shark_gap
                     from src.contests import FOCUS_CONTEST_TYPES
-                    _focus = [pc for pc in parsed_contests
+                    _focus = [pc for pc in _to_log
                               if pc.get("contest_type") in FOCUS_CONTEST_TYPES]
-                    _pick = max(_focus or parsed_contests, key=lambda pc: len(pc["lineups"]))
+                    _pick = max(_focus or _to_log, key=lambda pc: len(pc["lineups"]))
                     sgap = _shark_gap.gap_for_slug(slug, _pick["parsed"])
                     # Accumulate the observed shark structure into the living
                     # envelope, then refresh the baseline the Sim tool reads.
@@ -1110,8 +1211,41 @@ with tab_autopsy:
                             field_size=len(_pick["lineups"]),
                             contest_id=_pick.get("contest_id"),
                         )
-                except Exception:  # noqa: BLE001
+                except Exception as _se:  # noqa: BLE001
                     sgap = None
+                    _log_warnings.append(f"Shark tracking NOT recorded this slate: {_se}")
+                # Own-strategy adherence: did the entered lineups honor the
+                # strategy contract's fade/under-own calls + leverage candidates?
+                # Graded before the contract is cleared with the slate.
+                _adh = None
+                try:
+                    from src import adherence as _adh_mod
+                    _contract_path = REPO_ROOT / "data" / "strategy_contract" / f"{slug}.json"
+                    if _contract_path.exists():
+                        _adh = _adh_mod.grade_adherence(
+                            json.loads(_contract_path.read_text()), records)
+                        if _adh.get("gradable"):
+                            with md_path.open("a") as _fmd2:
+                                _fmd2.write("\n" + _adh_mod.adherence_md(_adh) + "\n")
+                except Exception as _ae:  # noqa: BLE001
+                    _adh = None
+                    _log_warnings.append(f"Adherence grade NOT computed: {_ae}")
+                # Pool tier calibration: grade the board's tiers against actuals
+                # (scores are identical across the slate's contests — any works).
+                _cal = None
+                try:
+                    from src import pool_calibration as _pcal
+                    _pool_saved = player_pool.load_pool(slug)
+                    if _pool_saved:
+                        _cal = _pcal.grade_tiers(
+                            _pool_saved["markdown"], _to_log[0]["parsed"]["players"])
+                        _cal_md = _pcal.calibration_md(_cal)
+                        if _cal_md:
+                            with md_path.open("a") as _fmd3:
+                                _fmd3.write("\n" + _cal_md + "\n")
+                except Exception as _ce:  # noqa: BLE001
+                    _cal = None
+                    _log_warnings.append(f"Tier calibration NOT computed: {_ce}")
                 # Archive the slate BEFORE clearing — analysis and ROI survive
                 # in rules/<slug>/history/ + results.jsonl.
                 hist_dir = history.archive_slate(
@@ -1120,16 +1254,26 @@ with tab_autopsy:
                     contest_label=contest_label,
                     slate_label=slate_label.strip(),
                     autopsy_records=records,
-                    roi_contests=[pc["roi"] for pc in parsed_contests],
+                    roi_contests=[pc["roi"] for pc in _to_log],
                     proj_source=proj_source,
                     shark_gap=sgap,
+                    adherence=_adh,
+                    pool_calibration=_cal,
                 )
                 # Logging + archive are done. Do NOT auto-clear — set a PERSISTENT
                 # completion flag and let the user clear the slate deliberately
                 # (so they get a lasting confirmation and can run the review first).
+                _clear_notes_drafts(slug)  # logged — the draft did its job
+                from src.adherence import adherence_md as _adh_md_fn
+                from src.pool_calibration import calibration_md as _cal_md_fn
                 st.session_state[f"autopsy_done_{slug}"] = {
-                    "n": len(parsed_contests),
+                    "n": len(_to_log),
                     "hist_dir": str(hist_dir.relative_to(REPO_ROOT)),
+                    "warnings": _log_warnings,
+                    "adherence_md": (_adh_md_fn(_adh)
+                                     if _adh and _adh.get("gradable") else None),
+                    "calibration_md": (_cal_md_fn(_cal)
+                                       if _cal and _cal.get("gradable") else None),
                 }
                 st.rerun()
 
@@ -1143,6 +1287,19 @@ with tab_autopsy:
             f"`{_done['hist_dir']}`. **Your data is safe.** Run the post-autopsy review below if "
             "you want, then clear the slate when you're ready to start fresh."
         )
+        for _w in _done.get("warnings") or []:
+            st.warning(f"⚠️ {_w}")
+        if _done.get("adherence_md"):
+            with st.container(border=True):
+                st.markdown(_done["adherence_md"])
+                st.caption("Graded against your own strategy contract — discipline, "
+                           "separate from whether the reads were right. Archived to "
+                           "adherence.json + trended in results.jsonl.")
+        if _done.get("calibration_md"):
+            with st.container(border=True):
+                st.markdown(_done["calibration_md"])
+                st.caption("The board's tiers graded against actuals — archived to "
+                           "pool_calibration.json + trended in results.jsonl.")
         if st.button("🧹 Clear slate data (start the next slate fresh)", key=f"clear_after_log_{slug}"):
             clear_persisted(slug)
             player_pool.clear_pool(slug)
@@ -1151,6 +1308,7 @@ with tab_autopsy:
             clear_articles(slug)
             sessions.clear(slug)
             sim_sessions.clear(slug)
+            _clear_notes_drafts(slug)
             from src.strategy_contract import clear_contract
             clear_contract(slug)
             del st.session_state[f"autopsy_done_{slug}"]
@@ -1218,6 +1376,16 @@ with tab_autopsy:
             with st.container(border=True):
                 st.markdown(_cached_hygiene_md(
                     slug, _file_mtime(REPO_ROOT / "rules" / slug / "lessons.yaml")))
+
+            # Cross-sport overlap: the same lesson learned in two sports is a
+            # promotion candidate for rules/shared/ (the Anchor-Equivalence path).
+            try:
+                _xs = ledger_hygiene.cross_sport_md(ledger_hygiene.cross_sport_candidates())
+                if _xs:
+                    with st.container(border=True):
+                        st.markdown(_xs)
+            except Exception:  # noqa: BLE001 — display-only
+                pass
 
             ledger_review_path = REPO_ROOT / "rules" / slug / "ledger_review.md"
             lbtn = "🔄 Re-run ledger review" if ledger_review_path.exists() else "🧹 Review ledger"

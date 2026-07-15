@@ -43,21 +43,30 @@ def parse_dk_results(csv_path_or_buffer) -> dict:
         raise ValueError(f"DK CSV missing player columns: {missing_right}")
 
     lineups = raw[left_cols].dropna(subset=["EntryId"]).copy()
+    if lineups.empty:
+        # Header-only / truncated export: fail fast instead of rendering a
+        # zero-entry "analysis" that looks like it worked.
+        raise ValueError("DK CSV parsed but contains no lineup rows.")
     lineups["Lineup_parsed"] = lineups["Lineup"].apply(_parse_lineup_string)
-    lineups["Points"] = lineups["Points"].astype(float)
+    lineups["Points"] = pd.to_numeric(lineups["Points"], errors="coerce")
 
     players = raw[right_cols].dropna(subset=["Player"]).copy()
+    if players.empty:
+        # Right half stripped (e.g. hand-edited CSV): everything downstream
+        # (ownership, field profile, shark gap) would silently run on nothing.
+        raise ValueError("DK CSV parsed but contains no player-ownership rows.")
     players = players.rename(columns={
         "Player": "name",
         "Roster Position": "roster_position",
         "%Drafted": "actual_own",
         "FPTS": "actual_fpts",
     })
-    # Strip % sign from actual_own
-    players["actual_own"] = (
-        players["actual_own"].astype(str).str.rstrip("%").astype(float)
+    # Strip % sign from actual_own; coerce DK's missing-data placeholders
+    # ("—", "-", blank) to NaN instead of crashing the whole parse.
+    players["actual_own"] = pd.to_numeric(
+        players["actual_own"].astype(str).str.rstrip("%"), errors="coerce"
     )
-    players["actual_fpts"] = players["actual_fpts"].astype(float)
+    players["actual_fpts"] = pd.to_numeric(players["actual_fpts"], errors="coerce")
     players["name"] = players["name"].astype(str).str.strip()
 
     return {"lineups": lineups, "players": players}
@@ -351,9 +360,12 @@ def _lineup_records(df: pd.DataFrame, field: int, cap: int = 10) -> list[dict]:
 def build_autopsy_record(*, ts: str, contest_label: str, slug: str, sport: str,
                          source_file: str, parsed: dict, analysis: dict,
                          proj_source: str | None, notes: str,
-                         field_profile: dict | None = None) -> dict:
+                         field_profile: dict | None = None,
+                         contest_id: str | None = None) -> dict:
     """Assemble the schema-v2 jsonl record. Top-level fields are a strict
-    superset of the legacy 7-field rows so bundle.py keeps working."""
+    superset of the legacy 7-field rows so bundle.py keeps working.
+    `contest_id` (the DK contest instance) is the write-time dedup key —
+    the log step skips a contest whose id is already in the ledger."""
     lineups = parsed["lineups"]
     field = len(lineups)
     winners = analysis["winners_summary"]
@@ -361,6 +373,7 @@ def build_autopsy_record(*, ts: str, contest_label: str, slug: str, sport: str,
         "timestamp": ts,
         "contest_type": contest_label,
         "source_file": source_file,
+        "contest_id": contest_id,
         "entries": int(field),
         "winning_score": float(lineups["Points"].max()),
         "cash_line_p80": float(lineups["Points"].quantile(0.80)),
@@ -392,7 +405,21 @@ def build_autopsy_record(*, ts: str, contest_label: str, slug: str, sport: str,
         # Field / Fish profile — how the crowd + the fish played (standings-only);
         # the "leverage away from this" read, archived per contest.
         "field_profile": field_profile or None,
+        # Near-miss counterfactual + winner build story (standings-only): was the
+        # loss one swap away or structural, and what leverage carried the winner?
+        "winner_story": _counterfactual("winner_story", parsed, analysis),
+        "near_miss": _counterfactual("near_miss", parsed, analysis),
     }
+
+
+def _counterfactual(kind: str, parsed: dict, analysis: dict):
+    """Best-effort counterfactual fields for the record — never blocks it."""
+    try:
+        from src import counterfactual as _cf
+        return (_cf.winner_story(parsed) if kind == "winner_story"
+                else _cf.near_miss(parsed, analysis))
+    except Exception:  # noqa: BLE001
+        return None
 
 
 def record_md_summary(record: dict) -> str:

@@ -103,6 +103,17 @@ def _load(slug: str) -> list[dict]:
     return _dedup(out)
 
 
+def _row_pairs(r: dict) -> set[tuple]:
+    """A row's crowded pairs as order-stable sorted tuples (dupe-magnet PAIRS —
+    the two-player stacks the field piles into together)."""
+    out = set()
+    for pair in (r.get("crowded_combos") or []):
+        ps = pair.get("players") if isinstance(pair, dict) else pair
+        if ps and len(ps) == 2:
+            out.add(tuple(sorted(str(p) for p in ps)))
+    return out
+
+
 def summarize(slug: str, contest_type: str | None) -> dict | None:
     """Across past contests of this type, which players/traps the field RELIABLY
     crowds (appeared in ≥2 contests). None when there's no prior history."""
@@ -112,11 +123,14 @@ def summarize(slug: str, contest_type: str | None) -> dict | None:
         return None
     crowd_ct: Counter = Counter()
     trap_ct: Counter = Counter()
+    pair_ct: Counter = Counter()
     for r in rows:
         for nm in set(r.get("crowded_players") or []):
             crowd_ct[nm] += 1
         for nm in set(r.get("fish_traps") or []):
             trap_ct[nm] += 1
+        for pr in _row_pairs(r):
+            pair_ct[pr] += 1
     n = len(rows)
     return {
         "n_contests": n,
@@ -124,6 +138,8 @@ def summarize(slug: str, contest_type: str | None) -> dict | None:
                              for nm, c in crowd_ct.most_common(8) if c >= 2],
         "recurring_traps": [{"name": nm, "in_n": c, "of": n}
                             for nm, c in trap_ct.most_common(8) if c >= 2],
+        "recurring_pairs": [{"players": list(pr), "in_n": c, "of": n}
+                            for pr, c in pair_ct.most_common(5) if c >= 2],
     }
 
 
@@ -144,6 +160,7 @@ def summarize_contest(slug: str, name) -> dict | None:
     crowd_ct: Counter = Counter()
     trap_ct: Counter = Counter()
     opp_ct: Counter = Counter()
+    pair_ct: Counter = Counter()
     for r in rows:
         for nm in set(r.get("crowded_players") or []):
             crowd_ct[nm] += 1
@@ -153,6 +170,8 @@ def summarize_contest(slug: str, name) -> dict | None:
             h = o.get("handle") if isinstance(o, dict) else o
             if h:
                 opp_ct[h] += 1
+        for pr in _row_pairs(r):
+            pair_ct[pr] += 1
 
     # Sharpness trend: winners' avg ownership, earlier half vs later half.
     def _trend(field: str):
@@ -174,6 +193,8 @@ def summarize_contest(slug: str, name) -> dict | None:
                             for nm, c in trap_ct.most_common(8) if c >= 2],
         "recurring_opponents": [{"handle": h, "in_n": c, "of": n}
                                 for h, c in opp_ct.most_common(10) if c >= 2],
+        "recurring_pairs": [{"players": list(pr), "in_n": c, "of": n}
+                            for pr, c in pair_ct.most_common(5) if c >= 2],
         "winners_own_trend": _trend("winners_avg_own"),
         "winners_unique_trend": _trend("winners_unique_pct"),
     }
@@ -189,6 +210,11 @@ def _crowd_traps_str(s: dict) -> str:
         traps = ", ".join(f"{t['name']} (in {t['in_n']} of {t['of']})"
                           for t in s["recurring_traps"])
         parts.append(f"recurring fish-traps: **{traps}**")
+    if s.get("recurring_pairs"):
+        prs = ", ".join(f"{p['players'][0]} + {p['players'][1]} (in {p['in_n']} of {p['of']})"
+                        for p in s["recurring_pairs"])
+        parts.append(f"the field PAIRS **{prs}** — a dupe-magnet stack; leverage lives "
+                     f"in breaking it")
     if s.get("recurring_opponents"):
         opps = ", ".join(f"{o['handle']} (in {o['in_n']} of {o['of']})"
                          for o in s["recurring_opponents"])

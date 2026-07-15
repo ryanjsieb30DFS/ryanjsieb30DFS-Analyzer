@@ -90,6 +90,83 @@ def load_results(slug: str, n: int | None = None) -> list[dict]:
     return rows[-n:] if n else rows
 
 
+def logged_contest_ids(slug: str) -> set[str]:
+    """DK contest-instance ids already logged to rules/<slug>/autopsy_data.jsonl —
+    the write-time dedup set. Logging skips a contest whose id is here, so an
+    accidental second 'Log autopsy' of the same standings never double-counts the
+    results ledger or the autopsy history. Legacy rows without an id contribute
+    nothing (they can't be safely matched)."""
+    p = _REPO_ROOT / "rules" / slug / "autopsy_data.jsonl"
+    if not p.exists():
+        return set()
+    out: set[str] = set()
+    for line in p.read_text().splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            cid = json.loads(line).get("contest_id")
+        except json.JSONDecodeError:
+            continue
+        if cid:
+            out.add(str(cid))
+    return out
+
+
+def process_trend_block(slug: str, n: int = 5) -> str | None:
+    """Forward-feed block for the slate bundle: the last n slates' PROCESS trend
+    from results.jsonl — best percentile, leverage capture, bust exposure, and the
+    recurring shark-gap axis. This is the read-back that makes the self-grade a
+    learning loop instead of a per-slate display: 'leverage capture 0% two slates
+    running' should shape the next strategy. None until ≥2 slates exist.
+    Descriptive only — mirrors field_tendencies.bundle_block."""
+    rows = load_results(slug, n)
+    if len(rows) < 2:
+        return None
+
+    def _seq(field, fmt="{:.0f}"):
+        vals = [(r.get(field)) for r in rows]
+        return " → ".join("—" if v is None else fmt.format(v) for v in vals)
+
+    def _pct_seq(field):
+        vals = [r.get(field) for r in rows]
+        return " → ".join("—" if v is None else f"{v * 100:.0f}%" for v in vals)
+
+    lines = [
+        "## Process trend — your last %d slates (oldest → newest)" % len(rows),
+        "FORWARD-LOOKING self-grade from results.jsonl. Read the SEQUENCES, not one "
+        "slate: a recurring weakness (leverage capture repeatedly 0%, bust exposure "
+        "climbing, the same shark-gap axis) is a process leak the strategy below "
+        "should account for. GPP guard: one bad percentile is variance, not signal.",
+        f"- **Best percentile:** {_seq('best_percentile', '{:.1f}')}",
+        f"- **Leverage capture** (slate-defining low-owned plays we rostered): "
+        f"{_pct_seq('edge_leverage_capture')}",
+        f"- **Bust exposure** (top underperformers we rostered): "
+        f"{_pct_seq('edge_bust_exposure')}",
+    ]
+    gaps = [r.get("shark_gap_top", {}).get("dim") for r in rows
+            if isinstance(r.get("shark_gap_top"), dict)]
+    if gaps:
+        from collections import Counter
+        dim, cnt = Counter(gaps).most_common(1)[0]
+        if cnt >= 2:
+            lines.append(f"- **Recurring shark-gap axis:** `{dim}` was your biggest "
+                         f"structural gap vs the pros in {cnt} of the last {len(rows)} "
+                         f"slates.")
+    adh = [r.get("adherence_fades_violated") for r in rows
+           if r.get("adherence_fades_violated") is not None]
+    if adh:
+        lines.append(f"- **Own-strategy adherence:** fade calls violated per slate: "
+                     f"{' → '.join(str(a) for a in adh)} (0 = you followed your own fades).")
+    ordered = [r.get("tiers_ordered") for r in rows if r.get("tiers_ordered") is not None]
+    if ordered:
+        held = sum(1 for o in ordered if o)
+        lines.append(f"- **Player-pool tier calibration:** tier ordering held in "
+                     f"{held} of {len(ordered)} graded slates"
+                     + (" — the board's boundaries are suspect." if held < len(ordered) else "."))
+    return "\n".join(lines)
+
+
 def latest_history_dir(slug: str) -> Path | None:
     """Newest archive dir (lexicographic on the dated name), or None."""
     root = _history_root(slug)
@@ -108,12 +185,15 @@ def archive_slate(
     roi_contests: list[dict],
     proj_source: str | None = None,
     shark_gap: dict | None = None,
+    adherence: dict | None = None,
+    pool_calibration: dict | None = None,
 ) -> Path:
     """Archive the slate's artifacts + results. Returns the history dir.
 
     roi_contests rows: {name, type, source_file, field_size, my_entries,
     entry_fee, winnings (None if unreported), best_rank, best_percentile}.
     shark_gap: optional structural us-vs-sharks profile (from src.shark_gap).
+    adherence: optional own-strategy adherence grade (from src.adherence).
     """
     date_str = datetime.now().strftime("%Y-%m-%d")
     root = _history_root(slug)
@@ -163,6 +243,15 @@ def archive_slate(
     # Structural shark-gap (did we play like the sharks, not just cash?).
     if shark_gap is not None:
         (hist_dir / "shark_gap.json").write_text(json.dumps(shark_gap, indent=2))
+
+    # Own-strategy adherence (did we follow our own fades / leverage calls?).
+    if adherence is not None:
+        (hist_dir / "adherence.json").write_text(json.dumps(adherence, indent=2))
+
+    # Player-pool tier calibration (did the board's tiers hold up?).
+    if pool_calibration is not None:
+        (hist_dir / "pool_calibration.json").write_text(
+            json.dumps(pool_calibration, indent=2))
 
     contests_out = []
     for c in roi_contests:
@@ -216,6 +305,21 @@ def archive_slate(
             {"dim": shark_gap["deltas"][0]["dim"], "delta": shark_gap["deltas"][0]["delta"]}
             if shark_gap and shark_gap.get("deltas") else None
         ),
+        # Own-strategy adherence summary (None when not gradable) — trended in
+        # process_trend_block so a recurring discipline leak surfaces pre-slate.
+        "adherence_fades_violated": (
+            adherence.get("fades_violated") if adherence and adherence.get("gradable") else None
+        ),
+        "adherence_leverage_covered": (
+            f"{adherence['leverage_covered']}/{adherence['leverage_of']}"
+            if adherence and adherence.get("gradable") and adherence.get("leverage_of")
+            else None
+        ),
+        # Pool tier calibration summary (None when not gradable) — trended.
+        "tier_summary": (pool_calibration.get("summary")
+                         if pool_calibration and pool_calibration.get("gradable") else None),
+        "tiers_ordered": (pool_calibration.get("tiers_ordered")
+                          if pool_calibration and pool_calibration.get("gradable") else None),
     }
     (hist_dir / "results.json").write_text(json.dumps(row, indent=2))
     append_results(slug, row)
