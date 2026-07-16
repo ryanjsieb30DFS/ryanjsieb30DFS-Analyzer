@@ -73,6 +73,13 @@ def _file_mtime(p: Path | None) -> float:
     return p.stat().st_mtime if p and p.exists() else 0.0
 
 
+def _md_safe(text: str) -> str:
+    """Escape $ so Streamlit's markdown doesn't treat '$13.3K … $11.9K' as a
+    LaTeX math span (the 'weird font' bug — everything between two $ renders in
+    math italics). Applied at RENDER time only; the files on disk stay clean."""
+    return (text or "").replace("\\$", "$").replace("$", "\\$")
+
+
 # ---- Autopsy-notes drafts: persisted to disk as the user types, so a Streamlit
 # crash/restart mid-autopsy never eats the lessons text. Keyed per CSV name;
 # deleted on log + on slate clear. ----
@@ -717,7 +724,7 @@ with tab_strategy:
                 pass
         with st.container(border=True):
             st.caption(f"Last updated: {persisted['mtime']}")
-            st.markdown(persisted["markdown"])
+            st.markdown(_md_safe(persisted["markdown"]))
     else:
         st.info("**No saved strategy yet.** Click **Generate slate strategy** above and it appears here.")
 
@@ -753,9 +760,9 @@ with tab_strategy:
             if _tbl is not None:
                 st.dataframe(_tbl, use_container_width=True, hide_index=True)
                 with st.expander("Detailed write-ups (how each wins)", expanded=False):
-                    st.markdown(_rest)
+                    st.markdown(_md_safe(_rest))
             else:
-                st.markdown(saved_pool["markdown"])
+                st.markdown(_md_safe(saved_pool["markdown"]))
     elif not cached_sources(slug):
         st.info(f"Upload projections in the **Projections** tab, then rank the {_pnoun}.")
     else:
@@ -794,7 +801,7 @@ with tab_grade:
             _ggrades = [grader.grade_lineup(l, _gcal) for l in _glus]
             _gpf = grader.grade_portfolio(_ggrades)
             with st.container(border=True):
-                st.markdown(grader.grade_md(_ggrades, _gpf, _gcal))
+                st.markdown(_md_safe(grader.grade_md(_ggrades, _gpf, _gcal)))
             # Optional claude pass: the thesis check (every lineup needs an
             # articulable one-sentence "how it wins").
             if st.button("🧠 Thesis check — one-line 'how it wins' per lineup (claude)",
@@ -809,7 +816,7 @@ with tab_grade:
             _gpath = REPO_ROOT / "data" / "grade" / f"{slug}.md"
             if _gpath.exists():
                 with st.container(border=True):
-                    st.markdown(_gpath.read_text())
+                    st.markdown(_md_safe(_gpath.read_text()))
         else:
             st.caption("Paste lineups above to grade them — matching runs against the "
                        "loaded projections.")
@@ -978,7 +985,7 @@ with tab_autopsy:
                         _cf.winner_story(parsed), _cf.near_miss(parsed, analysis))
                     if _cf_md:
                         with st.container(border=True):
-                            st.markdown(_cf_md)
+                            st.markdown(_md_safe(_cf_md))
                 except Exception:  # noqa: BLE001 — display-only, never blocks
                     pass
 
@@ -1375,13 +1382,13 @@ with tab_autopsy:
             st.warning(f"⚠️ {_w}")
         if _done.get("adherence_md"):
             with st.container(border=True):
-                st.markdown(_done["adherence_md"])
+                st.markdown(_md_safe(_done["adherence_md"]))
                 st.caption("Graded against your own strategy contract — discipline, "
                            "separate from whether the reads were right. Archived to "
                            "adherence.json + trended in results.jsonl.")
         if _done.get("calibration_md"):
             with st.container(border=True):
-                st.markdown(_done["calibration_md"])
+                st.markdown(_md_safe(_done["calibration_md"]))
                 st.caption("The board's tiers graded against actuals — archived to "
                            "pool_calibration.json + trended in results.jsonl.")
         if st.button("🧹 Clear slate data (start the next slate fresh)", key=f"clear_after_log_{slug}"):

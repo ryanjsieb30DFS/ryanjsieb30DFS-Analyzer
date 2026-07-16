@@ -186,6 +186,27 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
                        and pd.notna(r.get("salary")) else "n/a")
                 L.append(f"- {r['name']} — {sal}, {own} own, proj {proj}, ceiling {ceil}")
 
+        # --- Chalk combos: THIS slate's likely-duplicated pairs (duplication watch) --- #
+        combos = landscape.chalky_combos(pool) if not pool.empty else []
+        if combos:
+            # Expected copies scale with the biggest declared field.
+            field = max((c.get("field_size") or 0) for c in contests) if contests else 0
+            L += ["", "## Chalk combos — the pairs the field will stack together (duplication watch)"]
+            L.append(
+                "Estimated from this slate's projected ownership (co-occurrence ≈ ownA × ownB — "
+                "a FLOOR, real fields correlate their chalk). Rostering one of these pairs means "
+                "sharing that slice of the field's lineups — it is where uniqueness quietly dies "
+                "in a small-field GPP. The strategy MUST surface the top combos as a duplication "
+                "tension in `## Edges & tensions` (descriptive — never a fade command; breaking a "
+                "pair is the user's call)."
+            )
+            for c in combos:
+                line = (f"- **{c['players'][0]} + {c['players'][1]}** — "
+                        f"{c['own_a']}% × {c['own_b']}% ≈ {c['joint_pct']}% of the field")
+                if field:
+                    line += f" (~{int(round(c['joint_pct'] / 100 * field)):,} lineups of {field:,})"
+                L.append(line)
+
     # --- References for Claude --- #
     L += ["", "## References for Claude (read as needed)"]
     rules_dir = _REPO_ROOT / "rules" / slug

@@ -80,6 +80,23 @@ def test_upside_fallback_without_ceiling():
     assert (up == df["proj_points"]).all()  # no real ceiling → passthrough, no fabricated upside
 
 
+def test_chalky_combos_pairs_and_order():
+    import pandas as pd
+    from src.landscape import chalky_combos
+    df = pd.DataFrame({
+        "name": ["Chalk A", "Chalk B", "Chalk C", "Low Own"],
+        "ownership": [30.0, 25.0, 20.0, 5.0],
+        "proj_points": [50, 45, 40, 30],
+    })
+    combos = chalky_combos(df, min_own=15.0)
+    # Low Own excluded; top pair is A+B at 30*25 = 7.5% joint.
+    assert combos[0]["players"] == ["Chalk A", "Chalk B"]
+    assert combos[0]["joint_pct"] == 7.5
+    assert all("Low Own" not in c["players"] for c in combos)
+    assert all(a["joint_pct"] >= b["joint_pct"] for a, b in zip(combos, combos[1:]))
+    assert chalky_combos(pd.DataFrame()) == []
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
     for fn in fns:

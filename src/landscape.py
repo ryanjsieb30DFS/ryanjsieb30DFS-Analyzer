@@ -93,6 +93,37 @@ def leverage_candidates(projections: pd.DataFrame, own_max: float = 10.0,
     return df.sort_values("upside", ascending=False).head(top_n)[cols].reset_index(drop=True)
 
 
+def chalky_combos(projections: pd.DataFrame, min_own: float = 15.0,
+                  top_pairs: int = 6) -> list[dict]:
+    """THIS slate's likely-duplicated chalk PAIRS — the combinations the field
+    will most often roster together, estimated from projected ownership
+    (co-occurrence ≈ own_a × own_b under independence; a floor, since real
+    fields correlate their chalk). In a small-field GPP, sharing one of these
+    pairs means sharing a big slice of the field's lineups — where uniqueness
+    quietly dies. Descriptive duplication-watch data for the strategy; never a
+    fade command. Complements field_tendencies' HISTORICAL recurring pairs
+    (what the field actually paired in your past contests) with a forward
+    read from this slate's own numbers."""
+    if projections is None or projections.empty or "ownership" not in projections.columns \
+            or "name" not in projections.columns:
+        return []
+    df = projections.copy()
+    own = pd.to_numeric(df["ownership"], errors="coerce")
+    chalk = df[own.notna() & (own >= min_own)].copy()
+    chalk["__own"] = own[chalk.index]
+    chalk = chalk.sort_values("__own", ascending=False).head(10)
+    rows = list(zip(chalk["name"].astype(str), chalk["__own"].astype(float)))
+    combos = []
+    for i in range(len(rows)):
+        for j in range(i + 1, len(rows)):
+            (na, oa), (nb, ob) = rows[i], rows[j]
+            joint = (oa / 100.0) * (ob / 100.0) * 100.0
+            combos.append({"players": [na, nb], "own_a": round(oa, 1),
+                           "own_b": round(ob, 1), "joint_pct": round(joint, 1)})
+    combos.sort(key=lambda c: -c["joint_pct"])
+    return combos[:top_pairs]
+
+
 def uncovered_candidates(text: str, candidates: pd.DataFrame) -> list[str]:
     """Names from `candidates` NOT mentioned in `text` (case-insensitive, by full
     name OR last-name token). Powers the app's coverage-gap warning."""
