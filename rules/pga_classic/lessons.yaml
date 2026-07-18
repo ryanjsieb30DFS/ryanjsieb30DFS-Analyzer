@@ -786,7 +786,7 @@ lessons:
       while the build faded the distance scenario almost entirely. SHIP-but-flagged is
       a signal to add a documented hedge or cap at the portfolio layer (e.g. one
       bomber-leaning lineup, a Rai exposure cap below 2/3), not a clean bill of health.
-    status: hypothesis
+    status: retired
     confirmations:
       - date: "2026-06-24"
         slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
@@ -809,7 +809,14 @@ lessons:
           confirm it changes outcomes.
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: >
+      Retired 2026-07-18 (tool review): the red-team feature this lesson's mechanism
+      depends on was removed in the 7/12 synthesis-first reframe — no red team runs
+      pre-lock anymore, so the "act on SHIP-but-flagged portfolio findings" trigger
+      can never fire again and the hypothesis is permanently unconfirmable. Its
+      surviving idea (portfolio-level exposure gaps deserve a pre-lock response even
+      when individual lineups look fine) now lives in the ✅ Grade tab's portfolio
+      checks (distinctness / competing-lineup overlap / no-leverage flags).
 
   - id: pga-classic-2026-06-24-major-pedigree-in-form-leverage
     born: "2026-06-24"

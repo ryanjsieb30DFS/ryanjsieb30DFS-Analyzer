@@ -5,6 +5,7 @@ Flow: Slate Data → Slate Strategy → Autopsy.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 from datetime import datetime
@@ -27,7 +28,7 @@ from src.contest_templates import load_templates, save_template, remove_template
 from src.bundle import clear_bundle
 from src.analysis_runner import (
     run_analysis, run_autopsy_review, run_apply_proposals, run_player_pool,
-    run_ledger_review, run_apply_ledger_proposals, run_grade,
+    run_grade,
 )
 from src import (
     history, sessions, landscape, player_pool, ledger_hygiene,
@@ -112,6 +113,18 @@ def _clear_notes_drafts(slug: str) -> None:
         _notes_draft_path(slug).unlink(missing_ok=True)
     except OSError:
         pass
+
+
+def _purge_slate_session_keys(slug: str) -> None:
+    """Deleting the draft FILES is not enough on a clear: the widget text lives
+    on in st.session_state, and the very next render re-saves it to disk — so
+    last slate's Grade-tab lineups and autopsy notes resurrected after every
+    clear. Purge the keys so the widgets reload from the now-empty drafts."""
+    for k in [k for k in st.session_state
+              if k == f"grade_text_{slug}"
+              or k == f"autopsy_slate_label_{slug}"
+              or k.startswith(f"autopsy_notes_{slug}_")]:
+        del st.session_state[k]
 
 
 @st.cache_data(show_spinner=False)
@@ -266,6 +279,7 @@ with st.sidebar:
             sim_sessions.clear(slug)
             _clear_notes_drafts(slug)
             grader.clear_draft(slug)
+            _purge_slate_session_keys(slug)
             (REPO_ROOT / "data" / "grade" / f"{slug}.md").unlink(missing_ok=True)
             from src.strategy_contract import clear_contract
             clear_contract(slug)
@@ -1138,6 +1152,13 @@ with tab_autopsy:
                 _linked = _auto_links.get(dk_csv.name)
                 _inferred = _C.infer_type(lineups["EntryName"])
                 _cid = _C.contest_id_from_filename(dk_csv.name)
+                if _cid is None:
+                    # Renamed/exported standings carry no DK id in the filename,
+                    # which used to bypass EVERY dedup layer (a second Log click
+                    # double-counted results.jsonl, the archive, and the shark
+                    # envelope). Fall back to a content hash: the same file
+                    # re-uploaded under any name still dedups.
+                    _cid = "file-" + hashlib.sha1(dk_csv.getvalue()).hexdigest()[:12]
                 ov = st.selectbox(
                     "Contest link — auto-detected; override only if wrong",
                     ["(auto)"] + [c["name"] for c in declared] + ["(not declared)"],
@@ -1220,11 +1241,14 @@ with tab_autopsy:
                 # autopsy history (the trend everything else reads).
                 _already_ids = history.logged_contest_ids(slug)
                 _to_log, _dupe_names = [], []
+                _batch_ids: set[str] = set()  # same contest twice in ONE upload batch
                 for pc in parsed_contests:
                     _cid = pc.get("contest_id")
-                    if _cid and str(_cid) in _already_ids:
+                    if _cid and (str(_cid) in _already_ids or str(_cid) in _batch_ids):
                         _dupe_names.append(pc["name"])
                     else:
+                        if _cid:
+                            _batch_ids.add(str(_cid))
                         _to_log.append(pc)
                 if not _to_log:
                     st.warning(
@@ -1302,6 +1326,7 @@ with tab_autopsy:
                             sgap.get("sport"), sgap.get("sharks"), slug,
                             _dt.now().strftime("%Y-%m-%d"),
                             contest_type=_pick.get("contest_type"),
+                            contest_id=_pick.get("contest_id"),
                         ):
                             _acc.refresh_baseline()
                         # Per-pro dossier: one row per NAMED shark in-field (their
@@ -1425,6 +1450,7 @@ with tab_autopsy:
             sim_sessions.clear(slug)
             _clear_notes_drafts(slug)
             grader.clear_draft(slug)
+            _purge_slate_session_keys(slug)
             (REPO_ROOT / "data" / "grade" / f"{slug}.md").unlink(missing_ok=True)
             from src.strategy_contract import clear_contract
             clear_contract(slug)
@@ -1504,34 +1530,15 @@ with tab_autopsy:
             except Exception:  # noqa: BLE001 — display-only
                 pass
 
-            ledger_review_path = REPO_ROOT / "rules" / slug / "ledger_review.md"
-            lbtn = "🔄 Re-run ledger review" if ledger_review_path.exists() else "🧹 Review ledger"
-            if st.button(lbtn, key=f"ledger_review_{slug}"):
-                with st.spinner("Reviewing the lesson ledger — retire / merge / promote proposals…"):
-                    lresult = run_ledger_review(slug)
-                if lresult["ok"]:
-                    cost = lresult.get("cost_usd")
-                    cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
-                    st.success(f"Ledger review written in {lresult['duration_s']:.0f}s{cost_note}.")
-                    st.rerun()
-                else:
-                    st.error(f"Couldn't run the ledger review: {lresult['error']}")
-
-            if ledger_review_path.exists():
-                with st.container(border=True):
-                    st.markdown(_md_safe(ledger_review_path.read_text()))
-                st.warning(
-                    "Approving applies the ledger review's retire / merge / codify decisions to "
-                    "lessons.yaml (and framework/philosophy for any codifications)."
-                )
-                if st.button("✅ Approve & apply ledger changes", key=f"apply_ledger_{slug}"):
-                    with st.spinner("Applying the approved ledger changes…"):
-                        lapply = run_apply_ledger_proposals(slug)
-                    if lapply["ok"]:
-                        st.success("Ledger changes applied.")
-                        st.rerun()
-                    else:
-                        st.error(f"Couldn't apply the ledger changes: {lapply['error']}")
+            # The standalone "Review ledger" button + its Approve path were
+            # removed 7/18/26: hygiene flags now ride the post-autopsy review
+            # (its '## Ledger hygiene' section), which recomputes them fresh
+            # every run — no stale ledger_review.md behind an armed button.
+            st.caption(
+                "Retire / merge / promote decisions on these flags are made by the "
+                "post-autopsy review above (its **Ledger hygiene** section) and applied "
+                "with the same Approve button."
+            )
 
     # ----- ROI ledger ----- #
     results_rows = history.load_results(slug)

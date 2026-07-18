@@ -296,12 +296,21 @@ def detect_vendor(df: pd.DataFrame, source_name: str | None = None) -> dict | No
     """
     columns = set(df.columns)
     best: dict | None = None
-    best_match_count = 0
+    best_score = (0, 0)
     for sig in VENDOR_SIGNATURES:
         required = sig["required_columns"]
-        if required.issubset(columns) and len(required) > best_match_count:
+        if not required.issubset(columns):
+            continue
+        # Tie-break on how many column_map keys the sheet actually carries, so
+        # the MOST SPECIFIC signature wins. Without this, DailyFan MMA (6
+        # required cols, listed first) beat DailyFan MMA (CPT/Flex) (also 6)
+        # on every CPT/Flex sheet — whose salary lives in salary_flex, so the
+        # old map produced no salary/ownership and the upload always failed.
+        mapped_present = sum(1 for c in sig.get("column_map", {}) if c in columns)
+        score = (len(required), mapped_present)
+        if score > best_score:
             best = sig
-            best_match_count = len(required)
+            best_score = score
     if (best is not None
             and best["name"] == "ETR PGA"
             and _filename_hints_sin(source_name)):

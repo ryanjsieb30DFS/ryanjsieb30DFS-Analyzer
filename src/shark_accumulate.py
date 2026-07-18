@@ -37,11 +37,17 @@ def _in_focus(contest_type: str | None) -> bool:
 
 
 def record_observation(sport: str | None, shark_profile: dict, slug: str, date: str,
-                       contest_type: str | None = None) -> bool:
+                       contest_type: str | None = None,
+                       contest_id: str | None = None) -> bool:
     """Append one contest's in-field SHARK structural profile. Returns True if
     recorded. Skips when sport is unknown, sharks weren't gradable, any of the 4
     envelope features is missing (an incomplete row would bias the blend), or the
-    contest is NOT an in-focus SE/3-Max/5-Max small-field GPP."""
+    contest is NOT an in-focus SE/3-Max/5-Max small-field GPP.
+
+    Rows carry `contest_id` so a re-logged contest can never double-weight the
+    envelope: `refresh_baseline` keeps only the LATEST row per id. The envelope
+    calibrates the grader's chalk threshold and the bundle's `## Shark reality`
+    target, so a silent double-count here corrupts money-adjacent numbers."""
     if not sport or not shark_profile or not shark_profile.get("gradable"):
         return False
     if not _in_focus(contest_type):
@@ -51,6 +57,7 @@ def record_observation(sport: str | None, shark_profile: dict, slug: str, date: 
         return False
     row.update({"date": date, "slug": slug, "sport": sport,
                 "contest_type": contest_type,
+                "contest_id": str(contest_id) if contest_id else None,
                 "n_entries": shark_profile.get("n_entries")})
     _OBS_PATH.parent.mkdir(parents=True, exist_ok=True)
     with _OBS_PATH.open("a") as f:
@@ -59,17 +66,29 @@ def record_observation(sport: str | None, shark_profile: dict, slug: str, date: 
 
 
 def _load_observations() -> list[dict]:
+    """All observation rows, deduped by contest_id (latest row wins) — the
+    read-time guard matching field_tendencies/shark_dossier, so an append that
+    slipped past write-time dedup can't permanently double-weight the blend.
+    Legacy rows without a contest_id pass through untouched."""
     if not _OBS_PATH.exists():
         return []
-    out = []
+    out: list[dict] = []
+    by_id: dict[str, int] = {}  # contest_id -> index in out (latest replaces)
     for line in _OBS_PATH.read_text().splitlines():
         line = line.strip()
         if not line:
             continue
         try:
-            out.append(json.loads(line))
+            row = json.loads(line)
         except json.JSONDecodeError:
             continue
+        cid = row.get("contest_id")
+        if cid and cid in by_id:
+            out[by_id[cid]] = row
+        else:
+            if cid:
+                by_id[cid] = len(out)
+            out.append(row)
     return out
 
 

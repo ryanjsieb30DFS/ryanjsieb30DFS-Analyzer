@@ -42,6 +42,28 @@ def test_parse_calls_reads_verdicts_not_section_sweep():
     assert calls["Eric Cole"] == "lean_fade"
 
 
+def test_parse_calls_ignores_prose_verdict_words():
+    """Verdict words buried in PROSE (not the bolded lead / first sentence after
+    it) must never be read as calls — a phantom fade here becomes a false
+    discipline violation in the Grade tab and the adherence trend. Also:
+    substring hits inside words ('faded', 'plays', 'playable') don't count."""
+    md = """
+## Leverage & fades
+**(a) Low-owned definers:**
+- **Adrian Bautista $7,800 (6% own)** — last card the winning definer was one the field faded; his ceiling path is a first-round finish.
+- **Sam Hughes $6,900 (4% own)** — the field plays him at 4% but every winner carried him; playable ceiling.
+
+**Fades:**
+- **Keith Mitchell $10,000 — FADE.** Trap-priced volatile anchor.
+- **Rory Sabbatini** ($9.8K) — LEAN FADE. Needs wind to matter.
+"""
+    calls = {c["name"]: c["verdict"] for c in parse_calls(md)}
+    assert "Adrian Bautista" not in calls   # 'faded' in prose is NOT a call
+    assert "Sam Hughes" not in calls        # 'plays'/'playable' are NOT calls
+    assert calls["Keith Mitchell"] == "fade"
+    assert calls["Rory Sabbatini"] == "lean_fade"  # decimal in $9.8K must not clip the clause
+
+
 def test_write_contract_hard_fades_only(tmp_path, monkeypatch):
     monkeypatch.setattr("src.strategy_contract._CONTRACT_DIR", tmp_path)
     import json

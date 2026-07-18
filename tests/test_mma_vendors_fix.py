@@ -32,6 +32,29 @@ def test_ship_it_mma_detected_and_no_pga_collision():
     assert detect_vendor(_norm(pga))["name"] == "ETR PGA"
 
 
+def test_dailyfan_mma_cpt_flex_detected():
+    """The CPT/Flex sheet contains ALL of the old flat signature's required
+    columns too, so it used to LOSE the tie to the earlier-listed old signature
+    — whose map produced no salary/ownership, failing every upload. The
+    mapped-columns tie-break must pick the CPT/Flex signature."""
+    raw = pd.DataFrame(columns=[
+        "Fighter", "Matchup", "Win Odds", "Win %", "Finish Odds",
+        "Salary CPT", "Salary Flex", "Ownership CPT", "Ownership Flex",
+        "Ownership Total", "Projection DK (Mean)", "Projection DK (Win)",
+        "Projection DK (Loss)", "Mean PPD (Flex)", "Win PPD (Flex)",
+        "DK ID CPT", "DK ID Flex",
+    ])
+    sig = detect_vendor(_norm(raw))
+    assert sig is not None and sig["name"] == "DailyFan MMA (CPT/Flex)"
+    # And the old flat sheet must STILL detect as the old signature.
+    old = pd.DataFrame(columns=[
+        "Fighter", "Matchup", "Win Odds", "Win %", "Finish Odds", "Salary DK",
+        "Ownership DK", "Projection DK (Mean)", "Projection DK (Win)",
+        "Projection DK (Loss)", "Mean PPD", "Win PPD", "DK ID",
+    ])
+    assert detect_vendor(_norm(old))["name"] == "DailyFan MMA"
+
+
 def test_drop_junk_rows():
     df = pd.DataFrame({
         "name": ["A", "nan", "B"], "salary": [9000, 0, 8000],
@@ -44,5 +67,6 @@ def test_drop_junk_rows():
 if __name__ == "__main__":
     test_dailyfan_mma_new_format_detected()
     test_ship_it_mma_detected_and_no_pga_collision()
+    test_dailyfan_mma_cpt_flex_detected()
     test_drop_junk_rows()
-    print("3 passed")
+    print("4 passed")

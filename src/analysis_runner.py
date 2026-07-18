@@ -268,7 +268,31 @@ def run_grade(slug: str, contest_label: str, sport: str, lineups_text: str) -> d
     Writes data/grade/<slug>.md. Returns {ok, error, duration_s, cost_usd}."""
     out_path = _REPO_ROOT / "data" / "grade" / f"{slug}.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    # Same numbers as the deterministic pass, so the two graders can never
+    # argue: the tab once green-lit a lineup (under the calibrated flag line)
+    # while this thesis check dinged it against the strategy's aspirational
+    # "~13% envelope" pulled from prose.
+    cal_line = ""
+    try:
+        from src import grader as _grader
+        from src.contests import load_contests as _load_contests
+        _cal = _grader.calibration(slug, sport, _load_contests(slug))
+        _tgt = _cal.get("shark_own") or _cal.get("winners_own")
+        _flag = _cal.get("own_flag_above")
+        if _flag is not None:
+            cal_line = (
+                f"Ownership calibration (the deterministic grader's own data-derived numbers — "
+                f"use THESE, never an envelope re-derived from the strategy text): sharp target "
+                f"≈ {_tgt}% average ownership per slot; a lineup is chalk-heavy only ABOVE "
+                f"{_flag}%. Do not name ownership as a weakness for any lineup at or below "
+                f"{_flag}%.\n\n"
+            )
+    except Exception:  # noqa: BLE001 — calibration context is additive
+        cal_line = ""
+
     prompt = (
+        cal_line +
         f"You are grading the user's HAND-BUILT {contest_label} DK lineups (sport: {sport}) "
         f"before lock. HARD RULE: you grade — you NEVER build, select, swap, fix, or suggest "
         f"replacement players/lineups. Name weaknesses; the user decides.\n\n"
@@ -433,6 +457,18 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str) -> dict:
         return {"ok": False, "error": "No archived slate found — log an autopsy first.",
                 "duration_s": 0.0, "cost_usd": None}
 
+    # Ledger-hygiene flags ride the post-autopsy review (the loop that actually
+    # runs every slate) instead of a separate optional button — the standalone
+    # ledger review ran once in 18 slates and its stale proposals were a
+    # one-click hazard. Deterministic flags are computed fresh here, so the
+    # review always reasons against the CURRENT ledger.
+    hygiene_md = ""
+    try:
+        from src import ledger_hygiene
+        hygiene_md = ledger_hygiene.report_md(ledger_hygiene.hygiene_report(slug))
+    except Exception:  # noqa: BLE001 — hygiene is additive, never blocks the review
+        hygiene_md = ""
+
     out_path = hist_dir / "autopsy_review.md"
     prompt = (
         f"Run the post-autopsy review for the archived {contest_label} slate at `{hist_dir}`. "
@@ -468,7 +504,20 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str) -> dict:
         f"tenure: a codified rule whose mechanism has now failed in 2+ slates gets a demotion "
         f"proposal in '## Proposed codifications' (retire or narrow its scope), with the exact "
         f"framework.md edit. Same GPP guard — a lost contest alone is not a mechanism failure.\n"
-        f"2. UPDATE `rules/{slug}/lessons.yaml` directly (Edit tool): add confirmations/contradictions "
+        + (
+            f"1e. LEDGER HYGIENE: a deterministic pre-pass flagged these ledger-maintenance "
+            f"candidates:\n{hygiene_md}\nFor each STALE hypothesis decide RETIRE or KEEP with a "
+            f"one-line mechanism reason (GPP guard: a lesson untested only because no RELEVANT "
+            f"slate occurred is KEEP, not retire; name the retired_reason if retiring). For each "
+            f"NEAR-PROMOTION lesson name the exact mechanism a third slate must confirm. For each "
+            f"OVERDUE promotion include the codification edit in '## Proposed codifications'. For "
+            f"each MERGE pair decide MERGE or KEEP-SEPARATE (if merge: which id survives + the "
+            f"combined statement — merges also go in '## Proposed codifications'). Also retire any "
+            f"lesson whose mechanism references a REMOVED feature that can no longer fire. Write "
+            f"the decisions under a '## Ledger hygiene' section in the review.\n"
+            if hygiene_md else ""
+        )
+        + f"2. UPDATE `rules/{slug}/lessons.yaml` directly (Edit tool): add confirmations/contradictions "
         f"with this slate's date and history dir; promote status to 'validated' where confirmations "
         f"exist; add new 'hypothesis' lessons born from this autopsy — mechanism-based, not "
         f"result-based. A recurring shark-gap axis (1b) should birth or confirm a mechanism lesson.\n"
@@ -476,7 +525,8 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str) -> dict:
         f"venue dir; create the file from the archived strategy if missing): append a date-stamped "
         f"'Per-slate observation' line with what this slate proved or disproved about the venue.\n"
         f"4. WRITE `{out_path}` with sections: '## Process scorecard', '## Lesson ledger changes', "
-        f"'## Venue file changes', and '## Proposed codifications' — for any lesson meeting the "
+        f"'## Venue file changes', '## Ledger hygiene' (the 1e decisions; omit the section if there "
+        f"were no flags), and '## Proposed codifications' — for any lesson meeting the "
         f"promotion criteria (3 confirming slates) write the exact framework.md/philosophy.md edit "
         f"you propose; for retirement candidates (2 mechanism contradictions) the same. If nothing "
         f"qualifies, write 'None this slate.' under that heading. "
@@ -499,11 +549,15 @@ def run_apply_proposals(slug: str) -> dict:
                 "duration_s": 0.0, "cost_usd": None}
 
     prompt = (
-        f"Read `{review_path}`, section '## Proposed codifications'. The user has APPROVED these "
-        f"proposals. Apply each proposed edit to `rules/{slug}/framework.md` / "
+        f"Read `{review_path}`, sections '## Proposed codifications' and '## Ledger hygiene' (if "
+        f"present). The user has APPROVED these proposals. Apply each proposed edit to "
+        f"`rules/{slug}/framework.md` / "
         f"`rules/{slug}/philosophy.md` exactly as written, then update `rules/{slug}/lessons.yaml`: "
         f"set the affected lessons' status to 'codified' (with codified_in naming the doc + section) "
-        f"or 'retired' (with retired_reason). Finally append a line "
+        f"or 'retired' (with retired_reason). For '## Ledger hygiene' decisions: apply each RETIRE "
+        f"(status 'retired' + the named retired_reason) and each MERGE (keep the surviving id with "
+        f"the combined statement; set the other to 'retired' with retired_reason 'merged into "
+        f"<id>'); leave every KEEP / KEEP-SEPARATE lesson untouched. Finally append a line "
         f"'## Applied' with the current changes summarized to the end of `{review_path}`. "
         f"Do not ask any questions."
     )
@@ -523,57 +577,8 @@ def _sim_table(df, cols, n: int = 15) -> str:
     return "\n".join(lines)
 
 
-def run_ledger_review(slug: str) -> dict:
-    """Lesson-ledger hygiene review: turn the deterministic flags (stale, near-/
-    overdue-promotion, merge candidates) into reasoned PROPOSALS at
-    rules/<slug>/ledger_review.md. Edits nothing in the ledger — proposals only."""
-    from src import ledger_hygiene
-
-    lessons_path = _REPO_ROOT / "rules" / slug / "lessons.yaml"
-    if not lessons_path.exists():
-        return {"ok": False, "error": "No lessons.yaml for this sport yet.",
-                "duration_s": 0.0, "cost_usd": None}
-
-    report_md = ledger_hygiene.report_md(ledger_hygiene.hygiene_report(slug))
-    out_path = _REPO_ROOT / "rules" / slug / "ledger_review.md"
-    prompt = (
-        f"Review the lesson ledger at `{lessons_path}` for HYGIENE. A deterministic pre-pass already "
-        f"flagged candidates (below) — turn them into reasoned PROPOSALS; do NOT apply anything. "
-        f"Read `{lessons_path}` in full first.\n\n"
-        f"Deterministic flags:\n{report_md}\n\n"
-        f"Write `{out_path}` with these sections:\n"
-        f"1. `## Retire candidates` — for each flagged stale hypothesis, decide RETIRE or KEEP with a "
-        f"one-line MECHANISM reason. GPP guard: a lesson untested only because no RELEVANT slate "
-        f"occurred (e.g. a showdown lesson with no showdown slate since `born`) is KEEP, not retire. "
-        f"Name the retired_reason to write if retiring.\n"
-        f"2. `## Near-promotion` — for each lesson at 2 of 3 confirming slates, name the exact "
-        f"mechanism a third slate must confirm to promote, so the next autopsy knows what to watch.\n"
-        f"3. `## Overdue promotion` — for any lesson already at ≥3 confirming slates but not codified, "
-        f"propose the exact framework.md / philosophy.md edit to codify it.\n"
-        f"4. `## Merge candidates` — for each flagged pair, decide MERGE or KEEP-SEPARATE with a "
-        f"reason; if merge, name which id survives and give the combined statement.\n\n"
-        f"Every change is a PROPOSAL — do NOT edit lessons.yaml, framework.md, or philosophy.md in "
-        f"this run; the user approves in the app. Do not ask any questions — produce the file."
-    )
-    return _run_claude(prompt, out_path)
-
-
-def run_apply_ledger_proposals(slug: str) -> dict:
-    """Apply the user-approved ledger_review.md to lessons.yaml (+ framework/
-    philosophy for any approved codifications)."""
-    review_path = _REPO_ROOT / "rules" / slug / "ledger_review.md"
-    if not review_path.exists():
-        return {"ok": False, "error": "No ledger review found — run the review first.",
-                "duration_s": 0.0, "cost_usd": None}
-
-    prompt = (
-        f"Read `{review_path}`. The user has APPROVED these ledger-hygiene proposals. Apply them to "
-        f"`rules/{slug}/lessons.yaml`: set RETIRE-decided lessons' status to 'retired' with the "
-        f"retired_reason; MERGE each pair marked merge (keep the surviving id with the combined "
-        f"statement, set the other to 'retired' with retired_reason 'merged into <id>'); for approved "
-        f"codifications apply the exact `rules/{slug}/framework.md` / `rules/{slug}/philosophy.md` "
-        f"edit and set the lesson status to 'codified' with codified_in naming the doc + section. "
-        f"Leave every KEEP / KEEP-SEPARATE lesson untouched. Append a '## Applied' summary line to "
-        f"`{review_path}`. Do not ask any questions."
-    )
-    return _run_claude(prompt, review_path)
+# The standalone ledger review (run_ledger_review / run_apply_ledger_proposals)
+# was folded into run_autopsy_review (step 1e) + run_apply_proposals on 7/18/26:
+# the optional button ran once in 18 slates, and a stale rules/<slug>/
+# ledger_review.md sat behind an always-armed Approve button. Hygiene flags now
+# ride the loop that actually runs every slate.

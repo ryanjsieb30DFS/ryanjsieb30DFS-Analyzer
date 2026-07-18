@@ -183,14 +183,19 @@ def _clean_salary(val) -> float:
 def _clean_ownership(val) -> float:
     """Strip $/% formatting and parse one ownership value to float. Does NOT
     rescale — column-level rescaling (fraction vs. percent) happens in
-    `_normalize_ownership_column` so a lone 1.0 isn't misread as 100%."""
+    `_normalize_ownership_column` so a lone 1.0 isn't misread as 100%.
+
+    Blank/missing cells become NaN, NOT 0.0 — unknown ownership is not the
+    same as a true 0% play. A 0.0 here used to sail through the sub-10%
+    leverage filter and flood the strategy's mandatory leverage-candidates
+    section with players whose ownership was simply not published."""
     if pd.isna(val):
-        return 0.0
+        return float("nan")
     if isinstance(val, (int, float)):
         return float(val)
     s = str(val).replace("%", "").strip()
     if not s:
-        return 0.0
+        return float("nan")
     return float(s)
 
 

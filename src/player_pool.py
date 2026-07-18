@@ -163,14 +163,19 @@ _VERDICT_TOKENS = [
 ]
 
 
-def _verdict_for(bold_text: str, after_bold: str, line: str) -> str | None:
-    """The call's verdict, read where the convention puts it: inside the bolded
-    lead ('**Keith Mitchell $10,000 — FADE.**'), else the first clause after the
-    bold ('— PASS/MIX.'), else anywhere in the line (last resort)."""
-    for scope in (bold_text, after_bold.split(".")[0], line):
+def _verdict_for(bold_text: str, after_bold: str) -> str | None:
+    """The call's verdict, read ONLY where the convention puts it: inside the
+    bolded lead ('**Keith Mitchell $10,000 — FADE.**') or the first sentence
+    after the bold ('— PASS/MIX.'). Deliberately NO whole-line fallback and
+    word-boundary matching only: prose like 'the winning definer the field
+    faded' or 'the field plays him at 6%' must never be recorded as a call —
+    a phantom fade here becomes a false discipline violation in the Grade tab
+    and the adherence trend. Sentence split tolerates decimals ('$9.8K')."""
+    first_sentence = re.split(r"\.(?:\s|$)", after_bold)[0]
+    for scope in (bold_text, first_sentence):
         u = scope.upper()
         for token, verdict in _VERDICT_TOKENS:
-            if token in u:
+            if re.search(rf"(?<![A-Z]){re.escape(token)}(?![A-Z])", u):
                 return verdict
     return None
 
@@ -191,7 +196,7 @@ def parse_calls(strategy_md: str) -> list[dict]:
         name = _leading_name(m.group(1))
         if not name:
             continue
-        verdict = _verdict_for(m.group(1), line[m.end():], line)
+        verdict = _verdict_for(m.group(1), line[m.end():])
         if verdict:
             calls.append({"name": name, "verdict": verdict})
     return calls
@@ -228,7 +233,7 @@ def extract_fades(strategy_md: str) -> list[str]:
         cand = _leading_name(m.group(1))
         if not cand:
             continue
-        verdict = _verdict_for(m.group(1), line[m.end():], line)
+        verdict = _verdict_for(m.group(1), line[m.end():])
         if verdict == "fade" or (verdict is None and head is not None):
             names.append(cand)
     return names
