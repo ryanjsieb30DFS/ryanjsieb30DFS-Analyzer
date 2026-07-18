@@ -201,6 +201,22 @@ def _split_leading_table(md: str):
     if not data:
         return None, md
     df = pd.DataFrame(data, columns=header)
+    # Sorting fix: these columns arrive as TEXT ("$9.8K", "13.8%"), so a sort was
+    # alphabetical — "$9.8K" > "$13.3K" — and the top-salary players vanished to
+    # the far end. Coerce to real numbers so st.dataframe sorts correctly.
+    def _num(col, series):
+        s = series.astype(str).str.strip().str.strip("*")
+        s = s.str.replace("$", "", regex=False).str.replace(",", "", regex=False)
+        s = s.str.replace("%", "", regex=False)
+        k = s.str.upper().str.endswith("K")
+        vals = pd.to_numeric(s.str.rstrip("Kk"), errors="coerce")
+        return vals.where(~k, vals * 1000)
+    for col in df.columns:
+        cl = col.strip().lower()
+        if cl in ("rank", "sal", "salary", "proj", "own", "ceiling", "win%", "win"):
+            coerced = _num(col, df[col])
+            if coerced.notna().mean() > 0.8:  # only if the column really is numeric
+                df[col] = coerced
     remainder = "\n".join(lines[:start] + lines[end:]).strip()
     return df, remainder
 
@@ -375,7 +391,7 @@ with tab_proj:
             # Edges to notice (synthesized headline flags first)
             st.markdown("#### Edges to notice")
             for bullet in bd["flags"]:
-                st.markdown(f"- {bullet}")
+                st.markdown(_md_safe(f"- {bullet}"))
 
             # Ceiling-based panels only when the vendor ships a REAL ceiling (golf/MLB).
             # NASCAR / names-only vendors ship none — we never fabricate one.
@@ -758,7 +774,15 @@ with tab_strategy:
             # the detailed write-ups follow below it.
             _tbl, _rest = _split_leading_table(saved_pool["markdown"])
             if _tbl is not None:
-                st.dataframe(_tbl, use_container_width=True, hide_index=True)
+                _colcfg = {}
+                for _c in _tbl.columns:
+                    _cl = _c.strip().lower()
+                    if _cl in ("sal", "salary"):
+                        _colcfg[_c] = st.column_config.NumberColumn(_c, format="$%d")
+                    elif _cl in ("own", "win%", "win"):
+                        _colcfg[_c] = st.column_config.NumberColumn(_c, format="%.1f%%")
+                st.dataframe(_tbl, use_container_width=True, hide_index=True,
+                             column_config=_colcfg)
                 with st.expander("Detailed write-ups (how each wins)", expanded=False):
                     st.markdown(_md_safe(_rest))
             else:
@@ -973,7 +997,7 @@ with tab_autopsy:
                         "top_underperformers": analysis["underperformers"],
                     }
                     with st.container(border=True):
-                        st.markdown(accuracy.slate_accuracy_md([_grade_rec]))
+                        st.markdown(_md_safe(accuracy.slate_accuracy_md([_grade_rec])))
                         st.caption("Computed in Python from this contest's actuals — trended into "
                                    "the next slate's bundle when you log the autopsy.")
 
@@ -1435,7 +1459,7 @@ with tab_autopsy:
         if review_path.exists():
             review_md = review_path.read_text()
             with st.container(border=True):
-                st.markdown(review_md)
+                st.markdown(_md_safe(review_md))
             proposals = re.search(
                 r"(?ms)^## Proposed codifications\s*\n(.*?)(?=^## |\Z)", review_md
             )
@@ -1495,7 +1519,7 @@ with tab_autopsy:
 
             if ledger_review_path.exists():
                 with st.container(border=True):
-                    st.markdown(ledger_review_path.read_text())
+                    st.markdown(_md_safe(ledger_review_path.read_text()))
                 st.warning(
                     "Approving applies the ledger review's retire / merge / codify decisions to "
                     "lessons.yaml (and framework/philosophy for any codifications)."
