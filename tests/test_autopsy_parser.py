@@ -75,11 +75,9 @@ def test_missing_columns_raises():
         assert "missing" in str(e).lower()
 
 
-def test_lineup_string_golf_mlb_captain():
+def test_lineup_string_golf_captain():
     assert _parse_lineup_string("G Jon Rahm G Cameron Young") == ["Jon Rahm", "Cameron Young"]
-    assert _parse_lineup_string(
-        "1B Vinnie Pasquantino 2B Romy Gonzalez SS Bobby Witt Jr."
-    ) == ["Vinnie Pasquantino", "Romy Gonzalez", "Bobby Witt Jr."]
+    assert _parse_lineup_string("D Ryan Blaney D Joey Logano") == ["Ryan Blaney", "Joey Logano"]
     assert _parse_lineup_string("CPT Max Holloway UTIL Paddy Pimblett") == [
         "Max Holloway", "Paddy Pimblett"]
     assert _parse_lineup_string(None) == []

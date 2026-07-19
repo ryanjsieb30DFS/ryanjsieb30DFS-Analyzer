@@ -23,7 +23,7 @@ from __future__ import annotations
 
 import pandas as pd
 
-from src.vendors import detect_vendor, mlb_team_key, normalize_to_canonical
+from src.vendors import detect_vendor, normalize_to_canonical
 
 
 REQUIRED_COLUMNS = ["name", "salary", "proj_points", "ownership"]
@@ -272,7 +272,7 @@ def _disambiguate_duplicate_names(projections: pd.DataFrame) -> pd.DataFrame:
     for _, idx in names[dup_mask].groupby(names[dup_mask]).groups.items():
         teams = projections.loc[idx, "team"]
         keys = [
-            "" if pd.isna(t) or not str(t).strip() else mlb_team_key(t)
+            "" if pd.isna(t) or not str(t).strip() else str(t).strip().upper()
             for t in teams
         ]
         if "" in keys or len(set(keys)) != len(keys):
@@ -318,18 +318,13 @@ def warn_missing_for_sport(projections: pd.DataFrame, sport: str | None) -> list
         warnings.append(
             "NASCAR: 'starting_position' column missing — PD floor constraint cannot be enforced."
         )
-    if sport == "mlb":
-        if "team" not in projections.columns:
-            warnings.append("MLB: 'team' column missing — team-stack analysis disabled.")
-        if "position" not in projections.columns:
-            warnings.append("MLB: 'position' column missing — pitcher/hitter split disabled.")
-    # Ceiling: golf + MLB vendors normally ship one. If it vanishes (a vendor
+    # Ceiling: golf vendors normally ship one. If it vanishes (a vendor
     # format change), the file still loads but every ceiling panel (mispricing,
     # boom/bust, leverage-vs-ceiling) silently hides — make that LOUD.
-    if sport in ("golf", "mlb"):
+    if sport == "golf":
         if "ceiling" not in projections.columns or projections["ceiling"].isna().all():
             warnings.append(
-                f"{'PGA' if sport == 'golf' else 'MLB'}: no usable 'ceiling' column — this "
+                "PGA: no usable 'ceiling' column — this "
                 "vendor normally ships one. ALL ceiling-based panels (mispricing, boom/bust, "
                 "leverage-vs-ceiling) will be hidden. Vendor format change?"
             )

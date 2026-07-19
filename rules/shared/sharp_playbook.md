@@ -1,6 +1,6 @@
 # Sharp Playbook — universal GPP rules from the best players (PGA + NFL validated)
 
-_Reverse-engineered from DK **contest-standings** the user owns — no scraping. Two large archives, the SAME 12 elite handles in both: **PGA** = `~/Desktop/DFS/DFS PGA Past Slate Data/` (395 files, 2023–26) and **NFL** = `~/Desktop/DFS/DFS NFL Past Slate Data/` (69 files, 2024–25). MMA/MLB notes come from the smaller `~/Downloads` set._
+_Reverse-engineered from DK **contest-standings** the user owns — no scraping. Two large archives, the SAME 12 elite handles in both: **PGA** = `~/Desktop/DFS/DFS PGA Past Slate Data/` (395 files, 2023–26) and **NFL** = `~/Desktop/DFS/DFS NFL Past Slate Data/` (69 files, 2024–25). MMA notes come from the smaller `~/Downloads` set._
 
 **Why two sports:** PGA (6 independent golfers, no correlation) and NFL (9-man, stack/correlation-driven) are about as different as DFS gets. **A tendency that holds in BOTH is genuinely universal** — it's the player's philosophy, not a sport quirk. Anything that shows up in only one sport is listed separately as non-transferable.
 
@@ -8,7 +8,7 @@ _Reverse-engineered from DK **contest-standings** the user owns — no scraping.
 
 ---
 
-## ⭐ Universal Sharp Principles (apply to ALL sports — PGA, MMA, NASCAR, MLB)
+## ⭐ Universal Sharp Principles (apply to ALL sports — PGA, MMA, NASCAR)
 
 Each rule held across **both** PGA and NFL, with the numbers:
 
@@ -24,12 +24,12 @@ Each rule held across **both** PGA and NFL, with the numbers:
 
 6. **Volume is unique breadth, not repetition.** They fire many lineups but each is a distinct angle. At your scale, copy the **breadth-of-angles** mindset (each lineup a different "what if?"), not the entry count.
 
-These six are the cross-sport core — fold them into every sport's build, MMA/NASCAR/MLB included.
+These six are the cross-sport core — fold them into every sport's build, MMA/NASCAR included.
 
 ---
 
 ## Sport-specific (do NOT generalize)
-- **NFL only:** QB stacked with a pass-catcher + bring-back (game correlation). Real in NFL; **irrelevant to golf/MMA/NASCAR** (no equivalent correlation) — MLB is the only other sport with true stacking.
+- **NFL only:** QB stacked with a pass-catcher + bring-back (game correlation). Real in NFL; **irrelevant to golf/MMA/NASCAR** (no equivalent correlation).
 - **PGA R4 SD / showdown:** chalkier — per-player own ~17–19% (own_sum ~103–113) and fewer leverage pieces; fewer viable plays.
 - **MMA (small sample):** chalkier still — favorites convert; leverage is *which* favorites + an occasional dog, not fading chalk wholesale.
 
@@ -76,7 +76,7 @@ R4 SD (chalkier): sullybrochill 85 slates / 3 wins, moklovin 142, JBCJBCJBC 34, 
 ## How to apply (you hand-build a few lineups)
 Copy the **structure**, not the entry count: each lineup a distinct angle, **~12–16% average ownership per slot**, **≥1 sub-5% leverage piece**, an elite anchor with differentiation below it, and judged on ceiling not median. These six universal rules are validated across two very different games — the strongest evidence we can get short of tracking your own results.
 
-_Caveats: descriptive correlation, not causation; copying the structure at low volume is a sound hypothesis to track, not a guarantee. NFL is out of the user's play scope — used only to prove which tendencies are universal. Salary/team absent from standings. MMA/MLB notes are small-sample._
+_Caveats: descriptive correlation, not causation; copying the structure at low volume is a sound hypothesis to track, not a guarantee. NFL is out of the user's play scope — used only to prove which tendencies are universal. Salary/team absent from standings. MMA notes are small-sample._
 
 ---
 
@@ -86,18 +86,17 @@ _From the user's own entries in `~/Downloads` contest-standings (their played co
 | Sport | Slates / entries | Own/slot | Leverage% | Median finish | Top-1% | Verdict |
 |---|---|---|---|---|---|---|
 | **PGA** | 18 / 199 | 13.7% | 59% | 38.5% | 2.0% | ✅ **On the envelope** — same anchors as the sharks (Scheffler/Rory/Aberg/Xander), all-unique, good results |
-| **MLB** | 16 / 35 | 13.6% | 94% | **34.0%** | **2.9%** | ✅ **Dialed in** — best median + top-1%, leverage-heavy; only low volume (~2/slate) |
 | **MMA** | 15 / 622 | 28.6% | 4.2% | 47.0% | 1.0% | ⚠️ Chalk is **correct for MMA** (favorites convert), but 4.2% leverage is low even for MMA |
 | **NASCAR** | 8 / 310 | 24.5% | 19% | **55.9%** | 1.0% | ❌ **The gap** — most chalk, least leverage, only below-average median (worst sport) |
 
-**The headline:** you already build like a shark in **PGA and MLB** — on-envelope ownership, a leverage piece in most lineups, all-unique, elite anchors, and your best results. The discipline **breaks down in NASCAR**: you carry a sub-5% leverage driver in only **19%** of lineups (vs **59%** in your own PGA), run chalkier, and it's your **only below-average sport** (55.9% median). MMA chalk is format-appropriate but near-zero leverage.
+**The headline:** you already build like a shark in **PGA** — on-envelope ownership, a leverage piece in most lineups, all-unique, elite anchors, and your best results. The discipline **breaks down in NASCAR**: you carry a sub-5% leverage driver in only **19%** of lineups (vs **59%** in your own PGA), run chalkier, and it's your **only below-average sport** (55.9% median). MMA chalk is format-appropriate but near-zero leverage.
 
 **Top 3 fixes (ranked):**
 1. **NASCAR — add leverage.** Put a sub-5%-owned sleeper driver in most lineups (this is literally the existing `sleeper-spike-floor` / `sub-10-punts-over-15-20` lessons) and pull cumulative ownership down. Your NASCAR leverage rate (19%) should look more like your PGA rate (59%). Highest-impact change — it's your weakest sport by every measure.
 2. **MMA — sprinkle a dog.** Keep anchoring favorites (right for MMA), but add the occasional sub-5% live underdog for ceiling; 4.2% is too rarely.
-3. **PGA / MLB — keep doing exactly this**, and nudge PGA's leverage rate from 59% toward the sharks' 70%+. Consider more MLB volume — it's your most efficient sport.
+3. **PGA — keep doing exactly this**, and nudge PGA's leverage rate from 59% toward the sharks' 70%+.
 
-_Caveats: NASCAR (8) and MLB (16) are smallish samples; MMA chalk is format-correct, not a flaw; descriptive vs the sharks' correlated success, not proof. Re-run as more of your standings accumulate._
+_Caveats: NASCAR (8) is a smallish sample; MMA chalk is format-correct, not a flaw; descriptive vs the sharks' correlated success, not proof. Re-run as more of your standings accumulate. (MLB rows removed 2026-07-18 — sport dropped.)_
 
 ### Same-slate head-to-head (45 slates) — corrects the read above
 On the slates where **you and a shark both played** (controls for the slate). Own% = avg field own per roster slot; leverage% = lineups with a sub-5% player. _Finish is volume-biased — sharks fire 40–150 lineups/slate vs your few, so their best-of-N is naturally higher; shown as context only._
@@ -105,7 +104,6 @@ On the slates where **you and a shark both played** (controls for the slate). Ow
 | Sport | slates | Your own/slot | Shark own/slot | Your lev% | Shark lev% | Best-LU finish (you / shark)* |
 |---|---|---|---|---|---|---|
 | PGA | 17 | 15.8% | 16.2% | 42% | 48% | 46.8% / 9.6% |
-| MLB | 13 | 15.9% | 17.7% | 100% | 87% | 32.8% / 22.4% |
 | MMA | 10 | 29.9% | 30.4% | 0% | 15% | 50.9% / 23.1% |
 | NASCAR | 5 | 28.9% | 29.6% | 0% | 10% | 46.1% / 27.1% |
 
@@ -115,7 +113,6 @@ On the slates where **you and a shark both played** (controls for the slate). Ow
 - **Carry a sub-5% piece in MMA/NASCAR.** You: **0%** of lineups; sharks 10–15%. Add the occasional one.
 - **Mine a tier of low-owned scorers you fade** (rostered by sharks, scored, you had zero exposure — recurring across slates):
   - PGA: Alex Noren, Taylor Pendrith, Maverick McNealy, Jason Day
-  - MLB: Luis Garcia Jr., Jake Burger, Nick Pivetta, Kody Clemens
   - MMA: Gerald Meerschaert, Alexander Volkov, Beneil Dariush
   - NASCAR: Shane Van Gisbergen, Cole Custer, Josh Berry, Ty Dillon, Stenhouse, Zilisch
 

@@ -8,7 +8,7 @@ rule. The combinations are surfaced to be *aware of / fade for duplication*, not
 to play together.
 
 A SaberSim pool CSV = one row per simulated lineup. The leading columns are the
-roster slots (6 for golf/MMA/NASCAR, 10 for MLB) holding DK player IDs, then a
+roster slots (6 for golf/MMA/NASCAR) holding DK player IDs, then a
 blank separator, then per-lineup metrics (Proj Score, percentiles, Ownership,
 Salary, Saber Score, per-contest ROI/Dupes/Win Rate/Cash Rate).
 """
@@ -144,7 +144,7 @@ def good_bad_plays(exposure: pd.DataFrame, top_n: int = 12) -> dict:
 
     Good/bad are judged from the uploaded projections (field/projected ownership +
     projected upside), NOT sim exposure:
-      upside   = ceiling when the vendor ships a real one (golf/MLB), else proj_points
+      upside   = ceiling when the vendor ships a real one (golf), else proj_points
                  (never fabricate a ceiling — matches landscape._upside).
       leverage = pctile(upside) - pctile(field_own_pct), 0-100 scale. Positive = strong
                  upside the field is under-owning; negative = owned past what the upside earns.

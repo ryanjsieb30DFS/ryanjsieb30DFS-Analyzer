@@ -1,0 +1,39 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "lineups": [
+    {
+      "players": [
+        "Austin Bashi",
+        "Chase Hooper",
+        "Dione Barbosa",
+        "Ezra Elliott",
+        "Felipe Franco",
+        "Tommy McMillen"
+      ],
+      "percentile": 2.3,
+      "flags": [
+        "crowded_pair"
+      ]
+    },
+    {
+      "players": [
+        "Alvin Hines",
+        "Austin Bashi",
+        "Chase Hooper",
+        "Damien Anderson",
+        "Felipe Franco",
+        "Tommy McMillen"
+      ],
+      "percentile": 52.9,
+      "flags": [
+        "crowded_pair"
+      ]
+    }
+  ],
+  "flagged_pctiles": [
+    2.3,
+    52.9
+  ],
+  "clean_pctiles": []
+}

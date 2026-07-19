@@ -125,7 +125,7 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"`rules/{slug}/framework.md`, `rules/{slug}/autopsies.md`, `rules/{slug}/lessons.yaml`, "
         f"`rules/shared/anchor_equivalence.md`, `rules/shared/sharp_playbook.md`, and the venue "
         f"file for this slate's venue (golf → rules/pga_classic/courses, nascar → "
-        f"rules/nascar/tracks, mlb → rules/mlb_classic/parks; mma has none — create a stub marked "
+        f"rules/nascar/tracks; mma has none — create a stub marked "
         f"UNVERIFIED if the venue file is missing).\n\n"
         f"SOURCE-OF-TRUTH RULE: synthesize from BOTH the articles AND the vendor projections, "
         f"cross-checked against the framework and the OPEN lessons in lessons.yaml. BLEND the "

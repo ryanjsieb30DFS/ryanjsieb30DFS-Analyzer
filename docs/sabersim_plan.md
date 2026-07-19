@@ -1,5 +1,18 @@
 # SaberSim Ultimate ↔ Analyzer — integration plan
 
+> **⚠️ SUPERSEDED — same day (2026-07-18).** The user decided SaberSim isn't worth
+> \$297/mo: the sub is being **cancelled at the next renewal (~2 weeks)** and the
+> Sim tool (`~/Desktop/Repo/ryanjsieb30DFS`) has been **revived as the full
+> replacement** (builder + contest sim + portfolio; 316 tests green; benchmark
+> receipts in the Sim repo's `docs/sabersim_calibration_baseline.md`). What
+> remains valid from this document **during the 2-week window only**: the
+> capture guidance (post-contest exports WITH actuals, the Custom Lineup Metric
+> builder screenshot, Flashback screenshots) — see the Sim repo's
+> `docs/sabersim_archive_checklist.md` for the authoritative list. Do NOT build
+> the vendor-signature / Grade-tab-CSV / Flashback-autopsy tracks below.
+> Note: MLB was dropped entirely on the same date (this doc's MLB references are
+> historical).
+
 **Created 2026-07-18.** We hold the SaberSim **Ultimate** tier ($297/mo — the top plan). This document maps everything Ultimate produces to a specific place in the Analyzer's loop, in phases. The standing division of labor does not change: **SaberSim builds, the Analyzer thinks.** The Analyzer never constructs a lineup, and nothing is ever scraped — every SaberSim number enters this tool as a CSV export or a screenshot the user uploads.
 
 ---

@@ -28,7 +28,6 @@ _VENUE_DIRS = {
     "nascar": "nascar/tracks",
     "pga_classic": "pga_classic/courses",
     "pga_rd4_sd": "pga_classic/courses",
-    "mlb_classic": "mlb_classic/parks",
 }
 
 

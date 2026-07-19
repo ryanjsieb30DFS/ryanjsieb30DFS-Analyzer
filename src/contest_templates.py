@@ -1,6 +1,6 @@
 """Saved contest templates — reusable per-sport contest presets.
 
-The user enters the same recurring DK contests every slate (e.g. "MLB $5K
+The user enters the same recurring DK contests every slate (e.g. "NASCAR $5K
 Chin Music"). A template stores a contest's stable identity (name, type,
 entry caps/fees) plus typical defaults for the two fields that vary slate to
 slate (field size, my entries), so the contest can be re-added from a

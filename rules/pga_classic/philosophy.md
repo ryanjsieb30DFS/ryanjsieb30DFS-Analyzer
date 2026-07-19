@@ -104,7 +104,7 @@ The work is the process. The wins are the consequence.
 
 ## 11. Quality of Rules Over Quantity (Cross-Sport Operating Principle)
 
-Across all DFS GPP projects (PGA, NFL, NBA, MLB, future sports), the same rule-construction discipline applies. Use the fewest, sharpest constraints that produce the desired structural outcome — not a comprehensive rule set. Each rule must earn its place by addressing a specific failure mode.
+Across all DFS GPP projects (PGA, MMA, NASCAR, future sports), the same rule-construction discipline applies. Use the fewest, sharpest constraints that produce the desired structural outcome — not a comprehensive rule set. Each rule must earn its place by addressing a specific failure mode.
 
 If a build needs more than 3–5 core constraints, the strategy is wrong, not the rules. Layering 3+ rules at once obscures which one solved the problem and which one created the next one. The slate read happens first; the rules express the read; the optimizer (or single-lineup build) executes. Not the other way around.
 

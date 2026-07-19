@@ -48,7 +48,6 @@ CONTEST_TYPES = {
     "PGA RD4 Showdown": {"slug": "pga_rd4_sd", "sport": "golf"},
     "MMA": {"slug": "mma_se", "sport": "mma"},
     "NASCAR": {"slug": "nascar", "sport": "nascar"},
-    "MLB Classic": {"slug": "mlb_classic", "sport": "mlb"},
 }
 
 
@@ -407,7 +406,7 @@ with tab_proj:
             for bullet in bd["flags"]:
                 st.markdown(_md_safe(f"- {bullet}"))
 
-            # Ceiling-based panels only when the vendor ships a REAL ceiling (golf/MLB).
+            # Ceiling-based panels only when the vendor ships a REAL ceiling (golf).
             # NASCAR / names-only vendors ship none — we never fabricate one.
             real_ceil = bd["real_ceil"]
 
@@ -961,10 +960,8 @@ with tab_autopsy:
                 if user_df.empty:
                     st.info("No entries matching RyvlesGaming30 / ryanjsieb30 found in this contest.")
                 else:
-                    show_cols = [c for c in ["rank", "points", "avg_own", "low_own_count",
-                                             "salary_used", "proj_total", "dup_count",
-                                             "stack_shape", "players"]
-                                 if sport == "mlb" or c != "stack_shape"]
+                    show_cols = ["rank", "points", "avg_own", "low_own_count",
+                                 "salary_used", "proj_total", "dup_count", "players"]
                     st.dataframe(user_df[show_cols], use_container_width=True)
 
                 st.markdown("### Winners vs You")
@@ -989,9 +986,6 @@ with tab_autopsy:
                     f"{ws.get('unique_pct')}% of top lineups are unique "
                     f"(max duplication {ws.get('dup_max')})"
                 )
-                if sport == "mlb" and ws.get("stack_shapes"):
-                    shapes = ", ".join(f"{k}×{v}" for k, v in list(ws["stack_shapes"].items())[:5])
-                    dup_note += f" · winning stack shapes: {shapes}"
                 st.caption(dup_note)
 
                 if analysis["slate_defining"]:

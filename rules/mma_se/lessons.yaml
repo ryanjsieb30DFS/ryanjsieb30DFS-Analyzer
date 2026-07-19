@@ -143,6 +143,18 @@ lessons:
           Steveson 116.7 / Green 120.1 all in it) at 501.32 / 26.1%ile. Real-world
           confirmation that pure binary dogs are structurally punished in small fields —
           the rule was right; the deviation cost.
+      - date: "2026-07-19"
+        slate: "UFC Oklahoma City 7.18.26 — 784/1,189 SEs"
+        note: >
+          Small-field mechanism held again, on both sides of the ledger. Every named
+          binary/live-dog leverage piece busted: Ramirez (15% own, the article's
+          "leverage against Hooper") scored 0.80 and was a fish trap (19.9% of fish,
+          0% of winners), Cannonier lost (Duncan won, 76.5), and the board's only
+          true darts — Nicoll (5%) and Melisano (8%) — both lost. Both contest
+          winners carried ZERO binary pieces: six converting fighters at 20-70% own.
+          And the user's Clinch entry was capped at 52.9%ile by two dead coin-flip
+          slots (Hines 4.40, Anderson 7.41) — the exact structural punishment the
+          rule predicts for no-floor variance in small fields.
 
   - id: mma-se-2026-05-16-secondary-plays-are-not-leverage
     born: "2026-05-16"
@@ -265,6 +277,20 @@ lessons:
           Yakhyaev-anchored lineups also cleared (he was not a bust) — exactly the
           substitutable-anchor outcome: running the cheaper equivalent captured the
           uncontested win without sacrificing the chalk side.
+      - date: "2026-07-19"
+        slate: "UFC Oklahoma City 7.18.26 (classic; 784 + 1,189 SEs)"
+        note: >
+          8th validation, with a boundary. The surfaced pair was Du Plessis (45% proj,
+          $9.0K) / McMillen (42% proj, $8.2K) — near-identical "very likely wins,
+          ceiling question" chalk anchors. Both user entries ran McMillen-not-DDP;
+          McMillen scored 168.11 while DDP scored 85.20 (inside his predicted 90-100
+          volume-decision band), and BOTH contest winners carried McMillen — the
+          1,189 winner (716.30) with no DDP at all. Substitutability confirmed again.
+          BOUNDARY: the leverage half did NOT materialize — McMillen's ACTUAL own ran
+          66.8-69.8% (vs 42% projected), making him the field's true chalk, so the
+          "equal ownership" premise held only in projection. Equivalence pairs at the
+          top of the board need an actual-convergence check; see
+          [[mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence]].
     contradictions: []
     codified_in: "rules/shared/anchor_equivalence.md"
     retired_reason: null
@@ -469,7 +495,7 @@ lessons:
       Rule to test: only fade or under-weight a live, real-ceiling chalk piece when the
       fade has a structural mechanism; downgrade narrative-only fades to a note, keep the
       piece at neutral exposure. Links [[mma-se-2026-05-16-secondary-plays-are-not-leverage]].
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-27"
         slate: "UFC Fight Night, Baku (classic 6-fighter)"
@@ -502,9 +528,23 @@ lessons:
           evidence rather than a clean replication — the specific distance-lean error is
           carried by [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]]. Near
           promotion; leave validated pending one clean chalk-piece replication.
+      - date: "2026-07-19"
+        slate: "UFC Oklahoma City 7.18.26"
+        note: >
+          The awaited chalk-piece test arrived, and it lands as a refinement to fold
+          into the codification. The Kline LEAN FADE (a live chalk-tier favorite,
+          $9.3K / 21%) cited a structural-SOUNDING mechanism (+285 ITD, "80-90 cash
+          profile") and was punished: she posted 109.40 inside the 1,189-field
+          winner (716.30). The read skipped the pace/volume/control check that
+          [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]] requires before a
+          low-finish-probability favorite is declared ceiling-capped. Refinement:
+          an ITD-price ceiling cap is STRUCTURAL only when paired with low projected
+          volume/control — otherwise it is a narrative fade wearing structural
+          clothes.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Structural Fades Only (7/19/26 — 3-slate validated)"
     retired_reason: null
+
 
   - id: mma-se-2026-06-20-finish-capable-favorite-is-not-secondary-chalk
     born: "2026-06-20"
@@ -577,7 +617,7 @@ lessons:
       dog. Links [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]],
       [[mma-se-2026-06-14-showdown-cheap-slot-prefer-floor-or-live-dog]],
       [[mma-se-2026-06-20-finish-capable-favorite-is-not-secondary-chalk]].
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-07-12"
         slate: "UFC 329 (McGregor vs. Holloway) — classic 6-fighter, two 291-field SEs"
@@ -597,8 +637,26 @@ lessons:
           included, both dogs AND favorites — for low-owned converters, and never fade a
           whole fight out of the search. Links
           [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]].
+      - date: "2026-07-19"
+        slate: "UFC Oklahoma City 7.18.26 — 784/1,189 SEs"
+        note: >
+          Third confirming slate — promotion candidate — WITH a boundary refinement.
+          Converter-not-named-dog held emphatically: the strategy's article-named
+          live-dog leverage (Ramirez, 15%, "leverage against Hooper") scored 0.80,
+          while the below-spotlight CONVERTERS defined the slate — RJ Harris (29%
+          own, 106.70, in the 784-field winner and nearly every top-10 lineup; the
+          strategy had him "Okay — neither side trustworthy," and Bashi→Harris was
+          the single swap between the user's rank-18 entry and winning $2K) and
+          Fatima Kline (21.6% own, 109.40, in the 1,189-field WINNER; the strategy
+          LEAN-FADED her as an "80-90 cash score"). BOUNDARY: this board's only true
+          sub-10s (Nicoll 5%, Melisano 8%) both LOST — when the sub-10 tier carries
+          only ~12-17% win equity, the definer tier moves UP into the 15-30%
+          converting sides, exactly where the 7/12 sharpened form said to screen.
+          The codifiable mechanism is "screen the FULL pool for low-owned CONVERTERS
+          (12-30% own, favorites included), never default to the article-named dog"
+          — not "always roster a sub-10."
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — The Leverage Screen: Converters, Not Named Dogs (7/19/26 — 3-slate validated)"
     retired_reason: null
 
   - id: mma-se-2026-06-27-finish-heavy-small-fields-still-won-by-differentiation
@@ -619,7 +677,7 @@ lessons:
       avg-own / >=1 sub-10 differentiation target as the medium field — do not relax to
       chalk just because the field is small. Links [[mma-se-2026-05-17-field-size-calibration]],
       [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]].
-    status: hypothesis
+    status: retired
     confirmations:
       - date: "2026-07-12"
         slate: "UFC 329 — two 291-field SEs, finish-heavy board"
@@ -646,8 +704,26 @@ lessons:
           WINNING favorites and carry no likely-loser slot," NOT "cut whole-build avg-own
           to 16-20%." Links [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]],
           [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]].
+      - date: "2026-07-19"
+        slate: "UFC Oklahoma City 7.18.26 — 784/1,189 SEs, finish-leaning card"
+        note: >
+          SECOND contradiction of the avg-own-target half (GPP-guarded: this is the
+          winners' structure, not "we lost"). Both winners were chalk-anchored
+          six-winner builds with ZERO sub-10 pieces: 784 winner 36.4% avg own
+          (McMillen ~70% plus five 24-36% converters), 1,189 winner 31.6% avg own;
+          winners_profile dart_pct was 0.0 in both contests (avg_own_per_slot
+          37.5 / 37.1). The "hold small fields to 16-20% avg own / >=1 sub-10"
+          target has now been contradicted by the winning structure in consecutive
+          slates (7/12, 7/19). The half that keeps confirming (catch >=1 low-owned
+          converter, carry no losing slot) is carried forward by
+          [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]] —
+          propose retiring this hypothesis.
     codified_in: null
-    retired_reason: null
+    retired_reason: >
+      Avg-own-target half contradicted by the winning structure in consecutive
+      slates (7/12, 7/19); the surviving half (catch >=1 low-owned converter,
+      carry no losing slot) is carried forward by
+      mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters.
 
   # ---- 2026-07-12 — UFC 329 (McGregor vs. Holloway) ----
 
@@ -671,6 +747,70 @@ lessons:
       a real 100+ ceiling, and if low-owned that is leverage, not a trap. Links
       [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]],
       [[mma-se-2026-06-20-fade-on-structure-not-narrative]].
+    status: validated
+    confirmations:
+      - date: "2026-07-19"
+        slate: "UFC Oklahoma City 7.18.26 — 784/1,189 SEs"
+        note: >
+          First confirmation → promoted to validated. The strategy capped Fatima
+          Kline's ceiling at "80-90 — a cash profile" purely because she was the
+          favorite LEAST likely to finish (+285 ITD) — the exact
+          distance-implies-low-ceiling equation this lesson bans — and LEAN-FADED
+          her at $9.3K / 21%. Kline, a high-output wrestler favored to dominate,
+          scored 109.40 and sat in the 1,189-field WINNING lineup (716.30). Caveat
+          logged honestly: standings don't record method, so finish-vs-dominant-
+          decision can't be separated — but the mechanism graded here is the ceiling
+          CAP derived from low finish probability, and that cap was wrong by ~25
+          points on a winner-defining piece.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-07-19 — UFC Oklahoma City (Du Plessis vs. Usman) ----
+
+  - id: mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters
+    born: "2026-07-19"
+    origin: "rules/mma_se/history/2026-07-19__ufc-oklahoma-city-7-18-26"
+    statement: >
+      In small-to-medium MMA SE fields (~300-1,200), the winning shape is SIX WINNING
+      FIGHTERS in a chalk-anchored build (~32-40% avg own, zero sub-10 darts), with
+      the differentiation carried by 2-4 MID-OWNED (15-30%) CONVERTING favorites the
+      field under-trusts — not by true darts. Evidence: the 7/12 winner (40.2% avg
+      own, 0 sub-10, definer Bautista 15%) and BOTH 7/19 winners (36.4% / 31.6% avg
+      own, 0 sub-10, definers Harris 29% / Kline 21.6% / Barbosa 20-24% / Franco
+      24-26%); meanwhile every 7/19 board piece under 15% own LOST (Nicoll 5, Melisano
+      8, Ramirez 15→0.80, Ricci 13, Cannonier 15), and the user's entries died not on
+      structure (39.4% / 33.2% avg own sat inside the winners' envelope) but on WHICH
+      mid-owns — Bashi 42.90 / Hines 4.40 / Anderson 7.41 were losing sides. Mechanism:
+      at these field sizes 1-2 correctly-chosen 20-30% converters plus ZERO losing
+      slots out-separates dart-carrying; the whole edge is win-side selection in the
+      mid-tier, not ownership suppression. Supersedes the avg-own half of
+      [[mma-se-2026-06-27-finish-heavy-small-fields-still-won-by-differentiation]];
+      links [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]],
+      [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence
+    born: "2026-07-19"
+    origin: "rules/mma_se/history/2026-07-19__ufc-oklahoma-city-7-18-26"
+    statement: >
+      In classic MMA SE the vendor's projected own% understates how hard the field
+      converges on the consensus best play. DailyFan projected McMillen 42% (second
+      to DDP's 45%); he drew 66.8-69.8% ACTUAL — the field's true chalk by 20 points —
+      while DDP came in near projection (48.5-49.4%). Downstream math built on
+      projected own inherits the error: the strategy's DDP+McMillen pair estimate
+      (~18.9% of lineups) was HALF the actual 34.4%, and the real #1 pair was
+      Bashi+McMillen at 34.6% (never flagged as the top combo). Mechanism: ownership
+      projections spread the chalk tier too evenly; the live field concentrates
+      harder on the single narrative-consensus favorite, so duplication estimates and
+      "similar ownership" anchor-equivalence reads at the top of the board need an
+      actual-convergence adjustment (the projected-own gap between the top two
+      anchors is less trustworthy than the consensus signal itself). Classic-format
+      cousin of [[mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own]].
     status: hypothesis
     confirmations: []
     contradictions: []

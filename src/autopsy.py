@@ -22,8 +22,6 @@ import pandas as pd
 # DK entry names use the account's display name, not the login email prefix.
 USER_ALIASES = ("ryvlesgaming30", "ryanjsieb30")
 
-_PITCHER_POSITIONS = {"p", "sp", "rp"}
-
 
 def parse_dk_results(csv_path_or_buffer) -> dict:
     """Parse a DK contest-standings CSV into lineup and player DataFrames."""
@@ -76,11 +74,11 @@ def _parse_lineup_string(lineup_str: str) -> list[str]:
     """Convert 'G Jon Rahm G Cameron Young G ...' into ['Jon Rahm', 'Cameron Young', ...]."""
     if not isinstance(lineup_str, str):
         return []
-    # Explicit position-marker alternation: multi-char tokens (1B/2B/3B/SS/OF
-    # for MLB, CPT/UTIL/FLEX for showdowns) must come before the single-char
-    # class or they'd never match.
+    # Explicit position-marker alternation: multi-char tokens (CPT/UTIL/FLEX
+    # for showdowns) must come before the single-char class (G golf, F MMA,
+    # D NASCAR) or they'd never match.
     tokens = re.split(
-        r"(?:^|\s)(CPT|UTIL|FLEX|1B|2B|3B|SS|OF|SP|RP|[PCGDF])\s+", lineup_str
+        r"(?:^|\s)(CPT|UTIL|FLEX|[GDF])\s+", lineup_str
     )
     # tokens alternate: ['', position, name_segment, position, name_segment, ...]
     players: list[str] = []
@@ -162,20 +160,12 @@ def lineup_profile(players: list[str], own_map: dict, proj_lookup: dict | None,
         "salary_used": None,
         "proj_total": None,
         "dup_count": int(dup_counts.get(tuple(sorted(norms)), 1)),
-        "stack_shape": None,
     }
     if proj_lookup is not None:
         rows = [proj_lookup.get(n) for n in norms]
         if all(r is not None for r in rows):
             profile["salary_used"] = int(sum(r["salary"] for r in rows))
             profile["proj_total"] = round(sum(r["proj_points"] for r in rows), 2)
-            if sport == "mlb":
-                hitter_teams = [
-                    r.get("team") for r in rows
-                    if str(r.get("position", "")).strip().lower() not in _PITCHER_POSITIONS
-                ]
-                counts = sorted(Counter(t for t in hitter_teams if t).values(), reverse=True)
-                profile["stack_shape"] = "-".join(str(c) for c in counts) if counts else None
     return profile
 
 
@@ -255,10 +245,6 @@ def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str) -> d
         "unique_pct": round(float((winners_df["dup_count"] == 1).mean() * 100), 1)
         if not winners_df.empty else None,
     })
-    if sport == "mlb" and not winners_df.empty:
-        shapes = Counter(s for s in winners_df["stack_shape"] if s)
-        winners_summary["stack_shapes"] = dict(shapes.most_common())
-
     user_summary = _summary(user_df)
     if user_summary is not None:
         best = user_df.loc[user_df["rank"].idxmin()]
@@ -352,7 +338,6 @@ def _lineup_records(df: pd.DataFrame, field: int, cap: int = 10) -> list[dict]:
             "salary_used": _json_safe(r["salary_used"]),
             "proj_total": _json_safe(r["proj_total"]),
             "dup_count": int(r["dup_count"]),
-            "stack_shape": _json_safe(r["stack_shape"]),
         })
     return out
 
@@ -398,7 +383,6 @@ def build_autopsy_record(*, ts: str, contest_label: str, slug: str, sport: str,
             **{k: winners.get(k) for k in
                ("top_n", "avg_own_mean", "low_own_count_mean", "salary_used_mean",
                 "dup_max", "unique_pct")},
-            **({"stack_shapes": winners["stack_shapes"]} if "stack_shapes" in winners else {}),
             "top_lineups": _lineup_records(analysis["winners_df"], field),
             "vs_user": analysis["vs_user"],
         },
@@ -445,9 +429,6 @@ def record_md_summary(record: dict) -> str:
             )
     else:
         lines.append("- My entries: none found in this contest")
-    if ws.get("stack_shapes"):
-        top_shapes = ", ".join(f"{k}×{v}" for k, v in list(ws["stack_shapes"].items())[:4])
-        lines.append(f"- Winning stack shapes: {top_shapes}")
     over = record.get("top_overperformers") or []
     under = record.get("top_underperformers") or []
     if over:

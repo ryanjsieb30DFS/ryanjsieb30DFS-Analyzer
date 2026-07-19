@@ -157,7 +157,7 @@ def merge_candidates(lessons: list[dict], min_overlap: float = 0.45) -> list[dic
     return pairs
 
 
-_ALL_SLUGS = ("pga_classic", "pga_rd4_sd", "mma_se", "nascar", "mlb_classic")
+_ALL_SLUGS = ("pga_classic", "pga_rd4_sd", "mma_se", "nascar")
 
 
 def cross_sport_candidates(min_overlap: float = 0.45,

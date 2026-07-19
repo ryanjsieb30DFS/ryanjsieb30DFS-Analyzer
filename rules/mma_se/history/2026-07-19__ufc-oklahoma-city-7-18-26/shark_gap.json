@@ -1,0 +1,32 @@
+{
+  "field": 1189,
+  "anchors": [
+    "tommy mcmillen",
+    "dricus du plessis",
+    "austin bashi"
+  ],
+  "sharks": {
+    "gradable": false,
+    "n_entries": 0
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 33.2,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.667,
+    "anchor_exposure_by_player": {
+      "tommy mcmillen": 1.0,
+      "dricus du plessis": 0.0,
+      "austin bashi": 1.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 52.9,
+    "median_pctile": 52.9
+  },
+  "deltas": [],
+  "sharks_in_field": false,
+  "slug": "mma_se",
+  "sport": "mma"
+}

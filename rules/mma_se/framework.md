@@ -174,6 +174,14 @@ The ≥600–620 ceiling-threshold (summing projector win-cases) is computed fro
 
 **Rule:** keep the ceiling threshold, but **reserve ≥1 lineup for the field-fade secondary tier** — cheap, sub-25%-owned fighters with a live finishing/volume path whose projection under-states their ceiling. Don't let the ceiling gate zero out the pieces that actually separate a winning lineup from the chalk field.
 
+### The Leverage Screen: Converters, Not Named Dogs (7/19/26 — 3-slate validated)
+
+Before lock, screen EVERY rosterable fighter under ~30% projected ownership for a realistic win path (favorites and dogs alike) and treat the low-owned CONVERTING fighters — the sides that win their fights outright, wherever the articles' spotlight isn't — as the slate's leverage candidates. Never let the leverage slot default to the article-named KO-or-bust dog: on 6/27 the named dog (Walker +425) busted while the unmentioned converters (Ofli 5–9% own, 112.76) won the slates; on 7/12 the strategy faded the definer's whole fight (Bautista, 137.43, in both winners); on 7/19 the named dog (Ramirez 15%, 0.80) was a fish trap while the 21–29% converters (Harris 106.70, Kline 109.40) sat in both winning lineups. Boundary: when the board's only sub-10% pieces carry under ~20% win equity, the definer tier moves UP into the 15–30% converting sides — screen there, and never fade an entire fight out of the search.
+
+### Structural Fades Only (7/19/26 — 3-slate validated)
+
+Only fade or underweight a live, real-ceiling piece when the fade rests on a measurable STRUCTURAL mechanism — a genuinely ceiling-capped profile, salary inefficiency, or ownership leverage. A narrative fade ("toughest opponent yet," "will go the distance") is a coin-flip guess, not an edge: on 7/12 two narrative-faded fights produced the slate's #1 score (Bautista 137.43) and a slate-definer (Cong 90.46). And a ceiling-cap claim is structural ONLY after the pace/volume/control check: low finish probability alone is NOT a ceiling cap (Kline, 7/19 — capped at "80–90" off +285 ITD, scored 109.40 in the winning lineup; Bautista, 7/12 — 137.43 in a decision). A high-output fighter favored to dominate carries a 100+ ceiling with no finish. Downgrade any fade that fails this test to a note and keep the piece at neutral exposure.
+
 ## Post-SE Review
 
 After every slate, if you played a SE:

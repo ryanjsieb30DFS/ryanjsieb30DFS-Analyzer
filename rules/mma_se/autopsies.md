@@ -267,3 +267,23 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 - My entries: 1 · best rank 76/291 (top 26.1%)
 - Winners (top 20): avg own 36.61% vs mine 34.54% · sub-10% plays/lineup 0.3 vs mine 0.0
 - Slate-defining plays: Mario Bautista (137.4 pts @ 15.1%), Brandon Royval (114.8 pts @ 19.9%)
+
+
+## 2026-07-19 14:49 — MMA (contest-standings-192263319.csv)
+- Entries: 784
+- Winning score: 705.9
+- Cash line (top 20%): 575.4
+- My entries: 1 · best rank 18/784 (top 2.3%)
+- Winners (top 20): avg own 39.04% vs mine 39.39% · sub-10% plays/lineup 0.0 vs mine 0.0
+
+
+## 2026-07-19 14:49 — MMA (contest-standings-192263309.csv)
+- Entries: 1,189
+- Winning score: 716.3
+- Cash line (top 20%): 550.4
+- My entries: 1 · best rank 629/1,189 (top 52.9%)
+- Winners (top 20): avg own 36.87% vs mine 33.2% · sub-10% plays/lineup 0.0 vs mine 0.0
+
+### Strategy adherence — did you follow your own strategy? (2 unique lineups)
+- ✅ Every hard FADE honored.
+- Leverage candidates rostered somewhere: **0 of 2**.

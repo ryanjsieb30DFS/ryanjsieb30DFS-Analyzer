@@ -1,24 +1,26 @@
 {
   "contests": [
     {
-      "name": "MLB $5K Base Hit",
+      "name": "UFC $8K Flying Knee ($2K to 1st)",
       "type": "SE",
-      "field_size": 490,
+      "field_size": 784,
       "max_entries": 1,
       "my_entries": 1,
       "entry_fee": 12.0,
-      "prize_pool": 5000,
-      "id": "add0eee1"
+      "prize_pool": 8000,
+      "payout_shape": null,
+      "id": "761bd9a7"
     },
     {
-      "name": "MLB $5K Chin Music",
+      "name": "UFC $5K Clinch",
       "type": "SE",
       "field_size": 1189,
       "max_entries": 1,
       "my_entries": 1,
       "entry_fee": 5.0,
       "prize_pool": 5000,
-      "id": "44e631e1"
+      "payout_shape": "Flat",
+      "id": "c5efaf94"
     }
   ]
 }

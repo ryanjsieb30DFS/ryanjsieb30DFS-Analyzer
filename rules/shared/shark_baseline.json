@@ -2,36 +2,6 @@
   "generated_from": "/Users/ryansieb/Downloads/contest-standings-*.csv",
   "n_contests": 63,
   "sports": {
-    "mlb": {
-      "n_contests": 16,
-      "n_with_sharks": 13,
-      "user_envelope": {
-        "own_per_slot": 15.71,
-        "leverage_pct": 99.38,
-        "anchor_exposure": 0.49,
-        "unique_pct": 100.0
-      },
-      "shark_envelope": {
-        "own_per_slot": 17.74,
-        "leverage_pct": 86.66,
-        "anchor_exposure": 0.54,
-        "unique_pct": 100.0
-      },
-      "mean_gap": {
-        "own_per_slot": -2.03,
-        "leverage_pct": 12.72,
-        "anchor_exposure": -0.05,
-        "unique_pct": 0.0
-      },
-      "seed_envelope": {
-        "own_per_slot": 17.74,
-        "leverage_pct": 86.66,
-        "anchor_exposure": 0.54,
-        "unique_pct": 100.0
-      },
-      "seed_weight": 13,
-      "accumulated_contests": 0
-    },
     "nascar": {
       "n_contests": 24,
       "n_with_sharks": 10,
@@ -124,48 +94,6 @@
     }
   },
   "contests": [
-    {
-      "id": "178440775",
-      "sport": "mlb",
-      "n_field": 490,
-      "n_players": 167,
-      "sharks_in_field": true
-    },
-    {
-      "id": "178478950",
-      "sport": "mlb",
-      "n_field": 8917,
-      "n_players": 326,
-      "sharks_in_field": false
-    },
-    {
-      "id": "178478961",
-      "sport": "mlb",
-      "n_field": 392,
-      "n_players": 241,
-      "sharks_in_field": true
-    },
-    {
-      "id": "178478962",
-      "sport": "mlb",
-      "n_field": 2378,
-      "n_players": 298,
-      "sharks_in_field": true
-    },
-    {
-      "id": "178478963",
-      "sport": "mlb",
-      "n_field": 1189,
-      "n_players": 280,
-      "sharks_in_field": false
-    },
-    {
-      "id": "178478964",
-      "sport": "mlb",
-      "n_field": 2378,
-      "n_players": 313,
-      "sharks_in_field": false
-    },
     {
       "id": "188764023",
       "sport": "nascar",
@@ -475,20 +403,6 @@
       "sharks_in_field": true
     },
     {
-      "id": "191194648",
-      "sport": "mlb",
-      "n_field": 980,
-      "n_players": 216,
-      "sharks_in_field": true
-    },
-    {
-      "id": "191194649",
-      "sport": "mlb",
-      "n_field": 490,
-      "n_players": 206,
-      "sharks_in_field": true
-    },
-    {
       "id": "191218206",
       "sport": "nascar",
       "n_field": 25260,
@@ -496,66 +410,10 @@
       "sharks_in_field": true
     },
     {
-      "id": "191221893",
-      "sport": "mlb",
-      "n_field": 588,
-      "n_players": 165,
-      "sharks_in_field": true
-    },
-    {
-      "id": "191221894",
-      "sport": "mlb",
-      "n_field": 392,
-      "n_players": 163,
-      "sharks_in_field": true
-    },
-    {
-      "id": "191246830",
-      "sport": "mlb",
-      "n_field": 490,
-      "n_players": 115,
-      "sharks_in_field": true
-    },
-    {
-      "id": "191246831",
-      "sport": "mlb",
-      "n_field": 1189,
-      "n_players": 127,
-      "sharks_in_field": true
-    },
-    {
-      "id": "191271892",
-      "sport": "mlb",
-      "n_field": 980,
-      "n_players": 294,
-      "sharks_in_field": true
-    },
-    {
-      "id": "191271894",
-      "sport": "mlb",
-      "n_field": 1783,
-      "n_players": 336,
-      "sharks_in_field": true
-    },
-    {
-      "id": "191303657",
-      "sport": "mlb",
-      "n_field": 1426,
-      "n_players": 222,
-      "sharks_in_field": true
-    },
-    {
       "id": "191320862",
       "sport": "golf",
       "n_field": 9512,
       "n_players": 75,
-      "sharks_in_field": true
-    },
-    {
-      "id": "191323712",
-      "sport": "mlb",
-      "n_field": 882,
-      "n_players": 184,
       "sharks_in_field": true
     },
     {

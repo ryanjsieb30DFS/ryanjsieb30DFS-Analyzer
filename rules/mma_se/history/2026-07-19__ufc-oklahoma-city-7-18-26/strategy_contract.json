@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-07-18 13:18",
+  "slug": "mma_se",
+  "calls": [],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "Stewart Nicoll",
+      "own": 5.0
+    },
+    {
+      "name": "Anna Melisano",
+      "own": 8.0
+    }
+  ]
+}

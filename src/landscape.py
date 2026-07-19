@@ -8,7 +8,7 @@ import pandas as pd
 
 def has_real_ceiling(df: pd.DataFrame) -> bool:
     """True only when the vendor shipped a real `ceiling` column (golf: ETR/Ship It;
-    MLB: 95th pct). NASCAR (DailyFan) and names-only vendors ship none — we never
+    NASCAR (DailyFan) and names-only vendors ship none — we never
     fabricate one, so ceiling-based views must gate on this."""
     return "ceiling" in df.columns and pd.to_numeric(df["ceiling"], errors="coerce").notna().any()
 

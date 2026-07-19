@@ -1,0 +1,19 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "calls": [],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "leverage_candidates": [
+    {
+      "name": "Stewart Nicoll",
+      "rostered": false
+    },
+    {
+      "name": "Anna Melisano",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 0,
+  "leverage_of": 2
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "mma_se",
+  "sport": "mma",
+  "contest_label": "MMA",
+  "date": "2026-07-19",
+  "slate_label": "UFC Oklahoma City 7.18.26",
+  "archived_at": "2026-07-19 14:49",
+  "archived": [
+    "slate_analysis.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json"
+  ],
+  "missing": [
+    "player_pool.md",
+    "sim_analysis.md",
+    "sim_pool.csv",
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/mma_se/2026-07-18__DailyFan MMA Matchups 7.18.2026.pdf",
+    "articles/mma_se/2026-07-18__DailyFan MMA Top Plays 7.18.26.pdf"
+  ],
+  "proj_source": null
+}

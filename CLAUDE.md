@@ -4,7 +4,7 @@ Article-driven, multi-sport DFS slate-strategy tool for DraftKings. Streamlit we
 
 ## What this is
 
-A pre-slate / post-slate **slate-strategy** tool for **PGA Classic, PGA RD4 Showdown, MMA, NASCAR, MLB Classic**. The user uploads the slate's **articles** (PDFs, notes, data files, screenshots) AND vendor **projections**, and Claude synthesizes a written **slate strategy**: top plays, how to approach the slate, key themes, leverage & fades, and the decisions that define the slate. After the contest, the user uploads DK contest-standings and the Analyzer drives a post-mortem + learning loop.
+A pre-slate / post-slate **slate-strategy** tool for **PGA Classic, PGA RD4 Showdown, MMA, NASCAR**. The user uploads the slate's **articles** (PDFs, notes, data files, screenshots) AND vendor **projections**, and Claude synthesizes a written **slate strategy**: top plays, how to approach the slate, key themes, leverage & fades, and the decisions that define the slate. After the contest, the user uploads DK contest-standings and the Analyzer drives a post-mortem + learning loop.
 
 **No lineup building. No selecting, ranking, red-teaming, or fixing lineups.** Lineup construction lives solely in the separate sim tool. This tool is a strategy doc the user hand-builds from — the **slate strategy is derived from everything uploaded (articles + every loaded vendor projection)**, cross-checked against the strategy docs. The **autopsy stays standings-only** (no projections exist at autopsy time).
 
@@ -30,7 +30,7 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas. **Restar
 | `src/projections.py` | Vendor CSV loader → canonical schema (`load_projections`, `warn_missing_for_sport`); powers the Projections tab only |
 | `src/vendors.py` | Vendor signature auto-detection (ETR / Ship It Nation / DailyFan / DK) |
 | `src/sessions.py` | Per-slug projection session at `data/sessions/<slug>.json` (`save_source` / `load_sources` / `drop_source` / `merge_same_vendor` / `clear`); cleared with the slate |
-| `src/landscape.py` | Projections-tab Breakdown: chalk tiers, leverage board, ownership-vs-ceiling mispricing, value-by-tier, tee-wave split, boom/bust, anchor-equivalence, `breakdown_flags`. **Ceiling-based panels (upside / boom_pct / mispricing-vs-ceiling / ceiling-per-$1k / Boom / Fragile) render ONLY when the vendor ships a real `ceiling` column** (`has_real_ceiling`) — golf (ETR/Ship It) + MLB (95th pct). For NASCAR (DailyFan) and names-only vendors there is no ceiling, so `_upside` returns plain `proj_points` (no fabricated `proj×1.28×stddev`) and those panels are hidden. Never fabricate a ceiling for display |
+| `src/landscape.py` | Projections-tab Breakdown: chalk tiers, leverage board, ownership-vs-ceiling mispricing, value-by-tier, tee-wave split, boom/bust, anchor-equivalence, `breakdown_flags`. **Ceiling-based panels (upside / boom_pct / mispricing-vs-ceiling / ceiling-per-$1k / Boom / Fragile) render ONLY when the vendor ships a real `ceiling` column** (`has_real_ceiling`) — golf (ETR/Ship It). For NASCAR (DailyFan) and names-only vendors there is no ceiling, so `_upside` returns plain `proj_points` (no fabricated `proj×1.28×stddev`) and those panels are hidden. Never fabricate a ceiling for display |
 | `src/projections_diff.py` | Cross-vendor projection disagreement (`flagged_disagreements`) — shown when ≥2 sources loaded |
 | `src/player_pool.py` | **Player pool / fighters-ranked board** (Slate Strategy tab): a Claude-generated **ranked board — an easy-to-read TABLE first** (Rank/Player/Tier/Sal/Proj[/Ceiling/Win% for MMA]/Own/How-it-wins via `app._split_leading_table`), write-ups in an expander below. Membership = the **full** rosterable universe from the loaded projections (`build_pool`, which carries `ceiling` — MMA uses `proj_win` = points-if-they-win — plus `win_prob` + `opponent`-from-`matchup`). The strategy's fades (`extract_fades`) are NOT removed — they stay ON the board tiered `Fade` (ranked at the bottom), so the board is the complete field. **Tier vocabulary (all sports): `Core` / `Good` / `Okay` / `Fade`** (best→worst), plus an orthogonal `· Leverage` label appended to any low-owned high-ceiling play (any tier but Fade). The board IS the build reference — Core/Good/Okay is the build set, Fade is what to avoid. `analysis_runner.run_player_pool` runs `claude -p` to rank + write up from the documents (projections + ownership + articles + framework). Runs automatically after `run_analysis`, OR **standalone** via the "🏆 Rank players (all data)" button (no strategy required — a one-click board any time projections are loaded). Persisted at `data/player_pool/<slug>.md`; individual-player ranking only — NEVER builds lineups |
 | `src/contests.py` | Per-sport contest registry at `data/contests/<slug>.json` |
@@ -63,7 +63,7 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas. **Restar
 | `rules/<slug>/lessons.yaml` | The lesson ledger — structured lessons with a lifecycle (hypothesis → validated → codified/retired). Claude-edited during the post-autopsy review; user approves codifications |
 | `rules/<slug>/history/` | One folder per archived slate: manifest, slate strategy, bundle, contests, autopsy records, results, and the autopsy review |
 | `rules/<slug>/results.jsonl` | Append-only, app-written results ledger (one row per slate: buy-in, winnings, ROI, best percentile). Claude reads it, never edits it. **Winnings/ROI fields are OPTIONAL and usually null — the user tracks ROI in a third-party app.** Never ask to backfill winnings and never grade missing winnings as a process miss; the in-repo scoreboard is best-percentile trend + process metrics |
-| `rules/{nascar/tracks,pga_classic/courses,mlb_classic/parks}/` | Venue knowledge — one file per track/course/park, accumulating date-stamped per-slate observations. Both PGA slugs share `pga_classic/courses/` |
+| `rules/{nascar/tracks,pga_classic/courses}/` | Venue knowledge — one file per track/course, accumulating date-stamped per-slate observations. Both PGA slugs share `pga_classic/courses/` |
 | `data/bundle/` | `<slug>.md` — the consolidated "Bundle for Claude" written from the Slate Strategy tab |
 | `data/slate_analysis/` | `<slug>.md` — the written slate strategy Claude produces |
 
@@ -77,7 +77,6 @@ The venv is at `.venv/`. Python 3.9 (system Python). Streamlit, pandas. **Restar
 | PGA RD4 Showdown | `pga_rd4_sd` | golf | 6 golfers, **flat — NO captain, NO 1.5x** |
 | MMA | `mma_se` | mma | SE rules |
 | NASCAR | `nascar` | nascar | 6 drivers; **always check `rules/nascar/tracks/<slug>.md`** |
-| MLB Classic | `mlb_classic` | mlb | 10 players (P, P, C, 1B, 2B, 3B, SS, OF×3), $50K; **team-stack driven** |
 
 ## Workflow per slate
 
@@ -128,7 +127,7 @@ This normally runs **in-app**: the Slate Strategy tab's **Generate slate strateg
 Before writing `data/slate_analysis/<slug>.md`, do ALL of this — but **it is silent prep; NEVER print a `## Pre-flight checklist` section (the user does not want to see it).** Only the RESULT of each step shows, inside the strategy's sections.
 
 1. **Confirm the slate.** Compare the bundle's generation timestamp and the article file dates against today. If the articles look like a prior slate (stale dates), do NOT analyze stale data — instead open the doc with a single bold `⚠️` warning line and stop. The current slate's articles drive everything; past results are reference only.
-2. **Read the venue file** (nascar → `rules/nascar/tracks/`, golf → `rules/pga_classic/courses/` for BOTH pga slugs, mlb → `rules/mlb_classic/parks/`; mma has none). If missing, create a stub from this slate's articles and mark it `**UNVERIFIED — built from this slate's articles only**`.
+2. **Read the venue file** (nascar → `rules/nascar/tracks/`, golf → `rules/pga_classic/courses/` for BOTH pga slugs; mma has none). If missing, create a stub from this slate's articles and mark it `**UNVERIFIED — built from this slate's articles only**`.
 3. **Read `rules/<slug>/lessons.yaml`.** Apply every lesson with status `hypothesis` or `validated` in the decisions where it fits; silently drop the ones whose mechanism doesn't. Codified lessons live in framework.md already; retired ones are ignored.
 4. **Run the framework pre-lock checks** for the sport, always including Anchor-Equivalence (`rules/shared/anchor_equivalence.md`) — surfaced as a tension in `## Edges & tensions`.
 5. **Scan `rules/<slug>/results.jsonl`** (last 3 slates) for recent process notes.
@@ -179,10 +178,10 @@ The slate's scoreboard is **best-percentile trend + process/mechanism metrics** 
 - **No scraping.** DK ToS prohibits it; never build scrapers. Use user-pasted/uploaded data only.
 - **GPP-only framing.** Leverage / ceiling / contrarian. Never propose cash-game features.
 - **Anchor-Equivalence Rule** is a **mandatory surfaced tension** in every slate strategy's `## Edges & tensions`. 4-slate-validated structural leak: if 2+ chalk-tier anchors sit at similar ownership (per the articles), surface that they're substitutable (the user decides whether to run the alternative — the tool synthesizes, it doesn't command).
-- **Venue check before any strategy**: read the sport's venue file (NASCAR tracks / PGA courses / MLB parks) per the Pre-flight ritual. For NASCAR specifically, if `rules/nascar/tracks/<slug>.md` is missing, proactively ask the user for the track description.
+- **Venue check before any strategy**: read the sport's venue file (NASCAR tracks / PGA courses) per the Pre-flight ritual. For NASCAR specifically, if `rules/nascar/tracks/<slug>.md` is missing, proactively ask the user for the track description.
 - **Pre-flight ritual is mandatory** for every slate strategy — chat sessions included, not just headless runs.
 - **PGA RD4 SD**: flat 6-golfer lineup, **NO captain, NO 1.5x multiplier**. Never reference "CPT" for this contest type. Position is the live to-par leaderboard score, never the tee time.
-- **No NFL/NBA.** Out of scope. (MLB Classic is supported as of 2026-06.)
+- **No NFL/NBA/MLB.** Out of scope. (MLB Classic was removed 2026-07-18 — user dropped the sport; its history lives in git only.)
 - **Never commit without explicit instruction.** "done"/"next"/"looks good" are NOT commit triggers.
 
 ## Useful file paths

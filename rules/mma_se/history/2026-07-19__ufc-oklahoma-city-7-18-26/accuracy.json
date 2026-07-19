@@ -1,0 +1,39 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 8,
+    "leverage_capture": null,
+    "leverage_hit": [],
+    "leverage_missed": [],
+    "overperformer_capture": null,
+    "overperformer_hit": [],
+    "underperformer_exposure": null,
+    "underperformer_hit": []
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 2,
+    "avg_ratio": null,
+    "best_percentile": 2.3,
+    "median_percentile": 52.9,
+    "n_top_10pct": 1,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 642.11,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 2.3,
+        "avg_own": 39.39
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 431.96,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 52.9,
+        "avg_own": 33.2
+      }
+    ]
+  }
+}

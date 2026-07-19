@@ -12,51 +12,6 @@ from __future__ import annotations
 import pandas as pd
 
 
-# Vendors disagree on MLB team naming (ETR: "CHC", SIN: "Cubs"). Map every
-# variant to one canonical key so cross-vendor team merges line up.
-MLB_TEAM_KEYS = {
-    "ARI": "ARI", "AZ": "ARI", "DIAMONDBACKS": "ARI",
-    "ATL": "ATL", "BRAVES": "ATL",
-    "BAL": "BAL", "ORIOLES": "BAL",
-    "BOS": "BOS", "RED SOX": "BOS",
-    "CHC": "CHC", "CUBS": "CHC",
-    "CWS": "CWS", "CHW": "CWS", "WHITE SOX": "CWS",
-    "CIN": "CIN", "REDS": "CIN",
-    "CLE": "CLE", "GUARDIANS": "CLE",
-    "COL": "COL", "ROCKIES": "COL",
-    "DET": "DET", "TIGERS": "DET",
-    "HOU": "HOU", "ASTROS": "HOU",
-    "KC": "KC", "KCR": "KC", "ROYALS": "KC",
-    "LAA": "LAA", "ANGELS": "LAA",
-    "LAD": "LAD", "DODGERS": "LAD",
-    "MIA": "MIA", "MARLINS": "MIA",
-    "MIL": "MIL", "BREWERS": "MIL",
-    "MIN": "MIN", "TWINS": "MIN",
-    "NYM": "NYM", "METS": "NYM",
-    "NYY": "NYY", "YANKEES": "NYY",
-    "ATH": "ATH", "OAK": "ATH", "ATHLETICS": "ATH", "A'S": "ATH",
-    "PHI": "PHI", "PHILLIES": "PHI",
-    "PIT": "PIT", "PIRATES": "PIT",
-    "SD": "SD", "SDP": "SD", "PADRES": "SD",
-    "SEA": "SEA", "MARINERS": "SEA",
-    "SF": "SF", "SFG": "SF", "GIANTS": "SF",
-    "STL": "STL", "CARDINALS": "STL",
-    "TB": "TB", "TBR": "TB", "RAYS": "TB",
-    "TEX": "TEX", "RANGERS": "TEX",
-    "TOR": "TOR", "BLUE JAYS": "TOR",
-    "WSH": "WSH", "WAS": "WSH", "NATIONALS": "WSH",
-}
-
-
-def mlb_team_key(team) -> str | None:
-    if team is None:
-        return None
-    s = str(team).strip()
-    if not s or s.lower() == "nan":  # None/NaN/blank -> not a real team
-        return None
-    return MLB_TEAM_KEYS.get(s.upper(), s)
-
-
 # Each signature: vendor name, sport, required headers that prove identity,
 # column rename map (vendor -> canonical), and optional columns to drop.
 VENDOR_SIGNATURES: list[dict] = [
@@ -175,81 +130,6 @@ VENDOR_SIGNATURES: list[dict] = [
         },
         "drop_columns": [
             "win_odds", "finish_odds", "mean_ppd_(flex)", "win_ppd_(flex)",
-        ],
-    },
-    {
-        # SIN's hitter + pitcher rankings files (identical headers; `pos` tells
-        # the rows apart). These are RANKINGS — slate context, not the player
-        # pool — so they route to articles/<slug>/, not the projections session.
-        "name": "Ship It Nation MLB Rankings",
-        "sport": "mlb",
-        "kind": "rankings",
-        "required_columns": {"name", "team", "opp", "pos", "h", "salary", "proj", "own"},
-        "column_map": {
-            "proj": "proj_points",
-            "own": "ownership",
-            "pos": "position",
-            "opp": "opponent",
-            "h": "hand",
-        },
-        "drop_columns": ["#", "slate"],
-    },
-    {
-        # SIN's single-file MLB projections export (distinct from their
-        # hitter/pitcher rankings pair below — different headers, team
-        # abbreviations instead of nicknames). No ceiling column — stddev
-        # falls back to 30% of projection.
-        "name": "Ship It Nation MLB Projections",
-        "sport": "mlb",
-        "required_columns": {"name", "tm", "opp", "pos", "sal", "proj", "own"},
-        "column_map": {
-            "sal": "salary",
-            "proj": "proj_points",
-            "own": "ownership",
-            "tm": "team",
-            "opp": "opponent",
-            "pos": "position",
-        },
-        "drop_columns": ["pt/$", "slate"],
-    },
-    {
-        # SIN's third MLB file: team-level stack rankings, not player rows.
-        "name": "Ship It Nation MLB Stacks",
-        "sport": "mlb",
-        "kind": "team_stacks",
-        "required_columns": {"team", "proj", "own_%", "stack_salary"},
-        "column_map": {
-            "proj": "stack_proj",
-            "own_%": "stack_own",
-        },
-        "drop_columns": ["#", "slate"],
-    },
-    {
-        # SaberSim's DK projections export — full player pool, hitters +
-        # pitchers together. Ships a real stddev (dk_std) and DK player id
-        # (DFS ID), unlike the SIN pool. User's mapping: SS Proj -> proj_points,
-        # My Own -> ownership (Adj Own is the user's exposure target, left as a
-        # passthrough column). Coexists with the SIN pool for cross-vendor diff.
-        "name": "SaberSim MLB Projections",
-        "sport": "mlb",
-        # Distinctive header set — none appear in the SIN signatures, so there
-        # is no false-match either direction.
-        "required_columns": {
-            "dfs_id", "ss_proj", "saber_total", "dk_points", "dk_std", "my_own",
-        },
-        "column_map": {
-            "ss_proj": "proj_points",
-            "my_own": "ownership",
-            "opp": "opponent",
-            "pos": "position",
-            "dfs_id": "dk_id",
-            "dk_std": "stddev",
-            "dk_95_percentile": "ceiling",
-        },
-        "drop_columns": [
-            # other-site noise — keep the session lean (DK-only slate)
-            "fd_points", "fd_std", "yahoo_points", "yahoo_std",
-            "ob_points", "ob_std", "actual", "live_proj", "value",
         ],
     },
     {

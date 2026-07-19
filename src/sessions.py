@@ -61,7 +61,7 @@ def drop_source(slug: str, source_name: str) -> None:
 def merge_same_vendor(sources: dict[str, dict]) -> dict[str, dict]:
     """Concat sources sharing a vendor into one virtual source.
 
-    SIN ships MLB hitters + pitchers as two files with the same vendor; the
+    Some vendors split one pool across two files with the same vendor name; the
     analysis needs them as a single pool. Single-file vendors pass through
     unchanged, preserving upload order.
     """
