@@ -86,7 +86,7 @@ Every error above is only exploitable while it's *current*. Fields adapt slowly,
 
 # PART 2 — TOOLING (Analyzer only; optimizer is third-party)
 
-**Division of labor, unchanged from the 7/17 decision:** a third-party optimizer builds (SaberSim now, replacement before the sub lapses ~Aug–Oct 2026); the Analyzer thinks, checks, and measures; nothing Claude-built creates lineups; the Sim repo stays shelved.
+**Division of labor (updated 7/26/26):** the SIM REPO builds (revived 7/18/26 as the SaberSim replacement — pool builder + contest sim + portfolio); the Analyzer thinks, checks, and measures; the Analyzer never creates lineups. (Original 7/17 text said "SaberSim now, Sim repo shelved" — both halves flipped one day later.)
 
 ## Phase 0 — Play now, zero code
 
@@ -104,7 +104,7 @@ Next MMA card: micro-stakes large-field GPP, 20–50 entries, built in SaberSim 
 2. **Large-field shark + fish baselines:** `infer_type` currently discards standings rows above 5-max — stop discarding. Accumulate a separate large-field baseline (shark envelope AND fish profile: dupe rates, dead-structure share, trap ownership) from the CSVs you already upload. Within a few slates the fish-density and effective-field-size numbers stop being estimates.
 3. **Autopsy panels for large fields:** how duplicated was the chalk actually, did the trap list catch losers again, which catalog errors paid this slate, effective-field-size estimate.
 
-## Phase 3 — Replacement optimizer (before SaberSim lapses)
+## Phase 3 — Replacement optimizer — ✅ RESOLVED 7/18/26: the revived Sim repo IS the replacement (builder + contest sim + portfolio). Kept for the record; no evaluation needed.
 
 Evaluation, not code. Requirements: covers MMA/PGA/NASCAR on DK; accepts your vendor projections; per-player exposure caps across 150 lineups; can express "≥1 player under X% owned per lineup" (disqualifying if not); boost/dock soft weighting; MMA opponent exclusion; min-unique + 150-entry DK export. Migrate the `mma_mme` framework into the new solver's vocabulary, run one slate in both while the sub lives, confirm the export parses in the Grade portfolio mode.
 

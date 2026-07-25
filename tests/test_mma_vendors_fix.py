@@ -23,11 +23,12 @@ def test_dailyfan_mma_new_format_detected():
     assert sig is not None and sig["name"] == "DailyFan MMA"
 
 
-def test_ship_it_mma_detected_and_no_pga_collision():
+def test_ship_it_nation_removed():
+    """SIN signatures were removed 7/26/26 (vendor dropped 7/18); a bare
+    NAME/SAL/PROJ/OWN sheet no longer detects, and the simple PGA signature
+    (has CEIL) still wins for a golf file."""
     sin = pd.DataFrame(columns=["NAME", "SAL", "PROJ", "OWN", "PT/$"])
-    sig = detect_vendor(_norm(sin))
-    assert sig is not None and sig["name"] == "Ship It Nation MMA"
-    # The simple PGA signature (has CEIL) must still win for a golf file, not Ship It MMA.
+    assert detect_vendor(_norm(sin)) is None
     pga = pd.DataFrame(columns=["NAME", "SAL", "PROJ", "CEIL", "OWN", "PT/$"])
     assert detect_vendor(_norm(pga))["name"] == "ETR PGA"
 
@@ -66,7 +67,43 @@ def test_drop_junk_rows():
 
 if __name__ == "__main__":
     test_dailyfan_mma_new_format_detected()
-    test_ship_it_mma_detected_and_no_pga_collision()
+    test_ship_it_nation_removed()
     test_dailyfan_mma_cpt_flex_detected()
     test_drop_junk_rows()
     print("4 passed")
+
+
+def test_etr_and_dailyfan_july_2026_generations():
+    """ETR changed golf schema twice in July 2026 and DailyFan renamed its MMA
+    export; the Analyzer must load all of them (it silently rejected every one,
+    killing the whole strategy pipeline for PGA + MMA)."""
+    import io
+    from src.projections import load_projections
+    gen13 = io.StringIO(
+        "Golfer,Round 1 Tee Time,Round 2 Tee Time,DK Salary,Projection,DK Value,"
+        "Large Field Own,DK Ceiling,Make Cut Odds,Volatility,Site,id\n"
+        "Scottie Scheffler,7:33,12:43,11500,95.2,1.1,28.0,132,0.92,7.5,dk,111\n")
+    gen14 = io.StringIO(
+        "Golfer,Round 1 Tee Time,Round 2 Tee Time,DK Salary,Proj,DK Value,"
+        "Own,DK Ceiling,Make Cut Odds,Volatility,Site,id\n"
+        "Scottie Scheffler,7:33,12:43,11500,95.2,1.1,28.0,132,0.92,7.5,dk,111\n")
+    classic = io.StringIO(
+        "Golfer,Round 1 Tee Time,DK Salary,DK Points,DK Ceiling,Make Cut Odds,"
+        "Small Field Own,Large Field Own,id\n"
+        "Scottie Scheffler,7:33,11500,95.2,132,0.92,26.3,31.0,111\n")
+    for gen in (gen13, gen14, classic):
+        df = load_projections(gen)
+        assert df.attrs["vendor"] == "ETR PGA"
+        assert df["proj_points"].iloc[0] == 95.2
+    # Classic export prefers SMALL field own (the SE/3-max tool's number).
+    classic.seek(0)
+    df = load_projections(classic)
+    assert df["ownership"].iloc[0] == 26.3
+
+    mma_v2 = io.StringIO(
+        "name,Matchup,Win Odds,Win %,Finish Odds,Salary,Ownership,"
+        "projection,Projection DK (Loss),Mean PPD,Win PPD,dfs_id\n"
+        "Fav Fighter,1,-600,80.00%,-235,9500,30%,84.0,20.0,8.8,10.0,111\n")
+    df = load_projections(mma_v2)
+    assert df.attrs["vendor"] == "DailyFan MMA"
+    assert df["proj_points"].iloc[0] == 84.0

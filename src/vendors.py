@@ -31,29 +31,71 @@ VENDOR_SIGNATURES: list[dict] = [
         },
         "drop_columns": ["pt/$"],
     },
+    # ETR's rich golf export changed schema twice in July 2026, so three
+    # signatures cover the generations. Ownership preference: SMALL field own
+    # when ETR ships both (this tool is scoped to SE/3-Max/5-Max — mapping
+    # Large Field Own was the process bug the Sim repo fixed 7/18/26); the
+    # July formats ship only one ownership column, so there's nothing to prefer.
     {
-        # ETR renamed "DK Points" -> "Proj" in June 2026; both map to
-        # proj_points and neither is required so old and new exports match.
+        # Classic rich export: DK Points + Small AND Large Field Own.
         "name": "ETR PGA",
         "sport": "golf",
         "required_columns": {
             "golfer", "dk_salary", "dk_ceiling",
-            "large_field_own", "make_cut_odds", "round_1_tee_time",
+            "small_field_own", "make_cut_odds", "round_1_tee_time",
         },
         "column_map": {
             "golfer": "name",
             "dk_salary": "salary",
             "dk_points": "proj_points",
-            "proj": "proj_points",
+            "dk_ceiling": "ceiling",
+            "small_field_own": "ownership",
+            "round_1_tee_time": "tee_time",
+            "id": "dk_id",
+        },
+        "drop_columns": [
+            "round_2_tee_time", "large_field_own", "dk_value",
+            "volatility", "site",
+        ],
+    },
+    {
+        # Mid-July 2026 export: "Projection" header, Large Field Own only
+        # (Small dropped by ETR).
+        "name": "ETR PGA",
+        "sport": "golf",
+        "required_columns": {
+            "golfer", "dk_salary", "dk_ceiling",
+            "projection", "large_field_own", "make_cut_odds",
+        },
+        "column_map": {
+            "golfer": "name",
+            "dk_salary": "salary",
+            "projection": "proj_points",
             "dk_ceiling": "ceiling",
             "large_field_own": "ownership",
             "round_1_tee_time": "tee_time",
             "id": "dk_id",
         },
-        "drop_columns": [
-            "round_2_tee_time", "small_field_own", "dk_value",
-            "volatility", "site",
-        ],
+        "drop_columns": ["round_2_tee_time", "dk_value", "volatility", "site"],
+    },
+    {
+        # Late-July 2026 export: "Proj" + a single "Own" column.
+        "name": "ETR PGA",
+        "sport": "golf",
+        "required_columns": {
+            "golfer", "dk_salary", "dk_ceiling",
+            "proj", "own", "make_cut_odds",
+        },
+        "column_map": {
+            "golfer": "name",
+            "dk_salary": "salary",
+            "proj": "proj_points",
+            "dk_ceiling": "ceiling",
+            "own": "ownership",
+            "round_1_tee_time": "tee_time",
+            "id": "dk_id",
+        },
+        "drop_columns": ["round_2_tee_time", "dk_value", "volatility", "site"],
     },
     {
         "name": "DailyFan NASCAR",
@@ -70,6 +112,26 @@ VENDOR_SIGNATURES: list[dict] = [
         "drop_columns": [
             "dk_proj._points_per_dollar", "fd_proj._points_(mean)",
         ],
+    },
+    {
+        # DailyFan's ~7/2026 MMA rename: Fighter→name, Projection DK (Mean)→
+        # projection, DK ID→dfs_id, Projection DK (Win) DROPPED. (Ported from
+        # the Sim repo, which absorbed the rename 7/25/26.)
+        "name": "DailyFan MMA",
+        "sport": "mma",
+        "required_columns": {
+            "name", "matchup", "win_%", "finish_odds",
+            "projection", "projection_dk_(loss)",
+        },
+        "column_map": {
+            "salary": "salary",
+            "ownership": "ownership",
+            "projection": "proj_points",
+            "projection_dk_(loss)": "proj_loss",
+            "win_%": "win_prob",
+            "dfs_id": "dk_id",
+        },
+        "drop_columns": ["win_odds", "finish_odds", "mean_ppd", "win_ppd"],
     },
     {
         "name": "DailyFan MMA",
@@ -93,19 +155,9 @@ VENDOR_SIGNATURES: list[dict] = [
         },
         "drop_columns": ["win_odds", "finish_odds", "mean_ppd", "win_ppd"],
     },
-    {
-        # Ship It Nation MMA simple export: NAME, SAL, PROJ, OWN, PT/$ (no ceiling,
-        # so it won't collide with the simple PGA format which requires `ceil`).
-        "name": "Ship It Nation MMA",
-        "sport": "mma",
-        "required_columns": {"name", "sal", "proj", "own"},
-        "column_map": {
-            "sal": "salary",
-            "proj": "proj_points",
-            "own": "ownership",
-        },
-        "drop_columns": ["pt/$"],
-    },
+    # Ship It Nation signatures removed 7/26/26 — the user dropped the vendor
+    # 7/18/26 (mirrors the Sim repo). The SIN filename relabel is gone too:
+    # it only created false-positive risk on ETR files.
     {
         # DailyFan's newer MMA sheet adds Captain/Flex pricing (Salary CPT/Flex,
         # Ownership CPT/Flex/Total, DK ID CPT/Flex) — distinct from the older flat
@@ -151,16 +203,6 @@ VENDOR_SIGNATURES: list[dict] = [
 ]
 
 
-def _filename_hints_sin(source_name: str | None) -> bool:
-    """True when a filename clearly indicates Ship It Nation ('SIN' as a word
-    token, or 'ship'). Word-boundary match so e.g. 'wisconsin' never triggers."""
-    if not source_name:
-        return False
-    import re as _re
-    low = source_name.lower()
-    return bool(_re.search(r"\bsin\b", low)) or "ship" in low
-
-
 def detect_vendor(df: pd.DataFrame, source_name: str | None = None) -> dict | None:
     """Return the matching vendor signature (or None if no match).
 
@@ -191,10 +233,6 @@ def detect_vendor(df: pd.DataFrame, source_name: str | None = None) -> dict | No
         if score > best_score:
             best = sig
             best_score = score
-    if (best is not None
-            and best["name"] == "ETR PGA"
-            and _filename_hints_sin(source_name)):
-        best = dict(best, name="Ship It Nation PGA (simple)")
     return best
 
 

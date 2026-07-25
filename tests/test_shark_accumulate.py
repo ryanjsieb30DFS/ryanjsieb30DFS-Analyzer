@@ -38,7 +38,9 @@ def test_refresh_blends_seed_and_observation(monkeypatch, tmp_path):
     _point(monkeypatch, tmp_path)
     prof = {"gradable": True, "own_per_slot": 12.0, "leverage_pct": 80.0,
             "anchor_exposure": 0.30, "unique_pct": 100.0, "n_entries": 20}
-    assert acc.record_observation("golf", prof, "pga_classic", "2026-07-05") is True
+    # contest_type became a focus gate 7/18 — an in-focus type is required.
+    assert acc.record_observation("golf", prof, "pga_classic", "2026-07-05",
+                                  contest_type="SE") is True
     base = acc.refresh_baseline()
     env = base["sports"]["golf"]["shark_envelope"]
     # seed weight 10, one obs weight 1 -> (16*10 + 12)/11 = 15.636

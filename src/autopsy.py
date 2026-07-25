@@ -360,7 +360,10 @@ def build_autopsy_record(*, ts: str, contest_label: str, slug: str, sport: str,
         "source_file": source_file,
         "contest_id": contest_id,
         "entries": int(field),
-        "winning_score": float(lineups["Points"].max()),
+        # NaN-guarded: an all-NaN Points column wrote a bare NaN into the
+        # append-only jsonl (non-standard JSON other tools can't read).
+        "winning_score": (float(lineups["Points"].max())
+                          if pd.notna(lineups["Points"].max()) else None),
         "cash_line_p80": float(lineups["Points"].quantile(0.80)),
         "notes": notes.strip(),
         "schema_version": 2,

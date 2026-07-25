@@ -70,8 +70,11 @@ def parse_lineups(text: str, pool) -> list[dict]:
         for t in tokens:
             key = _norm_name(t)
             hit = universe.get(key)
-            if hit is None:
-                subs = [v for k, v in universe.items() if key and key in k]
+            if hit is None and len(key) >= 4:
+                # Substring fallback only on fragments long enough to be a
+                # real surname — a 2-3 letter scrap resolving to one random
+                # player silently grades the wrong lineup.
+                subs = [v for k, v in universe.items() if key in k]
                 hit = subs[0] if len(subs) == 1 else None
             (players if hit else unmatched).append(hit or t)
         if players or unmatched:
@@ -99,11 +102,16 @@ def calibration(slug: str, sport: str | None, contests: list[dict] | None) -> di
     cal["shark_leverage_pct"] = env.get("leverage_pct") if env else None
 
     # Winners of YOUR logged contests — the most local calibration there is.
+    # Focus-gated like every other small-field benchmark: legacy rows from
+    # 20-Max/MME standings (contest_type "unknown") used to leak a 23k-entry
+    # contest's winner ownership into the SE/3-Max chalk gate.
     winners_own = None
     try:
         from src import field_tendencies as ft
+        from src.contests import FOCUS_CONTEST_TYPES
         vals = sorted(r["winners_avg_own"] for r in ft._load(slug)
-                      if r.get("winners_avg_own") is not None)
+                      if r.get("winners_avg_own") is not None
+                      and r.get("contest_type") in FOCUS_CONTEST_TYPES)
         if vals:
             winners_own = round(vals[len(vals) // 2], 1)
     except Exception:  # noqa: BLE001
@@ -193,12 +201,24 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
         "flags": [],
     }
 
-    # Dupe risk: expected duplicate lineups in the declared field.
+    # Dupe risk: expected duplicate lineups in the declared field. The naive
+    # independence product is corrected with the Sim repo's measured
+    # concentration corpus when available — real fields duplicate 1-2 orders
+    # of magnitude differently than independence predicts (UFC benchmark:
+    # observed dupes ~0.01-0.09× the product for MMA/NASCAR chalk).
     if owns and cal.get("field_size"):
         prod = 1.0
         for o in owns:
             prod *= max(o, 0.1) / 100.0
-        g["expected_dupes"] = round(prod * cal["field_size"], 2)
+        naive = prod * cal["field_size"]
+        try:
+            from src.sim_link import dupe_correction
+            factor = dupe_correction(cal.get("slug") or "", cal["field_size"])
+        except Exception:  # noqa: BLE001
+            factor = None
+        g["expected_dupes"] = round(naive * factor if factor else naive, 2)
+        if factor:
+            g["dupes_corrected"] = True
 
     # 0) Salary sanity: DK wouldn't accept an over-cap lineup, so exceeding the
     # cap here almost always means a token matched the WRONG player.

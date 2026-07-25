@@ -9,9 +9,10 @@ all accumulated observations.
 
 The seed is frozen on first refresh (`seed_envelope` / `seed_weight`) so the blend
 is idempotent and always re-derivable from (seed + observations) — a re-run never
-double-counts. The Sim tool reads the refreshed envelope via
-`analyzer_link.load_shark_envelope`, so accumulated shark reality flows straight
-into the builder/diversifier.
+double-counts. The envelope feeds the ANALYZER's own consumers — the
+Grade tab's ownership calibration and the bundle's `## Shark reality` block.
+(The Sim tool's reader was removed with all its shark machinery 7/24/26; this
+store no longer crosses repos.)
 
 Feeds the "play like a shark" goal: match STRUCTURE (own/slot, leverage rate,
 anchor concentration, uniqueness), not clone player exposures.

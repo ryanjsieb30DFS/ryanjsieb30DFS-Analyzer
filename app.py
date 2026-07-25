@@ -122,7 +122,12 @@ def _purge_slate_session_keys(slug: str) -> None:
     for k in [k for k in st.session_state
               if k == f"grade_text_{slug}"
               or k == f"autopsy_slate_label_{slug}"
-              or k.startswith(f"autopsy_notes_{slug}_")]:
+              or k == f"autopsy_done_{slug}"
+              or k.startswith(f"autopsy_notes_{slug}_")
+              # Winnings + contest-link overrides are slate-scoped too — left
+              # behind, last slate's values re-attached to the next slate's CSVs.
+              or k.startswith(f"autopsy_win_{slug}_")
+              or k.startswith(f"autopsy_contest_{slug}_")]:
         del st.session_state[k]
 
 
@@ -282,6 +287,8 @@ with st.sidebar:
             (REPO_ROOT / "data" / "grade" / f"{slug}.md").unlink(missing_ok=True)
             from src.strategy_contract import clear_contract
             clear_contract(slug)
+            from src.sim_link import clear_sim_entries
+            clear_sim_entries(slug)
             st.session_state[f"confirm_clear_{slug}"] = False
             st.rerun()
         if cc2.button("Cancel", key=f"cancel_clear_{slug}"):
@@ -774,6 +781,13 @@ with tab_strategy:
             with st.spinner(f"Ranking {_pnoun} from projections + ownership + articles… (~1–2 min)"):
                 _pr = run_player_pool(slug, contest_label, sport)
             if _pr["ok"]:
+                # Refresh the contract's machine-readable board so the Sim
+                # sees the new tiers even on a standalone re-rank.
+                try:
+                    from src.strategy_contract import update_board
+                    update_board(slug)
+                except Exception:  # noqa: BLE001
+                    pass
                 st.success(f"Ranked in {_pr['duration_s']:.0f}s."
                            + (f" · ~${_pr['cost_usd']:.2f}" if _pr.get("cost_usd") else ""))
                 st.rerun()
@@ -823,6 +837,21 @@ with tab_grade:
         _gk = f"grade_text_{slug}"
         if _gk not in st.session_state:
             st.session_state[_gk] = grader.load_draft(slug)
+        # One-click load of the Sim-pushed entry set (replaces the hand-paste;
+        # the Sim's Portfolio tab has the matching "📨 Send entries" button).
+        from src import sim_link as _simlink
+        _sim_entries = _simlink.load_sim_entries(slug)
+        if _sim_entries:
+            _se_n = len(_sim_entries.get("entries") or [])
+            if st.button(
+                f"📥 Load {_se_n} entries from Sim ({_sim_entries.get('generated_at', '?')})",
+                key=f"load_sim_entries_{slug}",
+                help="Fills the lineup box with the portfolio the Sim tool "
+                     "pushed (players per entry); their Win%/Top1%/Cash%/ROI "
+                     "sim numbers render beside the grade.",
+            ):
+                st.session_state[_gk] = _simlink.entries_as_grade_text(_sim_entries)
+                st.rerun()
         _gtext = st.text_area(
             "Lineups (one per line — e.g. `Ryan Blaney, Joey Logano, Kyle Larson, ...`)",
             key=_gk, height=160,
@@ -839,6 +868,14 @@ with tab_grade:
             _gpf = grader.grade_portfolio(_ggrades)
             with st.container(border=True):
                 st.markdown(_md_safe(grader.grade_md(_ggrades, _gpf, _gcal)))
+            # The Sim's own numbers for the loaded entries, beside the
+            # deterministic checks — two views of the same portfolio.
+            if _sim_entries:
+                _smd = _simlink.sim_metrics_md(_sim_entries)
+                if _smd:
+                    with st.expander("📊 Sim metrics for these entries "
+                                     "(from the Sim tool's contest sim)"):
+                        st.markdown(_smd)
             # Optional claude pass: the thesis check (every lineup needs an
             # articulable one-sentence "how it wins").
             if st.button("🧠 Thesis check — one-line 'how it wins' per lineup (claude)",
@@ -1129,7 +1166,12 @@ with tab_autopsy:
                             st.info(_msg)
 
                 # Draft-persisted: survives a Streamlit crash/restart mid-autopsy.
-                _nk = f"autopsy_notes_{slug}_{i}"
+                # Keyed by FILE identity (not loop index): index keys stick to
+                # the slot, so removing/reordering uploads cross-wired notes,
+                # contest links, and winnings between contests — and the notes
+                # draft then overwrote the wrong contest's on-disk draft.
+                _wkey = "".join(c if c.isalnum() else "_" for c in dk_csv.name)
+                _nk = f"autopsy_notes_{slug}_{_wkey}"
                 if _nk not in st.session_state:
                     st.session_state[_nk] = _load_notes_drafts(slug).get(dk_csv.name, "")
                 notes = st.text_area(
@@ -1156,7 +1198,7 @@ with tab_autopsy:
                 ov = st.selectbox(
                     "Contest link — auto-detected; override only if wrong",
                     ["(auto)"] + [c["name"] for c in declared] + ["(not declared)"],
-                    index=0, key=f"autopsy_contest_{slug}_{i}",
+                    index=0, key=f"autopsy_contest_{slug}_{_wkey}",
                 )
                 if ov == "(auto)":
                     picked = _linked
@@ -1181,7 +1223,7 @@ with tab_autopsy:
                                f"from the standings · contest {_cid or '—'}")
                 win_raw = st.text_input(
                     "Winnings this contest ($) — optional, ROI lives in your third-party tracker",
-                    key=f"autopsy_win_{slug}_{i}",
+                    key=f"autopsy_win_{slug}_{_wkey}",
                     placeholder="blank is fine — percentile + process are tracked here either way",
                 )
                 try:
@@ -1310,10 +1352,19 @@ with tab_autopsy:
                     from src.contests import FOCUS_CONTEST_TYPES
                     _focus = [pc for pc in _to_log
                               if pc.get("contest_type") in FOCUS_CONTEST_TYPES]
-                    _pick = max(_focus or _to_log, key=lambda pc: len(pc["lineups"]))
-                    sgap = _shark_gap.gap_for_slug(slug, _pick["parsed"])
+                    # Focus contests ONLY — no fallback to a large-field pick.
+                    # The envelope/dossier writers already refused non-focus
+                    # rows, but the archived shark_gap.json + results.jsonl
+                    # shark_gap_top leaked MME structure into the sealed
+                    # small-field trend via process_trend_block.
+                    _pick = (max(_focus, key=lambda pc: len(pc["lineups"]))
+                             if _focus else None)
+                    sgap = (_shark_gap.gap_for_slug(slug, _pick["parsed"])
+                            if _pick else None)
                     # Accumulate the observed shark structure into the living
-                    # envelope, then refresh the baseline the Sim tool reads.
+                    # envelope, then refresh the baseline the Grade tab and
+                    # bundle read (Analyzer-internal since the Sim dropped
+                    # shark machinery 7/24/26).
                     if sgap and sgap.get("sharks_in_field"):
                         from src import shark_accumulate as _acc
                         if _acc.record_observation(
@@ -1398,6 +1449,22 @@ with tab_autopsy:
                 # completion flag and let the user clear the slate deliberately
                 # (so they get a lasting confirmation and can run the review first).
                 _clear_notes_drafts(slug)  # logged — the draft did its job
+                # Auto-back-up the learning log (rules/: ledgers, history
+                # archives, venue files, shared shark stores) to GitHub —
+                # mirrors the Sim repo's post-autopsy backup. Two full slates
+                # of lessons once lived only on this laptop. Failures warn in
+                # the completion banner, never block the log.
+                from src.git_backup import commit_and_push
+                _bk = commit_and_push(
+                    REPO_ROOT, ["rules"],
+                    f"Auto-backup learning log: {slate_label.strip() or slug} "
+                    f"({_dt.now().strftime('%Y-%m-%d %H:%M')})",
+                )
+                if _bk["status"] == "commit_only":
+                    _log_warnings.append(
+                        f"Learning log committed locally but not pushed — {_bk['detail']}")
+                elif _bk["status"] == "error":
+                    _log_warnings.append(f"Learning-log backup skipped — {_bk['detail']}")
                 from src.adherence import adherence_md as _adh_md_fn
                 from src.pool_calibration import calibration_md as _cal_md_fn
                 st.session_state[f"autopsy_done_{slug}"] = {
@@ -1448,6 +1515,8 @@ with tab_autopsy:
             (REPO_ROOT / "data" / "grade" / f"{slug}.md").unlink(missing_ok=True)
             from src.strategy_contract import clear_contract
             clear_contract(slug)
+            from src.sim_link import clear_sim_entries
+            clear_sim_entries(slug)
             del st.session_state[f"autopsy_done_{slug}"]
             st.success("Slate data cleared — ready for the next slate.")
             st.rerun()

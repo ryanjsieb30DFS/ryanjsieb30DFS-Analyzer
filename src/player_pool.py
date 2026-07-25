@@ -1,5 +1,6 @@
-"""Player pool: the rosterable universe from the loaded vendor projections, with
-the fades named in the slate strategy removed.
+"""Player pool: the FULL rosterable universe from the loaded vendor projections.
+Strategy fades are NOT removed — they stay on the board tiered `Fade` (ranked at
+the bottom) so the board is the complete field.
 
 Lives in the Slate Strategy tab. The fighter/player universe + salary/own/proj
 come from the uploaded vendor projections; the fades are read straight out of the
@@ -143,11 +144,13 @@ def build_pool(sources: dict[str, dict]) -> pd.DataFrame:
 
 def _leading_name(raw: str) -> str:
     """Pull the subject player name from a bolded fade bullet, dropping price/own
-    parentheticals and relative-fade tails ('Donchenko at $9,400 vs Yakhyaev' ->
-    'Donchenko', so the alternative isn't swept in)."""
+    parentheticals, relative-fade tails ('Donchenko at $9,400 vs Yakhyaev' ->
+    'Donchenko'), and em-dash verdict tails ('Blades Brown — PLAY.' ->
+    'Blades Brown' — without the dash split, a no-price bullet's whole text
+    failed universe resolution and the entire contract shipped empty)."""
     s = raw.strip()
-    s = re.split(r"\s+(?:at|vs|over|on)\s+|\s*[\(\$]|,|\d", s)[0]
-    return s.strip(" :—-").strip()
+    s = re.split(r"\s+(?:at|vs\.?|over|on)\s+|\s*[\(\$]|,|\d|\s*[—–]\s*|\s+-\s+", s)[0]
+    return s.strip(" :—-.").strip()
 
 
 # Verdict tokens for per-player calls in the Leverage & fades section. Order
@@ -166,16 +169,16 @@ _VERDICT_TOKENS = [
 def _verdict_for(bold_text: str, after_bold: str) -> str | None:
     """The call's verdict, read ONLY where the convention puts it: inside the
     bolded lead ('**Keith Mitchell $10,000 — FADE.**') or the first sentence
-    after the bold ('— PASS/MIX.'). Deliberately NO whole-line fallback and
-    word-boundary matching only: prose like 'the winning definer the field
-    faded' or 'the field plays him at 6%' must never be recorded as a call —
-    a phantom fade here becomes a false discipline violation in the Grade tab
-    and the adherence trend. Sentence split tolerates decimals ('$9.8K')."""
+    after the bold ('— PASS/MIX.'). Deliberately NO whole-line fallback, and
+    matching is CASE-SENSITIVE (verdicts are written in caps by the format
+    spec): lowercase prose like 'the chalkiest play on the slate' or 'the
+    field faded him' must never be recorded as a call — a phantom call here
+    ships a wrong verdict to the Sim tool and a false discipline violation to
+    the adherence trend. Sentence split tolerates decimals ('$9.8K')."""
     first_sentence = re.split(r"\.(?:\s|$)", after_bold)[0]
     for scope in (bold_text, first_sentence):
-        u = scope.upper()
         for token, verdict in _VERDICT_TOKENS:
-            if re.search(rf"(?<![A-Z]){re.escape(token)}(?![A-Z])", u):
+            if re.search(rf"(?<![A-Za-z]){re.escape(token)}(?![A-Za-z])", scope):
                 return verdict
     return None
 
@@ -193,10 +196,16 @@ def parse_calls(strategy_md: str) -> list[dict]:
         m = re.search(r"\*\*(.+?)\*\*", line)
         if not m:
             continue
-        name = _leading_name(m.group(1))
+        bold = m.group(1)
+        # Matchup headers ('**Walker vs Petersen:**') are section structure,
+        # not per-player calls — unless the bold itself carries a verdict
+        # (a real relative call like 'Donchenko over Yakhyaev — FADE').
+        if re.search(r"\s+vs\.?\s+", bold) and _verdict_for(bold, "") is None:
+            continue
+        name = _leading_name(bold)
         if not name:
             continue
-        verdict = _verdict_for(m.group(1), line[m.end():])
+        verdict = _verdict_for(bold, line[m.end():])
         if verdict:
             calls.append({"name": name, "verdict": verdict})
     return calls

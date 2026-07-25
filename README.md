@@ -1,6 +1,6 @@
 # DFS Slate Analyzer
 
-Article-driven, multi-sport DFS slate-strategy tool for DraftKings (PGA Classic, PGA RD4 Showdown, MMA, NASCAR, MLB Classic). Upload the slate's articles → Claude writes the slate strategy (top plays, how to approach the slate, themes, leverage & fades, decisions). No projections, no lineup building — construction lives in the sim tool.
+Article-driven, multi-sport DFS slate-strategy tool for DraftKings (PGA Classic, PGA RD4 Showdown, MMA, NASCAR). Upload the slate's articles + vendor projections → Claude writes the slate strategy (top plays, how to approach the slate, themes, leverage & fades, decisions) and a tiered player board. No lineup building — construction lives in the sibling Sim tool.
 
 ## Run
 

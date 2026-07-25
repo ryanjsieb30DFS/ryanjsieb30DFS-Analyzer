@@ -160,7 +160,8 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"Write a **SYNTHESIS-FIRST, tight, scannable** GPP slate brief to `{out_path}`. **This tool "
         f"ORGANIZES and SYNTHESIZES the data — it does NOT tell the user who to play.** Surface the "
         f"edges, tensions, mispricings, and rankings; the user makes every play/fade/build decision "
-        f"themselves and builds in SaberSim. NO imperative play/fade commands, no roster shaping — "
+        f"themselves and builds in the Sim tool (sibling repo — SaberSim was cancelled "
+        f"7/18/26). NO imperative play/fade commands, no roster shaping — "
         f"state what the data says and stop. Scannable structure, but every line fully understandable "
         f"on its own — clarity over compression, always.\n\n"
         f"HARD WRITING RULES (apply to EVERY section):\n"
@@ -315,9 +316,9 @@ def run_grade(slug: str, contest_label: str, sport: str, lineups_text: str) -> d
 
 
 def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
-    """Build the ranked, annotated player pool: every rosterable player from the
-    loaded projections minus the strategy's fades, ranked for GPP with a short
-    write-up each. Membership is computed deterministically here; Claude only
+    """Build the ranked, annotated player pool: EVERY rosterable player from
+    the loaded projections (fades stay on the board tiered `Fade`), ranked for
+    GPP with a short write-up each. Membership is computed deterministically here; Claude only
     ranks + writes up, grounded in the articles + slate strategy.
 
     Writes data/player_pool/<slug>.md. Returns {ok, error, duration_s, cost_usd}.
