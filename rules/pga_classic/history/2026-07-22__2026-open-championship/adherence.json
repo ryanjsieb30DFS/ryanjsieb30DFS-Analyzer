@@ -1,0 +1,92 @@
+{
+  "gradable": true,
+  "n_lineups": 5,
+  "calls": [
+    {
+      "name": "Viktor Hovland",
+      "verdict": "fade",
+      "exposure_pct": 20.0,
+      "in_lineups": 1,
+      "of": 5,
+      "followed": false
+    },
+    {
+      "name": "Tommy Fleetwood",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 5,
+      "followed": true
+    },
+    {
+      "name": "Si Woo Kim",
+      "verdict": "lean_fade",
+      "exposure_pct": 20.0,
+      "in_lineups": 1,
+      "of": 5,
+      "followed": true
+    },
+    {
+      "name": "Patrick Cantlay",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 5,
+      "followed": true
+    }
+  ],
+  "fades_violated": 1,
+  "soft_violated": 0,
+  "leverage_candidates": [
+    {
+      "name": "Cameron Young",
+      "rostered": false
+    },
+    {
+      "name": "Justin Rose",
+      "rostered": false
+    },
+    {
+      "name": "Kurt Kitayama",
+      "rostered": true
+    },
+    {
+      "name": "Nicolai Hojgaard",
+      "rostered": true
+    },
+    {
+      "name": "Shane Lowry",
+      "rostered": true
+    },
+    {
+      "name": "Bryson Dechambeau",
+      "rostered": false
+    },
+    {
+      "name": "Harris English",
+      "rostered": true
+    },
+    {
+      "name": "Ben Griffin",
+      "rostered": true
+    },
+    {
+      "name": "J.J. Spaun",
+      "rostered": true
+    },
+    {
+      "name": "Kristoffer Reitan",
+      "rostered": false
+    },
+    {
+      "name": "J.T. Poston",
+      "rostered": false
+    },
+    {
+      "name": "Adam Scott",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 6,
+  "leverage_of": 12
+}

@@ -1,0 +1,839 @@
+[
+  {
+    "timestamp": "2026-07-22 20:21",
+    "contest_type": "PGA Classic",
+    "source_file": "contest-standings-192255218.csv",
+    "contest_id": "192255218",
+    "entries": 3567,
+    "winning_score": 479.0,
+    "cash_line_p80": 365.5,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "pga_classic",
+    "sport": "golf",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 131
+    },
+    "user_summary": {
+      "avg_own_mean": 16.49,
+      "low_own_count_mean": 2.0,
+      "salary_used_mean": null,
+      "entry_count": 5,
+      "best_rank": 838,
+      "best_percentile": 23.5
+    },
+    "user_lineups": [
+      {
+        "rank": 838,
+        "entry_name": "RyvlesGaming30 (4/5)",
+        "points": 360.0,
+        "percentile": 23.5,
+        "players": [
+          "Matt Fitzpatrick",
+          "Ludvig Aberg",
+          "Chris Gotterup",
+          "Shane Lowry",
+          "Russell Henley",
+          "Kurt Kitayama"
+        ],
+        "avg_own": 16.57,
+        "low_own_count": 3,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 1177,
+        "entry_name": "RyvlesGaming30 (3/5)",
+        "points": 344.0,
+        "percentile": 33.0,
+        "players": [
+          "Scottie Scheffler",
+          "Robert MacIntyre",
+          "Russell Henley",
+          "Alex Fitzpatrick",
+          "Min Woo Lee",
+          "Harris English"
+        ],
+        "avg_own": 16.24,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 1498,
+        "entry_name": "RyvlesGaming30 (5/5)",
+        "points": 331.0,
+        "percentile": 42.0,
+        "players": [
+          "Rory McIlroy",
+          "Xander Schauffele",
+          "Robert MacIntyre",
+          "Ben Griffin",
+          "J.J. Spaun",
+          "Nicolai Hojgaard"
+        ],
+        "avg_own": 14.62,
+        "low_own_count": 3,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 2467,
+        "entry_name": "RyvlesGaming30 (2/5)",
+        "points": 295.0,
+        "percentile": 69.2,
+        "players": [
+          "Scottie Scheffler",
+          "Tyrrell Hatton",
+          "Viktor Hovland",
+          "Si Woo Kim",
+          "Tom Kim",
+          "Andy Sullivan"
+        ],
+        "avg_own": 17.07,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 2954,
+        "entry_name": "RyvlesGaming30 (1/5)",
+        "points": 271.0,
+        "percentile": 82.8,
+        "players": [
+          "Rory McIlroy",
+          "Matt Fitzpatrick",
+          "Wyndham Clark",
+          "Patrick Reed",
+          "Cameron Smith",
+          "Thomas Detry"
+        ],
+        "avg_own": 17.94,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Cameron Young",
+        "salary": null,
+        "actual_fpts": 96.5,
+        "actual_own": 8.72,
+        "top_lineup_pct": 44.4
+      },
+      {
+        "name": "Sam Burns",
+        "salary": null,
+        "actual_fpts": 92.0,
+        "actual_own": 13.6,
+        "top_lineup_pct": 66.7
+      },
+      {
+        "name": "Si Woo Kim",
+        "salary": null,
+        "actual_fpts": 76.5,
+        "actual_own": 18.64,
+        "top_lineup_pct": 44.4
+      },
+      {
+        "name": "Russell Henley",
+        "salary": null,
+        "actual_fpts": 74.5,
+        "actual_own": 18.9,
+        "top_lineup_pct": 41.7
+      }
+    ],
+    "winners_structure": {
+      "top_n": 36,
+      "avg_own_mean": 13.94,
+      "low_own_count_mean": 2.25,
+      "salary_used_mean": null,
+      "dup_max": 1,
+      "unique_pct": 100.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "hjbreton (5/5)",
+          "points": 479.0,
+          "percentile": 0.0,
+          "players": [
+            "Tommy Fleetwood",
+            "Ludvig Aberg",
+            "Cameron Young",
+            "Sam Burns",
+            "Hideki Matsuyama",
+            "Jacob Bridgeman"
+          ],
+          "avg_own": 10.38,
+          "low_own_count": 4,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "Bazoinkles (4/5)",
+          "points": 474.5,
+          "percentile": 0.1,
+          "players": [
+            "Jon Rahm",
+            "Cameron Young",
+            "Collin Morikawa",
+            "Sam Burns",
+            "Russell Henley",
+            "Si Woo Kim"
+          ],
+          "avg_own": 16.36,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "drccpro (3/5)",
+          "points": 470.5,
+          "percentile": 0.1,
+          "players": [
+            "Xander Schauffele",
+            "Cameron Young",
+            "Chris Gotterup",
+            "Sam Burns",
+            "Russell Henley",
+            "Si Woo Kim"
+          ],
+          "avg_own": 15.63,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "Krawiec2 (4/5)",
+          "points": 465.5,
+          "percentile": 0.1,
+          "players": [
+            "Xander Schauffele",
+            "Ludvig Aberg",
+            "Cameron Young",
+            "Sam Burns",
+            "Russell Henley",
+            "Ryan Gerard"
+          ],
+          "avg_own": 10.79,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "colorado_colin (4/5)",
+          "points": 461.0,
+          "percentile": 0.1,
+          "players": [
+            "Tommy Fleetwood",
+            "Tyrrell Hatton",
+            "Collin Morikawa",
+            "Chris Gotterup",
+            "Si Woo Kim",
+            "Ryan Fox"
+          ],
+          "avg_own": 17.31,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "jc000000 (3/3)",
+          "points": 459.5,
+          "percentile": 0.2,
+          "players": [
+            "Scottie Scheffler",
+            "Jon Rahm",
+            "Min Woo Lee",
+            "Corey Conners",
+            "Ryan Fox",
+            "Rasmus Neergaard-Petersen"
+          ],
+          "avg_own": 9.05,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "process940 (3/5)",
+          "points": 459.5,
+          "percentile": 0.2,
+          "players": [
+            "Ludvig Aberg",
+            "Cameron Young",
+            "Chris Gotterup",
+            "Bryson DeChambeau",
+            "Sam Burns",
+            "Patrick Reed"
+          ],
+          "avg_own": 12.45,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "geoffm33 (5/5)",
+          "points": 458.0,
+          "percentile": 0.2,
+          "players": [
+            "Tommy Fleetwood",
+            "Collin Morikawa",
+            "Robert MacIntyre",
+            "Shane Lowry",
+            "Sam Burns",
+            "Si Woo Kim"
+          ],
+          "avg_own": 19.01,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "lyon5005 (5/5)",
+          "points": 457.5,
+          "percentile": 0.3,
+          "players": [
+            "Scottie Scheffler",
+            "Bryson DeChambeau",
+            "Russell Henley",
+            "Brooks Koepka",
+            "J.J. Spaun",
+            "Ryan Fox"
+          ],
+          "avg_own": 9.59,
+          "low_own_count": 4,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "zacharyr25 (5/5)",
+          "points": 457.5,
+          "percentile": 0.3,
+          "players": [
+            "Scottie Scheffler",
+            "Rory McIlroy",
+            "Ryan Fox",
+            "Harry Hall",
+            "Rasmus Neergaard-Petersen",
+            "Casey Jarvis"
+          ],
+          "avg_own": 8.94,
+          "low_own_count": 4,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -2.55,
+        "low_own_count_delta": 0.25,
+        "salary_used_delta": null
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 3552,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Matt Fitzpatrick",
+          "field_own": 37.6,
+          "actual_fpts": 22.0
+        },
+        {
+          "name": "Robert MacIntyre",
+          "field_own": 28.9,
+          "actual_fpts": 63.0
+        },
+        {
+          "name": "Rory McIlroy",
+          "field_own": 27.4,
+          "actual_fpts": 66.0
+        },
+        {
+          "name": "Viktor Hovland",
+          "field_own": 24.2,
+          "actual_fpts": 23.5
+        },
+        {
+          "name": "Collin Morikawa",
+          "field_own": 23.0,
+          "actual_fpts": 72.5
+        },
+        {
+          "name": "Scottie Scheffler",
+          "field_own": 22.4,
+          "actual_fpts": 81.5
+        },
+        {
+          "name": "Tommy Fleetwood",
+          "field_own": 22.4,
+          "actual_fpts": 88.0
+        },
+        {
+          "name": "Chris Gotterup",
+          "field_own": 22.3,
+          "actual_fpts": 67.0
+        },
+        {
+          "name": "Wyndham Clark",
+          "field_own": 21.7,
+          "actual_fpts": 33.5
+        },
+        {
+          "name": "Tom Kim",
+          "field_own": 21.5,
+          "actual_fpts": 22.5
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Matt Fitzpatrick",
+            "Robert MacIntyre"
+          ],
+          "field_pct": 11.2,
+          "count": 396
+        },
+        {
+          "players": [
+            "Matt Fitzpatrick",
+            "Tommy Fleetwood"
+          ],
+          "field_pct": 9.4,
+          "count": 334
+        },
+        {
+          "players": [
+            "Matt Fitzpatrick",
+            "Tom Kim"
+          ],
+          "field_pct": 9.3,
+          "count": 331
+        },
+        {
+          "players": [
+            "Matt Fitzpatrick",
+            "Viktor Hovland"
+          ],
+          "field_pct": 9.0,
+          "count": 320
+        },
+        {
+          "players": [
+            "Matt Fitzpatrick",
+            "Wyndham Clark"
+          ],
+          "field_pct": 8.8,
+          "count": 311
+        },
+        {
+          "players": [
+            "Robert MacIntyre",
+            "Viktor Hovland"
+          ],
+          "field_pct": 8.6,
+          "count": 304
+        },
+        {
+          "players": [
+            "Chris Gotterup",
+            "Matt Fitzpatrick"
+          ],
+          "field_pct": 8.3,
+          "count": 294
+        },
+        {
+          "players": [
+            "Collin Morikawa",
+            "Matt Fitzpatrick"
+          ],
+          "field_pct": 8.1,
+          "count": 288
+        },
+        {
+          "players": [
+            "Robert MacIntyre",
+            "Wyndham Clark"
+          ],
+          "field_pct": 8.1,
+          "count": 286
+        },
+        {
+          "players": [
+            "Matt Fitzpatrick",
+            "Si Woo Kim"
+          ],
+          "field_pct": 7.8,
+          "count": 277
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Collin Morikawa",
+            "Matt Fitzpatrick",
+            "Robert MacIntyre",
+            "Tom Kim",
+            "Viktor Hovland",
+            "Wyndham Clark"
+          ],
+          "count": 15,
+          "field_pct": 0.4
+        },
+        {
+          "players": [
+            "Jon Rahm",
+            "Matt Fitzpatrick",
+            "Min Woo Lee",
+            "Robert MacIntyre",
+            "Si Woo Kim",
+            "Viktor Hovland"
+          ],
+          "count": 10,
+          "field_pct": 0.3
+        },
+        {
+          "players": [
+            "Chris Gotterup",
+            "Matt Fitzpatrick",
+            "Patrick Reed",
+            "Robert MacIntyre",
+            "Viktor Hovland",
+            "Wyndham Clark"
+          ],
+          "count": 10,
+          "field_pct": 0.3
+        },
+        {
+          "players": [
+            "Chris Gotterup",
+            "Matt Fitzpatrick",
+            "Robert MacIntyre",
+            "Tom Kim",
+            "Viktor Hovland",
+            "Wyndham Clark"
+          ],
+          "count": 9,
+          "field_pct": 0.3
+        },
+        {
+          "players": [
+            "Matt Fitzpatrick",
+            "Robert MacIntyre",
+            "Russell Henley",
+            "Sam Burns",
+            "Viktor Hovland",
+            "Wyndham Clark"
+          ],
+          "count": 6,
+          "field_pct": 0.2
+        }
+      ],
+      "winners_profile": {
+        "n": 36,
+        "avg_own_per_slot": 13.9,
+        "dart_pct": 75.0,
+        "unique_pct": 100.0
+      },
+      "fish_profile": {
+        "n": 1774,
+        "avg_own_per_slot": 17.6,
+        "dart_pct": 60.5,
+        "unique_pct": 92.3
+      },
+      "fish_traps": [
+        {
+          "name": "Matt Fitzpatrick",
+          "fish_pct": 54.1,
+          "winner_pct": 2.8,
+          "gap": 51.3,
+          "actual_fpts": 22.0
+        },
+        {
+          "name": "Viktor Hovland",
+          "fish_pct": 36.0,
+          "winner_pct": 2.8,
+          "gap": 33.2,
+          "actual_fpts": 23.5
+        },
+        {
+          "name": "Tom Kim",
+          "fish_pct": 30.0,
+          "winner_pct": 0.0,
+          "gap": 30.0,
+          "actual_fpts": 22.5
+        },
+        {
+          "name": "Justin Rose",
+          "fish_pct": 25.8,
+          "winner_pct": 0.0,
+          "gap": 25.8,
+          "actual_fpts": 24.5
+        },
+        {
+          "name": "Wyndham Clark",
+          "fish_pct": 28.1,
+          "winner_pct": 2.8,
+          "gap": 25.3,
+          "actual_fpts": 33.5
+        },
+        {
+          "name": "Rory McIlroy",
+          "fish_pct": 28.6,
+          "winner_pct": 8.3,
+          "gap": 20.3,
+          "actual_fpts": 66.0
+        },
+        {
+          "name": "Joaquin Niemann",
+          "fish_pct": 14.9,
+          "winner_pct": 0.0,
+          "gap": 14.9,
+          "actual_fpts": 19.0
+        },
+        {
+          "name": "Alex Fitzpatrick",
+          "fish_pct": 13.4,
+          "winner_pct": 0.0,
+          "gap": 13.4,
+          "actual_fpts": 44.0
+        },
+        {
+          "name": "Aaron Rai",
+          "fish_pct": 12.3,
+          "winner_pct": 0.0,
+          "gap": 12.3,
+          "actual_fpts": 19.0
+        },
+        {
+          "name": "Brian Harman",
+          "fish_pct": 9.6,
+          "winner_pct": 0.0,
+          "gap": 9.6,
+          "actual_fpts": 17.0
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "hjbreton",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "Bazoinkles",
+          "best_rank": 2,
+          "percentile": 0.1
+        },
+        {
+          "handle": "drccpro",
+          "best_rank": 3,
+          "percentile": 0.1
+        },
+        {
+          "handle": "Krawiec2",
+          "best_rank": 4,
+          "percentile": 0.1
+        },
+        {
+          "handle": "colorado_colin",
+          "best_rank": 5,
+          "percentile": 0.1
+        },
+        {
+          "handle": "process940",
+          "best_rank": 6,
+          "percentile": 0.2
+        },
+        {
+          "handle": "jc000000",
+          "best_rank": 6,
+          "percentile": 0.2
+        },
+        {
+          "handle": "geoffm33",
+          "best_rank": 8,
+          "percentile": 0.2
+        },
+        {
+          "handle": "lyon5005",
+          "best_rank": 9,
+          "percentile": 0.3
+        },
+        {
+          "handle": "zacharyr25",
+          "best_rank": 9,
+          "percentile": 0.3
+        },
+        {
+          "handle": "Maizy4",
+          "best_rank": 11,
+          "percentile": 0.3
+        },
+        {
+          "handle": "Webedawgs",
+          "best_rank": 12,
+          "percentile": 0.3
+        },
+        {
+          "handle": "APAllDayDK",
+          "best_rank": 14,
+          "percentile": 0.4
+        },
+        {
+          "handle": "bigo27",
+          "best_rank": 14,
+          "percentile": 0.4
+        },
+        {
+          "handle": "dean7434",
+          "best_rank": 16,
+          "percentile": 0.5
+        }
+      ],
+      "read": [
+        "Field crowded **Matt Fitzpatrick** at 37.6% (22.0 fpts) \u2014 the chalk to consider fading.",
+        "**Matt Fitzpatrick + Robert MacIntyre** were together in 11.2% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Matt Fitzpatrick** was a fish trap: 54.1% of the fish, only 2.8% of winners.",
+        "Fish ran 3.7 pts/slot more chalk than winners (17.6% vs 13.9%)."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 479.0,
+      "winner_handle": "hjbreton",
+      "roster": [
+        {
+          "name": "Tommy Fleetwood",
+          "own": 22.4,
+          "fpts": 88.0
+        },
+        {
+          "name": "Ludvig Aberg",
+          "own": 8.58,
+          "fpts": 71.5
+        },
+        {
+          "name": "Cameron Young",
+          "own": 8.72,
+          "fpts": 96.5
+        },
+        {
+          "name": "Sam Burns",
+          "own": 13.6,
+          "fpts": 92.0
+        },
+        {
+          "name": "Hideki Matsuyama",
+          "own": 7.79,
+          "fpts": 69.0
+        },
+        {
+          "name": "Jacob Bridgeman",
+          "own": 1.18,
+          "fpts": 62.0
+        }
+      ],
+      "avg_own": 10.4,
+      "n_low_own": 4,
+      "carrier": {
+        "name": "Cameron Young",
+        "own": 8.72,
+        "fpts": 96.5
+      },
+      "expected_dupes": 0.0
+    },
+    "near_miss": {
+      "gradable": true,
+      "won": false,
+      "your_points": 360.0,
+      "winner_points": 479.0,
+      "gap": 119.0,
+      "your_percentile": 23.5,
+      "n_shared": 1,
+      "shared": [
+        "Ludvig Aberg"
+      ],
+      "your_uniques": [
+        {
+          "name": "Russell Henley",
+          "fpts": 74.5
+        },
+        {
+          "name": "Chris Gotterup",
+          "fpts": 67.0
+        },
+        {
+          "name": "Shane Lowry",
+          "fpts": 66.0
+        },
+        {
+          "name": "Kurt Kitayama",
+          "fpts": 59.0
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "fpts": 22.0
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Cameron Young",
+          "fpts": 96.5
+        },
+        {
+          "name": "Sam Burns",
+          "fpts": 92.0
+        },
+        {
+          "name": "Tommy Fleetwood",
+          "fpts": 88.0
+        },
+        {
+          "name": "Hideki Matsuyama",
+          "fpts": 69.0
+        },
+        {
+          "name": "Jacob Bridgeman",
+          "fpts": 62.0
+        }
+      ],
+      "best_swap": {
+        "out": "Matt Fitzpatrick",
+        "in": "Cameron Young",
+        "gain": 74.5,
+        "would_have_won": false
+      },
+      "swaps_needed": 3
+    }
+  }
+]

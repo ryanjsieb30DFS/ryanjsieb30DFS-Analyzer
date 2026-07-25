@@ -1,0 +1,41 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 9,
+    "leverage_capture": 1.0,
+    "leverage_hit": [
+      "Joey Logano"
+    ],
+    "leverage_missed": [],
+    "overperformer_capture": null,
+    "overperformer_hit": [],
+    "underperformer_exposure": null,
+    "underperformer_hit": []
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 2,
+    "avg_ratio": null,
+    "best_percentile": 7.4,
+    "median_percentile": 82.4,
+    "n_top_10pct": 1,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 165.45,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 82.4,
+        "avg_own": 36.73
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 348.00003,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 7.4,
+        "avg_own": 35.68
+      }
+    ]
+  }
+}

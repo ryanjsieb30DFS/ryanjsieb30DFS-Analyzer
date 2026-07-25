@@ -328,3 +328,30 @@ Per Philosophy Section 4:
 - My entries: 1 · best rank 1,760/1,766 (top 99.7%)
 - Winners (top 20): avg own 12.85% vs mine 13.87% · sub-10% plays/lineup 2.5 vs mine 2.0
 - Slate-defining plays: Viktor Hovland (144.0 pts @ 7.6%), Collin Morikawa (124.0 pts @ 19.7%), Matt Fitzpatrick (121.0 pts @ 9.7%), Akshay Bhatia (115.0 pts @ 12.8%)
+
+
+## 2026-07-22 20:21 — PGA Classic (contest-standings-192255218.csv)
+- Entries: 3,567
+- Winning score: 479.0
+- Cash line (top 20%): 365.5
+- My entries: 5 · best rank 838/3,567 (top 23.5%)
+- Winners (top 36): avg own 13.94% vs mine 16.49% · sub-10% plays/lineup 2.25 vs mine 2.0
+- Slate-defining plays: Cameron Young (96.5 pts @ 8.7%), Sam Burns (92.0 pts @ 13.6%), Si Woo Kim (76.5 pts @ 18.6%), Russell Henley (74.5 pts @ 18.9%)
+
+### Strategy adherence — did you follow your own strategy? (5 unique lineups)
+- ⚠️ **1 FADE call(s) violated:** **Viktor Hovland** (in 1 of 5)
+- Leverage candidates rostered somewhere: **6 of 12**.
+
+### Player-pool tier calibration (131 of 156 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 4 | 58.0 | 81.5 |
+| **Good** | 14 | 57.5 | 96.5 |
+| **Okay** | 68 | 49.3 | 110.5 |
+| **Fade** | 45 | 32.5 | 85.5 |
+- ✅ Tier ordering HELD — higher tiers outscored lower ones on average.
+- 🕳️ Buried: **Max Homa** (Fade) scored 63.0 — above the top tier's average.
+- 🕳️ Buried: **Pierceson Coody** (Fade) scored 65.0 — above the top tier's average.
+- 🕳️ Buried: **Marco Penge** (Fade) scored 70.5 — above the top tier's average.
+- 🕳️ Buried: **Hennie Du Plessis** (Fade) scored 61.0 — above the top tier's average.
+- 🕳️ Buried: **Rasmus Neergaard-Petersen** (Fade) scored 85.5 — above the top tier's average.

@@ -1,0 +1,29 @@
+{
+  "slug": "nascar",
+  "sport": "nascar",
+  "contest_label": "NASCAR",
+  "date": "2026-07-21",
+  "slate_label": "Nascar North Wilkesboro 7/19/26",
+  "archived_at": "2026-07-21 21:54",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json"
+  ],
+  "missing": [
+    "sim_analysis.md",
+    "sim_pool.csv",
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/nascar/2026-07-19__DDD 7.19.26.pdf",
+    "articles/nascar/2026-07-19__DFR Image 1 7.19.26.pdf",
+    "articles/nascar/2026-07-19__DFR Image 2 7.19.26.pdf",
+    "articles/nascar/2026-07-19__DFR Image 3 7.19.26.pdf",
+    "articles/nascar/2026-07-19__DFR Image 4 7.19.26.pdf",
+    "articles/nascar/2026-07-19__DFR Image 5 7.19.26.pdf"
+  ],
+  "proj_source": null
+}

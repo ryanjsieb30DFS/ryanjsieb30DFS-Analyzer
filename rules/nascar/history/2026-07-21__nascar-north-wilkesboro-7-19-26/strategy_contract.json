@@ -1,0 +1,100 @@
+{
+  "generated_at": "2026-07-19 15:38",
+  "slug": "nascar",
+  "calls": [
+    {
+      "name": "Tyler Reddick",
+      "verdict": "fade"
+    },
+    {
+      "name": "Carson Hocevar",
+      "verdict": "fade"
+    },
+    {
+      "name": "Ross Chastain",
+      "verdict": "pass"
+    },
+    {
+      "name": "Shane Van Gisbergen",
+      "verdict": "fade"
+    },
+    {
+      "name": "Daniel Suarez",
+      "verdict": "fade"
+    },
+    {
+      "name": "Chase Briscoe",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Bubba Wallace",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Austin Hill",
+      "verdict": "fade"
+    },
+    {
+      "name": "AJ Allmendinger",
+      "verdict": "fade"
+    }
+  ],
+  "fades": [
+    "Tyler Reddick",
+    "Carson Hocevar",
+    "Shane Van Gisbergen",
+    "Daniel Suarez",
+    "Austin Hill",
+    "AJ Allmendinger"
+  ],
+  "leverage_candidates": [
+    {
+      "name": "Tyler Reddick",
+      "own": 8.0
+    },
+    {
+      "name": "Ross Chastain",
+      "own": 6.0
+    },
+    {
+      "name": "Shane Van Gisbergen",
+      "own": 7.0
+    },
+    {
+      "name": "Chris Buescher",
+      "own": 7.0
+    },
+    {
+      "name": "Carson Hocevar",
+      "own": 9.0
+    },
+    {
+      "name": "Austin Dillon",
+      "own": 4.0
+    },
+    {
+      "name": "Todd Gilliland",
+      "own": 6.0
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "own": 8.0
+    },
+    {
+      "name": "Cole Custer",
+      "own": 4.0
+    },
+    {
+      "name": "Cody Ware",
+      "own": 4.0
+    },
+    {
+      "name": "Daniel Suarez",
+      "own": 8.0
+    },
+    {
+      "name": "Erik Jones",
+      "own": 5.0
+    }
+  ]
+}

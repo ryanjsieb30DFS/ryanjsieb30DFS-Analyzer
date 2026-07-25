@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-07-15 21:48",
+  "slug": "pga_classic",
+  "calls": [
+    {
+      "name": "Viktor Hovland",
+      "verdict": "fade"
+    },
+    {
+      "name": "Tommy Fleetwood",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Si Woo Kim",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Patrick Cantlay",
+      "verdict": "lean_fade"
+    }
+  ],
+  "fades": [
+    "Viktor Hovland"
+  ],
+  "leverage_candidates": [
+    {
+      "name": "Cameron Young",
+      "own": 8.9
+    },
+    {
+      "name": "Justin Rose",
+      "own": 9.5
+    },
+    {
+      "name": "Kurt Kitayama",
+      "own": 6.4
+    },
+    {
+      "name": "Nicolai Hojgaard",
+      "own": 7.1
+    },
+    {
+      "name": "Shane Lowry",
+      "own": 8.4
+    },
+    {
+      "name": "Bryson Dechambeau",
+      "own": 4.9
+    },
+    {
+      "name": "Harris English",
+      "own": 5.3
+    },
+    {
+      "name": "Ben Griffin",
+      "own": 8.1
+    },
+    {
+      "name": "J.J. Spaun",
+      "own": 7.2
+    },
+    {
+      "name": "Kristoffer Reitan",
+      "own": 3.7
+    },
+    {
+      "name": "J.T. Poston",
+      "own": 2.0
+    },
+    {
+      "name": "Adam Scott",
+      "own": 4.8
+    }
+  ]
+}

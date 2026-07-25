@@ -1,0 +1,30 @@
+{
+  "slug": "pga_classic",
+  "sport": "golf",
+  "contest_label": "PGA Classic",
+  "date": "2026-07-22",
+  "slate_label": "2026 Open Championship",
+  "archived_at": "2026-07-22 20:21",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json",
+    "lineup_grade.md"
+  ],
+  "missing": [
+    "sim_analysis.md",
+    "sim_pool.csv"
+  ],
+  "article_files": [
+    "articles/pga_classic/2026-07-15__ETR PGA Coffin List 7.16.26.pdf",
+    "articles/pga_classic/2026-07-15__ETR PGA Course Fit 7.16.26.pdf",
+    "articles/pga_classic/2026-07-15__ETR PGA Large Field Breakdown 7.16.26.pdf",
+    "articles/pga_classic/2026-07-15__ETR PGA Models 7.16.2026.pdf",
+    "articles/pga_classic/2026-07-15__ETR PGA Sim Analysis 7.16.26.pdf",
+    "articles/pga_classic/2026-07-15__ETR PGA Value Report 7.16.26.pdf",
+    "articles/pga_classic/2026-07-15__ETR Top Plays Gold 7.16.26.pdf"
+  ],
+  "proj_source": null
+}

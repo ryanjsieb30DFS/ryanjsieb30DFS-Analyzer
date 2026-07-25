@@ -1,0 +1,132 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "calls": [
+    {
+      "name": "Tyler Reddick",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Carson Hocevar",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Ross Chastain",
+      "verdict": "pass",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Shane Van Gisbergen",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Daniel Suarez",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Chase Briscoe",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Bubba Wallace",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Austin Hill",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "AJ Allmendinger",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "leverage_candidates": [
+    {
+      "name": "Tyler Reddick",
+      "rostered": false
+    },
+    {
+      "name": "Ross Chastain",
+      "rostered": false
+    },
+    {
+      "name": "Shane Van Gisbergen",
+      "rostered": false
+    },
+    {
+      "name": "Chris Buescher",
+      "rostered": false
+    },
+    {
+      "name": "Carson Hocevar",
+      "rostered": false
+    },
+    {
+      "name": "Austin Dillon",
+      "rostered": false
+    },
+    {
+      "name": "Todd Gilliland",
+      "rostered": false
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "rostered": false
+    },
+    {
+      "name": "Cole Custer",
+      "rostered": false
+    },
+    {
+      "name": "Cody Ware",
+      "rostered": false
+    },
+    {
+      "name": "Daniel Suarez",
+      "rostered": false
+    },
+    {
+      "name": "Erik Jones",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 0,
+  "leverage_of": 12
+}

@@ -1,0 +1,60 @@
+{
+  "gradable": true,
+  "n_pool": 156,
+  "n_matched": 131,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 4,
+      "avg_fpts": 58.0,
+      "max_fpts": 81.5
+    },
+    {
+      "tier": "Good",
+      "n": 14,
+      "avg_fpts": 57.5,
+      "max_fpts": 96.5
+    },
+    {
+      "tier": "Okay",
+      "n": 68,
+      "avg_fpts": 49.3,
+      "max_fpts": 110.5
+    },
+    {
+      "tier": "Fade",
+      "n": 45,
+      "avg_fpts": 32.5,
+      "max_fpts": 85.5
+    }
+  ],
+  "tiers_ordered": true,
+  "leakage": [
+    {
+      "name": "Max Homa",
+      "tier": "Fade",
+      "fpts": 63.0
+    },
+    {
+      "name": "Pierceson Coody",
+      "tier": "Fade",
+      "fpts": 65.0
+    },
+    {
+      "name": "Marco Penge",
+      "tier": "Fade",
+      "fpts": 70.5
+    },
+    {
+      "name": "Hennie Du Plessis",
+      "tier": "Fade",
+      "fpts": 61.0
+    },
+    {
+      "name": "Rasmus Neergaard-Petersen",
+      "tier": "Fade",
+      "fpts": 85.5
+    }
+  ],
+  "summary": "Core 58.0 > Good 57.5 > Okay 49.3 > Fade 32.5  \u2713 ordered"
+}

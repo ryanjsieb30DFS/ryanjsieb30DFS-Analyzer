@@ -1,0 +1,69 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 25,
+    "leverage_capture": 0.5,
+    "leverage_hit": [
+      "Si Woo Kim",
+      "Russell Henley"
+    ],
+    "leverage_missed": [
+      "Cameron Young",
+      "Sam Burns"
+    ],
+    "overperformer_capture": null,
+    "overperformer_hit": [],
+    "underperformer_exposure": null,
+    "underperformer_hit": []
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 5,
+    "avg_ratio": null,
+    "best_percentile": 23.5,
+    "median_percentile": 42.0,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30 (4/5)",
+        "points": 360.0,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 23.5,
+        "avg_own": 16.57
+      },
+      {
+        "entry_name": "RyvlesGaming30 (3/5)",
+        "points": 344.0,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 33.0,
+        "avg_own": 16.24
+      },
+      {
+        "entry_name": "RyvlesGaming30 (5/5)",
+        "points": 331.0,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 42.0,
+        "avg_own": 14.62
+      },
+      {
+        "entry_name": "RyvlesGaming30 (2/5)",
+        "points": 295.0,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 69.2,
+        "avg_own": 17.07
+      },
+      {
+        "entry_name": "RyvlesGaming30 (1/5)",
+        "points": 271.0,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 82.8,
+        "avg_own": 17.94
+      }
+    ]
+  }
+}

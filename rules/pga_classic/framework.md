@@ -1,6 +1,6 @@
 # PGA Classic Framework
 
-*Last updated: 2026-05-19*
+*Last updated: 2026-07-22*
 
 The tactical playbook. Decision rules, construction templates, and exposure logic derived from accumulated autopsies. This is the *how* document. Updates here should be triggered by patterns in the Autopsies, not by single-week reactions.
 
@@ -29,7 +29,7 @@ Before constructing any lineup, answer these:
 - **Top-end ownership concentration?** If the top 3–5 anchors absorb 100%+ cumulative projected ownership, identify which anchor is "trap chalk" (overowned relative to projection) versus "value chalk" (correctly owned or underowned).
 - **Are the analyst projections converging or diverging?** Convergence = the field will see the same plays. Divergence = look for the model edge.
 - **Does the coffin list have ≥2 high-conviction overweight plays at sub-15% projected ownership?** If yes, this is the "leverage spine" opportunity.
-- **Course history boost list cross-referenced with sub-5% projected ownership.** This is a required pre-build scan as of May 2026. Players appearing on ETR's course history boost list with sub-5% projected ownership are structurally high-leverage and historically produce slate-defining outcomes (PGA Championship 2026: Smalley and Rai both met this criterion and appeared in 60-73% of top-100 winning lineups). Always check this list explicitly before locking the construction.
+- **Gated cheap-leverage scan (required):** cross the course-history/pedigree boost list against sub-5% projected ownership, then GATE on a minimum skill/current-form floor — bottom-decile ball-strikers and cold pedigree names are lottery-slot-only regardless of course stickiness. Treat the form/value engine (hot approach numbers, value-report flags) as a CO-EQUAL source of sub-5% leverage; the slate-defining cheap play has come from the form side in every logged test (Poston, Suber, Clark). Pedigree WITHOUT form = bust (Koepka, Shinnecock); pedigree WITH form = the play (Clark; Young, Birkdale).
 - **Name the slate's low-owned smash (mandatory scan).** Across 168 slates (2023-2026), **96% had ≥1 golfer rostered in ≥30% of winning lineups while drawing <20% field ownership** (median ~12% own). There is essentially always a sub-radar golfer who smashes and defines the winners — the scan must surface the candidate leverage tier, and a build with zero sub-10% plays fails the structure check.
 - **The 10-16% mid-owned band is where Classic slates are decided, not the sub-5% tier alone.** Guarantee explicit PLAY/PASS coverage of *every* mid-priced play projecting a 100+ ceiling in the ~7-20% own band before adding deep darts. Caveat (necessary-not-sufficient): owning the band is required but does not itself win — four straight slates we sat in the band and missed the actual hitters, so this rule must be paired with the vendor-independent ceiling scan (the primary pre-slate identification discipline) that governs *which* members of the band get rostered.
 
@@ -46,6 +46,8 @@ Before constructing any lineup, answer these:
 **Avoid playing more than one player from the "trap chalk" tier per lineup.** Trap chalk = a player ETR or your projection source flags as overowned (coffin list negative side).
 
 **Empirical winning-structure baseline (168 slates, 2023-2026 — `mining_2023_2026.md`):** winning lineups average **~13% per-player ownership** (~78% cumulative across the 6 golfers — this is a per-player mean, NOT a lineup total), carry **2-3 sub-10%-owned golfers** (median 2.5; 78% of winners ≥2, 91% ≥1), and are **91% unique**. Target this shape; an all-chalk lineup is a structural non-starter. Stable every year 2023-2026.
+
+**Dart-count calibration:** hold ~13% average per-player ownership, and set the per-lineup sub-10% dart count by course archetype: birdie-fest ~2; no-cut birdie-fest ~2.5; tough non-cut ~3; tough or birdie-fest WITH a 36-hole cut, cap at ~2–2.5 (each added cut-coinflip multiplies binary cut-out risk). Verified: mining n=168 plus RBC (~2), Shinnecock (2.1–2.7), Travelers (2.5), Birkdale (2.25).
 
 ## 4. Roster Construction Templates
 
@@ -113,7 +115,7 @@ When 2 or more players appear on the coffin list as significant overweights (≥
 
 **Default policy:** Do not zero-out the model's projection #1 across the entire portfolio. If the model says Player X is the best player on the slate and the field crowds on X at expected levels (not 5%+ above projection), at least one lineup carries X. The Truist Aberg miss validates this rule.
 
-**Trap chalk vs value chalk:** Distinguishing these is the highest-stakes anchor decision. Use the coffin list as the primary signal. If a top-end player is projected at 20%+ ownership AND on the coffin list as overowned, that's the easiest fade in the portfolio. If a top-end player is projected at 20%+ AND on the coffin list as underowned, that's the lock.
+**Trap chalk vs value chalk:** Distinguishing these is the highest-stakes anchor decision. The coffin list proposes the trap/value split; OWNERSHIP BEHAVIOR disposes it. A coffin fade is void when the projected ownership never materializes (sub-12% actual = mispriced leverage, not trap — Memorial), and a coffin overweight is void when ownership steams past projection on a narrative name (drift toward the published optimal converts "value chalk" into the slate's biggest trap — Rai at RBC, Fitzpatrick at Birkdale: 25.5%→37.6%, 22.0 FPTS, 54.1% of fish vs 2.8% of winners). Before lock, sanity-check both sides of the split against a late-ownership read; a stable, floored name at flat projected own keeps its coffin label (Burns, Shinnecock).
 
 **A fade is conditional on the ownership materializing.** Before locking any coffin/writer fade, sanity-check the player's actual/late ownership read: if it is sub-~12%, the fade premise is void and the player is mispriced leverage, not trap chalk. A sub-10% "fade" is not a fade — it just zeroes cheap upside. (Repeatedly cost slate-definers: Reitan/Clark at the Memorial, Reitan at the RBC, Fitzpatrick at the Travelers.)
 
@@ -131,6 +133,8 @@ For multi-lineup portfolios, the exposure ceiling scales with portfolio size:
 The portfolio cap protects against the reverse failure mode — when a high-conviction play bombs in all lineups simultaneously.
 
 **Soft guideline: every lineup should have at least 1 player at sub-8% projected ownership.** If a lineup has zero sub-8% pieces, it is structurally identical to thousands of field lineups; no path to the top 0.1%.
+
+**Exposures before lineups:** before building any multi-lineup set (and even a single bullet), write target exposures first — the value spine's carry rate, the mid-owned multipliers, the dart pool drawn FROM the strategy's definer screen, and a hard cap per expensive chalk anchor — then fill lineups to those targets. Independent lineup-by-lineup assembly has no governor: the screen's best value loses slot competition (Young 0/5 at Birkdale as the winner's carrier; Fox/Yellamaraju at RBC) and incoherent chalk-stack builds slip through.
 
 ## 8. Pricing & Salary Allocation
 
@@ -153,7 +157,7 @@ Leaving more than $300 in unused salary is a sign of either over-conservative pr
 - [ ] At least one sub-8% ownership piece
 - [ ] No more than $300 unused salary
 - [ ] No more than 2 high-conviction sub-10% leverage plays in the same lineup (correlated bust risk)
-- [ ] At least one course-history-boost cross-referenced sub-5% own candidate considered (filing pattern from PGA Championship 2026 Smalley/Rai miss)
+- [ ] Gated cheap-leverage scan run: at least one candidate considered that passes the skill/current-form gate (CH/pedigree boost × sub-5% own × form floor, or a form/value-engine flag)
 - [ ] Cumulative projected ownership in target range (signature events: 70–90%; large field: 60–80%)
 - [ ] No combination flagged as "avoid" in the slate preview (e.g., chalk-on-chalk traps)
 
@@ -165,7 +169,7 @@ Leaving more than $300 in unused salary is a sign of either over-conservative pr
 - [ ] At least one lineup is positioned for the "chaos slate" outcome (sub-65% cumulative ownership)
 - [ ] The leverage spine (when present) appears in 60-80% of lineups, not 100%
 - [ ] No player appears in every lineup (forces internal differentiation)
-- [ ] Course history boost + sub-5% own scan completed
+- [ ] Gated cheap-leverage scan (CH/pedigree × sub-5% own × skill/form floor; form/value engine co-equal) completed
 
 ### C. Small-Portfolio MME Checklist (3-20 Lineups)
 
@@ -173,7 +177,7 @@ Leaving more than $300 in unused salary is a sign of either over-conservative pr
 - [ ] Maximum single-player exposure ≤35%
 - [ ] At least one lineup with cumulative ownership <65% (deep contrarian coverage)
 - [ ] All four major slate-outcome categories represented (chalk wins / leverage spine wins / chaos / model-default)
-- [ ] Course history boost + sub-5% own candidates considered for at least 2-3 lineups
+- [ ] Gated cheap-leverage scan candidates (skill/form-gated) considered for at least 2-3 lineups
 
 ## 10. Tracking Stats (Build Weekly)
 

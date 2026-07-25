@@ -63,7 +63,14 @@ lessons:
       Deploying two coffin-list overweights (>=+10% recommended-vs-projected ownership
       gap) together in the same lineup compounds the leverage advantage: each offers
       ceiling-equivalent exposure to chalk at materially lower duplication risk, and
-      pairing them is multiplicative, not additive.
+      pairing them is multiplicative, not additive. SCOPE CONDITION (merged 2026-07-22
+      from [[pga-classic-2026-06-17-leverage-spine-needs-sub20-combined-own]]): the
+      multiplicative mechanism only operates when the pair is sub-~19% COMBINED
+      ownership — the edge comes from the duplication discount, which does not exist
+      at chalk ownership. A 40%+ combined pair (Rai ~25% + Cauley ~17.5% at the RBC)
+      is not a spine but two correlated chalk bets wearing a leverage costume; above
+      the ~19% combined line, treat each leg as standalone chalk and size it on its
+      own merit.
     status: codified
     confirmations:
       - date: "2026-06-10"
@@ -153,7 +160,7 @@ lessons:
       the ownership curve, so these plays historically produce slate-defining outcomes
       (Smalley 96.5 FPTS at 10.9%, Rai 117 FPTS at 2.3%). The cross-reference is a
       required pre-build scan.
-    status: codified
+    status: retired
     confirmations: []
     contradictions:
       - date: "2026-06-10"
@@ -184,8 +191,14 @@ lessons:
           working replacement is the skill-gated, form-co-equal version
           (pga-classic-2026-06-10-ch-scan-needs-skill-gate, now validated). See
           Proposed codifications.
-    codified_in: "framework.md — Section 2 Slate Diagnostics (required scan) and Section 9 Pre-Submission Checklists"
-    retired_reason: null
+    codified_in: null
+    retired_reason: >
+      Retired 2026-07-22 (Open Championship review, user-approved): the unconditional
+      "CH boost x sub-5% own = leverage" mechanism failed at both a high-stickiness
+      (Memorial, 0.42) and a near-zero-stickiness (RBC, 0.06) course; superseded by
+      the skill/form-gated version
+      [[pga-classic-2026-06-10-ch-scan-needs-skill-gate]], codified in its place in
+      framework.md Sections 2 and 9.
 
   - id: pga-classic-2026-05-17-se-leverage-cap-two
     born: "2026-05-17"
@@ -206,11 +219,19 @@ lessons:
     born: "2026-05-17"
     origin: "autopsies.md — Week 2 PGA Championship, Carry-Forward Note 3 (coffin chalk thesis)"
     statement: >
-      Chalk is not one category: trap chalk (overowned relative to projection/coffin
-      list) is the easiest fade in the portfolio, while value chalk (correctly owned or
-      coffin-underowned) should be overweighted. The coffin list is the primary signal
-      for the split — all four top-tier coffin overweights (Rahm, Aberg, Rory,
-      Schauffele) hit at the PGA Championship.
+      Chalk is not one category: distinguishing trap chalk from value chalk remains
+      the highest-stakes anchor decision, but the coffin list only PROPOSES the
+      trap/value split — OWNERSHIP BEHAVIOR disposes it. A coffin fade is void when
+      the projected ownership never materializes (sub-12% actual = mispriced
+      leverage, not trap — Memorial), and a coffin overweight is void when ownership
+      steams past projection on a narrative name (drift toward the published optimal
+      converts "value chalk" into the slate's biggest trap — Rai at RBC; Fitzpatrick
+      at Birkdale, 25.5% -> 37.6%, 22.0 FPTS, 54.1% of fish vs 2.8% of winners).
+      Before lock, sanity-check both sides of the split against a late-ownership
+      read; a stable, floored name at flat projected own keeps its coffin label
+      (Burns, Shinnecock). Narrowed 2026-07-22 after the second mechanism
+      contradiction on the original "coffin list is the primary signal" text; the
+      split itself keeps working at the top of the board.
     status: codified
     confirmations: []
     contradictions:
@@ -224,6 +245,25 @@ lessons:
           all three came in at 7-11% actual, where "trap chalk" is just mispriced
           leverage. First mechanism contradiction; the split itself still worked at
           the top of the board (Scottie value chalk hit, Aberg trap busted).
+      - date: "2026-07-22"
+        slate: "2026 Open Championship at Royal Birkdale (rules/pga_classic/history/2026-07-22__2026-open-championship)"
+        note: >
+          Second mechanism contradiction — this time the OVERWEIGHT side mis-sorted.
+          Matt Fitzpatrick was coffin +8.2 (the split's "value chalk" signal) and the
+          strategy tiered him Core on that basis; his ownership then steamed from
+          25.5% projected to 37.6% actual field own and he busted 22.0, finishing as
+          the slate's #1 fish trap (54.1% of fish lineups, 2.8% of winners) — i.e. the
+          coffin's "value chalk" was in reality the slate's clearest TRAP chalk. The
+          Memorial contradiction showed the coffin mis-sorting the fade side when
+          projected own never materialized; this shows it mis-sorting the play side
+          when own steams past projection. The mechanism failure is the same in both:
+          the coffin list alone cannot be "the primary signal for the split" — the
+          split is conditional on ownership landing near projection, which is the
+          domain of [[pga-classic-2026-06-10-fade-needs-ownership-to-materialize]] and
+          the validated [[pga-classic-2026-06-17-single-vendor-overweight-self-erosion]]
+          drift guard. Two mechanism contradictions on a CODIFIED rule -> demotion/
+          narrowing proposal in this review's Proposed codifications. GPP guard
+          satisfied: logged on the falsified own-sort, not on the lost contest.
     codified_in: "framework.md — Section 6 Anchor Selection Logic (Trap chalk vs value chalk); philosophy.md — Section 5 Chalk Has a Purpose"
     retired_reason: null
 
@@ -270,7 +310,7 @@ lessons:
       gaining approach") were the actual sub-5% slate-definers. The scan should
       cross CH boost AND a minimum skill floor, and the form/value engine should
       be treated as a co-equal source of sub-5% leverage.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-17"
         slate: "RBC Canadian Open at TPC Toronto Osprey Valley North (rules/pga_classic/history/2026-06-17__pga-classic-rbc-canada-6-12-26)"
@@ -302,7 +342,7 @@ lessons:
           Shinnecock) = 3 mechanism slates; meets the promotion bar. See Proposed
           codifications.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Section 2 Slate Diagnostics (Gated cheap-leverage scan) and Section 9 Pre-Submission Checklists (gated-scan items); codified 2026-07-22, replacing the retired course-history-sub5-scan"
     retired_reason: null
 
   - id: pga-classic-2026-06-10-fade-needs-ownership-to-materialize
@@ -346,6 +386,19 @@ lessons:
           cheap leverage. A sub-10% 'fade' is not a fade — sanity-check every fade against a
           low-own read before lock. Origin (Memorial) + RBC + Travelers = 3 mechanism
           slates; meets the promotion count. See Proposed codifications.
+      - date: "2026-07-22"
+        slate: "2026 Open Championship at Royal Birkdale (rules/pga_classic/history/2026-07-22__2026-open-championship)"
+        note: >
+          Fourth confirmation — and the first slate the check was run EXPLICITLY in the
+          strategy doc, both directions. The Hovland FADE was written WITH the
+          materialization check inline ("Own IS materializing at 20%+, so the fade
+          premise holds"); own came in 24.2%, he posted 23.5 FPTS and was the #2 fish
+          trap (36.0% of fish, 2.8% of winners) — fade correct because the ownership
+          showed up. Converse leg: the Si Woo LEAN FADE was premised on 24.2% projected
+          giga-chalk own; actual own came in at 18.6% (5.6 pts under projection) and he
+          hit 76.5 and made 44.4% of the top lineups — the fade edge shrank exactly as
+          the ownership failed to fully materialize. Both directions of the mechanism
+          held on one slate.
     contradictions: []
     codified_in: "framework.md — Section 6 Anchor Selection Logic (Trap chalk vs value chalk); philosophy.md — Section 5 Chalk Has a Purpose"
     retired_reason: null
@@ -420,6 +473,18 @@ lessons:
           confirmation independent of the result. Adherence is now inconsistent
           slate-to-slate (Memorial off, RBC off, Shinnecock on, Travelers off),
           strengthening the case to codify the discipline. See Proposed codifications.
+      - date: "2026-07-22"
+        slate: "2026 Open Championship at Royal Birkdale (rules/pga_classic/history/2026-07-22__2026-open-championship)"
+        note: >
+          Fourth confirmation, via the modern (Grade-tab) expression of the mechanism.
+          The lineups WERE pre-lock graded (lineup_grade.md archived; grader_check in
+          results.jsonl), and the one lineup that violated the written plan — L2
+          carrying Viktor Hovland against the doc's explicit FADE (adherence.json:
+          fades_violated=1) — was flagged by the grader pre-lock and finished 69.2
+          pctile, worse than 3 of the 4 clean lineups (23.5 / 33.0 / 42.0; only the
+          off-screen-dart L1 at 82.8 was worse). The deviation was visible, named
+          pre-lock, and cost anyway: the safety net worked, the discipline didn't.
+          Discipline (adherence) remains the live gap even as the analysis improves.
     contradictions: []
     codified_in: "framework.md — Section 9 Pre-Submission Checklist (trace-to-plan rule)"
     retired_reason: null
@@ -454,6 +519,15 @@ lessons:
           sub-10% / high-unique baseline. The user's entries averaged ~15-16.5% own
           (avg_own_delta -1.4 to -3.12 vs winners) — slightly above the winning
           envelope, dragged up by the Rai/Rose chalk that busted.
+      - date: "2026-07-22"
+        slate: "2026 Open Championship at Royal Birkdale (rules/pga_classic/history/2026-07-22__2026-open-championship)"
+        note: >
+          Confirmed again, dead-on: the top-36 winners ran 13.94% mean per-player own,
+          2.25 sub-10% pieces, 100% unique (the overall winner: 10.4% avg own with 4
+          sub-10% pieces including a 1.2%-owned Bridgeman). The user's entries averaged
+          16.49% own with 2.0 sub-10% — above the winning envelope for the second
+          logged 5-Max in a row, dragged up this time by Matt Fitzpatrick chalk that
+          steamed to 37.6% field own and busted (22.0).
     contradictions: []
     codified_in: "framework.md — Section 3 Ownership Tier Framework (empirical winning-structure baseline)"
     retired_reason: null
@@ -510,6 +584,19 @@ lessons:
           that the scan must NAME the candidate, and see the new
           [[pga-classic-2026-07-01-vendor-independent-ceiling-scan]] on WHY an elite this
           obvious was missed (outside the single-vendor coffin/panel lens).
+      - date: "2026-07-22"
+        slate: "2026 Open Championship at Royal Birkdale (rules/pga_classic/history/2026-07-22__2026-open-championship)"
+        note: >
+          Confirmed again — and the first slate in FIVE where the scan actually NAMED
+          the definer pre-lock. The slate's defining play was Cameron Young (96.5 FPTS
+          at 8.72% own, in 44.4% of the top-36 winners, the overall winner's leverage
+          carrier), and the strategy's mandatory low-owned-definer screen listed him
+          FIRST ("$9K — Cameron Young... the 'no links experience' fade got him last
+          time"). The structural truth held (a sub-20% smash defined the slate, again),
+          and the identification half finally worked at the DOC level. The residual
+          failure moved downstream: no entered lineup carried him (0/5) — the naming
+          gap is closed, the doc-to-entry coverage gap is now the live problem (see
+          [[pga-classic-2026-06-17-design-exposures-before-lineups]]).
     contradictions: []
     codified_in: "framework.md — Section 2 Slate Diagnostics (mandatory low-owned-smash scan)"
     retired_reason: null
@@ -524,7 +611,7 @@ lessons:
       points the chalk banks; on tough courses, differentiation via low-owned plays
       matters more. Average per-player ownership stays ~13% across archetypes — the dart COUNT
       shifts, not the overall own target.
-    status: hypothesis
+    status: codified
     confirmations:
       - date: "2026-06-13"
         slate: "168-slate mining 2023-2026 (archetype split)"
@@ -568,8 +655,21 @@ lessons:
           each — a touch light vs the winners' 2.5; the count was close and, as at
           Shinnecock, the miss was dart SELECTION, not dart count. Mild support for a no-cut
           birdie-fest running ~2.5 rather than a flat 2.
+      - date: "2026-07-22"
+        slate: "2026 Open Championship at Royal Birkdale (rules/pga_classic/history/2026-07-22__2026-open-championship)"
+        note: >
+          Confirmation at the birdie-fest+cut corner. Defenseless Birkdale (heat wave,
+          light wind, winning DK score 479) was an unambiguous birdie-fest WITH a cut,
+          and the pre-slate read called "the ~2-2.5-dart end." Winners ran exactly
+          there: top-36 low_own_count_mean 2.25 sub-10% pieces (the overall winner's 4
+          was the tail, not the median). Our entries ran 2.0 mean — on target for
+          count; as at Shinnecock and the Travelers, the miss was dart SELECTION, not
+          dart count. Origin (mining split) + RBC (~2 half-conf) + Shinnecock
+          (tough+cut ~2.5) + Travelers (no-cut ~2.5) + Open (birdie-fest+cut 2.25) —
+          the calibration has now held at every archetype corner sampled; meets the
+          promotion count. See Proposed codifications.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Section 3 Ownership Tier Framework (Dart-count calibration); codified 2026-07-22"
     retired_reason: null
 
   - id: pga-classic-2026-06-17-single-vendor-overweight-self-erosion
@@ -591,8 +691,24 @@ lessons:
       was the single biggest miss of the slate. Guard: when the edge is one vendor's
       self-referential gap, cap exposure and require a second, independent reason
       (form, skill, course-fit) before treating it as conviction.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-07-22"
+        slate: "2026 Open Championship at Royal Birkdale (rules/pga_classic/history/2026-07-22__2026-open-championship)"
+        note: >
+          First mechanism confirmation, and it confirms the REFINED (post-Burns) guard
+          exactly: the own-drift prong fired on the narrative/rising names and not on
+          stable chalk. Matt Fitzpatrick — coffin +8.2, the writer "hammering in the
+          name of recent form IF OWN HOLDS" — was a trendy recent-form steamer; his own
+          did NOT hold, drifting UP from 25.5% projected to 37.6% actual field own, and
+          he busted (22.0 FPTS, the slate's #1 fish trap: 54.1% of fish lineups vs 2.8%
+          of winners). MacIntyre, the slate's biggest coffin overweight (+25.9), was
+          flagged in the doc as the self-erosion trigger with the writer's own
+          "closer to 30%" read — his own drifted 20.9% -> 28.9% exactly as predicted
+          (he posted a survivable 63.0). The discriminator from the Burns contradiction
+          holds: drift fires on narrative/rising names (Rai, Fitzpatrick, MacIntyre),
+          not on stable floored value chalk (Burns). Promoted to validated with the
+          refined guard as the operative statement.
     contradictions:
       - date: "2026-06-24"
         slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
@@ -639,11 +755,18 @@ lessons:
       meant no uniqueness was bought. The red team flagged the mislabel pre-lock.
       Proposed gate: only call a pair a "spine" when combined large-field own is
       <=~19%; above that, treat each leg as standalone chalk and size on its own merit.
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: >
+      Merged 2026-07-22 into [[pga-classic-2026-05-11-leverage-spine-pairing]] as its
+      sub-~19%-combined-own scope condition (Open Championship review, ledger
+      hygiene). GPP guard honored: the gate went unconfirmed only because no strategy
+      since the RBC labeled an overweight PAIR a spine — the trigger never occurred,
+      which is not a mechanism failure — so rather than age forever as an
+      unconfirmable standalone hypothesis it was folded into its parent codified
+      rule.
 
   - id: pga-classic-2026-06-17-mid-owned-value-spine-over-darts
     born: "2026-06-17"
@@ -714,6 +837,21 @@ lessons:
           mechanism slates. The actionable fix for the identification half now lives in
           [[pga-classic-2026-07-01-vendor-independent-ceiling-scan]]. See Proposed
           codifications (with the necessary-not-sufficient caveat).
+      - date: "2026-07-22"
+        slate: "2026 Open Championship at Royal Birkdale (rules/pga_classic/history/2026-07-22__2026-open-championship)"
+        note: >
+          Third mechanism confirmation. All four slate-defining plays lived in the
+          ~8-19% mid-owned band, ZERO in the sub-5% dart tier: Cameron Young (96.5 @
+          8.72%), Sam Burns (92.0 @ 13.6%, in 66.7% of the top-36 winners — the single
+          most common winner piece), Si Woo Kim (76.5 @ 18.6%), Russell Henley (74.5 @
+          18.9%). The band is where the slate was won, again. Improvement note: unlike
+          the prior four slates, only ONE of the four definers (Burns) was absent from
+          the strategy doc — Young was the #1 screen name, Henley was tiered Good and
+          carried 2/5, Si Woo was a lean-fade but surfaced. Burns (a mid-band elite ETR
+          was cool on) extends the doc-absence streak to five slates but at a much
+          smaller residual; his profile is exactly what the
+          [[pga-classic-2026-07-01-vendor-independent-ceiling-scan]] full ceiling board
+          is supposed to catch.
     contradictions: []
     codified_in: "framework.md — Section 2 Slate Diagnostics (10-16% mid-owned band coverage)"
     retired_reason: null
@@ -743,7 +881,7 @@ lessons:
       on each expensive chalk anchor; then fill lineups to those targets. Distinct from
       mid-owned-value-spine-over-darts (which is WHICH players to roster) — this is the
       portfolio CONSTRUCTION METHOD (exposures-first) that gets them rostered consistently.
-    status: hypothesis
+    status: codified
     confirmations:
       - date: "2026-06-24"
         slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
@@ -767,8 +905,22 @@ lessons:
           new [[pga-classic-2026-06-24-major-pedigree-in-form-leverage]], not of the
           exposures-first method. GPP guard: logged as a mechanism (coherence-preserved)
           confirmation, independent of the result.
+      - date: "2026-07-22"
+        slate: "2026 Open Championship at Royal Birkdale (rules/pga_classic/history/2026-07-22__2026-open-championship)"
+        note: >
+          Second mechanism confirmation, negative direction — the no-exposure-governor
+          failure mode fired precisely as described. The strategy declared the definers
+          screen "this slate's priority — most bullets carry one," and the screen
+          ranked Cameron Young FIRST. The five hand-assembled lineups then covered only
+          6 of 12 screen names and left the TOP of the screen unrostered: Young (the
+          eventual winner's carrier, 96.5 @ 8.72%) 0/5, Rose 0/5, Bryson 0/5 — while
+          two lineups spent their dart slots on four OFF-screen darts (Sullivan, Reed,
+          Smith, Detry) and finished 69.2 / 82.8 pctile, the portfolio's two worst.
+          Independent assembly let the best value compete for slots and lose, exactly
+          the mechanism. Origin (RBC) + Shinnecock (positive) + Open (negative) = 3
+          mechanism slates; meets the promotion count. See Proposed codifications.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Section 7 Exposure Caps (Exposures before lineups); codified 2026-07-22"
     retired_reason: null
 
   - id: pga-classic-2026-06-17-act-on-redteam-portfolio-findings-on-ship
@@ -844,7 +996,7 @@ lessons:
       Distinct from [[pga-classic-2026-06-17-mid-owned-value-spine-over-darts]] (which
       says the 10-16% band is where slates are won) — this names a repeatable SOURCE for
       an under-projected member of that band at majors.
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions:
       - date: "2026-07-01"
@@ -867,7 +1019,13 @@ lessons:
           definer the single-vendor lens keeps under-flagging — 3 straight slates: RBC,
           Shinnecock, Travelers).
     codified_in: null
-    retired_reason: null
+    retired_reason: >
+      Merged 2026-07-22 into
+      [[pga-classic-2026-07-01-vendor-independent-ceiling-scan]] after the Travelers
+      contradiction broadened its scope beyond majors — its content (an in-form
+      proven closer/elite at sub-15% own is a systematic leverage blind spot) is now
+      the recent-champions/proven-closers row of the surviving lesson's ceiling
+      board, gated on a current-form floor. Evidence trail preserved in this entry.
 
   - id: pga-classic-2026-07-01-vendor-independent-ceiling-scan
     born: "2026-07-01"
@@ -897,7 +1055,85 @@ lessons:
       omitted. Encompasses the identification half of
       [[pga-classic-2026-06-17-mid-owned-value-spine-over-darts]], the single-vendor bubble
       of [[pga-classic-2026-06-17-single-vendor-overweight-self-erosion]], and the broadened
-      [[pga-classic-2026-06-24-major-pedigree-in-form-leverage]].
+      [[pga-classic-2026-06-24-major-pedigree-in-form-leverage]]. MERGED IN 2026-07-22
+      (from [[pga-classic-2026-06-24-major-pedigree-in-form-leverage]], per the Open
+      Championship review): the scan's ceiling board MUST explicitly include recent
+      tournament/major champions and proven closers gated on a current-form floor,
+      flagging any that survive the gate at sub-15% projected own as leverage —
+      pedigree without form stays lottery-only (Koepka). Both mechanisms fired through
+      the same screen at Birkdale (Lowry, the in-form 2019 champ at 8.4%, hit 66.0;
+      Young, the in-form links pedigree, hit 96.5).
+    status: validated
+    confirmations:
+      - date: "2026-07-22"
+        slate: "2026 Open Championship at Royal Birkdale (rules/pga_classic/history/2026-07-22__2026-open-championship)"
+        note: >
+          First mechanism confirmation — the scan was actually RUN and it worked. The
+          strategy explicitly surfaced plays "named by no article" on ceiling alone:
+          Hatton ($8.9K, 92.0 ceiling, above the sim-optimal line, "named by no article
+          — vendor-independent-scan catch"), Wyndham Clark ("unflagged elsewhere"),
+          J.J. Spaun ("zero article ink"), Ben Griffin ("named by no article — screen
+          catch"). Result: for the FIRST time in five slates the actual slate-definer
+          (Cameron Young, 96.5 @ 8.72%, the winner's carrier, in 44.4% of top lineups)
+          was named in the doc pre-lock — the definer-outside-the-lens streak broke at
+          the doc level. Residual gap that keeps the scan honest: Sam Burns (92.0 @
+          13.6%, in 66.7% of the top-36 winners — the most common winner piece) still
+          appeared NOWHERE in the doc; a mid-band elite the vendor was cool on is
+          exactly what the "~12-15 highest-ceiling players regardless of vendor flags"
+          board must include. Promote to validated; the Burns-shaped hole defines what
+          a second confirmation must show (the full-field ceiling board catching the
+          vendor-cool mid-band elite, not just the sub-10% tier).
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-07-22-dart-rate-exceeds-in-field-pros
+    born: "2026-07-22"
+    origin: "rules/pga_classic/history/2026-07-22__2026-open-championship — 2026 Open Championship (shark_gap.json leverage_pct delta +60)"
+    statement: >
+      In small-field 5-Max, my portfolios carry sub-5% pieces at a far HIGHER rate than
+      the tracked in-field pros, and the extra darts are not buying anything: this
+      slate 80% of my lineups carried a sub-5% piece vs the in-field pros' 20% (delta
+      +60), and the same axis in the same direction was the top shark gap at Shinnecock
+      (delta +53.3) — a recurring structural separation, not noise. Mechanism: in a
+      ~3.5K-field 5-Max my 5 bullets are already 100% unique, so the marginal deep dart
+      buys no needed uniqueness and only adds bust risk; meanwhile the actual
+      slate-definers keep landing in the 8-19% mid-owned band (Young 8.7%, Burns 13.6%
+      this slate — zero definers sub-5%), which is where the pros concentrate. The
+      pros' edge is anchor discipline plus mid-band selection (in-field pros ran 20.1%
+      own/slot and 0.6 chalk-anchor exposure vs my 16.5% / 0.4, and their best bullet
+      beat mine 8.3 vs 23.5 pctile); mine spends the differentiation budget below 5%
+      where the hit rate is thinnest. Guard: sub-5% exposure should be capped near the
+      sharp-playbook "one sub-5% piece in MOST lineups" — not one in nearly every
+      lineup plus extra — with the freed slots pushed up into the 8-19% definer band.
+      Distinct from [[pga-classic-2026-06-13-dose-darts-to-course-variance]] (per-lineup
+      dart COUNT vs course archetype) — this is the PORTFOLIO-level sub-5% rate vs the
+      observed pro envelope.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-07-22-darts-come-from-the-screen
+    born: "2026-07-22"
+    origin: "rules/pga_classic/history/2026-07-22__2026-open-championship — 2026 Open Championship (off-screen darts Sullivan/Reed/Smith/Detry)"
+    statement: >
+      Dart slots must be filled FROM the strategy's written low-owned-definer screen,
+      not improvised at build time: an off-screen dart is an unvetted coin flip that
+      skipped the only filter (ceiling path + ownership) the process applies, while
+      every screen name has a written ceiling case. At the Open the two lineups whose
+      dart slots went to four OFF-screen names (Andy Sullivan, Patrick Reed, Cameron
+      Smith, Thomas Detry — none in the doc's 20-name definer/dart screen) finished
+      69.2 and 82.8 pctile, the portfolio's two worst, while the three lineups whose
+      low-owned pieces came from the screen (Lowry, Kitayama, English, Spaun, Griffin,
+      Hojgaard) finished 23.5 / 33.0 / 42.0. Meanwhile the screen's #1 name (Cameron
+      Young) went unrostered — the improvised darts consumed the slots the screen's
+      best names should have had. Mechanism, not result: the screen is the vetting
+      layer; bypassing it reintroduces exactly the unfiltered variance it exists to
+      remove. Partner of [[pga-classic-2026-06-17-design-exposures-before-lineups]]
+      (which governs HOW MUCH of the screen gets covered); this governs WHERE dart
+      slots may come from at all.
     status: hypothesis
     confirmations: []
     contradictions: []

@@ -1,0 +1,39 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "lineups": [
+    {
+      "players": [
+        "Christopher Bell",
+        "Josh Berry",
+        "Kyle Larson",
+        "Riley Herbst",
+        "William Byron",
+        "Zane Smith"
+      ],
+      "percentile": 82.4,
+      "flags": [
+        "crowded_pair"
+      ]
+    },
+    {
+      "players": [
+        "Alex Bowman",
+        "Christopher Bell",
+        "Denny Hamlin",
+        "Joey Logano",
+        "Riley Herbst",
+        "Zane Smith"
+      ],
+      "percentile": 7.4,
+      "flags": [
+        "crowded_pair"
+      ]
+    }
+  ],
+  "flagged_pctiles": [
+    82.4,
+    7.4
+  ],
+  "clean_pctiles": []
+}

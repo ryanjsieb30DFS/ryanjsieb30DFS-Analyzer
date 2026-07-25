@@ -1,0 +1,77 @@
+{
+  "field": 1470,
+  "anchors": [
+    "christopher bell",
+    "kyle larson",
+    "riley herbst"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 5,
+    "own_per_slot": 35.8,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.6,
+    "anchor_exposure_by_player": {
+      "christopher bell": 1.0,
+      "kyle larson": 0.4,
+      "riley herbst": 0.4
+    },
+    "max_overlap": 4,
+    "unique_pct": 100.0,
+    "best_pctile": 12.11,
+    "median_pctile": 47.14
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 35.7,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.667,
+    "anchor_exposure_by_player": {
+      "christopher bell": 1.0,
+      "kyle larson": 0.0,
+      "riley herbst": 1.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 7.41,
+    "median_pctile": 7.41
+  },
+  "deltas": [
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 35.7,
+      "shark": 35.8,
+      "delta": -0.1
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.667,
+      "shark": 0.6,
+      "delta": 0.067
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 0.0,
+      "shark": 0.0,
+      "delta": 0.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "nascar",
+  "sport": "nascar"
+}

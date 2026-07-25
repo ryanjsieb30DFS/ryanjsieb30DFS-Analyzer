@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-22",
+  "slug": "pga_classic",
+  "sport": "golf",
+  "slate_label": "2026 Open Championship",
+  "history_dir": "rules/pga_classic/history/2026-07-22__2026-open-championship",
+  "contests": [
+    {
+      "name": "PGA $15K Eagle [5 Entry Max]",
+      "type": "5-Max",
+      "source_file": "contest-standings-192255218.csv",
+      "field_size": 3567,
+      "my_entries": 5,
+      "entry_fee": 5.0,
+      "buy_in": 25.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 838,
+      "best_percentile": 23.5
+    }
+  ],
+  "total_buy_in": 25.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 838,
+  "best_percentile": 23.5,
+  "entries_total": 5,
+  "edge_leverage_capture": 0.5,
+  "edge_overperformer_capture": null,
+  "edge_bust_exposure": null,
+  "lineup_avg_ratio": null,
+  "shark_gap_top": {
+    "dim": "leverage_pct",
+    "delta": 60.0
+  },
+  "adherence_fades_violated": 1,
+  "adherence_leverage_covered": "6/12",
+  "tier_summary": "Core 58.0 > Good 57.5 > Okay 49.3 > Fade 32.5  \u2713 ordered",
+  "tiers_ordered": true,
+  "grader_check": {
+    "flagged_pctiles": [
+      69.2
+    ],
+    "clean_pctiles": [
+      23.5,
+      33.0,
+      42.0,
+      82.8
+    ]
+  }
+}

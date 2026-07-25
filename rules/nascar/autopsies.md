@@ -402,3 +402,86 @@ A 5-check pre-lock validator was prototyped and then removed across all sports. 
 - My entries: 1 · best rank 412/490 (top 84.1%)
 - Winners (top 20): avg own 33.19% vs mine 30.78% · sub-10% plays/lineup 1.15 vs mine 1.0
 - Slate-defining plays: Carson Hocevar (65.5 pts @ 18.0%)
+
+
+## North Wilkesboro — July 2026 (Cup, 7/19/26 · logged 7/21/26 via chat analysis)
+
+### Contest Results
+| Contest | Lineup | Score | Rank | Cashed? | Cash Line |
+|---|---|---|---|---|---|
+| NAS $15K Engine Block (SE, 1,470) | Hamlin / Bell / Logano / Bowman / Zane Smith / Herbst | 348.00 | 109 (top 7.4%) | Yes | 280.25 |
+| NAS $5K Engine Block (SE, 490) | Larson / Bell / Byron / Berry / Zane Smith / Herbst | 165.45 | 404 (top 82.4%) | No | 290.95 |
+
+### Slate Winners (Optimal Construction)
+- The race was decided by one man: **Joey Logano scored 180.75 at 18.9% ownership** — he dominated the 450-lap short track exactly the way his own write-up foreshadowed (he led 199 of 200 in the 2024 All-Star here). Every top lineup was Logano plus pieces.
+- $15K winner (451.95, "shark4thewin"): Logano / Briscoe / Hocevar / Bubba / Keselowski / Suarez — **three sub-10% pieces** (Hocevar 8.6%, Keselowski 8.0%, Suarez 5.6%) around one mid-owned anchor.
+- $5K winner (447.15, two tied): Hamlin / Logano / Briscoe / Ty Gibbs / Zilisch / Herbst — a chalkier version, still built on Logano.
+- Winning scores: 447–452. Cash lines: ~280–291. Top-20 avg ownership: 26.8% ($15K) / 31.6% ($5K); top-20 sub-10% pieces per lineup: 1.15 ($15K) / 0.75 ($5K).
+- **The mega-chalk busted**: Christopher Bell came in at 66–68% actual ownership (DailyFan projected 46%) and scored 17.90. Blaney (33.5% actual) scored 23.60. Both sides of the Blaney/Bell anchor coin flip lost; the third front-runner (Logano, 24% projected own) was the real dominator.
+
+### What We Got Right
+| Call | Result | Notes |
+|---|---|---|
+| Logano "GPP Fav" (Good tier, 24% own) | 180.75, race-winner of the slate | Rostered in the $15K bullet — the reason it cashed at top 7.4% |
+| Tyler Reddick fade (DDD side of the disagreement) | -7.15 | The one time the article fade beat the vendor projection; contract fade kept him out |
+| All contract fades honored (Reddick/Hocevar/SVG/Suarez/Hill/AJ zero exposure; Briscoe/Bubba zero exposure) | Adherence clean | Process discipline was fine — the misses were elsewhere |
+| Hamlin + Ty Gibbs front-row dominator-pool reads | 64.55 / 60.55 | The "dominator pool lives at the front" thesis held (Logano, Hamlin, Gibbs, Briscoe-from-P30 the exception) |
+
+### What We Got Wrong
+| Call | Result | Lesson |
+|---|---|---|
+| **Bell in BOTH bullets, Blaney in neither** | Bell 17.90 at 68% own; both bullets carried the same busted anchor | The strategy explicitly said to split the two bullets across the Blaney/Bell coin flip. This is an execution violation of the codified Anchor-Equivalence rule, not a strategy gap. A 2-bullet portfolio sharing its anchor is one bullet. |
+| **Zero sub-10% pieces in either lineup** — leverage capture 0% for the 3rd straight slate | $15K winner carried three; SVG (61.0 @ 9.5%), Suarez (45.1 @ 5.6%), Gilliland (46.9 @ 5.1%), Keselowski (55.2 @ 8.0%) defined the slate | The definer screen WORKED (SVG, Suarez, Gilliland were all on the strategy's mandatory sub-10% list) — the lineups just never used any of it. The screen has to reach the entered lineups, not just the doc. |
+| Bowman as the "article-certified" mid-tier core | 15.90 at 46.7% actual own (28% projected) | The value funnel inflated: Bowman/Herbst/Bell all ran 1.5–2x their projected ownership. "Cheaper same-profile" plays stop being leverage when the whole field reads the same article. |
+| Berry GPP FAV ($5K bullet) | -3.00 (wrecked) | Variance, but paired with Bell it left the $5K bullet with two zeros by lap 200. |
+
+### Lessons That Generalize
+1. **Anchor-Equivalence extends to the portfolio level.** The rule already says: when two chalk anchors are near-identical, at least one lineup runs the alternative. This slate showed the failure mode: both bullets on the same side (Bell) means the coin flip can zero the whole portfolio. With 2 bullets and 2 equivalent anchors, sharing the anchor across both bullets needs a positive reason, not a default.
+2. **Actual SE ownership concentrates far harder than DailyFan projects.** Bell 46%→66-68%, Herbst 22%→48-51%, Bowman 28%→47-48%, Larson 38%→46-49%, while the co-anchor Blaney DEFLATED 47%→33.5%. Mechanism: in small SE fields the crowd picks ONE anchor and jams the obvious value, so projected-own gaps of 5-10 points become 20-30 points at lock. Treat projected ownership on the top-projected anchor and the cheapest article value as a floor, not an estimate.
+3. **Leverage capture is now a 3-slate process failure (0%, 50%, 0%).** The fix is mechanical, not analytical: every bullet gets exactly one piece from the strategy's sub-10% definer list before it is entered. The list keeps producing the slate-definers (SVG/Suarez/Gilliland this week; the screen exists because of exactly these).
+4. **"MME or fade" took its first SE contradiction.** The codified read (DDD's "MME or fade" = fade in single entry) kept us off SVG (61.0), Suarez (45.1), and Hocevar (26.4) — the $15K winner rostered Suarez AND Hocevar, and SVG was the slate's top leverage score. One mechanism contradiction logged; not retirement-worthy alone (GPP guard), but the tag may mean "low floor, live ceiling" rather than "unplayable in SE" at high-variance short tracks.
+
+### Slate-Specific Notes (Don't Generalize)
+- Briscoe (80.05 at 34-37%) and Bubba (64.50 at 24-29%) both HIT after being tagged underweight/lean-fade off the 2-of-2 fish-trap history. First loss for the fish-trap signal; the mechanism (ownership outrunning projection) was priced correctly — the outcome went the other way. Evidence, not contradiction.
+- Logano's 180.75 is a +7.8-stddev outcome — the single largest projection miss logged in this repo. Do not tune anything to "catch the next 180."
+- Both named-shark cohorts whiffed: best in-field shark finished top 12.8% ($15K, JRSobeski 317.1 — our 348 beat all three named sharks in that field) and top 45.5% ($5K). The chalk-comfortable shark envelope (31-41% own/slot, 0-1 sub-10 pieces) lost this week to a 3-leverage-piece winner.
+
+### Process Notes
+- Adherence to the strategy contract was perfect on fades and zero on leverage candidates — the exact inverse of what this slate paid.
+- **Tool bug found during this autopsy:** `data/strategy_contract/nascar.json` logged **Tyler Reddick as "fade"** and **Ross Chastain as "pass"**, but the slate strategy's Leverage & fades section had Reddick as the PRIME sub-10% definer (no fade verdict) and Chastain in the explicit FADE cluster. The VERDICT parse inverted the strategy's loudest leverage call, and the Sim tool auto-applies hard fades — Reddick was auto-blocked from pools. It happened to save points this week (Reddick -7.15), but the parse is wrong and should be fixed in `src/strategy_contract.py`.
+- Standings CSVs: contest-standings-192343608.csv ($5K, 490) and contest-standings-192343616.csv ($15K, 1,470). App-owned ledgers (results.jsonl, autopsy_data.jsonl, field_tendencies, shark envelope, history archive) still need the in-app **Log autopsy** click — this entry is the written analysis only.
+
+
+## 2026-07-21 21:54 — NASCAR (contest-standings-192343608.csv)
+- Entries: 490
+- Winning score: 447.1
+- Cash line (top 20%): 290.9
+- My entries: 1 · best rank 404/490 (top 82.4%)
+- Winners (top 20): avg own 31.59% vs mine 36.73% · sub-10% plays/lineup 0.75 vs mine 0.0
+
+
+## 2026-07-21 21:54 — NASCAR (contest-standings-192343616.csv)
+- Entries: 1,470
+- Winning score: 451.9
+- Cash line (top 20%): 280.1
+- My entries: 1 · best rank 109/1,470 (top 7.4%)
+- Winners (top 20): avg own 26.81% vs mine 35.68% · sub-10% plays/lineup 1.15 vs mine 0.0
+- Slate-defining plays: Joey Logano (180.8 pts @ 18.9%)
+
+### Strategy adherence — did you follow your own strategy? (2 unique lineups)
+- ✅ Every hard FADE honored.
+- Leverage candidates rostered somewhere: **0 of 12**.
+
+### Player-pool tier calibration (37 of 37 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 3 | 19.1 | 23.6 |
+| **Good** | 7 | 53.9 | 180.8 |
+| **Okay** | 14 | 32.2 | 80.0 |
+| **Fade** | 13 | 21.8 | 64.5 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+- 🕳️ Buried: **Bubba Wallace** (Fade) scored 64.5 — above the top tier's average.
+- 🕳️ Buried: **Carson Hocevar** (Fade) scored 26.4 — above the top tier's average.
+- 🕳️ Buried: **Shane Van Gisbergen** (Fade) scored 61.0 — above the top tier's average.
+- 🕳️ Buried: **Daniel Suarez** (Fade) scored 45.0 — above the top tier's average.
+- 🕳️ Buried: **Ty Dillon** (Fade) scored 33.5 — above the top tier's average.

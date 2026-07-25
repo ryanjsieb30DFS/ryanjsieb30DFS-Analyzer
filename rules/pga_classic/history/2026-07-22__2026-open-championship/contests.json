@@ -1,0 +1,15 @@
+{
+  "contests": [
+    {
+      "name": "PGA $15K Eagle [5 Entry Max]",
+      "type": "5-Max",
+      "field_size": 3567,
+      "max_entries": 5,
+      "my_entries": 5,
+      "entry_fee": 5.0,
+      "prize_pool": 15000,
+      "payout_shape": "Flat",
+      "id": "cb1f1b0e"
+    }
+  ]
+}

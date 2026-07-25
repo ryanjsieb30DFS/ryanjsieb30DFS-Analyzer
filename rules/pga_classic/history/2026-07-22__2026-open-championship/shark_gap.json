@@ -1,0 +1,77 @@
+{
+  "field": 3567,
+  "anchors": [
+    "matt fitzpatrick",
+    "robert macintyre",
+    "rory mcilroy"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 10,
+    "own_per_slot": 20.1,
+    "leverage_pct": 20.0,
+    "anchor_exposure": 0.6,
+    "anchor_exposure_by_player": {
+      "matt fitzpatrick": 0.7,
+      "robert macintyre": 0.8,
+      "rory mcilroy": 0.3
+    },
+    "max_overlap": 6,
+    "unique_pct": 60.0,
+    "best_pctile": 8.27,
+    "median_pctile": 65.46
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 5,
+    "own_per_slot": 16.5,
+    "leverage_pct": 80.0,
+    "anchor_exposure": 0.4,
+    "anchor_exposure_by_player": {
+      "matt fitzpatrick": 0.4,
+      "robert macintyre": 0.4,
+      "rory mcilroy": 0.4
+    },
+    "max_overlap": 1,
+    "unique_pct": 100.0,
+    "best_pctile": 23.49,
+    "median_pctile": 42.0
+  },
+  "deltas": [
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 80.0,
+      "shark": 20.0,
+      "delta": 60.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 60.0,
+      "delta": 40.0
+    },
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 16.5,
+      "shark": 20.1,
+      "delta": -3.6
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.4,
+      "shark": 0.6,
+      "delta": -0.2
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "pga_classic",
+  "sport": "golf"
+}

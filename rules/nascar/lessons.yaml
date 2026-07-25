@@ -101,8 +101,9 @@ lessons:
       (Suarez flagged as a hole pre-slate, not fixed, scored 35.35). If a gap is
       identified, address it in at least one lineup even if construction is
       awkward.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - {date: "2026-07-21", slate: "North Wilkesboro (7/19/26)", history_dir: "rules/nascar/history/2026-07-21__nascar-north-wilkesboro-7-19-26", note: "First mechanism confirmation, and it's the whole slate story: the strategy DIAGNOSED the gap in writing ('your leverage capture went 0% and 50% the last two slates, and the definers list above is the screen that fixes it') and named 12 sub-10% candidates — then 0 of 12 reached an entered lineup. Three of the diagnosed plays defined the slate (SVG 61.0 @ 9.5%, Suarez 45.05 @ 5.6%, Gilliland 46.9 @ 5.1%) and the $15K winner carried three sub-10% pieces. Already-diagnosed, unaddressed, edge forfeited for free — the mechanism verbatim. Promoted to validated; the mechanical fix is the new [[nascar-2026-07-21-definer-screen-must-reach-entries]]."}
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -142,14 +143,18 @@ lessons:
     born: "2026-05-01"   # Texas slate; only "May 2026" known
     origin: "autopsies.md — Texas Motor Speedway, What We Got Wrong (Bubba fade) + Slate-Specific Notes"
     statement: >
-      A backup car is a risk factor, not a fade thesis — it lowers the floor
-      modestly but does not erase the price/start PD math that put the driver at
-      chalk ownership (Bubba top-5 from P37 in a backup car, 63 pts at 65.58%
-      own). Don't auto-fade backup-car drivers; demand positive evidence.
+      A physical-risk narrative — backup car, injury, or equivalent — is a risk
+      factor, not a fade thesis: it lowers the floor modestly but does not erase
+      the price/start/equipment math (Bubba top-5 from P37 in a backup car at
+      65.6% own; Bell's fractured-wrist fade landing in Sonoma's #1 overall
+      lineup at 12% own). When the field already discounts the driver for the
+      narrative, the fade is negative leverage. Demand on-track evidence of
+      degradation (practice/qualifying pace) before fading.
     status: codified
-    confirmations: []
+    confirmations:
+      - {date: "2026-06-28", slate: "Sonoma Raceway", note: "Merged-in evidence from [[nascar-2026-06-28-injury-narrative-not-a-fade-thesis]] (retired 2026-07-21, merged here): Bell's fractured-wrist fade ('Bell is the trap', only 12% field own) landed in Sonoma's #1 OVERALL lineup (beardgrylls, 323.9) plus multiple top-10s — a field-shared physical-risk narrative was negative leverage, the same mechanism as the backup car."}
     contradictions: []
-    codified_in: "framework.md — Quick-Reference Decision Heuristics (backup-car driver -> don't auto-fade)"
+    codified_in: "framework.md — Quick-Reference Decision Heuristics (physical-risk narrative (backup car, injury) -> risk factor, not fade thesis; demand on-track evidence — updated 2026-07-21)"
     retired_reason: null
 
   # ---------------------------------------------------------------
@@ -294,7 +299,8 @@ lessons:
       1-of-N cannot — so "MME or fade" means fade in single entry, full stop.
     status: codified
     confirmations: []
-    contradictions: []
+    contradictions:
+      - {date: "2026-07-21", slate: "North Wilkesboro (7/19/26)", history_dir: "rules/nascar/history/2026-07-21__nascar-north-wilkesboro-7-19-26", note: "FIRST MECHANISM CONTRADICTION in SE. The codified read tagged SVG/Suarez/Hocevar/Chastain 'MME or fade' -> SE fade, and the $15K SE WINNER (shark4thewin, 451.95, 1470 field) rostered Suarez (45.05 @ 5.6%) AND Hocevar (26.4 @ 8.6%), while SVG (61.0 @ 9.5%) was the slate's top leverage score and sat in the #2 lineup. Pool calibration buried all of them in the Fade tier (5 Fade-tier players out-scored the Core tier's average). Mechanism read: at a high-variance 450-lap short track, 'MME or fade' may mean 'low floor, live ceiling' — and an SE bullet in a top-heavy payout needs exactly that ceiling. 1 contradiction; codified rule stays (needs 2), but watch the next short-track/chaos slate."}
     codified_in: "philosophy.md — On Reading the Source Material; framework.md — Step 6 check #6 + Quick-Reference Decision Heuristics"
     retired_reason: null
 
@@ -445,11 +451,11 @@ lessons:
       selection?" on post_roi — all 5 Charlotte entries were -100% across 500
       iterations while 22% of the unentered pool was equity-positive, proving a
       selection-layer leak, not variance.
-    status: codified
+    status: retired
     confirmations: []
     contradictions: []
-    codified_in: "framework.md — Step 6 mandatory check #12; philosophy.md — On Process Discipline (use post_roi_pct as the gold-standard retroactive equity metric)"
-    retired_reason: null
+    codified_in: "WAS codified in framework.md — Step 6 mandatory check #12 + philosophy.md — On Process Discipline; both removed 2026-07-21 at retirement"
+    retired_reason: "references the removed Post-Contest Sim Data / post_roi_pct pipeline; mechanism can no longer fire"
 
   # ---------------------------------------------------------------
   # Pocono Raceway — 2026-06-20 (Slate #4 autopsy)
@@ -459,24 +465,25 @@ lessons:
     born: "2026-06-20"
     origin: "rules/nascar/history/2026-06-20__pocono-raceway-2026/autopsy_review.md"
     statement: >
-      At tracks whose venue history shows the worse-than-30th bucket is a thin
-      optimal path and the 11th-30th band is the meat (Pocono: 9.5% vs 57% of
-      optimal spots), the optimal place-differential points come from MID-PACK
-      (P11-30) high-floor cars, NOT deep-back chalk — and the field's habit of
-      piling into deep-back chalk PD leaves the mid-pack band as the leverage.
-      Mechanism: a PD ceiling from P11-30 is reliably reachable, while a P37-38
-      car needs a near-impossible run (best-ever NextGen worse-than-30th finish =
-      Haley 22nd/32). Pre-lock: when the field over-owns deep-back chalk, source
-      PD from the 11-30 band instead and do not fade a high-floor mid-pack car on
-      track-fit narrative when its start sits in the optimal band.
-    status: validated
+      Mid-pack PD is the leverage meat (5-slate rule, all track types tested:
+      intermediate, road, superspeedway, short flat). Source place-differential
+      from 11th-30th starters with a reachable floor path; do not fade a
+      high-floor mid-pack car on track-fit narrative when its start sits in the
+      venue's optimal band. Mechanism: a PD ceiling from P11-30 is reliably
+      reachable, while a worse-than-30th car needs an exogenous compression
+      event. This says nothing about fading deep-back chalk — the original
+      "fade the deep-back chalk" half is explicitly SUPERSEDED by
+      [[nascar-2026-06-28-roadcourse-deepback-revives-on-strategy]]: deep-back
+      is live alongside mid-pack, it is just not where the reliable PD meat is.
+    status: codified
     confirmations:
       - {date: "2026-06-28", slate: "Sonoma Raceway", note: "The MID-PACK half held strongly: Cindric (P23, 6.53% own) 40.0, Preece (P19, 18.9%) 47.0, Custer (P27, 12.45%) 30.45, Stenhouse (P21, 6.28%) 33.0 — four 11-30-band cars each 20+ FPTS and each in 30-35% of winning lineups; the user captured Stenhouse+Custer in the best lineup (rank 9, 0.3%). Mid-pack PD is real leverage."}
       - {date: "2026-07-12", slate: "Chicagoland Speedway", note: "MID-PACK half held a third time on a fresh intermediate: Cindric (P23) 45.9, Bubba Wallace 60.0, Daniel Suarez 41.5, plus Herbst (P18) and Gilliland (P29) in the top lineups — multiple 11-30-band cars each 20+ FPTS and each in a large share of winners, while the field piled into deep-back chalk. Origin Pocono + Sonoma + Chicagoland = 3 confirming slates for the mid-pack half -> promote to validated; see autopsy_review Proposed codifications (codify the mid-pack-is-the-meat half ONLY). The 'fade the deep-back CHALK' half was again NOT supported: Heim (P28, 46-59% own) scored 55.1 and was in most winners — deep-back chalk paid, consistent with the Sonoma contradiction and [[nascar-2026-06-28-roadcourse-deepback-revives-on-strategy]]."}
       - {date: "2026-07-14", slate: "Atlanta Motor Speedway (Quaker State 400)", note: "Mid-pack half held a fourth time, now on a superspeedway. Atlanta venue file: 21-30 = 40.7% of optimal (the meat). Todd Gilliland (P21, 6% own) hit and was in the #2 lineup of BOTH SE contests (Madb); the strategy sourced PD from the 21-30 band (Gilliland/Nemechek/Zilisch) per this lesson. Deep-back (worse-than-30th, 16.7% optimal here) was thinner this running: the min-salary carnage darts (McLeod/Finchum) mostly did not pay. Mid-pack-is-the-meat confirmed again; already codified 2026-07-12, stays validated."}
+      - {date: "2026-07-21", slate: "North Wilkesboro (7/19/26)", history_dir: "rules/nascar/history/2026-07-21__nascar-north-wilkesboro-7-19-26", note: "FIFTH confirmation of the mid-pack half, now on a repaved short flat where DFR said back-half PD is 'largely unrealized' (11th-30th = 46.7% of optimal slots vs worse-than-30th 16.7%). The 11-30 band supplied the winners' whole differentiation layer: Bubba Wallace (P26) 64.5, Keselowski 55.2 @ 8.0%, Suarez 45.05 @ 5.6%, SVG 61.0 @ 9.5%, Gilliland (P18) 46.9 @ 5.1%, Stenhouse's 'only needs 21st' punt path — the $15K winner's three sub-10% pieces were ALL mid-pack cars. (Briscoe's 80.05 from P30 sat on the band's boundary.) The strategy's definer list sourced from this band per the lesson; the entered lineups used none of it — an execution miss, not a mechanism miss. Hygiene flag: >=3 confirming slates and status still 'validated' — see autopsy_review Proposed codifications to complete the partial codification (narrow the statement to the mid-pack half; deep-back-fade half stays superseded by [[nascar-2026-06-28-roadcourse-deepback-revives-on-strategy]])."}
     contradictions:
       - {date: "2026-06-28", slate: "Sonoma Raceway", note: "MECHANISM CONTRADICTION of the 'fade the deep-back chalk' half. The venue file's 6.7% deep-back-optimal rate flagged Keselowski (P35, 24% own) as the Pocono trap and the strategy faded him relative to field (Decision 2) — but Keselowski was in ~7 of the top 10 (490 field) and BOTH top lineups of the 3567 field; Erik Jones (P32) scored 28 and Austin Dillon (deep) anchored the 490 winner. Winners COMBINED deep-back chalk WITH mid-pack PD around SVG/Gibbs, they did not substitute one for the other. So 'source PD from mid-pack INSTEAD OF deep-back chalk, fade the deep-back chalk' failed: you needed Keselowski too. Re-scope toward [[nascar-2026-06-28-roadcourse-deepback-revives-on-strategy]] — ADD mid-pack PD, do NOT treat a low multi-year deep-back-optimal rate as a per-race mandate to fade a deep-back CHALK. 1 mechanism contradiction (born Pocono, where it worked); does not trigger retirement."}
-    codified_in: "PARTIAL — mid-pack-is-the-meat half codified 2026-07-12 to framework.md — Quick-Reference Decision Heuristics (Mid-pack PD is the leverage meat). Lesson STAYS OPEN (status validated): its literal 'fade the deep-back chalk' half carries the Sonoma mechanism contradiction and was NOT codified."
+    codified_in: "framework.md — Quick-Reference Decision Heuristics (Mid-pack PD is the leverage meat — 5-slate rule; codification completed 2026-07-21, statement narrowed to the mid-pack half; the deep-back-fade half is superseded by [[nascar-2026-06-28-roadcourse-deepback-revives-on-strategy]])"
     retired_reason: null
 
   - id: nascar-2026-06-20-anchor-equivalence-not-parity
@@ -575,11 +582,11 @@ lessons:
       actually degraded output (practice speed, qualifying pace) before fading — a
       narrative alone is not it, and a field-shared narrative fade is negative
       leverage. Complements [[nascar-2026-05-01-backup-car-not-auto-fade]].
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: "merged into nascar-2026-05-01-backup-car-not-auto-fade"
 
   # ---------------------------------------------------------------
   # Chicagoland Speedway — 2026-07-05 (Slate #6 autopsy, logged 2026-07-12)
@@ -666,6 +673,63 @@ lessons:
       speed / practice / qualifying pace and the site's proven fast cars over
       multi-year avg-LL when choosing dominators; use avg-LL as a tiebreaker, not a
       thesis. Complements [[nascar-2026-07-14-superspeedway-doms-correlate-not-substitute]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---------------------------------------------------------------
+  # North Wilkesboro — 2026-07-19 (Slate #8 autopsy, logged 2026-07-21)
+  # ---------------------------------------------------------------
+
+  - id: nascar-2026-07-21-definer-screen-must-reach-entries
+    born: "2026-07-21"
+    origin: "rules/nascar/history/2026-07-21__nascar-north-wilkesboro-7-19-26/autopsy_review.md"
+    statement: >
+      The strategy's sub-10% definer screen reliably PRODUCES the slate-defining
+      plays, but a screen that lives only in the doc transfers zero equity — the
+      lists and the entered lineups are separate artifacts, and the leak is in the
+      hand-off. Three-slate pattern: leverage-list usage 0% (Chicagoland), 50%
+      (Atlanta), 0/12 (North Wilkesboro), with entered lineups carrying ZERO
+      sub-10% pieces at NW while the $15K winner carried three (Hocevar 8.6%,
+      Keselowski 8.0%, Suarez 5.6%) and the top-20 averaged 1.15; the NW list
+      itself named SVG (61.0), Suarez (45.05), and Gilliland (46.9) before lock.
+      Mechanism: in a top-heavy SE payout the win condition requires separating
+      from ~30%/slot chalk convergence, and one sub-10% piece is the minimum
+      separation unit; analysis without a build-time gate does not change the
+      entered roster. Pre-lock rule to test: every SE bullet carries EXACTLY ONE
+      piece from the strategy's sub-10% definer list before it is entered (the
+      Grade tab's no-leverage flag is the checkpoint). Extends
+      [[nascar-2026-06-20-carry-a-sub5-leverage-dart-mme]] from MME to SE bullets
+      and operationalizes [[nascar-2026-05-01-portfolio-gaps-addressed-pre-lock]];
+      tension with [[nascar-2026-05-17-mme-or-fade-means-fade-in-se]] noted (the
+      NW definers that paid carried the 'MME or fade' tag).
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nascar-2026-07-21-se-actual-own-concentrates-on-consensus
+    born: "2026-07-21"
+    origin: "rules/nascar/history/2026-07-21__nascar-north-wilkesboro-7-19-26/autopsy_review.md"
+    statement: >
+      In small SE fields, actual lock ownership concentrates far harder than the
+      vendor projects on the consensus anchor and the obvious value, while the
+      co-anchor DEFLATES: North Wilkesboro (DailyFan -> actual) Bell 46% ->
+      66-68%, Herbst 22% -> 48-51%, Bowman 28% -> 47-48%, Larson 38% -> 46-49%,
+      while co-anchor Blaney fell 47% -> 33.5%. Mechanism: the SE crowd resolves
+      a projected anchor coin-flip by picking ONE side and jams the loudest
+      article value, so 5-10pt projected gaps become 20-30pt at lock — which
+      breaks leverage math built on projected numbers ('cheaper same-profile'
+      Bowman stopped being leverage at 47% actual, and an Anchor-Equivalence
+      tension at 47/46 projected was actually a 68/34 landslide). Pre-lock: treat
+      projected ownership on the top-projected anchor and the cheapest
+      article-endorsed value as a FLOOR, not an estimate, and expect the
+      equivalence pair to resolve asymmetrically at lock. Complements
+      [[nascar-2026-05-24-anchor-equivalence]] and
+      [[nascar-2026-05-01-ownership-shift-full-reevaluation]].
     status: hypothesis
     confirmations: []
     contradictions: []

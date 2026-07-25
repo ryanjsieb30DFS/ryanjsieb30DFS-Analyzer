@@ -1,0 +1,60 @@
+{
+  "gradable": true,
+  "n_pool": 37,
+  "n_matched": 37,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 3,
+      "avg_fpts": 19.1,
+      "max_fpts": 23.6
+    },
+    {
+      "tier": "Good",
+      "n": 7,
+      "avg_fpts": 53.9,
+      "max_fpts": 180.8
+    },
+    {
+      "tier": "Okay",
+      "n": 14,
+      "avg_fpts": 32.2,
+      "max_fpts": 80.0
+    },
+    {
+      "tier": "Fade",
+      "n": 13,
+      "avg_fpts": 21.8,
+      "max_fpts": 64.5
+    }
+  ],
+  "tiers_ordered": false,
+  "leakage": [
+    {
+      "name": "Bubba Wallace",
+      "tier": "Fade",
+      "fpts": 64.5
+    },
+    {
+      "name": "Carson Hocevar",
+      "tier": "Fade",
+      "fpts": 26.4
+    },
+    {
+      "name": "Shane Van Gisbergen",
+      "tier": "Fade",
+      "fpts": 61.0
+    },
+    {
+      "name": "Daniel Suarez",
+      "tier": "Fade",
+      "fpts": 45.0
+    },
+    {
+      "name": "Ty Dillon",
+      "tier": "Fade",
+      "fpts": 33.5
+    }
+  ],
+  "summary": "Core 19.1 > Good 53.9 > Okay 32.2 > Fade 21.8  \u2717 OUT OF ORDER"
+}

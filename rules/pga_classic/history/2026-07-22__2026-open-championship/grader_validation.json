@@ -1,0 +1,77 @@
+{
+  "gradable": true,
+  "n_lineups": 5,
+  "lineups": [
+    {
+      "players": [
+        "Chris Gotterup",
+        "Kurt Kitayama",
+        "Ludvig Aberg",
+        "Matt Fitzpatrick",
+        "Russell Henley",
+        "Shane Lowry"
+      ],
+      "percentile": 23.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Harris English",
+        "Min Woo Lee",
+        "Robert MacIntyre",
+        "Russell Henley",
+        "Scottie Scheffler"
+      ],
+      "percentile": 33.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "J.J. Spaun",
+        "Nicolai Hojgaard",
+        "Robert MacIntyre",
+        "Rory McIlroy",
+        "Xander Schauffele"
+      ],
+      "percentile": 42.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Andy Sullivan",
+        "Scottie Scheffler",
+        "Si Woo Kim",
+        "Tom Kim",
+        "Tyrrell Hatton",
+        "Viktor Hovland"
+      ],
+      "percentile": 69.2,
+      "flags": [
+        "fade_violation"
+      ]
+    },
+    {
+      "players": [
+        "Cameron Smith",
+        "Matt Fitzpatrick",
+        "Patrick Reed",
+        "Rory McIlroy",
+        "Thomas Detry",
+        "Wyndham Clark"
+      ],
+      "percentile": 82.8,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [
+    69.2
+  ],
+  "clean_pctiles": [
+    23.5,
+    33.0,
+    42.0,
+    82.8
+  ]
+}

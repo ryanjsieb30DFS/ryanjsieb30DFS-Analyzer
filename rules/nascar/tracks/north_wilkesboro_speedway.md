@@ -1,6 +1,6 @@
 # North Wilkesboro Speedway
 
-**UNVERIFIED — built from this slate's articles only** (DDD 7/19/26 + DFR flat-track data images). No logged autopsy at this venue yet; verify after the first points-race autopsy.
+**Partially verified** — originally built from the 7/19/26 slate's articles (DDD + DFR flat-track data images); first points-race autopsy logged 2026-07-21 (see per-slate observations).
 
 ## Track profile
 - 0.625-mile oval, 14° banking in the turns; the track climbs uphill on the backstretch and descends downhill on the frontstretch (DDD). One of the oldest tracks on the circuit.
@@ -15,4 +15,7 @@
 - 7/19/26 race: **450 laps** — huge dominator pool; DDD expected a long green first stage (lap-down risk for sub-P30 starters).
 
 ## Per-slate observations
-- 2026-07-19 (first points race): slate strategy written; result pending autopsy.
+- 2026-07-19 (first points race, autopsied 2026-07-21): **The dominator thesis held, but the payer was the THIRD front-runner, not the anchors.** Joey Logano (started just behind the front row, 18.9-20.2% own) scored 180.75 and was in 100% of the $15K top lineups — while polesitter Blaney (23.6) and P3 Bell (17.9) both busted despite 66-68% actual ownership on Bell. "Front-of-grid dominator pool" verified; "polesitter dominates" NOT verified this running. Hamlin (64.5) and Gibbs (60.5) also paid from the front.
+- 2026-07-19: **Mid-pack PD paid heavily despite DFR's "back-half PD largely unrealized" read** — Bubba Wallace (P26) 64.5, SVG 61.0, Keselowski 55.2, Gilliland (P18) 46.9, Suárez 45.05, and Briscoe (P30, the band boundary) 80.05. The 11th-30th band supplied the winners' entire differentiation layer; winning shape in the 1,470-field SE was one mid-owned front dominator + three sub-10% mid-pack pieces (winner avg own 17.9%). Winning scores 447-452, cash ~280-291.
+- 2026-07-19: **SE ownership concentrated far beyond DailyFan's projections at lock** — Bell 46%→66-68%, Herbst 22%→48-51%, Bowman 28%→47-48%, Larson 38%→46-49%, while co-anchor Blaney deflated 47%→33.5%. The crowd picked one side of the projected Blaney/Bell coin flip. Chalk value busted (Bowman 15.9, Berry -3.0); the "cheaper same-profile" tier was no longer leverage at actual ownership.
+- 2026-07-19: 450 green-heavy laps produced no carnage lottery — pure punts (Ware) and attrition darts (AJ 2.0, Hill) did not pay; the paying cheap plays were functional mid-pack cars (Herbst 41.5, Gilliland, Stenhouse path).

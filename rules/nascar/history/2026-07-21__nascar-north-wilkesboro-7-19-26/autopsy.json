@@ -1,0 +1,1473 @@
+[
+  {
+    "timestamp": "2026-07-21 21:54",
+    "contest_type": "NASCAR",
+    "source_file": "contest-standings-192343608.csv",
+    "contest_id": "192343608",
+    "entries": 490,
+    "winning_score": 447.15,
+    "cash_line_p80": 290.909996,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nascar",
+    "sport": "nascar",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 37
+    },
+    "user_summary": {
+      "avg_own_mean": 36.73,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 404,
+      "best_percentile": 82.4
+    },
+    "user_lineups": [
+      {
+        "rank": 404,
+        "entry_name": "RyvlesGaming30",
+        "points": 165.45,
+        "percentile": 82.4,
+        "players": [
+          "Kyle Larson",
+          "Christopher Bell",
+          "William Byron",
+          "Josh Berry",
+          "Zane Smith",
+          "Riley Herbst"
+        ],
+        "avg_own": 36.73,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 31.59,
+      "low_own_count_mean": 0.75,
+      "salary_used_mean": null,
+      "dup_max": 4,
+      "unique_pct": 55.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "nephi125",
+          "points": 447.15,
+          "percentile": 0.2,
+          "players": [
+            "Denny Hamlin",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Ty Gibbs",
+            "Connor Zilisch",
+            "Riley Herbst"
+          ],
+          "avg_own": 28.33,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 1,
+          "entry_name": "MrVodka",
+          "points": 447.15,
+          "percentile": 0.2,
+          "players": [
+            "Denny Hamlin",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Ty Gibbs",
+            "Connor Zilisch",
+            "Riley Herbst"
+          ],
+          "avg_own": 28.33,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 3,
+          "entry_name": "zhester37",
+          "points": 441.15002,
+          "percentile": 0.6,
+          "players": [
+            "Kyle Larson",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Bubba Wallace",
+            "Austin Cindric",
+            "Riley Herbst"
+          ],
+          "avg_own": 31.7,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "haraz",
+          "points": 429.65002,
+          "percentile": 0.8,
+          "players": [
+            "Christopher Bell",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Bubba Wallace",
+            "Ryan Preece",
+            "Riley Herbst"
+          ],
+          "avg_own": 35.07,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "eracnrobert",
+          "points": 397.65002,
+          "percentile": 1.0,
+          "players": [
+            "Kyle Larson",
+            "Christopher Bell",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Riley Herbst",
+            "Ty Dillon"
+          ],
+          "avg_own": 36.94,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 5,
+          "entry_name": "superrob2914",
+          "points": 397.65002,
+          "percentile": 1.0,
+          "players": [
+            "Kyle Larson",
+            "Christopher Bell",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Riley Herbst",
+            "Ty Dillon"
+          ],
+          "avg_own": 36.94,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 7,
+          "entry_name": "Tailgate81",
+          "points": 396.6,
+          "percentile": 1.4,
+          "players": [
+            "Christopher Bell",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Ty Gibbs",
+            "Alex Bowman",
+            "Riley Herbst"
+          ],
+          "avg_own": 41.32,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 7,
+          "entry_name": "louba5",
+          "points": 396.6,
+          "percentile": 1.4,
+          "players": [
+            "Christopher Bell",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Ty Gibbs",
+            "Alex Bowman",
+            "Riley Herbst"
+          ],
+          "avg_own": 41.32,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 9,
+          "entry_name": "Jay1112",
+          "points": 396.55002,
+          "percentile": 1.8,
+          "players": [
+            "Chase Elliott",
+            "Joey Logano",
+            "Bubba Wallace",
+            "Ryan Preece",
+            "Brad Keselowski",
+            "Alex Bowman"
+          ],
+          "avg_own": 20.07,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "avgjo",
+          "points": 395.50003,
+          "percentile": 2.0,
+          "players": [
+            "Christopher Bell",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Ryan Preece",
+            "Austin Cindric",
+            "Riley Herbst"
+          ],
+          "avg_own": 33.4,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -5.14,
+        "low_own_count_delta": 0.75,
+        "salary_used_delta": null
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 486,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Christopher Bell",
+          "field_own": 68.4,
+          "actual_fpts": 17.9
+        },
+        {
+          "name": "Riley Herbst",
+          "field_own": 51.2,
+          "actual_fpts": 41.5
+        },
+        {
+          "name": "Alex Bowman",
+          "field_own": 48.2,
+          "actual_fpts": 15.9
+        },
+        {
+          "name": "Kyle Larson",
+          "field_own": 46.5,
+          "actual_fpts": 44.0
+        },
+        {
+          "name": "Ryan Blaney",
+          "field_own": 34.9,
+          "actual_fpts": 23.6
+        },
+        {
+          "name": "Chase Briscoe",
+          "field_own": 34.1,
+          "actual_fpts": 80.0
+        },
+        {
+          "name": "Denny Hamlin",
+          "field_own": 26.9,
+          "actual_fpts": 64.5
+        },
+        {
+          "name": "Ty Gibbs",
+          "field_own": 25.9,
+          "actual_fpts": 60.5
+        },
+        {
+          "name": "Bubba Wallace",
+          "field_own": 24.1,
+          "actual_fpts": 64.5
+        },
+        {
+          "name": "William Byron",
+          "field_own": 21.4,
+          "actual_fpts": 37.6
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Christopher Bell",
+            "Riley Herbst"
+          ],
+          "field_pct": 42.1,
+          "count": 204
+        },
+        {
+          "players": [
+            "Alex Bowman",
+            "Christopher Bell"
+          ],
+          "field_pct": 36.3,
+          "count": 176
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Kyle Larson"
+          ],
+          "field_pct": 32.4,
+          "count": 157
+        },
+        {
+          "players": [
+            "Kyle Larson",
+            "Riley Herbst"
+          ],
+          "field_pct": 28.7,
+          "count": 139
+        },
+        {
+          "players": [
+            "Alex Bowman",
+            "Riley Herbst"
+          ],
+          "field_pct": 27.6,
+          "count": 134
+        },
+        {
+          "players": [
+            "Alex Bowman",
+            "Kyle Larson"
+          ],
+          "field_pct": 27.2,
+          "count": 132
+        },
+        {
+          "players": [
+            "Chase Briscoe",
+            "Christopher Bell"
+          ],
+          "field_pct": 22.5,
+          "count": 109
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Ryan Blaney"
+          ],
+          "field_pct": 20.8,
+          "count": 101
+        },
+        {
+          "players": [
+            "Chase Briscoe",
+            "Riley Herbst"
+          ],
+          "field_pct": 19.4,
+          "count": 94
+        },
+        {
+          "players": [
+            "Riley Herbst",
+            "Ryan Blaney"
+          ],
+          "field_pct": 18.4,
+          "count": 89
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Alex Bowman",
+            "Bubba Wallace",
+            "Chase Briscoe",
+            "Christopher Bell",
+            "Kyle Larson"
+          ],
+          "count": 10,
+          "field_pct": 2.1
+        },
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Alex Bowman",
+            "Christopher Bell",
+            "Kyle Larson",
+            "Riley Herbst",
+            "Ryan Blaney"
+          ],
+          "count": 10,
+          "field_pct": 2.1
+        },
+        {
+          "players": [
+            "Alex Bowman",
+            "Chase Briscoe",
+            "Christopher Bell",
+            "Josh Berry",
+            "Kyle Larson",
+            "Riley Herbst"
+          ],
+          "count": 7,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Alex Bowman",
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Kyle Larson",
+            "Riley Herbst"
+          ],
+          "count": 7,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Alex Bowman",
+            "Austin Cindric",
+            "Chase Briscoe",
+            "Christopher Bell",
+            "Kyle Larson",
+            "Riley Herbst"
+          ],
+          "count": 6,
+          "field_pct": 1.2
+        }
+      ],
+      "winners_profile": {
+        "n": 5,
+        "avg_own_per_slot": 32.1,
+        "dart_pct": 20.0,
+        "unique_pct": 80.0
+      },
+      "fish_profile": {
+        "n": 242,
+        "avg_own_per_slot": 31.8,
+        "dart_pct": 19.8,
+        "unique_pct": 79.3
+      },
+      "fish_traps": [
+        {
+          "name": "Alex Bowman",
+          "fish_pct": 49.6,
+          "winner_pct": 0.0,
+          "gap": 49.6,
+          "actual_fpts": 15.9
+        },
+        {
+          "name": "Ryan Blaney",
+          "fish_pct": 46.7,
+          "winner_pct": 0.0,
+          "gap": 46.7,
+          "actual_fpts": 23.6
+        },
+        {
+          "name": "Christopher Bell",
+          "fish_pct": 76.4,
+          "winner_pct": 40.0,
+          "gap": 36.4,
+          "actual_fpts": 17.9
+        },
+        {
+          "name": "Josh Berry",
+          "fish_pct": 27.3,
+          "winner_pct": 0.0,
+          "gap": 27.3,
+          "actual_fpts": -3.0
+        },
+        {
+          "name": "William Byron",
+          "fish_pct": 25.6,
+          "winner_pct": 0.0,
+          "gap": 25.6,
+          "actual_fpts": 37.6
+        },
+        {
+          "name": "AJ Allmendinger",
+          "fish_pct": 20.7,
+          "winner_pct": 0.0,
+          "gap": 20.7,
+          "actual_fpts": 2.0
+        },
+        {
+          "name": "Tyler Reddick",
+          "fish_pct": 14.5,
+          "winner_pct": 0.0,
+          "gap": 14.5,
+          "actual_fpts": -7.2
+        },
+        {
+          "name": "Erik Jones",
+          "fish_pct": 12.8,
+          "winner_pct": 0.0,
+          "gap": 12.8,
+          "actual_fpts": 6.9
+        },
+        {
+          "name": "Zane Smith",
+          "fish_pct": 12.0,
+          "winner_pct": 0.0,
+          "gap": 12.0,
+          "actual_fpts": 27.4
+        },
+        {
+          "name": "Carson Hocevar",
+          "fish_pct": 10.7,
+          "winner_pct": 0.0,
+          "gap": 10.7,
+          "actual_fpts": 26.4
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "nephi125",
+          "best_rank": 1,
+          "percentile": 0.2
+        },
+        {
+          "handle": "MrVodka",
+          "best_rank": 1,
+          "percentile": 0.2
+        },
+        {
+          "handle": "zhester37",
+          "best_rank": 3,
+          "percentile": 0.6
+        },
+        {
+          "handle": "haraz",
+          "best_rank": 4,
+          "percentile": 0.8
+        },
+        {
+          "handle": "eracnrobert",
+          "best_rank": 5,
+          "percentile": 1.0
+        },
+        {
+          "handle": "superrob2914",
+          "best_rank": 5,
+          "percentile": 1.0
+        },
+        {
+          "handle": "Tailgate81",
+          "best_rank": 7,
+          "percentile": 1.4
+        },
+        {
+          "handle": "louba5",
+          "best_rank": 7,
+          "percentile": 1.4
+        },
+        {
+          "handle": "Jay1112",
+          "best_rank": 9,
+          "percentile": 1.9
+        },
+        {
+          "handle": "avgjo",
+          "best_rank": 10,
+          "percentile": 2.1
+        },
+        {
+          "handle": "prime_336",
+          "best_rank": 11,
+          "percentile": 2.3
+        },
+        {
+          "handle": "SkyBound747",
+          "best_rank": 12,
+          "percentile": 2.5
+        },
+        {
+          "handle": "ccorms",
+          "best_rank": 13,
+          "percentile": 2.7
+        },
+        {
+          "handle": "ColtsSB",
+          "best_rank": 14,
+          "percentile": 2.9
+        },
+        {
+          "handle": "mjwheeler3833",
+          "best_rank": 15,
+          "percentile": 3.1
+        }
+      ],
+      "read": [
+        "Field crowded **Christopher Bell** at 68.4% (17.9 fpts) \u2014 the chalk to consider fading.",
+        "**Christopher Bell + Riley Herbst** were together in 42.1% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Alex Bowman** was a fish trap: 49.6% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 447.15,
+      "winner_handle": "nephi125",
+      "roster": [
+        {
+          "name": "Denny Hamlin",
+          "own": 26.94,
+          "fpts": 64.55
+        },
+        {
+          "name": "Joey Logano",
+          "own": 20.2,
+          "fpts": 180.75
+        },
+        {
+          "name": "Chase Briscoe",
+          "own": 34.08,
+          "fpts": 80.05
+        },
+        {
+          "name": "Ty Gibbs",
+          "own": 25.92,
+          "fpts": 60.55
+        },
+        {
+          "name": "Connor Zilisch",
+          "own": 11.63,
+          "fpts": 19.8
+        },
+        {
+          "name": "Riley Herbst",
+          "own": 51.22,
+          "fpts": 41.45
+        }
+      ],
+      "avg_own": 28.3,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Connor Zilisch",
+        "own": 11.63,
+        "fpts": 19.8
+      },
+      "expected_dupes": 0.14
+    },
+    "near_miss": {
+      "gradable": true,
+      "won": false,
+      "your_points": 165.45,
+      "winner_points": 447.15,
+      "gap": 281.7,
+      "your_percentile": 82.4,
+      "n_shared": 1,
+      "shared": [
+        "Riley Herbst"
+      ],
+      "your_uniques": [
+        {
+          "name": "Kyle Larson",
+          "fpts": 44.05
+        },
+        {
+          "name": "William Byron",
+          "fpts": 37.6
+        },
+        {
+          "name": "Zane Smith",
+          "fpts": 27.45
+        },
+        {
+          "name": "Christopher Bell",
+          "fpts": 17.9
+        },
+        {
+          "name": "Josh Berry",
+          "fpts": -3.0
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Joey Logano",
+          "fpts": 180.75
+        },
+        {
+          "name": "Chase Briscoe",
+          "fpts": 80.05
+        },
+        {
+          "name": "Denny Hamlin",
+          "fpts": 64.55
+        },
+        {
+          "name": "Ty Gibbs",
+          "fpts": 60.55
+        },
+        {
+          "name": "Connor Zilisch",
+          "fpts": 19.8
+        }
+      ],
+      "best_swap": {
+        "out": "Josh Berry",
+        "in": "Joey Logano",
+        "gain": 183.8,
+        "would_have_won": false
+      },
+      "swaps_needed": 3
+    }
+  },
+  {
+    "timestamp": "2026-07-21 21:54",
+    "contest_type": "NASCAR",
+    "source_file": "contest-standings-192343616.csv",
+    "contest_id": "192343616",
+    "entries": 1470,
+    "winning_score": 451.94998,
+    "cash_line_p80": 280.09001600000005,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nascar",
+    "sport": "nascar",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 37
+    },
+    "user_summary": {
+      "avg_own_mean": 35.68,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 109,
+      "best_percentile": 7.4
+    },
+    "user_lineups": [
+      {
+        "rank": 109,
+        "entry_name": "RyvlesGaming30",
+        "points": 348.00003,
+        "percentile": 7.4,
+        "players": [
+          "Denny Hamlin",
+          "Christopher Bell",
+          "Joey Logano",
+          "Alex Bowman",
+          "Zane Smith",
+          "Riley Herbst"
+        ],
+        "avg_own": 35.68,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 3
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Joey Logano",
+        "salary": null,
+        "actual_fpts": 180.75,
+        "actual_own": 18.91,
+        "top_lineup_pct": 100.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 26.81,
+      "low_own_count_mean": 1.15,
+      "salary_used_mean": null,
+      "dup_max": 3,
+      "unique_pct": 80.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "shark4thewin",
+          "points": 451.94998,
+          "percentile": 0.1,
+          "players": [
+            "Joey Logano",
+            "Chase Briscoe",
+            "Carson Hocevar",
+            "Bubba Wallace",
+            "Brad Keselowski",
+            "Daniel Su\u00e1rez"
+          ],
+          "avg_own": 17.87,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "mpkoch39",
+          "points": 450.5,
+          "percentile": 0.1,
+          "players": [
+            "Kyle Larson",
+            "Joey Logano",
+            "Bubba Wallace",
+            "Ryan Preece",
+            "Brad Keselowski",
+            "Shane Van Gisbergen"
+          ],
+          "avg_own": 20.89,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "ronniepetitt",
+          "points": 429.95,
+          "percentile": 0.2,
+          "players": [
+            "Kyle Larson",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Brad Keselowski",
+            "Shane Van Gisbergen",
+            "Austin Hill"
+          ],
+          "avg_own": 20.72,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "kingpin9",
+          "points": 429.65002,
+          "percentile": 0.3,
+          "players": [
+            "Christopher Bell",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Bubba Wallace",
+            "Ryan Preece",
+            "Riley Herbst"
+          ],
+          "avg_own": 35.11,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 4,
+          "entry_name": "haraz",
+          "points": 429.65002,
+          "percentile": 0.3,
+          "players": [
+            "Christopher Bell",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Bubba Wallace",
+            "Ryan Preece",
+            "Riley Herbst"
+          ],
+          "avg_own": 35.11,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 6,
+          "entry_name": "carmen23ny",
+          "points": 426.7,
+          "percentile": 0.4,
+          "players": [
+            "Kyle Larson",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Bubba Wallace",
+            "Alex Bowman",
+            "Riley Herbst"
+          ],
+          "avg_own": 38.23,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "Byronn5",
+          "points": 420.70004,
+          "percentile": 0.5,
+          "players": [
+            "Ryan Blaney",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Bubba Wallace",
+            "Austin Cindric",
+            "Riley Herbst"
+          ],
+          "avg_own": 30.48,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "kudolph",
+          "points": 419.0,
+          "percentile": 0.5,
+          "players": [
+            "Joey Logano",
+            "Chase Briscoe",
+            "Carson Hocevar",
+            "Chris Buescher",
+            "Brad Keselowski",
+            "Shane Van Gisbergen"
+          ],
+          "avg_own": 15.15,
+          "low_own_count": 4,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "Alext8",
+          "points": 418.2,
+          "percentile": 0.6,
+          "players": [
+            "Denny Hamlin",
+            "Joey Logano",
+            "Chase Briscoe",
+            "Bubba Wallace",
+            "Austin Cindric",
+            "John H. Nemechek"
+          ],
+          "avg_own": 21.56,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "TEAM_KILL_CANCER",
+          "points": 417.85,
+          "percentile": 0.7,
+          "players": [
+            "Ryan Blaney",
+            "Joey Logano",
+            "Ty Gibbs",
+            "Bubba Wallace",
+            "Shane Van Gisbergen",
+            "Zane Smith"
+          ],
+          "avg_own": 21.17,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -8.87,
+        "low_own_count_delta": 1.15,
+        "salary_used_delta": null
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 1462,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Christopher Bell",
+          "field_own": 66.3,
+          "actual_fpts": 17.9
+        },
+        {
+          "name": "Kyle Larson",
+          "field_own": 49.2,
+          "actual_fpts": 44.0
+        },
+        {
+          "name": "Riley Herbst",
+          "field_own": 48.3,
+          "actual_fpts": 41.5
+        },
+        {
+          "name": "Alex Bowman",
+          "field_own": 46.7,
+          "actual_fpts": 15.9
+        },
+        {
+          "name": "Chase Briscoe",
+          "field_own": 37.5,
+          "actual_fpts": 80.0
+        },
+        {
+          "name": "Ryan Blaney",
+          "field_own": 33.5,
+          "actual_fpts": 23.6
+        },
+        {
+          "name": "Bubba Wallace",
+          "field_own": 28.7,
+          "actual_fpts": 64.5
+        },
+        {
+          "name": "Ty Gibbs",
+          "field_own": 25.6,
+          "actual_fpts": 60.5
+        },
+        {
+          "name": "Denny Hamlin",
+          "field_own": 23.1,
+          "actual_fpts": 64.5
+        },
+        {
+          "name": "Joey Logano",
+          "field_own": 18.9,
+          "actual_fpts": 180.8
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Christopher Bell",
+            "Riley Herbst"
+          ],
+          "field_pct": 38.3,
+          "count": 560
+        },
+        {
+          "players": [
+            "Alex Bowman",
+            "Christopher Bell"
+          ],
+          "field_pct": 34.7,
+          "count": 507
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Kyle Larson"
+          ],
+          "field_pct": 30.9,
+          "count": 451
+        },
+        {
+          "players": [
+            "Kyle Larson",
+            "Riley Herbst"
+          ],
+          "field_pct": 29.3,
+          "count": 428
+        },
+        {
+          "players": [
+            "Alex Bowman",
+            "Riley Herbst"
+          ],
+          "field_pct": 27.0,
+          "count": 394
+        },
+        {
+          "players": [
+            "Alex Bowman",
+            "Kyle Larson"
+          ],
+          "field_pct": 25.8,
+          "count": 377
+        },
+        {
+          "players": [
+            "Chase Briscoe",
+            "Christopher Bell"
+          ],
+          "field_pct": 23.3,
+          "count": 340
+        },
+        {
+          "players": [
+            "Chase Briscoe",
+            "Riley Herbst"
+          ],
+          "field_pct": 19.9,
+          "count": 291
+        },
+        {
+          "players": [
+            "Chase Briscoe",
+            "Kyle Larson"
+          ],
+          "field_pct": 19.8,
+          "count": 289
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Ryan Blaney"
+          ],
+          "field_pct": 19.6,
+          "count": 287
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Alex Bowman",
+            "Bubba Wallace",
+            "Chase Briscoe",
+            "Christopher Bell",
+            "Kyle Larson"
+          ],
+          "count": 24,
+          "field_pct": 1.6
+        },
+        {
+          "players": [
+            "Alex Bowman",
+            "Austin Cindric",
+            "Chase Briscoe",
+            "Christopher Bell",
+            "Kyle Larson",
+            "Riley Herbst"
+          ],
+          "count": 22,
+          "field_pct": 1.5
+        },
+        {
+          "players": [
+            "Alex Bowman",
+            "Bubba Wallace",
+            "Christopher Bell",
+            "Kyle Larson",
+            "Riley Herbst",
+            "Ty Gibbs"
+          ],
+          "count": 21,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Alex Bowman",
+            "Christopher Bell",
+            "Kyle Larson",
+            "Riley Herbst",
+            "Ryan Blaney"
+          ],
+          "count": 20,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Alex Bowman",
+            "Chase Briscoe",
+            "Christopher Bell",
+            "Josh Berry",
+            "Riley Herbst",
+            "Ryan Blaney"
+          ],
+          "count": 19,
+          "field_pct": 1.3
+        }
+      ],
+      "winners_profile": {
+        "n": 15,
+        "avg_own_per_slot": 25.6,
+        "dart_pct": 13.3,
+        "unique_pct": 93.3
+      },
+      "fish_profile": {
+        "n": 730,
+        "avg_own_per_slot": 31.1,
+        "dart_pct": 13.4,
+        "unique_pct": 68.8
+      },
+      "fish_traps": [
+        {
+          "name": "Christopher Bell",
+          "fish_pct": 74.5,
+          "winner_pct": 26.7,
+          "gap": 47.9,
+          "actual_fpts": 17.9
+        },
+        {
+          "name": "Alex Bowman",
+          "fish_pct": 49.5,
+          "winner_pct": 6.7,
+          "gap": 42.8,
+          "actual_fpts": 15.9
+        },
+        {
+          "name": "Ryan Blaney",
+          "fish_pct": 46.2,
+          "winner_pct": 13.3,
+          "gap": 32.8,
+          "actual_fpts": 23.6
+        },
+        {
+          "name": "Josh Berry",
+          "fish_pct": 25.5,
+          "winner_pct": 0.0,
+          "gap": 25.5,
+          "actual_fpts": -3.0
+        },
+        {
+          "name": "Kyle Larson",
+          "fish_pct": 49.2,
+          "winner_pct": 26.7,
+          "gap": 22.5,
+          "actual_fpts": 44.0
+        },
+        {
+          "name": "William Byron",
+          "fish_pct": 21.6,
+          "winner_pct": 0.0,
+          "gap": 21.6,
+          "actual_fpts": 37.6
+        },
+        {
+          "name": "Tyler Reddick",
+          "fish_pct": 14.1,
+          "winner_pct": 0.0,
+          "gap": 14.1,
+          "actual_fpts": -7.2
+        },
+        {
+          "name": "Riley Herbst",
+          "fish_pct": 46.6,
+          "winner_pct": 33.3,
+          "gap": 13.2,
+          "actual_fpts": 41.5
+        },
+        {
+          "name": "Erik Jones",
+          "fish_pct": 12.1,
+          "winner_pct": 0.0,
+          "gap": 12.1,
+          "actual_fpts": 6.9
+        },
+        {
+          "name": "AJ Allmendinger",
+          "fish_pct": 18.2,
+          "winner_pct": 6.7,
+          "gap": 11.6,
+          "actual_fpts": 2.0
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "shark4thewin",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "mpkoch39",
+          "best_rank": 2,
+          "percentile": 0.1
+        },
+        {
+          "handle": "ronniepetitt",
+          "best_rank": 3,
+          "percentile": 0.2
+        },
+        {
+          "handle": "kingpin9",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "haraz",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "carmen23ny",
+          "best_rank": 6,
+          "percentile": 0.4
+        },
+        {
+          "handle": "Byronn5",
+          "best_rank": 7,
+          "percentile": 0.5
+        },
+        {
+          "handle": "kudolph",
+          "best_rank": 8,
+          "percentile": 0.5
+        },
+        {
+          "handle": "Alext8",
+          "best_rank": 9,
+          "percentile": 0.6
+        },
+        {
+          "handle": "TEAM_KILL_CANCER",
+          "best_rank": 10,
+          "percentile": 0.7
+        },
+        {
+          "handle": "Shanacole",
+          "best_rank": 11,
+          "percentile": 0.8
+        },
+        {
+          "handle": "Shinny_01",
+          "best_rank": 12,
+          "percentile": 0.8
+        },
+        {
+          "handle": "caid",
+          "best_rank": 13,
+          "percentile": 0.9
+        },
+        {
+          "handle": "treefiddy79",
+          "best_rank": 14,
+          "percentile": 1.0
+        },
+        {
+          "handle": "DaSwampMonstah",
+          "best_rank": 15,
+          "percentile": 1.0
+        }
+      ],
+      "read": [
+        "Field crowded **Christopher Bell** at 66.3% (17.9 fpts) \u2014 the chalk to consider fading.",
+        "**Christopher Bell + Riley Herbst** were together in 38.3% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Christopher Bell** was a fish trap: 74.5% of the fish, only 26.7% of winners.",
+        "Fish ran 5.5 pts/slot more chalk than winners (31.1% vs 25.6%)."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 451.94998,
+      "winner_handle": "shark4thewin",
+      "roster": [
+        {
+          "name": "Joey Logano",
+          "own": 18.91,
+          "fpts": 180.75
+        },
+        {
+          "name": "Chase Briscoe",
+          "own": 37.48,
+          "fpts": 80.05
+        },
+        {
+          "name": "Carson Hocevar",
+          "own": 8.57,
+          "fpts": 26.4
+        },
+        {
+          "name": "Bubba Wallace",
+          "own": 28.71,
+          "fpts": 64.5
+        },
+        {
+          "name": "Brad Keselowski",
+          "own": 7.96,
+          "fpts": 55.2
+        },
+        {
+          "name": "Daniel Su\u00e1rez",
+          "own": 5.58,
+          "fpts": 45.05
+        }
+      ],
+      "avg_own": 17.9,
+      "n_low_own": 3,
+      "carrier": {
+        "name": "Brad Keselowski",
+        "own": 7.96,
+        "fpts": 55.2
+      },
+      "expected_dupes": 0.01
+    },
+    "near_miss": {
+      "gradable": true,
+      "won": false,
+      "your_points": 348.00003,
+      "winner_points": 451.94998,
+      "gap": 103.9,
+      "your_percentile": 7.4,
+      "n_shared": 1,
+      "shared": [
+        "Joey Logano"
+      ],
+      "your_uniques": [
+        {
+          "name": "Denny Hamlin",
+          "fpts": 64.55
+        },
+        {
+          "name": "Riley Herbst",
+          "fpts": 41.45
+        },
+        {
+          "name": "Zane Smith",
+          "fpts": 27.45
+        },
+        {
+          "name": "Christopher Bell",
+          "fpts": 17.9
+        },
+        {
+          "name": "Alex Bowman",
+          "fpts": 15.9
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Chase Briscoe",
+          "fpts": 80.05
+        },
+        {
+          "name": "Bubba Wallace",
+          "fpts": 64.5
+        },
+        {
+          "name": "Brad Keselowski",
+          "fpts": 55.2
+        },
+        {
+          "name": "Daniel Su\u00e1rez",
+          "fpts": 45.05
+        },
+        {
+          "name": "Carson Hocevar",
+          "fpts": 26.4
+        }
+      ],
+      "best_swap": {
+        "out": "Alex Bowman",
+        "in": "Chase Briscoe",
+        "gain": 64.1,
+        "would_have_won": false
+      },
+      "swaps_needed": 2
+    }
+  }
+]
