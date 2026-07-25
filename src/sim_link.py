@@ -146,3 +146,91 @@ def dupe_correction(slug: str, field_size: int | None) -> float | None:
         result = round(ratios[len(ratios) // 2], 4)
     _dupe_cache[key] = result
     return result
+
+
+# ---------------------------------------------------------------------------
+# Slate captures (the Sim's full-field records) → autopsy field learning
+# ---------------------------------------------------------------------------
+
+def find_sim_capture(slug: str, n_entries: int | None) -> dict | None:
+    """The Sim's full-slate capture for the contest being autopsied, matched
+    by exact entry count (both tools parsed the same standings CSV, so the
+    counts agree). None when the Sim repo/captures are absent."""
+    root = sim_root()
+    if root is None or not n_entries:
+        return None
+    d = root / "rules" / slug / "slate_data"
+    if not d.exists():
+        return None
+    for p in sorted(d.glob("*.json")):
+        try:
+            rec = json.loads(p.read_text())
+        except (json.JSONDecodeError, OSError):
+            continue
+        if ((rec.get("field") or {}).get("summary") or {}).get("n_entries") == n_entries:
+            return rec
+    return None
+
+
+def capture_field_stats(slug: str, n_entries: int | None) -> dict | None:
+    """Roster-level field structure for an autopsied contest, from the Sim's
+    capture: real dupe stats + entries-per-user + (MMA, when the capture
+    carries opponents) the DEAD-STRUCTURE share — entries rostering both
+    fighters of a bout, whose combined ceiling is capped by the bout being
+    zero-sum. This is the evidence the standings-only autopsy can't see:
+    it knows scores and ownership, not the joint roster structure."""
+    cap = find_sim_capture(slug, n_entries)
+    if cap is None:
+        return None
+    field = cap.get("field") or {}
+    s = field.get("summary") or {}
+    stats = {
+        "capture": cap.get("slate_name"),
+        "unique_pct": s.get("unique_pct"),
+        "max_dupe": s.get("max_dupe"),
+        "top_dupes": (s.get("top_dupes") or [])[:5],
+        "pct_single_entry_users": (s.get("entries_per_user") or {}).get("pct_single"),
+        "mean_entries_per_user": (s.get("entries_per_user") or {}).get("mean"),
+        "top3_chalk_lineup_pct": (s.get("chalk_share") or {}).get("top3_lineup_pct"),
+    }
+    # Dead-structure share (MMA): opponent info arrived in captures 7/26+.
+    try:
+        from src.autopsy import _norm_name
+        opp = {}
+        for pl in cap.get("players") or []:
+            o = pl.get("opponent")
+            if o and pl.get("name"):
+                opp[_norm_name(str(pl["name"]))] = _norm_name(str(o))
+        if opp:
+            index = [_norm_name(str(n)) for n in field.get("player_index") or []]
+            dead = total = 0
+            for roster, count in zip(field.get("rosters") or [],
+                                     field.get("counts") or []):
+                names = {index[i] for i in roster if i < len(index)}
+                total += count
+                if any(opp.get(n) in names for n in names):
+                    dead += count
+            if total:
+                stats["dead_structure_pct"] = round(100.0 * dead / total, 1)
+    except Exception:  # noqa: BLE001 — enhancement only
+        pass
+    return stats
+
+
+def capture_stats_md(stats: dict) -> str:
+    """One-glance markdown for the autopsy panel."""
+    bits = []
+    if stats.get("unique_pct") is not None:
+        bits.append(f"**{stats['unique_pct']:.0f}%** unique rosters")
+    if stats.get("max_dupe") is not None:
+        bits.append(f"top roster duped **{stats['max_dupe']}×**")
+    if stats.get("pct_single_entry_users") is not None:
+        bits.append(f"**{stats['pct_single_entry_users']:.0f}%** single-entry users")
+    if stats.get("mean_entries_per_user") is not None:
+        bits.append(f"~{stats['mean_entries_per_user']:.1f} entries/user")
+    if stats.get("top3_chalk_lineup_pct") is not None:
+        bits.append(f"**{stats['top3_chalk_lineup_pct']:.0f}%** of entries carry all top-3 chalk")
+    if stats.get("dead_structure_pct") is not None:
+        bits.append(f"**{stats['dead_structure_pct']:.0f}%** dead structure "
+                    "(opponent-stacked entries — capped ceiling by construction)")
+    return " · ".join(bits)

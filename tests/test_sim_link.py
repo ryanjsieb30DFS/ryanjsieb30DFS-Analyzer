@@ -51,3 +51,38 @@ def test_dupe_correction_from_corpus(tmp_path, monkeypatch):
     monkeypatch.setattr(sl, "_SIM_ROOT", tmp_path / "nope")
     monkeypatch.setattr(sl, "_dupe_cache", {})
     assert sl.dupe_correction("mma_se", 1000) is None
+
+
+def test_capture_field_stats_and_dead_structure(tmp_path, monkeypatch):
+    sim_root = tmp_path / "simrepo"
+    d = sim_root / "rules" / "mma_se" / "slate_data"
+    d.mkdir(parents=True)
+    cap = {
+        "slate_name": "UFC test", "slug": "mma_se",
+        "players": [
+            {"name": "A Aa", "opponent": "B Bb"},
+            {"name": "B Bb", "opponent": "A Aa"},
+            {"name": "C Cc", "opponent": "D Dd"},
+            {"name": "D Dd", "opponent": "C Cc"},
+        ],
+        "field": {
+            "player_index": ["A Aa", "B Bb", "C Cc", "D Dd"],
+            # roster 0 = A+C (clean), roster 1 = A+B (DEAD: opponents)
+            "rosters": [[0, 2], [0, 1]],
+            "counts": [3, 1],
+            "summary": {"n_entries": 4, "n_unique": 2, "unique_pct": 50.0,
+                        "max_dupe": 3, "top_dupes": [3, 1],
+                        "entries_per_user": {"pct_single": 100.0, "mean": 1.0},
+                        "chalk_share": {"top3_lineup_pct": 25.0}},
+        },
+    }
+    (d / "UFC_test.json").write_text(json.dumps(cap))
+    monkeypatch.setattr(sl, "_SIM_ROOT", sim_root)
+    stats = sl.capture_field_stats("mma_se", 4)
+    assert stats["unique_pct"] == 50.0 and stats["max_dupe"] == 3
+    # 1 of 4 entries rosters an opponent pair -> 25% dead structure.
+    assert stats["dead_structure_pct"] == 25.0
+    md = sl.capture_stats_md(stats)
+    assert "dead structure" in md and "50%" in md
+    # No capture with that entry count -> None.
+    assert sl.capture_field_stats("mma_se", 999) is None

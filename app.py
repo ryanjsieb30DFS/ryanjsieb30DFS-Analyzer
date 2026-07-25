@@ -1108,6 +1108,19 @@ with tab_autopsy:
                     _fp = _field_cached
                     with st.container(border=True):
                         st.markdown("#### 🐟 Field / Fish — leverage away from this next time")
+                        # Roster-level structure from the Sim's full-field
+                        # capture (same standings CSV, captured at its Score
+                        # slate) — evidence the standings-only profile can't
+                        # see: real dupe counts + dead-structure share.
+                        try:
+                            from src.sim_link import capture_field_stats, capture_stats_md
+                            _cs = capture_field_stats(slug, len(parsed["lineups"]))
+                            if _cs:
+                                _cs_md = capture_stats_md(_cs)
+                                if _cs_md:
+                                    st.markdown("📦 **Sim capture — roster structure:** " + _cs_md)
+                        except Exception:  # noqa: BLE001
+                            pass
                         for _b in _fp.get("read", []):
                             st.markdown(f"- {_b}")
                         fc1, fc2 = st.columns(2)
@@ -1325,10 +1338,16 @@ with tab_autopsy:
                         # fallback. Append-only "moving forward" substrate.
                         try:
                             from src import field_tendencies as _ft
+                            from src.sim_link import capture_field_stats as _cfs
+                            try:
+                                _cap_stats = _cfs(slug, len(lineups))
+                            except Exception:  # noqa: BLE001
+                                _cap_stats = None
                             _ft.record(slug, pc.get("contest_type"), len(lineups),
                                        pc.get("field_profile") or {}, ts,
                                        contest_name=pc.get("contest_name"),
-                                       contest_id=pc.get("contest_id"))
+                                       contest_id=pc.get("contest_id"),
+                                       sim_capture=_cap_stats)
                         except Exception as _fte:  # noqa: BLE001 — never blocks the log
                             _log_warnings.append(
                                 f"Field-tendency row NOT written for {pc['name']}: {_fte}")

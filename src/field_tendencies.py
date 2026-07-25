@@ -35,7 +35,8 @@ def contest_key(name) -> str:
 
 def record(slug: str, contest_type: str | None, field_size: int,
            profile: dict, date: str, contest_name: str | None = None,
-           contest_id: str | None = None) -> bool:
+           contest_id: str | None = None,
+           sim_capture: dict | None = None) -> bool:
     """Append one contest's field tendencies. Returns True if written; skips a
     non-gradable profile. `contest_name` (the declared contest's name) enables the
     SPECIFIC-contest rollup (`summarize_contest`); without it only the by-type
@@ -60,6 +61,15 @@ def record(slug: str, contest_type: str | None, field_size: int,
         "winners_unique_pct": win.get("unique_pct"),
         "fish_avg_own": fish.get("avg_own_per_slot"),
     }
+    # Roster-level structure from the Sim's full-field capture, when one
+    # exists for this contest — real dupe stats + dead-structure share the
+    # standings-only profile can't see. Extra keys; old rows unaffected.
+    if sim_capture:
+        for k in ("unique_pct", "max_dupe", "pct_single_entry_users",
+                  "mean_entries_per_user", "top3_chalk_lineup_pct",
+                  "dead_structure_pct"):
+            if sim_capture.get(k) is not None:
+                row[f"capture_{k}"] = sim_capture[k]
     p = _path(slug)
     p.parent.mkdir(parents=True, exist_ok=True)
     with p.open("a") as f:
