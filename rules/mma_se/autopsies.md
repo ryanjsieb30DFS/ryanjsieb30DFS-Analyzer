@@ -287,3 +287,40 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 ### Strategy adherence — did you follow your own strategy? (2 unique lineups)
 - ✅ Every hard FADE honored.
 - Leverage candidates rostered somewhere: **0 of 2**.
+
+
+## 2026-07-26 15:35 — MMA (contest-standings-192540093.csv)
+- Entries: 490
+- Winning score: 619.6
+- Cash line (top 20%): 504.7
+- My entries: 1 · best rank 72/490 (top 14.7%)
+- Winners (top 20): avg own 35.43% vs mine 34.7% · sub-10% plays/lineup 0.05 vs mine 0.0
+
+
+## 2026-07-26 15:35 — MMA (contest-standings-192540094.csv)
+- Entries: 1,189
+- Winning score: 616.6
+- Cash line (top 20%): 499.2
+- My entries: 1 · best rank 229/1,189 (top 19.3%)
+- Winners (top 20): avg own 35.18% vs mine 30.52% · sub-10% plays/lineup 0.0 vs mine 0.0
+
+
+## 2026-07-26 15:35 — MMA (contest-standings-192540097.csv)
+- Entries: 594
+- Winning score: 619.6
+- Cash line (top 20%): 499.2
+- My entries: 3 · best rank 21/594 (top 3.5%)
+- Winners (top 20): avg own 33.39% vs mine 30.29% · sub-10% plays/lineup 0.0 vs mine 0.33
+
+### Strategy adherence — did you follow your own strategy? (5 unique lineups)
+- ✅ Every hard FADE honored.
+- Leverage candidates rostered somewhere: **0 of 2**.
+
+### Player-pool tier calibration (26 of 26 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 2 | 48.1 | 96.2 |
+| **Good** | 4 | 98.9 | 116.0 |
+| **Okay** | 16 | 55.8 | 125.7 |
+| **Fade** | 4 | 13.6 | 26.7 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.

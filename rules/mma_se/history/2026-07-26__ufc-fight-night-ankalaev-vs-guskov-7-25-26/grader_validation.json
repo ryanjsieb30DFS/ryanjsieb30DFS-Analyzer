@@ -1,0 +1,74 @@
+{
+  "gradable": true,
+  "n_lineups": 5,
+  "lineups": [
+    {
+      "players": [
+        "Damian Rzepecki",
+        "Magomed Tuchalov",
+        "Muhammad Saidov",
+        "Ramazan Temirov",
+        "Rizvan Kuniev",
+        "Valter Walker"
+      ],
+      "percentile": 14.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Damian Rzepecki",
+        "Magomed Ankalaev",
+        "Magomed Tuchalov",
+        "Nurullo Aliev",
+        "Ramazan Temirov",
+        "Saygid Izagakhmaev"
+      ],
+      "percentile": 19.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Abdul Hussein",
+        "Damian Rzepecki",
+        "Magomed Tuchalov",
+        "Muhammad Saidov",
+        "Nurullo Aliev",
+        "Ramazan Temirov"
+      ],
+      "percentile": 3.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cody Gibson",
+        "Damian Rzepecki",
+        "Dustin Jacoby",
+        "Magomed Ankalaev",
+        "Nurullo Aliev",
+        "Sam Patterson"
+      ],
+      "percentile": 52.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Axel Sola",
+        "Damian Rzepecki",
+        "Magomed Tuchalov",
+        "Mike Davis",
+        "Steve Erceg",
+        "Valter Walker"
+      ],
+      "percentile": 71.0,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    14.7,
+    19.3,
+    3.5,
+    52.7,
+    71.0
+  ]
+}

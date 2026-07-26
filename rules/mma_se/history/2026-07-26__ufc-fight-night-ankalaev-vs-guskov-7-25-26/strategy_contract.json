@@ -1,0 +1,161 @@
+{
+  "generated_at": "2026-07-25 11:47",
+  "slug": "mma_se",
+  "calls": [
+    {
+      "name": "Valter Walker",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Sam Patterson",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Muhammad Saidov",
+      "verdict": "underweight"
+    }
+  ],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "Brendson Ribeiro",
+      "own": 6.0
+    },
+    {
+      "name": "Wellington Turman",
+      "own": 5.0
+    }
+  ],
+  "board": [
+    {
+      "name": "Islam Dulatov",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Magomed Tuchalov",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Magomed Zaynukov",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Abdul Hussein",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Rizvan Kuniev",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Sam Patterson",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Magomed Ankalaev",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Axel Sola",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Abubakar Vagaev",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Nurullo Aliev",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Dustin Jacoby",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Steve Erceg",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Valter Walker",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ramazan Temirov",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Thomas Petersen",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Muhammad Saidov",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ismael Bonfim",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Mike Davis",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Saygid Izagakhmaev",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Bogdan Guskov",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Santiago Ponzinibbio",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Damian Rzepecki",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Tyrell Fortune",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Cody Gibson",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Brendson Ribeiro",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Wellington Turman",
+      "tier": "Fade",
+      "leverage": false
+    }
+  ]
+}

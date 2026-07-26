@@ -1,0 +1,23 @@
+{
+  "slug": "mma_se",
+  "sport": "mma",
+  "contest_label": "MMA",
+  "date": "2026-07-26",
+  "slate_label": "UFC Fight Night: Ankalaev vs Guskov 7.25.26",
+  "archived_at": "2026-07-26 15:35",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json"
+  ],
+  "missing": [
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/mma_se/2026-07-24__MMA Matchups 7.25.26.pdf",
+    "articles/mma_se/2026-07-24__MMA Top Plays 7.25.26.pdf"
+  ],
+  "proj_source": null
+}

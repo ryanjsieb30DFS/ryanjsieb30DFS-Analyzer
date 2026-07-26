@@ -1,119 +1,173 @@
 # Post-autopsy review — UFC Oklahoma City 7.18.26 (logged 2026-07-19)
 
-Two SE contests: **UFC $8K Flying Knee** (784 entries, top-heavy) — rank **18/784, 2.3%ile**, and **UFC $5K Clinch** (1,189 entries, flat) — rank **629/1189, 52.9%ile**. The Flying Knee entry was **one swap from winning $2,000**: swapping Austin Bashi (42.90) for RJ Harris (106.70) reproduces the 705.91 winning lineup exactly.
+_Third pass, run 2026-07-26. Passes 1 (7/19) and 2 (7/26) are compressed into `## Prior passes — applied` at the bottom; nothing settled there is re-litigated here. This pass does three things: it quantifies the duplication finding pass 2 named but never wrote into the ledger, it decides the three new merge pairs the hygiene pre-pass surfaced, and it repairs a schema hole in `lessons.yaml`._
+
+Two SE contests. **UFC $8K Flying Knee** (784 entries, $2K to 1st) — rank **18/784, 2.3%ile**, 642.11 points. **UFC $5K Clinch** (1,189 entries, flat payout) — rank **629/1,189, 52.9%ile**, 431.96 points.
 
 ## Process scorecard
 
-**Pre-flight checks — honored, judged by the strategy's substance.**
-- **Anchor-Equivalence surfaced** as required: the DDP (45%) / McMillen (42%) pair, plus the Hooper/Bashi/Usman second cluster, in `## Edges & tensions`. The user acted on it (McMillen-not-DDP in both entries) and it was the single best decision of the slate — McMillen 168.11 vs DDP 85.20, and both contest winners carried McMillen.
-- **Open lessons were visibly applied**: the mandatory per-fight low-owned-definer screen (the Ofli lesson) covered all 12 fights; the finish-capable-favorite exemption was explicitly cited for McMillen and Bashi; field-tendencies (in-2-of-2 counts) and chalk combos were surfaced with numbers; the sharp-envelope section was anchored to observed shark data. No checklist was printed, per format.
-- **Venue file**: not applicable — MMA has no venue file by design.
-- **Gap in the run**: `player_pool.md` was never generated (listed in manifest `missing`), so there is **no player-pool board and no tier calibration** (`pool_calibration.json` absent) for this slate, and `lineup_grade.md` is also missing — the Grade tab was not used pre-lock. Two learning-loop instruments were dark this slate.
+### New this pass — duplication was super-linear, and that is the whole finding
 
-**Did the synthesized edges hold up?**
-- **Held — the fade block was 4-for-5.** DDP UNDERWEIGHT (85.20, inside the predicted 90–100 volume-decision band — a remarkably precise call), Ko UNDERWEIGHT (37.40, the #1 fish trap in the Clinch: 51.2% of fish, 0% of winners), Coria UNDERWEIGHT (69.90 at $9.8K, exactly the "100–110 isn't 130" world), Delgado UNDERWEIGHT (69.40 — decision win busting at $8.3K, as written). The Usman skepticism also held (38.90; fish trap in both contests).
-- **Held — the Good tier's converters**: Barbosa 106.73 (the winner's leverage carrier in BOTH contests), Elliott 115.23, Franco 110.13 — all three in both winning lineups.
-- **Missed — Kline LEAN FADE.** She scored **109.40 and sat in the 1,189-field winning lineup**. The "80–90 cash score" cap was derived purely from her low finish probability (+285 ITD) — the exact distance-implies-low-ceiling error the 7/12 lesson named. First confirmation of that lesson (now validated).
-- **Missed — Bashi Core.** 42.90 at 46–47% actual own; the slate's biggest fish trap in the Flying Knee (51.8% of fish, **0% of winners**) and the exact piece that cost the $2K (Bashi→Harris = the winning lineup). The article's "crushes in wins" read inherited the article's matchup error.
-- **Missed — every leverage lean.** Ramirez ("leverage against Hooper") 0.80 and a fish trap; Montes 22.4; Anderson 7.41; both true darts lost (Nicoll 5% own — Coria won; Melisano 8% — Barbosa won); Ricci and Cannonier lost too. **Every board piece under 15% projected own lost.** The slate was decided in the 20–30% converter tier (Harris 106.70, Kline 109.40, Barbosa, Franco) — see the new six-winners hypothesis.
-- **Missed — the ownership map at the top.** The strategy read the field as paying for the DDP marquee; the field's real chalk was **McMillen at 66.8–69.8% actual vs 42% projected**, and the real #1 pair was Bashi+McMillen (34.6% of lineups) — the strategy's pair estimates, built on projected own, ran at half the actual convergence (DDP+McMillen est. ~18.9%, actual 34.4%). New hypothesis birthed.
+Pass 2 spotted that the rank-18 roster was mass-produced (`dup_count: 10`, the field's **#3 exact-roster dupe magnet** at count 9) while the winning roster was entered twice. It stopped there. The arithmetic underneath is sharper than the observation:
 
-**Tooling finding (needs a code fix — not applied in this run).** `strategy_contract.json` recorded **zero calls** (`calls: []`, `fades: []`) despite the strategy containing five explicit verdicts. Root cause: the fade bullets used the format `**Dricus Du Plessis — UNDERWEIGHT.**` (verdict inside the bold, no salary/paren/digit), and `_leading_name` (`src/player_pool.py:144`) only splits on ` at/vs/over/on `, `(`, `$`, `,`, or a digit — so the name survives as "Dricus Du Plessis — UNDERWEIGHT." and then fails resolution against the projections universe in `src/strategy_contract.py:47-57`, silently dropping every call. Consequences: the Sim-tool hand-off carried no calls, and `adherence.json`'s `fades_violated: 0` was graded against an **empty contract** (vacuous). Suggested fix: strip a trailing ` — <VERDICT-TOKEN>` tail in `_leading_name` (or split on the em-dash when the remainder is a verdict token). Until fixed, any strategy using verdict-inside-bold formatting silently disables the fade contract, adherence fade-grading, and the Grade tab's fade checks.
+| | User, rank 18 | Winner, dapope27 |
+|---|---|---|
+| Roster | Hooper / McMillen / **Bashi** / Franco / Barbosa / Elliott | Hooper / McMillen / **Harris** / Franco / Barbosa / Elliott |
+| Differs by | — | one fighter |
+| Ownership product × 784 (naive) | 1.93 | **1.19** (matches the tool's `expected_dupes`) |
+| Actual entries of that exact roster | **10** | **2** |
+| Realized ÷ naive | **5.2×** | 1.7× |
 
-**Shark gap (1b).** No tracked pros were in either field this slate (`shark_gap.json`: `sharks_in_field: false`, 0 entries) — **no new axis measurement**. The previously recurring axis, `own_per_slot` (top gap in 2 of the last 4 slates), carried noise-level deltas (6/27: 1.3 pts; 7/12: 0.1 pts), and this slate the user's own-per-slot (39.4% / 33.2%) sat *inside* the winners' envelope (37.5 / 37.1). Conclusion: the recurring leak is **not structural ownership anymore** — structure has converged on the winning shape; the separating axis is **win-side selection in the mid-own tier** (Bashi/Hines/Anderson lost where Harris/Kline/Barbosa won). That mechanism is now carried by the new `winning-se-shape-six-winners-mid-own-converters` hypothesis rather than a shark-axis lesson, since no shark data exists this slate to anchor one.
+The two lineups differ by a single swap: Bashi (47.3% owned) for RJ Harris (29.1%). Independence says that swap should cut expected duplicates about **1.6×**. It actually cut them **5×**. Duplication does not track ownership linearly — it concentrates on whichever pieces the field *agrees about*, so the consensus roster runs several multiples above its own ownership math.
 
-**Adherence (1c) — discipline graded separately from analysis.**
-- **Fades honored — verified by hand** (the automated grade was vacuous per the contract bug): none of the five faded/underweighted names (DDP, Ko, Kline, Coria, Delgado) appeared in either entered lineup. Genuine discipline, and it happened to be +EV everywhere except Kline.
-- **Leverage candidates 0/2 rostered** (Nicoll, Melisano — trend on this metric: capture 1.0 → 0.6 → 0.0 → 0/2 covered). Both darts LOST, so skipping them cost nothing this slate — results don't launder discipline, but the growing evidence (7/12 + 7/19 winners both carried **zero** sub-10 pieces) says the miscalibration is in the *prescription*, not the execution. The strategy's own "roughly one sub-15% piece per bullet" target was violated in both entries (lowest piece ~24%) — and the winners violated it too. Recalibrate the target (six-winners hypothesis) rather than flag the violation as a leak.
-- **Codified diversification rule violated**: both SE entries shared a 4/6 spine (Hooper/McMillen/Bashi/Franco) including *all* conviction anchors — `no-identical-conviction-cores` requires differentiating on at least one anchor. The shared Bashi bust dragged both entries, and the grader flagged both lineups `crowded_pair` (no clean cohort to compare, so the grader's self-validation is uninformative this slate). This is the slate's clearest pure-discipline finding.
+The consequence the ownership view hides: **even if Bashi had won, first prize splits ten ways.** In a top-heavy SE, a bullet assembled entirely from consensus pieces is capped in *value* before the first fight, independent of what it scores. That is a different failure from "picked the wrong fighter," and it is the one the process had no check for.
 
-**Codified-rule check (1d)** — each codified lesson, applied vs triggered, mechanism vs actuals:
+Worth naming plainly: the two edges pointed the same direction. The swap that adds 63.8 points is the same swap that cuts duplication 5×. The mid-own-converter screen and the duplication check are not competing constraints — which is what makes this cheap to act on. Recorded as `mma-se-2026-07-19-exact-roster-duplication-is-superlinear-in-consensus`.
+
+And the pre-lock tooling **did** fire. `grader_validation.json` flagged `crowded_pair` on both entries; the pair was Bashi+McMillen, the field's #1 combo at 34.6% / 32.5%. The flag was overridden at build time.
+
+### Second new finding — MMA field-tendency history transfers as shape, never as names
+
+The strategy spent a full bullet mapping the forward-fed `## Field tendencies` block onto this card, and had to concede mid-sentence that "none of those names fight tonight." That is structural, not incidental: the block is **name-keyed**, and MMA rosters turn over ~100% between slates. The 7/12 crowd list (Holloway, Pimblett, Steveson, Pinas) shares **zero fighters** with the 7/19 card.
+
+What transferred was the shape, and the strategy read it correctly — in both slates the field's #1 duplicated pair was the single most-owned anchor plus another top-five chalk favorite (7/12 Holloway+Pimblett 30.7%; 7/19 Bashi+McMillen 34.6%), and the strategy did name a McMillen-anchored pair as the analogue. Only the **magnitude** failed: it estimated ~18.9% against 34.4% actual, because it was computed from projected own.
+
+This is a corollary of an existing lesson rather than a new one, so it was folded into `mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence` instead of birthing a 27th entry: read the MMA field-tendency block for shape only, and size duplication from this slate's own chalk-combo math with an upward convergence adjustment.
+
+### Pre-flight checks — honored (verified again, unchanged)
+
+- **Anchor-Equivalence** was surfaced as required (DDP 45% / McMillen 42%, plus the Hooper/Bashi/Usman cluster), and acting on it was the best decision of the slate — McMillen 168.11 vs DDP 85.20, both contest winners on McMillen.
+- **Open lessons were visibly applied**: the per-fight low-owned-definer screen covered all 12 fights, the finish-capable-favorite exemption was cited by name, chalk combos and field tendencies were surfaced with counts.
+- **Venue file**: not applicable — MMA has no venue directory by design.
+- **Two instruments were dark**: no `player_pool.md` was generated (hence no `pool_calibration.json` — tier calibration is unavailable for this slate), and no `lineup_grade.md` (the Grade tab was not run pre-lock, though its calibration still ran retroactively at log time and produced the `crowded_pair` flag above).
+
+### Did the synthesized edges hold up?
+
+Held: the fade block went 4-for-5 (DDP 85.20, inside the predicted 90–100 band; Ko 37.40 and the Clinch's #1 fish trap; Coria 69.90; Delgado 69.40), and the Good tier's converters all landed (Barbosa 106.73, Elliott 115.23, Franco 110.13 — all three in both winning lineups).
+
+Missed: Kline LEAN FADE (109.40, in the 1,189 winner), Bashi Core (42.90), every leverage lean (Ramirez 0.80, Montes 22.4, Anderson 7.41), and both darts. All recorded on 7/19; not re-litigated.
+
+### 1b — Shark gap: still no measurement, and the conclusion stands
+
+**No tracked pro was in either field** (`shark_gap.json`: `sharks_in_field: false`), so there is no axis measurement and no shark-axis lesson can be anchored to this slate. The axis history: 6/27 Baku `own_per_slot` delta **1.3 pts**, 7/12 UFC 329 `own_per_slot` delta **0.1 pts**, 6/20 and 7/19 unmeasured. `own_per_slot` ranked "top" only because every other dimension measured exactly 0.0. **There is no recurring structural shark leak in MMA — there is a two-observation sample where the user and the pro built nearly identically.**
+
+Re-verified this pass, since pass 2's headline claim rested on it: `rules/shared/shark_baseline.json` contains **no `mma` key** — the frozen 63-contest seed covers nascar, golf and showdown only. There is no observed MMA envelope to calibrate a dart target against. That finding is carried by `mma-se-2026-07-19-sharp-envelope-is-a-rate-not-a-per-bullet-quota`.
+
+### 1c — Adherence: discipline graded apart from results
+
+- **Fades honored.** None of the five faded/underweighted names (DDP, Ko, Kline, Coria, Delgado) appeared in either entry.
+- **Leverage candidates 0/2 rostered** (Nicoll, Melisano). Both lost. Per 1b the prescription was miscalibrated, not the execution — a target to fix, not a discipline charge.
+- **The shared spine remains the clean discipline finding.** Both bullets shared 4 of 6 fighters including *every* conviction anchor; only the two cheapest slots differed. `no-identical-conviction-cores` is codified, was violated, and the predicted mechanism realized — Bashi failed once and damaged both entries at once. Recorded 7/26 as a confirmation-by-violation.
+- **Cross-slate violation trend: still not computable.** `adherence.json` exists for this slate only, and `results.jsonl` carries `adherence_*` fields on the 7/19 row and nothing earlier. Re-check at the next MMA log.
+
+### 1d — Codified-rule check
+
+Fourteen codified rules. Verdicts are unchanged from pass 2; the table is compressed to the rows that carry a live verdict.
 
 | Codified rule | This slate | Mechanism verdict |
 |---|---|---|
-| verify-submission-before-lock | No evidence either way | Not triggered |
-| no-identical-conviction-cores | **Violated** (4/6 shared spine, both anchors shared) | **Held** — shared Bashi bust hit both entries at once |
-| ceiling-threshold-discipline | Not verifiable (no build-time sums archived) | No verdict |
-| binary-leverage-weak-in-small-fields | Applied (dogs surfaced as candidates, not cores) | **Held** — all binary pieces busted; winners carried none; two dead coin-flip slots buried the Clinch entry. Confirmation added |
-| secondary-plays-are-not-leverage | Applied (leverage labels kept sub-15%) | First wobble: the 21–29% "secondary chalk" tier is exactly where this slate was decided. 1 stress point, no demotion |
-| asymmetric-anchor-equivalence-weighting | Trigger condition unmet (DDP chalkiest but decision-modal, not KO-or-bust) | Boundary held trivially |
-| se-bullet-is-the-differentiated-build | Not triggered (no multi-lineup portfolio behind the SEs) | — |
-| anchor-equivalence (shared) | **Applied, decisive win** (McMillen-not-DDP) | **Held** — 8th validation, with the projected-own-parity boundary noted |
-| field-size-calibration | Applied (784/1,189 = genuine-differentiation band) | Held broadly; the *currency* of differentiation is refined by the new six-winners hypothesis |
-| one-leverage-swing-conviction-core | Followed in neither entry (no sub-20% swing) | **First mechanism miss**: BOTH contest winners also carried zero sub-20% pieces (lowest 20.35% / 23.85%). 1 of the 2 misses needed for a demotion proposal — watch next slate |
-| finish-capable-favorite-is-not-secondary-chalk | Applied (McMillen, Bashi held as cores) | Split: McMillen 168.11 (held), Bashi 42.90 (GPP guard: a lost fight isn't a mechanism failure, but note the exemption inherits the article's matchup read — Delgado's "conceded 4 takedowns" tell was in the same article) |
-| ceiling-gate-underrates-low-own-finishers | Not triggered (no ceiling-gate build recorded) | — |
+| no-identical-conviction-cores | Violated (4/6 spine, all anchors shared) | Held — confirmation in the ledger |
+| secondary-plays-are-not-leverage | Applied | **1 of 2 contradictions.** Its instruction ("swap anything 20%+ out of the leverage slot") would have removed every winner's differentiator: Harris 27.8–29.1%, Kline 21.6%, Barbosa 20.4–23.9%, Franco 23.7–25.9% |
+| one-leverage-swing-conviction-core | Followed in neither entry | **1 of 2 contradictions.** Neither winner carried a sub-20% piece (lowest 23.85% / 20.35%; `dart_pct` 0.0 in both). The conviction-anchor half held |
+| anchor-equivalence (shared) | Applied, decisive | Held — 8th validation |
+| binary-leverage-weak-in-small-fields | Applied | Held |
+| finish-capable-favorite-is-not-secondary-chalk | Applied | Split: McMillen 168.11 held; Bashi 42.90 is a lost fight, not a mechanism failure (GPP guard) |
+| fade-on-structure-not-narrative | Applied | Held with refinement: the Kline cap was a narrative fade in structural clothing |
+| leverage-is-the-low-own-finisher-not-the-named-dog | Codified 7/19 from this slate | No independent re-test available |
+| ceiling-threshold-discipline | Not verifiable (no build-time ceiling sums archived) | No verdict |
+| verify-submission · asymmetric-anchor-equivalence · se-bullet-selection · ceiling-gate-underrates-low-own-finishers · field-size-calibration | Not triggered, or applied without incident | — |
 
-**Process trend** (results.jsonl, last 5): best percentile 1.7 → 1.3 → 26.1 → **2.3** — healthy and consistent with the top-heavy/flat split the strategy prescribed (differentiation budget to the Flying Knee, which is where the 2.3%ile landed). Leverage capture 1.0 → 0.6 → 0.0 → n/a (no projections matched at autopsy time this slate — the projections session was already cleared, `projections.available: false`; worth logging the autopsy before clearing next time so `edge_leverage_capture` stays populated).
+**Two codified rules sit at 1 of the 2 contradictions needed for a demotion proposal.** Neither gets one this slate, and both point the same way: `secondary-plays-are-not-leverage` and `one-leverage-swing-conviction-core` each define differentiation by an ownership *threshold*, and on consecutive slates (7/12, 7/19) the winning structure differentiated through mid-owned **converters** instead. If the next MMA slate reproduces that, the proposal is to narrow both — not delete them. Draft edits are held in `## Proposed codifications`.
+
+The duplication finding above cuts across both of those watches and is worth flagging for whoever reads them next: it supplies a *non-ownership* reason to avoid the consensus roster, which is exactly the ground the two threshold rules were trying to defend with the wrong instrument.
+
+### Process trend (results.jsonl, last 5)
+
+Best percentile **0.2 → 1.7 → 1.3 → 26.1 → 2.3**. Healthy, and consistent with the strategy's own call to spend the differentiation budget on the top-heavy Flying Knee — which is where the 2.3%ile landed.
+
+Leverage capture **1.0 → 0.6 → 0.0 → n/a**. `null` this slate because `projections.available` was false at autopsy time (0 of 24 fighters matched) — the projections session had been cleared before the standings were logged. Three of the last four MMA slates now have a hole in that series. Logging the autopsy before clearing the slate keeps `edge_leverage_capture` populated.
+
+Bust exposure and tier calibration: unavailable (no projections at autopsy, no player-pool board generated).
 
 ## Lesson ledger changes
 
-Applied directly to `rules/mma_se/lessons.yaml`:
+Applied directly to `rules/mma_se/lessons.yaml` this pass:
 
-1. **`anchor-equivalence-fifth-validation`** — added 7/19 confirmation (8th validation): McMillen-not-DDP captured 168.11 vs 85.20 and both winners carried McMillen; boundary noted that the ownership-parity premise held only in projection (McMillen ran 67–70% actual).
-2. **`binary-leverage-weak-in-small-fields`** — added 7/19 confirmation: every binary/dog piece busted, winners carried zero, two dead coin-flip slots capped the Clinch entry at 52.9%ile.
-3. **`leverage-is-the-low-own-finisher-not-the-named-dog`** — added **third confirming slate** (Ramirez the named dog scored 0.80 while below-spotlight converters Harris/Kline defined the slate) with the boundary that when the only sub-10s carry ~12–17% win equity the definer tier moves up to 15–30%. **Promotion proposed below.**
-4. **`finish-heavy-small-fields-still-won-by-differentiation`** — added **second contradiction** of its avg-own-target half (both winners 31.6%/36.4% avg own, 0 darts). **Retirement proposed below.**
-5. **`distance-fight-is-not-low-ceiling`** — added first confirmation (the Kline 80–90 cap vs her 109.40 in the winning lineup) and **promoted hypothesis → validated** (with the standings-can't-show-method caveat recorded in the note).
-6. **`fade-on-structure-not-narrative`** — added the awaited chalk-piece test as a refinement confirmation: the Kline fade's mechanism was structural-sounding but skipped the pace/volume check, so "structural" must require it. Folded into the codification proposal below.
-7. **Born** `mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters` (hypothesis) — the winning SE shape is six winners, chalk-anchored, zero darts, differentiated by 2–4 mid-owned converters; evidence 7/12 + both 7/19 winners.
-8. **Born** `mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence` (hypothesis) — McMillen 42% projected → 67–70% actual; pair-duplication and equivalence math built on projected own understated real convergence by ~2×.
+1. **Born `mma-se-2026-07-19-exact-roster-duplication-is-superlinear-in-consensus`** (hypothesis) — exact-roster duplication rises super-linearly in field consensus (user 5.2× its independence estimate, winner 1.7×), so a top-heavy SE bullet built from consensus pieces is value-capped before the fights start. Carries the pre-lock test: ownership product × field size × the sport's measured concentration factor, with a double-digit result treated as build-defining.
+2. **Amended `mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence`** — added the field-tendency corollary: the block is name-keyed and MMA turns its roster over ~100% between slates, so it transfers shape only; magnitudes must be re-derived from this slate's chalk-combo math with an upward convergence adjustment.
+3. **Schema repair on `mma-se-2026-05-30-ceiling-gate-underrates-low-own-finishers`** — the entry was missing `contradictions`, `codified_in` and `retired_reason` entirely, so a `codified` lesson had no recorded framework anchor and no field for a future contradiction to land in. Set to `[]`, `framework.md — Win-Case Ceiling Under-Rates Low-Own Finishers (5/30/26 — UFC Macau)` (the section exists, verified at `framework.md:171`), and `null`. No evidence was added or changed.
+
+Ledger now stands at **26 lessons** — codified 14, validated 3, hypothesis 8, retired 1.
 
 ## Venue file changes
 
-None — MMA has no venue file (venue knowledge exists only for NASCAR tracks and PGA courses, per CLAUDE.md). No stub created.
+**None.** MMA has no venue directory — venue knowledge is tracked for NASCAR tracks and PGA courses only (`rules/{nascar/tracks,pga_classic/courses}/`), per CLAUDE.md. No stub was created: a per-arena MMA file would accumulate observations with no mechanism to act on, since the cage, the scoring and the fight-night structure are identical in Oklahoma City and anywhere else. If venue ever matters in MMA it will be through altitude or short-notice travel, which belongs in the framework rather than a per-arena file.
 
 ## Ledger hygiene
 
-**Stale hypotheses (4)** — all KEEP under the GPP guard:
-- `confirmed-vs-speculative-news` — **KEEP.** Untested only because no late-breaking-news swap decision has occurred on any slate since 5/9; the mechanism can only fire on a news event, and none has.
-- `showdown-flex-spine-diversity` — **KEEP.** Captain-mode-showdown-specific; every slate since 6/14 has been classic format, so no relevant slate has occurred.
-- `showdown-trust-cpt-own-not-projected-overall-own` — **KEEP.** Same reason (no showdown since 6/14). Note: this slate produced a classic-format cousin (`projected-own-understates-consensus-chalk-convergence`) — if the showdown variant stays untested while the classic variant validates, revisit merging the pair into one format-agnostic own-calibration lesson.
-- `showdown-captain-the-ceiling-pair-the-smash` — **KEEP.** No captain-mode slate since 6/14; the mechanism (CPT-slot assembly) cannot fire on classic slates.
+The pre-pass flagged 4 stale hypotheses, 3 near-promotion, 0 overdue, and 19 merge pairs. Sixteen of those pairs were decided in passes 1 and 2 and are carried forward unchanged; the three new ones are all consequences of `sharp-envelope-is-a-rate-not-a-per-bullet-quota` being born last pass.
 
-**Near promotion (4)** — the exact mechanism a third slate must confirm:
-- `showdown-cap-single-favorite-exposure` (validated, 2/3) — a third slate must show a portfolio (≥3 entries) where capping the chalkiest favorite at ≤60% of lineups plus ≥2 deliberate fade builds either dodges a chalk bust or costs nothing when the chalk hits. This slate carried only 2 entries with McMillen in both (uncapped, 100%); he smashed, so no evidence either way.
-- `showdown-cheap-slot-prefer-floor-or-live-dog` (validated, 2/3) — a third slate must show the cheap slot filled with a decision-floor fighter or live finishing dog outperforming a pure salary-relief/no-floor piece. Directionally rhymed this slate (winners' cheapest pieces Franco/Harris were converting floors; the user's relief-tier Hines/Anderson busted) but standings carry no salaries, so it can't be graded cleanly.
-- `leverage-is-the-low-own-finisher-not-the-named-dog` (validated) — **third confirmation recorded this slate → moved to Proposed codifications.**
-- `finish-heavy-small-fields-still-won-by-differentiation` (hypothesis) — flagged near-promotion, but this slate delivered the **second mechanism contradiction** of its testable half instead → **moved to retirement proposal**. Its confirmed half (catch ≥1 low-owned converter, no losing slots) survives inside the new six-winners hypothesis.
+### Stale hypotheses (4) — all KEEP, unchanged
 
-**Overdue promotion (1):**
-- `fade-on-structure-not-narrative` (validated, 3 confirming slates) — **promote.** Codification edit below, with the Kline-derived refinement (a structural fade must include the pace/volume/control check) folded in.
+- `mma-se-2026-05-09-confirmed-vs-speculative-news` — **KEEP.** The mechanism needs a late-breaking-news swap decision to fire; no slate since 5/9 has produced one. GPP guard applies squarely — untested for lack of a relevant slate.
+- `mma-se-2026-06-14-showdown-flex-spine-diversity` — **KEEP.** Captain-mode-only; every slate since 6/14 has been classic format.
+- `mma-se-2026-06-14-showdown-captain-the-ceiling-pair-the-smash` — **KEEP.** Same — the CPT-slot assembly mechanism cannot fire on a classic slate.
+- `mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own` — **KEEP, merge pending.** Pass 2 proposed folding it into the classic-format lesson; that proposal is still awaiting approval and is restated below rather than re-derived.
 
-**Merge candidates (12 pairs)** — decisions:
-- `showdown-cap-single-favorite-exposure` ↔ `showdown-flex-spine-diversity` — **KEEP-SEPARATE**: portfolio-level single-favorite cap vs pairwise spine-overlap cap; different checks, different fixes.
-- `showdown-captain-the-ceiling-pair-the-smash` ↔ `showdown-flex-spine-diversity` — **KEEP-SEPARATE**: assembly rule vs diversity rule.
-- `showdown-captain-the-ceiling-pair-the-smash` ↔ `showdown-trust-cpt-own-not-projected-overall-own` — **KEEP-SEPARATE**: construction vs data-calibration; the cross-link is context, not overlap.
-- `secondary-plays-are-not-leverage` ↔ `fade-on-structure-not-narrative` — **KEEP-SEPARATE**: what counts as leverage vs what counts as a valid fade.
-- `secondary-plays-are-not-leverage` ↔ `finish-capable-favorite-is-not-secondary-chalk` — **KEEP-SEPARATE**: rule + its exemption, already codified into different framework sections; merging churns framework text without changing behavior.
-- `binary-leverage-weak-in-small-fields` ↔ `leverage-is-the-low-own-finisher-not-the-named-dog` — **KEEP-SEPARATE**: field-size EV rule vs where-to-hunt rule.
-- `showdown-cheap-slot-prefer-floor-or-live-dog` ↔ `leverage-is-the-low-own-finisher-not-the-named-dog` — **KEEP-SEPARATE**: slot-specific vs pool-wide screen.
-- `finish-capable-favorite-is-not-secondary-chalk` ↔ `leverage-is-the-low-own-finisher-not-the-named-dog` — **KEEP-SEPARATE**: exposure stance vs candidate search.
-- `field-size-calibration` ↔ `finish-heavy-small-fields-still-won-by-differentiation` — **resolved by the retirement proposal** for the latter; if approved, the overlap disappears.
-- `finish-heavy-small-fields` ↔ `leverage-is-the-low-own-finisher` — same: resolved by the retirement proposal.
-- `leverage-is-the-low-own-finisher` ↔ `distance-fight-is-not-low-ceiling` — **KEEP-SEPARATE**: hunting ground vs ceiling-estimation method. If the fade-on-structure codification is approved (it embeds the pace/volume check), consider folding `distance-fight` in at its own promotion time.
-- `fade-on-structure-not-narrative` ↔ `distance-fight-is-not-low-ceiling` — **KEEP-SEPARATE** for now, same note as above.
+**Sunset note (carried).** All three showdown hypotheses are format-locked, and the tool's scope is SE / 3-Max / 5-Max classic. If no captain-mode slate is played by roughly the end of 2026-09 they should be retired as untestable. That is a scope judgment for the user, not a mechanism failure, so no retirement is proposed.
 
-No lesson references a removed feature; no removed-feature retirements.
+### Near promotion (3) — the exact mechanism a third slate must confirm
+
+- `mma-se-2026-06-14-showdown-cap-single-favorite-exposure` (validated, 2/3) — needs a slate with **≥3 entries** where the chalkiest favorite is capped at ≤60% of lineups *and* ≥2 deliberate fade builds exist, and that structure either dodges a chalk bust or costs nothing when the chalk hits. This slate cannot count: 2 entries, McMillen in both (100%, uncapped), and he smashed.
+- `mma-se-2026-06-14-showdown-cheap-slot-prefer-floor-or-live-dog` (validated, 2/3) — needs a slate where the cheap slot holds a decision-floor fighter or a live finishing dog and outscores a pure salary-relief piece, **with salaries available**. This slate rhymed (the winners' cheap pieces Franco/Harris converted; the user's relief-tier Hines 4.40 and Anderson 7.41 busted) but DK standings carry no salary column, so it is not cleanly gradable. Making it gradable means joining the archived strategy's salary table to the standings at log time.
+- `mma-se-2026-07-12-distance-fight-is-not-low-ceiling` (validated, 2/3) — needs a third slate where a fighter projected to win a **high-pace, high-control decision** at low ownership scores 100+, or where a low-finish-probability favorite is correctly *not* ceiling-capped. Kline (7/19) was the second. The clean test needs a recorded method, since standings alone cannot separate a finish from a dominant decision.
+
+### Merge candidates (19)
+
+**New this pass (3) — all involve the newly-born `sharp-envelope-is-a-rate-not-a-per-bullet-quota`:**
+
+- `sharp-envelope-is-a-rate` ↔ `winning-se-shape-six-winners-mid-own-converters` — **KEEP-SEPARATE.** They cite the same evidence (`dart_pct` 0.0 in both winners) and reach different claims. One is a rule about how to *read a statistic* — a portfolio rate is not a per-bullet quota; the other is a claim about what the winning roster *looks like*. Merging would bury a measurement-interpretation rule inside a build-shape target, where it would stop applying to the next envelope number the tool forward-feeds.
+- `leverage-is-the-low-own-finisher-not-the-named-dog` ↔ `sharp-envelope-is-a-rate` — **KEEP-SEPARATE.** The first is codified into framework.md; the second is an unconfirmed hypothesis with zero confirming slates. Merging would launder unvalidated content into a codified rule — the same reasoning applied to this pairing's siblings in pass 2.
+- `one-leverage-swing-conviction-core` ↔ `sharp-envelope-is-a-rate` — **KEEP-SEPARATE now, merge-on-demotion.** These two are genuinely converging: both ask whether a mandatory low-own slot belongs in a single bullet, one from the philosophy side and one from the shark-envelope side. But the codified rule sits at 1 of 2 contradictions. If it takes a second and gets narrowed, the hypothesis is the natural source of the replacement language and the merge should happen *then*, as part of the demotion — not now, which would pre-empt the user's approval of a demotion that hasn't been proposed yet.
+
+**Carried from pass 2 (4), unchanged:** `showdown-trust-cpt-own` ↔ `projected-own-understates` — **MERGE** (proposal below, still pending approval). `finish-heavy-small-fields` ↔ `winning-se-shape` — KEEP-SEPARATE, no-op (the former is retired; the cross-link is the audit trail). `leverage-is-the-low-own-finisher` ↔ `winning-se-shape` — KEEP-SEPARATE (search rule vs shape target; codified vs unconfirmed). `binary-leverage` ↔ `winning-se-shape` — KEEP-SEPARATE (field-size EV rule vs roster-shape target).
+
+**Carried from pass 1 (12), all KEEP-SEPARATE, reasons unchanged:** cap-single-favorite ↔ flex-spine; captain-the-ceiling ↔ flex-spine; captain-the-ceiling ↔ trust-cpt-own; secondary-plays ↔ fade-on-structure; secondary-plays ↔ finish-capable-favorite; binary-leverage ↔ leverage-is-the-low-own-finisher; cheap-slot ↔ leverage-is-the-low-own-finisher; finish-capable-favorite ↔ leverage-is-the-low-own-finisher; leverage-is-the-low-own-finisher ↔ distance-fight; fade-on-structure ↔ distance-fight; and the two pairs involving `finish-heavy-small-fields`, resolved by its retirement.
+
+**Removed-feature check:** no lesson's mechanism references a removed feature. The three showdown lessons depend on a contest format the user has not played recently, not on tooling that no longer exists — that is the sunset question above, not a removed-feature retirement.
+
+**Bloat note.** 19 merge flags across 26 lessons is mostly the `[[id]]` cross-linking convention doing its job, not real duplication — every KEEP-SEPARATE above rests on the two lessons making different claims from shared evidence. Worth watching, though: nine of the nineteen now involve one of the four 7/19-born entries. If the next pass flags a fourth 7/19 cross-link cluster, the right move is consolidating the 7/19 cohort into a single "what the OKC slate taught" lesson with sub-claims, rather than deciding pairs one at a time.
 
 ## Proposed codifications
 
-*(Proposals only — nothing below has been applied to framework.md or philosophy.md. Approve via the app.)*
+_(Proposals only. Nothing below has been applied to `framework.md`, `philosophy.md`, or any lesson's status. Approve via the app.)_
 
-**1. CODIFY `mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog`** (origin 6/27 + confirmations 7/12, 7/19 = 3 mechanism slates). Proposed framework.md addition:
+**1. MERGE `mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own` into `mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence`** — carried from pass 2, still pending, restated in full so the approve action has a complete target.
 
-> ### The Leverage Screen: Converters, Not Named Dogs (7/19/26 — 3-slate validated)
-> Before lock, screen EVERY rosterable fighter under ~30% projected ownership for a realistic win path (favorites and dogs alike) and treat the low-owned CONVERTING fighters — the sides that win their fights outright, wherever the articles' spotlight isn't — as the slate's leverage candidates. Never let the leverage slot default to the article-named KO-or-bust dog: on 6/27 the named dog (Walker +425) busted while the unmentioned converters (Ofli 5–9% own, 112.76) won the slates; on 7/12 the strategy faded the definer's whole fight (Bautista, 137.43, in both winners); on 7/19 the named dog (Ramirez 15%, 0.80) was a fish trap while the 21–29% converters (Harris 106.70, Kline 109.40) sat in both winning lineups. Boundary: when the board's only sub-10% pieces carry under ~20% win equity, the definer tier moves UP into the 15–30% converting sides — screen there, and never fade an entire fight out of the search.
+Surviving id: **`mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence`** (the live, testable one). The showdown entry becomes `status: retired`, `retired_reason: "Merged into mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence — same mechanism (projected own% does not describe real field concentration), with the sign determined by format."` Proposed combined statement:
 
-**2. CODIFY `mma-se-2026-06-20-fade-on-structure-not-narrative`** (origin 6/20 + confirmations 6/27, 7/12, plus the 7/19 chalk-piece test recorded as a refinement). Proposed framework.md addition:
+> Vendor projected own% does not describe where the field actually concentrates, and the direction of the error is set by the contest format. In **captain-mode showdown** the field fragments across captains, so projected OVERALL own% massively **overstates** real exposure — Hokit projected ~75 overall but drew 12.6% actual captain own, and the upset finisher who won (Gaethje) hid behind 44% projected / 7.9% actual; DailyFan's CAPTAIN-own column was well calibrated by comparison. In **classic SE** the error inverts: the field converges harder than projected on the single narrative-consensus favorite — DailyFan projected McMillen 42% (second to DDP's 45%) and he drew 66.8–69.8% actual, becoming the field's true chalk by 20 points, while DDP landed near projection. Downstream math inherits the error in both formats: the 7/19 DDP+McMillen pair estimate (~18.9% of lineups) was half the actual 34.4%, and the real #1 pair (Bashi+McMillen, 34.6%) was never flagged. Rule to test: make leverage, fade and duplication calls off the ownership column that matches the format's decision structure (CPT-own in showdown), and in classic treat "similar projected ownership" at the top of the board as unverified until an actual-convergence check — the consensus signal is more trustworthy than the projected gap between the top two anchors.
 
-> ### Structural Fades Only (7/19/26 — 3-slate validated)
-> Only fade or underweight a live, real-ceiling piece when the fade rests on a measurable STRUCTURAL mechanism — a genuinely ceiling-capped profile, salary inefficiency, or ownership leverage. A narrative fade ("toughest opponent yet," "will go the distance") is a coin-flip guess, not an edge: on 7/12 two narrative-faded fights produced the slate's #1 score (Bautista 137.43) and a slate-definer (Cong 90.46). And a ceiling-cap claim is structural ONLY after the pace/volume/control check: low finish probability alone is NOT a ceiling cap (Kline, 7/19 — capped at "80–90" off +285 ITD, scored 109.40 in the winning lineup; Bautista, 7/12 — 137.43 in a decision). A high-output fighter favored to dominate carries a 100+ ceiling with no finish. Downgrade any fade that fails this test to a note and keep the piece at neutral exposure.
+The field-tendency corollary added to the surviving lesson this pass (shape transfers, names do not) should ride along with the merge.
 
-**3. RETIRE `mma-se-2026-06-27-finish-heavy-small-fields-still-won-by-differentiation`** (2 mechanism contradictions of its testable half: 7/12 and 7/19 — both slates' winning structures were chalk-anchored 31–40% avg-own builds with zero sub-10 pieces, directly contradicting the "hold small fields to 16–20% avg own / ≥1 sub-10" prescription). Proposed ledger edit on approval: set `status: retired`, `retired_reason: "Avg-own-target half contradicted by the winning structure in consecutive slates (7/12, 7/19); the surviving half (catch >=1 low-owned converter, carry no losing slot) is carried forward by mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters."` No framework.md text exists for it (never codified), so no framework edit is needed.
+**2. No promotions this slate.** No lesson reached 3 confirming mechanism slates. The two that did on 7/19 (`leverage-is-the-low-own-finisher-not-the-named-dog`, `fade-on-structure-not-narrative`) were codified then and appear under `## Prior passes — applied`. The three near-promotion lessons each need one more slate, with the exact test named in `## Ledger hygiene`.
 
-No other lesson meets the promotion or retirement criteria this slate.
+**3. No demotions this slate — two watches remain open.** `mma-se-2026-05-16-secondary-plays-are-not-leverage` and `mma-se-2026-05-17-one-leverage-swing-conviction-core` each carry **1 of the 2** mechanism contradictions required. Per codification-is-not-tenure, if the next MMA slate reproduces the pattern (winners differentiating through 20–30% converters with no sub-20 piece), the proposal will be to **narrow both, not retire them** — the conviction-anchor core of each is sound and untouched. The edits that would then be proposed:
 
-## Applied
+> `framework.md` — Step 2, *Secondary Plays Are Not Leverage*: replace the fixed "20%+ is not leverage" line with "leverage is defined **relative to this slate's chalk concentration**: when the top anchor draws 2x the field's second-most-owned play, the differentiating tier moves up to roughly a third of the top anchor's ownership. Audit the leverage slot against that ratio, not against a fixed 15–20% number."
+>
+> `philosophy.md` — *Conviction vs. Contrarian in SE*: replace "include exactly ONE sub-20%-owned leverage swing" with "include exactly ONE **differentiating** play — a fighter the field under-trusts on the win side. Ownership is how you check that you found one, not what defines it; in a field whose chalk runs 45–70%, a 20–30%-owned converter differentiates and a sub-10% dart usually just adds a dead slot."
 
-Approved proposals applied 2026-07-19: (1) codified `mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog` → framework.md "The Leverage Screen: Converters, Not Named Dogs (7/19/26 — 3-slate validated)" (status → codified); (2) codified `mma-se-2026-06-20-fade-on-structure-not-narrative` → framework.md "Structural Fades Only (7/19/26 — 3-slate validated)" (status → codified); (3) retired `mma-se-2026-06-27-finish-heavy-small-fields-still-won-by-differentiation` with the proposed retired_reason (surviving half carried by `mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters`). Ledger hygiene: all KEEP / KEEP-SEPARATE decisions left untouched; no merges to apply. No philosophy.md edits were proposed; none made.
+**4. Nothing proposed for the duplication finding.** `mma-se-2026-07-19-exact-roster-duplication-is-superlinear-in-consensus` is one slate old with zero confirmations, and one contest is not enough to fix a concentration multiplier. It stays a hypothesis. The pre-lock check it describes already exists in the Grade tab, which flagged this exact roster — so the near-term value is in *heeding* the existing flag, not in writing a new framework rule around a single measurement.
+
+## Prior passes — applied
+
+_(Audit trail. Nothing here is re-proposed.)_
+
+**Pass 1 (2026-07-19).** Approved proposals applied: (1) codified `mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog` → framework.md "The Leverage Screen: Converters, Not Named Dogs (7/19/26 — 3-slate validated)"; (2) codified `mma-se-2026-06-20-fade-on-structure-not-narrative` → framework.md "Structural Fades Only (7/19/26 — 3-slate validated)"; (3) retired `mma-se-2026-06-27-finish-heavy-small-fields-still-won-by-differentiation` with its proposed retired_reason (surviving half carried by `winning-se-shape-six-winners-mid-own-converters`). All hygiene decisions were KEEP / KEEP-SEPARATE; no merges applied; no philosophy.md edits proposed or made.
+
+Ledger evidence added 7/19: `anchor-equivalence-fifth-validation` (8th validation, McMillen-not-DDP, with the projected-own-parity boundary); `binary-leverage-weak-in-small-fields`; `leverage-is-the-low-own-finisher-not-the-named-dog` (third confirming slate); `finish-heavy-small-fields` (second contradiction); `distance-fight-is-not-low-ceiling` (first confirmation, Kline 109.40, promoted to validated); `fade-on-structure-not-narrative` (chalk-piece refinement). Born: `winning-se-shape-six-winners-mid-own-converters`, `projected-own-understates-consensus-chalk-convergence`.
+
+**Pass 2 (2026-07-26).** Wrote to the ledger four findings pass 1 had left in prose: the `no-identical-conviction-cores` confirmation-by-violation (4/6 shared spine, shared Bashi loss damaging both entries at once); the first mechanism contradiction of `secondary-plays-are-not-leverage`; the first mechanism contradiction of `one-leverage-swing-conviction-core`; and birthed `sharp-envelope-is-a-rate-not-a-per-bullet-quota`. Proposed the trust-cpt-own merge (restated above, still pending). Established that no tracked pro was in either field and that the "own_per_slot is your recurring gap" line rested on deltas of 1.3 and 0.1 points.
+
+**Tooling.** The 7/19 finding that `strategy_contract.json` shipped empty — `_leading_name` could not strip an em-dash verdict tail, making `adherence.json`'s `fades_violated: 0` a grade against an empty contract — is **fixed in code** (`src/player_pool.py:152`). The archived contract for this slate stays vacuous as a historical artifact; the failure mode cannot recur.

@@ -1,0 +1,2198 @@
+[
+  {
+    "timestamp": "2026-07-26 15:35",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-192540093.csv",
+    "contest_id": "192540093",
+    "entries": 490,
+    "winning_score": 619.62,
+    "cash_line_p80": 504.66998,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 34.7,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 72,
+      "best_percentile": 14.7
+    },
+    "user_lineups": [
+      {
+        "rank": 72,
+        "entry_name": "RyvlesGaming30",
+        "points": 533.0,
+        "percentile": 14.7,
+        "players": [
+          "Rizvan Kuniev",
+          "Valter Walker",
+          "Magomed Tuchalov",
+          "Ramazan Temirov",
+          "Damian Rzepecki",
+          "Muhammad Saidov"
+        ],
+        "avg_own": 34.7,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 35.43,
+      "low_own_count_mean": 0.05,
+      "salary_used_mean": null,
+      "dup_max": 4,
+      "unique_pct": 25.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "Toppodogg",
+          "points": 619.62,
+          "percentile": 0.2,
+          "players": [
+            "Ramazan Temirov",
+            "Nurullo Aliev",
+            "Sam Patterson",
+            "Saygid Izagakhmaev",
+            "Abdul Hussein",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 34.22,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "rkoshack",
+          "points": 616.64,
+          "percentile": 0.4,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Abdul Hussein",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 37.82,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3
+        },
+        {
+          "rank": 2,
+          "entry_name": "Snyder28",
+          "points": 616.64,
+          "percentile": 0.4,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Abdul Hussein",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 37.82,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3
+        },
+        {
+          "rank": 2,
+          "entry_name": "ImagineThat44",
+          "points": 616.64,
+          "percentile": 0.4,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Abdul Hussein",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 37.82,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3
+        },
+        {
+          "rank": 5,
+          "entry_name": "LOCNOTM",
+          "points": 611.63,
+          "percentile": 1.0,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Cody Gibson",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 31.02,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "TrippyTevin",
+          "points": 608.61,
+          "percentile": 1.2,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 36.16,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 6,
+          "entry_name": "echad252",
+          "points": 608.61,
+          "percentile": 1.2,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 36.16,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 8,
+          "entry_name": "ChokeHoldem1",
+          "points": 607.78,
+          "percentile": 1.6,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Magomed Ankalaev",
+            "Abdul Hussein",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 36.91,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3
+        },
+        {
+          "rank": 8,
+          "entry_name": "edcaps",
+          "points": 607.78,
+          "percentile": 1.6,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Magomed Ankalaev",
+            "Abdul Hussein",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 36.91,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3
+        },
+        {
+          "rank": 8,
+          "entry_name": "Prantzer28",
+          "points": 607.78,
+          "percentile": 1.6,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Magomed Ankalaev",
+            "Abdul Hussein",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 36.91,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 0.73,
+        "low_own_count_delta": 0.05,
+        "salary_used_delta": null
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 488,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Ramazan Temirov",
+          "field_own": 45.5,
+          "actual_fpts": 122.0
+        },
+        {
+          "name": "Valter Walker",
+          "field_own": 42.9,
+          "actual_fpts": 91.1
+        },
+        {
+          "name": "Mike Davis",
+          "field_own": 39.2,
+          "actual_fpts": 16.5
+        },
+        {
+          "name": "Axel Sola",
+          "field_own": 37.8,
+          "actual_fpts": 125.7
+        },
+        {
+          "name": "Muhammad Saidov",
+          "field_own": 37.8,
+          "actual_fpts": 114.1
+        },
+        {
+          "name": "Abdul Hussein",
+          "field_own": 37.4,
+          "actual_fpts": 115.2
+        },
+        {
+          "name": "Damian Rzepecki",
+          "field_own": 35.7,
+          "actual_fpts": 23.7
+        },
+        {
+          "name": "Magomed Tuchalov",
+          "field_own": 33.1,
+          "actual_fpts": 96.2
+        },
+        {
+          "name": "Sam Patterson",
+          "field_own": 32.9,
+          "actual_fpts": 116.0
+        },
+        {
+          "name": "Saygid Izagakhmaev",
+          "field_own": 29.6,
+          "actual_fpts": 36.2
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Axel Sola",
+            "Ramazan Temirov"
+          ],
+          "field_pct": 19.1,
+          "count": 93
+        },
+        {
+          "players": [
+            "Mike Davis",
+            "Valter Walker"
+          ],
+          "field_pct": 18.3,
+          "count": 89
+        },
+        {
+          "players": [
+            "Ramazan Temirov",
+            "Valter Walker"
+          ],
+          "field_pct": 18.1,
+          "count": 88
+        },
+        {
+          "players": [
+            "Muhammad Saidov",
+            "Ramazan Temirov"
+          ],
+          "field_pct": 17.9,
+          "count": 87
+        },
+        {
+          "players": [
+            "Abdul Hussein",
+            "Damian Rzepecki"
+          ],
+          "field_pct": 17.7,
+          "count": 86
+        },
+        {
+          "players": [
+            "Mike Davis",
+            "Ramazan Temirov"
+          ],
+          "field_pct": 17.5,
+          "count": 85
+        },
+        {
+          "players": [
+            "Abdul Hussein",
+            "Muhammad Saidov"
+          ],
+          "field_pct": 17.0,
+          "count": 83
+        },
+        {
+          "players": [
+            "Abdul Hussein",
+            "Ramazan Temirov"
+          ],
+          "field_pct": 16.0,
+          "count": 78
+        },
+        {
+          "players": [
+            "Magomed Tuchalov",
+            "Muhammad Saidov"
+          ],
+          "field_pct": 15.6,
+          "count": 76
+        },
+        {
+          "players": [
+            "Damian Rzepecki",
+            "Magomed Tuchalov"
+          ],
+          "field_pct": 15.2,
+          "count": 74
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Abdul Hussein",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Mike Davis",
+            "Ramazan Temirov",
+            "Sam Patterson"
+          ],
+          "count": 7,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Abdul Hussein",
+            "Damian Rzepecki",
+            "Muhammad Saidov",
+            "Ramazan Temirov",
+            "Sam Patterson",
+            "Valter Walker"
+          ],
+          "count": 6,
+          "field_pct": 1.2
+        },
+        {
+          "players": [
+            "Ismael Bonfim",
+            "Magomed Ankalaev",
+            "Magomed Tuchalov",
+            "Mike Davis",
+            "Muhammad Saidov",
+            "Ramazan Temirov"
+          ],
+          "count": 5,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Magomed Tuchalov",
+            "Mike Davis",
+            "Ramazan Temirov",
+            "Tyrell Fortune",
+            "Valter Walker"
+          ],
+          "count": 5,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Abdul Hussein",
+            "Axel Sola",
+            "Magomed Zaynukov",
+            "Muhammad Saidov",
+            "Ramazan Temirov",
+            "Saygid Izagakhmaev"
+          ],
+          "count": 4,
+          "field_pct": 0.8
+        }
+      ],
+      "winners_profile": {
+        "n": 5,
+        "avg_own_per_slot": 35.7,
+        "dart_pct": 20.0,
+        "unique_pct": 60.0
+      },
+      "fish_profile": {
+        "n": 244,
+        "avg_own_per_slot": 28.2,
+        "dart_pct": 15.6,
+        "unique_pct": 87.3
+      },
+      "fish_traps": [
+        {
+          "name": "Mike Davis",
+          "fish_pct": 48.8,
+          "winner_pct": 0.0,
+          "gap": 48.8,
+          "actual_fpts": 16.5
+        },
+        {
+          "name": "Valter Walker",
+          "fish_pct": 44.3,
+          "winner_pct": 0.0,
+          "gap": 44.3,
+          "actual_fpts": 91.1
+        },
+        {
+          "name": "Dustin Jacoby",
+          "fish_pct": 37.3,
+          "winner_pct": 0.0,
+          "gap": 37.3,
+          "actual_fpts": 13.6
+        },
+        {
+          "name": "Steve Erceg",
+          "fish_pct": 34.0,
+          "winner_pct": 0.0,
+          "gap": 34.0,
+          "actual_fpts": 4.6
+        },
+        {
+          "name": "Magomed Tuchalov",
+          "fish_pct": 32.0,
+          "winner_pct": 0.0,
+          "gap": 32.0,
+          "actual_fpts": 96.2
+        },
+        {
+          "name": "Islam Dulatov",
+          "fish_pct": 28.7,
+          "winner_pct": 0.0,
+          "gap": 28.7,
+          "actual_fpts": 0.0
+        },
+        {
+          "name": "Thomas Petersen",
+          "fish_pct": 25.8,
+          "winner_pct": 0.0,
+          "gap": 25.8,
+          "actual_fpts": 2.3
+        },
+        {
+          "name": "Tyrell Fortune",
+          "fish_pct": 24.2,
+          "winner_pct": 0.0,
+          "gap": 24.2,
+          "actual_fpts": 9.8
+        },
+        {
+          "name": "Ismael Bonfim",
+          "fish_pct": 22.1,
+          "winner_pct": 0.0,
+          "gap": 22.1,
+          "actual_fpts": 9.1
+        },
+        {
+          "name": "Bogdan Guskov",
+          "fish_pct": 20.9,
+          "winner_pct": 0.0,
+          "gap": 20.9,
+          "actual_fpts": 16.8
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "Toppodogg",
+          "best_rank": 1,
+          "percentile": 0.2
+        },
+        {
+          "handle": "rkoshack",
+          "best_rank": 2,
+          "percentile": 0.4
+        },
+        {
+          "handle": "Snyder28",
+          "best_rank": 2,
+          "percentile": 0.4
+        },
+        {
+          "handle": "ImagineThat44",
+          "best_rank": 2,
+          "percentile": 0.4
+        },
+        {
+          "handle": "LOCNOTM",
+          "best_rank": 5,
+          "percentile": 1.0
+        },
+        {
+          "handle": "TrippyTevin",
+          "best_rank": 6,
+          "percentile": 1.2
+        },
+        {
+          "handle": "echad252",
+          "best_rank": 6,
+          "percentile": 1.2
+        },
+        {
+          "handle": "Prantzer28",
+          "best_rank": 8,
+          "percentile": 1.6
+        },
+        {
+          "handle": "ChokeHoldem1",
+          "best_rank": 8,
+          "percentile": 1.6
+        },
+        {
+          "handle": "edcaps",
+          "best_rank": 8,
+          "percentile": 1.6
+        },
+        {
+          "handle": "bricro2626",
+          "best_rank": 11,
+          "percentile": 2.3
+        },
+        {
+          "handle": "ledkdogg",
+          "best_rank": 12,
+          "percentile": 2.5
+        },
+        {
+          "handle": "popes33",
+          "best_rank": 12,
+          "percentile": 2.5
+        },
+        {
+          "handle": "angryraccoon",
+          "best_rank": 14,
+          "percentile": 2.9
+        },
+        {
+          "handle": "frki1991",
+          "best_rank": 15,
+          "percentile": 3.1
+        }
+      ],
+      "read": [
+        "Field crowded **Ramazan Temirov** at 45.5% (122.0 fpts) \u2014 the chalk to consider fading.",
+        "**Axel Sola + Ramazan Temirov** were together in 19.1% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Mike Davis** was a fish trap: 48.8% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 619.62,
+      "winner_handle": "Toppodogg",
+      "roster": [
+        {
+          "name": "Ramazan Temirov",
+          "own": 45.51,
+          "fpts": 121.98
+        },
+        {
+          "name": "Nurullo Aliev",
+          "own": 22.24,
+          "fpts": 116.15
+        },
+        {
+          "name": "Sam Patterson",
+          "own": 32.86,
+          "fpts": 116.04
+        },
+        {
+          "name": "Saygid Izagakhmaev",
+          "own": 29.59,
+          "fpts": 36.18
+        },
+        {
+          "name": "Abdul Hussein",
+          "own": 37.35,
+          "fpts": 115.21
+        },
+        {
+          "name": "Muhammad Saidov",
+          "own": 37.76,
+          "fpts": 114.06
+        }
+      ],
+      "avg_own": 34.2,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Nurullo Aliev",
+        "own": 22.24,
+        "fpts": 116.15
+      },
+      "expected_dupes": 0.68
+    },
+    "near_miss": {
+      "gradable": true,
+      "won": false,
+      "your_points": 533.0,
+      "winner_points": 619.62,
+      "gap": 86.6,
+      "your_percentile": 14.7,
+      "n_shared": 2,
+      "shared": [
+        "Muhammad Saidov",
+        "Ramazan Temirov"
+      ],
+      "your_uniques": [
+        {
+          "name": "Magomed Tuchalov",
+          "fpts": 96.2
+        },
+        {
+          "name": "Valter Walker",
+          "fpts": 91.07
+        },
+        {
+          "name": "Rizvan Kuniev",
+          "fpts": 86.03
+        },
+        {
+          "name": "Damian Rzepecki",
+          "fpts": 23.66
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Nurullo Aliev",
+          "fpts": 116.15
+        },
+        {
+          "name": "Sam Patterson",
+          "fpts": 116.04
+        },
+        {
+          "name": "Abdul Hussein",
+          "fpts": 115.21
+        },
+        {
+          "name": "Saygid Izagakhmaev",
+          "fpts": 36.18
+        }
+      ],
+      "best_swap": {
+        "out": "Damian Rzepecki",
+        "in": "Nurullo Aliev",
+        "gain": 92.5,
+        "would_have_won": true
+      },
+      "swaps_needed": 1
+    }
+  },
+  {
+    "timestamp": "2026-07-26 15:35",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-192540094.csv",
+    "contest_id": "192540094",
+    "entries": 1189,
+    "winning_score": 616.64,
+    "cash_line_p80": 499.18000000000006,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 30.52,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 229,
+      "best_percentile": 19.3
+    },
+    "user_lineups": [
+      {
+        "rank": 229,
+        "entry_name": "RyvlesGaming30",
+        "points": 501.34998,
+        "percentile": 19.3,
+        "players": [
+          "Magomed Tuchalov",
+          "Ramazan Temirov",
+          "Damian Rzepecki",
+          "Nurullo Aliev",
+          "Magomed Ankalaev",
+          "Saygid Izagakhmaev"
+        ],
+        "avg_own": 30.52,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 3
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 35.18,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "dup_max": 11,
+      "unique_pct": 0.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "vargas_63",
+          "points": 616.64,
+          "percentile": 0.1,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Abdul Hussein",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.18,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3
+        },
+        {
+          "rank": 1,
+          "entry_name": "adman895",
+          "points": 616.64,
+          "percentile": 0.1,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Abdul Hussein",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.18,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3
+        },
+        {
+          "rank": 1,
+          "entry_name": "rdown78",
+          "points": 616.64,
+          "percentile": 0.1,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Abdul Hussein",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.18,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3
+        },
+        {
+          "rank": 4,
+          "entry_name": "rsulzener",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.14,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 11
+        },
+        {
+          "rank": 4,
+          "entry_name": "xTRISKITx",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.14,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 11
+        },
+        {
+          "rank": 4,
+          "entry_name": "marquez247",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.14,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 11
+        },
+        {
+          "rank": 4,
+          "entry_name": "Superdale93",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.14,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 11
+        },
+        {
+          "rank": 4,
+          "entry_name": "Bert201",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.14,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 11
+        },
+        {
+          "rank": 4,
+          "entry_name": "jgings28",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.14,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 11
+        },
+        {
+          "rank": 4,
+          "entry_name": "echad252",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.14,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 11
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 4.66,
+        "low_own_count_delta": 0.0,
+        "salary_used_delta": null
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 1171,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Ramazan Temirov",
+          "field_own": 46.9,
+          "actual_fpts": 122.0
+        },
+        {
+          "name": "Valter Walker",
+          "field_own": 45.5,
+          "actual_fpts": 91.1
+        },
+        {
+          "name": "Axel Sola",
+          "field_own": 39.6,
+          "actual_fpts": 125.7
+        },
+        {
+          "name": "Mike Davis",
+          "field_own": 37.3,
+          "actual_fpts": 16.5
+        },
+        {
+          "name": "Muhammad Saidov",
+          "field_own": 36.8,
+          "actual_fpts": 114.1
+        },
+        {
+          "name": "Abdul Hussein",
+          "field_own": 30.2,
+          "actual_fpts": 115.2
+        },
+        {
+          "name": "Magomed Ankalaev",
+          "field_own": 29.9,
+          "actual_fpts": 107.2
+        },
+        {
+          "name": "Sam Patterson",
+          "field_own": 29.4,
+          "actual_fpts": 116.0
+        },
+        {
+          "name": "Magomed Tuchalov",
+          "field_own": 29.4,
+          "actual_fpts": 96.2
+        },
+        {
+          "name": "Damian Rzepecki",
+          "field_own": 28.1,
+          "actual_fpts": 23.7
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Ramazan Temirov",
+            "Valter Walker"
+          ],
+          "field_pct": 21.5,
+          "count": 251
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Ramazan Temirov"
+          ],
+          "field_pct": 20.7,
+          "count": 242
+        },
+        {
+          "players": [
+            "Mike Davis",
+            "Valter Walker"
+          ],
+          "field_pct": 18.3,
+          "count": 214
+        },
+        {
+          "players": [
+            "Muhammad Saidov",
+            "Ramazan Temirov"
+          ],
+          "field_pct": 17.9,
+          "count": 209
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Valter Walker"
+          ],
+          "field_pct": 16.9,
+          "count": 198
+        },
+        {
+          "players": [
+            "Mike Davis",
+            "Ramazan Temirov"
+          ],
+          "field_pct": 16.2,
+          "count": 190
+        },
+        {
+          "players": [
+            "Magomed Ankalaev",
+            "Ramazan Temirov"
+          ],
+          "field_pct": 15.5,
+          "count": 181
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Muhammad Saidov"
+          ],
+          "field_pct": 15.1,
+          "count": 177
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Mike Davis"
+          ],
+          "field_pct": 14.9,
+          "count": 174
+        },
+        {
+          "players": [
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "field_pct": 14.4,
+          "count": 168
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Magomed Ankalaev",
+            "Muhammad Saidov",
+            "Ramazan Temirov",
+            "Sam Patterson"
+          ],
+          "count": 11,
+          "field_pct": 0.9
+        },
+        {
+          "players": [
+            "Abdul Hussein",
+            "Damian Rzepecki",
+            "Muhammad Saidov",
+            "Ramazan Temirov",
+            "Sam Patterson",
+            "Valter Walker"
+          ],
+          "count": 11,
+          "field_pct": 0.9
+        },
+        {
+          "players": [
+            "Abdul Hussein",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Magomed Ankalaev",
+            "Muhammad Saidov",
+            "Ramazan Temirov"
+          ],
+          "count": 9,
+          "field_pct": 0.8
+        },
+        {
+          "players": [
+            "Magomed Ankalaev",
+            "Magomed Tuchalov",
+            "Muhammad Saidov",
+            "Nurullo Aliev",
+            "Ramazan Temirov",
+            "Santiago Ponzinibbio"
+          ],
+          "count": 9,
+          "field_pct": 0.8
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Islam Dulatov",
+            "Muhammad Saidov",
+            "Ramazan Temirov",
+            "Saygid Izagakhmaev",
+            "Valter Walker"
+          ],
+          "count": 8,
+          "field_pct": 0.7
+        }
+      ],
+      "winners_profile": {
+        "n": 12,
+        "avg_own_per_slot": 35.2,
+        "dart_pct": 0.0,
+        "unique_pct": 16.7
+      },
+      "fish_profile": {
+        "n": 585,
+        "avg_own_per_slot": 27.5,
+        "dart_pct": 8.0,
+        "unique_pct": 80.2
+      },
+      "fish_traps": [
+        {
+          "name": "Mike Davis",
+          "fish_pct": 51.5,
+          "winner_pct": 0.0,
+          "gap": 51.5,
+          "actual_fpts": 16.5
+        },
+        {
+          "name": "Valter Walker",
+          "fish_pct": 44.3,
+          "winner_pct": 0.0,
+          "gap": 44.3,
+          "actual_fpts": 91.1
+        },
+        {
+          "name": "Islam Dulatov",
+          "fish_pct": 34.4,
+          "winner_pct": 0.0,
+          "gap": 34.4,
+          "actual_fpts": 0.0
+        },
+        {
+          "name": "Dustin Jacoby",
+          "fish_pct": 33.3,
+          "winner_pct": 0.0,
+          "gap": 33.3,
+          "actual_fpts": 13.6
+        },
+        {
+          "name": "Steve Erceg",
+          "fish_pct": 32.5,
+          "winner_pct": 0.0,
+          "gap": 32.5,
+          "actual_fpts": 4.6
+        },
+        {
+          "name": "Magomed Tuchalov",
+          "fish_pct": 30.4,
+          "winner_pct": 0.0,
+          "gap": 30.4,
+          "actual_fpts": 96.2
+        },
+        {
+          "name": "Tyrell Fortune",
+          "fish_pct": 30.1,
+          "winner_pct": 0.0,
+          "gap": 30.1,
+          "actual_fpts": 9.8
+        },
+        {
+          "name": "Saygid Izagakhmaev",
+          "fish_pct": 28.9,
+          "winner_pct": 0.0,
+          "gap": 28.9,
+          "actual_fpts": 36.2
+        },
+        {
+          "name": "Bogdan Guskov",
+          "fish_pct": 25.5,
+          "winner_pct": 0.0,
+          "gap": 25.5,
+          "actual_fpts": 16.8
+        },
+        {
+          "name": "Ismael Bonfim",
+          "fish_pct": 24.1,
+          "winner_pct": 0.0,
+          "gap": 24.1,
+          "actual_fpts": 9.1
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "vargas_63",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "adman895",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "rdown78",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "rsulzener",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "xTRISKITx",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "marquez247",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "Superdale93",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "Bert201",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "jgings28",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "echad252",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "UWAlums03",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "samsli",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "rmfeel",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "PatHall0911",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "wrs1983",
+          "best_rank": 15,
+          "percentile": 1.3
+        }
+      ],
+      "read": [
+        "Field crowded **Ramazan Temirov** at 46.9% (122.0 fpts) \u2014 the chalk to consider fading.",
+        "**Ramazan Temirov + Valter Walker** were together in 21.5% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Mike Davis** was a fish trap: 51.5% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 616.64,
+      "winner_handle": "vargas_63",
+      "roster": [
+        {
+          "name": "Ramazan Temirov",
+          "own": 46.93,
+          "fpts": 121.98
+        },
+        {
+          "name": "Axel Sola",
+          "own": 39.61,
+          "fpts": 125.69
+        },
+        {
+          "name": "Damian Rzepecki",
+          "own": 28.09,
+          "fpts": 23.66
+        },
+        {
+          "name": "Sam Patterson",
+          "own": 29.44,
+          "fpts": 116.04
+        },
+        {
+          "name": "Abdul Hussein",
+          "own": 30.19,
+          "fpts": 115.21
+        },
+        {
+          "name": "Muhammad Saidov",
+          "own": 36.84,
+          "fpts": 114.06
+        }
+      ],
+      "avg_own": 35.2,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Damian Rzepecki",
+        "own": 28.09,
+        "fpts": 23.66
+      },
+      "expected_dupes": 2.03
+    },
+    "near_miss": {
+      "gradable": true,
+      "won": false,
+      "your_points": 501.34998,
+      "winner_points": 616.64,
+      "gap": 115.3,
+      "your_percentile": 19.3,
+      "n_shared": 2,
+      "shared": [
+        "Damian Rzepecki",
+        "Ramazan Temirov"
+      ],
+      "your_uniques": [
+        {
+          "name": "Nurullo Aliev",
+          "fpts": 116.15
+        },
+        {
+          "name": "Magomed Ankalaev",
+          "fpts": 107.18
+        },
+        {
+          "name": "Magomed Tuchalov",
+          "fpts": 96.2
+        },
+        {
+          "name": "Saygid Izagakhmaev",
+          "fpts": 36.18
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Axel Sola",
+          "fpts": 125.69
+        },
+        {
+          "name": "Sam Patterson",
+          "fpts": 116.04
+        },
+        {
+          "name": "Abdul Hussein",
+          "fpts": 115.21
+        },
+        {
+          "name": "Muhammad Saidov",
+          "fpts": 114.06
+        }
+      ],
+      "best_swap": {
+        "out": "Saygid Izagakhmaev",
+        "in": "Axel Sola",
+        "gain": 89.5,
+        "would_have_won": false
+      },
+      "swaps_needed": 3
+    }
+  },
+  {
+    "timestamp": "2026-07-26 15:35",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-192540097.csv",
+    "contest_id": "192540097",
+    "entries": 594,
+    "winning_score": 619.62,
+    "cash_line_p80": 499.18,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 30.29,
+      "low_own_count_mean": 0.33,
+      "salary_used_mean": null,
+      "entry_count": 3,
+      "best_rank": 21,
+      "best_percentile": 3.5
+    },
+    "user_lineups": [
+      {
+        "rank": 21,
+        "entry_name": "RyvlesGaming30 (1/3)",
+        "points": 587.26,
+        "percentile": 3.5,
+        "players": [
+          "Magomed Tuchalov",
+          "Ramazan Temirov",
+          "Damian Rzepecki",
+          "Nurullo Aliev",
+          "Abdul Hussein",
+          "Muhammad Saidov"
+        ],
+        "avg_own": 33.45,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 313,
+        "entry_name": "RyvlesGaming30 (3/3)",
+        "points": 403.31,
+        "percentile": 52.7,
+        "players": [
+          "Damian Rzepecki",
+          "Nurullo Aliev",
+          "Sam Patterson",
+          "Magomed Ankalaev",
+          "Cody Gibson",
+          "Dustin Jacoby"
+        ],
+        "avg_own": 25.25,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 422,
+        "entry_name": "RyvlesGaming30 (2/3)",
+        "points": 357.74,
+        "percentile": 71.0,
+        "players": [
+          "Valter Walker",
+          "Magomed Tuchalov",
+          "Steve Erceg",
+          "Axel Sola",
+          "Damian Rzepecki",
+          "Mike Davis"
+        ],
+        "avg_own": 32.18,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 33.39,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "dup_max": 9,
+      "unique_pct": 15.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "jonsims66",
+          "points": 619.62,
+          "percentile": 0.2,
+          "players": [
+            "Ramazan Temirov",
+            "Nurullo Aliev",
+            "Sam Patterson",
+            "Saygid Izagakhmaev",
+            "Abdul Hussein",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 30.92,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "ruckness815 (3/3)",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.32,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 9
+        },
+        {
+          "rank": 2,
+          "entry_name": "jeanholloway30 (3/3)",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.32,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 9
+        },
+        {
+          "rank": 2,
+          "entry_name": "SeanDre (1/3)",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.32,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 9
+        },
+        {
+          "rank": 2,
+          "entry_name": "bapster (1/2)",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.32,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 9
+        },
+        {
+          "rank": 2,
+          "entry_name": "Toppodogg",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.32,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 9
+        },
+        {
+          "rank": 2,
+          "entry_name": "hungun23 (1/3)",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.32,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 9
+        },
+        {
+          "rank": 2,
+          "entry_name": "jkudla1027 (1/3)",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.32,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 9
+        },
+        {
+          "rank": 2,
+          "entry_name": "m_t_clark",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.32,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 9
+        },
+        {
+          "rank": 2,
+          "entry_name": "FrozenFromundaCheese (3/3)",
+          "points": 608.61,
+          "percentile": 0.3,
+          "players": [
+            "Ramazan Temirov",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Sam Patterson",
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "avg_own": 35.32,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 9
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 3.1,
+        "low_own_count_delta": -0.33,
+        "salary_used_delta": null
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 588,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Ramazan Temirov",
+          "field_own": 42.4,
+          "actual_fpts": 122.0
+        },
+        {
+          "name": "Axel Sola",
+          "field_own": 38.0,
+          "actual_fpts": 125.7
+        },
+        {
+          "name": "Magomed Ankalaev",
+          "field_own": 35.5,
+          "actual_fpts": 107.2
+        },
+        {
+          "name": "Damian Rzepecki",
+          "field_own": 34.9,
+          "actual_fpts": 23.7
+        },
+        {
+          "name": "Valter Walker",
+          "field_own": 34.3,
+          "actual_fpts": 91.1
+        },
+        {
+          "name": "Abdul Hussein",
+          "field_own": 34.0,
+          "actual_fpts": 115.2
+        },
+        {
+          "name": "Magomed Tuchalov",
+          "field_own": 33.0,
+          "actual_fpts": 96.2
+        },
+        {
+          "name": "Muhammad Saidov",
+          "field_own": 32.8,
+          "actual_fpts": 114.1
+        },
+        {
+          "name": "Mike Davis",
+          "field_own": 32.5,
+          "actual_fpts": 16.5
+        },
+        {
+          "name": "Sam Patterson",
+          "field_own": 28.3,
+          "actual_fpts": 116.0
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Axel Sola",
+            "Ramazan Temirov"
+          ],
+          "field_pct": 19.1,
+          "count": 112
+        },
+        {
+          "players": [
+            "Magomed Ankalaev",
+            "Ramazan Temirov"
+          ],
+          "field_pct": 16.4,
+          "count": 96
+        },
+        {
+          "players": [
+            "Abdul Hussein",
+            "Damian Rzepecki"
+          ],
+          "field_pct": 14.9,
+          "count": 87
+        },
+        {
+          "players": [
+            "Ramazan Temirov",
+            "Valter Walker"
+          ],
+          "field_pct": 14.7,
+          "count": 86
+        },
+        {
+          "players": [
+            "Damian Rzepecki",
+            "Sam Patterson"
+          ],
+          "field_pct": 14.5,
+          "count": 85
+        },
+        {
+          "players": [
+            "Magomed Ankalaev",
+            "Muhammad Saidov"
+          ],
+          "field_pct": 14.5,
+          "count": 85
+        },
+        {
+          "players": [
+            "Mike Davis",
+            "Ramazan Temirov"
+          ],
+          "field_pct": 14.2,
+          "count": 83
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Magomed Ankalaev"
+          ],
+          "field_pct": 13.2,
+          "count": 77
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Muhammad Saidov"
+          ],
+          "field_pct": 13.2,
+          "count": 77
+        },
+        {
+          "players": [
+            "Magomed Tuchalov",
+            "Muhammad Saidov"
+          ],
+          "field_pct": 13.2,
+          "count": 77
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Magomed Ankalaev",
+            "Muhammad Saidov",
+            "Ramazan Temirov",
+            "Sam Patterson"
+          ],
+          "count": 9,
+          "field_pct": 1.5
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Magomed Ankalaev",
+            "Muhammad Saidov",
+            "Ramazan Temirov",
+            "Rizvan Kuniev",
+            "Thomas Petersen"
+          ],
+          "count": 7,
+          "field_pct": 1.2
+        },
+        {
+          "players": [
+            "Abdul Hussein",
+            "Axel Sola",
+            "Damian Rzepecki",
+            "Mike Davis",
+            "Ramazan Temirov",
+            "Sam Patterson"
+          ],
+          "count": 6,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Abdul Hussein",
+            "Damian Rzepecki",
+            "Magomed Ankalaev",
+            "Muhammad Saidov",
+            "Nurullo Aliev",
+            "Steve Erceg"
+          ],
+          "count": 6,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Magomed Ankalaev",
+            "Magomed Tuchalov",
+            "Mike Davis",
+            "Muhammad Saidov",
+            "Steve Erceg",
+            "Thomas Petersen"
+          ],
+          "count": 6,
+          "field_pct": 1.0
+        }
+      ],
+      "winners_profile": {
+        "n": 6,
+        "avg_own_per_slot": 34.6,
+        "dart_pct": 0.0,
+        "unique_pct": 33.3
+      },
+      "fish_profile": {
+        "n": 292,
+        "avg_own_per_slot": 26.3,
+        "dart_pct": 6.2,
+        "unique_pct": 86.3
+      },
+      "fish_traps": [
+        {
+          "name": "Mike Davis",
+          "fish_pct": 43.8,
+          "winner_pct": 0.0,
+          "gap": 43.8,
+          "actual_fpts": 16.5
+        },
+        {
+          "name": "Dustin Jacoby",
+          "fish_pct": 41.4,
+          "winner_pct": 0.0,
+          "gap": 41.4,
+          "actual_fpts": 13.6
+        },
+        {
+          "name": "Magomed Tuchalov",
+          "fish_pct": 35.6,
+          "winner_pct": 0.0,
+          "gap": 35.6,
+          "actual_fpts": 96.2
+        },
+        {
+          "name": "Steve Erceg",
+          "fish_pct": 35.3,
+          "winner_pct": 0.0,
+          "gap": 35.3,
+          "actual_fpts": 4.6
+        },
+        {
+          "name": "Valter Walker",
+          "fish_pct": 32.9,
+          "winner_pct": 0.0,
+          "gap": 32.9,
+          "actual_fpts": 91.1
+        },
+        {
+          "name": "Thomas Petersen",
+          "fish_pct": 30.8,
+          "winner_pct": 0.0,
+          "gap": 30.8,
+          "actual_fpts": 2.3
+        },
+        {
+          "name": "Ismael Bonfim",
+          "fish_pct": 26.0,
+          "winner_pct": 0.0,
+          "gap": 26.0,
+          "actual_fpts": 9.1
+        },
+        {
+          "name": "Islam Dulatov",
+          "fish_pct": 25.0,
+          "winner_pct": 0.0,
+          "gap": 25.0,
+          "actual_fpts": 0.0
+        },
+        {
+          "name": "Bogdan Guskov",
+          "fish_pct": 21.6,
+          "winner_pct": 0.0,
+          "gap": 21.6,
+          "actual_fpts": 16.8
+        },
+        {
+          "name": "Tyrell Fortune",
+          "fish_pct": 17.8,
+          "winner_pct": 0.0,
+          "gap": 17.8,
+          "actual_fpts": 9.8
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "jonsims66",
+          "best_rank": 1,
+          "percentile": 0.2
+        },
+        {
+          "handle": "ruckness815",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "jeanholloway30",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "SeanDre",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "bapster",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "Toppodogg",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "hungun23",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "jkudla1027",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "m_t_clark",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "FrozenFromundaCheese",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "bellsofwar3",
+          "best_rank": 11,
+          "percentile": 1.9
+        },
+        {
+          "handle": "Racktracker13",
+          "best_rank": 11,
+          "percentile": 1.9
+        },
+        {
+          "handle": "gbgoss",
+          "best_rank": 13,
+          "percentile": 2.2
+        },
+        {
+          "handle": "mister_eddie6",
+          "best_rank": 14,
+          "percentile": 2.4
+        },
+        {
+          "handle": "Tedskins",
+          "best_rank": 15,
+          "percentile": 2.6
+        }
+      ],
+      "read": [
+        "Field crowded **Ramazan Temirov** at 42.4% (122.0 fpts) \u2014 the chalk to consider fading.",
+        "**Axel Sola + Ramazan Temirov** were together in 19.1% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Mike Davis** was a fish trap: 43.8% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 619.62,
+      "winner_handle": "jonsims66",
+      "roster": [
+        {
+          "name": "Ramazan Temirov",
+          "own": 42.42,
+          "fpts": 121.98
+        },
+        {
+          "name": "Nurullo Aliev",
+          "own": 23.57,
+          "fpts": 116.15
+        },
+        {
+          "name": "Sam Patterson",
+          "own": 28.28,
+          "fpts": 116.04
+        },
+        {
+          "name": "Saygid Izagakhmaev",
+          "own": 24.41,
+          "fpts": 36.18
+        },
+        {
+          "name": "Abdul Hussein",
+          "own": 34.01,
+          "fpts": 115.21
+        },
+        {
+          "name": "Muhammad Saidov",
+          "own": 32.83,
+          "fpts": 114.06
+        }
+      ],
+      "avg_own": 30.9,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Nurullo Aliev",
+        "own": 23.57,
+        "fpts": 116.15
+      },
+      "expected_dupes": 0.46
+    },
+    "near_miss": {
+      "gradable": true,
+      "won": false,
+      "your_points": 587.26,
+      "winner_points": 619.62,
+      "gap": 32.4,
+      "your_percentile": 3.5,
+      "n_shared": 4,
+      "shared": [
+        "Abdul Hussein",
+        "Muhammad Saidov",
+        "Nurullo Aliev",
+        "Ramazan Temirov"
+      ],
+      "your_uniques": [
+        {
+          "name": "Magomed Tuchalov",
+          "fpts": 96.2
+        },
+        {
+          "name": "Damian Rzepecki",
+          "fpts": 23.66
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Sam Patterson",
+          "fpts": 116.04
+        },
+        {
+          "name": "Saygid Izagakhmaev",
+          "fpts": 36.18
+        }
+      ],
+      "best_swap": {
+        "out": "Damian Rzepecki",
+        "in": "Sam Patterson",
+        "gain": 92.4,
+        "would_have_won": true
+      },
+      "swaps_needed": 1
+    }
+  }
+]

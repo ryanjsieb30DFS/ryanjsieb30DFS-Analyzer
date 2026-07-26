@@ -48,7 +48,22 @@ lessons:
       Differentiate on at least one of the two conviction anchors, accepting that
       one SE underweights a play you believe in — that IS the hedge.
     status: codified
-    confirmations: []
+    confirmations:
+      - date: "2026-07-19"
+        slate: "UFC Oklahoma City 7.18.26 — 784 Flying Knee + 1,189 Clinch SEs"
+        origin_dir: "rules/mma_se/history/2026-07-19__ufc-oklahoma-city-7-18-26"
+        note: >
+          Confirmed by violation — the predicted failure mode realized exactly. The two
+          SE bullets shared 4 of 6 fighters (Hooper / McMillen / Bashi / Franco),
+          including EVERY conviction anchor; the only differentiation was in the two
+          cheapest slots. Austin Bashi, a shared anchor, lost and scored 42.90 — and
+          because he sat in both bullets, one fighter's failure damaged both entries
+          simultaneously, which is the single-bet mechanism this rule exists to prevent.
+          The Flying Knee entry survived on its other five (rank 18/784) while the
+          Clinch entry, whose two unshared slots were also losers (Hines 4.40,
+          Anderson 7.41), had no independent path and finished 52.9%ile. Note the
+          asymmetry the rule predicts: the shared spine cannot produce two outcomes,
+          only one outcome twice.
     contradictions: []
     codified_in: "framework.md — Step 5 — Diversification; The Santos/Gantt Pairing Lesson; philosophy.md — SE Diversification Rules"
     retired_reason: null
@@ -166,7 +181,28 @@ lessons:
       and swap anything 20%+ for something that actually contradicts chalk.
     status: codified
     confirmations: []
-    contradictions: []
+    contradictions:
+      - date: "2026-07-19"
+        slate: "UFC Oklahoma City 7.18.26 — 784/1,189 SEs"
+        origin_dir: "rules/mma_se/history/2026-07-19__ufc-oklahoma-city-7-18-26"
+        note: >
+          FIRST mechanism contradiction (1 of the 2 needed for a demotion proposal).
+          GPP guard applied: this is graded on the WINNERS' structure, not on the fact
+          that the user lost. The rule's operative instruction — "audit the leverage slot
+          and swap anything 20%+ for something that actually contradicts chalk" — would
+          have removed precisely the pieces that separated the field. Every differentiator
+          in both winning lineups sat in the 20-30% ACTUAL-own band the rule calls
+          un-leverageable secondary chalk: RJ Harris 27.8-29.1% (106.70), Fatima Kline
+          21.6% (109.40), Dione Barbosa 20.4-23.9% (106.73), Felipe Franco 23.7-25.9%
+          (110.13). Meanwhile the tier the rule points at — sub-15% own — went 0-for-5
+          on the board (Nicoll 5%, Melisano 8%, Ricci 13%, Ramirez 15% → 0.80,
+          Cannonier 15%, all lost). Mechanism refinement to test rather than a straight
+          error: the "20%+ is not leverage" threshold was set on projected own in fields
+          where the chalk tier ran 40-70%; when the top anchor absorbs ~67-70% of a
+          1,189 field, a 20-25% converter IS a genuine field-differentiator. The
+          threshold may need to be defined RELATIVE to the slate's chalk concentration
+          rather than as a fixed 15-20% line. Carried by
+          [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]].
     codified_in: "framework.md — Step 2 — Contrarian Swing Identification; Secondary Plays Are Not Leverage"
     retired_reason: null
 
@@ -240,6 +276,9 @@ lessons:
           ceiling of both. The build correctly confined the punts to the mini-MAX
           field-fade lineups (L4-L10) and kept them OUT of the two SE bullets, exactly as
           the lesson prescribes. The reserved-field-fade rule produced the winning structure.
+    contradictions: []
+    codified_in: "framework.md — Win-Case Ceiling Under-Rates Low-Own Finishers (5/30/26 — UFC Macau)"
+    retired_reason: null
 
   - id: mma-se-2026-05-30-anchor-equivalence-fifth-validation
     born: "2026-05-30"   # rule predates this ledger (4-slate-validated before Macau); this entry logs the MMA confirmation
@@ -322,7 +361,26 @@ lessons:
       MME, a single lineup cannot afford to ride a contrarian bet as its core thesis.
     status: codified
     confirmations: []
-    contradictions: []
+    contradictions:
+      - date: "2026-07-19"
+        slate: "UFC Oklahoma City 7.18.26 — 784/1,189 SEs"
+        origin_dir: "rules/mma_se/history/2026-07-19__ufc-oklahoma-city-7-18-26"
+        note: >
+          FIRST mechanism contradiction of the "exactly ONE sub-20%-owned leverage
+          swing" half (1 of the 2 needed for a demotion proposal). GPP-guarded: graded
+          on the winners' structure, not on losing. NEITHER contest winner carried a
+          sub-20%-owned piece — the 784 winner's lowest-owned fighter was Barbosa at
+          23.85% and the 1,189 winner's was Barbosa at 20.35%, with winners_profile
+          dart_pct 0.0 in both contests. The user's entries also carried no sub-20 swing
+          and one of them still finished 18/784. On this board the sub-20 tier was not
+          merely unnecessary, it was uniformly wrong (every piece under 15% own lost).
+          The load-bearing half of the lesson — 2-3 conviction anchors carrying the
+          build — held fine; it is the mandatory sub-20% swing that the winning
+          structure contradicted. Refinement to test: the swing's job (differentiation)
+          is real, but at these field sizes it is discharged by a mid-owned CONVERTER,
+          not by an ownership threshold. Links
+          [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
+          [[mma-se-2026-05-16-secondary-plays-are-not-leverage]].
     codified_in: "philosophy.md — Conviction vs. Contrarian in SE; framework.md — Steps 1-2"
     retired_reason: null
 
@@ -811,6 +869,92 @@ lessons:
       actual-convergence adjustment (the projected-own gap between the top two
       anchors is less trustworthy than the consensus signal itself). Classic-format
       cousin of [[mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own]].
+      COROLLARY added 2026-07-26 (third-pass review) — where the correction must come
+      from, given MMA's roster turnover: the forward-fed `## Field tendencies` block is
+      NAME-keyed, and MMA rosters turn over ~100% between slates, so the historical
+      crowd list carries no transferable player information (the 7/12 list — Holloway,
+      Pimblett, Steveson, Pinas — shares zero fighters with the 7/19 card). What DID
+      transfer is SHAPE: in both slates the field's #1 duplicated pair was the single
+      most-owned anchor plus another top-five chalk favorite (7/12 Holloway+Pimblett
+      30.7%; 7/19 Bashi+McMillen 34.6%), and the 7/19 strategy read that shape
+      correctly, naming a McMillen-anchored pair as the analogue. Only the MAGNITUDE
+      failed, because it was computed from projected own (~18.9% vs 34.4% actual).
+      Read the MMA field-tendency block for shape only, and size the duplication
+      estimate from this slate's own chalk-combo math with an upward convergence
+      adjustment — never from the historical names.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-07-19-sharp-envelope-is-a-rate-not-a-per-bullet-quota
+    born: "2026-07-19"
+    origin: "rules/mma_se/history/2026-07-19__ufc-oklahoma-city-7-18-26 (second-pass review)"
+    statement: >
+      The sharp-envelope target handed to a SINGLE-ENTRY builder must be read as the
+      pros' per-lineup RATE, not restated as a per-bullet quota — and for MMA it must
+      come from MMA data. sharp_playbook.md's shared-slate table (10 MMA contests)
+      records the sharks carrying a sub-5%-owned piece in 15% of their lineups; across
+      40-150 bullets that is a sprinkle, and the MODAL shark MMA lineup carries NO dart.
+      The 7/19 strategy converted that 15% rate into "roughly one sub-15% piece per
+      bullet" on a 2-entry slate — a ~7x inflation of the pros' observed behavior — and
+      it drove the slate's only failed discipline metric (leverage candidates 0/2
+      rostered) even though BOTH contest winners carried zero sub-10 pieces
+      (winners_profile dart_pct 0.0 in both) and every board piece under 15% own lost.
+      Corroborating: rules/shared/shark_baseline.json has NO `mma` sport key at all
+      (the 63-contest seed covers nascar/golf/showdown only), and the single accumulated
+      MMA shark observation in shark_observations.jsonl (7/12, one entry) measured
+      leverage_pct 0.0 — there is no observed MMA envelope justifying a per-lineup dart
+      target. Mechanism: a frequency measured across a pro's large portfolio describes
+      portfolio-level variance budgeting; imposing it on each of 1-3 bullets converts an
+      optional ceiling sprinkle into a mandatory dead slot, which is the one structure
+      a single-entry player cannot afford. Rule to test: state sharp-envelope targets as
+      "in ~N of 10 lineups," and for a 1-3 bullet slate translate any sub-50% rate into
+      "optional — take it only when the dart's win equity clears the mid-own converter
+      it would replace." Corollary: treat the shark-gap axis ranking as noise until the
+      delta is material — the "own_per_slot is your biggest gap in 2 of 4 slates" line
+      the strategy cited rested on measured deltas of 1.3 and 0.1 ownership points, and
+      this slate had no tracked pro in either field (sharks_in_field false) to measure.
+      Links [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
+      [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]],
+      [[mma-se-2026-05-17-one-leverage-swing-conviction-core]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-07-19-exact-roster-duplication-is-superlinear-in-consensus
+    born: "2026-07-19"
+    origin: "rules/mma_se/history/2026-07-19__ufc-oklahoma-city-7-18-26 (third-pass review, 2026-07-26)"
+    statement: >
+      In a top-heavy SE, the number that decides what a hit is WORTH is exact-roster
+      duplication, and it rises far faster than per-player ownership does — so the
+      pre-lock check must be run on the whole six-man roster, not slot by slot.
+      Evidence (7/19 OKC, 784-entry Flying Knee, $2K to 1st): the user's rank-18 roster
+      was entered 10 times (`dup_count` 10; it is the #3 exact-roster dupe magnet in the
+      field at count 9), while the WINNING roster was entered twice. The two rosters
+      differ by exactly ONE fighter — Bashi (47.3% actual own) vs RJ Harris (29.1%).
+      Naive independence says that swap should cut expected duplicates only ~1.6x
+      (1.93 -> 1.19 on the ownership product x 784; the tool's own `expected_dupes`
+      returns 1.19 for the winner, matching), yet ACTUAL duplication fell ~5x (10 -> 2).
+      Mechanism: entrants converge on the consensus roster, so duplication concentrates
+      SUPER-linearly on whichever pieces the field agrees about — the user's build ran
+      ~5.2x its independence estimate and the winner's ~1.7x. Consequence the ownership
+      view hides: even had Bashi won, first prize splits ten ways, so a top-heavy SE
+      bullet built entirely from consensus pieces is capped in VALUE before the fights
+      start, independent of score. Note the two edges pointed the same way here — the
+      swap that raised the score (Bashi 42.90 -> Harris 106.70) is the same swap that
+      cut duplication 5x — which is why the mid-own converter screen and the duplication
+      check are not competing constraints. Rule to test: before locking a top-heavy SE,
+      compute the roster's ownership product x field size and multiply by the sport's
+      measured concentration factor (MMA 1.7-6.6x per the Sim corpus), and treat a
+      double-digit expected-dupe count as a build-defining flag, not a footnote — the
+      Grade tab's `crowded_pair` flag fired on Bashi+McMillen pre-lock and was
+      overridden. Links [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
+      [[mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence]],
+      [[mma-se-2026-05-16-no-identical-conviction-cores]].
     status: hypothesis
     confirmations: []
     contradictions: []

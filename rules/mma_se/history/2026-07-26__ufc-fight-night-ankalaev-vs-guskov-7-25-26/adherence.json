@@ -1,0 +1,44 @@
+{
+  "gradable": true,
+  "n_lineups": 5,
+  "calls": [
+    {
+      "name": "Valter Walker",
+      "verdict": "lean_fade",
+      "exposure_pct": 40.0,
+      "in_lineups": 2,
+      "of": 5,
+      "followed": true
+    },
+    {
+      "name": "Sam Patterson",
+      "verdict": "lean_fade",
+      "exposure_pct": 20.0,
+      "in_lineups": 1,
+      "of": 5,
+      "followed": true
+    },
+    {
+      "name": "Muhammad Saidov",
+      "verdict": "underweight",
+      "exposure_pct": 40.0,
+      "in_lineups": 2,
+      "of": 5,
+      "followed": true
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "leverage_candidates": [
+    {
+      "name": "Brendson Ribeiro",
+      "rostered": false
+    },
+    {
+      "name": "Wellington Turman",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 0,
+  "leverage_of": 2
+}
