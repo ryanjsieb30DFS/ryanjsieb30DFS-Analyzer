@@ -1,34 +1,45 @@
 {
-  "gradable": true,
-  "n_pool": 26,
-  "n_matched": 26,
-  "tiers": [
-    {
-      "tier": "Core",
-      "n": 2,
-      "avg_fpts": 48.1,
-      "max_fpts": 96.2
-    },
-    {
-      "tier": "Good",
-      "n": 4,
-      "avg_fpts": 98.9,
-      "max_fpts": 116.0
-    },
-    {
-      "tier": "Okay",
-      "n": 16,
-      "avg_fpts": 55.8,
-      "max_fpts": 125.7
-    },
-    {
-      "tier": "Fade",
-      "n": 4,
-      "avg_fpts": 13.6,
-      "max_fpts": 26.7
-    }
-  ],
-  "tiers_ordered": false,
-  "leakage": [],
-  "summary": "Core 48.1 > Good 98.9 > Okay 55.8 > Fade 13.6  \u2717 OUT OF ORDER"
+ "gradable": true,
+ "n_pool": 26,
+ "n_matched": 24,
+ "tiers": [
+  {
+   "tier": "Core",
+   "n": 1,
+   "avg_fpts": 96.2,
+   "max_fpts": 96.2
+  },
+  {
+   "tier": "Good",
+   "n": 4,
+   "avg_fpts": 98.9,
+   "max_fpts": 116.0
+  },
+  {
+   "tier": "Okay",
+   "n": 16,
+   "avg_fpts": 55.8,
+   "max_fpts": 125.7
+  },
+  {
+   "tier": "Fade",
+   "n": 3,
+   "avg_fpts": 18.1,
+   "max_fpts": 26.7
+  }
+ ],
+ "tiers_ordered": false,
+ "leakage": [],
+ "excluded_scratches": [
+  {
+   "name": "Islam Dulatov",
+   "tier": "Core"
+  },
+  {
+   "name": "Wellington Turman",
+   "tier": "Fade"
+  }
+ ],
+ "summary": "Core 96.2 > Good 98.9 > Okay 55.8 > Fade 18.1  \u2717 OUT OF ORDER",
+ "corrected": "2026-07-26 scratch fix: Dulatov (Core) + Turman (Fade) had a cancelled fight (0.0 FPTS) and are excluded from tier grading; the original record counted Dulatov as a real zero and reported Core avg 48.1"
 }

@@ -316,11 +316,12 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 - ✅ Every hard FADE honored.
 - Leverage candidates rostered somewhere: **0 of 2**.
 
-### Player-pool tier calibration (26 of 26 board players matched to actuals)
+### Player-pool tier calibration (24 of 26 board players matched to actuals)
 | Tier | Players | Avg FPTS | Best |
 |---|---|---|---|
-| **Core** | 2 | 48.1 | 96.2 |
+| **Core** | 1 | 96.2 | 96.2 |
 | **Good** | 4 | 98.9 | 116.0 |
 | **Okay** | 16 | 55.8 | 125.7 |
-| **Fade** | 4 | 13.6 | 26.7 |
+| **Fade** | 3 | 18.1 | 26.7 |
 - ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+- ⚪ Excluded as likely scratches (0.0 FPTS — didn't compete): Islam Dulatov (Core), Wellington Turman (Fade). Not counted in tier averages.

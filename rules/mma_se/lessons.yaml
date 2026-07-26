@@ -846,8 +846,21 @@ lessons:
       [[mma-se-2026-06-27-finish-heavy-small-fields-still-won-by-differentiation]];
       links [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]],
       [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-07-26"
+        slate: "UFC Fight Night: Ankalaev vs Guskov 7.25.26 — 490 + 1,189 SEs, 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-07-26__ufc-fight-night-ankalaev-vs-guskov-7-25-26"
+        note: >
+          Mechanism confirmed in all three contests. Every winning roster was six
+          mid-to-high-owned favorites with ZERO sub-10% pieces (avg own 30.9 / 34.2 /
+          35.2). The differentiation carrier in two of the three winners was Nurullo
+          Aliev, a 22-24%-owned converting favorite (116.15 FPTS) — exactly the
+          "mid-owned converter the field under-trusts" slot. The two true sub-10
+          fliers went nowhere (Ribeiro 17.84 at 4.7% own; Turman's fight was
+          scratched). The user's entries again died on WHICH mid-owns, not on
+          structure: the repeated Rzepecki slot (23.66 FPTS at 34.9% actual own) was
+          the swap-out in both one-swap-from-winning contests.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -882,8 +895,21 @@ lessons:
       Read the MMA field-tendency block for shape only, and size the duplication
       estimate from this slate's own chalk-combo math with an upward convergence
       adjustment — never from the historical names.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-07-26"
+        slate: "UFC Fight Night: Ankalaev vs Guskov 7.25.26 — 490 + 1,189 SEs, 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-07-26__ufc-fight-night-ankalaev-vs-guskov-7-25-26"
+        note: >
+          Same convergence direction, new consensus target. DailyFan projected
+          Temirov at 28% (fifth-highest); he drew 42.4-46.9% ACTUAL — the field's
+          true #1 chalk by 4-8 points over every projected-chalkier name. The
+          projected chalk tier spread 27-34% while the live field concentrated on
+          one consensus side; Sola also ran hot (26% projected, 38-40% actual) and
+          Rzepecki (28% projected, ~35% actual). Meanwhile the projected #1 Walker
+          (34%) came in AT projection (34.3) — the error is concentration on the
+          consensus favorite, not a uniform shift, which is exactly the stated
+          mechanism.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -955,6 +981,34 @@ lessons:
       overridden. Links [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence]],
       [[mma-se-2026-05-16-no-identical-conviction-cores]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-07-26 — UFC Fight Night: Ankalaev vs Guskov 7.25.26 ----
+
+  - id: mma-se-2026-07-26-field-value-side-vs-your-named-converter
+    born: "2026-07-26"
+    origin: "rules/mma_se/history/2026-07-26__ufc-fight-night-ankalaev-vs-guskov-7-25-26"
+    statement: >
+      When the strategy names a low-owned CONVERTING favorite as the leverage side
+      of a specific fight, rostering that fight's field-value opposite instead is a
+      double loss — you take the losing side of the fight AND hand back the named
+      leverage. The strategy tiered Zaynukov Good-Leverage (21% projected own,
+      138-point DWCS volume ceiling) and explicitly named him the definer of his
+      fight; the user instead carried his opponent Rzepecki — the field's "safe
+      value" at ~35% actual own — in 3 of 5 lineups. Zaynukov won (78.22 FPTS at
+      16.8%); Rzepecki scored 23.66. Removing Rzepecki was the winning swap in BOTH
+      one-swap contests, and the Rzepecki-to-Zaynukov swap alone would have won the
+      3-Max outright (587.26 + 54.6 = 641.8 vs the 619.62 winner). Mechanism: the
+      leverage read and the value read of the SAME fight are mutually exclusive
+      bets; picking the value side silently reverses the strategy's stated edge in
+      that fight, and adherence never flags it because only fades and sub-10
+      candidates are graded. Links
+      [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
+      [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]].
     status: hypothesis
     confirmations: []
     contradictions: []
