@@ -65,14 +65,6 @@ def test_drop_junk_rows():
     assert list(out["name"]) == ["A", "B"] and not out["proj_points"].isna().any()
 
 
-if __name__ == "__main__":
-    test_dailyfan_mma_new_format_detected()
-    test_ship_it_nation_removed()
-    test_dailyfan_mma_cpt_flex_detected()
-    test_drop_junk_rows()
-    print("4 passed")
-
-
 def test_etr_and_dailyfan_july_2026_generations():
     """ETR changed golf schema twice in July 2026 and DailyFan renamed its MMA
     export; the Analyzer must load all of them (it silently rejected every one,
@@ -107,3 +99,40 @@ def test_etr_and_dailyfan_july_2026_generations():
     df = load_projections(mma_v2)
     assert df.attrs["vendor"] == "DailyFan MMA"
     assert df["proj_points"].iloc[0] == 84.0
+
+
+def test_etr_rich_loads_every_projection_x_ownership_combo():
+    """Regression (7/25/26): the rich ETR export had ONE signature per header
+    generation, each hard-coupling a projection header to an ownership header,
+    so only the 3 diagonal combos loaded. A mixed sheet (Proj + Small Field
+    Own) DETECTED as ETR PGA and then died on missing proj_points — the worst
+    mode, because a confident vendor label preceded a hard failure that killed
+    the whole PGA pipeline. ETR renamed headers twice in one month, so every
+    combination has to load."""
+    import io
+    import itertools
+    from src.projections import load_projections
+
+    def sheet(proj_hdr, own_hdr, second_own=None):
+        cols = ["Golfer", "Round 1 Tee Time", "DK Salary", "DK Ceiling",
+                "Make Cut Odds", proj_hdr, own_hdr]
+        vals = ["Scottie Scheffler", "7:33", "11500", "132", "0.92",
+                "95.2", "26.3"]
+        if second_own:
+            cols.append(second_own)
+            vals.append("31.0")
+        return io.StringIO(",".join(cols) + "\n" + ",".join(vals) + "\n")
+
+    for p, o in itertools.product(["DK Points", "Projection", "Proj"],
+                                  ["Small Field Own", "Large Field Own", "Own"]):
+        df = load_projections(sheet(p, o))
+        assert df.attrs["vendor"] == "ETR PGA", f"{p} + {o} failed detection"
+        assert df["proj_points"].iloc[0] == 95.2, f"{p} + {o} lost proj_points"
+        assert df["ownership"].iloc[0] == 26.3, f"{p} + {o} lost ownership"
+
+    # When ETR ships BOTH ownership columns, small-field own wins — this tool
+    # is scoped to SE/3-Max/5-Max, and mapping Large Field Own was the process
+    # bug the Sim repo fixed 7/18/26.
+    df = load_projections(sheet("DK Points", "Small Field Own", "Large Field Own"))
+    assert df["ownership"].iloc[0] == 26.3
+    assert "large_field_own" not in df.columns   # loser alias dropped, no collision

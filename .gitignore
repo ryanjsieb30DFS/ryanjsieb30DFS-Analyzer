@@ -15,3 +15,8 @@ articles/*/
 !articles/.gitkeep
 data/contest_templates/
 data/player_pool/
+# Entry sets pushed over from the Sim tool for pre-lock grading — per-slate,
+# cleared with the slate. Every other data/ per-slate store is ignored; this one
+# was missed, so Sim-pushed portfolios sat here untracked and would ride along on
+# any future `git add -A`.
+data/sim_entries/

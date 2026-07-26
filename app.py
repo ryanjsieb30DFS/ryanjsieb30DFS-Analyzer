@@ -1113,12 +1113,23 @@ with tab_autopsy:
                         # slate) — evidence the standings-only profile can't
                         # see: real dupe counts + dead-structure share.
                         try:
-                            from src.sim_link import capture_field_stats, capture_stats_md
-                            _cs = capture_field_stats(slug, len(parsed["lineups"]))
+                            from src.sim_link import (capture_field_stats,
+                                                      capture_stats_md,
+                                                      capture_warnings)
+                            # Join on the DK contest instance id (from the
+                            # download's filename) so two contests on the same
+                            # slate with equal entry counts can't cross-match.
+                            from src.contests import contest_id_from_filename
+                            _cs = capture_field_stats(
+                                slug, len(parsed["lineups"]),
+                                contest_id=contest_id_from_filename(dk_csv.name))
                             if _cs:
                                 _cs_md = capture_stats_md(_cs)
                                 if _cs_md:
                                     st.markdown("📦 **Sim capture — roster structure:** " + _cs_md)
+                            # A degraded bridge must not look like a clean one.
+                            if capture_warnings.get(slug):
+                                st.caption(f"⚠️ {capture_warnings[slug]}")
                         except Exception:  # noqa: BLE001
                             pass
                         for _b in _fp.get("read", []):
@@ -1340,7 +1351,8 @@ with tab_autopsy:
                             from src import field_tendencies as _ft
                             from src.sim_link import capture_field_stats as _cfs
                             try:
-                                _cap_stats = _cfs(slug, len(lineups))
+                                _cap_stats = _cfs(slug, len(lineups),
+                                                  contest_id=pc.get("contest_id"))
                             except Exception:  # noqa: BLE001
                                 _cap_stats = None
                             _ft.record(slug, pc.get("contest_type"), len(lineups),
@@ -1468,21 +1480,24 @@ with tab_autopsy:
                 # completion flag and let the user clear the slate deliberately
                 # (so they get a lasting confirmation and can run the review first).
                 _clear_notes_drafts(slug)  # logged — the draft did its job
-                # Auto-back-up the learning log (rules/: ledgers, history
-                # archives, venue files, shared shark stores) to GitHub —
-                # mirrors the Sim repo's post-autopsy backup. Two full slates
-                # of lessons once lived only on this laptop. Failures warn in
-                # the completion banner, never block the log.
+                # Commit the learning log (rules/: ledgers, history archives,
+                # venue files, shared shark stores) LOCALLY. Two full slates of
+                # lessons once lived only on this laptop, so the commit is
+                # automatic — but the PUSH is not.
+                #
+                # `git push` takes no refspec, so it publishes every unpushed
+                # commit on the branch, not just this one. "Log autopsy" is
+                # consent to log an autopsy, not to publish whatever else is
+                # sitting on main. The explicit backup button below the
+                # completion banner does the push.
                 from src.git_backup import commit_and_push
                 _bk = commit_and_push(
                     REPO_ROOT, ["rules"],
                     f"Auto-backup learning log: {slate_label.strip() or slug} "
                     f"({_dt.now().strftime('%Y-%m-%d %H:%M')})",
+                    push=False,
                 )
-                if _bk["status"] == "commit_only":
-                    _log_warnings.append(
-                        f"Learning log committed locally but not pushed — {_bk['detail']}")
-                elif _bk["status"] == "error":
+                if _bk["status"] == "error":
                     _log_warnings.append(f"Learning-log backup skipped — {_bk['detail']}")
                 from src.adherence import adherence_md as _adh_md_fn
                 from src.pool_calibration import calibration_md as _cal_md_fn
@@ -1509,6 +1524,44 @@ with tab_autopsy:
         )
         for _w in _done.get("warnings") or []:
             st.warning(f"⚠️ {_w}")
+
+        # ----- Explicit GitHub backup (never automatic) ----- #
+        # The learning log is already committed LOCALLY by the log flow. Pushing
+        # is a separate, deliberate action because `git push` takes no refspec —
+        # it publishes every unpushed commit on the branch, not just the backup.
+        from src.git_backup import push_only, unpushed_summary
+        _un = unpushed_summary(REPO_ROOT)
+        with st.container(border=True):
+            if not _un["has_remote"]:
+                st.caption("💾 Learning log committed locally. No git remote is "
+                           "configured, so there's nothing to back up to.")
+            elif _un["n"] == 0:
+                st.caption("💾 Learning log committed locally and already backed "
+                           "up to GitHub — nothing left to push.")
+            else:
+                _n = _un["n"]
+                if _n > 0:
+                    st.caption(
+                        f"💾 Learning log committed locally. Pushing sends "
+                        f"**{_n} commit(s)** on `{_un['branch']}` to GitHub — "
+                        f"git can't push just one, so this is everything "
+                        f"unpushed:")
+                    st.code("\n".join(_un["subjects"][:10]), language=None)
+                else:
+                    st.caption(f"💾 Learning log committed locally. {_un['detail']} — "
+                               "a push may still work; check the result below.")
+                if st.button("⬆️ Back up learning log to GitHub",
+                             key=f"push_backup_{slug}"):
+                    with st.spinner("Pushing to GitHub…"):
+                        _res = push_only(REPO_ROOT)
+                    if _res["status"] == "ok":
+                        st.success(f"✅ Backed up to GitHub — {_res['detail']}.")
+                    elif _res["status"] == "nothing":
+                        st.info(f"Nothing to push — {_res['detail']}.")
+                    else:
+                        st.warning(f"⚠️ {_res['detail']}")
+                    st.rerun()
+
         if _done.get("adherence_md"):
             with st.container(border=True):
                 st.markdown(_md_safe(_done["adherence_md"]))

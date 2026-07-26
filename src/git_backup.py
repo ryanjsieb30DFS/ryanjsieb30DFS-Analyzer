@@ -1,12 +1,19 @@
 """
 Back up the learning log (autopsy history under rules/) to GitHub.
 
-The app calls `commit_and_push` after each Log Autopsy so the user's accumulated
-slate knowledge is never laptop-only. All git surface lives here behind one
-never-raises function: a backup failure must never break the autopsy flow.
+The app calls `commit_and_push(..., push=False)` after each Log Autopsy so the
+user's accumulated slate knowledge is never laptop-only, then offers an EXPLICIT
+button for the push. All git surface lives here behind never-raises functions: a
+backup failure must never break the autopsy flow.
 
 The commit is pathspec-limited to the paths passed in, so it can't sweep up
 unrelated half-edited code that happens to be staged in the working tree.
+
+**`git push` cannot be scoped the same way.** It takes no refspec here, so it
+publishes every unpushed commit on the branch — not just the backup commit. That
+is why pushing is never automatic: logging an autopsy is consent to log an
+autopsy, not to publish whatever else is sitting on main. `unpushed_summary`
+lets the UI say exactly what a push would send before the user asks for it.
 """
 from __future__ import annotations
 
@@ -78,3 +85,62 @@ def commit_and_push(repo_root, paths: list[str], message: str, push: bool = True
                           + ((pushed.stderr or pushed.stdout).strip()[:200] or "unknown error")}
 
     return {"status": "ok", "detail": "backed up to GitHub"}
+
+
+def push_only(repo_root) -> dict:
+    """Push the current branch, committing nothing. Never raises.
+
+    The log flow already commits, so the backup button needs a PUSH, not another
+    commit-and-push — `commit_and_push` returns "nothing" and never reaches the
+    push when there's nothing new under the pathspec, which is the normal case
+    right after logging.
+
+    Returns {"status": "ok"|"nothing"|"error", "detail": str}."""
+    root = Path(repo_root)
+    if _run(["git", "rev-parse", "--is-inside-work-tree"], root).returncode != 0:
+        return {"status": "error", "detail": "not a git repository"}
+    if not _run(["git", "remote"], root).stdout.strip():
+        return {"status": "error", "detail": "no git remote configured"}
+    ahead = unpushed_summary(root)
+    if ahead["n"] == 0:
+        return {"status": "nothing", "detail": "already up to date with the remote"}
+    pushed = _run(["git", "push"], root)
+    if pushed.returncode != 0:
+        return {"status": "error",
+                "detail": "push failed: "
+                          + ((pushed.stderr or pushed.stdout).strip()[:200]
+                             or "unknown error")}
+    n = ahead["n"]
+    return {"status": "ok",
+            "detail": (f"pushed {n} commit(s) to the remote" if n > 0
+                       else "pushed to the remote")}
+
+
+def unpushed_summary(repo_root) -> dict:
+    """What a `git push` from here would actually publish. Never raises.
+
+    Returns {"n": int, "subjects": [str], "branch": str|None, "has_remote": bool,
+    "detail": str}. `n` is -1 when the ahead-count can't be determined (no
+    upstream configured, not a repo). The point is that the user sees the real
+    blast radius — the backup commit plus any other local commits — before
+    consenting, since the push itself can't be narrowed to one commit."""
+    root = Path(repo_root)
+    out = {"n": -1, "subjects": [], "branch": None, "has_remote": False,
+           "detail": ""}
+    if _run(["git", "rev-parse", "--is-inside-work-tree"], root).returncode != 0:
+        out["detail"] = "not a git repository"
+        return out
+    out["has_remote"] = bool(_run(["git", "remote"], root).stdout.strip())
+    br = _run(["git", "rev-parse", "--abbrev-ref", "HEAD"], root)
+    if br.returncode == 0:
+        out["branch"] = br.stdout.strip() or None
+    log = _run(["git", "log", "--oneline", "@{u}..HEAD"], root)
+    if log.returncode != 0:
+        out["detail"] = "no upstream branch configured for this branch"
+        return out
+    subjects = [ln.strip() for ln in log.stdout.splitlines() if ln.strip()]
+    out["n"] = len(subjects)
+    out["subjects"] = subjects
+    out["detail"] = ("nothing to push" if not subjects
+                     else f"{len(subjects)} unpushed commit(s)")
+    return out

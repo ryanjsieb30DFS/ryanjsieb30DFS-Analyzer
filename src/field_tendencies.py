@@ -124,6 +124,59 @@ def _row_pairs(r: dict) -> set[tuple]:
     return out
 
 
+_CAPTURE_FIELDS = ("unique_pct", "max_dupe", "pct_single_entry_users",
+                   "mean_entries_per_user", "top3_chalk_lineup_pct",
+                   "dead_structure_pct")
+
+
+def _capture_structure(rows: list[dict]) -> dict | None:
+    """Median roster-level structure across the rows that carry a Sim capture.
+
+    `log_contest` writes these `capture_*` keys from the Sim's full-field
+    capture, but until 7/25/26 NOTHING read them back — so the stated goal of
+    the capture bridge ("field reliably does X" reads carrying roster-level
+    evidence) was never actually implemented; the data just accumulated on disk.
+    Returns None when no row has any capture, so the caller stays silent rather
+    than implying evidence it doesn't have."""
+    out: dict = {}
+    for f in _CAPTURE_FIELDS:
+        vals = sorted(r[f"capture_{f}"] for r in rows
+                      if isinstance(r.get(f"capture_{f}"), (int, float)))
+        if vals:
+            out[f] = round(float(vals[len(vals) // 2]), 1)
+            out[f"{f}_n"] = len(vals)
+    return out or None
+
+
+def _capture_structure_str(s: dict) -> str:
+    """One plain-language sentence about the field's real roster structure."""
+    cap = (s or {}).get("capture_structure")
+    if not cap:
+        return ""
+    bits = []
+    if cap.get("unique_pct") is not None:
+        bits.append(f"only **{cap['unique_pct']}% of entries were unique rosters**")
+    if cap.get("max_dupe") is not None:
+        bits.append(f"the most-copied lineup appeared **{int(cap['max_dupe'])} times**")
+    if cap.get("mean_entries_per_user") is not None:
+        bits.append(f"the average opponent entered **{cap['mean_entries_per_user']} "
+                    f"lineups**")
+    if cap.get("pct_single_entry_users") is not None:
+        bits.append(f"**{cap['pct_single_entry_users']}% of opponents were "
+                    f"single-entry**")
+    if cap.get("top3_chalk_lineup_pct") is not None:
+        bits.append(f"the top-3 chalk players landed together in "
+                    f"**{cap['top3_chalk_lineup_pct']}%** of lineups")
+    if cap.get("dead_structure_pct") is not None:
+        bits.append(f"**{cap['dead_structure_pct']}%** of entries carried a "
+                    f"structurally dead build")
+    if not bits:
+        return ""
+    n = max((v for k, v in cap.items() if k.endswith("_n")), default=0)
+    return (f"from the full-field captures ({n} contest{'s' if n != 1 else ''}): "
+            + ", ".join(bits))
+
+
 def summarize(slug: str, contest_type: str | None) -> dict | None:
     """Across past contests of this type, which players/traps the field RELIABLY
     crowds (appeared in ≥2 contests). None when there's no prior history."""
@@ -144,6 +197,7 @@ def summarize(slug: str, contest_type: str | None) -> dict | None:
     n = len(rows)
     return {
         "n_contests": n,
+        "capture_structure": _capture_structure(rows),
         "reliably_crowded": [{"name": nm, "in_n": c, "of": n}
                              for nm, c in crowd_ct.most_common(8) if c >= 2],
         "recurring_traps": [{"name": nm, "in_n": c, "of": n}
@@ -197,6 +251,7 @@ def summarize_contest(slug: str, name) -> dict | None:
         "n_contests": n,
         "contest_name": next((r.get("contest_name") for r in reversed(rows)
                               if r.get("contest_name")), None) or name,
+        "capture_structure": _capture_structure(rows),
         "reliably_crowded": [{"name": nm, "in_n": c, "of": n}
                              for nm, c in crowd_ct.most_common(8) if c >= 2],
         "recurring_traps": [{"name": nm, "in_n": c, "of": n}
@@ -233,6 +288,11 @@ def _crowd_traps_str(s: dict) -> str:
     if tr is not None and abs(tr) >= 1.0:
         parts.append(f"winners trending {'chalkier' if tr > 0 else 'sharper'} "
                      f"({tr:+} own/slot vs earlier)")
+    # Roster-level structure from the Sim's full-field captures — the standings
+    # profile can't see duplication or entries-per-user at all.
+    cap_str = _capture_structure_str(s)
+    if cap_str:
+        parts.append(cap_str)
     return "; ".join(parts)
 
 

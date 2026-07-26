@@ -11,18 +11,25 @@ returns None/{} when the Sim repo or file is absent — no exceptions, no UI):
    THIS repo — the Sim writes across; cleared with the slate.)
 
 2. The Sim's field-concentration corpus + fitted field params — used to
-   correct the grader's expected-dupes estimate. The naive independence
-   product (Π own × field size) over-predicts real duplication by 1-2 orders
-   of magnitude (real fields are far less combinatorially spread than
-   independence assumes on the DOWN side, and dupe magnets concentrate on the
-   up side); the corpus carries observed top-dupe counts paired with exactly
-   that naive prediction, so the correction factor is measured, not assumed.
+   correct the grader's expected-dupes estimate. The naive independence product
+   (Π own × field size) UNDER-predicts real duplication, because entrants
+   converge on the same chalk rosters rather than drawing players independently;
+   measured over the Sim's corpus every factor is > 1 (MMA 1.7-4.2x, NASCAR
+   3.1-6.6x, golf far too dispersed to use). The corpus carries observed
+   top-dupe counts paired with exactly that naive prediction, so the correction
+   factor is measured, not assumed.
 
-The Analyzer still never builds lineups; both reads are grade/analysis inputs.
+3. The Sim's full-slate captures — roster-level field structure for the autopsy.
+
+The Analyzer still never builds lineups; every read is a grade/analysis input.
+
+The Sim repo's location can be overridden with the DFS_SIM_ROOT environment
+variable; it otherwise defaults to the sibling checkout path.
 """
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 _REPO_ROOT = Path(__file__).parent.parent
@@ -31,7 +38,15 @@ _SIM_ROOT = Path.home() / "Desktop" / "Repo" / "ryanjsieb30DFS"
 
 
 def sim_root() -> Path | None:
-    """The sibling Sim repo, or None when it isn't on this machine."""
+    """The sibling Sim repo, or None when it isn't on this machine.
+
+    Honors $DFS_SIM_ROOT so a moved/renamed checkout doesn't silently take every
+    bridge read down with it — without the override the only symptom was panels
+    quietly going missing."""
+    env = os.environ.get("DFS_SIM_ROOT")
+    if env:
+        p = Path(env).expanduser()
+        return p if p.exists() else None
     return _SIM_ROOT if _SIM_ROOT.exists() else None
 
 
@@ -92,32 +107,62 @@ def clear_sim_entries(slug: str) -> None:
 # Corpus-corrected dupe estimate (grader)
 # ---------------------------------------------------------------------------
 
-_SLUG_SPORT = {"pga_classic": "golf", "pga_rd4_sd": "golf",
+_SLUG_SPORT = {"pga_classic": "golf", "pga_rd4_sd": "golf_showdown",
                "mma_se": "mma", "nascar": "nascar"}
+
+# Sports whose corpus evidence is tight enough to correct a user-facing number.
+# Measured over the Sim's 577-contest corpus (7/25/26), median observed/naive by
+# band, with the p10-p90 spread:
+#   mma     1.7 - 4.2   (p10 0.95, p90 ~13)     → usable
+#   nascar  3.1 - 6.6   (p10 1.24, p90 ~90)     → usable
+#   golf   13.9 - 69.8  (p10 3.7,  p90 5,760)   → NOT usable
+# Golf's ratio spans three-plus orders of magnitude because it is strongly
+# scale-dependent (~3,099x in the lowest own-product quartile vs ~5x in the
+# chalkiest), so a single median is not a defensible multiplier for a pre-lock
+# decision input — it over-corrected chalk ~13x. Golf keeps the naive number
+# until the factor is bucketed by own_product. `golf_showdown` is listed above
+# only so RD4 SD (6 golfers, tiny field) can never silently inherit a full-field
+# PGA Classic multiplier, which it did until 7/25/26.
+_CORRECTABLE_SPORTS = {"mma", "nascar"}
 _dupe_cache: dict = {}
 
 
 def dupe_correction(slug: str, field_size: int | None) -> float | None:
     """Measured correction factor for the naive independence dupe estimate:
     median(observed top-dupe count / naive prediction) over the Sim corpus's
-    contests of this sport in the same field-size band. None when the corpus
-    is absent or thin (<3 evidence rows) — caller keeps the naive number.
+    contests of this sport in the same field-size band. None when the corpus is
+    absent, thin (<3 evidence rows), or the sport's evidence is too dispersed to
+    trust (see `_CORRECTABLE_SPORTS`) — caller keeps the naive number.
+
+    Direction: every measured factor is **> 1**. Real fields duplicate consensus
+    rosters MORE than per-player independence predicts, because entrants
+    converge on the same chalk rosters. (Comments here and in grader.py used to
+    claim the opposite — "naive over-predicts, observed ~0.01-0.09x" — which was
+    backwards and would have argued for shrinking an already-low estimate.)
 
     Honest caveat: the evidence rows are the MOST-duplicated rosters per
     contest, so the factor is calibrated for chalky lineups — exactly the
     ones whose dupe risk the Grade tab needs to price."""
     sport = _SLUG_SPORT.get(slug)
     root = sim_root()
-    if sport is None or root is None or not field_size:
+    if sport is None or sport not in _CORRECTABLE_SPORTS or root is None \
+            or not field_size:
         return None
     band = ("small" if field_size <= 2_500 else
             "mid" if field_size <= 10_000 else "large")
-    key = (sport, band)
-    if key in _dupe_cache:
-        return _dupe_cache[key]
     corpus = root / "data" / "field_corpus" / "field_concentration.jsonl"
     if not corpus.exists():
         return None
+    # Key the cache on the corpus mtime too: a long-running Streamlit process
+    # otherwise kept serving a stale factor after the Sim backfilled new
+    # contests, and the whole point is that the number is measured.
+    try:
+        stamp = corpus.stat().st_mtime_ns
+    except OSError:
+        return None
+    key = (sport, band, stamp)
+    if key in _dupe_cache:
+        return _dupe_cache[key]
     lo, hi = {"small": (0, 2_500), "mid": (2_500, 10_000),
               "large": (10_000, float("inf"))}[band]
     ratios: list[float] = []
@@ -152,34 +197,71 @@ def dupe_correction(slug: str, field_size: int | None) -> float | None:
 # Slate captures (the Sim's full-field records) → autopsy field learning
 # ---------------------------------------------------------------------------
 
-def find_sim_capture(slug: str, n_entries: int | None) -> dict | None:
-    """The Sim's full-slate capture for the contest being autopsied, matched
-    by exact entry count (both tools parsed the same standings CSV, so the
-    counts agree). None when the Sim repo/captures are absent."""
+CAPTURE_SCHEMA_VERSION = 1
+
+# Set when a capture was found but couldn't be trusted, so the UI can say
+# "the bridge is degraded" instead of looking identical to "no Sim repo".
+capture_warnings: dict = {}
+
+
+def find_sim_capture(slug: str, n_entries: int | None,
+                     contest_id: str | None = None) -> dict | None:
+    """The Sim's full-slate capture for the contest being autopsied.
+
+    Matched on `contest_id` FIRST, falling back to exact entry count. The count
+    fallback assumes both tools parsed the same standings CSV and agree — true
+    for a clean file, but two contests on one slate can have equal entry counts
+    (then the alphabetically-first file silently won), and any row the Analyzer
+    drops that the Sim kept breaks the match entirely.
+
+    Captures are validated against CAPTURE_SCHEMA_VERSION: a newer capture whose
+    block semantics changed would otherwise be read as v1 and quietly produce
+    wrong numbers. Rejections land in `capture_warnings[slug]`."""
     root = sim_root()
-    if root is None or not n_entries:
+    if root is None:
         return None
+    if not n_entries and not contest_id:
+        return None
+    capture_warnings.pop(slug, None)
     d = root / "rules" / slug / "slate_data"
     if not d.exists():
         return None
+    by_count = None
+    drifted: list = []
     for p in sorted(d.glob("*.json")):
         try:
             rec = json.loads(p.read_text())
         except (json.JSONDecodeError, OSError):
             continue
-        if ((rec.get("field") or {}).get("summary") or {}).get("n_entries") == n_entries:
+        if not isinstance(rec, dict):
+            continue
+        ver = rec.get("schema_version", CAPTURE_SCHEMA_VERSION)
+        if not isinstance(ver, int) or ver > CAPTURE_SCHEMA_VERSION:
+            drifted.append(f"{p.name} (schema v{ver})")
+            continue
+        if contest_id and str(rec.get("contest_id") or "") == str(contest_id):
             return rec
-    return None
+        if by_count is None and n_entries and (
+                ((rec.get("field") or {}).get("summary") or {}
+                 ).get("n_entries") == n_entries):
+            by_count = rec
+    if drifted:
+        capture_warnings[slug] = (
+            "Sim capture(s) were written by a newer build than this Analyzer "
+            "understands and were skipped rather than misread: "
+            + ", ".join(drifted[:3]))
+    return by_count
 
 
-def capture_field_stats(slug: str, n_entries: int | None) -> dict | None:
+def capture_field_stats(slug: str, n_entries: int | None,
+                        contest_id: str | None = None) -> dict | None:
     """Roster-level field structure for an autopsied contest, from the Sim's
     capture: real dupe stats + entries-per-user + (MMA, when the capture
     carries opponents) the DEAD-STRUCTURE share — entries rostering both
     fighters of a bout, whose combined ceiling is capped by the bout being
     zero-sum. This is the evidence the standings-only autopsy can't see:
     it knows scores and ownership, not the joint roster structure."""
-    cap = find_sim_capture(slug, n_entries)
+    cap = find_sim_capture(slug, n_entries, contest_id=contest_id)
     if cap is None:
         return None
     field = cap.get("field") or {}
@@ -193,7 +275,18 @@ def capture_field_stats(slug: str, n_entries: int | None) -> dict | None:
         "mean_entries_per_user": (s.get("entries_per_user") or {}).get("mean"),
         "top3_chalk_lineup_pct": (s.get("chalk_share") or {}).get("top3_lineup_pct"),
     }
-    # Dead-structure share (MMA): opponent info arrived in captures 7/26+.
+    # Dead-structure share (MMA): entries rostering both fighters of a bout.
+    # Needs a per-player `opponent` in the capture, which older captures don't
+    # carry. Say so rather than silently omitting the panel — a bare
+    # `except: pass` here meant the feature staying dark was indistinguishable
+    # from it having nothing to report.
+    rosters = field.get("rosters") or []
+    counts = field.get("counts") or []
+    if len(rosters) != len(counts):
+        stats["dead_structure_note"] = (
+            f"capture has {len(rosters)} rosters but {len(counts)} counts — "
+            f"skipping roster-level math rather than truncating it")
+        return stats
     try:
         from src.autopsy import _norm_name
         opp = {}
@@ -201,19 +294,23 @@ def capture_field_stats(slug: str, n_entries: int | None) -> dict | None:
             o = pl.get("opponent")
             if o and pl.get("name"):
                 opp[_norm_name(str(pl["name"]))] = _norm_name(str(o))
-        if opp:
+        if not opp:
+            stats["dead_structure_note"] = (
+                "this capture carries no per-fighter opponent, so the "
+                "dead-structure share can't be computed for it")
+        else:
             index = [_norm_name(str(n)) for n in field.get("player_index") or []]
             dead = total = 0
-            for roster, count in zip(field.get("rosters") or [],
-                                     field.get("counts") or []):
+            for roster, count in zip(rosters, counts):
                 names = {index[i] for i in roster if i < len(index)}
                 total += count
                 if any(opp.get(n) in names for n in names):
                     dead += count
             if total:
                 stats["dead_structure_pct"] = round(100.0 * dead / total, 1)
-    except Exception:  # noqa: BLE001 — enhancement only
-        pass
+    except Exception as exc:  # noqa: BLE001 — enhancement only, but never silent
+        stats["dead_structure_note"] = (
+            f"dead-structure share unavailable ({type(exc).__name__})")
     return stats
 
 
@@ -233,4 +330,10 @@ def capture_stats_md(stats: dict) -> str:
     if stats.get("dead_structure_pct") is not None:
         bits.append(f"**{stats['dead_structure_pct']:.0f}%** dead structure "
                     "(opponent-stacked entries — capped ceiling by construction)")
-    return " · ".join(bits)
+    out = " · ".join(bits)
+    # Say WHY a metric is missing. Otherwise a capture too old to carry
+    # opponents looks exactly like a slate with nothing to report.
+    if stats.get("dead_structure_note"):
+        out += (("  \n" if out else "")
+                + f"_Dead-structure share: {stats['dead_structure_note']}._")
+    return out

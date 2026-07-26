@@ -12,14 +12,18 @@ from __future__ import annotations
 import pandas as pd
 
 
-# Each signature: vendor name, sport, required headers that prove identity,
-# column rename map (vendor -> canonical), and optional columns to drop.
+# Each signature: vendor name, sport, required headers that prove identity, an
+# optional `aliases` map (canonical -> [candidate headers], first present wins —
+# for vendors that ship several headers for the same field), a column rename map
+# (vendor -> canonical), and optional columns to drop.
+#
+# Keep `required_columns` to the headers a vendor has NEVER renamed, and put the
+# volatile ones in `aliases`. A required column that the vendor later renames
+# turns into a hard upload failure mid-slate.
 VENDOR_SIGNATURES: list[dict] = [
     {
-        # Vendor unverified — the user labels projection sources going forward.
-        # Simple PGA export (NAME/SAL/PROJ/CEIL/OWN). Default attribution is ETR
-        # (user-confirmed 7/5/26); SIN ships the same shape for Showdowns — the
-        # filename hint below relabels those.
+        # Simple PGA export (NAME/SAL/PROJ/CEIL/OWN), attributed to ETR
+        # (user-confirmed 7/5/26). Filenames never affect detection.
         "name": "ETR PGA",
         "sport": "golf",
         "required_columns": {"name", "sal", "proj", "ceil", "own"},
@@ -31,67 +35,34 @@ VENDOR_SIGNATURES: list[dict] = [
         },
         "drop_columns": ["pt/$"],
     },
-    # ETR's rich golf export changed schema twice in July 2026, so three
-    # signatures cover the generations. Ownership preference: SMALL field own
-    # when ETR ships both (this tool is scoped to SE/3-Max/5-Max — mapping
-    # Large Field Own was the process bug the Sim repo fixed 7/18/26); the
-    # July formats ship only one ownership column, so there's nothing to prefer.
     {
-        # Classic rich export: DK Points + Small AND Large Field Own.
+        # ETR's RICH golf export. ETR renamed its projection AND ownership
+        # headers twice in July 2026 (DK Points + Small/Large Field Own →
+        # Projection + Large Field Own → Proj + Own). This used to be THREE
+        # signatures, one per generation, each hard-coupling one projection
+        # header to one ownership header — so only the 3 diagonal combos
+        # loaded. A sheet that mixed generations (Proj + Small Field Own) hit
+        # the worst failure mode available: it DETECTED as ETR PGA and then
+        # died on `missing required columns: ['proj_points']`, taking the whole
+        # PGA pipeline (strategy, board, contract, grade) with it.
+        #
+        # Identity now rests only on the headers ETR has never renamed; the
+        # volatile ones are resolved by `aliases` below, so any combination
+        # loads and the next single rename can't break detection.
         "name": "ETR PGA",
         "sport": "golf",
-        "required_columns": {
-            "golfer", "dk_salary", "dk_ceiling",
-            "small_field_own", "make_cut_odds", "round_1_tee_time",
+        "required_columns": {"golfer", "dk_salary", "dk_ceiling", "make_cut_odds"},
+        "aliases": {
+            # First candidate PRESENT wins. Small field own before large:
+            # this tool is scoped to SE/3-Max/5-Max, and mapping Large Field
+            # Own was the process bug the Sim repo fixed 7/18/26.
+            "proj_points": ["dk_points", "projection", "proj"],
+            "ownership": ["small_field_own", "large_field_own", "own"],
         },
         "column_map": {
             "golfer": "name",
             "dk_salary": "salary",
-            "dk_points": "proj_points",
             "dk_ceiling": "ceiling",
-            "small_field_own": "ownership",
-            "round_1_tee_time": "tee_time",
-            "id": "dk_id",
-        },
-        "drop_columns": [
-            "round_2_tee_time", "large_field_own", "dk_value",
-            "volatility", "site",
-        ],
-    },
-    {
-        # Mid-July 2026 export: "Projection" header, Large Field Own only
-        # (Small dropped by ETR).
-        "name": "ETR PGA",
-        "sport": "golf",
-        "required_columns": {
-            "golfer", "dk_salary", "dk_ceiling",
-            "projection", "large_field_own", "make_cut_odds",
-        },
-        "column_map": {
-            "golfer": "name",
-            "dk_salary": "salary",
-            "projection": "proj_points",
-            "dk_ceiling": "ceiling",
-            "large_field_own": "ownership",
-            "round_1_tee_time": "tee_time",
-            "id": "dk_id",
-        },
-        "drop_columns": ["round_2_tee_time", "dk_value", "volatility", "site"],
-    },
-    {
-        # Late-July 2026 export: "Proj" + a single "Own" column.
-        "name": "ETR PGA",
-        "sport": "golf",
-        "required_columns": {
-            "golfer", "dk_salary", "dk_ceiling",
-            "proj", "own", "make_cut_odds",
-        },
-        "column_map": {
-            "golfer": "name",
-            "dk_salary": "salary",
-            "proj": "proj_points",
-            "dk_ceiling": "ceiling",
-            "own": "ownership",
             "round_1_tee_time": "tee_time",
             "id": "dk_id",
         },
@@ -208,13 +179,10 @@ def detect_vendor(df: pd.DataFrame, source_name: str | None = None) -> dict | No
 
     Assumes df.columns has already been normalized to lowercase snake_case.
     Picks the signature with the most matched columns (best fit).
-
-    `source_name` (the uploaded filename) disambiguates schema COLLISIONS:
-    Ship It Nation's simple PGA export (e.g. their Showdown file) ships the
-    exact same headers as ETR PGA (NAME, SAL, PROJ, CEIL, OWN, PT/$) — when
-    that signature matches and the filename says SIN, relabel to
-    'Ship It Nation PGA (simple)' so blend-source and vendor-accuracy
-    attribution stay honest.
+    **Filenames never affect detection** — `source_name` is accepted for
+    call-site compatibility only and is ignored. (It once relabeled Ship It
+    Nation's identical-schema PGA export; SIN support was removed 7/18/26 when
+    the user dropped the vendor, and it must not be re-added.)
     """
     columns = set(df.columns)
     best: dict | None = None
@@ -223,12 +191,16 @@ def detect_vendor(df: pd.DataFrame, source_name: str | None = None) -> dict | No
         required = sig["required_columns"]
         if not required.issubset(columns):
             continue
-        # Tie-break on how many column_map keys the sheet actually carries, so
-        # the MOST SPECIFIC signature wins. Without this, DailyFan MMA (6
-        # required cols, listed first) beat DailyFan MMA (CPT/Flex) (also 6)
-        # on every CPT/Flex sheet — whose salary lives in salary_flex, so the
-        # old map produced no salary/ownership and the upload always failed.
+        # Tie-break on how many column_map/alias candidates the sheet actually
+        # carries, so the MOST SPECIFIC signature wins. Without this, DailyFan
+        # MMA (6 required cols, listed first) beat DailyFan MMA (CPT/Flex)
+        # (also 6) on every CPT/Flex sheet — whose salary lives in salary_flex,
+        # so the old map produced no salary/ownership and the upload failed.
         mapped_present = sum(1 for c in sig.get("column_map", {}) if c in columns)
+        mapped_present += sum(
+            1 for cands in (sig.get("aliases") or {}).values()
+            for c in cands if c in columns
+        )
         score = (len(required), mapped_present)
         if score > best_score:
             best = sig
@@ -262,12 +234,27 @@ def detect_vendor_confidence(df: pd.DataFrame) -> dict:
 
 
 def normalize_to_canonical(df: pd.DataFrame, signature: dict) -> pd.DataFrame:
-    """Apply rename + drop based on a vendor signature."""
+    """Apply alias resolution + rename + drop based on a vendor signature."""
     df = df.copy()
     # Drop unwanted columns first (silently ignore missing)
     for col in signature.get("drop_columns", []):
         if col in df.columns:
             df = df.drop(columns=col)
+    # Resolve ALIASES before the plain rename. A vendor that ships several
+    # headers for the SAME canonical field — ETR golf has shipped Small AND
+    # Large Field Own together, and three different projection headers across
+    # July 2026 — would otherwise need one signature per header combination
+    # (and a plain rename would collide two columns onto one name). First
+    # candidate present wins; the losing candidates are dropped.
+    for canonical, candidates in (signature.get("aliases") or {}).items():
+        present = [c for c in candidates if c in df.columns]
+        if not present:
+            continue
+        keep, losers = present[0], present[1:]
+        if losers:
+            df = df.drop(columns=losers)
+        if keep != canonical:
+            df = df.rename(columns={keep: canonical})
     # Rename to canonical column names
     rename = {k: v for k, v in signature.get("column_map", {}).items() if k in df.columns}
     df = df.rename(columns=rename)

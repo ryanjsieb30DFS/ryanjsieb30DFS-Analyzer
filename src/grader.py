@@ -202,10 +202,14 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
     }
 
     # Dupe risk: expected duplicate lineups in the declared field. The naive
-    # independence product is corrected with the Sim repo's measured
-    # concentration corpus when available — real fields duplicate 1-2 orders
-    # of magnitude differently than independence predicts (UFC benchmark:
-    # observed dupes ~0.01-0.09× the product for MMA/NASCAR chalk).
+    # per-player independence product UNDER-predicts real duplication, because
+    # entrants converge on the same chalk rosters instead of drawing players
+    # independently — measured 1.7-6.6× for MMA/NASCAR over the Sim's corpus.
+    # `dupe_correction` scales it where the corpus evidence is tight, and
+    # returns None (keep the naive number) for golf, whose ratio spans three
+    # orders of magnitude. `dupes_corrected` drives the label in grade_md — a
+    # corrected number and a naive one must never look alike on a pre-lock
+    # screen.
     if owns and cal.get("field_size"):
         prod = 1.0
         for o in owns:
@@ -217,8 +221,8 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
         except Exception:  # noqa: BLE001
             factor = None
         g["expected_dupes"] = round(naive * factor if factor else naive, 2)
-        if factor:
-            g["dupes_corrected"] = True
+        g["dupes_corrected"] = bool(factor)
+        g["dupes_factor"] = factor
 
     # 0) Salary sanity: DK wouldn't accept an over-cap lineup, so exceeding the
     # cap here almost always means a token matched the WRONG player.
@@ -335,7 +339,17 @@ def grade_md(grades: list[dict], portfolio_flags: list[dict], cal: dict) -> str:
         if g.get("salary_used") is not None:
             stats.append(f"${g['salary_used']:,} of ${_SALARY_CAP:,}")
         if g.get("expected_dupes") is not None:
-            stats.append(f"~{g['expected_dupes']} expected dupes")
+            # Say WHICH number this is. A corrected estimate (scaled by the
+            # Sim's measured concentration corpus) and a raw independence
+            # estimate can differ several-fold, and the user is about to lock
+            # lineups on it.
+            if g.get("dupes_corrected"):
+                _f = g.get("dupes_factor")
+                _how = (f"corpus-corrected, {_f}× the independence estimate"
+                        if _f else "corpus-corrected")
+            else:
+                _how = "raw independence estimate, no corpus correction"
+            stats.append(f"~{g['expected_dupes']} expected dupes ({_how})")
         out.append(f"**{head} Lineup {i}** — {', '.join(g['names'])}  \n"
                    f"_{' · '.join(stats)}_")
         for f in warns:

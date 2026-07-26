@@ -99,3 +99,80 @@ def test_failed_git_add_reports_error_not_nothing(monkeypatch, tmp_path):
     out = gb.commit_and_push(tmp_path, ["rules"], "msg", push=False)
     assert out["status"] == "error"
     assert "index.lock" in out["detail"]
+
+
+def _bare_remote(tmp_path, work):
+    """A real bare repo as `origin`, with an upstream set — so the push path is
+    actually exercised instead of short-circuiting on 'no remote'."""
+    bare = tmp_path / "remote.git"
+    _git(["init", "-q", "--bare", str(bare)], tmp_path)
+    _git(["remote", "add", "origin", str(bare)], work)
+    _git(["push", "-q", "-u", "origin", "HEAD"], work)
+    return bare
+
+
+def test_push_publishes_every_unpushed_commit_not_just_the_backup(tmp_path):
+    """The reason pushing is never automatic: `git push` takes no refspec, so it
+    publishes UNRELATED local commits too. This test pins that behavior so the
+    UI keeps warning about it — 'Log autopsy' must not be consent to publish
+    whatever else is sitting on the branch."""
+    from src.git_backup import push_only, unpushed_summary
+    work = tmp_path / "work"
+    work.mkdir()
+    _init_repo(work)
+    _bare_remote(tmp_path, work)
+
+    # An unrelated local WIP commit the user has deliberately NOT pushed.
+    (work / "secret_wip.py").write_text("# half-finished\n")
+    _git(["add", "-A"], work)
+    _git(["commit", "-q", "-m", "WIP do not publish"], work)
+    # Then a learning-log backup commit.
+    (work / "rules").mkdir()
+    (work / "rules" / "autopsy_data.jsonl").write_text('{"slate": 1}\n')
+    res = commit_and_push(work, ["rules"], "backup", push=False)
+    assert res["status"] == "commit_only"
+
+    ahead = unpushed_summary(work)
+    assert ahead["n"] == 2, ahead
+    assert any("WIP" in s for s in ahead["subjects"])
+
+    pushed = push_only(work)
+    assert pushed["status"] == "ok", pushed
+    # Both commits are now on the remote — the WIP one rode along.
+    remote_log = _git(["log", "--oneline", "HEAD"], tmp_path / "remote.git").stdout
+    assert "WIP do not publish" in remote_log
+    assert unpushed_summary(work)["n"] == 0
+
+
+def test_push_only_reports_nothing_when_up_to_date(tmp_path):
+    from src.git_backup import push_only
+    work = tmp_path / "work"
+    work.mkdir()
+    _init_repo(work)
+    _bare_remote(tmp_path, work)
+    res = push_only(work)
+    assert res["status"] == "nothing"
+
+
+def test_push_only_errors_without_remote_or_repo(tmp_path):
+    from src.git_backup import push_only
+    work = tmp_path / "work"
+    work.mkdir()
+    _init_repo(work)
+    assert push_only(work)["status"] == "error"          # no remote
+    plain = tmp_path / "notarepo"
+    plain.mkdir()
+    assert push_only(plain)["status"] == "error"         # not a git repo
+
+
+def test_unpushed_summary_handles_no_upstream(tmp_path):
+    """No upstream configured must degrade to n=-1 with an explanation, not crash
+    or claim zero (which would tell the user a push is a no-op)."""
+    from src.git_backup import unpushed_summary
+    work = tmp_path / "work"
+    work.mkdir()
+    _init_repo(work)
+    rep = unpushed_summary(work)
+    assert rep["n"] == -1 and "upstream" in rep["detail"]
+    assert rep["has_remote"] is False
+    assert unpushed_summary(tmp_path / "nope")["n"] == -1
