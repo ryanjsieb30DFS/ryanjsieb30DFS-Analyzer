@@ -909,6 +909,17 @@ with tab_autopsy:
              "summarized and logged as its own autopsy entry. Player scores are "
              "identical across contests; field size, winning score, and cash line differ.",
     )
+    # Three steps, in order. Nothing in the app communicated that Log must precede
+    # Review, so the review got clicked first and silently re-reviewed a week-old
+    # slate. Follows the readiness-caption pattern from the Slate Strategy tab.
+    _step_logged = bool(st.session_state.get(f"autopsy_done_{slug}"))
+    _step_has_arch = history.latest_history_dir(slug) is not None
+    st.caption(
+        f"**1.** Upload standings {'✅' if dk_csvs else '—'}  ·  "
+        f"**2.** Log autopsy {'✅' if _step_logged else '⚠️ not yet'}  ·  "
+        f"**3.** Post-autopsy review {'available' if _step_has_arch else '—'}"
+        "   —   the review reads the ARCHIVE, so step 2 must happen first."
+    )
 
     if dk_csvs:
         # Parse + display each contest in its own section, collecting a per-CSV
@@ -1593,22 +1604,85 @@ with tab_autopsy:
             st.success("Slate data cleared — ready for the next slate.")
             st.rerun()
 
+    # ----- Slate breakdown: the archived NUMBERS, read from disk ----- #
+    # Every numeric read used to be bound to the uploader (gone on Clear) or
+    # rendered once from session state at log time (gone on restart), and several
+    # archived JSON files were never displayed at all. A user who logged an
+    # autopsy and asked "where is the breakdown?" had nowhere to look.
+    from src import slate_breakdown as _sb
+    _archives = _sb.list_archives(slug)
+    if _archives:
+        st.divider()
+        st.markdown("### 📊 Slate breakdown")
+        st.caption("Read from the archive on disk, so it survives clearing the "
+                   "slate and restarting the app. Past slates stay browsable.")
+        _pick = _archives[0]
+        if len(_archives) > 1:
+            _labels = [_sb.archive_label(d) for d in _archives]
+            _sel = st.selectbox("Which slate", _labels, index=0,
+                                key=f"breakdown_pick_{slug}")
+            _pick = _archives[_labels.index(_sel)]
+        with st.container(border=True):
+            st.markdown(_md_safe(_sb.breakdown_md(_pick)))
+
     # ----- Post-autopsy review (the learning loop) ----- #
     latest_hist = history.latest_history_dir(slug)
     if latest_hist is not None:
         st.divider()
         st.markdown("### Post-autopsy review")
         review_path = latest_hist / "autopsy_review.md"
-        st.caption(
-            f"Latest archived slate: `{latest_hist.relative_to(REPO_ROOT)}`. "
-            "The review grades the process, updates the lesson ledger "
-            f"(rules/{slug}/lessons.yaml) and venue notes, and proposes framework "
-            "changes for your approval. Takes ~1–3 minutes."
-        )
+        # STALENESS GATE. This section used to be gated only on "an archive
+        # exists", so with unlogged CSVs sitting in the uploader it happily
+        # re-reviewed whatever was newest — a week-old card, twice, with no
+        # signal. The uploaded contest ids are already computed above, so
+        # comparing them to the ledger answers "is what I'm looking at logged?"
+        _pending = []
+        try:
+            _logged_ids = history.logged_contest_ids(slug)
+            for _pc in (parsed_contests if dk_csvs else []):
+                if _pc.get("contest_id") and _pc["contest_id"] not in _logged_ids:
+                    _pending.append(_pc.get("contest_name") or _pc.get("name") or "?")
+        except Exception:  # noqa: BLE001 — never block the section on this check
+            _pending = []
+        _arch_when = ""
+        try:
+            _man = json.loads((latest_hist / "manifest.json").read_text())
+            _arch_when = _man.get("archived_at") or _man.get("date") or ""
+        except Exception:  # noqa: BLE001
+            pass
+        _arch_name = latest_hist.name
+        if _pending:
+            # Exactly tonight's failure — made impossible.
+            st.warning(
+                f"⚠️ **Log the autopsy first.** {len(_pending)} uploaded contest(s) "
+                f"are not in the ledger yet: {', '.join(_pending[:3])}"
+                f"{'…' if len(_pending) > 3 else ''}.\n\n"
+                f"Running the review now would re-review **{_arch_name}**"
+                f"{f' (archived {_arch_when})' if _arch_when else ''}, not this slate."
+            )
+            st.caption("Scroll up, add a slate label, and click **📝 Log autopsy**. "
+                       "The review reads the ARCHIVE, not the uploader.")
+        else:
+            st.caption(
+                f"Reviews **{_arch_name}**"
+                f"{f', archived {_arch_when}' if _arch_when else ''}. "
+                "It grades the process, updates the lesson ledger "
+                f"(rules/{slug}/lessons.yaml) and venue notes, and proposes framework "
+                "changes for your approval. Takes ~1–3 minutes."
+            )
+        _inflight_key = f"_review_running_{slug}"
         btn_label = "🔄 Re-run post-autopsy review" if review_path.exists() else "🔬 Run post-autopsy review"
-        if st.button(btn_label, type="primary", key=f"autopsy_review_{slug}"):
-            with st.spinner("Reviewing the archived slate — grading process, updating lessons + venue notes… (~1–3 min)"):
-                rresult = run_autopsy_review(slug, contest_label, sport)
+        # A ~1-3 min, ~$3 claude run should not be double-firable.
+        if (not _pending) and st.button(btn_label, type="primary",
+                                       key=f"autopsy_review_{slug}",
+                                       disabled=bool(st.session_state.get(_inflight_key))):
+            st.session_state[_inflight_key] = True
+            try:
+                with st.spinner("Reviewing the archived slate — grading process, updating lessons + venue notes… (~1–3 min)"):
+                    rresult = run_autopsy_review(slug, contest_label, sport,
+                                                 hist_dir=latest_hist)
+            finally:
+                st.session_state.pop(_inflight_key, None)
             if rresult["ok"]:
                 cost = rresult.get("cost_usd")
                 cost_note = f" · ~${cost:.2f} of subscription usage" if cost else ""
@@ -1635,7 +1709,7 @@ with tab_autopsy:
                 )
                 if st.button("✅ Approve & apply proposals", key=f"apply_proposals_{slug}"):
                     with st.spinner("Applying the approved proposals…"):
-                        aresult = run_apply_proposals(slug)
+                        aresult = run_apply_proposals(slug, hist_dir=latest_hist)
                     if aresult["ok"]:
                         st.success("Proposals applied to the framework/philosophy + lesson ledger.")
                         st.rerun()

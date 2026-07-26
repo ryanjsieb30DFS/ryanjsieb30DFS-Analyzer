@@ -508,13 +508,17 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
     return _run_claude(prompt, out_path)
 
 
-def run_autopsy_review(slug: str, contest_label: str, sport: str) -> dict:
+def run_autopsy_review(slug: str, contest_label: str, sport: str, hist_dir=None) -> dict:
     """Post-autopsy learning run: grade the archived slate's process, update
     the lesson ledger + venue file, and write proposed (not applied)
     framework changes to <history_dir>/autopsy_review.md."""
     from src.history import latest_history_dir
 
-    hist_dir = latest_history_dir(slug)
+    # PINNED: the caller passes the directory it displayed. Both this and the
+    # UI used to call latest_history_dir() independently, so a slate logged
+    # between render and click meant reviewing/applying a DIFFERENT slate than
+    # the one on screen. That is how a week-old card got reviewed twice.
+    hist_dir = Path(hist_dir) if hist_dir else latest_history_dir(slug)
     if hist_dir is None:
         return {"ok": False, "error": "No archived slate found — log an autopsy first.",
                 "duration_s": 0.0, "cost_usd": None}
@@ -599,12 +603,16 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str) -> dict:
     return _run_claude(prompt, out_path)
 
 
-def run_apply_proposals(slug: str) -> dict:
+def run_apply_proposals(slug: str, hist_dir=None) -> dict:
     """Apply the user-approved '## Proposed codifications' from the latest
     autopsy review to framework.md/philosophy.md + the lesson ledger."""
     from src.history import latest_history_dir
 
-    hist_dir = latest_history_dir(slug)
+    # PINNED: the caller passes the directory it displayed. Both this and the
+    # UI used to call latest_history_dir() independently, so a slate logged
+    # between render and click meant reviewing/applying a DIFFERENT slate than
+    # the one on screen. That is how a week-old card got reviewed twice.
+    hist_dir = Path(hist_dir) if hist_dir else latest_history_dir(slug)
     review_path = hist_dir / "autopsy_review.md" if hist_dir else None
     if review_path is None or not review_path.exists():
         return {"ok": False, "error": "No autopsy review found — run the review first.",
