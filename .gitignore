@@ -20,3 +20,7 @@ data/player_pool/
 # was missed, so Sim-pushed portfolios sat here untracked and would ride along on
 # any future `git add -A`.
 data/sim_entries/
+
+# Pasted-lineup drafts for the Grade tab — per-slate scratch, cleared with the
+# slate. Every other per-slate data/ store is ignored; this one was missed.
+data/grade_drafts/
