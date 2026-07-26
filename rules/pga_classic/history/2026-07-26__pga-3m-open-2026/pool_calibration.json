@@ -1,0 +1,41 @@
+{
+  "gradable": true,
+  "n_pool": 144,
+  "n_matched": 133,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 2,
+      "avg_fpts": 113.8,
+      "max_fpts": 133.5
+    },
+    {
+      "tier": "Good",
+      "n": 8,
+      "avg_fpts": 79.1,
+      "max_fpts": 155.0
+    },
+    {
+      "tier": "Okay",
+      "n": 67,
+      "avg_fpts": 63.8,
+      "max_fpts": 126.5
+    },
+    {
+      "tier": "Fade",
+      "n": 56,
+      "avg_fpts": 47.7,
+      "max_fpts": 132.5
+    }
+  ],
+  "tiers_ordered": true,
+  "leakage": [
+    {
+      "name": "Chandler Phillips",
+      "tier": "Fade",
+      "fpts": 132.5
+    }
+  ],
+  "excluded_scratches": [],
+  "summary": "Core 113.8 > Good 79.1 > Okay 63.8 > Fade 47.7  \u2713 ordered"
+}

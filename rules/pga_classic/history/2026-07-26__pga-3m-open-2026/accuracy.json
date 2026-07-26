@@ -1,0 +1,62 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 21,
+    "leverage_capture": 0.6,
+    "leverage_hit": [
+      "Jackson Koivun",
+      "Emiliano Grillo",
+      "Zac Blair"
+    ],
+    "leverage_missed": [
+      "Hideki Matsuyama",
+      "Davis Chatfield"
+    ],
+    "overperformer_capture": null,
+    "overperformer_hit": [],
+    "underperformer_exposure": null,
+    "underperformer_hit": []
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 4,
+    "avg_ratio": null,
+    "best_percentile": 3.4,
+    "median_percentile": 39.0,
+    "n_top_10pct": 1,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30 (2/4)",
+        "points": 587.5,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 3.4,
+        "avg_own": 10.07
+      },
+      {
+        "entry_name": "RyvlesGaming30 (1/4)",
+        "points": 493.0,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 29.8,
+        "avg_own": 11.98
+      },
+      {
+        "entry_name": "RyvlesGaming30 (4/4)",
+        "points": 467.5,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 39.0,
+        "avg_own": 9.99
+      },
+      {
+        "entry_name": "RyvlesGaming30 (3/4)",
+        "points": 438.5,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 50.7,
+        "avg_own": 11.01
+      }
+    ]
+  }
+}

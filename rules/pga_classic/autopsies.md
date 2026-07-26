@@ -355,3 +355,26 @@ Per Philosophy Section 4:
 - 🕳️ Buried: **Marco Penge** (Fade) scored 70.5 — above the top tier's average.
 - 🕳️ Buried: **Hennie Du Plessis** (Fade) scored 61.0 — above the top tier's average.
 - 🕳️ Buried: **Rasmus Neergaard-Petersen** (Fade) scored 85.5 — above the top tier's average.
+
+
+## 2026-07-26 19:05 — PGA Classic (contest-standings-192532805.csv)
+- Entries: 1,902
+- Winning score: 676.5
+- Cash line (top 20%): 516.9
+- My entries: 4 · best rank 64/1,902 (top 3.4%)
+- Winners (top 20): avg own 12.92% vs mine 10.76% · sub-10% plays/lineup 2.55 vs mine 3.25
+- Slate-defining plays: Jackson Koivun (155.0 pts @ 16.2%), Hideki Matsuyama (126.5 pts @ 17.2%), Emiliano Grillo (118.5 pts @ 13.8%), Zac Blair (103.0 pts @ 17.0%)
+
+### Strategy adherence — did you follow your own strategy? (4 unique lineups)
+- ✅ Every hard FADE honored.
+- Leverage candidates rostered somewhere: **6 of 12**.
+
+### Player-pool tier calibration (133 of 144 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 2 | 113.8 | 133.5 |
+| **Good** | 8 | 79.1 | 155.0 |
+| **Okay** | 67 | 63.8 | 126.5 |
+| **Fade** | 56 | 47.7 | 132.5 |
+- ✅ Tier ordering HELD — higher tiers outscored lower ones on average.
+- 🕳️ Buried: **Chandler Phillips** (Fade) scored 132.5 — above the top tier's average.

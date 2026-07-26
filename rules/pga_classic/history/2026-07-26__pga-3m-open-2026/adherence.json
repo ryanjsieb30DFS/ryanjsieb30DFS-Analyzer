@@ -1,0 +1,100 @@
+{
+  "gradable": true,
+  "n_lineups": 4,
+  "calls": [
+    {
+      "name": "Corey Conners",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 4,
+      "followed": true
+    },
+    {
+      "name": "Tom Kim",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 4,
+      "followed": true
+    },
+    {
+      "name": "Hideki Matsuyama",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 4,
+      "followed": true
+    },
+    {
+      "name": "Ben Kohles",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 4,
+      "followed": true
+    },
+    {
+      "name": "Keith Mitchell",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 4,
+      "followed": true
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "leverage_candidates": [
+    {
+      "name": "Gary Woodland",
+      "rostered": false
+    },
+    {
+      "name": "Pierceson Coody",
+      "rostered": false
+    },
+    {
+      "name": "Michael Kim",
+      "rostered": true
+    },
+    {
+      "name": "Max Greyserman",
+      "rostered": true
+    },
+    {
+      "name": "Johnny Keefer",
+      "rostered": true
+    },
+    {
+      "name": "Tony Finau",
+      "rostered": false
+    },
+    {
+      "name": "Emiliano Grillo",
+      "rostered": true
+    },
+    {
+      "name": "Christiaan Bezuidenhout",
+      "rostered": true
+    },
+    {
+      "name": "Sudarshan Yellamaraju",
+      "rostered": false
+    },
+    {
+      "name": "Michael Brennan",
+      "rostered": false
+    },
+    {
+      "name": "Stephan Jaeger",
+      "rostered": false
+    },
+    {
+      "name": "Keita Nakajima",
+      "rostered": true
+    }
+  ],
+  "leverage_covered": 6,
+  "leverage_of": 12
+}

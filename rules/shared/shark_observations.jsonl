@@ -4,3 +4,4 @@
 {"own_per_slot": 35.8, "leverage_pct": 0.0, "anchor_exposure": 0.6, "unique_pct": 100.0, "date": "2026-07-21", "slug": "nascar", "sport": "nascar", "contest_type": "SE", "contest_id": "192343616", "n_entries": 5}
 {"own_per_slot": 20.1, "leverage_pct": 20.0, "anchor_exposure": 0.6, "unique_pct": 60.0, "date": "2026-07-22", "slug": "pga_classic", "sport": "golf", "contest_type": "5-Max", "contest_id": "192255218", "n_entries": 10}
 {"own_per_slot": 30.4, "leverage_pct": 0.0, "anchor_exposure": 0.333, "unique_pct": 100.0, "date": "2026-07-26", "slug": "mma_se", "sport": "mma", "contest_type": "SE", "contest_id": "192540094", "n_entries": 1}
+{"own_per_slot": 11.1, "leverage_pct": 80.0, "anchor_exposure": 0.4, "unique_pct": 100.0, "date": "2026-07-26", "slug": "pga_classic", "sport": "golf", "contest_type": "5-Max", "contest_id": "192532805", "n_entries": 5}

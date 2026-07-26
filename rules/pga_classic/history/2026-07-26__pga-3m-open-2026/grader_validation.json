@@ -1,0 +1,61 @@
+{
+  "gradable": true,
+  "n_lineups": 4,
+  "lineups": [
+    {
+      "players": [
+        "Brian Harman",
+        "Jackson Koivun",
+        "Maverick McNealy",
+        "Max Greyserman",
+        "Michael Kim",
+        "Sungjae Im"
+      ],
+      "percentile": 3.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "A.J. Ewart",
+        "David Lipsky",
+        "Emiliano Grillo",
+        "Max McGreevy",
+        "Scottie Scheffler",
+        "Zac Blair"
+      ],
+      "percentile": 29.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Andrew Putnam",
+        "Cameron Davis",
+        "Emiliano Grillo",
+        "Lee Hodges",
+        "Lucas Glover",
+        "Scottie Scheffler"
+      ],
+      "percentile": 39.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Christiaan Bezuidenhout",
+        "Johnny Keefer",
+        "Keita Nakajima",
+        "Kevin Yu",
+        "Kurt Kitayama",
+        "Maverick McNealy"
+      ],
+      "percentile": 50.7,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    3.4,
+    29.8,
+    39.0,
+    50.7
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "contests": [
+    {
+      "name": "PGA Tour $8K Eagle",
+      "type": "5-Max",
+      "field_size": 1902,
+      "max_entries": 5,
+      "my_entries": 4,
+      "entry_fee": 5.0,
+      "prize_pool": 8000,
+      "payout_shape": "Top-heavy",
+      "id": "393eaf89"
+    }
+  ]
+}

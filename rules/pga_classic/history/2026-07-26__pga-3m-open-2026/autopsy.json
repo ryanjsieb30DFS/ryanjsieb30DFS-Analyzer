@@ -1,0 +1,819 @@
+[
+  {
+    "timestamp": "2026-07-26 19:05",
+    "contest_type": "PGA Classic",
+    "source_file": "contest-standings-192532805.csv",
+    "contest_id": "192532805",
+    "entries": 1902,
+    "winning_score": 676.5,
+    "cash_line_p80": 516.9000000000001,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "pga_classic",
+    "sport": "golf",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 136
+    },
+    "user_summary": {
+      "avg_own_mean": 10.76,
+      "low_own_count_mean": 3.25,
+      "salary_used_mean": null,
+      "entry_count": 4,
+      "best_rank": 64,
+      "best_percentile": 3.4
+    },
+    "user_lineups": [
+      {
+        "rank": 64,
+        "entry_name": "RyvlesGaming30 (2/4)",
+        "points": 587.5,
+        "percentile": 3.4,
+        "players": [
+          "Maverick McNealy",
+          "Jackson Koivun",
+          "Sungjae Im",
+          "Max Greyserman",
+          "Brian Harman",
+          "Michael Kim"
+        ],
+        "avg_own": 10.07,
+        "low_own_count": 3,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 566,
+        "entry_name": "RyvlesGaming30 (1/4)",
+        "points": 493.0,
+        "percentile": 29.8,
+        "players": [
+          "Scottie Scheffler",
+          "Emiliano Grillo",
+          "Max McGreevy",
+          "A.J. Ewart",
+          "Zac Blair",
+          "David Lipsky"
+        ],
+        "avg_own": 11.98,
+        "low_own_count": 3,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 741,
+        "entry_name": "RyvlesGaming30 (4/4)",
+        "points": 467.5,
+        "percentile": 39.0,
+        "players": [
+          "Scottie Scheffler",
+          "Emiliano Grillo",
+          "Lee Hodges",
+          "Lucas Glover",
+          "Andrew Putnam",
+          "Cameron Davis"
+        ],
+        "avg_own": 9.99,
+        "low_own_count": 4,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 965,
+        "entry_name": "RyvlesGaming30 (3/4)",
+        "points": 438.5,
+        "percentile": 50.7,
+        "players": [
+          "Maverick McNealy",
+          "Kurt Kitayama",
+          "Christiaan Bezuidenhout",
+          "Johnny Keefer",
+          "Kevin Yu",
+          "Keita Nakajima"
+        ],
+        "avg_own": 11.01,
+        "low_own_count": 3,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Jackson Koivun",
+        "salary": null,
+        "actual_fpts": 155.0,
+        "actual_own": 16.25,
+        "top_lineup_pct": 55.0
+      },
+      {
+        "name": "Hideki Matsuyama",
+        "salary": null,
+        "actual_fpts": 126.5,
+        "actual_own": 17.25,
+        "top_lineup_pct": 50.0
+      },
+      {
+        "name": "Emiliano Grillo",
+        "salary": null,
+        "actual_fpts": 118.5,
+        "actual_own": 13.77,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Zac Blair",
+        "salary": null,
+        "actual_fpts": 103.0,
+        "actual_own": 16.98,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Davis Chatfield",
+        "salary": null,
+        "actual_fpts": 100.5,
+        "actual_own": 3.94,
+        "top_lineup_pct": 35.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 12.92,
+      "low_own_count_mean": 2.55,
+      "salary_used_mean": null,
+      "dup_max": 2,
+      "unique_pct": 80.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "TLorz (5/5)",
+          "points": 676.5,
+          "percentile": 0.1,
+          "players": [
+            "Hideki Matsuyama",
+            "Jackson Koivun",
+            "Corey Conners",
+            "Christiaan Bezuidenhout",
+            "Michael Kim",
+            "Denny McCarthy"
+          ],
+          "avg_own": 11.3,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "thedutchrock (2/5)",
+          "points": 658.0,
+          "percentile": 0.1,
+          "players": [
+            "Kurt Kitayama",
+            "Jake Knapp",
+            "Jackson Koivun",
+            "Emiliano Grillo",
+            "Lee Hodges",
+            "Zac Blair"
+          ],
+          "avg_own": 13.87,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "cplo42 (5/5)",
+          "points": 649.0,
+          "percentile": 0.2,
+          "players": [
+            "Hideki Matsuyama",
+            "Tom Kim",
+            "Jackson Koivun",
+            "Rasmus Neergaard-Petersen",
+            "Kevin Yu",
+            "Joel Dahmen"
+          ],
+          "avg_own": 12.32,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "Baylor24 (4/5)",
+          "points": 645.0,
+          "percentile": 0.2,
+          "players": [
+            "Kurt Kitayama",
+            "Hideki Matsuyama",
+            "Max Greyserman",
+            "Davis Thompson",
+            "Brian Harman",
+            "Kevin Yu"
+          ],
+          "avg_own": 10.03,
+          "low_own_count": 4,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "wrb41 (3/5)",
+          "points": 636.0,
+          "percentile": 0.3,
+          "players": [
+            "Hideki Matsuyama",
+            "Jackson Koivun",
+            "Corey Conners",
+            "Jordan L. Smith",
+            "Michael Brennan",
+            "Davis Chatfield"
+          ],
+          "avg_own": 12.02,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 5,
+          "entry_name": "vinny600 (1/5)",
+          "points": 636.0,
+          "percentile": 0.3,
+          "players": [
+            "Hideki Matsuyama",
+            "Jackson Koivun",
+            "Corey Conners",
+            "Jordan L. Smith",
+            "Michael Brennan",
+            "Davis Chatfield"
+          ],
+          "avg_own": 12.02,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 7,
+          "entry_name": "Chuckwag0n (1/5)",
+          "points": 629.5,
+          "percentile": 0.4,
+          "players": [
+            "Maverick McNealy",
+            "Jake Knapp",
+            "Jackson Koivun",
+            "Emiliano Grillo",
+            "Ben Kohles",
+            "Trace Crowe"
+          ],
+          "avg_own": 13.07,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 7,
+          "entry_name": "Chuckwag0n (4/5)",
+          "points": 629.5,
+          "percentile": 0.4,
+          "players": [
+            "Maverick McNealy",
+            "Jake Knapp",
+            "Jackson Koivun",
+            "Emiliano Grillo",
+            "Ben Kohles",
+            "Trace Crowe"
+          ],
+          "avg_own": 13.07,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 7,
+          "entry_name": "szimmer (5/5)",
+          "points": 629.5,
+          "percentile": 0.4,
+          "players": [
+            "Hideki Matsuyama",
+            "Jackson Koivun",
+            "Corey Conners",
+            "Max Greyserman",
+            "Kevin Yu",
+            "Ricky Castillo"
+          ],
+          "avg_own": 10.15,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "wrb41 (1/5)",
+          "points": 628.0,
+          "percentile": 0.5,
+          "players": [
+            "Scottie Scheffler",
+            "Michael Brennan",
+            "Brian Harman",
+            "Zac Blair",
+            "Neal Shipley",
+            "Davis Chatfield"
+          ],
+          "avg_own": 10.92,
+          "low_own_count": 4,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 2.16,
+        "low_own_count_delta": -0.7,
+        "salary_used_delta": null
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 1886,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Scottie Scheffler",
+          "field_own": 26.5,
+          "actual_fpts": 133.5
+        },
+        {
+          "name": "Ben Kohles",
+          "field_own": 25.7,
+          "actual_fpts": 103.5
+        },
+        {
+          "name": "Kurt Kitayama",
+          "field_own": 23.9,
+          "actual_fpts": 94.0
+        },
+        {
+          "name": "Tom Kim",
+          "field_own": 21.8,
+          "actual_fpts": 88.5
+        },
+        {
+          "name": "Benjamin James",
+          "field_own": 19.1,
+          "actual_fpts": 31.0
+        },
+        {
+          "name": "Hideki Matsuyama",
+          "field_own": 17.2,
+          "actual_fpts": 126.5
+        },
+        {
+          "name": "Zac Blair",
+          "field_own": 17.0,
+          "actual_fpts": 103.0
+        },
+        {
+          "name": "Jackson Koivun",
+          "field_own": 16.2,
+          "actual_fpts": 155.0
+        },
+        {
+          "name": "Max Homa",
+          "field_own": 15.9,
+          "actual_fpts": 21.0
+        },
+        {
+          "name": "Jackson Suber",
+          "field_own": 15.7,
+          "actual_fpts": 30.5
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Scottie Scheffler",
+            "Zac Blair"
+          ],
+          "field_pct": 10.5,
+          "count": 197
+        },
+        {
+          "players": [
+            "Ben Kohles",
+            "Scottie Scheffler"
+          ],
+          "field_pct": 8.3,
+          "count": 156
+        },
+        {
+          "players": [
+            "Ben Kohles",
+            "Kurt Kitayama"
+          ],
+          "field_pct": 8.1,
+          "count": 152
+        },
+        {
+          "players": [
+            "Ben Kohles",
+            "Tom Kim"
+          ],
+          "field_pct": 6.5,
+          "count": 122
+        },
+        {
+          "players": [
+            "Ben Kohles",
+            "Zac Blair"
+          ],
+          "field_pct": 6.4,
+          "count": 120
+        },
+        {
+          "players": [
+            "Kurt Kitayama",
+            "Tom Kim"
+          ],
+          "field_pct": 6.1,
+          "count": 115
+        },
+        {
+          "players": [
+            "Aaron Wise",
+            "Scottie Scheffler"
+          ],
+          "field_pct": 5.8,
+          "count": 110
+        },
+        {
+          "players": [
+            "Benjamin James",
+            "Kurt Kitayama"
+          ],
+          "field_pct": 5.2,
+          "count": 98
+        },
+        {
+          "players": [
+            "Benjamin James",
+            "Tom Kim"
+          ],
+          "field_pct": 5.1,
+          "count": 96
+        },
+        {
+          "players": [
+            "Ben Kohles",
+            "Emiliano Grillo"
+          ],
+          "field_pct": 5.0,
+          "count": 94
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Ben Kohles",
+            "Brian Harman",
+            "Brice Garnett",
+            "Michael Kim",
+            "Scottie Scheffler",
+            "Zac Blair"
+          ],
+          "count": 5,
+          "field_pct": 0.3
+        },
+        {
+          "players": [
+            "Ben Kohles",
+            "Brian Harman",
+            "Casey Jarvis",
+            "Jordan L. Smith",
+            "Kurt Kitayama",
+            "Maverick McNealy"
+          ],
+          "count": 5,
+          "field_pct": 0.3
+        },
+        {
+          "players": [
+            "Ben Kohles",
+            "Benjamin James",
+            "Casey Jarvis",
+            "Jordan L. Smith",
+            "Kurt Kitayama",
+            "Tom Kim"
+          ],
+          "count": 4,
+          "field_pct": 0.2
+        },
+        {
+          "players": [
+            "Ben Kohles",
+            "Benjamin James",
+            "Emiliano Grillo",
+            "Jackson Koivun",
+            "Jordan L. Smith",
+            "Kurt Kitayama"
+          ],
+          "count": 3,
+          "field_pct": 0.2
+        },
+        {
+          "players": [
+            "Ben Kohles",
+            "Casey Jarvis",
+            "Davis Chatfield",
+            "Max McGreevy",
+            "Michael Kim",
+            "Scottie Scheffler"
+          ],
+          "count": 3,
+          "field_pct": 0.2
+        }
+      ],
+      "winners_profile": {
+        "n": 19,
+        "avg_own_per_slot": 12.8,
+        "dart_pct": 84.2,
+        "unique_pct": 89.5
+      },
+      "fish_profile": {
+        "n": 941,
+        "avg_own_per_slot": 11.9,
+        "dart_pct": 69.0,
+        "unique_pct": 98.1
+      },
+      "fish_traps": [
+        {
+          "name": "Benjamin James",
+          "fish_pct": 26.0,
+          "winner_pct": 0.0,
+          "gap": 26.0,
+          "actual_fpts": 31.0
+        },
+        {
+          "name": "Max Homa",
+          "fish_pct": 25.6,
+          "winner_pct": 0.0,
+          "gap": 25.6,
+          "actual_fpts": 21.0
+        },
+        {
+          "name": "Jackson Suber",
+          "fish_pct": 25.0,
+          "winner_pct": 0.0,
+          "gap": 25.0,
+          "actual_fpts": 30.5
+        },
+        {
+          "name": "Doug Ghim",
+          "fish_pct": 21.8,
+          "winner_pct": 0.0,
+          "gap": 21.8,
+          "actual_fpts": 28.5
+        },
+        {
+          "name": "Mac Meissner",
+          "fish_pct": 20.7,
+          "winner_pct": 0.0,
+          "gap": 20.7,
+          "actual_fpts": 36.0
+        },
+        {
+          "name": "Sungjae Im",
+          "fish_pct": 16.9,
+          "winner_pct": 0.0,
+          "gap": 16.9,
+          "actual_fpts": 26.5
+        },
+        {
+          "name": "Pierceson Coody",
+          "fish_pct": 16.9,
+          "winner_pct": 0.0,
+          "gap": 16.9,
+          "actual_fpts": 22.5
+        },
+        {
+          "name": "William Mouw",
+          "fish_pct": 16.7,
+          "winner_pct": 0.0,
+          "gap": 16.7,
+          "actual_fpts": 34.5
+        },
+        {
+          "name": "Keith Mitchell",
+          "fish_pct": 14.6,
+          "winner_pct": 0.0,
+          "gap": 14.6,
+          "actual_fpts": 74.5
+        },
+        {
+          "name": "Tony Finau",
+          "fish_pct": 10.5,
+          "winner_pct": 0.0,
+          "gap": 10.5,
+          "actual_fpts": 28.0
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "TLorz",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "thedutchrock",
+          "best_rank": 2,
+          "percentile": 0.1
+        },
+        {
+          "handle": "cplo42",
+          "best_rank": 3,
+          "percentile": 0.2
+        },
+        {
+          "handle": "Baylor24",
+          "best_rank": 4,
+          "percentile": 0.2
+        },
+        {
+          "handle": "wrb41",
+          "best_rank": 5,
+          "percentile": 0.3
+        },
+        {
+          "handle": "vinny600",
+          "best_rank": 5,
+          "percentile": 0.3
+        },
+        {
+          "handle": "Chuckwag0n",
+          "best_rank": 7,
+          "percentile": 0.4
+        },
+        {
+          "handle": "szimmer",
+          "best_rank": 7,
+          "percentile": 0.4
+        },
+        {
+          "handle": "boomersooner276",
+          "best_rank": 11,
+          "percentile": 0.6
+        },
+        {
+          "handle": "bkwitmer",
+          "best_rank": 11,
+          "percentile": 0.6
+        },
+        {
+          "handle": "scout326",
+          "best_rank": 13,
+          "percentile": 0.7
+        },
+        {
+          "handle": "alatham18",
+          "best_rank": 14,
+          "percentile": 0.7
+        },
+        {
+          "handle": "slipperywhendry",
+          "best_rank": 15,
+          "percentile": 0.8
+        },
+        {
+          "handle": "bmurder69",
+          "best_rank": 16,
+          "percentile": 0.8
+        },
+        {
+          "handle": "zttemplin23",
+          "best_rank": 17,
+          "percentile": 0.9
+        }
+      ],
+      "read": [
+        "Field crowded **Scottie Scheffler** at 26.5% (133.5 fpts) \u2014 the chalk to consider fading.",
+        "**Scottie Scheffler + Zac Blair** were together in 10.5% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Benjamin James** was a fish trap: 26.0% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 676.5,
+      "winner_handle": "TLorz",
+      "roster": [
+        {
+          "name": "Hideki Matsuyama",
+          "own": 17.25,
+          "fpts": 126.5
+        },
+        {
+          "name": "Jackson Koivun",
+          "own": 16.25,
+          "fpts": 155.0
+        },
+        {
+          "name": "Corey Conners",
+          "own": 14.93,
+          "fpts": 78.5
+        },
+        {
+          "name": "Christiaan Bezuidenhout",
+          "own": 9.99,
+          "fpts": 93.0
+        },
+        {
+          "name": "Michael Kim",
+          "own": 6.68,
+          "fpts": 102.5
+        },
+        {
+          "name": "Denny McCarthy",
+          "own": 2.68,
+          "fpts": 121.0
+        }
+      ],
+      "avg_own": 11.3,
+      "n_low_own": 3,
+      "carrier": {
+        "name": "Denny McCarthy",
+        "own": 2.68,
+        "fpts": 121.0
+      },
+      "expected_dupes": 0.0
+    },
+    "near_miss": {
+      "gradable": true,
+      "won": false,
+      "your_points": 587.5,
+      "winner_points": 676.5,
+      "gap": 89.0,
+      "your_percentile": 3.4,
+      "n_shared": 2,
+      "shared": [
+        "Jackson Koivun",
+        "Michael Kim"
+      ],
+      "your_uniques": [
+        {
+          "name": "Brian Harman",
+          "fpts": 121.0
+        },
+        {
+          "name": "Max Greyserman",
+          "fpts": 95.5
+        },
+        {
+          "name": "Maverick McNealy",
+          "fpts": 87.0
+        },
+        {
+          "name": "Sungjae Im",
+          "fpts": 26.5
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Hideki Matsuyama",
+          "fpts": 126.5
+        },
+        {
+          "name": "Denny McCarthy",
+          "fpts": 121.0
+        },
+        {
+          "name": "Christiaan Bezuidenhout",
+          "fpts": 93.0
+        },
+        {
+          "name": "Corey Conners",
+          "fpts": 78.5
+        }
+      ],
+      "best_swap": {
+        "out": "Sungjae Im",
+        "in": "Hideki Matsuyama",
+        "gain": 100.0,
+        "would_have_won": true
+      },
+      "swaps_needed": 1
+    }
+  }
+]

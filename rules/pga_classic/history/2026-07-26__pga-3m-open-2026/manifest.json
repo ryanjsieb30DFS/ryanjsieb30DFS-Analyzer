@@ -1,0 +1,27 @@
+{
+  "slug": "pga_classic",
+  "sport": "golf",
+  "contest_label": "PGA Classic",
+  "date": "2026-07-26",
+  "slate_label": "PGA $3M Open 2026",
+  "archived_at": "2026-07-26 19:05",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json",
+    "lineup_grade.md"
+  ],
+  "missing": [],
+  "article_files": [
+    "articles/pga_classic/2026-07-22__ETR Golf Course Preview 7.23.26.pdf",
+    "articles/pga_classic/2026-07-22__ETR Golf Large Field 7.23.26.pdf",
+    "articles/pga_classic/2026-07-22__ETR Golf Leverage 1 - 7.23.26.pdf",
+    "articles/pga_classic/2026-07-22__ETR Golf Leverage 2 - 7.23.26.pdf",
+    "articles/pga_classic/2026-07-22__ETR Golf Models 7.23.26.pdf",
+    "articles/pga_classic/2026-07-22__ETR Golf Value Report 7.23.26.pdf",
+    "articles/pga_classic/2026-07-22__Establish-The-Green-3M-Open-1.pdf"
+  ],
+  "proj_source": null
+}

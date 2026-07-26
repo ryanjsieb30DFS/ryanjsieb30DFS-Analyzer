@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-26",
+  "slug": "pga_classic",
+  "sport": "golf",
+  "slate_label": "PGA $3M Open 2026",
+  "history_dir": "rules/pga_classic/history/2026-07-26__pga-3m-open-2026",
+  "contests": [
+    {
+      "name": "PGA Tour $8K Eagle",
+      "type": "5-Max",
+      "source_file": "contest-standings-192532805.csv",
+      "field_size": 1902,
+      "my_entries": 4,
+      "entry_fee": 5.0,
+      "buy_in": 20.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 64,
+      "best_percentile": 3.4
+    }
+  ],
+  "total_buy_in": 20.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 64,
+  "best_percentile": 3.4,
+  "entries_total": 4,
+  "edge_leverage_capture": 0.6,
+  "edge_overperformer_capture": null,
+  "edge_bust_exposure": null,
+  "lineup_avg_ratio": null,
+  "shark_gap_top": {
+    "dim": "leverage_pct",
+    "delta": 20.0
+  },
+  "adherence_fades_violated": 0,
+  "adherence_leverage_covered": "6/12",
+  "tier_summary": "Core 113.8 > Good 79.1 > Okay 63.8 > Fade 47.7  \u2713 ordered",
+  "tiers_ordered": true,
+  "grader_check": {
+    "flagged_pctiles": [],
+    "clean_pctiles": [
+      3.4,
+      29.8,
+      39.0,
+      50.7
+    ]
+  }
+}
