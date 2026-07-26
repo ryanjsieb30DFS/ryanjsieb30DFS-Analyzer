@@ -67,7 +67,7 @@ def record(slug: str, contest_type: str | None, field_size: int,
     if sim_capture:
         for k in ("unique_pct", "max_dupe", "pct_single_entry_users",
                   "mean_entries_per_user", "top3_chalk_lineup_pct",
-                  "dead_structure_pct"):
+                  "dead_structure_pct", "match_method"):
             if sim_capture.get(k) is not None:
                 row[f"capture_{k}"] = sim_capture[k]
     p = _path(slug)

@@ -74,15 +74,25 @@ def grade_tiers(pool_md: str, players_df) -> dict:
     tier_order: list[str] = []
     by_tier: dict[str, list[float]] = {}
     matched = 0
+    scratches: list[dict] = []
     for r in rows:
         t = r["tier"]
         if t not in by_tier:
             by_tier[t] = []
             tier_order.append(t)  # table order = board's best-first order
         f = fpts.get(_norm_name(r["name"]))
-        if f is not None:
-            by_tier[t].append(f)
-            matched += 1
+        if f is None:
+            continue
+        # An exact 0.0 means the player didn't compete (scratched fight /
+        # withdrawal / DNS) — anyone who plays scores SOMETHING in all four
+        # sports. Counting the zero as a real result falsely breaks tier
+        # ordering (7/26 Ankalaev slate: Dulatov's cancelled fight dragged
+        # Core under Good). Excluded from averages, surfaced separately.
+        if f == 0.0:
+            scratches.append({"name": r["name"], "tier": t})
+            continue
+        by_tier[t].append(f)
+        matched += 1
     tiers = []
     for t in tier_order:
         vals = by_tier[t]
@@ -119,6 +129,7 @@ def grade_tiers(pool_md: str, players_df) -> dict:
         "tiers": tiers,
         "tiers_ordered": ordered,
         "leakage": leakage[:5],
+        "excluded_scratches": scratches,
         "summary": summary,
     }
 
@@ -139,4 +150,9 @@ def calibration_md(cal: dict) -> str | None:
     for lk in cal.get("leakage") or []:
         out.append(f"- 🕳️ Buried: **{lk['name']}** ({lk['tier']}) scored {lk['fpts']} — "
                    f"above the top tier's average.")
+    if cal.get("excluded_scratches"):
+        names = ", ".join(f"{s['name']} ({s['tier']})"
+                          for s in cal["excluded_scratches"])
+        out.append(f"- ⚪ Excluded as likely scratches (0.0 FPTS — didn't "
+                   f"compete): {names}. Not counted in tier averages.")
     return "\n".join(out)

@@ -34,7 +34,7 @@ def test_runner_honors_the_passed_dir_over_the_latest_archive(tmp_path, monkeypa
     monkeypatch.setattr(history, "latest_history_dir", lambda slug: newest)
     seen = {}
 
-    def _fake_run(prompt, out_path):
+    def _fake_run(prompt, out_path, collateral=None):
         seen["out"] = out_path
         return {"ok": True, "error": None, "duration_s": 0.0, "cost_usd": None}
 

@@ -32,8 +32,15 @@ def _claude_binary() -> str | None:
     return str(fallback) if fallback.exists() else None
 
 
-def _run_claude(prompt: str, out_path: Path) -> dict:
+def _run_claude(prompt: str, out_path: Path, collateral: list | None = None) -> dict:
     """Run `claude -p` headlessly and confirm `out_path` was freshly written.
+
+    `collateral` lists the OTHER files the prompt instructs claude to edit
+    (lessons.yaml, framework.md, …). They are snapshotted before the run and
+    restored on any failure — otherwise a timed-out review leaves half-edited
+    ledgers behind while only out_path rolls back. A collateral *.yaml file is
+    also parse-validated after a successful run; broken YAML restores
+    everything and fails the run.
 
     Returns {ok, error, duration_s, cost_usd}.
     """
@@ -49,6 +56,9 @@ def _run_claude(prompt: str, out_path: Path) -> dict:
     # rendering as if it were current — we roll back to the pre-run version).
     prior_mtime = out_path.stat().st_mtime if out_path.exists() else None
     prior_bytes = out_path.read_bytes() if out_path.exists() else None
+    # None value = the file didn't exist pre-run (restore = delete).
+    _collateral = [Path(p) for p in (collateral or [])]
+    _coll_bytes = {p: (p.read_bytes() if p.exists() else None) for p in _collateral}
 
     def _rollback_partial():
         """On failure: undo any partial write claude left behind."""
@@ -64,6 +74,17 @@ def _run_claude(prompt: str, out_path: Path) -> dict:
         except OSError:
             pass  # rollback is best-effort; the error is reported regardless
 
+    def _rollback_collateral():
+        for p, b in _coll_bytes.items():
+            try:
+                if b is None:
+                    if p.exists():
+                        p.unlink()
+                elif not p.exists() or p.read_bytes() != b:
+                    p.write_bytes(b)
+            except OSError:
+                pass  # best-effort, same as _rollback_partial
+
     cmd = [
         binary, "-p", prompt,
         "--output-format", "json",
@@ -78,6 +99,7 @@ def _run_claude(prompt: str, out_path: Path) -> dict:
         )
     except subprocess.TimeoutExpired:
         _rollback_partial()
+        _rollback_collateral()
         return {"ok": False, "error": f"Timed out after {_TIMEOUT_S // 60} minutes.",
                 "duration_s": time.time() - started, "cost_usd": None}
 
@@ -97,13 +119,31 @@ def _run_claude(prompt: str, out_path: Path) -> dict:
     if proc.returncode != 0 or cli_error:
         msg = cli_error or (proc.stderr.strip()[:500]) or f"claude exited with code {proc.returncode}."
         _rollback_partial()
+        _rollback_collateral()
         return {"ok": False, "error": msg, "duration_s": duration, "cost_usd": cost}
 
     # Confirm a fresh output file actually landed.
     if not out_path.exists() or out_path.stat().st_mtime == prior_mtime:
+        _rollback_collateral()
         return {"ok": False,
                 "error": "Claude ran but didn't write the output file. Check the inputs and try again.",
                 "duration_s": duration, "cost_usd": cost}
+
+    # A collateral YAML ledger (lessons.yaml) that no longer parses is worse
+    # than a failed run — everything downstream (hygiene, reviews, promotions)
+    # reads it. Restore the pre-run state and fail loudly.
+    for p in _collateral:
+        if p.suffix in (".yaml", ".yml") and p.exists():
+            try:
+                import yaml  # local import, matching ledger_hygiene
+                yaml.safe_load(p.read_text())
+            except Exception as ye:  # noqa: BLE001 — YAMLError or read error
+                _rollback_partial()
+                _rollback_collateral()
+                return {"ok": False,
+                        "error": f"Claude's edit broke {p.name} ({ye}). "
+                                 f"All files were restored to their pre-run state.",
+                        "duration_s": duration, "cost_usd": cost}
 
     return {"ok": True, "error": None, "duration_s": duration, "cost_usd": cost}
 
@@ -600,7 +640,11 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str, hist_dir=None)
         f"GPP guard: a bad ROI or a lost contest is NEVER a contradiction by itself; only mechanism "
         f"failures count. Do not ask any questions — produce the file."
     )
-    return _run_claude(prompt, out_path)
+    # lessons.yaml is a collateral edit of this run — snapshot/restore + parse
+    # gate. The venue file is append-mostly and its path isn't statically
+    # known, so it stays unsnapshotted.
+    return _run_claude(prompt, out_path,
+                       collateral=[_REPO_ROOT / "rules" / slug / "lessons.yaml"])
 
 
 def run_apply_proposals(slug: str, hist_dir=None) -> dict:
@@ -631,20 +675,11 @@ def run_apply_proposals(slug: str, hist_dir=None) -> dict:
         f"'## Applied' with the current changes summarized to the end of `{review_path}`. "
         f"Do not ask any questions."
     )
-    return _run_claude(prompt, review_path)
-
-
-def _sim_table(df, cols, n: int = 15) -> str:
-    """Plain pipe-table text of a df's first n rows for embedding in a prompt."""
-    if df is None or getattr(df, "empty", True):
-        return "(none)"
-    cols = [c for c in cols if c in df.columns]
-    if not cols:
-        return "(none)"
-    lines = [" | ".join(cols)]
-    for _, r in df.head(n).iterrows():
-        lines.append(" | ".join("" if r[c] is None else str(r[c]) for c in cols))
-    return "\n".join(lines)
+    rules_dir = _REPO_ROOT / "rules" / slug
+    return _run_claude(prompt, review_path,
+                       collateral=[rules_dir / "framework.md",
+                                   rules_dir / "philosophy.md",
+                                   rules_dir / "lessons.yaml"])
 
 
 # The standalone ledger review (run_ledger_review / run_apply_ledger_proposals)

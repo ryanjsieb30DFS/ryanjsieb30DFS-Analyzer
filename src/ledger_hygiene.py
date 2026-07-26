@@ -10,9 +10,11 @@ ledger here):
   - merge candidates: lessons that cross-link each other (`[[id]]`) or share a
     high fraction of statement tokens.
 
-The LLM review (`analysis_runner.run_ledger_review`) turns these into reasoned
-proposals; the user approves via the app, and only then does
-`run_apply_ledger_proposals` edit the ledger. Promotion math follows CLAUDE.md:
+The flags ride the post-autopsy review (`analysis_runner.run_autopsy_review`
+step 1e — the standalone ledger-review runners were removed 7/18/26), which
+turns them into reasoned retire/keep/merge/codify decisions; the user approves
+via the app's "Approve & apply proposals" button, and only then does
+`run_apply_proposals` edit the ledger. Promotion math follows CLAUDE.md:
 confirming slates = origin (1) + len(confirmations).
 """
 from __future__ import annotations

@@ -72,6 +72,26 @@ def append_results(slug: str, row: dict) -> None:
         f.write(json.dumps(row) + "\n")
 
 
+def truncate_to(path, size: int) -> None:
+    """Roll an append-only file back to a recorded byte size.
+
+    The log flow appends autopsies.md + autopsy_data.jsonl per contest and only
+    THEN archives the slate. autopsy_data.jsonl is the dedup authority
+    (logged_contest_ids), so if the archive fails after the appends, a re-log
+    would be skipped as a duplicate and the contest could never reach
+    results.jsonl. Truncating both files back to their pre-log sizes reopens
+    the door for a clean re-log. A file that didn't exist pre-log (size 0) is
+    removed entirely rather than left empty."""
+    p = Path(path)
+    if not p.exists():
+        return
+    if size <= 0:
+        p.unlink()
+        return
+    with p.open("r+b") as f:
+        f.truncate(size)
+
+
 def load_results(slug: str, n: int | None = None) -> list[dict]:
     """All result rows, oldest first. n caps to the most recent n."""
     p = _results_path(slug)

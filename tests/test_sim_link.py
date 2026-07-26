@@ -154,8 +154,10 @@ def test_capture_schema_drift_is_reported_not_misread(tmp_path, monkeypatch):
 
 
 def test_capture_matched_by_contest_id_over_entry_count(tmp_path, monkeypatch):
-    """Two contests on one slate can have equal entry counts, and the count-only
-    match silently took the alphabetically-first file. contest_id wins."""
+    """Two contests on one slate can have equal entry counts. contest_id wins;
+    the count fallback fires only when UNAMBIGUOUS and never joins a capture
+    known to belong to a different contest — a mis-join appends wrong capture_*
+    fields to field_tendencies.jsonl permanently."""
     sim_root = tmp_path / "simrepo"
     d = sim_root / "rules" / "nascar" / "slate_data"
     d.mkdir(parents=True)
@@ -165,13 +167,37 @@ def test_capture_matched_by_contest_id_over_entry_count(tmp_path, monkeypatch):
             "field": {"summary": {"n_entries": 490, "unique_pct": 60.0, "max_dupe": 4}},
         }))
     monkeypatch.setattr(sl, "_SIM_ROOT", sim_root)
-    # Count alone would return the alphabetically-first file.
-    assert sl.find_sim_capture("nascar", 490)["slate_name"] == "aaa_wrong"
-    # With the id, the right one.
-    assert sl.find_sim_capture("nascar", 490,
-                               contest_id="222")["slate_name"] == "zzz_right"
-    # An id that matches nothing still falls back to the count.
-    assert sl.find_sim_capture("nascar", 490, contest_id="999") is not None
+    # With the id, the right one — tagged as an id match.
+    got = sl.find_sim_capture("nascar", 490, contest_id="222")
+    assert got["slate_name"] == "zzz_right"
+    assert got["_match_method"] == "contest_id"
+    # Count alone is AMBIGUOUS here (two 490-entry captures): None + warning,
+    # never the alphabetically-first file.
+    sl.capture_warnings.clear()
+    assert sl.find_sim_capture("nascar", 490) is None
+    assert "no contest id to disambiguate" in sl.capture_warnings["nascar"]
+    # An id that matches nothing does NOT fall back onto captures that carry a
+    # DIFFERENT id — those are known to be other contests.
+    assert sl.find_sim_capture("nascar", 490, contest_id="999") is None
+
+
+def test_capture_count_fallback_fires_when_unique_and_idless(tmp_path, monkeypatch):
+    """A single id-less capture with the right entry count is still matched —
+    the fallback exists for captures written before contest ids were stamped."""
+    sim_root = tmp_path / "simrepo"
+    d = sim_root / "rules" / "nascar" / "slate_data"
+    d.mkdir(parents=True)
+    (d / "legacy.json").write_text(json.dumps({
+        "schema_version": 1, "slate_name": "legacy",
+        "field": {"summary": {"n_entries": 490, "unique_pct": 60.0, "max_dupe": 4}},
+    }))
+    monkeypatch.setattr(sl, "_SIM_ROOT", sim_root)
+    got = sl.find_sim_capture("nascar", 490, contest_id="999")
+    assert got["slate_name"] == "legacy"
+    assert got["_match_method"] == "entry_count"
+    # And capture_field_stats surfaces the join quality.
+    stats = sl.capture_field_stats("nascar", 490, contest_id="999")
+    assert stats["match_method"] == "entry_count"
 
 
 def test_dead_structure_absence_is_explained(tmp_path, monkeypatch):
@@ -225,3 +251,31 @@ def test_field_tendencies_reads_back_the_capture_keys(tmp_path, monkeypatch):
     s2 = ft.summarize_contest("nascar", "Cup Race")
     assert s2["capture_structure"] is None
     assert "unique rosters" not in ft._crowd_traps_str(s2)
+
+
+def test_sim_metrics_md_survives_schema_drift():
+    """A string/None metric from a drifted Sim schema renders as an em dash
+    instead of raising TypeError inside the Grade tab."""
+    payload = {"entries": [
+        {"contest": "SE", "win_pct": "not-a-number", "top1_pct": None,
+         "cash_pct": 40.0, "roi_pct": 12.0, "players": ["A"]},
+    ]}
+    md = sl.sim_metrics_md(payload)
+    assert "—" in md and "40.0%" in md
+
+
+def test_dupe_correction_tolerates_one_bad_corpus_line(tmp_path, monkeypatch):
+    """One truncated line in the Sim's append-mode corpus must skip that line,
+    not silently disable the correction for every contest."""
+    sim_root = tmp_path / "simrepo"
+    corpus = sim_root / "data" / "field_corpus" / "field_concentration.jsonl"
+    corpus.parent.mkdir(parents=True)
+    rows = [json.dumps({
+        "sport": "mma", "n_entries": 1000,
+        "top_dupe_evidence": [{"own_product": 0.001, "count": 4}],
+    }) for _ in range(3)]
+    corpus.write_text("\n".join(rows) + '\n{"sport": "mma", "n_entr')  # truncated tail
+    monkeypatch.setattr(sl, "_SIM_ROOT", sim_root)
+    sl._dupe_cache.clear()
+    # naive = 0.001 * 1000 = 1; observed 4 -> factor 4.0 from the 3 good lines.
+    assert sl.dupe_correction("mma_se", 1000) == 4.0

@@ -105,3 +105,28 @@ if __name__ == "__main__":
         fn()
         print(f"ok  {fn.__name__}")
     print(f"\n{len(fns)} passed")
+
+
+def test_scratched_player_excluded_from_tier_averages():
+    """An exact-0.0 FPTS means the player didn't compete (scratched fight).
+    Counting it as a real zero falsely breaks tier ordering — the 7/26
+    Ankalaev slate's Dulatov (cancelled fight) dragged Core under Good."""
+    cal = pc.grade_tiers(_MD, _players(
+        {"Alpha Guy": 96.2, "Beta Guy": 0.0, "Gamma Guy": 45, "Delta Guy": 10}))
+    # Beta Guy's 0.0 is excluded: Core avg is Alpha's 96.2, ordering holds.
+    core = next(t for t in cal["tiers"] if t["tier"] == "Core")
+    assert core["n"] == 1 and core["avg_fpts"] == 96.2
+    assert cal["tiers_ordered"] is True
+    assert cal["excluded_scratches"] == [{"name": "Beta Guy", "tier": "Core"}]
+    assert cal["n_matched"] == 3
+    md = pc.calibration_md(cal)
+    assert "Excluded as likely scratches" in md and "Beta Guy" in md
+
+
+def test_near_zero_score_is_not_a_scratch():
+    """0.1 FPTS is a real (terrible) result — only exact 0.0 is excluded."""
+    cal = pc.grade_tiers(_MD, _players(
+        {"Alpha Guy": 96.2, "Beta Guy": 0.2, "Gamma Guy": 45, "Delta Guy": 10}))
+    core = next(t for t in cal["tiers"] if t["tier"] == "Core")
+    assert core["n"] == 2 and core["avg_fpts"] == 48.2
+    assert cal["excluded_scratches"] == []

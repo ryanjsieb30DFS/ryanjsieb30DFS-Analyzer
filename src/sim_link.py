@@ -76,6 +76,15 @@ def entries_as_grade_text(payload: dict) -> str:
     )
 
 
+def _fmt_pct(v, spec: str) -> str:
+    """Format a metric that SHOULD be numeric; '—' when the Sim's schema
+    drifted and sent a string/None — a bad cell must not crash the Grade tab."""
+    try:
+        return f"{float(v):{spec}}%"
+    except (TypeError, ValueError):
+        return "—"
+
+
 def sim_metrics_md(payload: dict) -> str:
     """Markdown table of the pushed entries' sim metrics — shown beside the
     grade so the deterministic checks and the sim's own numbers sit together.
@@ -89,9 +98,9 @@ def sim_metrics_md(payload: dict) -> str:
     ]
     for i, e in enumerate(entries, start=1):
         lines.append(
-            f"| {i} | {e.get('contest', '?')} | {e.get('win_pct', 0):.2f}% "
-            f"| {e.get('top1_pct', 0):.1f}% | {e.get('cash_pct', 0):.1f}% "
-            f"| {e.get('roi_pct', 0):.0f}% |"
+            f"| {i} | {e.get('contest', '?')} | {_fmt_pct(e.get('win_pct'), '.2f')} "
+            f"| {_fmt_pct(e.get('top1_pct'), '.1f')} | {_fmt_pct(e.get('cash_pct'), '.1f')} "
+            f"| {_fmt_pct(e.get('roi_pct'), '.0f')} |"
         )
     return "\n".join(lines)
 
@@ -167,23 +176,32 @@ def dupe_correction(slug: str, field_size: int | None) -> float | None:
               "large": (10_000, float("inf"))}[band]
     ratios: list[float] = []
     try:
-        for line in corpus.read_text().splitlines():
-            if not line.strip():
-                continue
-            r = json.loads(line)
-            if "skipped" in r or r.get("sport") != sport:
-                continue
-            n = r.get("n_entries") or 0
-            if not (lo < n <= hi):
-                continue
-            for ev in r.get("top_dupe_evidence") or []:
-                prod = ev.get("own_product")
-                if prod and prod > 0 and ev.get("count"):
-                    naive = prod * n
-                    if naive > 0:
-                        ratios.append(ev["count"] / naive)
-    except (json.JSONDecodeError, OSError):
+        corpus_text = corpus.read_text()
+    except OSError:
         return None
+    # Per-line tolerance: the corpus is append-mode from the Sim, so ONE
+    # truncated/garbled line must skip that line — a whole-loop except here
+    # silently disabled the correction for every contest.
+    for line in corpus_text.splitlines():
+        if not line.strip():
+            continue
+        try:
+            r = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if not isinstance(r, dict) or "skipped" in r or r.get("sport") != sport:
+            continue
+        n = r.get("n_entries") or 0
+        if not isinstance(n, (int, float)) or not (lo < n <= hi):
+            continue
+        for ev in r.get("top_dupe_evidence") or []:
+            prod = ev.get("own_product")
+            count = ev.get("count")
+            if (isinstance(prod, (int, float)) and prod > 0
+                    and isinstance(count, (int, float)) and count > 0):
+                naive = prod * n
+                if naive > 0:
+                    ratios.append(count / naive)
     if len(ratios) < 3:
         result = None
     else:
@@ -209,10 +227,14 @@ def find_sim_capture(slug: str, n_entries: int | None,
     """The Sim's full-slate capture for the contest being autopsied.
 
     Matched on `contest_id` FIRST, falling back to exact entry count. The count
-    fallback assumes both tools parsed the same standings CSV and agree — true
-    for a clean file, but two contests on one slate can have equal entry counts
-    (then the alphabetically-first file silently won), and any row the Analyzer
-    drops that the Sim kept breaks the match entirely.
+    fallback only fires when it is UNAMBIGUOUS: a candidate carrying a
+    DIFFERENT contest id than the requested one is never a fallback (it is
+    known to be another contest), and two candidates with the same entry count
+    return None + a warning instead of letting the alphabetically-first file
+    silently win — a mis-join would append wrong capture_* fields to
+    field_tendencies.jsonl permanently. The returned record carries
+    `_match_method` ("contest_id" / "entry_count") so downstream rows record
+    how trustworthy the join was.
 
     Captures are validated against CAPTURE_SCHEMA_VERSION: a newer capture whose
     block semantics changed would otherwise be read as v1 and quietly produce
@@ -226,7 +248,7 @@ def find_sim_capture(slug: str, n_entries: int | None,
     d = root / "rules" / slug / "slate_data"
     if not d.exists():
         return None
-    by_count = None
+    by_count: list = []
     drifted: list = []
     for p in sorted(d.glob("*.json")):
         try:
@@ -239,18 +261,30 @@ def find_sim_capture(slug: str, n_entries: int | None,
         if not isinstance(ver, int) or ver > CAPTURE_SCHEMA_VERSION:
             drifted.append(f"{p.name} (schema v{ver})")
             continue
-        if contest_id and str(rec.get("contest_id") or "") == str(contest_id):
+        cap_id = str(rec.get("contest_id") or "")
+        if contest_id and cap_id == str(contest_id):
+            rec["_match_method"] = "contest_id"
             return rec
-        if by_count is None and n_entries and (
+        if contest_id and cap_id:
+            continue  # a different contest — never a count fallback
+        if n_entries and (
                 ((rec.get("field") or {}).get("summary") or {}
                  ).get("n_entries") == n_entries):
-            by_count = rec
+            by_count.append((p.name, rec))
     if drifted:
         capture_warnings[slug] = (
             "Sim capture(s) were written by a newer build than this Analyzer "
             "understands and were skipped rather than misread: "
             + ", ".join(drifted[:3]))
-    return by_count
+    if len(by_count) == 1:
+        by_count[0][1]["_match_method"] = "entry_count"
+        return by_count[0][1]
+    if len(by_count) > 1:
+        capture_warnings[slug] = (
+            f"{len(by_count)} Sim captures share this contest's entry count "
+            f"({', '.join(n for n, _ in by_count[:3])}) with no contest id to "
+            f"disambiguate — none was used rather than guessing.")
+    return None
 
 
 def capture_field_stats(slug: str, n_entries: int | None,
@@ -268,6 +302,7 @@ def capture_field_stats(slug: str, n_entries: int | None,
     s = field.get("summary") or {}
     stats = {
         "capture": cap.get("slate_name"),
+        "match_method": cap.get("_match_method"),
         "unique_pct": s.get("unique_pct"),
         "max_dupe": s.get("max_dupe"),
         "top_dupes": (s.get("top_dupes") or [])[:5],

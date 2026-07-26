@@ -1337,6 +1337,12 @@ with tab_autopsy:
                         + ", ".join(_dupe_names))
                 # One autopsies.md section + one autopsy_data.jsonl row per
                 # contest; source_file disambiguates same-type contests.
+                # Pre-log sizes: autopsy_data.jsonl is the dedup authority, so
+                # if the archive below fails, these appends must be rolled back
+                # or the contest is skipped as a "duplicate" on every re-log
+                # and can never reach results.jsonl.
+                _md_size = md_path.stat().st_size if md_path.exists() else 0
+                _jl_size = jsonl_path.stat().st_size if jsonl_path.exists() else 0
                 records = []
                 with md_path.open("a") as fmd, jsonl_path.open("a") as fjl:
                     for pc in _to_log:
@@ -1473,20 +1479,35 @@ with tab_autopsy:
                     _gv = None
                     _log_warnings.append(f"Grader self-validation NOT computed: {_ge}")
                 # Archive the slate BEFORE clearing — analysis and ROI survive
-                # in rules/<slug>/history/ + results.jsonl.
-                hist_dir = history.archive_slate(
-                    slug=slug,
-                    sport=sport,
-                    contest_label=contest_label,
-                    slate_label=slate_label.strip(),
-                    autopsy_records=records,
-                    roi_contests=[pc["roi"] for pc in _to_log],
-                    proj_source=proj_source,
-                    shark_gap=sgap,
-                    adherence=_adh,
-                    pool_calibration=_cal,
-                    grader_validation=_gv,
-                )
+                # in rules/<slug>/history/ + results.jsonl. If archiving fails,
+                # roll autopsies.md + autopsy_data.jsonl back to their pre-log
+                # sizes so a re-log isn't vetoed by the dedup set. The side
+                # ledgers (field_tendencies / shark stores) keep their rows —
+                # they all dedup by contest_id on read, so a clean re-log
+                # collapses them.
+                try:
+                    hist_dir = history.archive_slate(
+                        slug=slug,
+                        sport=sport,
+                        contest_label=contest_label,
+                        slate_label=slate_label.strip(),
+                        autopsy_records=records,
+                        roi_contests=[pc["roi"] for pc in _to_log],
+                        proj_source=proj_source,
+                        shark_gap=sgap,
+                        adherence=_adh,
+                        pool_calibration=_cal,
+                        grader_validation=_gv,
+                    )
+                except Exception as _arch_err:  # noqa: BLE001
+                    history.truncate_to(md_path, _md_size)
+                    history.truncate_to(jsonl_path, _jl_size)
+                    st.error(
+                        f"❌ **Archive failed — nothing was logged.** The autopsy "
+                        f"ledger was rolled back so you can fix the problem and "
+                        f"log again cleanly. Error: {_arch_err}"
+                    )
+                    st.stop()
                 # Logging + archive are done. Do NOT auto-clear — set a PERSISTENT
                 # completion flag and let the user clear the slate deliberately
                 # (so they get a lasting confirmation and can run the review first).
@@ -1702,7 +1723,15 @@ with tab_autopsy:
                 proposals and proposals.group(1).strip()
                 and "none" not in proposals.group(1).strip().lower()[:40]
             )
-            if has_proposals:
+            # A successful apply appends '## Applied' to the review. The
+            # proposals section still exists after that, so without this gate
+            # the button stays armed forever and a second click re-applies the
+            # same edits (duplicating framework text).
+            already_applied = "## Applied" in review_md
+            if has_proposals and already_applied:
+                st.caption("✅ These proposals were already applied (see the "
+                           "**## Applied** section above).")
+            elif has_proposals:
                 st.warning(
                     "The review proposes framework/philosophy changes (above). "
                     "Approving applies them and updates lesson statuses."
