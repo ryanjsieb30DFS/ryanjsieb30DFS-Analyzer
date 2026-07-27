@@ -1,0 +1,77 @@
+{
+  "field": 1470,
+  "anchors": [
+    "christopher bell",
+    "ryan preece",
+    "austin cindric"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 4,
+    "own_per_slot": 43.2,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 1.0,
+    "anchor_exposure_by_player": {
+      "christopher bell": 1.0,
+      "ryan preece": 1.0,
+      "austin cindric": 1.0
+    },
+    "max_overlap": 6,
+    "unique_pct": 75.0,
+    "best_pctile": 8.84,
+    "median_pctile": 39.73
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 31.8,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.333,
+    "anchor_exposure_by_player": {
+      "christopher bell": 0.0,
+      "ryan preece": 1.0,
+      "austin cindric": 0.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 94.35,
+    "median_pctile": 94.35
+  },
+  "deltas": [
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 75.0,
+      "delta": 25.0
+    },
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 31.8,
+      "shark": 43.2,
+      "delta": -11.4
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.333,
+      "shark": 1.0,
+      "delta": -0.667
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 0.0,
+      "shark": 0.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "nascar",
+  "sport": "nascar"
+}

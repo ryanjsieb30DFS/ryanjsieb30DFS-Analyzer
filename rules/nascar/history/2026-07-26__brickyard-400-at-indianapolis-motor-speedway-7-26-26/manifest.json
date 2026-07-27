@@ -1,0 +1,29 @@
+{
+  "slug": "nascar",
+  "sport": "nascar",
+  "contest_label": "NASCAR",
+  "date": "2026-07-26",
+  "slate_label": "Brickyard 400 at Indianapolis Motor Speedway 7.26.26",
+  "archived_at": "2026-07-26 20:04",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json"
+  ],
+  "missing": [
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/nascar/2026-07-26__DDD 7.26.26.pdf",
+    "articles/nascar/2026-07-26__DFR Rankings 7.26.26.pdf",
+    "articles/nascar/2026-07-26__image-35.pdf",
+    "articles/nascar/2026-07-26__image-36.pdf",
+    "articles/nascar/2026-07-26__image-37.pdf",
+    "articles/nascar/2026-07-26__image-38.pdf",
+    "articles/nascar/2026-07-26__image-39.pdf",
+    "articles/nascar/2026-07-26__image-40.pdf"
+  ],
+  "proj_source": null
+}

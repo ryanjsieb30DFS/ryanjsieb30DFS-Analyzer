@@ -1,0 +1,272 @@
+{
+  "generated_at": "2026-07-26 10:47",
+  "slug": "nascar",
+  "calls": [
+    {
+      "name": "Bubba Wallace",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Chase Elliott",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Tyler Reddick",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Cole Custer",
+      "verdict": "fade"
+    }
+  ],
+  "fades": [
+    "Cole Custer"
+  ],
+  "leverage_candidates": [
+    {
+      "name": "Brad Keselowski",
+      "own": 8.0
+    },
+    {
+      "name": "Alex Bowman",
+      "own": 9.0
+    },
+    {
+      "name": "Corey Heim",
+      "own": 9.0
+    },
+    {
+      "name": "Austin Hill",
+      "own": 7.0
+    },
+    {
+      "name": "Austin Dillon",
+      "own": 6.0
+    },
+    {
+      "name": "Riley Herbst",
+      "own": 6.0
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "own": 4.0
+    },
+    {
+      "name": "Josh Berry",
+      "own": 4.0
+    },
+    {
+      "name": "AJ Allmendinger",
+      "own": 5.0
+    },
+    {
+      "name": "Michael McDowell",
+      "own": 4.0
+    },
+    {
+      "name": "Noah Gragson",
+      "own": 6.0
+    },
+    {
+      "name": "Cody Ware",
+      "own": 2.0
+    }
+  ],
+  "board": [
+    {
+      "name": "Christopher Bell",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "William Byron",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Austin Cindric",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Ryan Preece",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Kyle Larson",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "John H. Nemechek",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Chase Elliott",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Brad Keselowski",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Denny Hamlin",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Erik Jones",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Todd Gilliland",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Carson Hocevar",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Josh Berry",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Austin Hill",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Bubba Wallace",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ross Chastain",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Zane Smith",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Chris Buescher",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Connor Zilisch",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ty Dillon",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Alex Bowman",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Chase Briscoe",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Austin Dillon",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Shane Van Gisbergen",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Riley Herbst",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ryan Blaney",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Daniel Suarez",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Noah Gragson",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ty Gibbs",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Tyler Reddick",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Cody Ware",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Corey Heim",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Joey Logano",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Michael McDowell",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "AJ Allmendinger",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Casey Mears",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Daniel Dye",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Cole Custer",
+      "tier": "Fade",
+      "leverage": false
+    }
+  ]
+}

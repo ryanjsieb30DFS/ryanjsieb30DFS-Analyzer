@@ -1,0 +1,92 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "calls": [
+    {
+      "name": "Bubba Wallace",
+      "verdict": "lean_fade",
+      "exposure_pct": 50.0,
+      "in_lineups": 1,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Chase Elliott",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Tyler Reddick",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Cole Custer",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "leverage_candidates": [
+    {
+      "name": "Brad Keselowski",
+      "rostered": false
+    },
+    {
+      "name": "Alex Bowman",
+      "rostered": false
+    },
+    {
+      "name": "Corey Heim",
+      "rostered": false
+    },
+    {
+      "name": "Austin Hill",
+      "rostered": false
+    },
+    {
+      "name": "Austin Dillon",
+      "rostered": false
+    },
+    {
+      "name": "Riley Herbst",
+      "rostered": false
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "rostered": false
+    },
+    {
+      "name": "Josh Berry",
+      "rostered": false
+    },
+    {
+      "name": "AJ Allmendinger",
+      "rostered": false
+    },
+    {
+      "name": "Michael McDowell",
+      "rostered": false
+    },
+    {
+      "name": "Noah Gragson",
+      "rostered": false
+    },
+    {
+      "name": "Cody Ware",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 0,
+  "leverage_of": 12
+}

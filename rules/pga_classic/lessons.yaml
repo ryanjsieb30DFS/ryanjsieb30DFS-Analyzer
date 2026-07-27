@@ -52,6 +52,16 @@ lessons:
           anchor. (The slate was still capped at ~52nd pct overall, but for the
           orthogonal reason that the mid-owned DIFFERENTIATOR — Wyndham Clark — was
           missed, not because any value-chalk anchor was wrongly zeroed.)
+      - date: "2026-07-26"
+        slate: "3M Open at TPC Twin Cities (rules/pga_classic/history/2026-07-26__pga-3m-open-2026)"
+        note: >
+          Fifth confirming slate. Scheffler was archetypal value chalk (the only
+          top-30 player in the field, 26.5% actual own) and the portfolio carried
+          him 2/4 rather than zeroing; he hit 133.5 and anchored the rank-10
+          winner. Small-exposure-not-zero again cost nothing and kept the upside
+          path open. See the new
+          [[pga-classic-2026-07-26-underweight-is-not-zero-small-portfolio]]
+          hypothesis for the same asymmetry applied one tier down (Matsuyama 0/4).
     contradictions: []
     codified_in: "framework.md — Section 6 Anchor Selection Logic (Default policy); philosophy.md — Section 5 Chalk Has a Purpose"
     retired_reason: null
@@ -341,6 +351,17 @@ lessons:
           worked prospectively too. Origin (Memorial) + 2 confirmations (RBC,
           Shinnecock) = 3 mechanism slates; meets the promotion bar. See Proposed
           codifications.
+      - date: "2026-07-26"
+        slate: "3M Open at TPC Twin Cities (rules/pga_classic/history/2026-07-26__pga-3m-open-2026)"
+        note: >
+          Post-codification check — the gate discriminated in both directions
+          again. Cam Davis carried the CH signal (4 top-20s in 6 starts here) but
+          a bottom-10 skill baseline; the doc applied the gate verbatim ("the
+          skill gate flags his bottom-10 baseline, so he's a lottery slot, not a
+          conviction dart") and he busted. Davis Chatfield, surfaced on the
+          form/fit side (approach numbers popping, the exact accuracy profile the
+          fit model boosts here), hit 100.5 at 3.94% own and made 35% of the
+          top-20 winning lineups.
     contradictions: []
     codified_in: "framework.md — Section 2 Slate Diagnostics (Gated cheap-leverage scan) and Section 9 Pre-Submission Checklists (gated-scan items); codified 2026-07-22, replacing the retired course-history-sub5-scan"
     retired_reason: null
@@ -528,6 +549,16 @@ lessons:
           16.49% own with 2.0 sub-10% — above the winning envelope for the second
           logged 5-Max in a row, dragged up this time by Matt Fitzpatrick chalk that
           steamed to 37.6% field own and busted (22.0).
+      - date: "2026-07-26"
+        slate: "3M Open at TPC Twin Cities (rules/pga_classic/history/2026-07-26__pga-3m-open-2026)"
+        note: >
+          Confirmed again: the top-20 winners ran 12.92% mean per-player own with
+          2.55 sub-10% pieces (the contest winner: 11.3% avg own, 3 sub-10%,
+          carried by a 2.68%-owned Denny McCarthy). New wrinkle: the user's
+          entries sat BELOW the envelope for the first time (10.76% avg own, 3.25
+          sub-10% mean) — the historical above-envelope lean overcorrected past
+          the ~13% target rather than onto it. The band is a target, not a
+          ceiling; see [[pga-classic-2026-07-22-dart-rate-exceeds-in-field-pros]].
     contradictions: []
     codified_in: "framework.md — Section 3 Ownership Tier Framework (empirical winning-structure baseline)"
     retired_reason: null
@@ -597,6 +628,16 @@ lessons:
           failure moved downstream: no entered lineup carried him (0/5) — the naming
           gap is closed, the doc-to-entry coverage gap is now the live problem (see
           [[pga-classic-2026-06-17-design-exposures-before-lineups]]).
+      - date: "2026-07-26"
+        slate: "3M Open at TPC Twin Cities (rules/pga_classic/history/2026-07-26__pga-3m-open-2026)"
+        note: >
+          Confirmed, and the loop finally closed end to end. The slate-definer
+          was Jackson Koivun (155.0 FPTS at 16.25% own, in 55% of the top-20
+          winners); the doc named him pre-lock (tiered Good, "the value ticket
+          inside the $9K tier"), AND an entered lineup carried him — the best
+          entry (rank 64/1902, 3.4 pctile, one swap from the outright win).
+          Named -> rostered -> captured, for the first time in the sample.
+          Leverage capture 0.6, the sample's best.
     contradictions: []
     codified_in: "framework.md — Section 2 Slate Diagnostics (mandatory low-owned-smash scan)"
     retired_reason: null
@@ -668,6 +709,14 @@ lessons:
           (tough+cut ~2.5) + Travelers (no-cut ~2.5) + Open (birdie-fest+cut 2.25) —
           the calibration has now held at every archetype corner sampled; meets the
           promotion count. See Proposed codifications.
+      - date: "2026-07-26"
+        slate: "3M Open at TPC Twin Cities (rules/pga_classic/history/2026-07-26__pga-3m-open-2026)"
+        note: >
+          Birdie-fest+cut corner again (the water-trapdoor shootout, winning DK
+          score 676.5): the top-20 winners ran 2.55 sub-10% pieces — right on the
+          ~2-2.5 branch. The user's entries ran 3.25 mean, a dart heavy for the
+          archetype; the count discipline, not the calibration, is the live gap
+          ([[pga-classic-2026-07-22-dart-rate-exceeds-in-field-pros]]).
     contradictions: []
     codified_in: "framework.md — Section 3 Ownership Tier Framework (Dart-count calibration); codified 2026-07-22"
     retired_reason: null
@@ -691,7 +740,7 @@ lessons:
       was the single biggest miss of the slate. Guard: when the edge is one vendor's
       self-referential gap, cap exposure and require a second, independent reason
       (form, skill, course-fit) before treating it as conviction.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-07-22"
         slate: "2026 Open Championship at Royal Birkdale (rules/pga_classic/history/2026-07-22__2026-open-championship)"
@@ -709,6 +758,25 @@ lessons:
           holds: drift fires on narrative/rising names (Rai, Fitzpatrick, MacIntyre),
           not on stable floored value chalk (Burns). Promoted to validated with the
           refined guard as the operative statement.
+      - date: "2026-07-26"
+        slate: "3M Open at TPC Twin Cities (rules/pga_classic/history/2026-07-26__pga-3m-open-2026)"
+        note: >
+          Second mechanism confirmation (third mechanism slate) — the drift prong
+          fired exactly where the refined guard predicts. Ben Kohles was the
+          slate's biggest coffin overweight (+11.9) AND a narrative name (the
+          field's default Scheffler pairing, "ownership tied to Scottie"); his
+          own drifted UP from 19.2% projected to 25.7% actual field own, eroding
+          the published gap at lock. The doc applied the guard verbatim (sized
+          him as a note, verdict UNDERWEIGHT, not a conviction bet) and the 0/4
+          exposure cost nothing — 103.5 FPTS at 25.7% own is negative leverage.
+          Boundary case logged for honesty: McNealy (+9.0 coffin, also
+          narrative-hyped) DROPPED from 23.6% projected to under ~15.7% actual —
+          the one-vendor own map missed by 6-12 points in BOTH directions this
+          slate, reinforcing the core point that a single vendor's
+          self-referential gap cannot carry conviction sizing (and see
+          [[pga-classic-2026-07-26-unprojected-cheap-steam-screen]] for the
+          names it never priced at all). Origin (RBC) + Birkdale + 3M = 3
+          mechanism slates; meets the promotion bar. See Proposed codifications.
     contradictions:
       - date: "2026-06-24"
         slate: "U.S. Open at Shinnecock Hills (rules/pga_classic/history/2026-06-24__pga-us-open-2026)"
@@ -736,7 +804,7 @@ lessons:
           floored value-chalk play already sitting at stable projected own is not a
           self-erosion fade. GPP guard satisfied: the contradiction is logged on the
           falsified own-DRIFT prediction, not on the loss itself.
-    codified_in: null
+    codified_in: "framework.md — Section 6 Anchor Selection Logic (Single-vendor self-erosion guard)"
     retired_reason: null
 
   - id: pga-classic-2026-06-17-leverage-spine-needs-sub20-combined-own
@@ -852,6 +920,19 @@ lessons:
           smaller residual; his profile is exactly what the
           [[pga-classic-2026-07-01-vendor-independent-ceiling-scan]] full ceiling board
           is supposed to catch.
+      - date: "2026-07-26"
+        slate: "3M Open at TPC Twin Cities (rules/pga_classic/history/2026-07-26__pga-3m-open-2026)"
+        note: >
+          Fourth mechanism confirmation: four of the five slate-defining plays
+          landed in the 13-18% mid-owned band (Koivun 155.0 @ 16.25%, Matsuyama
+          126.5 @ 17.25%, Grillo 118.5 @ 13.77%, Blair 103.0 @ 16.98%), with
+          Chatfield (100.5 @ 3.94%) the lone sub-5% definer. And the
+          necessary-not-sufficient caveat finally flipped positive: the pool
+          caught band members this time (Koivun on the best entry, Grillo 2/4),
+          producing the sample's best finish (3.4 pctile, one swap from the
+          win). Residual: Blair was absent from the doc entirely — the
+          cheap-steam coverage gap
+          ([[pga-classic-2026-07-26-unprojected-cheap-steam-screen]]).
     contradictions: []
     codified_in: "framework.md — Section 2 Slate Diagnostics (10-16% mid-owned band coverage)"
     retired_reason: null
@@ -1063,7 +1144,7 @@ lessons:
       pedigree without form stays lottery-only (Koepka). Both mechanisms fired through
       the same screen at Birkdale (Lowry, the in-form 2019 champ at 8.4%, hit 66.0;
       Young, the in-form links pedigree, hit 96.5).
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-07-22"
         slate: "2026 Open Championship at Royal Birkdale (rules/pga_classic/history/2026-07-22__2026-open-championship)"
@@ -1083,8 +1164,25 @@ lessons:
           board must include. Promote to validated; the Burns-shaped hole defines what
           a second confirmation must show (the full-field ceiling board catching the
           vendor-cool mid-band elite, not just the sub-10% tier).
+      - date: "2026-07-26"
+        slate: "3M Open at TPC Twin Cities (rules/pga_classic/history/2026-07-26__pga-3m-open-2026)"
+        note: >
+          Second mechanism confirmation — the scan ran and the
+          definer-outside-the-lens streak stayed broken a second straight slate.
+          The doc named the top three scores on the slate pre-lock (Koivun 155.0
+          tiered Good; Matsuyama 126.5 surfaced as contested chalk; Grillo 118.5
+          covered at length) plus the board-only catches the scan exists for:
+          Nakajima ("a 99-point ceiling at 4% that NO article mentions") and
+          Chatfield, who hit 100.5 at 3.94% and made 35% of the top-20 winners.
+          No Burns-shaped vendor-cool ELITE was missed this slate — the residual
+          holes moved down-board to the cheap tier (Blair 103.0 @ 16.98% and the
+          winner's 2.68%-owned carrier McCarthy 121.0, both un-named), which is
+          a different mechanism
+          ([[pga-classic-2026-07-26-unprojected-cheap-steam-screen]]). Origin
+          (Travelers) + Birkdale + 3M = 3 mechanism slates; meets the promotion
+          bar. See Proposed codifications.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Section 2 Slate Diagnostics (Vendor-independent ceiling board) + Section 9 checklists"
     retired_reason: null
 
   - id: pga-classic-2026-07-22-dart-rate-exceeds-in-field-pros
@@ -1109,8 +1207,28 @@ lessons:
       Distinct from [[pga-classic-2026-06-13-dose-darts-to-course-variance]] (per-lineup
       dart COUNT vs course archetype) — this is the PORTFOLIO-level sub-5% rate vs the
       observed pro envelope.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-07-26"
+        slate: "3M Open at TPC Twin Cities (rules/pga_classic/history/2026-07-26__pga-3m-open-2026)"
+        note: >
+          First confirmation of the recurring axis, with one prong narrowed. The
+          axis fired a THIRD straight 5-Max: leverage_pct was again the top
+          shark gap (100% of user lineups carried a sub-5% piece vs the in-field
+          pros' 80% — delta +20 after +53.3 at Shinnecock and +60 at Birkdale),
+          and the user again out-darted the winners (3.25 sub-10% per lineup vs
+          the top-20's 2.55). The gap NARROWED and the doc drove it: the
+          strategy applied this lesson in text ("keep ONE sub-5% dart in about
+          half the bullets — not one-plus-extras in all of them"), and the best
+          entry (3.4 pctile) spent its low-owned slots in the 5-10% band, not
+          sub-5%. NARROWING required by this slate's actuals: "the definers
+          never land sub-5%" is too strong — Chatfield (100.5 @ 3.94%, in 35% of
+          top lineups) and the winner's carrier McCarthy (121.0 @ 2.68%) were
+          genuine sub-5% definers here. The durable mechanism is the RATE gap vs
+          the pros and where the dart budget comes from, not that sub-5% never
+          pays: hold the rate near the pros' one-in-most and fill the slot from
+          the written screen (Chatfield was ON the screen; McCarthy was not).
+          Promoted to validated on the narrowed statement.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1134,6 +1252,71 @@ lessons:
       remove. Partner of [[pga-classic-2026-06-17-design-exposures-before-lineups]]
       (which governs HOW MUCH of the screen gets covered); this governs WHERE dart
       slots may come from at all.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-07-26-unprojected-cheap-steam-screen
+    born: "2026-07-26"
+    origin: "rules/pga_classic/history/2026-07-26__pga-3m-open-2026 — 3M Open at TPC Twin Cities (Blair/James coverage hole)"
+    statement: >
+      On a single-vendor slate, the strategy must explicitly screen for the
+      field's cheap-value STEAM tier — the salary-relief names the DK field
+      floods regardless of what the vendor's ownership model says — because the
+      vendor systematically under-projects that tier and the doc's whole
+      trap/leverage map inherits the miss. At the 3M Open the 5th- and
+      7th-most-owned players in the field, Benjamin James (19.1% actual own) and
+      Zac Blair (17.0%), appeared NOWHERE in the strategy doc: ETR projected
+      both low, so no section ever addressed them — yet James was the slate's #1
+      fish trap (26.0% of fish lineups, 0.0% of winners, 31.0 FPTS) while Blair
+      scored 103.0, made 30% of the top-20 winners, and formed the single most
+      duplicated pair in the field (Scheffler+Blair, 10.5% of ALL lineups). One
+      was the trap of the slate and one was a winner piece, and the doc could
+      grade neither because neither existed in it. Mechanism: coffin lists, fade
+      boards, chalk-combo tables, and the sub-10% definers screen are ALL keyed
+      off PROJECTED ownership, so a name the vendor projects low that the field
+      actually crowds to 15-25% bypasses every screen simultaneously.
+      Supporting prior: Birkdale's Fitzpatrick steam (25.5% -> 37.6%).
+      Expression: before writing Leverage & fades, list the plausible
+      salary-relief/comfort names (panel steam mentions, "everyone will play X"
+      quotes, the obvious cheap pairings a locked-in expensive anchor forces)
+      and give each an explicit trap-vs-value read even when the vendor
+      projects it under 10%. Partner of
+      [[pga-classic-2026-06-17-single-vendor-overweight-self-erosion]] (drift on
+      the vendor's NAMED overweights) — this covers the names the vendor never
+      priced as owned at all.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-07-26-underweight-is-not-zero-small-portfolio
+    born: "2026-07-26"
+    origin: "rules/pga_classic/history/2026-07-26__pga-3m-open-2026 — 3M Open at TPC Twin Cities (Matsuyama 0/4 near-miss)"
+    statement: >
+      In a 4-5 bullet portfolio, an UNDERWEIGHT call on top-skill contested
+      chalk means at least one bullet, not zero. The only realizable exposure
+      levels at N<=5 are 0/20-25/40-50%, so treating underweight as 0-of-N
+      silently converts the doc's "own less than the field" into a full
+      portfolio fade the analysis never argued — and the never-zero asymmetry
+      (zero exposure when contested chalk hits costs far more than one bullet
+      costs when it busts) applies with full force one tier below the anchor. At
+      the 3M Open the doc graded Hideki Matsuyama UNDERWEIGHT as "genuinely
+      contested" ~20% chalk with the #2 skill baseline; the entries took 0/4;
+      adherence graded that "followed" (0% passes the <50% underweight gate);
+      and Matsuyama hit 126.5, made 50% of the top-20 winners, anchored the
+      contest winner — and the near-miss counterfactual shows the best entry
+      WINS the contest outright on the single swap Im -> Matsuyama. Mechanism,
+      not result: the adherence gate cannot distinguish underweight from zero
+      at small N, so the discipline layer passes portfolios that structurally
+      contradict the call; the fix is a floor, not a grade — an UNDERWEIGHT on
+      a top-3-skill piece in a 4-5 bullet set means exactly one bullet.
+      Partner of [[pga-classic-2026-05-11-never-zero-value-chalk-anchor]]
+      (which covers the projection #1) — this extends the same asymmetry to
+      contested top-skill chalk the doc itself declined to fade.
     status: hypothesis
     confirmations: []
     contradictions: []

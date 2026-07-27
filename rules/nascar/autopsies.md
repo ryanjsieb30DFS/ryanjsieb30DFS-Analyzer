@@ -485,3 +485,36 @@ A 5-check pre-lock validator was prototyped and then removed across all sports. 
 - 🕳️ Buried: **Shane Van Gisbergen** (Fade) scored 61.0 — above the top tier's average.
 - 🕳️ Buried: **Daniel Suarez** (Fade) scored 45.0 — above the top tier's average.
 - 🕳️ Buried: **Ty Dillon** (Fade) scored 33.5 — above the top tier's average.
+
+
+## 2026-07-26 20:04 — NASCAR (contest-standings-192617102.csv)
+- Entries: 1,470
+- Winning score: 333.4
+- Cash line (top 20%): 229.7
+- My entries: 1 · best rank 1,387/1,470 (top 94.4%)
+- Winners (top 20): avg own 32.31% vs mine 31.82% · sub-10% plays/lineup 1.2 vs mine 0.0
+- Slate-defining plays: Corey Heim (70.5 pts @ 7.5%), Zane Smith (43.5 pts @ 14.0%)
+
+
+## 2026-07-26 20:04 — NASCAR (contest-standings-192617095.csv)
+- Entries: 490
+- Winning score: 309.7
+- Cash line (top 20%): 232.3
+- My entries: 1 · best rank 125/490 (top 25.5%)
+- Winners (top 20): avg own 31.97% vs mine 34.93% · sub-10% plays/lineup 0.75 vs mine 0.0
+- Slate-defining plays: Corey Heim (70.5 pts @ 7.1%), Zane Smith (43.5 pts @ 17.6%), Chris Buescher (36.9 pts @ 15.1%)
+
+### Strategy adherence — did you follow your own strategy? (2 unique lineups)
+- ✅ Every hard FADE honored.
+- Leverage candidates rostered somewhere: **0 of 12**.
+
+### Player-pool tier calibration (39 of 39 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 5 | 35.7 | 66.2 |
+| **Good** | 10 | 25.0 | 56.2 |
+| **Okay** | 17 | 21.1 | 48.6 |
+| **Fade** | 7 | 27.2 | 70.5 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+- 🕳️ Buried: **Corey Heim** (Fade) scored 70.5 — above the top tier's average.
+- 🕳️ Buried: **Joey Logano** (Fade) scored 61.5 — above the top tier's average.

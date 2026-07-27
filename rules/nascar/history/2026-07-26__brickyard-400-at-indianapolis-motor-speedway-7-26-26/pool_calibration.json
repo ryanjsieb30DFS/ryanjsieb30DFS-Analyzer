@@ -1,0 +1,46 @@
+{
+  "gradable": true,
+  "n_pool": 39,
+  "n_matched": 39,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 5,
+      "avg_fpts": 35.7,
+      "max_fpts": 66.2
+    },
+    {
+      "tier": "Good",
+      "n": 10,
+      "avg_fpts": 25.0,
+      "max_fpts": 56.2
+    },
+    {
+      "tier": "Okay",
+      "n": 17,
+      "avg_fpts": 21.1,
+      "max_fpts": 48.6
+    },
+    {
+      "tier": "Fade",
+      "n": 7,
+      "avg_fpts": 27.2,
+      "max_fpts": 70.5
+    }
+  ],
+  "tiers_ordered": false,
+  "leakage": [
+    {
+      "name": "Corey Heim",
+      "tier": "Fade",
+      "fpts": 70.5
+    },
+    {
+      "name": "Joey Logano",
+      "tier": "Fade",
+      "fpts": 61.5
+    }
+  ],
+  "excluded_scratches": [],
+  "summary": "Core 35.7 > Good 25.0 > Okay 21.1 > Fade 27.2  \u2717 OUT OF ORDER"
+}

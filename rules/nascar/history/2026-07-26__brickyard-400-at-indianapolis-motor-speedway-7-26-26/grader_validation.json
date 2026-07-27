@@ -1,0 +1,35 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "lineups": [
+    {
+      "players": [
+        "Bubba Wallace",
+        "John H. Nemechek",
+        "Kyle Larson",
+        "Ross Chastain",
+        "Ryan Preece",
+        "William Byron"
+      ],
+      "percentile": 94.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Austin Cindric",
+        "Christopher Bell",
+        "Denny Hamlin",
+        "Erik Jones",
+        "John H. Nemechek",
+        "Ryan Preece"
+      ],
+      "percentile": 25.5,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    94.4,
+    25.5
+  ]
+}

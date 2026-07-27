@@ -1,0 +1,1501 @@
+[
+  {
+    "timestamp": "2026-07-26 20:04",
+    "contest_type": "NASCAR",
+    "source_file": "contest-standings-192617102.csv",
+    "contest_id": "192617102",
+    "entries": 1470,
+    "winning_score": 333.4,
+    "cash_line_p80": 229.66,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nascar",
+    "sport": "nascar",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 39
+    },
+    "user_summary": {
+      "avg_own_mean": 31.82,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 1387,
+      "best_percentile": 94.4
+    },
+    "user_lineups": [
+      {
+        "rank": 1387,
+        "entry_name": "RyvlesGaming30",
+        "points": 92.4,
+        "percentile": 94.4,
+        "players": [
+          "Kyle Larson",
+          "William Byron",
+          "Bubba Wallace",
+          "Ross Chastain",
+          "Ryan Preece",
+          "John H. Nemechek"
+        ],
+        "avg_own": 31.82,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Corey Heim",
+        "salary": null,
+        "actual_fpts": 70.45,
+        "actual_own": 7.55,
+        "top_lineup_pct": 65.0
+      },
+      {
+        "name": "Zane Smith",
+        "salary": null,
+        "actual_fpts": 43.45,
+        "actual_own": 14.01,
+        "top_lineup_pct": 30.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 32.31,
+      "low_own_count_mean": 1.2,
+      "salary_used_mean": null,
+      "dup_max": 6,
+      "unique_pct": 50.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "Krighton",
+          "points": 333.4,
+          "percentile": 0.1,
+          "players": [
+            "Christopher Bell",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Corey Heim",
+            "Austin Cindric",
+            "Ryan Preece"
+          ],
+          "avg_own": 32.91,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "kylerosso12",
+          "points": 329.7,
+          "percentile": 0.1,
+          "players": [
+            "Christopher Bell",
+            "Ty Gibbs",
+            "Chris Buescher",
+            "Corey Heim",
+            "Austin Cindric",
+            "Ryan Preece"
+          ],
+          "avg_own": 31.48,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "jparsons2",
+          "points": 329.05,
+          "percentile": 0.2,
+          "players": [
+            "Christopher Bell",
+            "Ty Gibbs",
+            "Chris Buescher",
+            "Corey Heim",
+            "Brad Keselowski",
+            "Ryan Preece"
+          ],
+          "avg_own": 25.17,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "ops888",
+          "points": 323.55002,
+          "percentile": 0.3,
+          "players": [
+            "Denny Hamlin",
+            "Joey Logano",
+            "Corey Heim",
+            "Austin Cindric",
+            "Brad Keselowski",
+            "Zane Smith"
+          ],
+          "avg_own": 19.16,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "j_akerman",
+          "points": 310.85,
+          "percentile": 0.3,
+          "players": [
+            "Christopher Bell",
+            "William Byron",
+            "Ty Gibbs",
+            "Corey Heim",
+            "Ryan Preece",
+            "Zane Smith"
+          ],
+          "avg_own": 29.23,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "debd11",
+          "points": 310.8,
+          "percentile": 0.4,
+          "players": [
+            "Denny Hamlin",
+            "Christopher Bell",
+            "Carson Hocevar",
+            "Austin Cindric",
+            "Ryan Preece",
+            "Zane Smith"
+          ],
+          "avg_own": 35.05,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 6,
+          "entry_name": "thc129",
+          "points": 310.8,
+          "percentile": 0.4,
+          "players": [
+            "Denny Hamlin",
+            "Christopher Bell",
+            "Carson Hocevar",
+            "Austin Cindric",
+            "Ryan Preece",
+            "Zane Smith"
+          ],
+          "avg_own": 35.05,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 8,
+          "entry_name": "bhuguga3",
+          "points": 310.34998,
+          "percentile": 0.5,
+          "players": [
+            "Christopher Bell",
+            "William Byron",
+            "Corey Heim",
+            "Austin Cindric",
+            "Shane Van Gisbergen",
+            "Ryan Preece"
+          ],
+          "avg_own": 32.21,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 8,
+          "entry_name": "Jphlip3",
+          "points": 310.34998,
+          "percentile": 0.5,
+          "players": [
+            "Christopher Bell",
+            "William Byron",
+            "Corey Heim",
+            "Austin Cindric",
+            "Shane Van Gisbergen",
+            "Ryan Preece"
+          ],
+          "avg_own": 32.21,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 10,
+          "entry_name": "brott23",
+          "points": 309.59998,
+          "percentile": 0.7,
+          "players": [
+            "Chase Briscoe",
+            "Bubba Wallace",
+            "Joey Logano",
+            "Corey Heim",
+            "Austin Cindric",
+            "Ryan Preece"
+          ],
+          "avg_own": 27.17,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 0.49,
+        "low_own_count_delta": 1.2,
+        "salary_used_delta": null
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 1465,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Christopher Bell",
+          "field_own": 50.2,
+          "actual_fpts": 66.2
+        },
+        {
+          "name": "Ryan Preece",
+          "field_own": 47.9,
+          "actual_fpts": 62.2
+        },
+        {
+          "name": "Austin Cindric",
+          "field_own": 46.8,
+          "actual_fpts": 50.5
+        },
+        {
+          "name": "Todd Gilliland",
+          "field_own": 45.1,
+          "actual_fpts": 30.4
+        },
+        {
+          "name": "Bubba Wallace",
+          "field_own": 43.7,
+          "actual_fpts": 16.4
+        },
+        {
+          "name": "Kyle Larson",
+          "field_own": 37.5,
+          "actual_fpts": -25.2
+        },
+        {
+          "name": "William Byron",
+          "field_own": 32.5,
+          "actual_fpts": 25.1
+        },
+        {
+          "name": "Denny Hamlin",
+          "field_own": 29.7,
+          "actual_fpts": 47.9
+        },
+        {
+          "name": "Chase Elliott",
+          "field_own": 25.9,
+          "actual_fpts": -6.0
+        },
+        {
+          "name": "Ty Gibbs",
+          "field_own": 23.3,
+          "actual_fpts": 43.5
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Austin Cindric",
+            "Ryan Preece"
+          ],
+          "field_pct": 29.5,
+          "count": 432
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Ryan Preece"
+          ],
+          "field_pct": 28.1,
+          "count": 411
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Christopher Bell"
+          ],
+          "field_pct": 27.3,
+          "count": 399
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Todd Gilliland"
+          ],
+          "field_pct": 26.5,
+          "count": 388
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Todd Gilliland"
+          ],
+          "field_pct": 26.4,
+          "count": 386
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Bubba Wallace"
+          ],
+          "field_pct": 25.6,
+          "count": 375
+        },
+        {
+          "players": [
+            "Ryan Preece",
+            "Todd Gilliland"
+          ],
+          "field_pct": 24.8,
+          "count": 363
+        },
+        {
+          "players": [
+            "Bubba Wallace",
+            "Todd Gilliland"
+          ],
+          "field_pct": 24.8,
+          "count": 363
+        },
+        {
+          "players": [
+            "Bubba Wallace",
+            "Ryan Preece"
+          ],
+          "field_pct": 24.7,
+          "count": 362
+        },
+        {
+          "players": [
+            "Bubba Wallace",
+            "Christopher Bell"
+          ],
+          "field_pct": 24.2,
+          "count": 355
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Austin Cindric",
+            "Bubba Wallace",
+            "Christopher Bell",
+            "Kyle Larson",
+            "Ryan Preece",
+            "Todd Gilliland"
+          ],
+          "count": 85,
+          "field_pct": 5.8
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Bubba Wallace",
+            "Chase Elliott",
+            "Denny Hamlin",
+            "Ryan Preece",
+            "Todd Gilliland"
+          ],
+          "count": 30,
+          "field_pct": 2.0
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Chase Elliott",
+            "Christopher Bell",
+            "Ryan Preece",
+            "Todd Gilliland",
+            "William Byron"
+          ],
+          "count": 28,
+          "field_pct": 1.9
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Bubba Wallace",
+            "Christopher Bell",
+            "Ryan Preece",
+            "Todd Gilliland",
+            "William Byron"
+          ],
+          "count": 27,
+          "field_pct": 1.8
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Bubba Wallace",
+            "Chase Elliott",
+            "Christopher Bell",
+            "Ryan Preece",
+            "Todd Gilliland"
+          ],
+          "count": 19,
+          "field_pct": 1.3
+        }
+      ],
+      "winners_profile": {
+        "n": 15,
+        "avg_own_per_slot": 31.1,
+        "dart_pct": 0.0,
+        "unique_pct": 80.0
+      },
+      "fish_profile": {
+        "n": 732,
+        "avg_own_per_slot": 26.6,
+        "dart_pct": 39.5,
+        "unique_pct": 84.3
+      },
+      "fish_traps": [
+        {
+          "name": "Kyle Larson",
+          "fish_pct": 55.1,
+          "winner_pct": 0.0,
+          "gap": 55.1,
+          "actual_fpts": -25.2
+        },
+        {
+          "name": "Chase Elliott",
+          "fish_pct": 32.0,
+          "winner_pct": 0.0,
+          "gap": 32.0,
+          "actual_fpts": -6.0
+        },
+        {
+          "name": "Todd Gilliland",
+          "fish_pct": 38.0,
+          "winner_pct": 13.3,
+          "gap": 24.6,
+          "actual_fpts": 30.4
+        },
+        {
+          "name": "Erik Jones",
+          "fish_pct": 23.0,
+          "winner_pct": 0.0,
+          "gap": 23.0,
+          "actual_fpts": 2.0
+        },
+        {
+          "name": "Ross Chastain",
+          "fish_pct": 20.2,
+          "winner_pct": 0.0,
+          "gap": 20.2,
+          "actual_fpts": 19.7
+        },
+        {
+          "name": "John H. Nemechek",
+          "fish_pct": 19.7,
+          "winner_pct": 0.0,
+          "gap": 19.7,
+          "actual_fpts": -5.8
+        },
+        {
+          "name": "Bubba Wallace",
+          "fish_pct": 38.5,
+          "winner_pct": 20.0,
+          "gap": 18.5,
+          "actual_fpts": 16.4
+        },
+        {
+          "name": "Ryan Blaney",
+          "fish_pct": 18.3,
+          "winner_pct": 0.0,
+          "gap": 18.3,
+          "actual_fpts": 3.0
+        },
+        {
+          "name": "Tyler Reddick",
+          "fish_pct": 15.7,
+          "winner_pct": 0.0,
+          "gap": 15.7,
+          "actual_fpts": 29.5
+        },
+        {
+          "name": "William Byron",
+          "fish_pct": 33.3,
+          "winner_pct": 20.0,
+          "gap": 13.3,
+          "actual_fpts": 25.1
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "Krighton",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "kylerosso12",
+          "best_rank": 2,
+          "percentile": 0.1
+        },
+        {
+          "handle": "jparsons2",
+          "best_rank": 3,
+          "percentile": 0.2
+        },
+        {
+          "handle": "ops888",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "j_akerman",
+          "best_rank": 5,
+          "percentile": 0.3
+        },
+        {
+          "handle": "debd11",
+          "best_rank": 6,
+          "percentile": 0.4
+        },
+        {
+          "handle": "thc129",
+          "best_rank": 6,
+          "percentile": 0.4
+        },
+        {
+          "handle": "bhuguga3",
+          "best_rank": 8,
+          "percentile": 0.5
+        },
+        {
+          "handle": "Jphlip3",
+          "best_rank": 8,
+          "percentile": 0.5
+        },
+        {
+          "handle": "brott23",
+          "best_rank": 10,
+          "percentile": 0.7
+        },
+        {
+          "handle": "wormworth",
+          "best_rank": 11,
+          "percentile": 0.8
+        },
+        {
+          "handle": "DigitalDreams",
+          "best_rank": 12,
+          "percentile": 0.8
+        },
+        {
+          "handle": "Kimbingwa",
+          "best_rank": 12,
+          "percentile": 0.8
+        },
+        {
+          "handle": "beef58",
+          "best_rank": 14,
+          "percentile": 1.0
+        },
+        {
+          "handle": "Blackdoor",
+          "best_rank": 15,
+          "percentile": 1.0
+        }
+      ],
+      "read": [
+        "Field crowded **Christopher Bell** at 50.2% (66.2 fpts) \u2014 the chalk to consider fading.",
+        "**Austin Cindric + Ryan Preece** were together in 29.5% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Kyle Larson** was a fish trap: 55.1% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 333.4,
+      "winner_handle": "Krighton",
+      "roster": [
+        {
+          "name": "Christopher Bell",
+          "own": 50.2,
+          "fpts": 66.15
+        },
+        {
+          "name": "Ty Gibbs",
+          "own": 23.27,
+          "fpts": 43.5
+        },
+        {
+          "name": "Carson Hocevar",
+          "own": 21.77,
+          "fpts": 40.6
+        },
+        {
+          "name": "Corey Heim",
+          "own": 7.55,
+          "fpts": 70.45
+        },
+        {
+          "name": "Austin Cindric",
+          "own": 46.8,
+          "fpts": 50.45
+        },
+        {
+          "name": "Ryan Preece",
+          "own": 47.89,
+          "fpts": 62.25
+        }
+      ],
+      "avg_own": 32.9,
+      "n_low_own": 1,
+      "carrier": {
+        "name": "Corey Heim",
+        "own": 7.55,
+        "fpts": 70.45
+      },
+      "expected_dupes": 0.63
+    },
+    "near_miss": {
+      "gradable": true,
+      "won": false,
+      "your_points": 92.4,
+      "winner_points": 333.4,
+      "gap": 241.0,
+      "your_percentile": 94.4,
+      "n_shared": 1,
+      "shared": [
+        "Ryan Preece"
+      ],
+      "your_uniques": [
+        {
+          "name": "William Byron",
+          "fpts": 25.05
+        },
+        {
+          "name": "Ross Chastain",
+          "fpts": 19.7
+        },
+        {
+          "name": "Bubba Wallace",
+          "fpts": 16.35
+        },
+        {
+          "name": "John H. Nemechek",
+          "fpts": -5.75
+        },
+        {
+          "name": "Kyle Larson",
+          "fpts": -25.2
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Corey Heim",
+          "fpts": 70.45
+        },
+        {
+          "name": "Christopher Bell",
+          "fpts": 66.15
+        },
+        {
+          "name": "Austin Cindric",
+          "fpts": 50.45
+        },
+        {
+          "name": "Ty Gibbs",
+          "fpts": 43.5
+        },
+        {
+          "name": "Carson Hocevar",
+          "fpts": 40.6
+        }
+      ],
+      "best_swap": {
+        "out": "Kyle Larson",
+        "in": "Corey Heim",
+        "gain": 95.7,
+        "would_have_won": false
+      },
+      "swaps_needed": 5
+    }
+  },
+  {
+    "timestamp": "2026-07-26 20:04",
+    "contest_type": "NASCAR",
+    "source_file": "contest-standings-192617095.csv",
+    "contest_id": "192617095",
+    "entries": 490,
+    "winning_score": 309.69998,
+    "cash_line_p80": 232.25000000000003,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nascar",
+    "sport": "nascar",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 39
+    },
+    "user_summary": {
+      "avg_own_mean": 34.93,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 125,
+      "best_percentile": 25.5
+    },
+    "user_lineups": [
+      {
+        "rank": 125,
+        "entry_name": "RyvlesGaming30",
+        "points": 223.0,
+        "percentile": 25.5,
+        "players": [
+          "Denny Hamlin",
+          "Christopher Bell",
+          "Austin Cindric",
+          "Erik Jones",
+          "Ryan Preece",
+          "John H. Nemechek"
+        ],
+        "avg_own": 34.93,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [
+      {
+        "name": "Corey Heim",
+        "salary": null,
+        "actual_fpts": 70.45,
+        "actual_own": 7.14,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Zane Smith",
+        "salary": null,
+        "actual_fpts": 43.45,
+        "actual_own": 17.55,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Chris Buescher",
+        "salary": null,
+        "actual_fpts": 36.9,
+        "actual_own": 15.1,
+        "top_lineup_pct": 35.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 31.97,
+      "low_own_count_mean": 0.75,
+      "salary_used_mean": null,
+      "dup_max": 2,
+      "unique_pct": 70.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "mikey9969",
+          "points": 309.69998,
+          "percentile": 0.2,
+          "players": [
+            "Joey Logano",
+            "Chris Buescher",
+            "Carson Hocevar",
+            "Corey Heim",
+            "Austin Cindric",
+            "Brad Keselowski"
+          ],
+          "avg_own": 17.52,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "trigger5",
+          "points": 297.8,
+          "percentile": 0.4,
+          "players": [
+            "Denny Hamlin",
+            "Christopher Bell",
+            "Carson Hocevar",
+            "Austin Cindric",
+            "Ryan Preece",
+            "Todd Gilliland"
+          ],
+          "avg_own": 41.22,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 2,
+          "entry_name": "Jflo_11",
+          "points": 297.8,
+          "percentile": 0.4,
+          "players": [
+            "Denny Hamlin",
+            "Christopher Bell",
+            "Carson Hocevar",
+            "Austin Cindric",
+            "Ryan Preece",
+            "Todd Gilliland"
+          ],
+          "avg_own": 41.22,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 4,
+          "entry_name": "Gassy999",
+          "points": 297.65,
+          "percentile": 0.8,
+          "players": [
+            "Denny Hamlin",
+            "Chase Briscoe",
+            "Corey Heim",
+            "Austin Cindric",
+            "Brad Keselowski",
+            "Todd Gilliland"
+          ],
+          "avg_own": 25.27,
+          "low_own_count": 2,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "colts2430",
+          "points": 294.10004,
+          "percentile": 1.0,
+          "players": [
+            "Denny Hamlin",
+            "Christopher Bell",
+            "Chris Buescher",
+            "Austin Cindric",
+            "Ryan Preece",
+            "Todd Gilliland"
+          ],
+          "avg_own": 40.27,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 5,
+          "entry_name": "Bongjovi",
+          "points": 294.10004,
+          "percentile": 1.0,
+          "players": [
+            "Denny Hamlin",
+            "Christopher Bell",
+            "Chris Buescher",
+            "Austin Cindric",
+            "Ryan Preece",
+            "Todd Gilliland"
+          ],
+          "avg_own": 40.27,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 7,
+          "entry_name": "Redzonexpress",
+          "points": 292.3,
+          "percentile": 1.4,
+          "players": [
+            "William Byron",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Corey Heim",
+            "Austin Cindric",
+            "Ryan Preece"
+          ],
+          "avg_own": 29.97,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "mjacobs8",
+          "points": 289.7,
+          "percentile": 1.6,
+          "players": [
+            "Denny Hamlin",
+            "William Byron",
+            "Carson Hocevar",
+            "Corey Heim",
+            "Ryan Preece",
+            "Zane Smith"
+          ],
+          "avg_own": 25.88,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "pauvlito73",
+          "points": 285.90002,
+          "percentile": 1.8,
+          "players": [
+            "Tyler Reddick",
+            "Chase Briscoe",
+            "Joey Logano",
+            "Carson Hocevar",
+            "Ryan Preece",
+            "Zane Smith"
+          ],
+          "avg_own": 19.46,
+          "low_own_count": 1,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "jasonwhittenton",
+          "points": 284.75,
+          "percentile": 2.0,
+          "players": [
+            "Christopher Bell",
+            "Ty Gibbs",
+            "Joey Logano",
+            "Chris Buescher",
+            "Corey Heim",
+            "Austin Dillon"
+          ],
+          "avg_own": 17.52,
+          "low_own_count": 3,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -2.96,
+        "low_own_count_delta": 0.75,
+        "salary_used_delta": null
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 490,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Christopher Bell",
+          "field_own": 51.2,
+          "actual_fpts": 66.2
+        },
+        {
+          "name": "Austin Cindric",
+          "field_own": 49.8,
+          "actual_fpts": 50.5
+        },
+        {
+          "name": "Ryan Preece",
+          "field_own": 48.2,
+          "actual_fpts": 62.2
+        },
+        {
+          "name": "Todd Gilliland",
+          "field_own": 47.1,
+          "actual_fpts": 30.4
+        },
+        {
+          "name": "Bubba Wallace",
+          "field_own": 45.3,
+          "actual_fpts": 16.4
+        },
+        {
+          "name": "Kyle Larson",
+          "field_own": 38.6,
+          "actual_fpts": -25.2
+        },
+        {
+          "name": "William Byron",
+          "field_own": 31.4,
+          "actual_fpts": 25.1
+        },
+        {
+          "name": "Denny Hamlin",
+          "field_own": 30.2,
+          "actual_fpts": 47.9
+        },
+        {
+          "name": "Chase Elliott",
+          "field_own": 27.6,
+          "actual_fpts": -6.0
+        },
+        {
+          "name": "Ty Gibbs",
+          "field_own": 22.4,
+          "actual_fpts": 43.5
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Austin Cindric",
+            "Ryan Preece"
+          ],
+          "field_pct": 30.7,
+          "count": 150
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Christopher Bell"
+          ],
+          "field_pct": 27.6,
+          "count": 135
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Ryan Preece"
+          ],
+          "field_pct": 27.6,
+          "count": 135
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Todd Gilliland"
+          ],
+          "field_pct": 27.2,
+          "count": 133
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Todd Gilliland"
+          ],
+          "field_pct": 27.2,
+          "count": 133
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Bubba Wallace"
+          ],
+          "field_pct": 26.6,
+          "count": 130
+        },
+        {
+          "players": [
+            "Bubba Wallace",
+            "Todd Gilliland"
+          ],
+          "field_pct": 26.4,
+          "count": 129
+        },
+        {
+          "players": [
+            "Bubba Wallace",
+            "Ryan Preece"
+          ],
+          "field_pct": 25.8,
+          "count": 126
+        },
+        {
+          "players": [
+            "Ryan Preece",
+            "Todd Gilliland"
+          ],
+          "field_pct": 24.9,
+          "count": 122
+        },
+        {
+          "players": [
+            "Bubba Wallace",
+            "Christopher Bell"
+          ],
+          "field_pct": 24.1,
+          "count": 118
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Austin Cindric",
+            "Bubba Wallace",
+            "Christopher Bell",
+            "Kyle Larson",
+            "Ryan Preece",
+            "Todd Gilliland"
+          ],
+          "count": 30,
+          "field_pct": 6.1
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Bubba Wallace",
+            "Chase Elliott",
+            "Denny Hamlin",
+            "Ryan Preece",
+            "Todd Gilliland"
+          ],
+          "count": 13,
+          "field_pct": 2.7
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Chase Elliott",
+            "Christopher Bell",
+            "Ryan Preece",
+            "Todd Gilliland",
+            "William Byron"
+          ],
+          "count": 8,
+          "field_pct": 1.6
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Bubba Wallace",
+            "Christopher Bell",
+            "Ryan Preece",
+            "Todd Gilliland",
+            "William Byron"
+          ],
+          "count": 5,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Austin Cindric",
+            "Bubba Wallace",
+            "Chase Elliott",
+            "Christopher Bell",
+            "Ryan Preece",
+            "Todd Gilliland"
+          ],
+          "count": 5,
+          "field_pct": 1.0
+        }
+      ],
+      "winners_profile": {
+        "n": 5,
+        "avg_own_per_slot": 33.1,
+        "dart_pct": 0.0,
+        "unique_pct": 80.0
+      },
+      "fish_profile": {
+        "n": 244,
+        "avg_own_per_slot": 28.0,
+        "dart_pct": 38.1,
+        "unique_pct": 91.0
+      },
+      "fish_traps": [
+        {
+          "name": "Kyle Larson",
+          "fish_pct": 57.8,
+          "winner_pct": 0.0,
+          "gap": 57.8,
+          "actual_fpts": -25.2
+        },
+        {
+          "name": "Bubba Wallace",
+          "fish_pct": 42.2,
+          "winner_pct": 0.0,
+          "gap": 42.2,
+          "actual_fpts": 16.4
+        },
+        {
+          "name": "Chase Elliott",
+          "fish_pct": 32.0,
+          "winner_pct": 0.0,
+          "gap": 32.0,
+          "actual_fpts": -6.0
+        },
+        {
+          "name": "William Byron",
+          "fish_pct": 30.7,
+          "winner_pct": 0.0,
+          "gap": 30.7,
+          "actual_fpts": 25.1
+        },
+        {
+          "name": "Ty Gibbs",
+          "fish_pct": 25.8,
+          "winner_pct": 0.0,
+          "gap": 25.8,
+          "actual_fpts": 43.5
+        },
+        {
+          "name": "Erik Jones",
+          "fish_pct": 25.0,
+          "winner_pct": 0.0,
+          "gap": 25.0,
+          "actual_fpts": 2.0
+        },
+        {
+          "name": "Ross Chastain",
+          "fish_pct": 23.0,
+          "winner_pct": 0.0,
+          "gap": 23.0,
+          "actual_fpts": 19.7
+        },
+        {
+          "name": "John H. Nemechek",
+          "fish_pct": 19.3,
+          "winner_pct": 0.0,
+          "gap": 19.3,
+          "actual_fpts": -5.8
+        },
+        {
+          "name": "Zane Smith",
+          "fish_pct": 16.4,
+          "winner_pct": 0.0,
+          "gap": 16.4,
+          "actual_fpts": 43.5
+        },
+        {
+          "name": "Tyler Reddick",
+          "fish_pct": 14.8,
+          "winner_pct": 0.0,
+          "gap": 14.8,
+          "actual_fpts": 29.5
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "mikey9969",
+          "best_rank": 1,
+          "percentile": 0.2
+        },
+        {
+          "handle": "trigger5",
+          "best_rank": 2,
+          "percentile": 0.4
+        },
+        {
+          "handle": "Jflo_11",
+          "best_rank": 2,
+          "percentile": 0.4
+        },
+        {
+          "handle": "Gassy999",
+          "best_rank": 4,
+          "percentile": 0.8
+        },
+        {
+          "handle": "colts2430",
+          "best_rank": 5,
+          "percentile": 1.0
+        },
+        {
+          "handle": "Bongjovi",
+          "best_rank": 5,
+          "percentile": 1.0
+        },
+        {
+          "handle": "Redzonexpress",
+          "best_rank": 7,
+          "percentile": 1.4
+        },
+        {
+          "handle": "mjacobs8",
+          "best_rank": 8,
+          "percentile": 1.6
+        },
+        {
+          "handle": "pauvlito73",
+          "best_rank": 9,
+          "percentile": 1.8
+        },
+        {
+          "handle": "jasonwhittenton",
+          "best_rank": 10,
+          "percentile": 2.0
+        },
+        {
+          "handle": "nirelleo19",
+          "best_rank": 11,
+          "percentile": 2.2
+        },
+        {
+          "handle": "edd0h",
+          "best_rank": 12,
+          "percentile": 2.4
+        },
+        {
+          "handle": "mxrucker",
+          "best_rank": 13,
+          "percentile": 2.7
+        },
+        {
+          "handle": "jparsons2",
+          "best_rank": 13,
+          "percentile": 2.7
+        },
+        {
+          "handle": "csurunnerccr",
+          "best_rank": 15,
+          "percentile": 3.1
+        }
+      ],
+      "read": [
+        "Field crowded **Christopher Bell** at 51.2% (66.2 fpts) \u2014 the chalk to consider fading.",
+        "**Austin Cindric + Ryan Preece** were together in 30.7% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Kyle Larson** was a fish trap: 57.8% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 309.69998,
+      "winner_handle": "mikey9969",
+      "roster": [
+        {
+          "name": "Joey Logano",
+          "own": 6.53,
+          "fpts": 61.5
+        },
+        {
+          "name": "Chris Buescher",
+          "own": 15.1,
+          "fpts": 36.9
+        },
+        {
+          "name": "Carson Hocevar",
+          "own": 20.82,
+          "fpts": 40.6
+        },
+        {
+          "name": "Corey Heim",
+          "own": 7.14,
+          "fpts": 70.45
+        },
+        {
+          "name": "Austin Cindric",
+          "own": 49.8,
+          "fpts": 50.45
+        },
+        {
+          "name": "Brad Keselowski",
+          "own": 5.71,
+          "fpts": 49.8
+        }
+      ],
+      "avg_own": 17.5,
+      "n_low_own": 3,
+      "carrier": {
+        "name": "Corey Heim",
+        "own": 7.14,
+        "fpts": 70.45
+      },
+      "expected_dupes": 0.0
+    },
+    "near_miss": {
+      "gradable": true,
+      "won": false,
+      "your_points": 223.0,
+      "winner_points": 309.69998,
+      "gap": 86.7,
+      "your_percentile": 25.5,
+      "n_shared": 1,
+      "shared": [
+        "Austin Cindric"
+      ],
+      "your_uniques": [
+        {
+          "name": "Christopher Bell",
+          "fpts": 66.15
+        },
+        {
+          "name": "Ryan Preece",
+          "fpts": 62.25
+        },
+        {
+          "name": "Denny Hamlin",
+          "fpts": 47.9
+        },
+        {
+          "name": "Erik Jones",
+          "fpts": 2.0
+        },
+        {
+          "name": "John H. Nemechek",
+          "fpts": -5.75
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Corey Heim",
+          "fpts": 70.45
+        },
+        {
+          "name": "Joey Logano",
+          "fpts": 61.5
+        },
+        {
+          "name": "Brad Keselowski",
+          "fpts": 49.8
+        },
+        {
+          "name": "Carson Hocevar",
+          "fpts": 40.6
+        },
+        {
+          "name": "Chris Buescher",
+          "fpts": 36.9
+        }
+      ],
+      "best_swap": {
+        "out": "John H. Nemechek",
+        "in": "Corey Heim",
+        "gain": 76.2,
+        "would_have_won": false
+      },
+      "swaps_needed": 2
+    }
+  }
+]
