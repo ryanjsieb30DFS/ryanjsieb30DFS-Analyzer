@@ -101,11 +101,12 @@ lessons:
       (Suarez flagged as a hole pre-slate, not fixed, scored 35.35). If a gap is
       identified, address it in at least one lineup even if construction is
       awkward.
-    status: validated
+    status: codified
     confirmations:
       - {date: "2026-07-21", slate: "North Wilkesboro (7/19/26)", history_dir: "rules/nascar/history/2026-07-21__nascar-north-wilkesboro-7-19-26", note: "First mechanism confirmation, and it's the whole slate story: the strategy DIAGNOSED the gap in writing ('your leverage capture went 0% and 50% the last two slates, and the definers list above is the screen that fixes it') and named 12 sub-10% candidates — then 0 of 12 reached an entered lineup. Three of the diagnosed plays defined the slate (SVG 61.0 @ 9.5%, Suarez 45.05 @ 5.6%, Gilliland 46.9 @ 5.1%) and the $15K winner carried three sub-10% pieces. Already-diagnosed, unaddressed, edge forfeited for free — the mechanism verbatim. Promoted to validated; the mechanical fix is the new [[nascar-2026-07-21-definer-screen-must-reach-entries]]."}
+      - {date: "2026-07-26", slate: "Brickyard 400, Indianapolis", history_dir: "rules/nascar/history/2026-07-26__brickyard-400-at-indianapolis-motor-speedway-7-26-26", note: "Second mechanism confirmation — and the diagnosis was even louder this time. The strategy named the gap in its own text ('your last slate's definer list produced twelve names and zero of them reached an entered lineup') and put it in the pre-lock check ('Does it carry at least one driver owned under 10%?') — then AGAIN 0 of 12 named definers reached an entered lineup and both entries locked with zero sub-10% pieces. Two diagnosed plays decided the slate: Heim (70.45 @ 7.5%, in the WINNING lineup of both contests) and Keselowski (49.8 @ 5.7%, in the $5K winner). Diagnosed, unaddressed, forfeited for free. Origin Texas + North Wilkesboro + Indy = 3 confirming slates -> promoted to codified 2026-07-26 (user-approved)."}
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Quick-Reference Decision Heuristics (diagnosed gap must reach a roster); philosophy.md — On Process Discipline (Diagnosis is not execution)"
     retired_reason: null
 
   - id: nascar-2026-05-01-ownership-shift-full-reevaluation
@@ -116,11 +117,11 @@ lessons:
       math of every fade and overweight justified against it, so it should
       trigger full re-evaluation of the chalk structure, not be treated as
       confirmation of the existing plan.
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: "merged into nascar-2026-07-21-se-actual-own-concentrates-on-consensus"
 
   - id: nascar-2026-05-01-bet-sizing-reflects-inverse
     born: "2026-05-01"   # Texas slate; only "May 2026" known
@@ -293,14 +294,22 @@ lessons:
     born: "2026-05-17"
     origin: "philosophy.md — On Reading the Source Material (Dover All-Star lesson)"
     statement: >
-      "MME or fade" in Dustin's Deep Dive is a deliberate marker for drivers
-      with win equity but bad expected value: in MME the portfolio's variance
-      absorbs them across 1-2 lineups, but a single-entry lineup that must win
-      1-of-N cannot — so "MME or fade" means fade in single entry, full stop.
+      NARROWED 2026-07-26 after 2 SE mechanism contradictions (NW 7/21, Indy
+      7/26). "MME or fade" in Dustin's Deep Dive (and cousins:
+      "large-field-only," "random contrarian") is a deliberate marker for a
+      low-floor/live-ceiling EV shape — NOT SE-unplayability. In a top-heavy SE
+      payout, ONE such driver from a paying start band is a legitimate
+      candidate for the entry's single sub-10% definer slot (NW:
+      Suarez/Hocevar in the $15K winner; Indy: Heim in both winners, Logano in
+      the $5K winner). Carrying two or more of them in one SE bullet remains
+      an MME-only shape, and in flat/cash-adjacent payouts the original Dover
+      fade holds. The tag-reading half stands: the phrase is still a real
+      marker of bad expected value — it prices the floor, not the ceiling.
     status: codified
     confirmations: []
     contradictions:
       - {date: "2026-07-21", slate: "North Wilkesboro (7/19/26)", history_dir: "rules/nascar/history/2026-07-21__nascar-north-wilkesboro-7-19-26", note: "FIRST MECHANISM CONTRADICTION in SE. The codified read tagged SVG/Suarez/Hocevar/Chastain 'MME or fade' -> SE fade, and the $15K SE WINNER (shark4thewin, 451.95, 1470 field) rostered Suarez (45.05 @ 5.6%) AND Hocevar (26.4 @ 8.6%), while SVG (61.0 @ 9.5%) was the slate's top leverage score and sat in the #2 lineup. Pool calibration buried all of them in the Fade tier (5 Fade-tier players out-scored the Core tier's average). Mechanism read: at a high-variance 450-lap short track, 'MME or fade' may mean 'low floor, live ceiling' — and an SE bullet in a top-heavy payout needs exactly that ceiling. 1 contradiction; codified rule stays (needs 2), but watch the next short-track/chaos slate."}
+      - {date: "2026-07-26", slate: "Brickyard 400, Indianapolis", history_dir: "rules/nascar/history/2026-07-26__brickyard-400-at-indianapolis-motor-speedway-7-26-26", note: "SECOND MECHANISM CONTRADICTION in SE, on a track-position flat track (not a chaos short track — the scope caveat from NW no longer saves the rule). Dustin tagged Corey Heim a 'large-field-only play with a capped ceiling' — the same marker class — and the board tiered him Fade. Heim scored 70.45 (slate high) at 7.5%/7.1% own and was the definer in the WINNING lineup of BOTH SE contests, in 65% of the $15K top-20. Logano ('a random contrarian tournament play who needs a wild race', also Fade-tiered) anchored the $5K winner at 6.5% own with 61.5. Mechanism read confirmed across two different track types: the tag marks LOW FLOOR / LIVE CEILING (an EV shape), not SE-unplayability — and in a top-heavy SE payout that ceiling profile is exactly the single sub-10% definer the winning shape requires. 2 mechanism contradictions -> demotion (narrow-scope) proposal in autopsy_review Proposed codifications."}
     codified_in: "philosophy.md — On Reading the Source Material; framework.md — Step 6 check #6 + Quick-Reference Decision Heuristics"
     retired_reason: null
 
@@ -417,11 +426,11 @@ lessons:
       Exposure-tab lift score (>1.5 on chalk-tier players) and the
       Chalky-Combos-to-Avoid list as primary selectors; Sim ROI is an
       informational input only.
-    status: codified
+    status: retired
     confirmations: []
     contradictions: []
-    codified_in: "framework.md — Step 6 mandatory check #11; philosophy.md — On Process Discipline (Sim ROI is informational, not a selection ranker)"
-    retired_reason: null
+    codified_in: "WAS codified in framework.md — Step 6 mandatory check #11 + philosophy.md — On Process Discipline (Sim ROI is informational, not a selection ranker); both removed 2026-07-26 at retirement"
+    retired_reason: "references the removed SaberSim Sim-ROI/Exposure pipeline (retired 2026-07-24); mechanism can no longer fire"
 
   - id: nascar-2026-05-24-chalky-combos-scrub
     born: "2026-05-24"
@@ -705,8 +714,9 @@ lessons:
       and operationalizes [[nascar-2026-05-01-portfolio-gaps-addressed-pre-lock]];
       tension with [[nascar-2026-05-17-mme-or-fade-means-fade-in-se]] noted (the
       NW definers that paid carried the 'MME or fade' tag).
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - {date: "2026-07-26", slate: "Brickyard 400, Indianapolis", history_dir: "rules/nascar/history/2026-07-26__brickyard-400-at-indianapolis-motor-speedway-7-26-26", note: "First mechanism confirmation — fourth slate of the hand-off pattern (0%, 50%, 0/12, now 0/12 again). The Indy screen named 12 sub-10% definers including Heim (9% proj) and Keselowski (8% proj); the winning lineup of BOTH contests carried a screen name (Heim 70.45 in both winners; Keselowski 49.8 also in the $5K winner, which held THREE sub-10% pieces), while both entered lineups locked with ZERO sub-10% pieces (low_own_count 0; leverage capture 0/12 for the second straight slate). The screen produces the definers; the hand-off transfers none of the equity — mechanism verbatim. Promoted to validated."}
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -728,8 +738,79 @@ lessons:
       projected ownership on the top-projected anchor and the cheapest
       article-endorsed value as a FLOOR, not an estimate, and expect the
       equivalence pair to resolve asymmetrically at lock. Complements
-      [[nascar-2026-05-24-anchor-equivalence]] and
-      [[nascar-2026-05-01-ownership-shift-full-reevaluation]].
+      [[nascar-2026-05-24-anchor-equivalence]]; absorbs the merged
+      [[nascar-2026-05-01-ownership-shift-full-reevaluation]] (retired
+      2026-07-26). A major vendor-ownership shift BEFORE lock (e.g. Blaney
+      54->39 at Texas) is the same mechanism upstream — it re-prices every
+      fade and overweight justified against the old number and triggers a
+      full re-evaluation of the chalk structure (the drift panel is the
+      surface), never confirmation of the existing plan.
+    status: validated
+    confirmations:
+      - {date: "2026-07-26", slate: "Brickyard 400, Indianapolis", history_dir: "rules/nascar/history/2026-07-26__brickyard-400-at-indianapolis-motor-speedway-7-26-26", note: "First mechanism confirmation (DailyFan projected -> actual lock, $15K/$5K). Consensus side jammed: Bell 38% -> 50.2/51.2, Cindric 40% -> 46.8/49.8, Larson 27% -> 37.5/38.6, and the loudest cheap value Gilliland 15% -> 45.1/47.1 (+30pts, the biggest jam on the board). Co-anchors DEFLATED: Elliott 36% -> 25.9/27.6, Byron 35% -> 32.5/31.4, Hamlin 34% -> 29.7/30.2. The projected Bell/Elliott/Byron near-tie (38/36/35) resolved to a 50/26/32 landslide at lock — the asymmetric resolution the mechanism predicts, in a different SE field size. The strategy applied the lesson correctly pre-lock ('treat Preece's 44% and Bell's 38% as floors, not estimates') and lock own proved it. Promoted to validated."}
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---------------------------------------------------------------
+  # Brickyard 400, Indianapolis — 2026-07-26 (Slate #9 autopsy)
+  # ---------------------------------------------------------------
+
+  - id: nascar-2026-07-26-anchors-held-differentiate-in-sixth-slot
+    born: "2026-07-26"
+    origin: "rules/nascar/history/2026-07-26__brickyard-400-at-indianapolis-motor-speedway-7-26-26 (shark_gap.json + winner_story)"
+    statement: >
+      RECURRING SHARK-GAP AXIS, chalk side: the pros and the winners in my SE
+      fields keep ALL the consensus chalk anchors and spend their entire
+      differentiation budget on the single sub-10% slot; my recurring leak is
+      the inverse — dropping correct anchors and spending the freed slots on
+      mid-owned (15-40%) pivots, which is the FISH shape. The chalk-side
+      shark-gap axis has now led 3 of the last 4 slates (own_per_slot -15.7
+      Atlanta 7/14; own_per_slot -11.4 AND anchor_exposure -0.667 Indy 7/26;
+      leverage_pct -16.7 Chicagoland 7/12; only NW 7/21 was flat at -0.1).
+      Indy: the in-field sharks ran 43.2% own/slot with 100% exposure to all
+      three chalk anchors (Bell/Preece/Cindric) vs my 31.8% and 0.33; the $15K
+      winner carried all three anchors plus Heim (7.5%), while my entry kept
+      only Preece and spent the difference on Larson (37.5% own, -25.2),
+      Chastain (20.2%, 19.7) and Nemechek (19.7%, -5.8) — and the field's fish
+      profile ran 26.6%/slot vs the winners' 31.1%. Mechanism: dropping a
+      consensus anchor is an implicit high-magnitude fade the strategy never
+      argued for, and the 15-40% ownership band buys NEITHER separation (too
+      owned to be unique) NOR floor (not the anchors) — mid-owned mush is
+      structurally dominated by chalk-plus-one-definer. Pre-lock: any entry
+      that omits a consensus anchor must state the fade case for THAT driver
+      explicitly; differentiation defaults to the sub-10% slot, not the anchor
+      slots. Complements [[nascar-2026-05-01-sound-chalk-toward-field-rate]]
+      and [[nascar-2026-05-24-anchor-equivalence]]; the leverage-slot half is
+      [[nascar-2026-07-21-definer-screen-must-reach-entries]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nascar-2026-07-26-fade-tier-buries-ceiling-tagged-definers
+    born: "2026-07-26"
+    origin: "rules/nascar/history/2026-07-26__brickyard-400-at-indianapolis-motor-speedway-7-26-26 (pool_calibration.json)"
+    statement: >
+      The player-pool board inherits the articles' FLOOR language
+      ('large-field-only', 'random contrarian play', 'MME or fade') as tier
+      assignments, so the highest-ceiling low-owned plays land in the Fade
+      tier — and in a top-heavy SE payout the ceiling tail is the whole
+      payoff, so the board's ordering fails at exactly the tail that decides
+      contests. Two-slate pattern: NW 7/21 (5 Fade-tier players out-scored the
+      Core tier average) and Indy 7/26 (Fade tier averaged 27.2 vs Good 25.0 /
+      Okay 21.1; the two leakage names were Heim, Fade, 70.5 — the slate high,
+      in both contest winners at 7% own — and Logano, Fade, 61.5, the $5K
+      winner's anchor at 6.5%). Both were on the strategy's own sub-10%
+      definer screen or Okay list in the TEXT while the board tiered them
+      Fade. Mechanism: floor-language is an expected-value read, and tiering
+      by it systematically ranks SE-definer ceiling profiles below their GPP
+      value; the Fade tier should be reserved for negative-leverage chalk and
+      true no-path cars, with ceiling-tagged sub-10% plays held in Okay
+      `· Leverage` instead. Links
+      [[nascar-2026-05-17-mme-or-fade-means-fade-in-se]] and
+      [[nascar-2026-07-21-definer-screen-must-reach-entries]].
     status: hypothesis
     confirmations: []
     contradictions: []

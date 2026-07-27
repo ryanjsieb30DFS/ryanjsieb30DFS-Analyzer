@@ -157,7 +157,7 @@ Ask before locking:
 3. **Are any of my lineups built on a single load-bearing leverage play?**
 4. **Have I covered the deep-PD chalk in at least one lineup?**
 5. **Is my Tier 1 dominator coverage diversified across at least 2 drivers in the portfolio?**
-6. **For single entry: are any "MME or fade" drivers in the lineup?** (If yes, swap.)
+6. **For single entry: "MME or fade" (and cousins: "large-field-only," "random contrarian") marks a low-floor/live-ceiling EV shape — not SE-unplayable.** In a top-heavy SE payout, ONE such driver from a paying start band is a legitimate candidate for the entry's single sub-10% definer slot (NW: Suarez/Hocevar in the $15K winner; Indy: Heim in both winners, Logano in the $5K winner). Carrying two or more of them in one SE bullet remains an MME-only shape, and in flat/cash-adjacent payouts the original fade holds.
 7. **For format-driven slates: how many must-advance drivers per lineup, and is that acceptable per contest type?**
 
 ### Mandatory enforced checks (added post-Charlotte 600 — 4-slate Anchor-Equivalence confirmation)
@@ -165,9 +165,7 @@ Ask before locking:
 8. **Anchor-Equivalence:** For every chalk-tier (≥20% projected own) dominator candidate, identify the equivalent-profile alternative (within ±10% own, similar salary tier). **At least one lineup MUST run the alternative.** No exceptions — this has cost 4 consecutive slates across 2 sports — run the equivalent alternative in ≥1 lineup as *coverage*; do not hedge the dom coin flip to parity. Keep the modal dominator as anchor; size the alternative for leverage (1-2 lineups).
 9. **Sleeper-spike floor:** At least 2 of N lineups MUST contain a sub-15% own / sub-$6K driver projected for ≥15 SP (place differential). Charlotte 600 had 10 such plays score 23+ FPTS; zero coverage was a structural floor violation.
 10. **Chalky-Combos-to-Avoid scrub:** Open the Lineups tab → Sim-Rank Exposure section → Chalky-Combos-to-Avoid expander. Any 2-player combo appearing in **2+ of your selected lineups** must be dropped from at least one of them. The Hocevar+Chastain combo at Charlotte ran in 3 of 5 entered lineups; both were 0/50 in winners.
-11. **Sim ROI rank is informational, not a selector:** Verify lineup picks have lift > 1.5 on chalk-tier players (Exposure-tab lift column). If selecting by Sim ROI rank alone, you are using a metric that was Spearman −0.054 vs actual on Charlotte. Use lift + chalky-combos as primary selectors.
-
-If any check 8-11 fails, **swap the offending lineup before locking** — these are no longer optional.
+If any check 8-10 fails, **swap the offending lineup before locking** — these are no longer optional.
 
 ## Step 7: Post-Slate Autopsy
 
@@ -194,9 +192,11 @@ This is non-optional. The compounding edge comes from the autopsy database.
 - **Toyota road course double-up → use Reddick/Briscoe over Bell** (Glen lesson: Reddick 50.8, Briscoe 45.45, Gibbs 54.05 hit; Bell 8.00 busted)
 - **Optimizer builds → unlimited, but each must solve a diagnosed structural problem** (Dover lesson). Use boost/dock at ±1 first before ±5.
 - **Same thesis behind 3+ overweights → that is 1 bet, not 3** (Glen lesson — correlated leverage stacks)
-- **"MME or fade" in Dustin = fade in single entry** (Dover lesson — Ty Dillon swap)
+- **"MME or fade" (and cousins: "large-field-only," "random contrarian") marks a low-floor/live-ceiling EV shape — not SE-unplayable.** In a top-heavy SE payout, ONE such driver from a paying start band is a legitimate candidate for the entry's single sub-10% definer slot (NW: Suarez/Hocevar in the $15K winner; Indy: Heim in both winners, Logano in the $5K winner). Carrying two or more of them in one SE bullet remains an MME-only shape, and in flat/cash-adjacent payouts the original fade holds. (Narrowed 2026-07-26 after 2 SE mechanism contradictions; original Dover lesson — Ty Dillon swap)
 - **Autopsy patterns require mechanism check before re-application** (Dover lesson — Texas pattern didn't transfer to concrete)
 - **Format-driven slates (All-Star, eliminations, inversions) break normal scoring assumptions** — Step 1 track profile must explicitly map format overlays before tiering
 - **Two same-thesis PD plays → independent shots, roster both** (Texas/Pocono/Sonoma: paired deep/mid PD plays hit together; one does not cover the other). *Distinct from the correlated-leverage rule, which is about 3+ overweights on ONE outcome — here the plays resolve on independent point distributions.*
 
 > **Mid-pack PD is the leverage meat (5-slate rule, all track types tested: intermediate, road, superspeedway, short flat).** Source place-differential from 11th–30th starters with a reachable floor path; do not fade a high-floor mid-pack car on track-fit narrative when its start sits in the venue's optimal band. This says nothing about fading deep-back chalk — deep-back is live alongside mid-pack (see road-course caution-revival lesson), it is just not where the reliable PD meat is.
+
+> **A diagnosed gap must reach a roster before lock (3-slate rule).** An identified portfolio gap is already-diagnosed edge the field may not have priced; a diagnosis that lives only in the strategy doc transfers zero equity (Texas: Suarez flagged, unfixed, 35.35; NW: 12 definers named, 0 entered, three defined the slate; Indy: 12 named, 0 entered, Heim 70.45 in both contest winners). Before lock, every gap the doc names gets addressed in at least one entry — the operational gate is the SE definer-slot check ([[nascar-2026-07-21-definer-screen-must-reach-entries]]): each SE bullet carries one piece from the sub-10% definer list, verified in the Grade tab.
