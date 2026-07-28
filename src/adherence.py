@@ -3,7 +3,7 @@
 The accuracy layer grades whether the slate's edges were CORRECT. This grades
 something different: whether the lineups you actually entered honored the calls
 your own strategy made (`data/strategy_contract/<slug>.json` — the machine-readable
-sidecar of the `## Leverage & fades` section). A strategy that said FADE X while
+sidecar of the `## Fades` / `## Leverage` sections). A strategy that said FADE X while
 you rostered X in 4 of 5 bullets is a discipline leak no amount of better analysis
 fixes — and until now nothing measured it.
 

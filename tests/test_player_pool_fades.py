@@ -87,3 +87,40 @@ def test_build_pool_drops_winprob_for_non_mma():
     pool = build_pool({"g.csv": {"vendor": "ETR PGA", "df": df}})
     assert "win_prob" not in pool.columns     # golf: no win prob column
     assert pool.iloc[0]["ceiling"] == 95.0
+
+
+# ---- Split format (7/27/26): '## Leverage' and '## Fades' are separate ----
+
+_SPLIT_MD = """# Strategy
+## Leverage
+This section names the low-owned players who could decide the slate.
+- **Corey Heim** (7% owned) — his best realistic day is about 70 points.
+
+## Fades
+This section names the popular players whose price looks too high.
+- **Valter Walker** ($8,800, 34%) — **FADE.** Needs a finish to score at all.
+- **Sam Patterson** ($9,400, 32%) — **LEAN FADE.** Ceiling capped past round one.
+- **Muhammad Saidov** — plain bolded name, no verdict token here.
+
+## Key themes
+- **Bogus Bold** should not be swept — different section.
+"""
+
+
+def test_split_format_extract_fades_zeroes_only_the_fades_section():
+    fades = extract_fades(_SPLIT_MD)
+    # Hard FADE zeroed; the dedicated section makes a verdict-less bolded
+    # name unambiguous fade-context; LEAN FADE is under-own, never a zero.
+    assert "Valter Walker" in fades
+    assert "Muhammad Saidov" in fades
+    assert "Sam Patterson" not in fades
+    # Names outside '## Fades' are never swept.
+    assert "Corey Heim" not in fades and "Bogus Bold" not in fades
+
+
+def test_split_format_parse_calls_reads_both_sections():
+    calls = {c["name"]: c["verdict"] for c in parse_calls(_SPLIT_MD)}
+    assert calls.get("Valter Walker") == "fade"
+    assert calls.get("Sam Patterson") == "lean_fade"
+    # No verdict token -> no call (Saidov, Heim).
+    assert "Muhammad Saidov" not in calls and "Corey Heim" not in calls

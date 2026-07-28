@@ -4,7 +4,7 @@ the bottom) so the board is the complete field.
 
 Lives in the Slate Strategy tab. The fighter/player universe + salary/own/proj
 come from the uploaded vendor projections; the fades are read straight out of the
-generated slate strategy's "## Leverage & fades" -> Fades subsection (the strategy
+generated slate strategy's "## Fades" section (legacy: "## Leverage & fades" -> Fades subsection; the strategy
 being the app's distillation of the uploaded documents + projections). This is a
 display helper for the pool membership; the ranking/write-ups are Claude-generated.
 """
@@ -153,7 +153,7 @@ def _leading_name(raw: str) -> str:
     return s.strip(" :—-.").strip()
 
 
-# Verdict tokens for per-player calls in the Leverage & fades section. Order
+# Verdict tokens for per-player calls in the Fades/Leverage sections. Order
 # matters: longer/more-specific first so "LEAN FADE" isn't read as "FADE" and
 # "PASS/MIX" isn't read as "PASS".
 _VERDICT_TOKENS = [
@@ -183,16 +183,31 @@ def _verdict_for(bold_text: str, after_bold: str) -> str | None:
     return None
 
 
-def parse_calls(strategy_md: str) -> list[dict]:
-    """Per-player calls from the '## Leverage & fades' section: one
-    {name, verdict} per bolded bullet line with a recognizable verdict."""
+def _calls_sections(strategy_md: str) -> str:
+    """The text of every section that can carry per-player calls, concatenated.
+
+    Formats: the split '## Leverage' + '## Fades' sections (7/27/26 — the user
+    asked for leverage and fades as separate sections), and the legacy combined
+    '## Leverage & fades'. Word-boundary guards keep '## Fades' from matching
+    inside an unrelated longer heading."""
     if not strategy_md:
-        return []
-    sec = re.search(r"##\s*Leverage\s*&\s*fades(.*?)(?:\n##\s|\Z)", strategy_md, re.S | re.I)
-    if not sec:
+        return ""
+    parts = re.findall(
+        r"##\s*(?:Leverage\s*&\s*fades|Fades|Leverage)\s*\n(.*?)(?=\n##\s|\Z)",
+        strategy_md, re.S | re.I)
+    return "\n".join(parts)
+
+
+def parse_calls(strategy_md: str) -> list[dict]:
+    """Per-player calls from the fades/leverage section(s): one
+    {name, verdict} per bolded bullet line with a recognizable verdict.
+    Reads the split '## Fades' + '## Leverage' sections and the legacy
+    combined '## Leverage & fades'."""
+    body = _calls_sections(strategy_md)
+    if not body:
         return []
     calls = []
-    for line in sec.group(1).splitlines():
+    for line in body.splitlines():
         m = re.search(r"\*\*(.+?)\*\*", line)
         if not m:
             continue
@@ -212,7 +227,7 @@ def parse_calls(strategy_md: str) -> list[dict]:
 
 
 def extract_fades(strategy_md: str) -> list[str]:
-    """Names the strategy actually ZEROES, from '## Leverage & fades'.
+    """Names the strategy actually ZEROES, from '## Fades' (legacy: '## Leverage & fades').
 
     Verdict-aware: a bolded bullet is a fade only when its line carries a hard
     FADE verdict — PLAY / PASS / PASS-MIX / UNDERWEIGHT / LEAN FADE calls are
@@ -228,12 +243,20 @@ def extract_fades(strategy_md: str) -> list[str]:
     """
     if not strategy_md:
         return []
-    sec = re.search(r"##\s*Leverage\s*&\s*fades(.*?)(?:\n##\s|\Z)", strategy_md, re.S | re.I)
-    if not sec:
-        return []
-    section = sec.group(1)
-    head = re.search(r"\*\*Fades[^*]*\*\*", section, re.I)
-    block = section[head.end():] if head else section
+    # New split format first: a dedicated '## Fades' section is unambiguous —
+    # every bolded name in it is fade-context (verdict-aware rules still apply
+    # below: LEAN FADE / UNDERWEIGHT never zero anyone).
+    ded = re.search(r"##\s*Fades\s*\n(.*?)(?=\n##\s|\Z)", strategy_md, re.S | re.I)
+    if ded:
+        block, head = ded.group(1), ded  # head non-None = unambiguous context
+    else:
+        sec = re.search(r"##\s*Leverage\s*&\s*fades(.*?)(?:\n##\s|\Z)",
+                        strategy_md, re.S | re.I)
+        if not sec:
+            return []
+        section = sec.group(1)
+        head = re.search(r"\*\*Fades[^*]*\*\*", section, re.I)
+        block = section[head.end():] if head else section
     names = []
     for line in block.splitlines():
         m = re.search(r"\*\*(.+?)\*\*", line)

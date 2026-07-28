@@ -2,7 +2,7 @@
 
 When a slate strategy is generated, emit a machine-readable sidecar at
 `data/strategy_contract/<slug>.json` with the strategy's per-player CALLS from
-the `## Leverage & fades` section — each bolded bullet's name + verdict
+the `## Fades` + `## Leverage` sections (legacy: combined `## Leverage & fades`) — each bolded bullet's name + verdict
 (play / pass / pass_mix / underweight / lean_fade / fade) — plus the leverage
 candidates the strategy was required to address.
 

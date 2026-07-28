@@ -170,7 +170,7 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
         if not cands.empty:
             L += ["", "## Leverage candidates to address (sub-10% own, high ceiling)"]
             L.append(
-                "COVERAGE RULE: the slate strategy's `## Leverage & fades` or `## Edges & tensions` "
+                "COVERAGE RULE: the slate strategy's `## Leverage` or `## Edges & tensions` "
                 "AND the player pool must ADDRESS **each** player below with a one-line synthesis "
                 "of their leverage/ceiling case (surface it — no play/fade command required). Never "
                 "silently omit one — a sub-10% high-ceiling play left unaddressed is a coverage leak "
