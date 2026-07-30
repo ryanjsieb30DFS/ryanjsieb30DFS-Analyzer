@@ -868,6 +868,13 @@ with tab_grade:
             _gpf = grader.grade_portfolio(_ggrades)
             with st.container(border=True):
                 st.markdown(_md_safe(grader.grade_md(_ggrades, _gpf, _gcal)))
+            # The leverage read — exposure vs field ownership per player. Every
+            # commercial sim makes this the sharp's final pre-lock pass; here it
+            # rides the grade so pasted AND Sim-pushed entries both get it.
+            _lev_md = grader.leverage_md(_glus)
+            if _lev_md:
+                with st.expander("🎚 Your exposure vs the field (leverage read)"):
+                    st.markdown(_md_safe(_lev_md))
             # The Sim's own numbers for the loaded entries, beside the
             # deterministic checks — two views of the same portfolio.
             if _sim_entries:

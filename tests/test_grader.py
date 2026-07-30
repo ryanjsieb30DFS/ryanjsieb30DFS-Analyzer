@@ -173,3 +173,15 @@ if __name__ == "__main__":
         fn()
         print(f"ok  {fn.__name__}")
     print(f"\n{len(fns)} passed")
+
+
+def test_leverage_md_reads_exposure_vs_field():
+    """The leverage read: my entry-set exposure vs projected field ownership."""
+    from src.grader import leverage_md
+    lus = [{"players": [{"name": "A", "own": 30.0}, {"name": "B", "own": 8.0}]},
+           {"players": [{"name": "A", "own": 30.0}, {"name": "C", "own": None}]}]
+    md = leverage_md(lus)
+    assert "| A | 100% | 30.0% | +70.0% |" in md
+    assert "| B | 50% | 8.0% | +42.0% |" in md
+    assert "| C | 50% | — | — |" in md      # missing ownership never fabricated
+    assert leverage_md([]) is None

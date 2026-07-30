@@ -436,3 +436,37 @@ def clear_draft(slug: str) -> None:
         (_DRAFT_DIR / f"{slug}.txt").unlink(missing_ok=True)
     except OSError:
         pass
+
+
+def leverage_md(lineups: list[dict]) -> str | None:
+    """The sharp's final pre-lock review, per player: how much of YOUR entry
+    set holds him vs how much of the field will (projected ownership), and the
+    gap (leverage). Display-only — grades nothing, builds nothing. Plain
+    language per the 7/27/26 output directive."""
+    if not lineups:
+        return None
+    n = len(lineups)
+    counts: dict[str, dict] = {}
+    for lu in lineups:
+        for p in lu.get("players") or []:
+            e = counts.setdefault(p["name"], {"n": 0, "own": p.get("own")})
+            e["n"] += 1
+    if not counts:
+        return None
+    out = ["### Your exposure vs the field (the leverage read)",
+           "This table shows, for each player you used: the share of your entries "
+           "that hold him (yours), the share of the field expected to hold him "
+           "(the projected ownership), and the gap between the two (the leverage). "
+           "A positive gap means you beat the field when he hits. A big negative "
+           "gap means the field gains on you when he hits.",
+           "",
+           "| Player | Yours | Field | Gap |", "|---|---|---|---|"]
+    rows = sorted(counts.items(), key=lambda kv: -kv[1]["n"])
+    for name, e in rows:
+        mine = e["n"] / n * 100
+        own = e.get("own")
+        if own is not None and own == own:
+            out.append(f"| {name} | {mine:.0f}% | {own:.1f}% | {mine - own:+.1f}% |")
+        else:
+            out.append(f"| {name} | {mine:.0f}% | — | — |")
+    return "\n".join(out)
