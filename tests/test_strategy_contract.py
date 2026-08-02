@@ -3,8 +3,11 @@
 The contract must NEVER mark a PLAY/underweight/lean-fade call as an
 auto-appliable fade — that's the footgun that would zero the strategy's own
 leverage plays in the Sim tool."""
+import json
+
 import pandas as pd
 
+import src.strategy_contract as sc
 from src.strategy_contract import parse_calls, write_contract
 
 _MD = """
@@ -118,6 +121,7 @@ def test_matchup_headers_and_lowercase_prose_no_phantom_calls():
 
 
 def test_contract_dedups_conflicting_verdicts_harsher_wins(tmp_path, monkeypatch):
+    import json
     import src.strategy_contract as sc
     monkeypatch.setattr(sc, "_CONTRACT_DIR", tmp_path)
     import pandas as pd
@@ -151,3 +155,93 @@ def test_short_fragment_never_substring_resolves(tmp_path, monkeypatch):
     # "bo" (2 chars) must NOT resolve to Bo Nickal via substring...
     # (exact _norm_name match doesn't hit either: "bo" != "bo nickal")
     assert payload["fades"] == []
+
+
+def test_contract_carries_slate_rule_material(tmp_path, monkeypatch):
+    """7/29/26: the contract ships chalk_pairs + anchor_pairs — the Sim renders
+    one-click builder rules from them. Data-derived from the pool's ownership,
+    so the names always resolve."""
+    import json
+    import src.strategy_contract as sc
+    monkeypatch.setattr(sc, "_CONTRACT_DIR", tmp_path)
+    df = pd.DataFrame([
+        {"name": "Chalk One", "salary": 10000, "proj_points": 90.0, "ownership": 35.0},
+        {"name": "Chalk Two", "salary": 9800, "proj_points": 88.0, "ownership": 33.0},
+        {"name": "Chalk Three", "salary": 9000, "proj_points": 80.0, "ownership": 20.0},
+        {"name": "Value Guy", "salary": 7000, "proj_points": 65.0, "ownership": 6.0},
+    ])
+    p = sc.write_contract("pga_classic", _MD, {"src.csv": {"vendor": "ETR PGA", "df": df}})
+    payload = json.loads(p.read_text())
+    pairs = payload["chalk_pairs"]
+    assert pairs and pairs[0]["players"] == ["Chalk One", "Chalk Two"]
+    assert pairs[0]["joint_pct"] > 10
+    # 35% and 33% sit within the 5-pt anchor-equivalence window -> a twin set.
+    anchors = payload["anchor_pairs"]
+    assert anchors and set(anchors[0]["players"]) >= {"Chalk One", "Chalk Two"}
+
+
+# ---- Structural quotas stated in prose ------------------------------------
+
+def test_parse_structure_rules_reads_the_real_8_2_26_sentence():
+    """The sentence that cost a slate.
+
+    The 8/2/26 RD4 Showdown strategy said "using a minimum of 2 and maximum of
+    3 leaderboard golfers per team". The contract had no field for it, so the
+    Sim never received it and 17 of 34 entered lineups broke the rule."""
+    md = ("- **The course changed.** ETR expected the rebuilt par-70 course to "
+          "play \"2-3 strokes harder overall\". That contradiction is why the "
+          "article is splitting the difference on structure — using a minimum "
+          "of 2 and maximum of 3 leaderboard golfers per team, and deliberately "
+          "not forcing a way-back golfer into every lineup.")
+    got = sc.parse_structure_rules(md)
+    assert len(got) == 1
+    assert (got[0]["min"], got[0]["max"]) == (2, 3)
+    assert got[0]["kind"] == "leaderboard"
+    # The quote must contain the rule, not just the head of a long bullet —
+    # it is the user's only check on a parser that shapes thousands of lineups.
+    assert "minimum of 2 and maximum of 3" in got[0]["quote"]
+    # "2-3 strokes harder" must NOT be mistaken for the quota.
+    assert got[0]["max"] != 0
+
+
+def test_parse_structure_rules_accepts_the_shorthand_forms():
+    for text, exp in [
+        ("I will be using a min 2, max 3 LB (T-10 and ties) MME set.", (2, 3)),
+        ("I am using 2-3 leaderboard golfers per lineup.", (2, 3)),
+        ("a min of 1 and a max of 4 leaderboard golfers (T-15 and ties)", (1, 4)),
+    ]:
+        got = sc.parse_structure_rules(text)
+        assert got, f"no match for: {text}"
+        assert (got[0]["min"], got[0]["max"]) == exp
+
+
+def test_parse_structure_rules_reads_top_n_and_defaults_to_ten():
+    assert sc.parse_structure_rules(
+        "min 2, max 3 LB (T-15 and ties)")[0]["top_n"] == 15
+    # No T-N stated -> the RD4 SD convention.
+    assert sc.parse_structure_rules(
+        "a minimum of 2 and maximum of 3 leaderboard golfers")[0]["top_n"] == 10
+
+
+def test_parse_structure_rules_stays_quiet_when_unsure():
+    """A wrong quota silently shapes thousands of lineups, so ambiguity must
+    return nothing and leave the numbers to the user."""
+    for text in [
+        "The leaderboard is crowded at the top.",       # no numbers
+        "min 2 and max 3 of the value tier",            # not the leaderboard
+        "a minimum of 2 and maximum of 8 leaderboard golfers",  # >6-man roster
+        "",
+    ]:
+        assert sc.parse_structure_rules(text) == [], text
+
+
+def test_contract_payload_carries_structure_rules(tmp_path, monkeypatch):
+    monkeypatch.setattr(sc, "_CONTRACT_DIR", tmp_path)
+    md = ("## Fades\n- **Someone** — FADE\n\n"
+          "## Key themes\n- using a minimum of 2 and maximum of 3 leaderboard "
+          "golfers per team.\n")
+    sc.write_contract("pga_rd4_sd", md, {})
+    payload = json.loads((tmp_path / "pga_rd4_sd.json").read_text())
+    assert "structure_rules" in payload
+    assert payload["structure_rules"][0]["min"] == 2
+    assert payload["structure_rules"][0]["max"] == 3
