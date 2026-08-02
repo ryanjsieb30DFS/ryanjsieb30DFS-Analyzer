@@ -170,6 +170,22 @@ lessons:
           And the user's Clinch entry was capped at 52.9%ile by two dead coin-flip
           slots (Hines 4.40, Anderson 7.41) — the exact structural punishment the
           rule predicts for no-floor variance in small fields.
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          Small-field mechanism held again in two ~590-entry fields. Both pure-binary
+          pieces on the board busted: Kyle Prepolec (7% own, KO-or-bust dog opposite a
+          -700 favorite) scored 2.6, and Daniel Rodriguez (the main-event KO-or-bust
+          dog, 21-22% own, "if he wins he should crush") scored 0.4 and was a documented
+          fish trap (28-32% of the fish, 0% of the winners). The two user entries
+          carrying those slots finished 83.8%ile and 86.9%ile. Neither contest winner
+          carried a KO-or-bust dog; both differentiated through the one dog with a real
+          grappling path who actually WON (Urbina, 113.86 at 9.9-12.0% own). Blended-EV
+          framing confirmed: the binary dogs paid ~0, the live-path dog paid 113.
+    contradictions: []
+    codified_in: "framework.md — Step 3 — Field-Size Calibration (binary leverage by field size)"
+    retired_reason: null
 
   - id: mma-se-2026-05-16-secondary-plays-are-not-leverage
     born: "2026-05-16"
@@ -180,7 +196,24 @@ lessons:
       (ideally sub-12%) with a realistic 100+ point path; audit the "leverage" slot
       and swap anything 20%+ for something that actually contradicts chalk.
     status: codified
-    confirmations: []
+    confirmations:
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          FIRST mechanism confirmation, and it offsets the 7/19 contradiction — this
+          rule is no longer drifting toward a demotion proposal. The 588-field winner's
+          differentiation carrier was Gilbert Urbina at 9.86% ACTUAL own with 113.86
+          points: a sub-15%-owned play with a realistic 100+ path, which is exactly the
+          object this rule defines as true SE leverage. He also carried the 594-field
+          winner (11.95% own there) and sat in 75% of both contests' top lineups.
+          Boundary that keeps the 7/19 contradiction on the record rather than erasing
+          it: this board's chalk tier concentrated hard (Cepo 52% actual own), which is
+          the condition under which a sub-15 piece separates. On the 7/19 board, where
+          the top anchor absorbed ~67-70%, the separators sat at 20-30%. Both
+          observations point the same way — the useful threshold is RELATIVE to the
+          slate's chalk concentration, not a fixed 15-20% line. That relative form is
+          what any future codification edit should carry.
     contradictions:
       - date: "2026-07-19"
         slate: "UFC Oklahoma City 7.18.26 — 784/1,189 SEs"
@@ -232,6 +265,29 @@ lessons:
           either side would have been a guess. Validates the rule's specificity — it
           asks for asymmetry only under a narrow condition, not on every equivalence
           pair.
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          Second confirmation, this time by OMISSION — the trigger fired, the rule was
+          not applied, and the predicted failure mode landed exactly. The equivalence
+          pair was Medic (42% projected) / Cepo (36% projected), surfaced correctly in
+          `## Edges & tensions` as "the same bet — win by early knockout or don't win at
+          all." Every condition this rule requires for asymmetric weighting was present
+          on the CEPO side and documented in the strategy's own text: he became the
+          slate's chalkiest play in the live field (51.9-52.7% ACTUAL own, the field's
+          #1 by 8+ points), and he was KO-or-bust with NO decision floor ("13 of 14 wins
+          in round one," "legit bad after two minutes: no cardio, no ground game, 0-2 in
+          fights that reach round three"). The strategy nonetheless framed the pair as a
+          symmetric carry-one-not-both choice, and the portfolio split 50/50 — Medic in
+          2 of 4 entries, Cepo in 2 of 4. Cepo scored 2.8; Medic scored 129.52. Both
+          Cepo entries finished 83.8%ile and 86.9%ile; the Medic entries finished
+          11.6%ile and 17.2%ile. Weighting the pivot side heavier, as this rule
+          instructs, was worth roughly 70 percentile points. Shared-evidence note for
+          ledger honesty: the same event is credited once more, at a coarser grain, to
+          [[mma-se-2026-05-30-anchor-equivalence-fifth-validation]], and is the reason
+          [[mma-se-2026-06-14-showdown-cap-single-favorite-exposure]] is deliberately
+          NOT advanced to codification on this slate.
     contradictions: []
     codified_in: "framework.md — Asymmetric Anchor-Equivalence Weighting (5/30/26 — UFC Macau)"
     retired_reason: null
@@ -330,6 +386,23 @@ lessons:
           "equal ownership" premise held only in projection. Equivalence pairs at the
           top of the board need an actual-convergence check; see
           [[mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence]].
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          9th validation, and the single most decisive read of the slate. TWO pairs were
+          surfaced. Pair A, Oliveira (30% projected) / Rebecki (30% projected), $400
+          apart with identical "realistic 110-point upside": both hit (116.85 / 143.72,
+          Rebecki the slate's top score) and both winning rosters carried one of them —
+          substitutable and both live, so the pair cost nothing either way. Pair B,
+          Medic (42%) / Cepo (36%): the two sides diverged by 127 points (129.52 vs
+          2.80). Every good user finish was a Medic-not-Cepo entry and every bad one was
+          a Cepo entry, and the field's convergence onto Cepo (52% actual) is what made
+          the Medic side uncontested. The rule's core claim — chalk-tier anchors at
+          similar ownership are substitutable to the FIELD, so the alternative side is
+          uncontested leverage when it outperforms — held cleanly a ninth time. See
+          [[mma-se-2026-05-30-asymmetric-anchor-equivalence-weighting]] for the sharper,
+          actionable half of the same event (weight the no-floor side DOWN).
     contradictions: []
     codified_in: "rules/shared/anchor_equivalence.md"
     retired_reason: null
@@ -360,7 +433,22 @@ lessons:
       leverage swing (~30%) that supports the core rather than carrying it. Unlike
       MME, a single lineup cannot afford to ride a contrarian bet as its core thesis.
     status: codified
-    confirmations: []
+    confirmations:
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          FIRST confirmation of the "exactly ONE sub-20% leverage swing" half, offsetting
+          the 7/19 contradiction. Both contest winners carried a sub-20%-owned swing that
+          SUPPORTED a chalk-anchored core rather than carrying it. The 588 winner:
+          Urbina 9.86% and Valentin 18.37% behind Nikolic 43.4% / Grad 33.3% / Musayev
+          28.1%. The 594 winner: exactly one sub-20 piece, Urbina at 11.95%, behind
+          Gugnon 41.3% / Oliveira 36.2% / Leka 34.0%. Neither winner's contrarian piece
+          was the thesis; in both it was the one differentiating slot on a conviction
+          spine, which is precisely the structure this rule prescribes. Boundary carried
+          forward from 7/19: the sub-20 slot is the right SHAPE, but it must be filled
+          by a fighter who can WIN — the same slot filled with a KO-or-bust dog
+          (Prepolec, 7%, 2.6 points) sank the entry that used it.
     contradictions:
       - date: "2026-07-19"
         slate: "UFC Oklahoma City 7.18.26 — 784/1,189 SEs"
@@ -399,11 +487,18 @@ lessons:
       block, the predicted failure mode realized. Enforce flex-spine diversity (cap
       shared flex at <=4/6 across any pair), not just distinct captains, when judging
       portfolio uniqueness in showdown.
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: >
+      merged into mma-se-2026-06-14-showdown-captain-the-ceiling-pair-the-smash
+      (2026-08-02 ledger hygiene, user-approved). Both entries described one
+      mechanism — in showdown the winning lineup is an assembled COMBINATION, not a
+      set of correct individual reads — one stated about the flex spine, the other
+      about the captain slot. The flex-spine content survives verbatim as clause (a)
+      of the surviving lesson; both had sat dormant for seven slates and one entry is
+      easier to apply when a showdown card next appears.
 
   - id: mma-se-2026-06-14-showdown-cap-single-favorite-exposure
     born: "2026-06-14"
@@ -441,6 +536,24 @@ lessons:
           refinement to carry forward: "cap + carry >=2 fades" must NOT collapse into
           "zero exposure," which crosses from diversification into an anchor-equivalence
           breach. Cap the favorite; do not zero it. Links [[mma-se-2026-05-30-anchor-equivalence-fifth-validation]].
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 594 3-Max (classic format)"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          Second classic-format confirmation — the predicted failure mode realized
+          exactly. Vlasto Cepo was carried in 2 of the 3 3-Max entries (67% exposure,
+          above the rule's ~60% cap) and busted at 2.8 points. Both carrying entries
+          died together at 83.8%ile and 86.9%ile; the single Cepo-free entry finished
+          17.2%ile — a roughly 5x better finish. That is the correlated-bet mechanism
+          this rule exists to prevent, on a classic card rather than a showdown one.
+          NOTE on the format gate: the 7/26 review called this lesson "format-gated,
+          cannot advance on classic cards," but its own 6/20 confirmation was already
+          logged on a classic slate, so that gate was recorded in error and is dropped
+          here — the mechanism is format-agnostic. DELIBERATELY NOT COUNTED toward the
+          3-slate codification threshold: this is the same Cepo event already credited
+          to [[mma-se-2026-05-30-asymmetric-anchor-equivalence-weighting]], and one
+          event should not buy two promotions. Stays at 2 of 3; needs an independent
+          third slate where an over-exposed favorite sinks a portfolio block.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -478,7 +591,7 @@ lessons:
       volume) and Gaethje (the live KO dog who hit). The build leaned Chandler (8) over
       Zahabi (6) despite its own analysis naming Zahabi the only dog with a decision
       floor. Confirms the red team's cheap-slot field-duplication finding in hindsight.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-20"
         slate: "UFC Fight Night 6/20 (classic — same cheap-slot decision, split by field)"
@@ -496,33 +609,59 @@ lessons:
           fields (16.1%ile / 31.8%ile). The lesson's core claim — the cheap slot decides
           the lineup, so prefer a floor or a LIVE finishing dog over no-floor variance —
           held on both halves of the field split.
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE (classic format)"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          THIRD confirming slate — promotion candidate. The cheap slot literally decided
+          the contest. The user's SE bullet filled it with Hailey Cowan ($6.7K), pure
+          math-relief the strategy itself described as "the article's 'could end up
+          optimal in a loss with 30 points' cheap-team filler" — i.e. a slot with no win
+          path, chosen to make the salary work. She scored 5.2. The autopsy's near-miss
+          analysis returns `swaps_needed: 1` and `best_swap: Cowan -> Rebecki, gain
+          138.5, would_have_won: true` — one cheap-slot change, and a 68th-of-588 finish
+          becomes the win. Neither contest winner used a no-win-path punt: every one of
+          the twelve winning-roster slots across both contests belonged to a fighter who
+          WON his fight (76.2 to 143.7 points). NOTE on the format gate: the 7/26 review
+          recorded this as showdown-only, but the 6/20 confirmation was already logged on
+          a classic card, so the gate was an error and is dropped — the mechanism is
+          format-agnostic and this classic-card evidence counts. Overlaps
+          [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]]'s
+          "carry no losing slot" clause; that lesson is graded on the whole roster, this
+          one on the cheap slot specifically.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — The Cheap Slot Decides the Lineup (8/2/26 — 3-slate validated)"
     retired_reason: null
 
   - id: mma-se-2026-06-14-showdown-captain-the-ceiling-pair-the-smash
     born: "2026-06-14"
     origin: "rules/mma_se/history/2026-06-20__ufc-250-freedom-6-14-26"
     statement: >
+      MERGED 2026-08-02 — absorbs mma-se-2026-06-14-showdown-flex-spine-diversity.
       In captain-mode showdown the winning lineup is an assembled COMBINATION, not a set
-      of correct individual reads — with limited bullets two construction rules close most
-      of the gap to the optimal: (1) your highest-CEILING play must occupy the 1.5x CPT
-      slot in >=1 lineup (the captain is the single highest-leverage decision; a top-ceiling
-      fighter left in flex every lineup caps win equity), and (2) your lowest-owned
-      high-ceiling smash must appear alongside your STRONGEST flex core in >=1 build, not
-      isolated. Evidence (UFC 250 Freedom, contest 191363697, field 5,945): the user's
-      reads were elite — 100% overperformer capture, lineups +13% vs projection, best build
-      rank 14/5,945 (top 0.24%) — yet finished 3.06 pts behind moklovin's winning lineup
-      (CPT Gaethje + Ruffy + Hokit/Nickal/Gane/Zahabi). Gaethje (the winning captain) was
-      rostered 2/10 but captained 0/10; Ruffy (4% own, 177.3 pts — the slate-defining smash)
-      appeared in 1/10 and was captained there AWAY from the optimal core (that build finished
-      821st). The winning combination existed across the pool but was never assembled in one
-      lineup. This is the volume-independent half of the coverage gap (the captain fix needs
-      no extra bullets). Links [[mma-se-2026-06-14-showdown-flex-spine-diversity]],
-      [[mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own]]; the cross-sport
-      analog is the golf [[feedback_cpt_anchor_equivalence]] / never-zero-top3-anchor coverage
-      point. Per [[feedback_play_like_sharks]], moklovin landed the exact combination on 150
-      bullets; on 10 the captain discipline is the recoverable edge.
+      of correct individual reads — so both portfolio uniqueness and captain assignment
+      must be judged on the combination, not on the hat.
+      (a) UNIQUENESS IS JUDGED ON THE FLEX SPINE, NOT THE CAPTAIN. Lineups with different
+      captains but the same five flex fighters are a single bet; one bust craters the
+      cluster together. Cap shared flex at <=4 of 6 across any pair. Evidence: L1/L9/L10
+      shared the Topuria+Pereira+Zahabi+Chandler spine, the fix was ignored, Pereira busted
+      at 4.8, and the trio finished 58.8 / 50.0 / 76.2 as a block.
+      (b) THE HIGHEST-CEILING PLAY MUST OCCUPY THE 1.5x CAPTAIN SLOT IN >=1 LINEUP, and
+      the lowest-owned high-ceiling smash must appear alongside the STRONGEST flex core in
+      >=1 build, not isolated. Evidence (UFC 250 Freedom, contest 191363697, field 5,945):
+      Gaethje (the winning captain) was rostered 2/10 and captained 0/10; Ruffy (4% own,
+      177.3 — the slate definer) appeared in 1/10 and was captained there away from the
+      optimal core, finishing 821st. The user's reads were elite (100% overperformer
+      capture, +13% vs projection, best build rank 14/5,945) yet finished 3.06 pts behind
+      moklovin's winning lineup (CPT Gaethje + Ruffy + Hokit/Nickal/Gane/Zahabi). The
+      winning combination existed across the pool but was never assembled in one lineup.
+      This is the volume-independent half of the coverage gap — the captain fix needs no
+      extra bullets. Links
+      [[mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own]]; the
+      cross-sport analog is the golf [[feedback_cpt_anchor_equivalence]] /
+      never-zero-top3-anchor coverage point. Per [[feedback_play_like_sharks]], moklovin
+      landed the exact combination on 150 bullets; on 10 the captain discipline is the
+      recoverable edge.
     status: hypothesis
     confirmations: []
     contradictions: []
@@ -599,8 +738,41 @@ lessons:
           an ITD-price ceiling cap is STRUCTURAL only when paired with low projected
           volume/control — otherwise it is a narrative fade wearing structural
           clothes.
-    contradictions: []
-    codified_in: "framework.md — Structural Fades Only (7/19/26 — 3-slate validated)"
+    contradictions:
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          Narrow contradiction of the ITD-CAP sub-claim only, NOT of the rule's core.
+          GPP-guarded: graded on the fighter's actual output, not on the user losing.
+          The strategy LEAN-FADED Navajo Stirling ($9K, 23% projected) and labelled the
+          reason "structural ceiling cap," but the stated mechanism was entirely a
+          finish-probability and pace read — "his big score requires the first
+          round-one knockout of Blachowicz's entire career," "if this fight hits round
+          three I'd wager Stirling is dead on DraftKings." Stirling scored 106.1 and was
+          in the 594-field's rank-10 lineup. His opponent scored 1.9, so the win was
+          dominant; standings do not record method, so KO-versus-dominant-decision
+          cannot be separated — but either way the asserted ceiling cap was wrong by
+          ~85 points. This is the SECOND slate in a row where an ITD-price-derived
+          ceiling cap on a live favorite was punished (7/19 Kline 109.40 was the first,
+          logged inside that slate's confirmation note rather than as a contradiction).
+          Two occurrences of the same failure is the demotion threshold, so a NARROWING
+          proposal (not a retirement) goes to `## Proposed codifications`: framework.md's
+          "Structural Fades Only" section should state that finish-probability price
+          alone never qualifies as structural. The rule's core — fade only on a
+          measurable mechanism — is untouched and still 3-slate validated; the two fades
+          on this slate that DID rest on measurable mechanisms both paid (Todorovic
+          UNDERWEIGHT on ownership-vs-win-equity, 12.2 points; Klein UNDERWEIGHT on
+          salary inefficiency, 18.6 points). Links
+          [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]].
+    codified_in: >
+      framework.md — Structural Fades Only (7/19/26 — 3-slate validated), NARROWED
+      2026-08-02 with the appended "What does NOT count as structural" carve-out:
+      a fade justified by finish probability alone is a narrative fade wearing
+      structural clothing (2 mechanism failures — 7/19 Kline 109.40, 8/2 Stirling
+      106.1); an inside-the-distance-price ceiling cap is structural ONLY when
+      paired with low projected volume AND low projected control. The rule's core
+      is untouched and still 3-slate validated.
     retired_reason: null
 
 
@@ -648,6 +820,23 @@ lessons:
           Ownership did not make them leaks; the clean finish path made them cores.
           Origin (6/20) + 6/27 + 7/12 = three confirming mechanism slates → propose
           codifying into framework.md.
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          Fourth confirming slate, with a board-side failure worth recording. The
+          strategy correctly kept the expensive finish-capable favorites as Core despite
+          30-42% projected own, and all three paid: Medic 129.52, Rebecki 143.72,
+          Oliveira 116.85 — each in top lineups, none of them a trimmable "secondary
+          chalk" leak. The failure was one tier down. Bogdan Grad (33.3% actual own,
+          120.12 — the slate's #3 score, in the 588-field WINNER), Jovan Leka (34.0%
+          actual, 104.06, in the 594-field winner) and Tofiq Musayev (23.4-28.1% actual,
+          102.86, in BOTH winners) were all mid-owned finish-capable favorites in clean
+          spots, and the player pool buried all three in the undifferentiated `Okay`
+          tier. Same mechanism, opposite direction from the earlier confirmations:
+          ownership did not make them leaks, and it was the board's failure to lift them
+          out of `Okay` that hid them. See
+          [[mma-se-2026-08-02-okay-tier-is-a-dumping-ground]].
     contradictions: []
     codified_in: "framework.md — Finish-Capable Favorites Are Not Secondary Chalk (7/12/26 — 3-slate validated)"
     retired_reason: null
@@ -713,6 +902,22 @@ lessons:
           The codifiable mechanism is "screen the FULL pool for low-owned CONVERTERS
           (12-30% own, favorites included), never default to the article-named dog"
           — not "always roster a sub-10."
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          Fourth confirming slate, and the cleanest split yet between the two horses.
+          The CONVERTER: Gilbert Urbina, a live dog with a wrestling path, 15% projected
+          / 9.86-11.95% ACTUAL own, scored 113.86, appeared in 75% of the top lineups
+          in both contests, and was the differentiation carrier of BOTH contest winners
+          (jparsons2 664.22; leroythegr8 674.75). The NAMED BINARY DOG: Kyle Prepolec,
+          the board's only formal sub-10% leverage candidate (7% projected), a KO-or-bust
+          dog opposite a -700 favorite — scored 2.6, and the one user entry that carried
+          him finished 83.8%ile. The strategy screened correctly and surfaced Urbina in
+          the Good tier with a `· Leverage` tag plus his own line in `## Leverage`, so
+          the SCREEN half of this rule worked exactly as codified. The failure was
+          downstream in the build (0% Urbina exposure across 4 entries) and is carried
+          by [[mma-se-2026-07-26-field-value-side-vs-your-named-converter]].
     contradictions: []
     codified_in: "framework.md — The Leverage Screen: Converters, Not Named Dogs (7/19/26 — 3-slate validated)"
     retired_reason: null
@@ -805,7 +1010,7 @@ lessons:
       a real 100+ ceiling, and if low-owned that is leverage, not a trap. Links
       [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]],
       [[mma-se-2026-06-20-fade-on-structure-not-narrative]].
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-07-19"
         slate: "UFC Oklahoma City 7.18.26 — 784/1,189 SEs"
@@ -820,8 +1025,29 @@ lessons:
           decision can't be separated — but the mechanism graded here is the ceiling
           CAP derived from low finish probability, and that cap was wrong by ~25
           points on a winner-defining piece.
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          THIRD confirming slate — promotion candidate. Same shape as the 7/19 Kline
+          case, one tier of conviction higher. The strategy LEAN-FADED Navajo Stirling
+          ($9K, 23% projected own) on an explicitly distance-based ceiling cap: "his big
+          score requires the first round-one knockout of Blachowicz's entire career," in
+          a fight it called "incredibly slow," closing with "if this fight hits round
+          three I'd wager Stirling is dead on DraftKings." Stirling scored 106.1 —
+          the slate's #7 score — and appeared in the 594-field's rank-10 lineup. His
+          opponent scored 1.9, so the win was one-sided. Same honest caveat as 7/19:
+          standings do not record method, so a late finish and a dominant decision
+          cannot be separated. The mechanism being graded is not the method, it is the
+          CEILING CAP inferred from low finish probability, and that inference has now
+          been wrong on a slate-relevant scorer three times (7/12 Bautista 137.43, 7/19
+          Kline 109.40, 8/2 Stirling 106.1). The pool_calibration file records the
+          consequence: Stirling is the board's only tier-leakage entry, a `Fade`-tiered
+          fighter who out-scored the entire `Okay` tier and dragged the tier ordering
+          out of sequence. Also logged as the second ITD-cap failure under
+          [[mma-se-2026-06-20-fade-on-structure-not-narrative]].
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Distance ≠ Low Ceiling (8/2/26 — 3-slate validated)"
     retired_reason: null
 
   # ---- 2026-07-19 — UFC Oklahoma City (Du Plessis vs. Usman) ----
@@ -846,7 +1072,7 @@ lessons:
       [[mma-se-2026-06-27-finish-heavy-small-fields-still-won-by-differentiation]];
       links [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]],
       [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]].
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-07-26"
         slate: "UFC Fight Night: Ankalaev vs Guskov 7.25.26 — 490 + 1,189 SEs, 594 3-Max"
@@ -861,8 +1087,34 @@ lessons:
           scratched). The user's entries again died on WHICH mid-owns, not on
           structure: the repeated Rzepecki slot (23.66 FPTS at 34.9% actual own) was
           the swap-out in both one-swap-from-winning contests.
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          THIRD confirming slate — promotion candidate — with one clause that needs
+          loosening. SIX WINNING FIGHTERS confirmed absolutely: all twelve roster slots
+          across the two winning lineups belonged to a fighter who won his fight,
+          scoring 76.2 to 143.7, with zero dead slots. CHALK-ANCHORED confirmed: winners
+          averaged 25.7% and 28.4% own per slot. MID-OWNED CONVERTERS carried the
+          differentiation in both — Rebecki 21.3-23.7%, Valentin 18.4%, Musayev
+          23.4-28.1%. And the mechanism's sharpest claim — that the edge is win-side
+          SELECTION, not ownership suppression — is confirmed by the user's own numbers
+          for the third straight slate: his structure sat inside the winners' envelope
+          (own-per-slot delta +0.49 and +2.16; he carried MORE low-owned pieces than the
+          winners, not fewer, `low_own_count_delta` -0.25 and -0.52), and every entry
+          died purely on WHICH fighters — Cepo 2.8, Janicic 2.6, Rodriguez 0.4,
+          Cowan 5.2, Prepolec 2.6. CLAUSE TO LOOSEN: "zero sub-10 darts" is too strict
+          as written. The 588-field winner's differentiation carrier WAS a sub-10 piece
+          (Urbina, 9.86% actual own, 113.86 points). The operative distinction is not the
+          ownership number but whether the low-owned piece WINS — a sub-10 converter is a
+          differentiator; a sub-10 KO-or-bust dog is a dead slot. The codification edit
+          should state the shape as "six fighters who can all win, differentiation from
+          under-trusted CONVERTERS at any ownership level, never from a no-win-path
+          punt." Note also that the winners' avg own (25.7-28.4%) ran below the stated
+          32-40% band, so that band belongs in the framework as descriptive range, not
+          as a target to hit.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — The Winning MMA SE Shape (8/2/26 — 3-slate validated)"
     retired_reason: null
 
   - id: mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence
@@ -895,7 +1147,7 @@ lessons:
       Read the MMA field-tendency block for shape only, and size the duplication
       estimate from this slate's own chalk-combo math with an upward convergence
       adjustment — never from the historical names.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-07-26"
         slate: "UFC Fight Night: Ankalaev vs Guskov 7.25.26 — 490 + 1,189 SEs, 594 3-Max"
@@ -910,8 +1162,32 @@ lessons:
           (34%) came in AT projection (34.3) — the error is concentration on the
           consensus favorite, not a uniform shift, which is exactly the stated
           mechanism.
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          THIRD confirming slate — promotion candidate — and the largest convergence gap
+          measured so far. DailyFan projected Vlasto Cepo at 36% (second on the board);
+          he drew 51.9% and 52.7% ACTUAL — the field's true #1 chalk by more than 8
+          points over every other name, and a +16 point miss. The same upward
+          concentration hit the rest of the consensus tier: Nikolic 27% projected ->
+          43.4/46.1% actual (+17), Todorovic 28% -> 37.2/39.7%, Gugnon 34% ->
+          39.8/41.2%. Meanwhile the PROJECTED #1, Medic at 42%, came in BELOW projection
+          at 37.6/38.4% — the third consecutive slate where the error is concentration
+          on whichever name the field's narrative crowns, not a uniform upward shift,
+          and the third consecutive slate where the projected #1 was NOT that name.
+          Downstream damage exactly as the mechanism predicts: the strategy's chalk-combo
+          math, computed from projected own, put Medic+Cepo at ~15% of lineups (~90 of
+          594) and never flagged a Cepo-anchored pair as the top combo. The ACTUAL #1
+          duplicated pair was Nikolic+Cepo at 25.2/25.5% (147 and 151 lineups) — roughly
+          1.7x the estimate, and a pair the strategy never named. Every one of the
+          field's top four actual pairs was Cepo-anchored; every one of the strategy's
+          four projected pairs was Medic-anchored. SHARPENED FORM for the codification:
+          identify the consensus name from narrative agreement across sources, not from
+          the projected-own ranking, and apply the upward adjustment to THAT name's
+          pairs before computing duplication.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Convergence Adjustment on the Consensus Favorite (8/2/26 — 3-slate validated)"
     retired_reason: null
 
   - id: mma-se-2026-07-19-sharp-envelope-is-a-rate-not-a-per-bullet-quota
@@ -945,8 +1221,29 @@ lessons:
       Links [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]],
       [[mma-se-2026-05-17-one-leverage-swing-conviction-core]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          First confirmation → promoted hypothesis → validated, on BOTH halves.
+          RATE-NOT-QUOTA half: the strategy applied the lesson correctly this time,
+          writing the Prepolec dart as "optional, not mandatory, per your
+          rate-not-quota lesson" and moving the difference-maker tier up into the
+          13-21% favorites. The user took the dart anyway in one 3-Max entry; Prepolec
+          scored 2.6 and that entry finished 83.8%ile, while the two winners'
+          differentiation came from converters (Urbina 113.86, Rebecki 143.72,
+          Valentin 107.51). The optional-slot framing was right and the mandatory
+          reading would have been wrong again. SHARK-AXIS-IS-NOISE corollary: confirmed
+          harder than at 7/19. `shark_gap.json` returns `sharks_in_field: false` and
+          `sharks.gradable: false` — no tracked pro appeared in either field, for the
+          third time in five slates — yet the strategy still cited moklovin's ~30%
+          own-per-slot as this slate's coaching target. The substitute measurement, the
+          actual winners' structure, showed no structural gap at all: winners averaged
+          29.5% and 29.9% own per slot against the user's 29.0% and 27.7%, and the
+          winners carried FEWER low-owned pieces than he did. There was no structural
+          axis to close on this slate; the entire gap was player selection.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1009,6 +1306,124 @@ lessons:
       candidates are graded. Links
       [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]].
+    status: validated
+    confirmations:
+      - date: "2026-08-02"
+        slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+        note: >
+          First confirmation → promoted hypothesis → validated. An exact replication of
+          the 7/26 Zaynukov/Rzepecki event, one week later, in a bigger and more
+          expensive fight. The strategy named Gilbert Urbina the leverage side of the
+          Cepo/Urbina fight — tiered Good with a `· Leverage` tag, given his own
+          `## Leverage` line ("survive two minutes, then wrestle: Cepo has no cardio, no
+          ground game"), and flagged a second time inside the Cepo write-up ("remembers
+          the live opposite side"). The user rostered the FIELD'S side of that same
+          fight instead: Cepo, at 36% projected and 52% actual own, in 2 of 4 entries,
+          and zero Urbina anywhere. Urbina scored 113.86 and carried BOTH contest
+          winners; Cepo scored 2.8 and was the slate's #1 fish trap (75-76% of the
+          bottom finishers, 0% of the winners). The double-loss mechanism is confirmed
+          precisely: the losing side of the fight AND the surrendered leverage were the
+          same decision. The invisibility half of the statement is confirmed too —
+          `adherence.json` reports 0 fades violated and leverage covered 1 of 1, a
+          spotless discipline grade, because the only tracked candidate was the formal
+          sub-10% flier (Prepolec, 7% projected, 2.6 points) which the user DID roster.
+          Urbina at 15% projected never entered the graded set. Two slates, same
+          mechanism, same blind spot in the metric.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-08-02 — UFC Fight Night 283, Belgrade (Medić vs. Rodriguez) ----
+
+  - id: mma-se-2026-08-02-okay-tier-is-a-dumping-ground
+    born: "2026-08-02"
+    origin: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+    statement: >
+      The player pool's `Okay` tier is absorbing the fighters the board cannot separate,
+      which turns the fat middle of the ranking into noise exactly where the slate is
+      decided. On 8/2 the board put 15 of 28 rosterable fighters (54%) into `Okay`, and
+      that single bucket contained FOUR of the slate's ten highest scores — Bogdan Grad
+      120.12 (the #3 score, in the 588-field winner), Stephanie Luciano 104.18, Jovan
+      Leka 104.06 and Tofiq Musayev 102.86 (in BOTH winners) — alongside the slate's
+      worst busts (Rodriguez 0.4, Blachowicz 1.9, Prepolec 2.6, Cowan 5.2). A tier whose
+      members range from 0.4 to 120.1 points carries no information. The measured
+      consequence is that `Okay` averaged 41.4 while `Fade` averaged 43.4, so tier
+      ordering came back OUT OF ORDER for the second consecutive graded slate (7/26 broke
+      at Core-vs-Good, 8/2 at Okay-vs-Fade). Mechanism: `Core` and `Good` require a
+      positive case and `Fade` requires a negative one, so every fighter the board is
+      merely uncertain about defaults into `Okay` — the tier is defined by the absence of
+      a verdict rather than by a property, and uncertainty is highest precisely among the
+      mid-priced converters that decide MMA SE slates. Rule to test: hold `Okay` to no
+      more than about a third of the board and force the remainder into `Good` or `Fade`
+      with a stated one-line reason, so that being in the middle is a verdict rather than
+      a shrug. Watch the tier-ordering flag in `pool_calibration.json` as the read-out.
+      Links [[mma-se-2026-06-20-finish-capable-favorite-is-not-secondary-chalk]],
+      [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-08-02-shared-coin-flip-slots-not-shared-players-kill-a-portfolio
+    born: "2026-08-02"
+    origin: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+    statement: >
+      A multi-entry portfolio can pass every uniqueness check and still die as a single
+      bet, because uniqueness counts SHARED PLAYERS while what actually correlates the
+      entries is SHARED COIN-FLIP SLOTS. On 8/2 the three 3-Max entries were 100% unique
+      with a maximum overlap of 3 of 6 fighters — inside every existing diversification
+      rule — yet two of the three finished 83.8%ile and 86.9%ile as a block. The reason
+      is that their overlap was concentrated in the two slots most likely to produce a
+      zero: Cepo (2.8 points) and Janicic (2.6 points) sat in both, and both were
+      explicitly identified in the strategy as binary or coin-flip spots (Cepo "win by
+      early knockout or don't win at all," Janicic one half of a near-even banger the
+      articles said could go either way). The third entry, which shared Valentin with the
+      other two but neither dead slot, finished 17.2%ile. Mechanism: a shared ANCHOR
+      degrades two entries by roughly the same modest amount when it disappoints, but a
+      shared BINARY slot resolves to zero simultaneously in every entry that holds it, so
+      two entries sharing two coin-flips are effectively one bet on a 25% outcome no
+      matter how different the other four slots look. Counting overlap by player treats
+      those two cases identically. Rule to test: when diversifying a multi-entry
+      portfolio, count shared BINARY/coin-flip slots separately from shared conviction
+      anchors, and cap shared coin-flips at one per pair of entries even when total
+      roster overlap is already within limits. Sharpens the object of
+      [[mma-se-2026-05-16-no-identical-conviction-cores]]; links
+      [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]],
+      [[mma-se-2026-06-14-showdown-cap-single-favorite-exposure]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma
+    born: "2026-08-02"
+    origin: "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26"
+    statement: >
+      The Grade tab's pre-lock gates are not separating good MMA entries from bad ones,
+      and the self-validation record now says so twice. On 8/2 `retro_grade` — which
+      re-grades the ENTERED lineups against ACTUAL ownership, i.e. with perfect hindsight
+      on the one input the gates depend on — returned ZERO flags on all four lineups,
+      whose finishes ranged from 11.6%ile to 86.9%ile. Combined with 7/26 (also zero
+      flags, finishes 3.5%ile to 71.0%ile) that is nine consecutive clean lineups
+      spanning nearly the whole field, which is the definition of a check that cannot
+      discriminate. Mechanism: every MMA gate is keyed to ownership or to the board's
+      tiers, and on this slate both were wrong in the same direction — Cepo was neither a
+      fade nor bottom-tier (he was tiered Core at 36% projected own), and the crowded-pair
+      check was computed from projected own so all four flagged pairs were Medic-anchored
+      while the field's four actual top pairs were all Cepo-anchored. The no-leverage gate
+      is info-only for MMA by design, and the ownership-target gate cannot fire on entries
+      that already sit inside the winners' envelope. So the one structural risk that
+      decided the slate — two entries built on the fighter the field converged on — was
+      invisible to every gate. Rule to test: derive the crowded-pair and ownership gates
+      from a convergence-ADJUSTED ownership estimate rather than raw projected own (per
+      [[mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence]]), and
+      add a gate for no-win-path slots, which is the failure the last three slates
+      actually share. Until a gate fires on a losing lineup and stays silent on a winning
+      one, treat a clean grade as carrying no information. Links
+      [[mma-se-2026-07-19-exact-roster-duplication-is-superlinear-in-consensus]].
     status: hypothesis
     confirmations: []
     contradictions: []

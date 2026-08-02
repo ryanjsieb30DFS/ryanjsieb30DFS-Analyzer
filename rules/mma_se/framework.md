@@ -182,6 +182,62 @@ Before lock, screen EVERY rosterable fighter under ~30% projected ownership for 
 
 Only fade or underweight a live, real-ceiling piece when the fade rests on a measurable STRUCTURAL mechanism — a genuinely ceiling-capped profile, salary inefficiency, or ownership leverage. A narrative fade ("toughest opponent yet," "will go the distance") is a coin-flip guess, not an edge: on 7/12 two narrative-faded fights produced the slate's #1 score (Bautista 137.43) and a slate-definer (Cong 90.46). And a ceiling-cap claim is structural ONLY after the pace/volume/control check: low finish probability alone is NOT a ceiling cap (Kline, 7/19 — capped at "80–90" off +285 ITD, scored 109.40 in the winning lineup; Bautista, 7/12 — 137.43 in a decision). A high-output fighter favored to dominate carries a 100+ ceiling with no finish. Downgrade any fade that fails this test to a note and keep the piece at neutral exposure.
 
+**What does NOT count as structural (added 8/2/26, after two failures).**
+
+A fade justified by **finish probability alone** — "inside-the-distance odds are long," "this fight profiles slow," "he needs a knockout to pay off" — is a narrative fade wearing structural clothing. It has now been punished twice on live favorites: Kline (109.40, in a winning lineup) and Stirling (106.1, the slate's #7 score).
+
+An inside-the-distance-price ceiling cap becomes structural **only** when paired with **low projected volume AND low projected control**. Absent both, downgrade the fade to a note and hold the fighter at neutral exposure.
+
+Structural mechanisms that still qualify, all of which paid on 8/2: ownership versus win-equity mismatch (Todorović, 28% owned on a 42% win chance → 12.2), salary inefficiency against a documented scoring history (Klein, three straight decisions of 64/86/89 at $8.8K → 18.6), and a ceiling-capped favorite priced above a live alternative.
+
+### The Winning MMA SE Shape (8/2/26 — 3-slate validated)
+
+**Six fighters who can all WIN. No exceptions, including the cheap slot.**
+
+Across five graded contests on three slates, every roster slot in every winning lineup belonged to a fighter who won his fight. Scores ranged from 76 to 144; not one winner carried a fighter whose best case was points in a loss.
+
+1. **The gate:** if you cannot say in one sentence how a fighter WINS his fight, he does not go in the lineup. This applies hardest to the cheapest slot, which has now decided two contests (see the cheap-slot rule below).
+2. **Anchor on popular names.** Winners averaged 25–40% ownership per slot depending on the slate. **That range is descriptive, not a target — do not build toward a number.**
+3. **Differentiate through UNDER-TRUSTED CONVERTERS, at any ownership level.** The carriers have been Bautista 15%, Aliev 22–24%, Harris 29%, Kline 21.6% and Urbina 9.9%. The old wording said "zero sub-10 darts"; that is wrong, because Urbina was sub-10 and carried the 588-field winner. **The distinction is not the ownership number — it is whether the low-owned fighter WINS.** A sub-10 converter is a differentiator; a sub-10 knockout-or-nothing dog is a dead slot.
+4. **The edge is win-side selection, not ownership suppression.** On three straight slates the user's ownership structure sat inside the winners' envelope and every point of the gap came from which fighters filled the slots. Stop tuning ownership; spend the effort on who wins.
+
+### The Cheap Slot Decides the Lineup (8/2/26 — 3-slate validated)
+
+The cheapest slot is not filler. It has now been the deciding slot in three graded contests across two formats.
+
+- **8/2 evidence:** the SE bullet used Hailey Cowan as pure salary relief, described in the strategy itself as "could end up optimal in a loss with 30 points." She scored 5.2. The autopsy returns `swaps_needed: 1` and `best_swap: Cowan → Rebecki, +138.5, would_have_won: true`. One cheap-slot change was the whole contest.
+- **Rule:** the cheap slot takes either a **decision floor** (a fighter who scores even in a grinding win) or a **live finishing dog with a real path**. It never takes a "makes the math work" body whose stated best case is points in a loss.
+- **If the salary will not fit without such a body, the build is wrong upstream** — drop an anchor instead. The four-hammer team not existing under the cap is a signal about the anchors, not a license to punt.
+
+*(Retire the "showdown" prefix — the mechanism is format-agnostic and two of its three confirmations are classic-format.)*
+
+### Convergence Adjustment on the Consensus Favorite (8/2/26 — 3-slate validated)
+
+Vendor projected ownership systematically understates how hard the live field piles onto ONE consensus name — and that name is usually **not** the projected #1.
+
+| Slate | Consensus name | Projected | Actual |
+|---|---|---|---|
+| 7/19 | McMillen | 42% | 66.8–69.8% |
+| 7/26 | Temirov | 28% | 42.4–46.9% |
+| 8/2 | Cepo | 36% | 51.9–52.7% |
+
+In all three the projected #1 came in **at or below** projection. The error is concentration on the storyline's fighter, not a uniform shift.
+
+1. **Identify the consensus name from narrative agreement across the articles, not from the projected-own ranking.** Ask: which fighter does every source treat as the obvious best play?
+2. **Adjust that fighter's ownership upward by roughly 15 points** before any duplication math.
+3. **Recompute the top shared pairs from the adjusted number.** On 8/2 all four printed pairs were Medić-anchored while all four of the field's real top pairs were Cepo-anchored, and the true #1 pair (Nikolić + Cepo, 151 teams) was never named.
+4. **Same adjustment applies to Anchor-Equivalence.** "Similar ownership" read off projections is not similar ownership in the live field.
+
+### Distance ≠ Low Ceiling (8/2/26 — 3-slate validated)
+
+DK MMA scoring pays heavily for significant strikes, control time and takedowns, so a fighter who wins a dominant, high-pace decision can reach finish-level scores with no finish at all.
+
+- 7/12 Bautista: faded as "distance-leaning, no path to a smash" → **137.43**, the slate's #1 score.
+- 7/19 Kline: ceiling capped at "80–90, a cash profile" on finish odds → **109.40**, inside the winning lineup.
+- 8/2 Stirling: lean-faded because a big score "requires the first round-one knockout of Blachowicz's career" → **106.1**, the slate's #7 score.
+
+**Rule:** before capping any fighter's ceiling because his fight is likely to go the distance, check projected **pace, volume and control**. A high-output fighter favored to dominate carries a real 100+ ceiling with no finish. A distance projection caps the ceiling ONLY when it is also low-volume and low-control — a true point-fighting stalemate.
+
 ## Post-SE Review
 
 After every slate, if you played a SE:
