@@ -317,8 +317,18 @@ def archive_slate(
         round((total_winnings - reported_buy_in) / reported_buy_in * 100.0, 1)
         if reported and reported_buy_in > 0 else None
     )
-    percentiles = [c["best_percentile"] for c in contests_out if c["best_percentile"] is not None]
-    ranks = [c["best_rank"] for c in contests_out if c["best_rank"] is not None]
+    # SEAL (MME plan Phase 1, 7/29/26): the row's headline best_rank /
+    # best_percentile — the numbers the process trend and grading calibration
+    # read — come from FOCUS (SE/3/5-Max) contests ONLY. Large-field contests
+    # are logged in full in `contests` and get their own separate headline
+    # fields; they never move the small-field trend.
+    from src.contests import FOCUS_CONTEST_TYPES
+    _focus_c = [c for c in contests_out if c.get("type") in FOCUS_CONTEST_TYPES]
+    _mme_c = [c for c in contests_out if c.get("type") not in FOCUS_CONTEST_TYPES]
+    percentiles = [c["best_percentile"] for c in _focus_c if c["best_percentile"] is not None]
+    ranks = [c["best_rank"] for c in _focus_c if c["best_rank"] is not None]
+    mme_pcts = [c["best_percentile"] for c in _mme_c if c["best_percentile"] is not None]
+    mme_ranks = [c["best_rank"] for c in _mme_c if c["best_rank"] is not None]
 
     row = {
         "schema_version": 1,
@@ -333,6 +343,10 @@ def archive_slate(
         "roi_pct": slate_roi,
         "best_rank": min(ranks) if ranks else None,
         "best_percentile": min(percentiles) if percentiles else None,
+        # Parallel large-field headline — only present when MME contests were
+        # logged this slate; consumers of the small-field trend ignore it.
+        "best_rank_mme": min(mme_ranks) if mme_ranks else None,
+        "best_percentile_mme": min(mme_pcts) if mme_pcts else None,
         "entries_total": sum(int(c["my_entries"] or 0) for c in contests_out),
         # Self-grade summary (None when not gradable) — trended in the bundle.
         "edge_leverage_capture": acc["edges"].get("leverage_capture"),

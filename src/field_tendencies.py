@@ -52,7 +52,11 @@ def record(slug: str, contest_type: str | None, field_size: int,
         "contest_key": contest_key(contest_name),
         "contest_id": contest_id,
         "field_size": field_size,
-        "crowded_players": [c["name"] for c in profile.get("crowded_players", [])[:8]],
+        # {name, own} since 7/31/26 — the ownership LEVEL the field piled into
+        # is the transferable read (rosters turn over; bands don't). Legacy
+        # rows are bare name strings; every reader handles both.
+        "crowded_players": [{"name": c["name"], "own": c.get("field_own")}
+                            for c in profile.get("crowded_players", [])[:8]],
         "crowded_combos": [c["players"] for c in profile.get("crowded_combos", [])[:5]],
         "fish_traps": [t["name"] for t in profile.get("fish_traps", [])[:8]],
         "top_opponents": [{"handle": o["handle"], "percentile": o.get("percentile")}
@@ -111,6 +115,42 @@ def _load(slug: str) -> list[dict]:
             except json.JSONDecodeError:
                 continue
     return _dedup(out)
+
+
+def _crowd_entries(r: dict) -> list[tuple]:
+    """A row's crowded players as (name, own-or-None) tuples — new rows store
+    {name, own} dicts, legacy rows bare strings."""
+    out = []
+    for c in (r.get("crowded_players") or []):
+        if isinstance(c, dict):
+            nm = c.get("name")
+            if nm:
+                out.append((str(nm), c.get("own")))
+        elif c:
+            out.append((str(c), None))
+    return out
+
+
+def _crowd_shape(rows: list[dict]) -> dict | None:
+    """The transferable read (7/31/26, user direction): the ownership PATTERN
+    the field piles into, independent of which names wore it. Player names
+    rotate off the slate (MMA rosters turn over ~100% per card); the shape —
+    how many names the field crowds and at what ownership level — persists."""
+    sizes, owns = [], []
+    for r in rows:
+        entries = _crowd_entries(r)
+        if entries:
+            sizes.append(len(entries))
+        owns += [o for _, o in entries if isinstance(o, (int, float))]
+    if not sizes:
+        return None
+    out = {"avg_crowd_size": round(sum(sizes) / len(sizes), 1)}
+    if owns:
+        owns.sort()
+        out["own_median"] = round(float(owns[len(owns) // 2]), 1)
+        out["own_min"] = round(float(owns[0]), 1)
+        out["own_max"] = round(float(owns[-1]), 1)
+    return out
 
 
 def _row_pairs(r: dict) -> set[tuple]:
@@ -188,7 +228,7 @@ def summarize(slug: str, contest_type: str | None) -> dict | None:
     trap_ct: Counter = Counter()
     pair_ct: Counter = Counter()
     for r in rows:
-        for nm in set(r.get("crowded_players") or []):
+        for nm in {nm for nm, _ in _crowd_entries(r)}:
             crowd_ct[nm] += 1
         for nm in set(r.get("fish_traps") or []):
             trap_ct[nm] += 1
@@ -198,6 +238,7 @@ def summarize(slug: str, contest_type: str | None) -> dict | None:
     return {
         "n_contests": n,
         "capture_structure": _capture_structure(rows),
+        "crowd_shape": _crowd_shape(rows),
         "reliably_crowded": [{"name": nm, "in_n": c, "of": n}
                              for nm, c in crowd_ct.most_common(8) if c >= 2],
         "recurring_traps": [{"name": nm, "in_n": c, "of": n}
@@ -226,7 +267,7 @@ def summarize_contest(slug: str, name) -> dict | None:
     opp_ct: Counter = Counter()
     pair_ct: Counter = Counter()
     for r in rows:
-        for nm in set(r.get("crowded_players") or []):
+        for nm in {nm for nm, _ in _crowd_entries(r)}:
             crowd_ct[nm] += 1
         for nm in set(r.get("fish_traps") or []):
             trap_ct[nm] += 1
@@ -252,6 +293,7 @@ def summarize_contest(slug: str, name) -> dict | None:
         "contest_name": next((r.get("contest_name") for r in reversed(rows)
                               if r.get("contest_name")), None) or name,
         "capture_structure": _capture_structure(rows),
+        "crowd_shape": _crowd_shape(rows),
         "reliably_crowded": [{"name": nm, "in_n": c, "of": n}
                              for nm, c in crowd_ct.most_common(8) if c >= 2],
         "recurring_traps": [{"name": nm, "in_n": c, "of": n}
@@ -265,22 +307,51 @@ def summarize_contest(slug: str, name) -> dict | None:
     }
 
 
-def _crowd_traps_str(s: dict) -> str:
+def _crowd_traps_str(s: dict, current_names: set | None = None) -> str:
+    """Shape-first (7/31/26, user direction): the OWNERSHIP PATTERN the field
+    piles into leads; specific player names appear ONLY when the player is on
+    the current slate (`current_names`, normalized). Past names that rotated
+    off the card collapse into the shape read — the strategy must never be
+    asked to discuss a player who isn't playing."""
+    from src.autopsy import _norm_name
+
+    def _on_slate(nm: str) -> bool:
+        return current_names is None or _norm_name(str(nm)) in current_names
+
     parts = []
-    if s.get("reliably_crowded"):
+    # SHAPE lead — always transferable, name-free.
+    shape = s.get("crowd_shape")
+    if shape:
+        line = (f"SHAPE: the field reliably piles onto ~{shape['avg_crowd_size']:g} "
+                f"names per contest")
+        if shape.get("own_median") is not None:
+            line += (f", arriving around {shape['own_median']:g}% ownership "
+                     f"(range {shape['own_min']:g}-{shape['own_max']:g}%)")
+        parts.append(line)
+    crowd_all = s.get("reliably_crowded") or []
+    crowd_on = [c for c in crowd_all if _on_slate(c["name"])]
+    if crowd_on:
         crowd = ", ".join(f"{c['name']} (in {c['in_n']} of {c['of']})"
-                          for c in s["reliably_crowded"])
+                          for c in crowd_on)
         parts.append(f"the field reliably crowds **{crowd}**")
-    if s.get("recurring_traps"):
+    elif crowd_all and current_names is not None:
+        parts.append(f"its {len(crowd_all)} past crowd name(s) are NOT on this "
+                     f"card — apply the shape to THIS card's consensus favorites "
+                     f"(sized in `## Chalk combos`)")
+    traps_on = [t for t in (s.get("recurring_traps") or []) if _on_slate(t["name"])]
+    if traps_on:
         traps = ", ".join(f"{t['name']} (in {t['in_n']} of {t['of']})"
-                          for t in s["recurring_traps"])
+                          for t in traps_on)
         parts.append(f"recurring fish-traps: **{traps}**")
-    if s.get("recurring_pairs"):
+    pairs_on = [p for p in (s.get("recurring_pairs") or [])
+                if all(_on_slate(nm) for nm in p["players"])]
+    if pairs_on:
         prs = ", ".join(f"{p['players'][0]} + {p['players'][1]} (in {p['in_n']} of {p['of']})"
-                        for p in s["recurring_pairs"])
+                        for p in pairs_on)
         parts.append(f"the field PAIRS **{prs}** — a dupe-magnet stack; leverage lives "
                      f"in breaking it")
     if s.get("recurring_opponents"):
+        # Opponent HANDLES are people, not slate players — never filtered.
         opps = ", ".join(f"{o['handle']} (in {o['in_n']} of {o['of']})"
                          for o in s["recurring_opponents"])
         parts.append(f"recurring opponents: {opps}")
@@ -296,7 +367,15 @@ def _crowd_traps_str(s: dict) -> str:
     return "; ".join(parts)
 
 
-def bundle_block(slug: str, contests) -> str | None:
+def _norm_name_set(current_names):
+    """Normalized set of the loaded slate's player names, or None (= no filter)."""
+    if current_names is None:
+        return None
+    from src.autopsy import _norm_name
+    return {_norm_name(str(n)) for n in current_names}
+
+
+def bundle_block(slug: str, contests, current_names=None) -> str | None:
     """Forward-feed block for the slate bundle. For each contest the user is entering,
     prefer the SPECIFIC-contest history (`summarize_contest`, keyed by name — the
     same contest = the same field) and fall back to the by-TYPE history
@@ -304,7 +383,11 @@ def bundle_block(slug: str, contests) -> str | None:
     None when nothing has enough history. Pure synthesis — surfaces where the field
     crowds so the user can leverage AWAY; issues no play/fade command.
 
-    `contests` = the declared-contest dicts (each with `name` + `type`)."""
+    `contests` = the declared-contest dicts (each with `name` + `type`).
+    `current_names` = the loaded slate's player names; when given, past
+    crowd/trap/pair NAMES render only if the player is on this slate —
+    otherwise only the ownership SHAPE is surfaced (7/31/26)."""
+    norm_now = _norm_name_set(current_names)
     seen_keys, seen_types, blocks = set(), set(), []
     for c in (contests or []):
         name = (c or {}).get("name")
@@ -314,20 +397,20 @@ def bundle_block(slug: str, contests) -> str | None:
         if key and key not in seen_keys:
             seen_keys.add(key)
             sc = summarize_contest(slug, name)
-            if sc and _crowd_traps_str(sc):
+            if sc and _crowd_traps_str(sc, norm_now):
                 blocks.append(
                     f"- **{sc['contest_name']}** (your {sc['n_contests']} past logs of THIS "
-                    f"contest): {_crowd_traps_str(sc)}."
+                    f"contest): {_crowd_traps_str(sc, norm_now)}."
                 )
                 continue  # specific covers it; don't also emit the type row
         # 2) Fallback: by contest type.
         if ctype and ctype not in seen_types:
             seen_types.add(ctype)
             st_ = summarize(slug, ctype)
-            if st_ and _crowd_traps_str(st_):
+            if st_ and _crowd_traps_str(st_, norm_now):
                 blocks.append(
                     f"- **{ctype}** (across your {st_['n_contests']} past {ctype} contests): "
-                    f"{_crowd_traps_str(st_)}."
+                    f"{_crowd_traps_str(st_, norm_now)}."
                 )
     if not blocks:
         return None
@@ -341,7 +424,7 @@ def bundle_block(slug: str, contests) -> str | None:
     )
 
 
-def crowded_names(slug: str, contests) -> list[str]:
+def crowded_names(slug: str, contests, current_names=None) -> list[str]:
     """The reliably-crowded player names that `bundle_block` surfaces for this
     slate's declared contests — flat and de-duplicated. Uses the SAME select logic
     (specific recurring contest when it has enough history, else by type) and the
@@ -350,13 +433,20 @@ def crowded_names(slug: str, contests) -> list[str]:
     Powers the app's field-tendency coverage-gap check.
 
     `contests` = the declared-contest dicts (each with `name` + `type`)."""
+    norm_now = _norm_name_set(current_names)
     seen_keys, seen_types, names = set(), set(), []
 
     def _add(summary):
+        from src.autopsy import _norm_name
         for c in (summary.get("reliably_crowded") or []):
             nm = c.get("name")
-            if nm and nm not in names:
-                names.append(nm)
+            if not nm or nm in names:
+                continue
+            # On-slate only (7/31/26): the app must never warn about a player
+            # who isn't on the current card.
+            if norm_now is not None and _norm_name(str(nm)) not in norm_now:
+                continue
+            names.append(nm)
 
     for c in (contests or []):
         name = (c or {}).get("name")
@@ -365,12 +455,12 @@ def crowded_names(slug: str, contests) -> list[str]:
         if key and key not in seen_keys:
             seen_keys.add(key)
             sc = summarize_contest(slug, name)
-            if sc and _crowd_traps_str(sc):  # same emit test bundle_block uses
+            if sc and _crowd_traps_str(sc, norm_now):  # same emit test bundle_block uses
                 _add(sc)
                 continue
         if ctype and ctype not in seen_types:
             seen_types.add(ctype)
             st_ = summarize(slug, ctype)
-            if st_ and _crowd_traps_str(st_):
+            if st_ and _crowd_traps_str(st_, norm_now):
                 _add(st_)
     return names

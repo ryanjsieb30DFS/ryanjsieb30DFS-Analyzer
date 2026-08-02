@@ -18,28 +18,37 @@ _CONTESTS_DIR = Path(__file__).parent.parent / "data" / "contests"
 _ENTRY_SUFFIX = re.compile(r"\((\d+)\s*/\s*(\d+)\)\s*$")
 
 
-# Controlled vocabulary: DK entry-cap types. The Analyzer is focused on
-# small-field GPPs — Single Entry, 3-Max, and 5-Max only. Everything downstream
-# (slate strategy, sharp envelope, field analysis) optimizes for this set; the
-# 150-max MME game is a different animal and is intentionally out of scope.
+# Controlled vocabulary: DK entry-cap types. The Analyzer's HOME GAME is
+# small-field GPPs — Single Entry, 3-Max, and 5-Max (the FOCUS set below).
+# 7/29/26 (MME plan Phase 1): the large-field types (20-Max mini-MAX and
+# 150-Max MME) are now DECLARABLE and LOGGABLE as a separate parallel track —
+# but they never blend into the small-field machinery: the sharp envelope,
+# grading calibration, dossier, and the results-trend headline all gate on
+# FOCUS_CONTEST_TYPES membership and stay sealed.
 CONTEST_TYPES = {
-    "SE":     {"default_max_entries": 1},
-    "3-Max":  {"default_max_entries": 3},
-    "5-Max":  {"default_max_entries": 5},
+    "SE":      {"default_max_entries": 1},
+    "3-Max":   {"default_max_entries": 3},
+    "5-Max":   {"default_max_entries": 5},
+    "20-Max":  {"default_max_entries": 20},
+    "150-Max": {"default_max_entries": 150},
 }
 
-# The focus set (also the keys above) — imported where downstream code must
-# gate on "is this an in-scope small-field contest".
-FOCUS_CONTEST_TYPES = frozenset(CONTEST_TYPES)
+# The focus set — imported where downstream code must gate on "is this an
+# in-scope small-field contest". Deliberately NOT frozenset(CONTEST_TYPES):
+# the MME types exist in the vocabulary but never in the focus set.
+FOCUS_CONTEST_TYPES = frozenset({"SE", "3-Max", "5-Max"})
+
+# The large-field track (the MME plan's field-exploitation game).
+MME_CONTEST_TYPES = frozenset({"20-Max", "150-Max"})
 
 
 def infer_type(entry_names) -> str | None:
     """Infer a contest's entry-cap type straight from the standings, so the type is
     NEVER lost to a manual step. DK EntryNames carry a `(n/m)` suffix; the MAX `m`
     across all entrants = the contest's max-entry cap (at least one entrant maxes in
-    a real GPP). Maps to the smallest focus cap that fits: SE(1)/3-Max(≤3)/5-Max(≤5).
-    Returns None when the cap is outside the focus set (20/150-max MME); defaults to
-    SE when there is no multi-entry suffix at all."""
+    a real GPP). Maps to the smallest cap that fits: SE(1) / 3-Max(≤3) / 5-Max(≤5) /
+    20-Max(≤20) / 150-Max(above). Defaults to SE when there is no multi-entry
+    suffix at all."""
     max_m = 1
     for nm in (entry_names if entry_names is not None else []):
         match = _ENTRY_SUFFIX.search(str(nm))
@@ -51,7 +60,9 @@ def infer_type(entry_names) -> str | None:
         return "3-Max"
     if max_m <= 5:
         return "5-Max"
-    return None  # out of focus (MME)
+    if max_m <= 20:
+        return "20-Max"
+    return "150-Max"
 
 
 def auto_link(csv_infos, declared, tol: float = 0.15) -> dict:

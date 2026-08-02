@@ -92,7 +92,7 @@ Every error above is only exploitable while it's *current*. Fields adapt slowly,
 
 Next MMA card: micro-stakes large-field GPP, 20–50 entries, built in SaberSim with the existing `mma_mme` framework doc (Sim repo, `rules/mma_mme/` — it's a written solver guide). Run the normal Analyzer slate flow. Manually check the entries against the eight errors above — especially expected dupes ≈ 0 and no crowded-pair copies. Upload standings to autopsy as always; the field data is what Phase 2 feeds on.
 
-## Phase 1 — Analyzer learns large fields (first code wave)
+## Phase 1 — Analyzer learns large fields (first code wave) — items 1-2 ✅ SHIPPED 7/29/26 (contest types + sealed headline + `## Field attack plan`); item 3 (Grade portfolio mode) still open
 
 1. **Contest types:** add `20-Max` / `150-Max` as `MME_CONTEST_TYPES` in `src/contests.py`, fully separate from `FOCUS_CONTEST_TYPES`. SE/3/5-max baselines, grading calibration, and shark envelope stay sealed — your small-field game is working; large-field data never bleeds into it.
 2. **Strategy prompt gains a `## Field attack plan` section** (only when a large-field contest is declared): for each catalog error with evidence on THIS slate, one line naming the field's mistake and one line naming the attack — mispriced-ownership list, anchor-equivalence twins with split sizing, the ignored value-tier scorers, trap-list players present, crowded pairs to refuse, news-swing reads. Still zero lineups; it's a target list, not a build.

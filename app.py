@@ -735,7 +735,17 @@ with tab_strategy:
                 )
         # Field-tendency coverage: the bundle surfaced recurring crowds, but the
         # strategy names NONE of them — the leverage-away read got dropped.
-        _crowds = field_tendencies.crowded_names(slug, load_contests(slug))
+        # ON-SLATE only (7/31/26): never demand the strategy discuss a player
+        # who isn't on this card (MMA rosters turn over ~100% per slate — the
+        # transferable read is the ownership SHAPE, which the bundle carries).
+        _slate_names_now = None
+        if _src:
+            try:
+                _slate_names_now = player_pool.build_pool(_src)["name"].astype(str).tolist()
+            except Exception:  # noqa: BLE001
+                _slate_names_now = None
+        _crowds = field_tendencies.crowded_names(slug, load_contests(slug),
+                                                 current_names=_slate_names_now)
         if _crowds:
             _crowd_missing = landscape.uncovered_candidates(
                 persisted["markdown"], pd.DataFrame({"name": _crowds})

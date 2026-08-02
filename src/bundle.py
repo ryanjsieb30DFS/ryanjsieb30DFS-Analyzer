@@ -80,8 +80,20 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
                 "**Balanced** → in between. Surface it in `## How to approach the slate`; "
                 "never a play/fade command._"
             )
+        from src.contests import MME_CONTEST_TYPES
+        _mme_declared = [c for c in contests if c.get("type") in MME_CONTEST_TYPES]
+        if _mme_declared:
+            L.append(
+                "_**LARGE-FIELD CONTEST(S) DECLARED** ("
+                + ", ".join(f"{c['name']} ({c['type']})" for c in _mme_declared)
+                + ") — the strategy MUST include the `## Field attack plan` section "
+                "(see CLAUDE.md): the large-field game is exploiting the field's "
+                "recurring mistakes, entry by entry. The small-field guidance below "
+                "still applies to any SE/3-Max/5-Max contests on the same slate — "
+                "the two games never blend._"
+            )
         L.append(
-            "_This tool is focused on **small-field GPPs — Single Entry, 3-Max, and "
+            "_The home game is **small-field GPPs — Single Entry, 3-Max, and "
             "5-Max**. Build for a tight all-unique set of 1/3/5 bullets: still "
             "ceiling-and-leverage over median (GPP), but each of your few lineups is a "
             "distinct thesis — no 150-max MME spray. Field size within this range tunes "
@@ -94,7 +106,22 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
     if contests:
         try:
             from src import field_tendencies
-            block = field_tendencies.bundle_block(slug, contests)
+            # On-slate name filter (7/31/26): past crowd/trap/pair NAMES only
+            # render when the player is on THIS slate; otherwise the block
+            # speaks in ownership SHAPE. Without loaded projections there is
+            # no filter (None) — every name shows, as before.
+            _names_now = None
+            try:
+                _src_ft = sessions.load_sources(slug)
+                if _src_ft:
+                    from src.player_pool import build_pool as _bp_ft
+                    _pool_ft = _bp_ft(_src_ft)
+                    if not _pool_ft.empty:
+                        _names_now = _pool_ft["name"].astype(str).tolist()
+            except Exception:  # noqa: BLE001
+                _names_now = None
+            block = field_tendencies.bundle_block(slug, contests,
+                                                  current_names=_names_now)
             if block:
                 L += ["", block]
         except Exception:  # noqa: BLE001 — never block the bundle
