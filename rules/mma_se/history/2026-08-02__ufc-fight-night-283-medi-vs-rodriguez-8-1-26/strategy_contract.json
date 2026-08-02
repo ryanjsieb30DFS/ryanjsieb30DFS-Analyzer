@@ -1,0 +1,221 @@
+{
+  "generated_at": "2026-07-31 20:52",
+  "slug": "mma_se",
+  "calls": [
+    {
+      "name": "Navajo Stirling",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Ludovit Klein",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Dusko Todorovic",
+      "verdict": "underweight"
+    }
+  ],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "Kyle Prepolec",
+      "own": 7.0
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Uros Medic",
+        "Vlasto Cepo"
+      ],
+      "joint_pct": 15.1
+    },
+    {
+      "players": [
+        "Uros Medic",
+        "Noah Gugnon"
+      ],
+      "joint_pct": 14.3
+    },
+    {
+      "players": [
+        "Uros Medic",
+        "Michael Oliveira"
+      ],
+      "joint_pct": 12.6
+    },
+    {
+      "players": [
+        "Uros Medic",
+        "Mateusz Rebecki"
+      ],
+      "joint_pct": 12.6
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Vlasto Cepo",
+        "Noah Gugnon"
+      ]
+    },
+    {
+      "players": [
+        "Michael Oliveira",
+        "Mateusz Rebecki",
+        "Dusko Todorovic",
+        "Jovan Leka"
+      ]
+    },
+    {
+      "players": [
+        "Bogdan Grad",
+        "Navajo Stirling",
+        "Ludovit Klein",
+        "Daniel Rodriguez"
+      ]
+    }
+  ],
+  "board": [
+    {
+      "name": "Uros Medic",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Mateusz Rebecki",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Michael Oliveira",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Vlasto Cepo",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Aleksandar Rakic",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Nina Milosevic",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Gilbert Urbina",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Noah Gugnon",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Milos Janicic",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Robert Valentin",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Bogdan Grad",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Jovan Leka",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Stephanie Luciano",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Daniel Rodriguez",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Borislav Nikolic",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Dusko Todorovic",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Mark Vologdin",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ludovit Klein",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Dennis Buzukja",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Kyle Prepolec",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Tofiq Musayev",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Jan Blachowicz",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Alexander Poppeck",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Oban Elliott",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Hailey Cowan",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Marcin Tybura",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Marina Spasic",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Navajo Stirling",
+      "tier": "Fade",
+      "leverage": false
+    }
+  ]
+}

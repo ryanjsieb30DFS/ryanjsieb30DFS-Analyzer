@@ -1,0 +1,41 @@
+{
+  "gradable": true,
+  "n_pool": 28,
+  "n_matched": 28,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 4,
+      "avg_fpts": 98.2,
+      "max_fpts": 143.7
+    },
+    {
+      "tier": "Good",
+      "n": 6,
+      "avg_fpts": 82.1,
+      "max_fpts": 113.9
+    },
+    {
+      "tier": "Okay",
+      "n": 15,
+      "avg_fpts": 41.4,
+      "max_fpts": 120.1
+    },
+    {
+      "tier": "Fade",
+      "n": 3,
+      "avg_fpts": 43.4,
+      "max_fpts": 106.1
+    }
+  ],
+  "tiers_ordered": false,
+  "leakage": [
+    {
+      "name": "Navajo Stirling",
+      "tier": "Fade",
+      "fpts": 106.1
+    }
+  ],
+  "excluded_scratches": [],
+  "summary": "Core 98.2 > Good 82.1 > Okay 41.4 > Fade 43.4  \u2717 OUT OF ORDER"
+}

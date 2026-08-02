@@ -1,0 +1,32 @@
+{
+  "field": 594,
+  "anchors": [
+    "vlasto cepo",
+    "borislav nikolic",
+    "noah gugnon"
+  ],
+  "sharks": {
+    "gradable": false,
+    "n_entries": 0
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 3,
+    "own_per_slot": 27.7,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.444,
+    "anchor_exposure_by_player": {
+      "vlasto cepo": 0.667,
+      "borislav nikolic": 0.333,
+      "noah gugnon": 0.333
+    },
+    "max_overlap": 3,
+    "unique_pct": 100.0,
+    "best_pctile": 17.17,
+    "median_pctile": 83.84
+  },
+  "deltas": [],
+  "sharks_in_field": false,
+  "slug": "mma_se",
+  "sport": "mma"
+}

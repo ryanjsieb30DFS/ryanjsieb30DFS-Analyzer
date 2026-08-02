@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-02",
+  "slug": "mma_se",
+  "sport": "mma",
+  "slate_label": "UFC Fight Night 283 Medi\u0107 vs. Rodriguez 8.1.26",
+  "history_dir": "rules/mma_se/history/2026-08-02__ufc-fight-night-283-medi-vs-rodriguez-8-1-26",
+  "contests": [
+    {
+      "name": "UFC $6K Flying Knee",
+      "type": "SE",
+      "source_file": "contest-standings-192838226.csv",
+      "field_size": 588,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "buy_in": 12.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 68,
+      "best_percentile": 11.6
+    },
+    {
+      "name": "UFC $2K Sprawl",
+      "type": "3-Max",
+      "source_file": "contest-standings-192838231.csv",
+      "field_size": 594,
+      "my_entries": 3,
+      "entry_fee": 4.0,
+      "buy_in": 12.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 102,
+      "best_percentile": 17.2
+    }
+  ],
+  "total_buy_in": 24.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 68,
+  "best_percentile": 11.6,
+  "best_rank_mme": null,
+  "best_percentile_mme": null,
+  "entries_total": 4,
+  "edge_leverage_capture": 0.5,
+  "edge_overperformer_capture": null,
+  "edge_bust_exposure": null,
+  "lineup_avg_ratio": null,
+  "shark_gap_top": null,
+  "adherence_fades_violated": 0,
+  "adherence_leverage_covered": "1/1",
+  "tier_summary": "Core 98.2 > Good 82.1 > Okay 41.4 > Fade 43.4  \u2717 OUT OF ORDER",
+  "tiers_ordered": false,
+  "grader_check": {
+    "flagged_pctiles": [],
+    "clean_pctiles": [
+      11.6,
+      17.2,
+      83.8,
+      86.9
+    ]
+  }
+}

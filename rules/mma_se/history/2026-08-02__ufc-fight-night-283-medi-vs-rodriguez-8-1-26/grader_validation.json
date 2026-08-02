@@ -1,0 +1,61 @@
+{
+  "gradable": true,
+  "n_lineups": 4,
+  "lineups": [
+    {
+      "players": [
+        "Bogdan Grad",
+        "Borislav Nikolic",
+        "Hailey Cowan",
+        "Noah Gugnon",
+        "Stephanie Luciano",
+        "Uros Medic"
+      ],
+      "percentile": 11.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Dennis Buzukja",
+        "Jovan Leka",
+        "Mark Vologdin",
+        "Noah Gugnon",
+        "Robert Valentin",
+        "Uros Medic"
+      ],
+      "percentile": 17.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Borislav Nikolic",
+        "Kyle Prepolec",
+        "Michael Oliveira",
+        "Milos Janicic",
+        "Robert Valentin",
+        "Vlasto Cepo"
+      ],
+      "percentile": 83.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Daniel Rodriguez",
+        "Mark Vologdin",
+        "Mateusz Rebecki",
+        "Milos Janicic",
+        "Robert Valentin",
+        "Vlasto Cepo"
+      ],
+      "percentile": 86.9,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    11.6,
+    17.2,
+    83.8,
+    86.9
+  ]
+}

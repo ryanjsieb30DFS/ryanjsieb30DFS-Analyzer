@@ -1,0 +1,40 @@
+{
+  "gradable": true,
+  "n_lineups": 4,
+  "calls": [
+    {
+      "name": "Navajo Stirling",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 4,
+      "followed": true
+    },
+    {
+      "name": "Ludovit Klein",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 4,
+      "followed": true
+    },
+    {
+      "name": "Dusko Todorovic",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 4,
+      "followed": true
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "leverage_candidates": [
+    {
+      "name": "Kyle Prepolec",
+      "rostered": true
+    }
+  ],
+  "leverage_covered": 1,
+  "leverage_of": 1
+}

@@ -325,3 +325,35 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 | **Fade** | 3 | 18.1 | 26.7 |
 - ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
 - ⚪ Excluded as likely scratches (0.0 FPTS — didn't compete): Islam Dulatov (Core), Wellington Turman (Fade). Not counted in tier averages.
+
+
+## 2026-08-02 17:03 — MMA (contest-standings-192838226.csv)
+- Entries: 588
+- Winning score: 664.2
+- Cash line (top 20%): 478.0
+- My entries: 1 · best rank 68/588 (top 11.6%)
+- Winners (top 20): avg own 29.46% vs mine 28.97% · sub-10% plays/lineup 0.75 vs mine 1.0
+- Slate-defining plays: Gilbert Urbina (113.9 pts @ 9.9%), Robert Valentin (107.5 pts @ 18.4%)
+
+
+## 2026-08-02 17:03 — MMA (contest-standings-192838231.csv)
+- Entries: 594
+- Winning score: 674.8
+- Cash line (top 20%): 490.1
+- My entries: 3 · best rank 102/594 (top 17.2%)
+- Winners (top 20): avg own 29.89% vs mine 27.73% · sub-10% plays/lineup 0.15 vs mine 0.67
+- Slate-defining plays: Gilbert Urbina (113.9 pts @ 11.9%)
+
+### Strategy adherence — did you follow your own strategy? (4 unique lineups)
+- ✅ Every hard FADE honored.
+- Leverage candidates rostered somewhere: **1 of 1**.
+
+### Player-pool tier calibration (28 of 28 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 4 | 98.2 | 143.7 |
+| **Good** | 6 | 82.1 | 113.9 |
+| **Okay** | 15 | 41.4 | 120.1 |
+| **Fade** | 3 | 43.4 | 106.1 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+- 🕳️ Buried: **Navajo Stirling** (Fade) scored 106.1 — above the top tier's average.
