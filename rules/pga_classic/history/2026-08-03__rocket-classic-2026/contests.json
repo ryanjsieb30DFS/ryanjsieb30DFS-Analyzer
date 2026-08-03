@@ -1,0 +1,26 @@
+{
+  "contests": [
+    {
+      "name": "PGA $10K Eagle",
+      "type": "5-Max",
+      "field_size": 2378,
+      "max_entries": 5,
+      "my_entries": 5,
+      "entry_fee": 5.0,
+      "prize_pool": 10000,
+      "payout_shape": null,
+      "id": "584e7917"
+    },
+    {
+      "name": "PGA TOUR $35K mini-MAX [150 Entry Max]",
+      "type": "150-Max",
+      "field_size": 83234,
+      "max_entries": 150,
+      "my_entries": 20,
+      "entry_fee": 0.5,
+      "prize_pool": 35000,
+      "payout_shape": "Top-heavy",
+      "id": "66ac1d81"
+    }
+  ]
+}

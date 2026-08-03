@@ -378,3 +378,40 @@ Per Philosophy Section 4:
 | **Fade** | 56 | 47.7 | 132.5 |
 - ✅ Tier ordering HELD — higher tiers outscored lower ones on average.
 - 🕳️ Buried: **Chandler Phillips** (Fade) scored 132.5 — above the top tier's average.
+
+
+## 2026-08-03 19:32 — PGA Classic (contest-standings-192834907.csv)
+- Entries: 2,216
+- Winning score: 609.5
+- Cash line (top 20%): 470.0
+- My entries: 5 · best rank 24/2,216 (top 1.1%)
+- Winners (top 22): avg own 12.88% vs mine 14.8% · sub-10% plays/lineup 1.55 vs mine 1.6
+- Slate-defining plays: Michael Thorbjornsen (129.5 pts @ 12.8%), Matt Wallace (114.0 pts @ 3.7%), Xander Schauffele (110.0 pts @ 14.1%), Davis Thompson (99.5 pts @ 13.9%)
+
+
+## 2026-08-03 19:32 — PGA Classic (contest-standings-192834905.csv)
+- Entries: 79,274
+- Winning score: 647.5
+- Cash line (top 20%): 465.0
+- My entries: 21 · best rank 5,201/79,274 (top 6.6%)
+- Winners (top 100): avg own 12.13% vs mine 13.18% · sub-10% plays/lineup 1.67 vs mine 2.19
+- Slate-defining plays: Michael Thorbjornsen (129.5 pts @ 11.2%), Matt Wallace (114.0 pts @ 4.2%), Xander Schauffele (110.0 pts @ 16.3%), Ryan Gerard (99.5 pts @ 16.8%)
+
+### Strategy adherence — did you follow your own strategy? (26 unique lineups)
+- ⚠️ **1 FADE call(s) violated:** **Jake Knapp** (in 5 of 26)
+- Leverage candidates rostered somewhere: **9 of 12**.
+
+### Player-pool tier calibration (121 of 147 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 3 | 56.8 | 75.0 |
+| **Good** | 10 | 75.6 | 110.0 |
+| **Okay** | 47 | 62.7 | 129.5 |
+| **Fade** | 61 | 45.8 | 111.0 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+- 🕳️ Buried: **Davis Thompson** (Fade) scored 99.5 — above the top tier's average.
+- 🕳️ Buried: **Mark Hubbard** (Fade) scored 66.0 — above the top tier's average.
+- 🕳️ Buried: **Ricky Castillo** (Fade) scored 88.0 — above the top tier's average.
+- 🕳️ Buried: **Kevin Roy** (Fade) scored 88.0 — above the top tier's average.
+- 🕳️ Buried: **Beau Hossler** (Fade) scored 67.5 — above the top tier's average.
+- ⚪ Excluded as likely scratches (0.0 FPTS — didn't compete): Taylor Moore (Fade). Not counted in tier averages.

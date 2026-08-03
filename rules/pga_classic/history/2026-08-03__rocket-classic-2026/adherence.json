@@ -1,0 +1,100 @@
+{
+  "gradable": true,
+  "n_lineups": 26,
+  "calls": [
+    {
+      "name": "Jake Knapp",
+      "verdict": "fade",
+      "exposure_pct": 19.2,
+      "in_lineups": 5,
+      "of": 26,
+      "followed": false
+    },
+    {
+      "name": "Akshay Bhatia",
+      "verdict": "lean_fade",
+      "exposure_pct": 11.5,
+      "in_lineups": 3,
+      "of": 26,
+      "followed": true
+    },
+    {
+      "name": "Cameron Young",
+      "verdict": "underweight",
+      "exposure_pct": 11.5,
+      "in_lineups": 3,
+      "of": 26,
+      "followed": true
+    },
+    {
+      "name": "Davis Thompson",
+      "verdict": "lean_fade",
+      "exposure_pct": 7.7,
+      "in_lineups": 2,
+      "of": 26,
+      "followed": true
+    },
+    {
+      "name": "Nicolai Hojgaard",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 26,
+      "followed": true
+    }
+  ],
+  "fades_violated": 1,
+  "soft_violated": 0,
+  "leverage_candidates": [
+    {
+      "name": "Eric Cole",
+      "rostered": true
+    },
+    {
+      "name": "Harris English",
+      "rostered": true
+    },
+    {
+      "name": "Michael Brennan",
+      "rostered": true
+    },
+    {
+      "name": "Emiliano Grillo",
+      "rostered": true
+    },
+    {
+      "name": "Benjamin James",
+      "rostered": true
+    },
+    {
+      "name": "Johnny Keefer",
+      "rostered": false
+    },
+    {
+      "name": "Pierceson Coody",
+      "rostered": false
+    },
+    {
+      "name": "Mac Meissner",
+      "rostered": true
+    },
+    {
+      "name": "Matt Wallace",
+      "rostered": true
+    },
+    {
+      "name": "Aldrich Potgieter",
+      "rostered": true
+    },
+    {
+      "name": "Max Greyserman",
+      "rostered": true
+    },
+    {
+      "name": "Marco Penge",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 9,
+  "leverage_of": 12
+}

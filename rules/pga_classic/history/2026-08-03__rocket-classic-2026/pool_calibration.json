@@ -1,0 +1,66 @@
+{
+  "gradable": true,
+  "n_pool": 147,
+  "n_matched": 121,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 3,
+      "avg_fpts": 56.8,
+      "max_fpts": 75.0
+    },
+    {
+      "tier": "Good",
+      "n": 10,
+      "avg_fpts": 75.6,
+      "max_fpts": 110.0
+    },
+    {
+      "tier": "Okay",
+      "n": 47,
+      "avg_fpts": 62.7,
+      "max_fpts": 129.5
+    },
+    {
+      "tier": "Fade",
+      "n": 61,
+      "avg_fpts": 45.8,
+      "max_fpts": 111.0
+    }
+  ],
+  "tiers_ordered": false,
+  "leakage": [
+    {
+      "name": "Davis Thompson",
+      "tier": "Fade",
+      "fpts": 99.5
+    },
+    {
+      "name": "Mark Hubbard",
+      "tier": "Fade",
+      "fpts": 66.0
+    },
+    {
+      "name": "Ricky Castillo",
+      "tier": "Fade",
+      "fpts": 88.0
+    },
+    {
+      "name": "Kevin Roy",
+      "tier": "Fade",
+      "fpts": 88.0
+    },
+    {
+      "name": "Beau Hossler",
+      "tier": "Fade",
+      "fpts": 67.5
+    }
+  ],
+  "excluded_scratches": [
+    {
+      "name": "Taylor Moore",
+      "tier": "Fade"
+    }
+  ],
+  "summary": "Core 56.8 > Good 75.6 > Okay 62.7 > Fade 45.8  \u2717 OUT OF ORDER"
+}

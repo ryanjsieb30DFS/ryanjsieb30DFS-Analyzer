@@ -1,0 +1,28 @@
+{
+  "slug": "pga_classic",
+  "sport": "golf",
+  "contest_label": "PGA Classic",
+  "date": "2026-08-03",
+  "slate_label": "Rocket Classic 2026",
+  "archived_at": "2026-08-03 19:32",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json"
+  ],
+  "missing": [
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/pga_classic/2026-07-29__ETR Golf Coffin List 7.30.26.pdf",
+    "articles/pga_classic/2026-07-29__ETR Golf Course Preview 7.30.26.pdf",
+    "articles/pga_classic/2026-07-29__ETR Golf DK Ownership Analysis 7.30.26.pdf",
+    "articles/pga_classic/2026-07-29__ETR Golf Large Field Breakdown 7.29.26.pdf",
+    "articles/pga_classic/2026-07-29__ETR Golf Model Proj. Inputs 7.30.26.pdf",
+    "articles/pga_classic/2026-07-29__ETR Golf Value Report 7.30.26.pdf",
+    "articles/pga_classic/2026-07-29__Establish-The-Green-Rocket-Classic-1.pdf"
+  ],
+  "proj_source": null
+}

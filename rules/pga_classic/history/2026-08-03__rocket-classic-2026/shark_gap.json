@@ -1,0 +1,77 @@
+{
+  "field": 2216,
+  "anchors": [
+    "chris gotterup",
+    "cameron young",
+    "jake knapp"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 11,
+    "own_per_slot": 13.8,
+    "leverage_pct": 63.6,
+    "anchor_exposure": 0.273,
+    "anchor_exposure_by_player": {
+      "chris gotterup": 0.364,
+      "cameron young": 0.364,
+      "jake knapp": 0.091
+    },
+    "max_overlap": 3,
+    "unique_pct": 100.0,
+    "best_pctile": 3.11,
+    "median_pctile": 12.36
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 5,
+    "own_per_slot": 14.8,
+    "leverage_pct": 80.0,
+    "anchor_exposure": 0.2,
+    "anchor_exposure_by_player": {
+      "chris gotterup": 0.4,
+      "cameron young": 0.0,
+      "jake knapp": 0.2
+    },
+    "max_overlap": 2,
+    "unique_pct": 100.0,
+    "best_pctile": 1.08,
+    "median_pctile": 62.68
+  },
+  "deltas": [
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 80.0,
+      "shark": 63.6,
+      "delta": 16.4
+    },
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 14.8,
+      "shark": 13.8,
+      "delta": 1.0
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.2,
+      "shark": 0.273,
+      "delta": -0.073
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "pga_classic",
+  "sport": "golf"
+}

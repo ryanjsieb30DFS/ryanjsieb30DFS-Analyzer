@@ -1,0 +1,360 @@
+{
+  "gradable": true,
+  "n_lineups": 26,
+  "lineups": [
+    {
+      "players": [
+        "Davis Thompson",
+        "Jordan L. Smith",
+        "Michael Thorbjornsen",
+        "Patrick Cantlay",
+        "Rickie Fowler",
+        "Si Woo Kim"
+      ],
+      "percentile": 1.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Doug Ghim",
+        "J.J. Spaun",
+        "Keegan Bradley",
+        "Ryan Gerard",
+        "Sungjae Im",
+        "Xander Schauffele"
+      ],
+      "percentile": 3.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Jackson Suber",
+        "Jake Knapp",
+        "Nicolai H\u00f8jgaard",
+        "Ryan Gerard",
+        "Si Woo Kim",
+        "Sudarshan Yellamaraju"
+      ],
+      "percentile": 62.7,
+      "flags": [
+        "fade_violation"
+      ]
+    },
+    {
+      "players": [
+        "Andrew Novak",
+        "Ben Griffin",
+        "Chris Gotterup",
+        "Hideki Matsuyama",
+        "Jacob Bridgeman",
+        "Michael Kim"
+      ],
+      "percentile": 80.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Kohles",
+        "Chris Gotterup",
+        "Eric Cole",
+        "J.J. Spaun",
+        "Michael Kim",
+        "Wyndham Clark"
+      ],
+      "percentile": 87.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Benjamin James",
+        "Cameron Young",
+        "Mac Meissner",
+        "Michael Kim",
+        "Rickie Fowler",
+        "Si Woo Kim"
+      ],
+      "percentile": 6.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Benjamin James",
+        "Cameron Young",
+        "Emiliano Grillo",
+        "Jordan L. Smith",
+        "Michael Thorbjornsen",
+        "Si Woo Kim"
+      ],
+      "percentile": 7.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Kohles",
+        "J.J. Spaun",
+        "Jackson Koivun",
+        "Rickie Fowler",
+        "Ryan Gerard",
+        "Ryo Hisatsune"
+      ],
+      "percentile": 13.2,
+      "flags": [
+        "no_leverage"
+      ]
+    },
+    {
+      "players": [
+        "Michael Brennan",
+        "Michael Kim",
+        "Michael Thorbjornsen",
+        "Ryo Hisatsune",
+        "Si Woo Kim",
+        "Wyndham Clark"
+      ],
+      "percentile": 15.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Chris Gotterup",
+        "Corey Conners",
+        "Kevin Roy",
+        "Michael Thorbjornsen",
+        "Rickie Fowler",
+        "Wyndham Clark"
+      ],
+      "percentile": 25.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Jake Knapp",
+        "Matt Wallace",
+        "Michael Kim",
+        "Rickie Fowler",
+        "Si Woo Kim"
+      ],
+      "percentile": 30.3,
+      "flags": [
+        "fade_violation"
+      ]
+    },
+    {
+      "players": [
+        "Chris Gotterup",
+        "Harris English",
+        "Hideki Matsuyama",
+        "Max Greyserman",
+        "Michael Thorbjornsen",
+        "William Mouw"
+      ],
+      "percentile": 31.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Aldrich Potgieter",
+        "Chris Gotterup",
+        "Corey Conners",
+        "Jacob Bridgeman",
+        "Mac Meissner",
+        "Xander Schauffele"
+      ],
+      "percentile": 37.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Chris Gotterup",
+        "Jackson Koivun",
+        "Max Greyserman",
+        "Michael Kim",
+        "Patrick Cantlay",
+        "Sungjae Im"
+      ],
+      "percentile": 37.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Emiliano Grillo",
+        "Hideki Matsuyama",
+        "Max Greyserman",
+        "Rasmus Neergaard-Petersen",
+        "Russell Henley",
+        "Si Woo Kim"
+      ],
+      "percentile": 39.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Chris Gotterup",
+        "Chris Kirk",
+        "Jake Knapp",
+        "Jordan L. Smith",
+        "Rickie Fowler",
+        "Russell Henley"
+      ],
+      "percentile": 44.1,
+      "flags": [
+        "fade_violation"
+      ]
+    },
+    {
+      "players": [
+        "Chris Gotterup",
+        "Hideki Matsuyama",
+        "J.J. Spaun",
+        "Jackson Suber",
+        "Rickie Fowler",
+        "Zecheng Dou"
+      ],
+      "percentile": 44.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Akshay Bhatia",
+        "J.J. Spaun",
+        "Max Greyserman",
+        "Patrick Cantlay",
+        "Ryan Gerard",
+        "Ryo Hisatsune"
+      ],
+      "percentile": 47.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "J.J. Spaun",
+        "Matt Wallace",
+        "Rasmus Neergaard-Petersen",
+        "Tony Finau",
+        "Xander Schauffele"
+      ],
+      "percentile": 48.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Benjamin James",
+        "J.J. Spaun",
+        "Rasmus Neergaard-Petersen",
+        "Russell Henley",
+        "Sam Stevens",
+        "Xander Schauffele"
+      ],
+      "percentile": 52.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Chris Gotterup",
+        "Davis Thompson",
+        "Eric Cole",
+        "Lee Hodges",
+        "Michael Brennan",
+        "Xander Schauffele"
+      ],
+      "percentile": 56.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Akshay Bhatia",
+        "Ben Griffin",
+        "Corey Conners",
+        "Jackson Suber",
+        "Jordan Spieth",
+        "Russell Henley"
+      ],
+      "percentile": 59.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Benjamin James",
+        "Corey Conners",
+        "Kevin Yu",
+        "Si Woo Kim",
+        "Wyndham Clark"
+      ],
+      "percentile": 69.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Akshay Bhatia",
+        "Chris Gotterup",
+        "Jake Knapp",
+        "Ryan Gerard",
+        "Ryo Hisatsune",
+        "William Mouw"
+      ],
+      "percentile": 85.7,
+      "flags": [
+        "fade_violation"
+      ]
+    },
+    {
+      "players": [
+        "Chris Gotterup",
+        "Emiliano Grillo",
+        "Jackson Koivun",
+        "Jake Knapp",
+        "Max Greyserman",
+        "Rasmus Neergaard-Petersen"
+      ],
+      "percentile": 90.7,
+      "flags": [
+        "fade_violation"
+      ]
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Harris English",
+        "Matti Schmid",
+        "Rasmus Neergaard-Petersen",
+        "Si Woo Kim",
+        "Taylor Pendrith"
+      ],
+      "percentile": 94.0,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [
+    62.7,
+    13.2,
+    30.3,
+    44.1,
+    85.7,
+    90.7
+  ],
+  "clean_pctiles": [
+    1.1,
+    3.5,
+    80.7,
+    87.7,
+    6.6,
+    7.0,
+    15.8,
+    25.9,
+    31.9,
+    37.2,
+    37.4,
+    39.1,
+    44.6,
+    47.8,
+    48.9,
+    52.6,
+    56.4,
+    59.2,
+    69.8,
+    94.0
+  ]
+}
