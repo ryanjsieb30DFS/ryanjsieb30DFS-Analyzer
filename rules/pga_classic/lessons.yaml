@@ -274,7 +274,31 @@ lessons:
           drift guard. Two mechanism contradictions on a CODIFIED rule -> demotion/
           narrowing proposal in this review's Proposed codifications. GPP guard
           satisfied: logged on the falsified own-sort, not on the lost contest.
-    codified_in: "framework.md — Section 6 Anchor Selection Logic (Trap chalk vs value chalk); philosophy.md — Section 5 Chalk Has a Purpose"
+      - date: "2026-08-03"
+        slate: "Rocket Classic at Detroit Golf Club (rules/pga_classic/history/2026-08-03__rocket-classic-2026)"
+        note: >
+          Third mechanism contradiction, and this one falsifies the NARROWED
+          (2026-07-22) version directly. The narrowed rule says a stable name whose
+          ownership lands at flat projection keeps its coffin label. Chris Gotterup
+          was exactly that case: coffin +7.1 (the split's "value chalk" signal),
+          projected 27.3% own, actual field own 26.7% (mini-MAX) and 29.7% (Eagle) —
+          flat, no steam, so neither the materialization prong nor the self-erosion
+          drift prong fired. The strategy tiered him Core on that basis and called him
+          "the cheaper half of the Young bet." He was then the single clearest TRAP on
+          the slate by the structural (not scoring) measure: #1 fish trap in BOTH
+          contests — 47.1% of the Eagle's bottom-half lineups versus 0.0% of its
+          winners, and 40.4% versus 0.4% in the mini-MAX. A player carried by four in
+          ten losers and essentially zero winners is the definition of trap chalk, and
+          the coffin gap sorted him the other way at flat ownership. The pattern across
+          all three contradictions is now consistent: the coffin gap mis-sorts whenever
+          the player sits inside the field's top crowding tier, regardless of whether
+          the ownership behaves. Proposed further narrowing (see Proposed
+          codifications): the coffin/value-vs-trap split may only label a player VALUE
+          chalk when he is OUTSIDE the slate's top-3 field-ownership tier; at ~25%+
+          projected own he is the crowd's anchor and must be sized as chalk on his own
+          merit. GPP guard satisfied: logged on the falsified sort (flat own + coffin
+          overweight -> still the field's trap), not on the lost contest.
+    codified_in: "framework.md — Section 6 Anchor Selection Logic (Trap chalk vs value chalk — NARROWED 2026-08-03 after a third mechanism failure: a player projected inside the slate's top-3 field ownership may not be labeled value chalk on a coffin gap at all, however his ownership behaves); philosophy.md — Section 5 Chalk Has a Purpose"
     retired_reason: null
 
   - id: pga-classic-2026-05-17-two-build-max
@@ -303,7 +327,7 @@ lessons:
     status: codified
     confirmations: []
     contradictions: []
-    codified_in: "framework.md — Section 1 Contest Selection"
+    codified_in: "framework.md — Section 1 Contest Selection (SCOPE NARROWED 2026-08-03, MME Plan Phase 1: large-field MME is no longer discontinued — it is a declared, sealed parallel track logged separately from the SE/3-Max/5-Max focus set; the original precision objection survives as the reason for the separation)"
     retired_reason: null
 
   - id: pga-classic-2026-06-10-ch-scan-needs-skill-gate
@@ -420,6 +444,21 @@ lessons:
           hit 76.5 and made 44.4% of the top lineups — the fade edge shrank exactly as
           the ownership failed to fully materialize. Both directions of the mechanism
           held on one slate.
+      - date: "2026-08-03"
+        slate: "Rocket Classic at Detroit Golf Club (rules/pga_classic/history/2026-08-03__rocket-classic-2026)"
+        note: >
+          Fifth confirmation, and the check was again written into the doc in advance
+          on every fade. The hard FADE was Jake Knapp with the condition stated inline
+          ("If he is confirmed fully healthy at lock, this softens to underweight");
+          his ownership materialized (23.4% projected, 26.9% Eagle and 20.1% mini-MAX
+          actual), so the fade premise held, and he delivered 45.0 FPTS as a top-3
+          fish trap in both contests (34.0% of Eagle losers, 0.0% of Eagle winners).
+          The soft calls carried explicit void conditions too ("if his ownership slips
+          under ~12%, the fade is void" on Bhatia; the same on Hojgaard), and the doc
+          declined to fade Harry Hall and Jordan Spieth at 5.3% and 1.6% on the
+          codified sub-10%-is-not-a-fade rule. Bhatia's own materialized and he scored
+          29.5 as another fish trap. The rule is now being applied prospectively and
+          in writing every slate, which is what codification is for.
     contradictions: []
     codified_in: "framework.md — Section 6 Anchor Selection Logic (Trap chalk vs value chalk); philosophy.md — Section 5 Chalk Has a Purpose"
     retired_reason: null
@@ -506,6 +545,21 @@ lessons:
           off-screen-dart L1 at 82.8 was worse). The deviation was visible, named
           pre-lock, and cost anyway: the safety net worked, the discipline didn't.
           Discipline (adherence) remains the live gap even as the analysis improves.
+      - date: "2026-08-03"
+        slate: "Rocket Classic at Detroit Golf Club (rules/pga_classic/history/2026-08-03__rocket-classic-2026)"
+        note: >
+          Fifth confirmation, same modern expression and a much bigger sample. The
+          strategy called a hard FADE on Jake Knapp; five entered lineups carried him
+          anyway. The retro grader flagged six lineups in total (five of them the
+          Knapp fade violations) and the flagged group finished materially worse: mean
+          percentile 54.4 versus 42.4 for the twenty clean lineups, medians 53.4
+          versus 41.9 (lower is better). The fade itself was correct on its own mechanism — Knapp's
+          ownership materialized (23.4% projected, 26.9% and 20.1% actual), he scored
+          45.0, and he was a top-3 fish trap in both contests (34.0% of Eagle fish
+          versus 0.0% of Eagle winners). So for the second straight logged 5-Max the
+          chain ran: doc names the call, grader flags the violation pre-lock, the
+          violating lineups underperform. The analysis and the safety net are both
+          working; the discipline layer is where the loss now lives.
     contradictions: []
     codified_in: "framework.md — Section 9 Pre-Submission Checklist (trace-to-plan rule)"
     retired_reason: null
@@ -559,6 +613,21 @@ lessons:
           sub-10% mean) — the historical above-envelope lean overcorrected past
           the ~13% target rather than onto it. The band is a target, not a
           ceiling; see [[pga-classic-2026-07-22-dart-rate-exceeds-in-field-pros]].
+      - date: "2026-08-03"
+        slate: "Rocket Classic at Detroit Golf Club (rules/pga_classic/history/2026-08-03__rocket-classic-2026)"
+        note: >
+          Own-target confirmed, dart-count branch stretched. The winners' per-player
+          ownership landed dead on the baseline once more: Eagle top-22 mean 12.88%,
+          mini-MAX top-100 mean 12.13%, Eagle winners 90.9% unique. But the dart count
+          came in BELOW the 2-3 band for the first time in the logged sample — Eagle
+          winners 1.55 sub-10% pieces, mini-MAX top-100 1.67, and the Eagle winner
+          himself ran 11.06% own with a single sub-10% piece (Matt Wallace at 3.66%).
+          Working read, not a verdict: a course nobody has played (the $16.1M Detroit
+          rebuild) pushes variance into the whole board, so winners bought their
+          separation with ONE well-chosen cheap piece rather than two or three. The
+          user's Eagle set sat at 14.8% own with 1.6 sub-10% — right on count, ~1.9
+          points above the winners on ownership, which is where the residual gap now
+          lives.
     contradictions: []
     codified_in: "framework.md — Section 3 Ownership Tier Framework (empirical winning-structure baseline)"
     retired_reason: null
@@ -638,6 +707,23 @@ lessons:
           entry (rank 64/1902, 3.4 pctile, one swap from the outright win).
           Named -> rostered -> captured, for the first time in the sample.
           Leverage capture 0.6, the sample's best.
+      - date: "2026-08-03"
+        slate: "Rocket Classic at Detroit Golf Club (rules/pga_classic/history/2026-08-03__rocket-classic-2026)"
+        note: >
+          Confirmed again, at the ledger's best-ever capture rate. The structural
+          truth held: the slate's defining play was Michael Thorbjornsen (129.5 FPTS
+          at 11.2-12.8% own — under the 20% line — in 91% of the mini-MAX top-100
+          winners and 77.3% of the Eagle top-22), with Matt Wallace (114.0 at
+          3.7-4.2%, the Eagle winner's leverage carrier) beside him. Every one of the
+          six slate-defining plays was named in the strategy doc AND rostered
+          somewhere in the entered set — leverage capture 1.0, the first perfect score
+          in the sample (prior best 0.6 at the 3M). Named -> rostered -> captured for
+          the second straight slate, and the first slate with ZERO doc-absent
+          definers after a five-slate streak of them. Residual, logged honestly: the
+          mini-MAX winner's carrier was Davis Riley at 0.09% field own (111.0 FPTS) —
+          a name at nine hundredths of a percent is below anything a screen can
+          reasonably surface, so this is noted as the floor of the mechanism, not as
+          a coverage failure.
     contradictions: []
     codified_in: "framework.md — Section 2 Slate Diagnostics (mandatory low-owned-smash scan)"
     retired_reason: null
@@ -717,6 +803,23 @@ lessons:
           ~2-2.5 branch. The user's entries ran 3.25 mean, a dart heavy for the
           archetype; the count discipline, not the calibration, is the live gap
           ([[pga-classic-2026-07-22-dart-rate-exceeds-in-field-pros]]).
+      - date: "2026-08-03"
+        slate: "Rocket Classic at Detroit Golf Club (rules/pga_classic/history/2026-08-03__rocket-classic-2026)"
+        note: >
+          New archetype corner, logged as a refinement rather than a confirmation or a
+          contradiction. Detroit Golf Club had just been rebuilt (par 72 to par 70,
+          fairways tightened, greens rebuilt larger), so no player had a competitive
+          round on the layout and every course-history input was void — an
+          UNKNOWN-course corner the lesson's birdie-fest / tough split does not
+          contain. The strategy predicted the tough-plus-cut ~2-2.5 branch. Winners
+          instead ran ~1.6 sub-10% pieces (Eagle top-22 1.55, mini-MAX top-100 1.67),
+          the lowest dart count in the logged sample, while holding the usual ~12-13%
+          per-player ownership. Proposed refinement (not a verdict on one slate): when
+          the venue itself is an unknown — a rebuild, a debut course, or a setup change
+          that voids all history — the whole board's variance is already elevated, so
+          the winning structure buys separation with roughly ONE well-chosen cheap
+          piece, not two or three. Needs a second unknown-course slate before it earns
+          a branch in the framework table.
     contradictions: []
     codified_in: "framework.md — Section 3 Ownership Tier Framework (Dart-count calibration); codified 2026-07-22"
     retired_reason: null
@@ -933,6 +1036,21 @@ lessons:
           win). Residual: Blair was absent from the doc entirely — the
           cheap-steam coverage gap
           ([[pga-classic-2026-07-26-unprojected-cheap-steam-screen]]).
+      - date: "2026-08-03"
+        slate: "Rocket Classic at Detroit Golf Club (rules/pga_classic/history/2026-08-03__rocket-classic-2026)"
+        note: >
+          Fifth mechanism confirmation, the cleanest version of the band claim yet.
+          Five of the six slate-defining plays landed in the 10-20% own band —
+          Thorbjornsen (129.5 @ 11.2-12.8%), Xander Schauffele (110.0 @ 14.1-16.3%),
+          Davis Thompson (99.5 @ 12.8-13.9%), Ryan Gerard (99.5 @ 16.8-19.3%), Hideki
+          Matsuyama (98.0 @ 17.2-18.4%) — with only Matt Wallace (114.0 @ 3.7-4.2%)
+          coming from the deep tier. The necessary-not-sufficient caveat stayed
+          positive for a second straight slate: the pool caught all six (leverage
+          capture 1.0). The live residual has moved from IDENTIFICATION to WEIGHTING —
+          the band members were on the board but under-weighted relative to the
+          crowded anchor tier (Gotterup 11 of 26 entries at ~27-30% own versus Xander
+          5 of 26 at ~15%), which is the subject of the new
+          [[pga-classic-2026-08-03-equivalence-take-the-discounted-half]].
     contradictions: []
     codified_in: "framework.md — Section 2 Slate Diagnostics (10-16% mid-owned band coverage)"
     retired_reason: null
@@ -1000,6 +1118,22 @@ lessons:
           Independent assembly let the best value compete for slots and lose, exactly
           the mechanism. Origin (RBC) + Shinnecock (positive) + Open (negative) = 3
           mechanism slates; meets the promotion count. See Proposed codifications.
+      - date: "2026-08-03"
+        slate: "Rocket Classic at Detroit Golf Club (rules/pga_classic/history/2026-08-03__rocket-classic-2026)"
+        note: >
+          Third mechanism confirmation, negative direction, and the first time the
+          missing governor broke a HARD number rather than a soft preference. Chris
+          Gotterup ended up on 11 of 26 entered lineups — 9 of the 21 mini-MAX bullets,
+          42.9%, above the framework's 35% hard cap for a small-portfolio MME set —
+          and no exposure target was ever written, so nothing stopped it. He was the
+          portfolio's single largest exposure and the field's #1 fish trap in both
+          contests. The mirror image is the same mechanism: the doc's declared anchor
+          preference ("a sharp anchors most entries from the 13% side of that bet")
+          resolved to Xander 5 of 26 and Koivun 3 of 26, i.e. the doc's stated priority
+          finished behind an unstated one. Independent lineup-by-lineup assembly again
+          let the crowded name win slot competition it was never supposed to enter.
+          The fix is unchanged and now has a numeric trigger: write the per-anchor cap
+          before building, and check the built set against it.
     contradictions: []
     codified_in: "framework.md — Section 7 Exposure Caps (Exposures before lineups); codified 2026-07-22"
     retired_reason: null
@@ -1181,6 +1315,25 @@ lessons:
           ([[pga-classic-2026-07-26-unprojected-cheap-steam-screen]]). Origin
           (Travelers) + Birkdale + 3M = 3 mechanism slates; meets the promotion
           bar. See Proposed codifications.
+      - date: "2026-08-03"
+        slate: "Rocket Classic at Detroit Golf Club (rules/pga_classic/history/2026-08-03__rocket-classic-2026)"
+        note: >
+          Third mechanism confirmation post-codification, and it closes the
+          Burns-shaped hole the Birkdale entry defined as the test. The board's job
+          was to catch a mid-band ELITE the single vendor was cool on. Xander
+          Schauffele was precisely that player — ETR coffin -5.0, results thin since
+          the back injury — and the doc named him anyway, citing the prior miss by
+          name ("exactly the vendor-cool mid-band elite profile that has burned you
+          before (the Sam Burns miss at Birkdale)"), tiered him Good with a Leverage
+          label, and built the whole anchor-equivalence read around him at 13.5%
+          projected own. He posted 110.0, came in at 14.1-16.3% actual own, appeared
+          in 74% of the mini-MAX top-100 winners and anchored the Eagle winner. The
+          second board-only catch landed too: Matt Wallace was written up as "a 93.6
+          ceiling at 3% that no article named at all — a pure board catch," hit 114.0,
+          and was the Eagle winner's leverage carrier. Two vendor-independent catches,
+          both slate-definers, on a single-vendor slate — the exact failure class this
+          lesson was born to fix, now reversed. Zero slate-definers were absent from
+          the doc for the first time in the sample.
     contradictions: []
     codified_in: "framework.md — Section 2 Slate Diagnostics (Vendor-independent ceiling board) + Section 9 checklists"
     retired_reason: null
@@ -1207,7 +1360,7 @@ lessons:
       Distinct from [[pga-classic-2026-06-13-dose-darts-to-course-variance]] (per-lineup
       dart COUNT vs course archetype) — this is the PORTFOLIO-level sub-5% rate vs the
       observed pro envelope.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-07-26"
         slate: "3M Open at TPC Twin Cities (rules/pga_classic/history/2026-07-26__pga-3m-open-2026)"
@@ -1229,8 +1382,28 @@ lessons:
           pays: hold the rate near the pros' one-in-most and fill the slot from
           the written screen (Chatfield was ON the screen; McCarthy was not).
           Promoted to validated on the narrowed statement.
+      - date: "2026-08-03"
+        slate: "Rocket Classic at Detroit Golf Club (rules/pga_classic/history/2026-08-03__rocket-classic-2026)"
+        note: >
+          Second confirmation — the axis fired a FOURTH straight 5-Max, same
+          direction, and narrowed again. leverage_pct was the top shark gap for
+          the fourth time running: 80.0% of my Eagle lineups carried a sub-5%
+          piece vs the in-field pros' 63.6% (delta +16.4, after +53.3 Shinnecock,
+          +60.0 Birkdale, +20.0 3M). The sequence 53.3 -> 60.0 -> 20.0 -> 16.4 is
+          a real, monotone convergence toward the pro envelope since the lesson
+          was written, so the doc-level guard is working. The mid-band half of the
+          mechanism confirmed hard: five of the six slate-defining plays landed in
+          the 10-20% own band (Thorbjornsen 129.5 @ 11.2-12.8%, Xander 110.0 @
+          14.1-16.3%, Davis Thompson 99.5 @ 12.8-13.9%, Gerard 99.5 @ 16.8-19.3%,
+          Hideki 98.0 @ 17.2-18.4%), with Matt Wallace (114.0 @ 3.7-4.2%) the lone
+          sub-5% definer — and the winners themselves ran BELOW the historical dart
+          band (Eagle top-22 1.55 sub-10% pieces, mini-MAX top-100 1.67). My Eagle
+          set ran 1.6 sub-10% (on target) but 14.8% own/slot vs the pros' 13.8% and
+          the winners' 12.88% — the residual gap has moved off dart RATE and onto
+          own/slot. Origin (Birkdale) + 3M + Rocket = 3 mechanism slates; meets the
+          promotion bar. See Proposed codifications.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Section 3 Ownership Tier Framework (Portfolio-level low-owned RATE, codified 2026-08-03, incl. the Rocket Classic own/slot corollary)"
     retired_reason: null
 
   - id: pga-classic-2026-07-22-darts-come-from-the-screen
@@ -1317,6 +1490,100 @@ lessons:
       Partner of [[pga-classic-2026-05-11-never-zero-value-chalk-anchor]]
       (which covers the projection #1) — this extends the same asymmetry to
       contested top-skill chalk the doc itself declined to fade.
+    status: validated
+    confirmations:
+      - date: "2026-08-03"
+        slate: "Rocket Classic at Detroit Golf Club (rules/pga_classic/history/2026-08-03__rocket-classic-2026)"
+        note: >
+          First mechanism confirmation, and it exposes a SECOND blind spot in the
+          adherence gate. The doc graded Cameron Young UNDERWEIGHT and spelled the
+          floor out in the text ("Underweight is NOT zero: in a five-lineup set that
+          means one bullet, per your never-zero rule"). The 5-Max Eagle entries then
+          took Young 0 of 5 — the exact zero the doc argued against — while the
+          20-lineup mini-MAX carried him 3 times. adherence.json pooled all 26
+          lineups, reported 11.5% exposure, and graded the call "followed." So the
+          gate passed a portfolio that zeroed the call in the FOCUS contest purely
+          because a separate large-field contest covered it. Two gate failures now
+          stack: (a) 0-of-N passes the <50% underweight test at small N (the 3M
+          Matsuyama case), and (b) pooling contests hides a zero in the small-field
+          contest behind exposure in the large one. Mechanism, not result — Young
+          scored a survivable 87.0 at ~29.6% field own, so this slate the zero cost
+          little; the finding is that the discipline layer cannot see the violation
+          at all. Fix unchanged and now doubled: an UNDERWEIGHT call means exactly
+          one bullet, and the floor must be checked PER CONTEST, not across the
+          pooled entry set. Same slate, same gate, a converse measurement miss worth
+          logging: the Nicolai Hojgaard UNDERWEIGHT call read 0 of 26 in
+          adherence.json when he was in fact rostered in Eagle lineup 3 — the DK
+          spelling carries a slashed-o Scandinavian character that the strategy
+          doc's plain-ASCII spelling does not, and the name matcher missed it, so
+          that call's grade was wrong in the opposite direction.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-08-03-equivalence-take-the-discounted-half
+    born: "2026-08-03"
+    origin: "rules/pga_classic/history/2026-08-03__rocket-classic-2026 — Rocket Classic at Detroit Golf Club (Gotterup 11/26 vs Xander 5/26)"
+    statement: >
+      The Anchor-Equivalence read is only cashed by rostering the LESS-OWNED half of
+      the pair. Two players who are near-identical bets have near-identical points
+      expectation by construction, so the entire edge of noticing the pair is the
+      ownership discount — carrying the crowded half buys the same expected points at
+      several times the duplication cost and captures none of the edge. Mechanism: the
+      substitutability finding reads as permission ("either one is fine") when it is
+      actually a directive on WHICH one, so exposure defaults to the more famous or
+      higher-tiered name and the discount evaporates. At the Rocket Classic the
+      strategy named TWO equivalence pairs — the crowded pair (Cameron Young 31.4% and
+      Chris Gotterup 27.3% projected own, ceilings 116.6 and 113.4) and the discounted
+      pair (Xander Schauffele 13.5% and Jackson Koivun 13.7%, near-equal DK win odds) —
+      and stated the direction explicitly: "a sharp anchors most entries from the 13%
+      side of that bet and lets the field pay 31%." The entered set then ran Gotterup on
+      11 of 26 lineups (42%, the portfolio's largest exposure and above the framework's
+      35% MME cap) against Xander 5 of 26 and Koivun 3 of 26. Structural outcome:
+      Gotterup drew 26.7-29.7% actual field own and was the #1 fish trap in BOTH
+      contests (47.1% of Eagle losers vs 0.0% of Eagle winners; 40.4% vs 0.4% in the
+      mini-MAX), while Xander came in at 14.1-16.3% and appeared in 74% of the mini-MAX
+      top-100 winners. Expression: when the strategy names an equivalence pair, write
+      the exposure split in the same sentence, weighted to the lower-owned half, and
+      check the built set against it before lock. Distinct from
+      [[pga-classic-2026-05-11-never-zero-value-chalk-anchor]] (which says do not zero
+      the crowded half) — this says do not let the crowded half become the largest
+      exposure. Partner of
+      [[pga-classic-2026-06-17-design-exposures-before-lineups]] (the mechanism by
+      which an unstated preference wins slot competition).
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-08-03-core-tier-must-price-crowding
+    born: "2026-08-03"
+    origin: "rules/pga_classic/history/2026-08-03__rocket-classic-2026 — Rocket Classic (pool_calibration.json OUT OF ORDER, Gotterup tiered Core)"
+    statement: >
+      The player-pool board's Core tier must be gated on field crowding, not assigned
+      on projected points and vendor edge alone, because a Core label drives exposure
+      and therefore converts a tiering error directly into a duplication error.
+      Mechanism: Core reads as "start here," so whatever sits in Core gets the
+      portfolio's largest weight; if the field's most-crowded anchor can earn a Core
+      label on projection strength, the board is instructing the builder to buy the
+      crowd's position at the crowd's price, which is the opposite of what the tier is
+      for. At the Rocket Classic the Core tier held three names (J.J. Spaun, Si Woo Kim,
+      Chris Gotterup) and averaged 56.8 FPTS — BELOW Good (75.6) and below Okay (62.7),
+      the first out-of-order board in three logged slates (Birkdale and the 3M both
+      ordered) — because Gotterup carried a Core label at 26.7-29.7% actual field own,
+      posted 27.5, and finished as the #1 fish trap in both contests. The two names the
+      portfolio then hammered were the two reachable Core names (Gotterup 11 of 26, Si
+      Woo 9 of 26). Secondary evidence that the tier edges are soft: five players tiered
+      Fade out-scored the Core average (Davis Thompson 99.5, Ricky Castillo 88.0, Kevin
+      Roy 88.0, Beau Hossler 67.5, Mark Hubbard 66.0), and Davis Thompson was a genuine
+      slate-definer sitting at the bottom of the board. Proposed gate: no player inside
+      the slate's top-3 projected-ownership tier is tiered Core unless the same line
+      states the crowding tension and the duplication cost; and a three-name Core tier
+      is too thin to be stable, so Core should carry 5-6 names and no single bust should
+      be able to invert the board. Related to
+      [[pga-classic-2026-05-17-trap-vs-value-chalk]] (which mis-sorted the same player
+      upstream) — this is the downstream tiering expression of the same failure.
     status: hypothesis
     confirmations: []
     contradictions: []
