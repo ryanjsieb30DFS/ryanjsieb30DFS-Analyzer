@@ -83,6 +83,54 @@ def test_adherence_md_renders():
     assert "FADE call(s) violated" in md and "Chalk Guy" in md
 
 
+def test_per_contest_zeroed_underweight_flagged():
+    # UNDERWEIGHT honored on the pooled numbers (3 of 26 = 11.5%) but ZERO in
+    # one contest — the Cameron Young miss the pooled grade called "followed".
+    records = [
+        {"source_file": "small.csv", "contest_id": "1",
+         "user_lineups": [{"players": [f"A{i}", "B", "C"]} for i in range(5)]},
+        {"source_file": "big.csv", "contest_id": "2",
+         "user_lineups": [{"players": ["Cameron Young", f"D{i}", "E"]} for i in range(3)]
+                          + [{"players": [f"F{i}", "G", "H"]} for i in range(18)]},
+    ]
+    a = adherence.grade_adherence(
+        {"calls": [{"name": "Cameron Young", "verdict": "underweight"}]}, records)
+    call = a["calls"][0]
+    assert call["followed"] is True            # pooled check still passes
+    assert call["zeroed_in"] == ["small.csv"]  # ...but the zero is named
+    assert a["per_contest_flags"] == 1
+    md = adherence.adherence_md(a)
+    assert "zeroed in one contest" in md and "small.csv" in md
+
+
+def test_per_contest_over_exposure_hidden_by_pooling_flagged():
+    # lean_fade at 4 of 10 pooled (40%, passes) but 4 of 5 (80%) inside one
+    # contest — the pooled average hid the over-exposure.
+    records = [
+        {"source_file": "a.csv", "contest_id": "1",
+         "user_lineups": [{"players": ["Hot Guy", f"A{i}"]} for i in range(4)]
+                          + [{"players": ["Z", "Y"]}]},
+        {"source_file": "b.csv", "contest_id": "2",
+         "user_lineups": [{"players": [f"B{i}", "C"]} for i in range(5)]},
+    ]
+    a = adherence.grade_adherence(
+        {"calls": [{"name": "Hot Guy", "verdict": "lean_fade"}]}, records)
+    call = a["calls"][0]
+    assert call["followed"] is True
+    assert call["over_in"] == ["a.csv"]
+    assert a["per_contest_flags"] == 1
+    assert "over-exposed inside a.csv" in adherence.adherence_md(a)
+
+
+def test_single_contest_slate_skips_per_contest_bookkeeping():
+    a = adherence.grade_adherence(
+        {"calls": [{"name": "X", "verdict": "underweight"}]},
+        [{"source_file": "only.csv",
+          "user_lineups": [{"players": ["A", "B"]}, {"players": ["C", "D"]}]}])
+    assert "by_contest" not in a["calls"][0]
+    assert a["per_contest_flags"] == 0
+
+
 def test_logged_contest_ids_and_trend_block():
     with tempfile.TemporaryDirectory() as td:
         root = Path(td)

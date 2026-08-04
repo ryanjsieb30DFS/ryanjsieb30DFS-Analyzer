@@ -63,6 +63,18 @@ def test_name_normalization_matches_accents_and_periods():
     assert e["leverage_hit"] == ["Daniel Suarez"]
 
 
+def test_name_normalization_folds_stroked_letters():
+    # ø/đ/æ survive NFKD decomposition (they are standalone letters, not
+    # letter+accent) — DK's "Højgaard" must match a vendor's "Hojgaard".
+    rec = _record(
+        user_players=["Nicolai Højgaard", "Thorbjørn Olesen", "a", "b", "c", "d"],
+        defining=["Nicolai Hojgaard", "Thorbjorn Olesen"],
+        over=[], under=[],
+    )
+    e = accuracy.grade_edges([rec])
+    assert e["leverage_hit"] == ["Nicolai Hojgaard", "Thorbjorn Olesen"]
+
+
 def test_grade_lineups_ratio_and_percentile():
     rec = _record(["a", "b", "c", "d", "e", "f"], [], [], [], proj=300.0, pts=330.0, pct=4.0)
     ln = accuracy.grade_lineups([rec])

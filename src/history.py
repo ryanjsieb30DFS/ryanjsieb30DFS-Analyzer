@@ -221,6 +221,7 @@ def archive_slate(
     adherence: dict | None = None,
     pool_calibration: dict | None = None,
     grader_validation: dict | None = None,
+    sim_autopsy: list[dict] | None = None,
 ) -> Path:
     """Archive the slate's artifacts + results. Returns the history dir.
 
@@ -228,6 +229,8 @@ def archive_slate(
     entry_fee, winnings (None if unreported), best_rank, best_percentile}.
     shark_gap: optional structural us-vs-sharks profile (from src.shark_gap).
     adherence: optional own-strategy adherence grade (from src.adherence).
+    sim_autopsy: optional per-contest Sim measurements (pool-vs-picking +
+    sim-ranking predictiveness, from the Sim's Score-slate hand-off).
     """
     date_str = datetime.now().strftime("%Y-%m-%d")
     root = _history_root(slug)
@@ -291,6 +294,11 @@ def archive_slate(
     if grader_validation is not None:
         (hist_dir / "grader_validation.json").write_text(
             json.dumps(grader_validation, indent=2))
+
+    # Sim autopsy (pool-vs-picking + did the sim's ranking predict finishes —
+    # the measurements only the Sim can make; one payload per contest).
+    if sim_autopsy:
+        (hist_dir / "sim_autopsy.json").write_text(json.dumps(sim_autopsy, indent=2))
 
     contests_out = []
     for c in roi_contests:

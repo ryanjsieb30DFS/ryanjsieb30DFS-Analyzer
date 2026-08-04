@@ -107,7 +107,9 @@ def test_archives_listed_newest_first_with_labels():
     assert dirs, "expected archived MMA slates"
     names = [d.name for d in dirs]
     assert names == sorted(names, reverse=True), "newest first"
-    assert _REAL.name == names[0]
+    # The fixture slate must be IN the list, ordered by its date — pinning it
+    # as names[0] broke the moment a newer slate was logged (2026-08-02 did).
+    assert _REAL.name in names
     label = archive_label(_REAL)
     assert "Ankalaev" in label and "2026-07-26" in label
 

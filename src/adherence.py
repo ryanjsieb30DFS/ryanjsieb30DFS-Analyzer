@@ -50,6 +50,32 @@ def _user_lineups(records) -> list[set[str]]:
     return out
 
 
+def _user_lineups_by_contest(records) -> list[dict]:
+    """Per-contest rosters (deduped WITHIN each contest, never across).
+
+    Pooling all contests hid per-contest zeros: at the 8/3/26 Rocket Classic
+    the UNDERWEIGHT call on Cameron Young read 'followed' at 11.5% pooled
+    exposure while the small contest — the one the call was written for — held
+    him ZERO times (the lesson: underweight means one bullet in EACH contest,
+    not one bullet across the whole entry set)."""
+    out = []
+    for r in (records or []):
+        seen: set[frozenset] = set()
+        lineups: list[set[str]] = []
+        for ln in r.get("user_lineups") or []:
+            roster = frozenset(_norm_name(p) for p in (ln.get("players") or []) if p)
+            if roster and roster not in seen:
+                seen.add(roster)
+                lineups.append(set(roster))
+        if lineups:
+            out.append({
+                "label": str(r.get("source_file") or r.get("contest_id") or "contest"),
+                "contest_id": r.get("contest_id"),
+                "lineups": lineups,
+            })
+    return out
+
+
 def grade_adherence(contract: dict | None, records) -> dict:
     """Grade the entered lineups against the strategy contract's calls.
 
@@ -61,10 +87,16 @@ def grade_adherence(contract: dict | None, records) -> dict:
     if not lineups or (not calls and not leverage):
         return {"gradable": False, "n_lineups": len(lineups)}
 
+    # Per-contest views, so a call can't hide behind the pooled average.
+    # Single-contest slates skip the extra bookkeeping (pooled IS per-contest).
+    by_contest = _user_lineups_by_contest(records)
+    multi_contest = len(by_contest) > 1
+
     n = len(lineups)
     graded = []
     fades_violated = 0
     soft_violated = 0
+    per_contest_flags = 0
     for c in calls:
         key = _norm_name(c.get("name", ""))
         if not key:
@@ -85,6 +117,33 @@ def grade_adherence(contract: dict | None, records) -> dict:
         else:  # play — informational, never a violation
             row["followed"] = None
             row["ignored"] = hits == 0
+        # Per-contest breakdown (multi-contest slates only). Two flags the
+        # pooled number cannot see:
+        #   zeroed_in — an UNDERWEIGHT call held ZERO times in a contest the
+        #     user entered (underweight is not zero — validated lesson);
+        #   over_in — a soft call over the exposure cap WITHIN one contest
+        #     while the pooled average read fine.
+        if multi_contest and verdict in (_HARD_VERDICTS | _SOFT_VERDICTS):
+            bc = []
+            zeroed_in, over_in = [], []
+            for ct in by_contest:
+                c_hits = sum(1 for lu in ct["lineups"] if key in lu)
+                c_n = len(ct["lineups"])
+                bc.append({"contest": ct["label"], "in_lineups": c_hits, "of": c_n,
+                           "exposure_pct": round(100.0 * c_hits / c_n, 1)})
+                if verdict == "underweight" and c_hits == 0:
+                    zeroed_in.append(ct["label"])
+                if verdict in _SOFT_VERDICTS and c_hits / c_n > _SOFT_MAX_EXPOSURE:
+                    over_in.append(ct["label"])
+            row["by_contest"] = bc
+            if zeroed_in:
+                row["zeroed_in"] = zeroed_in
+            # Only flag per-contest over-exposure the pooled check MISSED —
+            # a call already counted violated shouldn't be double-reported.
+            if over_in and row.get("followed"):
+                row["over_in"] = over_in
+            if zeroed_in or (over_in and row.get("followed")):
+                per_contest_flags += 1
         graded.append(row)
 
     lev_rows = []
@@ -100,9 +159,11 @@ def grade_adherence(contract: dict | None, records) -> dict:
     return {
         "gradable": True,
         "n_lineups": n,
+        "n_contests": len(by_contest),
         "calls": graded,
         "fades_violated": fades_violated,
         "soft_violated": soft_violated,
+        "per_contest_flags": per_contest_flags,
         "leverage_candidates": lev_rows,
         "leverage_covered": covered,
         "leverage_of": len(lev_rows),
@@ -127,6 +188,20 @@ def adherence_md(a: dict) -> str:
         soft = [c for c in a["calls"] if c["verdict"] in _SOFT_VERDICTS and not c["followed"]]
         out.append(f"- ⚠️ {a['soft_violated']} under-own call(s) over-exposed: " +
                    ", ".join(f"**{c['name']}** ({c['exposure_pct']}%)" for c in soft))
+    # Per-contest flags the pooled numbers hide (multi-contest slates only).
+    for c in a["calls"]:
+        for label in c.get("zeroed_in") or []:
+            bc = next((b for b in c.get("by_contest") or [] if b["contest"] == label), {})
+            out.append(
+                f"- ⚠️ UNDERWEIGHT call zeroed in one contest: **{c['name']}** was in "
+                f"0 of {bc.get('of', '?')} lineups in {label} — underweight means "
+                f"at least one bullet in EACH contest, not one across the whole set.")
+        for label in c.get("over_in") or []:
+            bc = next((b for b in c.get("by_contest") or [] if b["contest"] == label), {})
+            out.append(
+                f"- ⚠️ {str(c['verdict']).upper()} call over-exposed inside {label}: "
+                f"**{c['name']}** in {bc.get('in_lineups', '?')} of {bc.get('of', '?')} "
+                f"there — the pooled average hid it.")
     if a.get("leverage_of"):
         out.append(f"- Leverage candidates rostered somewhere: "
                    f"**{a['leverage_covered']} of {a['leverage_of']}**.")

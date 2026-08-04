@@ -63,3 +63,25 @@ def test_simple_pga_schema_always_etr_no_sin_relabel():
                   "wisconsin.csv", None):
         assert detect_vendor(df, source_name=fname)["name"] == "ETR PGA"
     assert detect_vendor(df)["name"] == "ETR PGA"
+
+
+def test_rd4_sd_adds_finish_points_into_proj_mirrors_sim():
+    """DK RD4 SD actuals include finish-position points, so proj_points must
+    carry them (8/3/26, mirrors the Sim repo). Blank FP cells count as 0 and
+    the column is retained."""
+    import pandas as pd
+    from src.vendors import detect_vendor, normalize_to_canonical
+    df = pd.DataFrame({
+        "golfer": ["A", "B", "C"], "tee_time": ["12:34", "11:16", "10:58"],
+        "salary": ["$11,000", "$8,900", "$6,400"], "points": [40.7, 35.0, 28.0],
+        "value": [5.3, 2.1, 1.0], "ownership": ["32.6%", "9.5%", "1.2%"],
+        "current_score": [-12, -6, -2], "finish_points": [7.73, 1.72, None],
+        "id": [1, 2, 3],
+    })
+    sig = detect_vendor(df)
+    assert sig["name"] == "DK PGA RD4 SD"
+    out = normalize_to_canonical(df, sig)
+    assert out["proj_points"].tolist() == [40.7 + 7.73, 35.0 + 1.72, 28.0]
+    assert "finish_points" in out.columns
+    assert "current_score" in out.columns
+    assert "value" not in out.columns

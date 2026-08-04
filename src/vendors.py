@@ -168,8 +168,14 @@ VENDOR_SIGNATURES: list[dict] = [
             "id": "dk_id",
         },
         # Keep `current_score` — it's the live to-par leaderboard position, THE
-        # driving input for RD4 Showdown selection. `value`/`finish_points` are noise.
-        "drop_columns": ["value", "finish_points"],
+        # driving input for RD4 Showdown selection.
+        # KEEP `finish_points` too, and ADD it into proj_points (8/3/26, mirrors
+        # the Sim repo — reverses the 8/2 "noise" call): DK's RD4 SD actuals
+        # INCLUDE finish-position points, so a projection without them runs
+        # structurally low on contenders (top-15 bias +5.27/golfer without FP
+        # vs +0.32 with, 8/3 slate). Only `value` is noise.
+        "drop_columns": ["value"],
+        "add_to_proj": ["finish_points"],
     },
 ]
 
@@ -258,4 +264,13 @@ def normalize_to_canonical(df: pd.DataFrame, signature: dict) -> pd.DataFrame:
     # Rename to canonical column names
     rename = {k: v for k, v in signature.get("column_map", {}).items() if k in df.columns}
     df = df.rename(columns=rename)
+    # Fold declared add-on columns into proj_points (e.g. DK RD4 SD finish
+    # points — DK's actuals include them, so a projection without them runs
+    # structurally low). Blank cells count as 0; the column is retained.
+    for col in signature.get("add_to_proj", []):
+        if col in df.columns and "proj_points" in df.columns:
+            df["proj_points"] = (
+                pd.to_numeric(df["proj_points"], errors="coerce")
+                + pd.to_numeric(df[col], errors="coerce").fillna(0)
+            )
     return df

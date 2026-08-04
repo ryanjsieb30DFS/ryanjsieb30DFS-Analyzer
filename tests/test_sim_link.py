@@ -279,3 +279,59 @@ def test_dupe_correction_tolerates_one_bad_corpus_line(tmp_path, monkeypatch):
     sl._dupe_cache.clear()
     # naive = 0.001 * 1000 = 1; observed 4 -> factor 4.0 from the 3 good lines.
     assert sl.dupe_correction("mma_se", 1000) == 4.0
+
+
+# ---------------------------------------------------------------------------
+# Sim autopsy hand-off (standings copies + pool-vs-picking payloads, 8/3/26)
+# ---------------------------------------------------------------------------
+
+def test_list_sim_standings_reads_manifest_and_skips_missing(tmp_path, monkeypatch):
+    monkeypatch.setattr(sl, "_SIM_STANDINGS_DIR", tmp_path / "sim_standings")
+    d = tmp_path / "sim_standings" / "pga_classic"
+    d.mkdir(parents=True)
+    (d / "contest-standings-1.csv").write_bytes(b"Rank\n1")
+    (d / "manifest.json").write_text(json.dumps({"slug": "pga_classic", "files": [
+        {"filename": "contest-standings-1.csv", "contest_id": "1",
+         "slate_name": "S1", "scored_at": "2026-08-03 19:00"},
+        {"filename": "gone.csv", "contest_id": "2",
+         "slate_name": "S2", "scored_at": "2026-08-03 19:00"},
+    ]}))
+    rows = sl.list_sim_standings("pga_classic")
+    assert len(rows) == 1                      # the missing file is dropped
+    assert rows[0]["contest_id"] == "1"
+    assert rows[0]["path"].endswith("contest-standings-1.csv")
+    assert sl.list_sim_standings("nascar") == []
+
+
+def test_load_sim_autopsy_and_md_and_clear(tmp_path, monkeypatch):
+    monkeypatch.setattr(sl, "_SIM_STANDINGS_DIR", tmp_path / "sim_standings")
+    monkeypatch.setattr(sl, "_SIM_AUTOPSY_DIR", tmp_path / "sim_autopsy")
+    d = tmp_path / "sim_autopsy"
+    d.mkdir()
+    payload = {
+        "slug": "pga_classic", "slate_name": "Rocket", "contest_id": "192834905",
+        "user": {"n_entries": 21, "best_points": 507.5},
+        "pool": {"n": 5000, "avg_actual": 391.0, "median_actual": 392.5,
+                 "max_actual": 621.0, "n_beating_best_entry": 206,
+                 "pct_beating_best_entry": 4.1, "picking_edge_points": 25.4},
+        "rank_signal": [{"metric": "pre_sim_top1_pct", "label": "Top 1%", "n": 5000,
+                         "spearman_vs_actual": -0.054, "top100_avg_actual": 365.1,
+                         "pool_avg_actual": 391.0}],
+    }
+    (d / "pga_classic__192834905.json").write_text(json.dumps(payload))
+    (d / "pga_classic__bad.json").write_text("{not json")   # tolerated, skipped
+    loaded = sl.load_sim_autopsy("pga_classic")
+    assert list(loaded) == ["192834905"]
+    md = sl.sim_autopsy_md(loaded["192834905"])
+    assert "5,000 lineups" in md and "621.0" in md
+    assert "206" in md and "-0.054" in md
+    assert "picking added points" in md          # positive edge phrasing
+    assert sl.sim_autopsy_md({}) == ""
+    # Clear removes both directions of the hand-off.
+    sd = tmp_path / "sim_standings" / "pga_classic"
+    sd.mkdir(parents=True)
+    (sd / "x.csv").write_bytes(b"a")
+    (sd / "manifest.json").write_text("{}")
+    sl.clear_sim_handoff("pga_classic")
+    assert sl.load_sim_autopsy("pga_classic") == {}
+    assert sl.list_sim_standings("pga_classic") == []

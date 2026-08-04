@@ -91,15 +91,28 @@ def _parse_lineup_string(lineup_str: str) -> list[str]:
 
 _NAME_SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v"}
 
+# Latin letters that are NOT an ASCII letter + combining accent, so the NFKD
+# decomposition leaves them intact. DK spells "Nicolai Højgaard" while vendors
+# ship "Nicolai Hojgaard"; without this fold the two never join — the 8/3/26
+# Rocket Classic adherence file showed him on 0 of 26 lineups when he was on 1.
+# Mirrors the identical fix in the Sim repo's vendor_calibration._norm_name.
+_LETTER_FOLD = str.maketrans({
+    "ø": "o", "Ø": "o", "đ": "d", "Đ": "d", "ð": "d", "Ð": "d",
+    "ł": "l", "Ł": "l", "þ": "th", "Þ": "th", "æ": "ae", "Æ": "ae",
+    "œ": "oe", "Œ": "oe", "ß": "ss", "ı": "i", "ŀ": "l",
+})
+
 
 def _norm_name(name) -> str:
     """Join key for matching standings names to projection names. Accent- and
     period-insensitive ('Daniel Suárez' == 'daniel suarez'); also drops a trailing
     Jr/Sr/III, quoted nicknames, and apostrophes/hyphens — the differences that
     silently zeroed MMA vendor matching (e.g. 'Michael Aswell Jr.' vs 'Michael
-    Aswell')."""
+    Aswell'). Also folds stroked/ligature Latin letters (ø, đ, æ, ß …), which
+    survive NFKD and broke golf matching (Højgaard vs Hojgaard)."""
     s = unicodedata.normalize("NFKD", str(name))
     s = "".join(ch for ch in s if not unicodedata.combining(ch))
+    s = s.translate(_LETTER_FOLD)
     s = re.sub(r'"[^"]*"|\'[^\']*\'', " ", s)           # drop "Nickname" / 'Nickname'
     s = s.casefold().replace(".", "").replace("'", "").replace("-", " ")
     toks = [t for t in s.split() if t]

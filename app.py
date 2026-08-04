@@ -287,8 +287,9 @@ with st.sidebar:
             (REPO_ROOT / "data" / "grade" / f"{slug}.md").unlink(missing_ok=True)
             from src.strategy_contract import clear_contract
             clear_contract(slug)
-            from src.sim_link import clear_sim_entries
+            from src.sim_link import clear_sim_entries, clear_sim_handoff
             clear_sim_entries(slug)
+            clear_sim_handoff(slug)
             st.session_state[f"confirm_clear_{slug}"] = False
             st.rerun()
         if cc2.button("Cancel", key=f"cancel_clear_{slug}"):
@@ -926,6 +927,36 @@ with tab_autopsy:
              "summarized and logged as its own autopsy entry. Player scores are "
              "identical across contests; field size, winning score, and cash line differ.",
     )
+    # One upload, not two: when the Sim's "Score slate" already pushed the same
+    # standings CSVs here (data/sim_standings/<slug>/), offer them one-click —
+    # this guarantees both tools autopsy the IDENTICAL file. An explicit upload
+    # above always wins; the shim mimics the two UploadedFile members the rest
+    # of the tab reads (.name / .getvalue()).
+    if not dk_csvs:
+        try:
+            from src.sim_link import list_sim_standings as _lss
+            _sim_pushed = _lss(slug)
+        except Exception:  # noqa: BLE001
+            _sim_pushed = []
+        if _sim_pushed:
+            _pushed_names = ", ".join(r["filename"] for r in _sim_pushed)
+            if st.checkbox(
+                f"📥 Use the {len(_sim_pushed)} standings file(s) the Sim already "
+                f"scored — {_pushed_names}",
+                value=True,
+                key=f"use_sim_standings_{slug}",
+                help="The Sim tool copied these here when you clicked Score slate. "
+                     "Same files, no second upload.",
+            ):
+                class _SimPushedCSV:
+                    def __init__(self, row):
+                        self.name = row["filename"]
+                        self._bytes = Path(row["path"]).read_bytes()
+
+                    def getvalue(self):
+                        return self._bytes
+
+                dk_csvs = [_SimPushedCSV(r) for r in _sim_pushed]
     # Three steps, in order. Nothing in the app communicated that Log must precede
     # Review, so the review got clicked first and silently re-reviewed a week-old
     # slate. Follows the readiness-caption pattern from the Slate Strategy tab.
@@ -1217,6 +1248,23 @@ with tab_autopsy:
                                          f"{'chalkier' if _tr > 0 else 'sharper'} ({_tr:+} own/slot)")
                             st.info(_msg)
 
+                # --- Sim autopsy: pool-vs-picking + did the sim ranking work --- #
+                # Pushed by the Sim's Score slate; joined on the DK contest id
+                # from the filename. Measurements only the Sim can make (it
+                # holds the built pool + the simulation; this tool never does).
+                try:
+                    from src.sim_link import load_sim_autopsy, sim_autopsy_md
+                    from src.contests import contest_id_from_filename as _cidff
+                    _sa_all = load_sim_autopsy(slug)
+                    _sa = _sa_all.get(str(_cidff(dk_csv.name) or ""))
+                    if _sa:
+                        _sa_md = sim_autopsy_md(_sa)
+                        if _sa_md:
+                            with st.container(border=True):
+                                st.markdown(_sa_md)
+                except Exception:  # noqa: BLE001 — a broken bridge never blocks the tab
+                    pass
+
                 # Draft-persisted: survives a Streamlit crash/restart mid-autopsy.
                 # Keyed by FILE identity (not loop index): index keys stick to
                 # the slot, so removing/reordering uploads cross-wired notes,
@@ -1495,6 +1543,21 @@ with tab_autopsy:
                 except Exception as _ge:  # noqa: BLE001
                     _gv = None
                     _log_warnings.append(f"Grader self-validation NOT computed: {_ge}")
+                # Sim autopsy payloads (pool-vs-picking + sim-ranking report),
+                # matched to this log's contests by contest_id — archived so the
+                # post-autopsy review can read them after the hand-off clears.
+                _sim_aut = None
+                try:
+                    from src.sim_link import load_sim_autopsy as _lsa
+                    _sa_all = _lsa(slug)
+                    _sim_aut = [
+                        _sa_all[str(r.get("contest_id"))]
+                        for r in records
+                        if str(r.get("contest_id")) in _sa_all
+                    ] or None
+                except Exception as _sae:  # noqa: BLE001
+                    _sim_aut = None
+                    _log_warnings.append(f"Sim autopsy NOT archived: {_sae}")
                 # Archive the slate BEFORE clearing — analysis and ROI survive
                 # in rules/<slug>/history/ + results.jsonl. If archiving fails,
                 # roll autopsies.md + autopsy_data.jsonl back to their pre-log
@@ -1515,6 +1578,7 @@ with tab_autopsy:
                         adherence=_adh,
                         pool_calibration=_cal,
                         grader_validation=_gv,
+                        sim_autopsy=_sim_aut,
                     )
                 except Exception as _arch_err:  # noqa: BLE001
                     history.truncate_to(md_path, _md_size)
@@ -1636,8 +1700,9 @@ with tab_autopsy:
             (REPO_ROOT / "data" / "grade" / f"{slug}.md").unlink(missing_ok=True)
             from src.strategy_contract import clear_contract
             clear_contract(slug)
-            from src.sim_link import clear_sim_entries
+            from src.sim_link import clear_sim_entries, clear_sim_handoff
             clear_sim_entries(slug)
+            clear_sim_handoff(slug)
             del st.session_state[f"autopsy_done_{slug}"]
             st.success("Slate data cleared — ready for the next slate.")
             st.rerun()

@@ -113,6 +113,120 @@ def clear_sim_entries(slug: str) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Sim autopsy hand-off (Sim Score-slate → this repo's Autopsy tab, 8/3/26)
+# ---------------------------------------------------------------------------
+# At Score-slate time the Sim writes two things into THIS repo:
+#   data/sim_standings/<slug>/ — a copy of each scored standings CSV + manifest,
+#     so the Autopsy tab can load the identical file without a second upload.
+#   data/sim_autopsy/<slug>__<contest_id>.json — the measurements only the Sim
+#     can make: pool-vs-picking (was the winning lineup IN the built pool?) and
+#     whether each pre-lock sim ranking metric actually predicted finishes.
+# Both are slate-scoped: cleared wherever sim_entries clears.
+
+_SIM_STANDINGS_DIR = _REPO_ROOT / "data" / "sim_standings"
+_SIM_AUTOPSY_DIR = _REPO_ROOT / "data" / "sim_autopsy"
+
+
+def list_sim_standings(slug: str) -> list[dict]:
+    """Standings CSVs the Sim already scored for this slug, newest manifest
+    order. Rows: {filename, path, contest_id, slate_name, scored_at}. Empty
+    list when the Sim never pushed (or the files were cleared)."""
+    d = _SIM_STANDINGS_DIR / slug
+    manifest_path = d / "manifest.json"
+    if not manifest_path.exists():
+        return []
+    try:
+        rows = json.loads(manifest_path.read_text()).get("files") or []
+    except Exception:  # noqa: BLE001
+        return []
+    out = []
+    for r in rows:
+        p = d / str(r.get("filename") or "")
+        if p.exists():
+            out.append({**r, "path": str(p)})
+    return out
+
+
+def load_sim_autopsy(slug: str) -> dict[str, dict]:
+    """All Sim autopsy payloads for this slug, keyed by contest_id (falls back
+    to the payload's slate_name key when the Sim had no contest id)."""
+    if not _SIM_AUTOPSY_DIR.exists():
+        return {}
+    out: dict[str, dict] = {}
+    for p in sorted(_SIM_AUTOPSY_DIR.glob(f"{slug}__*.json")):
+        try:
+            payload = json.loads(p.read_text())
+        except Exception:  # noqa: BLE001
+            continue
+        key = str(payload.get("contest_id") or payload.get("slate_name") or p.stem)
+        out[key] = payload
+    return out
+
+
+def sim_autopsy_md(payload: dict) -> str:
+    """Plain-language markdown for one contest's Sim autopsy payload."""
+    if not payload:
+        return ""
+    lines = ["#### 🎰 Sim autopsy — was it the pool or the picking?",
+             "This block comes from the Sim tool. It looks at every lineup the "
+             "builder created (the pool), not just the ones entered."]
+    pool = payload.get("pool") or {}
+    user = payload.get("user") or {}
+    if pool:
+        lines.append(
+            f"- The pool held **{pool.get('n', 0):,} lineups**. Its best would have "
+            f"scored **{pool.get('max_actual')}**; the middle one scored "
+            f"{pool.get('median_actual')}.")
+        if pool.get("n_beating_best_entry") is not None:
+            lines.append(
+                f"- **{pool['n_beating_best_entry']} pool lineups "
+                f"({pool.get('pct_beating_best_entry')}%)** would have beaten your "
+                f"best entered lineup ({user.get('best_points')} points).")
+        edge = pool.get("picking_edge_points")
+        if edge is not None:
+            direction = ("added" if edge >= 0 else "cost")
+            lines.append(
+                f"- Your picks averaged {abs(edge)} points "
+                f"{'above' if edge >= 0 else 'below'} the pool average — "
+                f"picking {direction} points on average.")
+    signals = payload.get("rank_signal") or []
+    if signals:
+        lines.append("")
+        lines.append("**Did the sim's pre-lock ranking predict real finishes?** "
+                     "(1.0 = perfect, 0 = coin flip, negative = backwards)")
+        lines.append("| Ranking metric | Link to actual score | Top-100 avg | Pool avg |")
+        lines.append("|---|---|---|---|")
+        for s in signals:
+            rho = s.get("spearman_vs_actual")
+            lines.append(
+                f"| {s.get('label')} | {'n/a' if rho is None else rho} "
+                f"| {s.get('top100_avg_actual')} | {s.get('pool_avg_actual')} |")
+    return "\n".join(lines)
+
+
+def clear_sim_handoff(slug: str) -> None:
+    """Remove the Sim's pushed standings copies + autopsy payloads for this
+    slug — slate-scoped, called wherever sim_entries clears."""
+    d = _SIM_STANDINGS_DIR / slug
+    if d.exists():
+        for p in d.glob("*"):
+            try:
+                p.unlink()
+            except OSError:
+                pass
+        try:
+            d.rmdir()
+        except OSError:
+            pass
+    if _SIM_AUTOPSY_DIR.exists():
+        for p in _SIM_AUTOPSY_DIR.glob(f"{slug}__*.json"):
+            try:
+                p.unlink()
+            except OSError:
+                pass
+
+
+# ---------------------------------------------------------------------------
 # Corpus-corrected dupe estimate (grader)
 # ---------------------------------------------------------------------------
 
