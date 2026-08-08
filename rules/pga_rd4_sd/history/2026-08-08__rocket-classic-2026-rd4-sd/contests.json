@@ -1,0 +1,26 @@
+{
+  "contests": [
+    {
+      "name": "GA TOUR Showdown $2.5K Albatross [Single Entry] (Round 4 TOUR)",
+      "type": "SE",
+      "field_size": 245,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "prize_pool": 2500,
+      "payout_shape": "Balanced",
+      "id": "f5631f7e"
+    },
+    {
+      "name": "PGA TOUR Showdown $3K mini-MAX [150 Entry Max] (Round 4 TOUR)",
+      "type": "150-Max",
+      "field_size": 7134,
+      "max_entries": 150,
+      "my_entries": 34,
+      "entry_fee": 0.5,
+      "prize_pool": 3000,
+      "payout_shape": "Top-heavy",
+      "id": "a84b4d88"
+    }
+  ]
+}

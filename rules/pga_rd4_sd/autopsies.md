@@ -290,3 +290,39 @@ Concentrating 100% on one chalk-tier anchor when an equivalent-profile alternati
 - Overperformed proj: Keita Nakajima, Calen Sanderson, Bud Cauley
 - Underperformed proj: Brooks Koepka, Kevin Roy, Sahith Theegala
 - Slate-defining plays: Matt Fitzpatrick (65.4 pts @ 15.6%)
+
+
+## 2026-08-08 16:33 — PGA RD4 Showdown (contest-standings-193066355.csv)
+- Entries: 245
+- Winning score: 309.2
+- Cash line (top 20%): 256.2
+- My entries: 1 · best rank 64/245 (top 26.1%)
+- Winners (top 20): avg own 20.5% vs mine 7.28% · sub-10% plays/lineup 1.85 vs mine 5.0
+- Slate-defining plays: Matt Wallace (52.8 pts @ 12.7%)
+
+
+## 2026-08-08 16:33 — PGA RD4 Showdown (contest-standings-193066376.csv)
+- Entries: 7,134
+- Winning score: 322.0
+- Cash line (top 20%): 254.8
+- My entries: 34 · best rank 507/7,134 (top 7.1%)
+- Winners (top 71): avg own 16.05% vs mine 14.85% · sub-10% plays/lineup 1.04 vs mine 2.12
+- Slate-defining plays: Michael Thorbjornsen (74.8 pts @ 19.9%), Hideki Matsuyama (65.5 pts @ 10.5%), Kris Ventura (44.5 pts @ 14.9%), Davis Riley (39.8 pts @ 17.6%)
+
+### Strategy adherence — did you follow your own strategy? (35 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Rasmus Hojgaard** was in 0 of 1 lineups in contest-standings-193066355.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call over-exposed inside contest-standings-193066355.csv: **Ryan Gerard** in 1 of 1 there — the pooled average hid it.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Michael Thorbjornsen** was in 0 of 1 lineups in contest-standings-193066355.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- Leverage candidates rostered somewhere: **12 of 12**.
+
+### Player-pool tier calibration (69 of 73 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 7 | 40.9 | 65.5 |
+| **Good** | 18 | 35.6 | 52.8 |
+| **Okay** | 28 | 33.5 | 74.8 |
+| **Fade** | 16 | 30.4 | 47.8 |
+- ✅ Tier ordering HELD — higher tiers outscored lower ones on average.
+- 🕳️ Buried: **Kris Ventura** (Fade) scored 44.5 — above the top tier's average.
+- 🕳️ Buried: **Chandler Blanchet** (Fade) scored 47.8 — above the top tier's average.

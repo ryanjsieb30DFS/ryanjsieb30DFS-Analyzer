@@ -1,0 +1,77 @@
+{
+  "field": 245,
+  "anchors": [
+    "cameron young",
+    "chris kirk",
+    "michael brennan"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 22.9,
+    "leverage_pct": 100.0,
+    "anchor_exposure": 0.333,
+    "anchor_exposure_by_player": {
+      "cameron young": 0.0,
+      "chris kirk": 0.0,
+      "michael brennan": 1.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 0.82,
+    "median_pctile": 0.82
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 7.3,
+    "leverage_pct": 100.0,
+    "anchor_exposure": 0.0,
+    "anchor_exposure_by_player": {
+      "cameron young": 0.0,
+      "chris kirk": 0.0,
+      "michael brennan": 0.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 26.12,
+    "median_pctile": 26.12
+  },
+  "deltas": [
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 7.3,
+      "shark": 22.9,
+      "delta": -15.6
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.0,
+      "shark": 0.333,
+      "delta": -0.333
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "pga_rd4_sd",
+  "sport": "golf"
+}

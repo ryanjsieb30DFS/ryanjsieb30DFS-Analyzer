@@ -1,0 +1,181 @@
+{
+  "gradable": true,
+  "n_lineups": 35,
+  "n_contests": 2,
+  "calls": [
+    {
+      "name": "Davis Riley",
+      "verdict": "lean_fade",
+      "exposure_pct": 11.4,
+      "in_lineups": 4,
+      "of": 35,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193066355.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193066376.csv",
+          "in_lineups": 4,
+          "of": 34,
+          "exposure_pct": 11.8
+        }
+      ]
+    },
+    {
+      "name": "Kris Ventura",
+      "verdict": "lean_fade",
+      "exposure_pct": 11.4,
+      "in_lineups": 4,
+      "of": 35,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193066355.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193066376.csv",
+          "in_lineups": 4,
+          "of": 34,
+          "exposure_pct": 11.8
+        }
+      ]
+    },
+    {
+      "name": "Rasmus Hojgaard",
+      "verdict": "underweight",
+      "exposure_pct": 14.3,
+      "in_lineups": 5,
+      "of": 35,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193066355.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193066376.csv",
+          "in_lineups": 5,
+          "of": 34,
+          "exposure_pct": 14.7
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-193066355.csv"
+      ]
+    },
+    {
+      "name": "Ryan Gerard",
+      "verdict": "underweight",
+      "exposure_pct": 25.7,
+      "in_lineups": 9,
+      "of": 35,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193066355.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        },
+        {
+          "contest": "contest-standings-193066376.csv",
+          "in_lineups": 8,
+          "of": 34,
+          "exposure_pct": 23.5
+        }
+      ],
+      "over_in": [
+        "contest-standings-193066355.csv"
+      ]
+    },
+    {
+      "name": "Michael Thorbjornsen",
+      "verdict": "underweight",
+      "exposure_pct": 11.4,
+      "in_lineups": 4,
+      "of": 35,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193066355.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193066376.csv",
+          "in_lineups": 4,
+          "of": 34,
+          "exposure_pct": 11.8
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-193066355.csv"
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 3,
+  "leverage_candidates": [
+    {
+      "name": "Hideki Matsuyama",
+      "rostered": true
+    },
+    {
+      "name": "Jackson Koivun",
+      "rostered": true
+    },
+    {
+      "name": "J.J. Spaun",
+      "rostered": true
+    },
+    {
+      "name": "Jacob Bridgeman",
+      "rostered": true
+    },
+    {
+      "name": "Johnny Keefer",
+      "rostered": true
+    },
+    {
+      "name": "Emiliano Grillo",
+      "rostered": true
+    },
+    {
+      "name": "Marco Penge",
+      "rostered": true
+    },
+    {
+      "name": "Sungjae Im",
+      "rostered": true
+    },
+    {
+      "name": "Ricky Castillo",
+      "rostered": true
+    },
+    {
+      "name": "Stephan Jaeger",
+      "rostered": true
+    },
+    {
+      "name": "Nicolai Hojgaard",
+      "rostered": true
+    },
+    {
+      "name": "Keita Nakajima",
+      "rostered": true
+    }
+  ],
+  "leverage_covered": 12,
+  "leverage_of": 12
+}

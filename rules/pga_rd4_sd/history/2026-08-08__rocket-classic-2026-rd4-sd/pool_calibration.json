@@ -1,0 +1,46 @@
+{
+  "gradable": true,
+  "n_pool": 73,
+  "n_matched": 69,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 7,
+      "avg_fpts": 40.9,
+      "max_fpts": 65.5
+    },
+    {
+      "tier": "Good",
+      "n": 18,
+      "avg_fpts": 35.6,
+      "max_fpts": 52.8
+    },
+    {
+      "tier": "Okay",
+      "n": 28,
+      "avg_fpts": 33.5,
+      "max_fpts": 74.8
+    },
+    {
+      "tier": "Fade",
+      "n": 16,
+      "avg_fpts": 30.4,
+      "max_fpts": 47.8
+    }
+  ],
+  "tiers_ordered": true,
+  "leakage": [
+    {
+      "name": "Kris Ventura",
+      "tier": "Fade",
+      "fpts": 44.5
+    },
+    {
+      "name": "Chandler Blanchet",
+      "tier": "Fade",
+      "fpts": 47.8
+    }
+  ],
+  "excluded_scratches": [],
+  "summary": "Core 40.9 > Good 35.6 > Okay 33.5 > Fade 30.4  \u2713 ordered"
+}

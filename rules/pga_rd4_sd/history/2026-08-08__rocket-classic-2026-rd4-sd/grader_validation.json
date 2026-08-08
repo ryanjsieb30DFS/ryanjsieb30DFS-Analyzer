@@ -1,0 +1,467 @@
+{
+  "gradable": true,
+  "n_lineups": 35,
+  "lineups": [
+    {
+      "players": [
+        "Doug Ghim",
+        "Jacob Bridgeman",
+        "Kevin Roy",
+        "Patrick Cantlay",
+        "Ryan Gerard",
+        "Stephan Jaeger"
+      ],
+      "percentile": 26.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Corey Conners",
+        "Doug Ghim",
+        "Emiliano Grillo",
+        "Hideki Matsuyama",
+        "Ryan Gerard",
+        "Stephan Jaeger"
+      ],
+      "percentile": 7.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Corey Conners",
+        "Jordan L. Smith",
+        "Kevin Roy",
+        "Matt Wallace",
+        "Michael Thorbjornsen"
+      ],
+      "percentile": 8.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Davis Thompson",
+        "Jacob Bridgeman",
+        "Ricky Castillo",
+        "Russell Henley",
+        "Ryan Gerard",
+        "Sungjae Im"
+      ],
+      "percentile": 10.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Hideki Matsuyama",
+        "Keita Nakajima",
+        "Marco Penge",
+        "Patrick Cantlay",
+        "Russell Henley",
+        "Sungjae Im"
+      ],
+      "percentile": 19.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Davis Thompson",
+        "Emiliano Grillo",
+        "Matt Wallace",
+        "Rasmus H\u00f8jgaard",
+        "Rickie Fowler"
+      ],
+      "percentile": 19.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "J.J. Spaun",
+        "Michael Brennan",
+        "Michael Thorbjornsen",
+        "Ricky Castillo",
+        "Russell Henley",
+        "Sungjae Im"
+      ],
+      "percentile": 21.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Doug Ghim",
+        "Jacob Bridgeman",
+        "Mac Meissner",
+        "Marco Penge",
+        "Michael Kim",
+        "Xander Schauffele"
+      ],
+      "percentile": 22.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Corey Conners",
+        "Davis Thompson",
+        "J.J. Spaun",
+        "Jordan L. Smith",
+        "Keita Nakajima",
+        "Xander Schauffele"
+      ],
+      "percentile": 24.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Matt Wallace",
+        "Michael Kim",
+        "Ryan Gerard",
+        "Sungjae Im",
+        "Thorbj\u00f8rn Olesen"
+      ],
+      "percentile": 25.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Emiliano Grillo",
+        "Matt Wallace",
+        "Rasmus H\u00f8jgaard",
+        "Ryo Hisatsune",
+        "Si Woo Kim",
+        "Xander Schauffele"
+      ],
+      "percentile": 25.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Davis Thompson",
+        "Doug Ghim",
+        "Hideki Matsuyama",
+        "Kevin Yu",
+        "Patrick Cantlay",
+        "Zecheng Dou"
+      ],
+      "percentile": 33.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Davis Riley",
+        "Michael Kim",
+        "Nick Taylor",
+        "Ricky Castillo",
+        "Xander Schauffele"
+      ],
+      "percentile": 35.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Emiliano Grillo",
+        "Michael Kim",
+        "Patrick Cantlay",
+        "Rasmus H\u00f8jgaard",
+        "Stephan Jaeger"
+      ],
+      "percentile": 40.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Chris Kirk",
+        "Emiliano Grillo",
+        "Keegan Bradley",
+        "Kevin Roy",
+        "Patrick Cantlay",
+        "Russell Henley"
+      ],
+      "percentile": 44.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Chris Kirk",
+        "Jackson Koivun",
+        "Mac Meissner",
+        "Nicolai H\u00f8jgaard",
+        "Patrick Cantlay",
+        "Ricky Castillo"
+      ],
+      "percentile": 52.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Davis Riley",
+        "Keegan Bradley",
+        "Keita Nakajima",
+        "Si Woo Kim",
+        "Sungjae Im"
+      ],
+      "percentile": 55.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Mac Meissner",
+        "Michael Kim",
+        "Rasmus H\u00f8jgaard",
+        "Rickie Fowler",
+        "Russell Henley",
+        "Si Woo Kim"
+      ],
+      "percentile": 56.7,
+      "flags": [
+        "no_leverage"
+      ]
+    },
+    {
+      "players": [
+        "Austin Eckroat",
+        "Cameron Young",
+        "Chris Kirk",
+        "Jackson Koivun",
+        "Kris Ventura",
+        "Michael Kim"
+      ],
+      "percentile": 59.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Benjamin James",
+        "Matthew McCarty",
+        "Michael Brennan",
+        "Michael Thorbjornsen",
+        "Ryo Hisatsune",
+        "Si Woo Kim"
+      ],
+      "percentile": 62.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Davis Thompson",
+        "Jackson Koivun",
+        "Kris Ventura",
+        "Marco Penge",
+        "Michael Brennan",
+        "Russell Henley"
+      ],
+      "percentile": 63.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Benjamin James",
+        "Cameron Young",
+        "Matthew McCarty",
+        "Rasmus H\u00f8jgaard",
+        "Rickie Fowler",
+        "Russell Henley"
+      ],
+      "percentile": 64.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "J.J. Spaun",
+        "Jordan L. Smith",
+        "Kevin Yu",
+        "Patrick Cantlay",
+        "Ryan Gerard",
+        "Sungjae Im"
+      ],
+      "percentile": 66.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Benjamin James",
+        "Cameron Young",
+        "Davis Thompson",
+        "Doug Ghim",
+        "Johnny Keefer",
+        "Kris Ventura"
+      ],
+      "percentile": 68.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Johnny Keefer",
+        "Keita Nakajima",
+        "Michael Brennan",
+        "Michael Kim",
+        "Michael Thorbjornsen",
+        "Si Woo Kim"
+      ],
+      "percentile": 69.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Doug Ghim",
+        "Jordan L. Smith",
+        "Keegan Bradley",
+        "Patrick Cantlay",
+        "Russell Henley",
+        "Zecheng Dou"
+      ],
+      "percentile": 71.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Jacob Bridgeman",
+        "Keegan Bradley",
+        "Keita Nakajima",
+        "Michael Brennan",
+        "Si Woo Kim",
+        "Stephan Jaeger"
+      ],
+      "percentile": 73.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Corey Conners",
+        "J.J. Spaun",
+        "Mac Meissner",
+        "Marco Penge",
+        "Michael Brennan",
+        "Ryan Gerard"
+      ],
+      "percentile": 73.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Keegan Bradley",
+        "Max Greyserman",
+        "Rico Hoey",
+        "Ryan Gerard",
+        "Zecheng Dou"
+      ],
+      "percentile": 76.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Davis Riley",
+        "J.J. Spaun",
+        "Jordan Spieth",
+        "Kevin Yu",
+        "Rickie Fowler"
+      ],
+      "percentile": 81.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Benjamin James",
+        "Kris Ventura",
+        "Michael Brennan",
+        "Russell Henley",
+        "Si Woo Kim",
+        "Sungjae Im"
+      ],
+      "percentile": 86.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brandt Snedeker",
+        "Jackson Koivun",
+        "Johnny Keefer",
+        "Marco Penge",
+        "Patrick Cantlay",
+        "Ryan Gerard"
+      ],
+      "percentile": 88.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Benjamin James",
+        "Corey Conners",
+        "Michael Brennan",
+        "Russell Henley",
+        "Ryan Gerard",
+        "Zecheng Dou"
+      ],
+      "percentile": 89.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Davis Riley",
+        "Jackson Koivun",
+        "Michael Kim",
+        "Rickie Fowler",
+        "Si Woo Kim",
+        "Zecheng Dou"
+      ],
+      "percentile": 95.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Benjamin James",
+        "Chris Kirk",
+        "Harris English",
+        "Matthew McCarty",
+        "Patrick Cantlay",
+        "Si Woo Kim"
+      ],
+      "percentile": 96.0,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [
+    56.7
+  ],
+  "clean_pctiles": [
+    26.1,
+    7.1,
+    8.1,
+    10.6,
+    19.4,
+    19.8,
+    21.7,
+    22.8,
+    24.2,
+    25.1,
+    25.5,
+    33.5,
+    35.0,
+    40.4,
+    44.6,
+    52.6,
+    55.0,
+    59.9,
+    62.7,
+    63.1,
+    64.8,
+    66.7,
+    68.4,
+    69.2,
+    71.4,
+    73.5,
+    73.8,
+    76.2,
+    81.1,
+    86.0,
+    88.7,
+    89.5,
+    95.8,
+    96.0
+  ]
+}

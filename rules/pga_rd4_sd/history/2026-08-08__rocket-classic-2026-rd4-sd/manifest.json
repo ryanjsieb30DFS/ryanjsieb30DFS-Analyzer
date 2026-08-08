@@ -1,0 +1,22 @@
+{
+  "slug": "pga_rd4_sd",
+  "sport": "golf",
+  "contest_label": "PGA RD4 Showdown",
+  "date": "2026-08-08",
+  "slate_label": "Rocket Classic 2026 RD4 SD",
+  "archived_at": "2026-08-08 16:33",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json"
+  ],
+  "missing": [
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/pga_rd4_sd/2026-08-02__ETR R4 Article 8.2.26.pdf"
+  ],
+  "proj_source": null
+}
