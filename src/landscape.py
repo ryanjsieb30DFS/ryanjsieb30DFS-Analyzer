@@ -225,10 +225,13 @@ def value_by_tier(projections: pd.DataFrame) -> pd.DataFrame:
     cheap leverage the field under-weights)."""
     df = projections.copy()
     real_ceil = has_real_ceiling(df)
+    # $0/blank salary = withdrawn or unrosterable (ETR ships WDs at $0) — drop, else
+    # they poison the per-$1k math (and pd.NA in an int column crashes .round()).
+    df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
+    df = df[df["salary"] > 0].copy()
     df["upside"] = _upside(df)
-    sal = df["salary"].replace(0, pd.NA)
-    df["ceil_per_1k"] = (df["upside"] / sal * 1000).round(2)
-    df["proj_per_1k"] = (df["proj_points"] / sal * 1000).round(2)
+    df["ceil_per_1k"] = (df["upside"] / df["salary"] * 1000).round(2)
+    df["proj_per_1k"] = (df["proj_points"] / df["salary"] * 1000).round(2)
     df["tier"] = df["salary"].apply(_salary_tier)
     rows = []
     for tier in _TIER_ORDER:
@@ -292,7 +295,7 @@ def volatility_table(projections: pd.DataFrame, top_n: int = 10) -> dict[str, pd
       capped ceiling — the quiet fade)."""
     df = projections.copy()
     df["upside"] = _upside(df)
-    proj = df["proj_points"].replace(0, pd.NA)
+    proj = pd.to_numeric(df["proj_points"], errors="coerce").replace(0, float("nan"))
     df["boom_pct"] = ((df["upside"] - df["proj_points"]) / proj * 100).round(1)
     keep = ["name", "salary", "proj_points", "upside", "ownership", "boom_pct"]
     if "make_cut_odds" in df.columns:
