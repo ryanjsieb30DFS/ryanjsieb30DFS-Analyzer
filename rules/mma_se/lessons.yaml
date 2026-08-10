@@ -183,6 +183,19 @@ lessons:
           carried a KO-or-bust dog; both differentiated through the one dog with a real
           grappling path who actually WON (Urbina, 113.86 at 9.9-12.0% own). Blended-EV
           framing confirmed: the binary dogs paid ~0, the live-path dog paid 113.
+      - date: "2026-08-09"
+        slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26 — 784 SE"
+        origin_dir: "rules/mma_se/history/2026-08-09__ufc-fight-night-gamrot-vs-salkilld-8-8-26"
+        note: >
+          Small-field mechanism held again, via another execution deviation. The strategy
+          applied the rule correctly in text — it assigned the true darts (Elkins, Oliveira,
+          Pat, Goff) to the 47,562 mini-MAX and prescribed the six-winners shape for the
+          784 SE. The single SE bullet then carried Billy Ray Goff anyway (KO-or-bust
+          early swarm, 7.7% actual own): he scored 17.0, one of three losing slots that
+          sank the entry to 92.1%ile — the user's worst logged SE finish. The SE winners'
+          top-20 carried zero sub-10 pieces (low_own_count_mean 0.0, avg own 39.5%).
+          Meanwhile the same darts were correctly harmless in the big field, where the
+          strategy had budgeted them.
     contradictions: []
     codified_in: "framework.md — Step 3 — Field-Size Calibration (binary leverage by field size)"
     retired_reason: null
@@ -403,6 +416,18 @@ lessons:
           uncontested leverage when it outperforms — held cleanly a ninth time. See
           [[mma-se-2026-05-30-asymmetric-anchor-equivalence-weighting]] for the sharper,
           actionable half of the same event (weight the no-floor side DOWN).
+      - date: "2026-08-09"
+        slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26 — 47,562 mini-MAX"
+        origin_dir: "rules/mma_se/history/2026-08-09__ufc-fight-night-gamrot-vs-salkilld-8-8-26"
+        note: >
+          10th validation. The surfaced equivalence was a CLUSTER: the 31-36%-projected
+          finish-needed favorites (Asplund/T.Miller/Sousa/Thainara) against their
+          14-16%-projected twins Foro and Johns — "same bet, far fewer co-owners." Both
+          sides won their fights, and the cheap-ownership side delivered the leverage
+          exactly as the rule predicts: Miles Johns (14.2% actual own, 104.9 points) was
+          the differentiation carrier of the 47,562-field WINNING lineup, and Foro won
+          at 7.8% actual own in the SE. The user's best mini-MAX entry (top 1.0%)
+          carried Johns.
     contradictions: []
     codified_in: "rules/shared/anchor_equivalence.md"
     retired_reason: null
@@ -1113,6 +1138,20 @@ lessons:
           punt." Note also that the winners' avg own (25.7-28.4%) ran below the stated
           32-40% band, so that band belongs in the framework as descriptive range, not
           as a target to hit.
+      - date: "2026-08-09"
+        slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26 — 784 SE + 47,562 mini-MAX"
+        origin_dir: "rules/mma_se/history/2026-08-09__ufc-fight-night-gamrot-vs-salkilld-8-8-26"
+        note: >
+          Fourth confirming slate, in both field sizes. The 784 SE winner was a 38.05%
+          avg-own build with ZERO sub-10 pieces, differentiated by mid-own pieces
+          (Montanha 25.5% -> 98.6, Canuto 27.3%); the user's SE (28.8% avg own, TWO
+          sub-10-actual pieces) sat outside that shape and died on losing slots —
+          Gamrot 1.8, Sutherland 1.5, Goff 17.0 — finishing 92.1%ile. The mini-MAX
+          winner confirmed the loosened "converter at any ownership" clause: its
+          differentiation carrier was Miles Johns at 14.2% own with 104.9 points — a
+          CONVERTING favorite the strategy had named, not a dart. Win-side selection was
+          again the whole edge: the user's best mini-MAX entry (611.25, top 1.0%) was six
+          live slots and ONE swap (Miranda -> Thainara) from the 632.85 win.
     contradictions: []
     codified_in: "framework.md — The Winning MMA SE Shape (8/2/26 — 3-slate validated)"
     retired_reason: null
@@ -1186,7 +1225,25 @@ lessons:
           identify the consensus name from narrative agreement across sources, not from
           the projected-own ranking, and apply the upward adjustment to THAT name's
           pairs before computing duplication.
-    contradictions: []
+    contradictions:
+      - date: "2026-08-09"
+        slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26 — 784 SE + 47,562 mini-MAX"
+        origin_dir: "rules/mma_se/history/2026-08-09__ufc-fight-night-gamrot-vs-salkilld-8-8-26"
+        note: >
+          FIRST mechanism contradiction (1 of the 2 needed for a demotion/narrowing
+          proposal). The rule's sharpened form says: find the consensus name by narrative
+          agreement, then adjust its ownership UP. This slate had the cleanest possible
+          consensus signal — Gamrot was BOTH articles' #1 overall play AND the projected
+          own leader (53%) — and the strategy applied the codified adjustment exactly as
+          written ("real ownership near 60%+ is the working assumption"). The field went
+          the OTHER way: Gamrot drew 39.4% (SE) / 41.3% (mini-MAX) actual, 12-14 points
+          BELOW projection and ~20 below the adjusted assumption. Concentration still
+          happened, but onto non-consensus names: Thainara 32% -> 56.8% (the SE's true #1
+          chalk, +25) and Salkilld 42% -> 54.5%. The SE's actual #1 pair was
+          Thainara+Salkilld at 31%, not a Gamrot pair. Boundary to test before any
+          narrowing proposal: this was the first slate where the consensus name was an
+          UNDERDOG (45% win probability) — the field may converge above projection only
+          on consensus FAVORITES and hedge away from consensus dogs.
     codified_in: "framework.md — Convergence Adjustment on the Consensus Favorite (8/2/26 — 3-slate validated)"
     retired_reason: null
 
@@ -1244,6 +1301,21 @@ lessons:
           29.5% and 29.9% own per slot against the user's 29.0% and 27.7%, and the
           winners carried FEWER low-owned pieces than he did. There was no structural
           axis to close on this slate; the entire gap was player selection.
+      - date: "2026-08-09"
+        slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26 — 784 SE + 47,562 mini-MAX"
+        origin_dir: "rules/mma_se/history/2026-08-09__ufc-fight-night-gamrot-vs-salkilld-8-8-26"
+        note: >
+          THIRD confirming slate — promotion candidate. RATE half: the strategy again
+          stated the dart as optional ("for your single bullets the dart is optional,
+          not mandatory") and pointed the difference-maker tier at the 14-16% converters
+          (Foro/Johns/Miranda); the SE winners' top-20 carried ZERO sub-10 pieces and the
+          mini-MAX winner's lone low-own piece was a named CONVERTER (Johns 14.2%,
+          104.9). AXIS-IS-NOISE half: one tracked shark in the 784 field, own-per-slot
+          delta -1.0 point (user 28.8 vs shark 29.8), identical leverage / anchor /
+          uniqueness numbers — yet the shark finished 43.5%ile and the user 92.1%ile.
+          Structure identical, outcome 49 percentile points apart: the whole gap was
+          WHICH fighters (selection), not a structural axis. Third consecutive slate
+          where the measured axis delta was <=1.3 ownership points.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1278,8 +1350,21 @@ lessons:
       overridden. Links [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence]],
       [[mma-se-2026-05-16-no-identical-conviction-cores]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-08-09"
+        slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26 — 784 SE"
+        origin_dir: "rules/mma_se/history/2026-08-09__ufc-fight-night-gamrot-vs-salkilld-8-8-26"
+        note: >
+          First confirmation -> promoted to validated. The value-cap half realized
+          exactly: the SE field's most-duplicated competitive roster — the all-consensus
+          Salkilld/Nurgozhay/Quarantillo/Montanha/Thainara/T.Miller build at 42.2% avg
+          own — was entered 11 times, HIT (614.06 points), and finished rank 8 with the
+          prize split eleven ways. Naive independence on those six ownerships predicts
+          roughly 3-5 copies in a 784 field; 11 actual is ~2.5-3x the estimate, inside
+          the 1.7-6.6x measured MMA concentration band. The user's SE bullet, by
+          contrast, was unique (dup_count 1) — the duplication discipline this rule
+          prescribes was honored this slate; what failed there was win-side selection.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1360,8 +1445,22 @@ lessons:
       a shrug. Watch the tier-ordering flag in `pool_calibration.json` as the read-out.
       Links [[mma-se-2026-06-20-finish-capable-favorite-is-not-secondary-chalk]],
       [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-08-09"
+        slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26"
+        origin_dir: "rules/mma_se/history/2026-08-09__ufc-fight-night-gamrot-vs-salkilld-8-8-26"
+        note: >
+          First confirmation -> promoted to validated. The board put 12 of 23 graded
+          fighters (52%) into `Okay` — again far above the ~1/3 target — and the bucket
+          again ranged from busts (Sutherland 1.5, Vazquez 2.8) to slate-deciders: Jose
+          Montanha (98.6, in BOTH contest winners) and Quillan Salkilld (104.7, the
+          main-event winner, in 5 of the SE's top 10) were both buried there, alongside
+          Canuto (62.7, also in both winners). `Okay` averaged 38.2 while `Good` averaged
+          104.2, and tier ordering came back OUT OF ORDER for the THIRD consecutive
+          graded slate (7/26 Core-vs-Good, 8/2 Okay-vs-Fade, 8/9 Core-vs-Good — Core was
+          dragged to 64.5 by Gamrot's 1.8 on an n of 2). A tier spanning 1.5 to 104.7
+          points still carries no information.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1424,6 +1523,53 @@ lessons:
       actually share. Until a gate fires on a losing lineup and stays silent on a winning
       one, treat a clean grade as carrying no information. Links
       [[mma-se-2026-07-19-exact-roster-duplication-is-superlinear-in-consensus]].
+    status: validated
+    confirmations:
+      - date: "2026-08-09"
+        slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26 — 101 entered lineups"
+        origin_dir: "rules/mma_se/history/2026-08-09__ufc-fight-night-gamrot-vs-salkilld-8-8-26"
+        note: >
+          First confirmation -> promoted to validated, at 25x the prior sample size.
+          `retro_grade` returned ZERO flags on all 101 entered lineups, whose finishes
+          spanned 1.0%ile to 98.7%ile — essentially the entire field. That is now ~110
+          consecutive clean MMA lineups across three slates with no flag ever fired. The
+          failure the gates keep missing repeated exactly: the SE bullet carried three
+          no-win-path/dead slots (Gamrot 1.8, Sutherland 1.5, Goff 17.0) and graded
+          clean at 92.1%ile. The proposed no-win-path gate and convergence-adjusted
+          ownership inputs remain the fix to test.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-08-09 — UFC Fight Night: Gamrot vs. Salkilld ----
+
+  - id: mma-se-2026-08-09-the-single-bullet-gets-the-least-disciplined-build
+    born: "2026-08-09"
+    origin: "rules/mma_se/history/2026-08-09__ufc-fight-night-gamrot-vs-salkilld-8-8-26"
+    statement: >
+      The rule-breaking slots keep landing in the SINGLE-ENTRY bullets — the one place a
+      dead slot cannot be diversified away — while the multi-entry blocks stay inside the
+      rules. Four consecutive slates show the pattern: 7/12 the contest-2 SE deviated onto
+      McGregor (1.0, a documented fish trap); 7/19 the Clinch SE carried two dead
+      coin-flips (Hines 4.40, Anderson 7.41); 8/2 the SE bullet carried the Cowan
+      math-punt (5.2) the strategy itself banned; 8/9 the SE bullet carried a small-field
+      KO-or-bust dart (Goff 17.0), a no-crush volume read the articles hated (Sutherland
+      1.5), AND the crowd's 45%-win-probability anchor (Gamrot 1.8) — three losing slots,
+      92.1%ile, the worst logged SE finish, on the same slate whose 100-entry block was
+      disciplined enough to put its best entry one swap from winning the 47,562 field.
+      The Sim hand-off quantifies the asymmetry: 84.2% of the Sim's own 10,728-lineup
+      pool out-scored the hand-picked SE bullet (picking edge -82.0 points vs the pool
+      average), while the 100-entry block sat near pool average (-10.5). Mechanism: the
+      bullet is hand-assembled outside every systematic screen — the codified rules get
+      stated in the strategy, applied to the block, and dropped at the moment of
+      hand-building the one lineup where a single dead slot is fatal. Rule to test: build
+      the SE bullet FIRST and run it against the strategy's own pre-lock check (can all
+      six answer "how does he WIN?" — replace any slot that fails) before any MME work
+      starts, and prefer picking the bullet from the Sim pool's contest slice over
+      free-hand assembly. Links
+      [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
+      [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]],
+      [[mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma]].
     status: hypothesis
     confirmations: []
     contradictions: []

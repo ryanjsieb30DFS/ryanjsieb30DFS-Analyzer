@@ -1,0 +1,28 @@
+{
+  "slug": "nascar",
+  "sport": "nascar",
+  "contest_label": "NASCAR",
+  "date": "2026-08-09",
+  "slate_label": "Iowa Corn 350 Iowa Speedway 2026",
+  "archived_at": "2026-08-09 22:42",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json",
+    "lineup_selection.json"
+  ],
+  "missing": [
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/nascar/2026-08-09__DFR Image 1 8.9.26.pdf",
+    "articles/nascar/2026-08-09__DFR Image 2 8.9.26.pdf",
+    "articles/nascar/2026-08-09__DFR Image 3 8.9.26.pdf",
+    "articles/nascar/2026-08-09__DFR Image 4 8.9.26.pdf",
+    "articles/nascar/2026-08-09__DFR Image 5 8.9.26.pdf",
+    "articles/nascar/2026-08-09__ETR PGA RD4 SD Article.pdf"
+  ],
+  "proj_source": null
+}

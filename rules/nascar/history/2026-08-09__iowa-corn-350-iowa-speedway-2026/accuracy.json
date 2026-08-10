@@ -1,0 +1,44 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 11,
+    "leverage_capture": 0.333,
+    "leverage_hit": [
+      "Josh Berry"
+    ],
+    "leverage_missed": [
+      "Ross Chastain",
+      "John H. Nemechek"
+    ],
+    "overperformer_capture": null,
+    "overperformer_hit": [],
+    "underperformer_exposure": null,
+    "underperformer_hit": []
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 2,
+    "avg_ratio": null,
+    "best_percentile": 40.5,
+    "median_percentile": 64.8,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 268.7,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 64.8,
+        "avg_own": 28.79
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 299.69998,
+        "proj_total": null,
+        "ratio": null,
+        "percentile": 40.5,
+        "avg_own": 38.41
+      }
+    ]
+  }
+}

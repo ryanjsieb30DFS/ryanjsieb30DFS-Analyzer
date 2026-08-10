@@ -518,3 +518,40 @@ A 5-check pre-lock validator was prototyped and then removed across all sports. 
 - ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
 - 🕳️ Buried: **Corey Heim** (Fade) scored 70.5 — above the top tier's average.
 - 🕳️ Buried: **Joey Logano** (Fade) scored 61.5 — above the top tier's average.
+
+
+## 2026-08-09 22:42 — NASCAR (contest-standings-193288023.csv)
+- Entries: 392
+- Winning score: 425.6
+- Cash line (top 20%): 337.3
+- My entries: 1 · best rank 254/392 (top 64.8%)
+- Winners (top 20): avg own 38.2% vs mine 28.79% · sub-10% plays/lineup 0.5 vs mine 2.0
+- Slate-defining plays: Ross Chastain (54.4 pts @ 11.2%), Josh Berry (51.7 pts @ 18.4%)
+
+
+## 2026-08-09 22:42 — NASCAR (contest-standings-193288034.csv)
+- Entries: 588
+- Winning score: 410.8
+- Cash line (top 20%): 338.2
+- My entries: 1 · best rank 238/588 (top 40.5%)
+- Winners (top 20): avg own 35.86% vs mine 38.41% · sub-10% plays/lineup 0.2 vs mine 0.0
+- Slate-defining plays: Ross Chastain (54.4 pts @ 14.6%), Josh Berry (51.7 pts @ 15.7%), John H. Nemechek (31.4 pts @ 14.1%)
+
+### Strategy adherence — did you follow your own strategy? (2 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **William Byron** was in 0 of 1 lineups in contest-standings-193288034.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call over-exposed inside contest-standings-193288023.csv: **William Byron** in 1 of 1 there — the pooled average hid it.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Bubba Wallace** was in 0 of 1 lineups in contest-standings-193288034.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call over-exposed inside contest-standings-193288023.csv: **Bubba Wallace** in 1 of 1 there — the pooled average hid it.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Chase Elliott** was in 0 of 1 lineups in contest-standings-193288023.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Chase Elliott** was in 0 of 1 lineups in contest-standings-193288034.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- Leverage candidates rostered somewhere: **0 of 12**.
+
+### Player-pool tier calibration (36 of 36 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 3 | 95.1 | 115.1 |
+| **Good** | 5 | 18.6 | 58.8 |
+| **Okay** | 26 | 26.5 | 66.7 |
+| **Fade** | 2 | 12.5 | 14.0 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.

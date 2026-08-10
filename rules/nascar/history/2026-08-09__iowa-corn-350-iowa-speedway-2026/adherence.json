@@ -1,0 +1,144 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "n_contests": 2,
+  "calls": [
+    {
+      "name": "William Byron",
+      "verdict": "underweight",
+      "exposure_pct": 50.0,
+      "in_lineups": 1,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193288023.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        },
+        {
+          "contest": "contest-standings-193288034.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-193288034.csv"
+      ],
+      "over_in": [
+        "contest-standings-193288023.csv"
+      ]
+    },
+    {
+      "name": "Bubba Wallace",
+      "verdict": "underweight",
+      "exposure_pct": 50.0,
+      "in_lineups": 1,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193288023.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        },
+        {
+          "contest": "contest-standings-193288034.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-193288034.csv"
+      ],
+      "over_in": [
+        "contest-standings-193288023.csv"
+      ]
+    },
+    {
+      "name": "Chase Elliott",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193288023.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193288034.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-193288023.csv",
+        "contest-standings-193288034.csv"
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 3,
+  "leverage_candidates": [
+    {
+      "name": "Zane Smith",
+      "rostered": false
+    },
+    {
+      "name": "Erik Jones",
+      "rostered": false
+    },
+    {
+      "name": "AJ Allmendinger",
+      "rostered": false
+    },
+    {
+      "name": "Austin Dillon",
+      "rostered": false
+    },
+    {
+      "name": "John H. Nemechek",
+      "rostered": false
+    },
+    {
+      "name": "Michael McDowell",
+      "rostered": false
+    },
+    {
+      "name": "Cole Custer",
+      "rostered": false
+    },
+    {
+      "name": "Brad Keselowski",
+      "rostered": false
+    },
+    {
+      "name": "Ty Dillon",
+      "rostered": false
+    },
+    {
+      "name": "Connor Zilisch",
+      "rostered": false
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "rostered": false
+    },
+    {
+      "name": "Noah Gragson",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 0,
+  "leverage_of": 12
+}

@@ -1,0 +1,35 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "lineups": [
+    {
+      "players": [
+        "Bubba Wallace",
+        "Josh Berry",
+        "Riley Herbst",
+        "Ryan Blaney",
+        "Tyler Reddick",
+        "William Byron"
+      ],
+      "percentile": 64.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Christopher Bell",
+        "Joey Logano",
+        "Ryan Blaney",
+        "Ryan Preece",
+        "Shane Van Gisbergen",
+        "Todd Gilliland"
+      ],
+      "percentile": 40.5,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    64.8,
+    40.5
+  ]
+}

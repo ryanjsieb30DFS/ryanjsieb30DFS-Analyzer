@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "slug": "nascar",
+  "generated_at": "2026-08-09 14:56",
+  "pool_fp": "924a9221dd84",
+  "pool_len": 10000,
+  "selections": {
+    "NAS $6K Engine Block [Single Entry] (SE)": {
+      "contest_type": "se",
+      "field_size": 588,
+      "entry_fee": 12.0,
+      "my_entries": 1,
+      "declared_contest_id": "c49aac68",
+      "declared_name": "NAS $6K Engine Block [Single Entry, $1K to 1st] (Cup)",
+      "options": [
+        {
+          "id": "A",
+          "label": "Ceiling \u2014 highest tournament-winning equity (small field \u2014 scored 60% Top-1% / 40% Win%)",
+          "sel_indexes": [
+            8990
+          ],
+          "roster_keys": [
+            "Christopher Bell|Joey Logano|Josh Berry|Ryan Blaney|Shane Van Gisbergen|Todd Gilliland"
+          ],
+          "n_short": 0,
+          "stats": {
+            "avg_top1": 14.69,
+            "avg_win": 5.78,
+            "avg_cash": 73.6,
+            "avg_roi": 835.4,
+            "exp_dupes": null,
+            "avg_own": 29.7,
+            "anchor": "Christopher Bell"
+          },
+          "thesis": null
+        },
+        {
+          "id": "B",
+          "label": "Leverage \u2014 strong ceiling, lower-owned and less duplicated (ownership only \u2014 no dupe data for this field)",
+          "sel_indexes": [
+            2759
+          ],
+          "roster_keys": [
+            "Christopher Bell|Joey Logano|Josh Berry|Ryan Blaney|Todd Gilliland|Zane Smith"
+          ],
+          "n_short": 0,
+          "stats": {
+            "avg_top1": 14.59,
+            "avg_win": 5.69,
+            "avg_cash": 74.4,
+            "avg_roi": 835.4,
+            "exp_dupes": null,
+            "avg_own": 28.8,
+            "anchor": "Christopher Bell"
+          },
+          "thesis": null
+        },
+        {
+          "id": "C",
+          "label": "Anchor pivot \u2014 the same game WITHOUT Christopher Bell, the other side of the chalk-anchor bet",
+          "sel_indexes": [
+            741
+          ],
+          "roster_keys": [
+            "Carson Hocevar|Joey Logano|Josh Berry|Ryan Blaney|Ryan Preece|Ty Gibbs"
+          ],
+          "n_short": 0,
+          "stats": {
+            "avg_top1": 11.48,
+            "avg_win": 3.99,
+            "avg_cash": 68.2,
+            "avg_roi": 632.8,
+            "exp_dupes": null,
+            "avg_own": 28.8,
+            "anchor": "Carson Hocevar"
+          },
+          "thesis": null
+        }
+      ],
+      "lean": null,
+      "lean_why": null
+    },
+    "NAS $8K Rainbow Warrior [Single Entry] (Cup) (SE)": {
+      "contest_type": "se",
+      "field_size": 392,
+      "entry_fee": 24.0,
+      "my_entries": 1,
+      "declared_contest_id": "353fb92f",
+      "declared_name": "NAS $8K Rainbow Warrior",
+      "options": [
+        {
+          "id": "A",
+          "label": "Ceiling \u2014 highest tournament-winning equity (small field \u2014 scored 60% Top-1% / 40% Win%)",
+          "sel_indexes": [
+            2759
+          ],
+          "roster_keys": [
+            "Christopher Bell|Joey Logano|Josh Berry|Ryan Blaney|Todd Gilliland|Zane Smith"
+          ],
+          "n_short": 0,
+          "stats": {
+            "avg_top1": 13.2,
+            "avg_win": 6.64,
+            "avg_cash": 71.1,
+            "avg_roi": 709.5,
+            "exp_dupes": null,
+            "avg_own": 28.8,
+            "anchor": "Christopher Bell"
+          },
+          "thesis": null
+        },
+        {
+          "id": "C",
+          "label": "Anchor pivot \u2014 the same game WITHOUT Christopher Bell, the other side of the chalk-anchor bet",
+          "sel_indexes": [
+            741
+          ],
+          "roster_keys": [
+            "Carson Hocevar|Joey Logano|Josh Berry|Ryan Blaney|Ryan Preece|Ty Gibbs"
+          ],
+          "n_short": 0,
+          "stats": {
+            "avg_top1": 11.28,
+            "avg_win": 5.5,
+            "avg_cash": 64.5,
+            "avg_roi": 597.9,
+            "exp_dupes": null,
+            "avg_own": 28.8,
+            "anchor": "Carson Hocevar"
+          },
+          "thesis": null
+        }
+      ],
+      "lean": null,
+      "lean_why": null
+    }
+  }
+}
