@@ -357,3 +357,36 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 | **Fade** | 3 | 43.4 | 106.1 |
 - ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
 - 🕳️ Buried: **Navajo Stirling** (Fade) scored 106.1 — above the top tier's average.
+
+
+## 2026-08-09 21:50 — MMA (contest-standings-193190112.csv)
+- Entries: 784
+- Winning score: 625.2
+- Cash line (top 20%): 527.3
+- My entries: 1 · best rank 722/784 (top 92.1%)
+- Winners (top 20): avg own 39.48% vs mine 28.76% · sub-10% plays/lineup 0.0 vs mine 2.0
+
+
+## 2026-08-09 21:50 — MMA (contest-standings-193190115.csv)
+- Entries: 47,562
+- Winning score: 632.9
+- Cash line (top 20%): 507.3
+- My entries: 100 · best rank 484/47,562 (top 1.0%)
+- Winners (top 100): avg own 30.55% vs mine 27.04% · sub-10% plays/lineup 0.0 vs mine 0.29
+
+### Strategy adherence — did you follow your own strategy? (101 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Quillan Salkilld** was in 0 of 1 lineups in contest-standings-193190112.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Gianni Vazquez** was in 0 of 1 lineups in contest-standings-193190112.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- Leverage candidates rostered somewhere: **2 of 2**.
+
+### Player-pool tier calibration (23 of 24 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 2 | 64.5 | 127.3 |
+| **Good** | 9 | 104.2 | 129.4 |
+| **Okay** | 12 | 38.2 | 104.7 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+- 🕳️ Buried: **Jose Montanha** (Okay) scored 98.6 — above the top tier's average.
+- 🕳️ Buried: **Quillan Salkilld** (Okay) scored 104.7 — above the top tier's average.
+- ⚪ Excluded as likely scratches (0.0 FPTS — didn't compete): Darren Elkins (Okay). Not counted in tier averages.

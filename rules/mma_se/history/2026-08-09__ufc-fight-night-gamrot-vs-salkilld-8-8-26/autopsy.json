@@ -1,0 +1,3357 @@
+[
+  {
+    "timestamp": "2026-08-09 21:50",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-193190112.csv",
+    "contest_id": "193190112",
+    "entries": 784,
+    "winning_score": 625.18,
+    "cash_line_p80": 527.34,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 24
+    },
+    "user_summary": {
+      "avg_own_mean": 28.76,
+      "low_own_count_mean": 2.0,
+      "salary_used_mean": null,
+      "entry_count": 1,
+      "best_rank": 722,
+      "best_percentile": 92.1
+    },
+    "user_lineups": [
+      {
+        "rank": 722,
+        "entry_name": "RyvlesGaming30",
+        "points": 342.34003,
+        "percentile": 92.1,
+        "players": [
+          "Mateusz Gamrot",
+          "Diyar Nurgozhay",
+          "Louie Sutherland",
+          "Alexia Thainara",
+          "Billy Ray Goff",
+          "Carol Foro"
+        ],
+        "avg_own": 28.76,
+        "low_own_count": 2,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 39.48,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "dup_max": 11,
+      "unique_pct": 15.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "MysticVinnyMac",
+          "points": 625.18,
+          "percentile": 0.1,
+          "players": [
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Steven Asplund",
+            "Alexia Thainara",
+            "Ty Miller",
+            "Gigi Canuto"
+          ],
+          "avg_own": 38.05,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 1,
+          "entry_name": "rlpick1",
+          "points": 625.18,
+          "percentile": 0.1,
+          "players": [
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Steven Asplund",
+            "Alexia Thainara",
+            "Ty Miller",
+            "Gigi Canuto"
+          ],
+          "avg_own": 38.05,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 2
+        },
+        {
+          "rank": 3,
+          "entry_name": "PJR1820",
+          "points": 621.22003,
+          "percentile": 0.4,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Steven Asplund",
+            "Yadier del Valle",
+            "Gigi Canuto"
+          ],
+          "avg_own": 33.53,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3
+        },
+        {
+          "rank": 3,
+          "entry_name": "zona1011",
+          "points": 621.22003,
+          "percentile": 0.4,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Steven Asplund",
+            "Yadier del Valle",
+            "Gigi Canuto"
+          ],
+          "avg_own": 33.53,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3
+        },
+        {
+          "rank": 3,
+          "entry_name": "buckdup",
+          "points": 621.22003,
+          "percentile": 0.4,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Steven Asplund",
+            "Yadier del Valle",
+            "Gigi Canuto"
+          ],
+          "avg_own": 33.53,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 3
+        },
+        {
+          "rank": 6,
+          "entry_name": "cprest",
+          "points": 619.95,
+          "percentile": 0.8,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Steven Asplund",
+            "Ty Miller",
+            "Gigi Canuto"
+          ],
+          "avg_own": 37.67,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "KawaiiTheKlaw",
+          "points": 614.95,
+          "percentile": 0.9,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Ty Miller",
+            "Richie Miranda"
+          ],
+          "avg_own": 38.88,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "DLime22",
+          "points": 614.06,
+          "percentile": 1.0,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Billy Quarantillo",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Ty Miller"
+          ],
+          "avg_own": 42.2,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 11
+        },
+        {
+          "rank": 8,
+          "entry_name": "anthopas",
+          "points": 614.06,
+          "percentile": 1.0,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Billy Quarantillo",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Ty Miller"
+          ],
+          "avg_own": 42.2,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 11
+        },
+        {
+          "rank": 8,
+          "entry_name": "Dazillion44",
+          "points": 614.06,
+          "percentile": 1.0,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Billy Quarantillo",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Ty Miller"
+          ],
+          "avg_own": 42.2,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 11
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 10.72,
+        "low_own_count_delta": -2.0,
+        "salary_used_delta": null
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 778,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Alexia Thainara",
+          "field_own": 56.8,
+          "actual_fpts": 109.9
+        },
+        {
+          "name": "Quillan Salkilld",
+          "field_own": 54.5,
+          "actual_fpts": 104.7
+        },
+        {
+          "name": "Ty Miller",
+          "field_own": 44.5,
+          "actual_fpts": 126.0
+        },
+        {
+          "name": "Steven Asplund",
+          "field_own": 43.9,
+          "actual_fpts": 98.5
+        },
+        {
+          "name": "Billy Quarantillo",
+          "field_own": 41.6,
+          "actual_fpts": 45.4
+        },
+        {
+          "name": "Mateusz Gamrot",
+          "field_own": 39.4,
+          "actual_fpts": 1.8
+        },
+        {
+          "name": "Juliana Miller",
+          "field_own": 31.0,
+          "actual_fpts": 102.3
+        },
+        {
+          "name": "Louie Sutherland",
+          "field_own": 30.6,
+          "actual_fpts": 1.5
+        },
+        {
+          "name": "Diyar Nurgozhay",
+          "field_own": 30.4,
+          "actual_fpts": 129.4
+        },
+        {
+          "name": "Gigi Canuto",
+          "field_own": 27.3,
+          "actual_fpts": 62.7
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Alexia Thainara",
+            "Quillan Salkilld"
+          ],
+          "field_pct": 31.0,
+          "count": 241
+        },
+        {
+          "players": [
+            "Alexia Thainara",
+            "Billy Quarantillo"
+          ],
+          "field_pct": 25.2,
+          "count": 196
+        },
+        {
+          "players": [
+            "Quillan Salkilld",
+            "Ty Miller"
+          ],
+          "field_pct": 25.1,
+          "count": 195
+        },
+        {
+          "players": [
+            "Billy Quarantillo",
+            "Quillan Salkilld"
+          ],
+          "field_pct": 24.7,
+          "count": 192
+        },
+        {
+          "players": [
+            "Alexia Thainara",
+            "Mateusz Gamrot"
+          ],
+          "field_pct": 23.6,
+          "count": 183
+        },
+        {
+          "players": [
+            "Quillan Salkilld",
+            "Steven Asplund"
+          ],
+          "field_pct": 23.3,
+          "count": 181
+        },
+        {
+          "players": [
+            "Alexia Thainara",
+            "Steven Asplund"
+          ],
+          "field_pct": 22.0,
+          "count": 171
+        },
+        {
+          "players": [
+            "Alexia Thainara",
+            "Ty Miller"
+          ],
+          "field_pct": 21.4,
+          "count": 166
+        },
+        {
+          "players": [
+            "Steven Asplund",
+            "Ty Miller"
+          ],
+          "field_pct": 19.8,
+          "count": 154
+        },
+        {
+          "players": [
+            "Billy Quarantillo",
+            "Ty Miller"
+          ],
+          "field_pct": 19.0,
+          "count": 148
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Alexia Thainara",
+            "Billy Quarantillo",
+            "Diyar Nurgozhay",
+            "Juliana Miller",
+            "Louie Sutherland",
+            "Mateusz Gamrot"
+          ],
+          "count": 22,
+          "field_pct": 2.8
+        },
+        {
+          "players": [
+            "Alexia Thainara",
+            "Billy Quarantillo",
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Quillan Salkilld",
+            "Ty Miller"
+          ],
+          "count": 11,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Alexia Thainara",
+            "Billy Quarantillo",
+            "Quillan Salkilld",
+            "Richie Miranda",
+            "Steven Asplund",
+            "Ty Miller"
+          ],
+          "count": 10,
+          "field_pct": 1.3
+        },
+        {
+          "players": [
+            "Billy Quarantillo",
+            "Juliana Miller",
+            "Quillan Salkilld",
+            "Richie Miranda",
+            "Steven Asplund",
+            "Ty Miller"
+          ],
+          "count": 8,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Alexia Thainara",
+            "Bruno Lopes",
+            "Gigi Canuto",
+            "Quillan Salkilld",
+            "Steven Asplund",
+            "Ty Miller"
+          ],
+          "count": 7,
+          "field_pct": 0.9
+        }
+      ],
+      "winners_profile": {
+        "n": 8,
+        "avg_own_per_slot": 36.9,
+        "dart_pct": 0.0,
+        "unique_pct": 62.5
+      },
+      "fish_profile": {
+        "n": 388,
+        "avg_own_per_slot": 33.1,
+        "dart_pct": 8.5,
+        "unique_pct": 69.8
+      },
+      "fish_traps": [
+        {
+          "name": "Mateusz Gamrot",
+          "fish_pct": 62.6,
+          "winner_pct": 0.0,
+          "gap": 62.6,
+          "actual_fpts": 1.8,
+          "field_own": 39.4,
+          "own_rank": 6
+        },
+        {
+          "name": "Louie Sutherland",
+          "fish_pct": 51.0,
+          "winner_pct": 0.0,
+          "gap": 51.0,
+          "actual_fpts": 1.5,
+          "field_own": 30.6,
+          "own_rank": 8
+        },
+        {
+          "name": "Bruno Lopes",
+          "fish_pct": 37.1,
+          "winner_pct": 0.0,
+          "gap": 37.1,
+          "actual_fpts": 10.7,
+          "field_own": 24.0,
+          "own_rank": 12
+        },
+        {
+          "name": "Juliana Miller",
+          "fish_pct": 33.8,
+          "winner_pct": 0.0,
+          "gap": 33.8,
+          "actual_fpts": 102.3,
+          "field_own": 31.0,
+          "own_rank": 7
+        },
+        {
+          "name": "Billy Quarantillo",
+          "fish_pct": 45.1,
+          "winner_pct": 12.5,
+          "gap": 32.6,
+          "actual_fpts": 45.4,
+          "field_own": 41.6,
+          "own_rank": 5
+        },
+        {
+          "name": "Manoel Sousa",
+          "fish_pct": 25.8,
+          "winner_pct": 0.0,
+          "gap": 25.8,
+          "actual_fpts": 81.3,
+          "field_own": 20.7,
+          "own_rank": 15
+        },
+        {
+          "name": "Gianni Vazquez",
+          "fish_pct": 21.6,
+          "winner_pct": 0.0,
+          "gap": 21.6,
+          "actual_fpts": 2.8,
+          "field_own": 13.9,
+          "own_rank": 17
+        },
+        {
+          "name": "Diego Ferreira",
+          "fish_pct": 20.6,
+          "winner_pct": 0.0,
+          "gap": 20.6,
+          "actual_fpts": 103.0,
+          "field_own": 21.2,
+          "own_rank": 14
+        },
+        {
+          "name": "Carol Foro",
+          "fish_pct": 10.8,
+          "winner_pct": 0.0,
+          "gap": 10.8,
+          "actual_fpts": 82.7,
+          "field_own": 7.8,
+          "own_rank": 19
+        },
+        {
+          "name": "Billy Ray Goff",
+          "fish_pct": 10.3,
+          "winner_pct": 0.0,
+          "gap": 10.3,
+          "actual_fpts": 17.0,
+          "field_own": 7.7,
+          "own_rank": 20
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "MysticVinnyMac",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "rlpick1",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "PJR1820",
+          "best_rank": 3,
+          "percentile": 0.4
+        },
+        {
+          "handle": "zona1011",
+          "best_rank": 3,
+          "percentile": 0.4
+        },
+        {
+          "handle": "buckdup",
+          "best_rank": 3,
+          "percentile": 0.4
+        },
+        {
+          "handle": "cprest",
+          "best_rank": 6,
+          "percentile": 0.8
+        },
+        {
+          "handle": "KawaiiTheKlaw",
+          "best_rank": 7,
+          "percentile": 0.9
+        },
+        {
+          "handle": "anthopas",
+          "best_rank": 8,
+          "percentile": 1.0
+        },
+        {
+          "handle": "DLime22",
+          "best_rank": 8,
+          "percentile": 1.0
+        },
+        {
+          "handle": "calebshaw937",
+          "best_rank": 8,
+          "percentile": 1.0
+        },
+        {
+          "handle": "cowboyjarred",
+          "best_rank": 8,
+          "percentile": 1.0
+        },
+        {
+          "handle": "popimpin",
+          "best_rank": 8,
+          "percentile": 1.0
+        },
+        {
+          "handle": "dallenb",
+          "best_rank": 8,
+          "percentile": 1.0
+        },
+        {
+          "handle": "homanga",
+          "best_rank": 8,
+          "percentile": 1.0
+        },
+        {
+          "handle": "Dazillion44",
+          "best_rank": 8,
+          "percentile": 1.0
+        }
+      ],
+      "read": [
+        "Field crowded **Alexia Thainara** at 56.8% (109.9 fpts) \u2014 the chalk to consider fading.",
+        "**Alexia Thainara + Quillan Salkilld** were together in 31.0% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Mateusz Gamrot** was a fish trap: 62.6% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 625.18,
+      "winner_handle": "MysticVinnyMac",
+      "roster": [
+        {
+          "name": "Diyar Nurgozhay",
+          "own": 30.36,
+          "fpts": 129.44
+        },
+        {
+          "name": "Jose Montanha",
+          "own": 25.51,
+          "fpts": 98.63
+        },
+        {
+          "name": "Steven Asplund",
+          "own": 43.88,
+          "fpts": 98.52
+        },
+        {
+          "name": "Alexia Thainara",
+          "own": 56.76,
+          "fpts": 109.89
+        },
+        {
+          "name": "Ty Miller",
+          "own": 44.52,
+          "fpts": 126.0
+        },
+        {
+          "name": "Gigi Canuto",
+          "own": 27.3,
+          "fpts": 62.7
+        }
+      ],
+      "avg_own": 38.1,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Jose Montanha",
+        "own": 25.51,
+        "fpts": 98.63
+      },
+      "expected_dupes": 1.84
+    },
+    "near_miss": {
+      "gradable": true,
+      "won": false,
+      "your_points": 342.34003,
+      "winner_points": 625.18,
+      "gap": 282.8,
+      "your_percentile": 92.1,
+      "n_shared": 2,
+      "shared": [
+        "Alexia Thainara",
+        "Diyar Nurgozhay"
+      ],
+      "your_uniques": [
+        {
+          "name": "Carol Foro",
+          "fpts": 82.7
+        },
+        {
+          "name": "Billy Ray Goff",
+          "fpts": 16.98
+        },
+        {
+          "name": "Mateusz Gamrot",
+          "fpts": 1.8
+        },
+        {
+          "name": "Louie Sutherland",
+          "fpts": 1.53
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Ty Miller",
+          "fpts": 126.0
+        },
+        {
+          "name": "Jose Montanha",
+          "fpts": 98.63
+        },
+        {
+          "name": "Steven Asplund",
+          "fpts": 98.52
+        },
+        {
+          "name": "Gigi Canuto",
+          "fpts": 62.7
+        }
+      ],
+      "best_swap": {
+        "out": "Louie Sutherland",
+        "in": "Ty Miller",
+        "gain": 124.5,
+        "would_have_won": false
+      },
+      "swaps_needed": 3
+    }
+  },
+  {
+    "timestamp": "2026-08-09 21:50",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-193190115.csv",
+    "contest_id": "193190115",
+    "entries": 47562,
+    "winning_score": 632.85004,
+    "cash_line_p80": 507.34998,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": false,
+      "source": null,
+      "matched": 0,
+      "total": 25
+    },
+    "user_summary": {
+      "avg_own_mean": 27.04,
+      "low_own_count_mean": 0.29,
+      "salary_used_mean": null,
+      "entry_count": 100,
+      "best_rank": 484,
+      "best_percentile": 1.0
+    },
+    "user_lineups": [
+      {
+        "rank": 484,
+        "entry_name": "RyvlesGaming30 (58/100)",
+        "points": 611.25,
+        "percentile": 1.0,
+        "players": [
+          "Quillan Salkilld",
+          "Diyar Nurgozhay",
+          "Jose Montanha",
+          "Yadier del Valle",
+          "Richie Miranda",
+          "Miles Johns"
+        ],
+        "avg_own": 27.55,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 8
+      },
+      {
+        "rank": 1473,
+        "entry_name": "RyvlesGaming30 (4/100)",
+        "points": 587.76,
+        "percentile": 3.1,
+        "players": [
+          "Quillan Salkilld",
+          "Diyar Nurgozhay",
+          "Jose Montanha",
+          "Ty Miller",
+          "Richie Miranda",
+          "Carol Foro"
+        ],
+        "avg_own": 28.97,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 31
+      },
+      {
+        "rank": 2859,
+        "entry_name": "RyvlesGaming30 (16/100)",
+        "points": 568.19,
+        "percentile": 6.0,
+        "players": [
+          "Quillan Salkilld",
+          "Diyar Nurgozhay",
+          "Diego Ferreira",
+          "Jose Montanha",
+          "Yadier del Valle",
+          "Ravena Oliveira"
+        ],
+        "avg_own": 27.84,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 20
+      },
+      {
+        "rank": 3935,
+        "entry_name": "RyvlesGaming30 (13/100)",
+        "points": 553.41003,
+        "percentile": 8.3,
+        "players": [
+          "Quillan Salkilld",
+          "Diego Ferreira",
+          "Jose Montanha",
+          "Steven Asplund",
+          "Juliana Miller",
+          "Richie Miranda"
+        ],
+        "avg_own": 29.64,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 8
+      },
+      {
+        "rank": 4639,
+        "entry_name": "RyvlesGaming30 (57/100)",
+        "points": 546.49,
+        "percentile": 9.8,
+        "players": [
+          "Diego Ferreira",
+          "Yadier del Valle",
+          "Juliana Miller",
+          "Richie Miranda",
+          "Miles Johns",
+          "Gigi Canuto"
+        ],
+        "avg_own": 23.3,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 4
+      },
+      {
+        "rank": 4817,
+        "entry_name": "RyvlesGaming30 (21/100)",
+        "points": 544.81,
+        "percentile": 10.1,
+        "players": [
+          "Quillan Salkilld",
+          "Billy Quarantillo",
+          "Jose Montanha",
+          "Alexia Thainara",
+          "Manoel Sousa",
+          "Miles Johns"
+        ],
+        "avg_own": 31.03,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 52
+      },
+      {
+        "rank": 5131,
+        "entry_name": "RyvlesGaming30 (99/100)",
+        "points": 540.55,
+        "percentile": 10.8,
+        "players": [
+          "Quillan Salkilld",
+          "Diyar Nurgozhay",
+          "Diego Ferreira",
+          "Steven Asplund",
+          "Darren Elkins",
+          "Miles Johns"
+        ],
+        "avg_own": 26.83,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 3
+      },
+      {
+        "rank": 5288,
+        "entry_name": "RyvlesGaming30 (27/100)",
+        "points": 537.98,
+        "percentile": 11.1,
+        "players": [
+          "Quillan Salkilld",
+          "Diyar Nurgozhay",
+          "Jose Montanha",
+          "Steven Asplund",
+          "Amanda Lemos",
+          "Manoel Sousa"
+        ],
+        "avg_own": 28.33,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 26
+      },
+      {
+        "rank": 6723,
+        "entry_name": "RyvlesGaming30 (12/100)",
+        "points": 527.34,
+        "percentile": 14.1,
+        "players": [
+          "Quillan Salkilld",
+          "Diyar Nurgozhay",
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Ty Miller",
+          "Gigi Canuto"
+        ],
+        "avg_own": 31.78,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 77
+      },
+      {
+        "rank": 6938,
+        "entry_name": "RyvlesGaming30 (5/100)",
+        "points": 526.26,
+        "percentile": 14.6,
+        "players": [
+          "Quillan Salkilld",
+          "Billy Quarantillo",
+          "Yadier del Valle",
+          "Manoel Sousa",
+          "Miles Johns",
+          "Gigi Canuto"
+        ],
+        "avg_own": 28.45,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 23
+      },
+      {
+        "rank": 7042,
+        "entry_name": "RyvlesGaming30 (31/100)",
+        "points": 525.36,
+        "percentile": 14.8,
+        "players": [
+          "Quillan Salkilld",
+          "Diego Ferreira",
+          "Amanda Lemos",
+          "Yadier del Valle",
+          "Juliana Miller",
+          "Gigi Canuto"
+        ],
+        "avg_own": 27.04,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 6
+      },
+      {
+        "rank": 7233,
+        "entry_name": "RyvlesGaming30 (52/100)",
+        "points": 524.06,
+        "percentile": 15.2,
+        "players": [
+          "Quillan Salkilld",
+          "Diego Ferreira",
+          "Jose Montanha",
+          "Steven Asplund",
+          "Billy Ray Goff",
+          "Juliana Miller"
+        ],
+        "avg_own": 29.14,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 8
+      },
+      {
+        "rank": 8256,
+        "entry_name": "RyvlesGaming30 (48/100)",
+        "points": 517.41,
+        "percentile": 17.4,
+        "players": [
+          "Quillan Salkilld",
+          "Diego Ferreira",
+          "Guilherme Pat",
+          "Yadier del Valle",
+          "Manoel Sousa",
+          "Gigi Canuto"
+        ],
+        "avg_own": 26.42,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 12
+      },
+      {
+        "rank": 8483,
+        "entry_name": "RyvlesGaming30 (63/100)",
+        "points": 514.25,
+        "percentile": 17.8,
+        "players": [
+          "Quillan Salkilld",
+          "Jose Montanha",
+          "Ty Miller",
+          "Darren Elkins",
+          "Juliana Miller",
+          "Carol Foro"
+        ],
+        "avg_own": 26.39,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 5
+      },
+      {
+        "rank": 9053,
+        "entry_name": "RyvlesGaming30 (82/100)",
+        "points": 510.52,
+        "percentile": 19.0,
+        "players": [
+          "Quillan Salkilld",
+          "Diyar Nurgozhay",
+          "Yadier del Valle",
+          "Ravena Oliveira",
+          "Manoel Sousa",
+          "Gigi Canuto"
+        ],
+        "avg_own": 27.11,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 6
+      },
+      {
+        "rank": 9965,
+        "entry_name": "RyvlesGaming30 (36/100)",
+        "points": 505.28998,
+        "percentile": 21.0,
+        "players": [
+          "Billy Quarantillo",
+          "Jose Montanha",
+          "Yadier del Valle",
+          "Richie Miranda",
+          "Miles Johns",
+          "Carol Foro"
+        ],
+        "avg_own": 23.61,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 3
+      },
+      {
+        "rank": 10647,
+        "entry_name": "RyvlesGaming30 (68/100)",
+        "points": 501.77002,
+        "percentile": 22.4,
+        "players": [
+          "Quillan Salkilld",
+          "Diyar Nurgozhay",
+          "Louie Sutherland",
+          "Steven Asplund",
+          "Miles Johns",
+          "Gigi Canuto"
+        ],
+        "avg_own": 29.92,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 8
+      },
+      {
+        "rank": 10778,
+        "entry_name": "RyvlesGaming30 (1/100)",
+        "points": 500.51,
+        "percentile": 22.7,
+        "players": [
+          "Quillan Salkilld",
+          "Diego Ferreira",
+          "Billy Ray Goff",
+          "Yadier del Valle",
+          "Juliana Miller",
+          "Richie Miranda"
+        ],
+        "avg_own": 27.72,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 7
+      },
+      {
+        "rank": 11350,
+        "entry_name": "RyvlesGaming30 (97/100)",
+        "points": 496.15002,
+        "percentile": 23.9,
+        "players": [
+          "Diego Ferreira",
+          "Billy Ray Goff",
+          "Yadier del Valle",
+          "Manoel Sousa",
+          "Miles Johns",
+          "Gigi Canuto"
+        ],
+        "avg_own": 22,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 2
+      },
+      {
+        "rank": 12448,
+        "entry_name": "RyvlesGaming30 (33/100)",
+        "points": 489.49002,
+        "percentile": 26.2,
+        "players": [
+          "Quillan Salkilld",
+          "Diyar Nurgozhay",
+          "Louie Sutherland",
+          "Alexia Thainara",
+          "Manoel Sousa",
+          "Gigi Canuto"
+        ],
+        "avg_own": 33.06,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 78
+      },
+      {
+        "rank": 12877,
+        "entry_name": "RyvlesGaming30 (90/100)",
+        "points": 488.11002,
+        "percentile": 27.1,
+        "players": [
+          "Mateusz Gamrot",
+          "Diyar Nurgozhay",
+          "Diego Ferreira",
+          "Alexia Thainara",
+          "Manoel Sousa",
+          "Gigi Canuto"
+        ],
+        "avg_own": 31.47,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 27
+      },
+      {
+        "rank": 13034,
+        "entry_name": "RyvlesGaming30 (98/100)",
+        "points": 487.52002,
+        "percentile": 27.4,
+        "players": [
+          "Quillan Salkilld",
+          "Diego Ferreira",
+          "Jose Montanha",
+          "Steven Asplund",
+          "Darren Elkins",
+          "Carol Foro"
+        ],
+        "avg_own": 26.19,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 6
+      },
+      {
+        "rank": 13209,
+        "entry_name": "RyvlesGaming30 (67/100)",
+        "points": 487.03003,
+        "percentile": 27.8,
+        "players": [
+          "Quillan Salkilld",
+          "Diyar Nurgozhay",
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Guilherme Pat",
+          "Alexia Thainara"
+        ],
+        "avg_own": 31.73,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 43
+      },
+      {
+        "rank": 13347,
+        "entry_name": "RyvlesGaming30 (85/100)",
+        "points": 486.51,
+        "percentile": 28.1,
+        "players": [
+          "Quillan Salkilld",
+          "Diyar Nurgozhay",
+          "Amanda Lemos",
+          "Billy Ray Goff",
+          "Yadier del Valle",
+          "Carol Foro"
+        ],
+        "avg_own": 25.66,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 21
+      },
+      {
+        "rank": 13538,
+        "entry_name": "RyvlesGaming30 (42/100)",
+        "points": 485.59998,
+        "percentile": 28.5,
+        "players": [
+          "Jose Montanha",
+          "Steven Asplund",
+          "Darren Elkins",
+          "Juliana Miller",
+          "Manoel Sousa",
+          "Miles Johns"
+        ],
+        "avg_own": 22.01,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 3
+      },
+      {
+        "rank": 14279,
+        "entry_name": "RyvlesGaming30 (69/100)",
+        "points": 482.99,
+        "percentile": 30.0,
+        "players": [
+          "Billy Quarantillo",
+          "Jose Montanha",
+          "Amanda Lemos",
+          "Yadier del Valle",
+          "Manoel Sousa",
+          "Miles Johns"
+        ],
+        "avg_own": 22.8,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 2
+      },
+      {
+        "rank": 14321,
+        "entry_name": "RyvlesGaming30 (87/100)",
+        "points": 482.72998,
+        "percentile": 30.1,
+        "players": [
+          "Quillan Salkilld",
+          "Billy Quarantillo",
+          "Jose Montanha",
+          "Amanda Lemos",
+          "Yadier del Valle",
+          "Manoel Sousa"
+        ],
+        "avg_own": 28.09,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 3
+      },
+      {
+        "rank": 15615,
+        "entry_name": "RyvlesGaming30 (77/100)",
+        "points": 475.34003,
+        "percentile": 32.8,
+        "players": [
+          "Quillan Salkilld",
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Steven Asplund",
+          "Miles Johns",
+          "Gigi Canuto"
+        ],
+        "avg_own": 28.88,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 30
+      },
+      {
+        "rank": 15680,
+        "entry_name": "RyvlesGaming30 (81/100)",
+        "points": 475.13,
+        "percentile": 33.0,
+        "players": [
+          "Steven Asplund",
+          "Amanda Lemos",
+          "Juliana Miller",
+          "Manoel Sousa",
+          "Miles Johns",
+          "Gigi Canuto"
+        ],
+        "avg_own": 22.06,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 16763,
+        "entry_name": "RyvlesGaming30 (20/100)",
+        "points": 468.21002,
+        "percentile": 35.2,
+        "players": [
+          "Mateusz Gamrot",
+          "Diego Ferreira",
+          "Alexia Thainara",
+          "Juliana Miller",
+          "Richie Miranda",
+          "Miles Johns"
+        ],
+        "avg_own": 28.82,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 22
+      },
+      {
+        "rank": 17983,
+        "entry_name": "RyvlesGaming30 (56/100)",
+        "points": 463.59003,
+        "percentile": 37.8,
+        "players": [
+          "Mateusz Gamrot",
+          "Diego Ferreira",
+          "Alexia Thainara",
+          "Manoel Sousa",
+          "Miles Johns",
+          "Gigi Canuto"
+        ],
+        "avg_own": 28.4,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 20
+      },
+      {
+        "rank": 18692,
+        "entry_name": "RyvlesGaming30 (65/100)",
+        "points": 460.74,
+        "percentile": 39.3,
+        "players": [
+          "Diego Ferreira",
+          "Jose Montanha",
+          "Yadier del Valle",
+          "Richie Miranda",
+          "Carol Foro",
+          "Gianni Vazquez"
+        ],
+        "avg_own": 22.68,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 4
+      },
+      {
+        "rank": 19987,
+        "entry_name": "RyvlesGaming30 (60/100)",
+        "points": 454.46002,
+        "percentile": 42.0,
+        "players": [
+          "Quillan Salkilld",
+          "Bruno Lopes",
+          "Diego Ferreira",
+          "Ty Miller",
+          "Ravena Oliveira",
+          "Miles Johns"
+        ],
+        "avg_own": 24.95,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 5
+      },
+      {
+        "rank": 20013,
+        "entry_name": "RyvlesGaming30 (7/100)",
+        "points": 454.14,
+        "percentile": 42.1,
+        "players": [
+          "Quillan Salkilld",
+          "Diyar Nurgozhay",
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Steven Asplund",
+          "Billy Ray Goff"
+        ],
+        "avg_own": 31.07,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 48
+      },
+      {
+        "rank": 21129,
+        "entry_name": "RyvlesGaming30 (15/100)",
+        "points": 448.02,
+        "percentile": 44.4,
+        "players": [
+          "Quillan Salkilld",
+          "Bruno Lopes",
+          "Diego Ferreira",
+          "Guilherme Pat",
+          "Alexia Thainara",
+          "Manoel Sousa"
+        ],
+        "avg_own": 28.61,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 7
+      },
+      {
+        "rank": 22233,
+        "entry_name": "RyvlesGaming30 (79/100)",
+        "points": 441.95,
+        "percentile": 46.7,
+        "players": [
+          "Mateusz Gamrot",
+          "Billy Quarantillo",
+          "Jose Montanha",
+          "Alexia Thainara",
+          "Manoel Sousa",
+          "Miles Johns"
+        ],
+        "avg_own": 30.25,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 11
+      },
+      {
+        "rank": 22337,
+        "entry_name": "RyvlesGaming30 (44/100)",
+        "points": 441.61005,
+        "percentile": 47.0,
+        "players": [
+          "Mateusz Gamrot",
+          "Jose Montanha",
+          "Alexia Thainara",
+          "Juliana Miller",
+          "Richie Miranda",
+          "Carol Foro"
+        ],
+        "avg_own": 29.23,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 15
+      },
+      {
+        "rank": 22461,
+        "entry_name": "RyvlesGaming30 (25/100)",
+        "points": 440.94,
+        "percentile": 47.2,
+        "players": [
+          "Quillan Salkilld",
+          "Billy Quarantillo",
+          "Alexia Thainara",
+          "Billy Ray Goff",
+          "Manoel Sousa",
+          "Carol Foro"
+        ],
+        "avg_own": 30.7,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 52
+      },
+      {
+        "rank": 23950,
+        "entry_name": "RyvlesGaming30 (72/100)",
+        "points": 433.77997,
+        "percentile": 50.4,
+        "players": [
+          "Mateusz Gamrot",
+          "Jose Montanha",
+          "Guilherme Pat",
+          "Alexia Thainara",
+          "Juliana Miller",
+          "Carol Foro"
+        ],
+        "avg_own": 27.85,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 13
+      },
+      {
+        "rank": 24591,
+        "entry_name": "RyvlesGaming30 (41/100)",
+        "points": 430.14996,
+        "percentile": 51.7,
+        "players": [
+          "Quillan Salkilld",
+          "Billy Quarantillo",
+          "Louie Sutherland",
+          "Yadier del Valle",
+          "Richie Miranda",
+          "Miles Johns"
+        ],
+        "avg_own": 29.31,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 4
+      },
+      {
+        "rank": 25115,
+        "entry_name": "RyvlesGaming30 (6/100)",
+        "points": 427.06,
+        "percentile": 52.8,
+        "players": [
+          "Quillan Salkilld",
+          "Bruno Lopes",
+          "Diego Ferreira",
+          "Ty Miller",
+          "Darren Elkins",
+          "Carol Foro"
+        ],
+        "avg_own": 25.64,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 8
+      },
+      {
+        "rank": 25144,
+        "entry_name": "RyvlesGaming30 (23/100)",
+        "points": 426.84003,
+        "percentile": 52.9,
+        "players": [
+          "Mateusz Gamrot",
+          "Diyar Nurgozhay",
+          "Diego Ferreira",
+          "Alexia Thainara",
+          "Darren Elkins",
+          "Carol Foro"
+        ],
+        "avg_own": 28.44,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 5
+      },
+      {
+        "rank": 25571,
+        "entry_name": "RyvlesGaming30 (92/100)",
+        "points": 424.88,
+        "percentile": 53.8,
+        "players": [
+          "Quillan Salkilld",
+          "Bruno Lopes",
+          "Ty Miller",
+          "Darren Elkins",
+          "Juliana Miller",
+          "Manoel Sousa"
+        ],
+        "avg_own": 26.75,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 11
+      },
+      {
+        "rank": 25955,
+        "entry_name": "RyvlesGaming30 (70/100)",
+        "points": 422.87,
+        "percentile": 54.6,
+        "players": [
+          "Quillan Salkilld",
+          "Billy Quarantillo",
+          "Louie Sutherland",
+          "Yadier del Valle",
+          "Manoel Sousa",
+          "Gigi Canuto"
+        ],
+        "avg_own": 31.29,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 33
+      },
+      {
+        "rank": 26707,
+        "entry_name": "RyvlesGaming30 (75/100)",
+        "points": 419.40002,
+        "percentile": 56.2,
+        "players": [
+          "Bruno Lopes",
+          "Diego Ferreira",
+          "Steven Asplund",
+          "Darren Elkins",
+          "Juliana Miller",
+          "Miles Johns"
+        ],
+        "avg_own": 22.05,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 2
+      },
+      {
+        "rank": 27077,
+        "entry_name": "RyvlesGaming30 (84/100)",
+        "points": 416.88998,
+        "percentile": 56.9,
+        "players": [
+          "Diego Ferreira",
+          "Jose Montanha",
+          "Ty Miller",
+          "Ravena Oliveira",
+          "Manoel Sousa",
+          "Gianni Vazquez"
+        ],
+        "avg_own": 22.26,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 2
+      },
+      {
+        "rank": 27801,
+        "entry_name": "RyvlesGaming30 (8/100)",
+        "points": 413.86,
+        "percentile": 58.5,
+        "players": [
+          "Mateusz Gamrot",
+          "Diego Ferreira",
+          "Jose Montanha",
+          "Amanda Lemos",
+          "Juliana Miller",
+          "Carol Foro"
+        ],
+        "avg_own": 24.93,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 17
+      },
+      {
+        "rank": 27924,
+        "entry_name": "RyvlesGaming30 (34/100)",
+        "points": 412.78998,
+        "percentile": 58.7,
+        "players": [
+          "Mateusz Gamrot",
+          "Jose Montanha",
+          "Guilherme Pat",
+          "Alexia Thainara",
+          "Manoel Sousa",
+          "Carol Foro"
+        ],
+        "avg_own": 27.05,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 19
+      },
+      {
+        "rank": 27971,
+        "entry_name": "RyvlesGaming30 (51/100)",
+        "points": 412.43,
+        "percentile": 58.8,
+        "players": [
+          "Mateusz Gamrot",
+          "Diego Ferreira",
+          "Jose Montanha",
+          "Amanda Lemos",
+          "Juliana Miller",
+          "Manoel Sousa"
+        ],
+        "avg_own": 25.68,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 4
+      },
+      {
+        "rank": 28044,
+        "entry_name": "RyvlesGaming30 (29/100)",
+        "points": 411.89,
+        "percentile": 59.0,
+        "players": [
+          "Quillan Salkilld",
+          "Louie Sutherland",
+          "Steven Asplund",
+          "Darren Elkins",
+          "Juliana Miller",
+          "Miles Johns"
+        ],
+        "avg_own": 26.97,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 2
+      },
+      {
+        "rank": 28062,
+        "entry_name": "RyvlesGaming30 (43/100)",
+        "points": 411.74,
+        "percentile": 59.0,
+        "players": [
+          "Billy Quarantillo",
+          "Jose Montanha",
+          "Steven Asplund",
+          "Ravena Oliveira",
+          "Manoel Sousa",
+          "Carol Foro"
+        ],
+        "avg_own": 24.21,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 3
+      },
+      {
+        "rank": 28076,
+        "entry_name": "RyvlesGaming30 (86/100)",
+        "points": 411.46002,
+        "percentile": 59.0,
+        "players": [
+          "Diyar Nurgozhay",
+          "Louie Sutherland",
+          "Amanda Lemos",
+          "Ty Miller",
+          "Richie Miranda",
+          "Carol Foro"
+        ],
+        "avg_own": 24.28,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 5
+      },
+      {
+        "rank": 28995,
+        "entry_name": "RyvlesGaming30 (24/100)",
+        "points": 407.75,
+        "percentile": 61.0,
+        "players": [
+          "Bruno Lopes",
+          "Guilherme Pat",
+          "Yadier del Valle",
+          "Juliana Miller",
+          "Richie Miranda",
+          "Carol Foro"
+        ],
+        "avg_own": 21.57,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 2
+      },
+      {
+        "rank": 29253,
+        "entry_name": "RyvlesGaming30 (17/100)",
+        "points": 406.66003,
+        "percentile": 61.5,
+        "players": [
+          "Quillan Salkilld",
+          "Billy Quarantillo",
+          "Louie Sutherland",
+          "Ty Miller",
+          "Richie Miranda",
+          "Carol Foro"
+        ],
+        "avg_own": 30.74,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 44
+      },
+      {
+        "rank": 29664,
+        "entry_name": "RyvlesGaming30 (28/100)",
+        "points": 404.93,
+        "percentile": 62.4,
+        "players": [
+          "Diyar Nurgozhay",
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Guilherme Pat",
+          "Yadier del Valle",
+          "Ravena Oliveira"
+        ],
+        "avg_own": 23.32,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 2
+      },
+      {
+        "rank": 30003,
+        "entry_name": "RyvlesGaming30 (64/100)",
+        "points": 403.63,
+        "percentile": 63.1,
+        "players": [
+          "Diyar Nurgozhay",
+          "Louie Sutherland",
+          "Guilherme Pat",
+          "Amanda Lemos",
+          "Ty Miller",
+          "Carol Foro"
+        ],
+        "avg_own": 22.89,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 7
+      },
+      {
+        "rank": 30430,
+        "entry_name": "RyvlesGaming30 (96/100)",
+        "points": 401.21002,
+        "percentile": 64.0,
+        "players": [
+          "Mateusz Gamrot",
+          "Diego Ferreira",
+          "Jose Montanha",
+          "Alexia Thainara",
+          "Ravena Oliveira",
+          "Carol Foro"
+        ],
+        "avg_own": 27.12,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 6
+      },
+      {
+        "rank": 30678,
+        "entry_name": "RyvlesGaming30 (93/100)",
+        "points": 400.14,
+        "percentile": 64.5,
+        "players": [
+          "Mateusz Gamrot",
+          "Alexia Thainara",
+          "Darren Elkins",
+          "Juliana Miller",
+          "Manoel Sousa",
+          "Miles Johns"
+        ],
+        "avg_own": 26.49,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 7
+      },
+      {
+        "rank": 31237,
+        "entry_name": "RyvlesGaming30 (22/100)",
+        "points": 397.4,
+        "percentile": 65.7,
+        "players": [
+          "Mateusz Gamrot",
+          "Diego Ferreira",
+          "Jose Montanha",
+          "Alexia Thainara",
+          "Manoel Sousa",
+          "Gianni Vazquez"
+        ],
+        "avg_own": 29.33,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 13
+      },
+      {
+        "rank": 31431,
+        "entry_name": "RyvlesGaming30 (71/100)",
+        "points": 396.41998,
+        "percentile": 66.1,
+        "players": [
+          "Diyar Nurgozhay",
+          "Louie Sutherland",
+          "Guilherme Pat",
+          "Billy Ray Goff",
+          "Yadier del Valle",
+          "Carol Foro"
+        ],
+        "avg_own": 23.38,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 6
+      },
+      {
+        "rank": 31771,
+        "entry_name": "RyvlesGaming30 (35/100)",
+        "points": 393.77997,
+        "percentile": 66.8,
+        "players": [
+          "Bruno Lopes",
+          "Billy Quarantillo",
+          "Amanda Lemos",
+          "Ty Miller",
+          "Manoel Sousa",
+          "Miles Johns"
+        ],
+        "avg_own": 22.98,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 32281,
+        "entry_name": "RyvlesGaming30 (54/100)",
+        "points": 391.47003,
+        "percentile": 67.9,
+        "players": [
+          "Quillan Salkilld",
+          "Bruno Lopes",
+          "Louie Sutherland",
+          "Ty Miller",
+          "Juliana Miller",
+          "Richie Miranda"
+        ],
+        "avg_own": 29.9,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 12
+      },
+      {
+        "rank": 33437,
+        "entry_name": "RyvlesGaming30 (49/100)",
+        "points": 386.63,
+        "percentile": 70.3,
+        "players": [
+          "Mateusz Gamrot",
+          "Diyar Nurgozhay",
+          "Louie Sutherland",
+          "Alexia Thainara",
+          "Manoel Sousa",
+          "Gigi Canuto"
+        ],
+        "avg_own": 32.28,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 18
+      },
+      {
+        "rank": 34652,
+        "entry_name": "RyvlesGaming30 (45/100)",
+        "points": 381.19003,
+        "percentile": 72.9,
+        "players": [
+          "Mateusz Gamrot",
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Alexia Thainara",
+          "Juliana Miller",
+          "Gigi Canuto"
+        ],
+        "avg_own": 32.03,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 26
+      },
+      {
+        "rank": 35008,
+        "entry_name": "RyvlesGaming30 (74/100)",
+        "points": 379.44,
+        "percentile": 73.6,
+        "players": [
+          "Billy Quarantillo",
+          "Louie Sutherland",
+          "Steven Asplund",
+          "Richie Miranda",
+          "Miles Johns",
+          "Carol Foro"
+        ],
+        "avg_own": 25.61,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 4
+      },
+      {
+        "rank": 35057,
+        "entry_name": "RyvlesGaming30 (14/100)",
+        "points": 379.12,
+        "percentile": 73.7,
+        "players": [
+          "Billy Quarantillo",
+          "Amanda Lemos",
+          "Billy Ray Goff",
+          "Yadier del Valle",
+          "Manoel Sousa",
+          "Carol Foro"
+        ],
+        "avg_own": 22.46,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 4
+      },
+      {
+        "rank": 37036,
+        "entry_name": "RyvlesGaming30 (95/100)",
+        "points": 366.05,
+        "percentile": 77.9,
+        "players": [
+          "Billy Quarantillo",
+          "Amanda Lemos",
+          "Ty Miller",
+          "Ravena Oliveira",
+          "Manoel Sousa",
+          "Carol Foro"
+        ],
+        "avg_own": 21.8,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 4
+      },
+      {
+        "rank": 37209,
+        "entry_name": "RyvlesGaming30 (80/100)",
+        "points": 364.82,
+        "percentile": 78.2,
+        "players": [
+          "Mateusz Gamrot",
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Alexia Thainara",
+          "Juliana Miller",
+          "Richie Miranda"
+        ],
+        "avg_own": 31.66,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 43
+      },
+      {
+        "rank": 37252,
+        "entry_name": "RyvlesGaming30 (10/100)",
+        "points": 364.81,
+        "percentile": 78.3,
+        "players": [
+          "Mateusz Gamrot",
+          "Diyar Nurgozhay",
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Richie Miranda",
+          "Carol Foro"
+        ],
+        "avg_own": 28.42,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 33
+      },
+      {
+        "rank": 37489,
+        "entry_name": "RyvlesGaming30 (89/100)",
+        "points": 363.93,
+        "percentile": 78.8,
+        "players": [
+          "Bruno Lopes",
+          "Amanda Lemos",
+          "Billy Ray Goff",
+          "Yadier del Valle",
+          "Juliana Miller",
+          "Manoel Sousa"
+        ],
+        "avg_own": 21.63,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 37814,
+        "entry_name": "RyvlesGaming30 (30/100)",
+        "points": 362.11,
+        "percentile": 79.5,
+        "players": [
+          "Mateusz Gamrot",
+          "Louie Sutherland",
+          "Alexia Thainara",
+          "Manoel Sousa",
+          "Miles Johns",
+          "Gigi Canuto"
+        ],
+        "avg_own": 29.21,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 6
+      },
+      {
+        "rank": 38140,
+        "entry_name": "RyvlesGaming30 (59/100)",
+        "points": 360.59003,
+        "percentile": 80.2,
+        "players": [
+          "Billy Quarantillo",
+          "Louie Sutherland",
+          "Ty Miller",
+          "Darren Elkins",
+          "Miles Johns",
+          "Carol Foro"
+        ],
+        "avg_own": 23.53,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 38361,
+        "entry_name": "RyvlesGaming30 (83/100)",
+        "points": 358.90002,
+        "percentile": 80.7,
+        "players": [
+          "Mateusz Gamrot",
+          "Louie Sutherland",
+          "Guilherme Pat",
+          "Alexia Thainara",
+          "Juliana Miller",
+          "Miles Johns"
+        ],
+        "avg_own": 28.25,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 8
+      },
+      {
+        "rank": 38437,
+        "entry_name": "RyvlesGaming30 (53/100)",
+        "points": 358.31,
+        "percentile": 80.8,
+        "players": [
+          "Quillan Salkilld",
+          "Billy Quarantillo",
+          "Louie Sutherland",
+          "Steven Asplund",
+          "Amanda Lemos",
+          "Carol Foro"
+        ],
+        "avg_own": 29.35,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 28
+      },
+      {
+        "rank": 39253,
+        "entry_name": "RyvlesGaming30 (46/100)",
+        "points": 353.48,
+        "percentile": 82.5,
+        "players": [
+          "Quillan Salkilld",
+          "Bruno Lopes",
+          "Billy Quarantillo",
+          "Louie Sutherland",
+          "Alexia Thainara",
+          "Manoel Sousa"
+        ],
+        "avg_own": 33.48,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 96
+      },
+      {
+        "rank": 39400,
+        "entry_name": "RyvlesGaming30 (3/100)",
+        "points": 352.57,
+        "percentile": 82.8,
+        "players": [
+          "Mateusz Gamrot",
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Juliana Miller",
+          "Manoel Sousa",
+          "Gigi Canuto"
+        ],
+        "avg_own": 28.87,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 33
+      },
+      {
+        "rank": 39625,
+        "entry_name": "RyvlesGaming30 (73/100)",
+        "points": 350.84998,
+        "percentile": 83.3,
+        "players": [
+          "Mateusz Gamrot",
+          "Diyar Nurgozhay",
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Alexia Thainara",
+          "Ravena Oliveira"
+        ],
+        "avg_own": 30.59,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 16
+      },
+      {
+        "rank": 39751,
+        "entry_name": "RyvlesGaming30 (9/100)",
+        "points": 349.94,
+        "percentile": 83.6,
+        "players": [
+          "Quillan Salkilld",
+          "Bruno Lopes",
+          "Billy Quarantillo",
+          "Louie Sutherland",
+          "Miles Johns",
+          "Carol Foro"
+        ],
+        "avg_own": 27.97,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 33
+      },
+      {
+        "rank": 39805,
+        "entry_name": "RyvlesGaming30 (91/100)",
+        "points": 349.83,
+        "percentile": 83.7,
+        "players": [
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Steven Asplund",
+          "Manoel Sousa",
+          "Gigi Canuto",
+          "Gianni Vazquez"
+        ],
+        "avg_own": 25.8,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 7
+      },
+      {
+        "rank": 40524,
+        "entry_name": "RyvlesGaming30 (62/100)",
+        "points": 344.41,
+        "percentile": 85.2,
+        "players": [
+          "Mateusz Gamrot",
+          "Bruno Lopes",
+          "Guilherme Pat",
+          "Alexia Thainara",
+          "Juliana Miller",
+          "Manoel Sousa"
+        ],
+        "avg_own": 28.21,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 5
+      },
+      {
+        "rank": 40720,
+        "entry_name": "RyvlesGaming30 (37/100)",
+        "points": 342.50998,
+        "percentile": 85.6,
+        "players": [
+          "Mateusz Gamrot",
+          "Diyar Nurgozhay",
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Amanda Lemos",
+          "Manoel Sousa"
+        ],
+        "avg_own": 27.61,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 34
+      },
+      {
+        "rank": 40977,
+        "entry_name": "RyvlesGaming30 (19/100)",
+        "points": 340.91,
+        "percentile": 86.2,
+        "players": [
+          "Mateusz Gamrot",
+          "Diyar Nurgozhay",
+          "Louie Sutherland",
+          "Alexia Thainara",
+          "Billy Ray Goff",
+          "Manoel Sousa"
+        ],
+        "avg_own": 31.4,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 18
+      },
+      {
+        "rank": 41329,
+        "entry_name": "RyvlesGaming30 (50/100)",
+        "points": 338.32,
+        "percentile": 86.9,
+        "players": [
+          "Quillan Salkilld",
+          "Louie Sutherland",
+          "Billy Ray Goff",
+          "Yadier del Valle",
+          "Ravena Oliveira",
+          "Carol Foro"
+        ],
+        "avg_own": 25.25,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 12
+      },
+      {
+        "rank": 42210,
+        "entry_name": "RyvlesGaming30 (39/100)",
+        "points": 330.38,
+        "percentile": 88.7,
+        "players": [
+          "Bruno Lopes",
+          "Diego Ferreira",
+          "Ty Miller",
+          "Ravena Oliveira",
+          "Carol Foro",
+          "Gianni Vazquez"
+        ],
+        "avg_own": 21.13,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 42317,
+        "entry_name": "RyvlesGaming30 (78/100)",
+        "points": 329.11,
+        "percentile": 89.0,
+        "players": [
+          "Mateusz Gamrot",
+          "Diyar Nurgozhay",
+          "Louie Sutherland",
+          "Alexia Thainara",
+          "Ravena Oliveira",
+          "Manoel Sousa"
+        ],
+        "avg_own": 30.17,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 14
+      },
+      {
+        "rank": 42554,
+        "entry_name": "RyvlesGaming30 (88/100)",
+        "points": 326.39996,
+        "percentile": 89.5,
+        "players": [
+          "Mateusz Gamrot",
+          "Bruno Lopes",
+          "Amanda Lemos",
+          "Juliana Miller",
+          "Manoel Sousa",
+          "Miles Johns"
+        ],
+        "avg_own": 23.27,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 3
+      },
+      {
+        "rank": 42575,
+        "entry_name": "RyvlesGaming30 (2/100)",
+        "points": 326.27997,
+        "percentile": 89.5,
+        "players": [
+          "Mateusz Gamrot",
+          "Billy Quarantillo",
+          "Alexia Thainara",
+          "Ravena Oliveira",
+          "Manoel Sousa",
+          "Carol Foro"
+        ],
+        "avg_own": 28.69,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 9
+      },
+      {
+        "rank": 42909,
+        "entry_name": "RyvlesGaming30 (40/100)",
+        "points": 322.5,
+        "percentile": 90.2,
+        "players": [
+          "Bruno Lopes",
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Ty Miller",
+          "Darren Elkins",
+          "Manoel Sousa"
+        ],
+        "avg_own": 23.92,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 3
+      },
+      {
+        "rank": 43310,
+        "entry_name": "RyvlesGaming30 (38/100)",
+        "points": 316.90997,
+        "percentile": 91.1,
+        "players": [
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Alexia Thainara",
+          "Billy Ray Goff",
+          "Carol Foro",
+          "Gianni Vazquez"
+        ],
+        "avg_own": 25.71,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 7
+      },
+      {
+        "rank": 43802,
+        "entry_name": "RyvlesGaming30 (11/100)",
+        "points": 309.46,
+        "percentile": 92.1,
+        "players": [
+          "Mateusz Gamrot",
+          "Bruno Lopes",
+          "Diego Ferreira",
+          "Alexia Thainara",
+          "Manoel Sousa",
+          "Gianni Vazquez"
+        ],
+        "avg_own": 28.94,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 11
+      },
+      {
+        "rank": 44097,
+        "entry_name": "RyvlesGaming30 (61/100)",
+        "points": 304.11,
+        "percentile": 92.7,
+        "players": [
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Steven Asplund",
+          "Billy Ray Goff",
+          "Manoel Sousa",
+          "Gianni Vazquez"
+        ],
+        "avg_own": 24.92,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 3
+      },
+      {
+        "rank": 44245,
+        "entry_name": "RyvlesGaming30 (32/100)",
+        "points": 301.84998,
+        "percentile": 93.0,
+        "players": [
+          "Quillan Salkilld",
+          "Bruno Lopes",
+          "Louie Sutherland",
+          "Steven Asplund",
+          "Ravena Oliveira",
+          "Manoel Sousa"
+        ],
+        "avg_own": 27.54,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 16
+      },
+      {
+        "rank": 44409,
+        "entry_name": "RyvlesGaming30 (94/100)",
+        "points": 298.18,
+        "percentile": 93.4,
+        "players": [
+          "Mateusz Gamrot",
+          "Louie Sutherland",
+          "Alexia Thainara",
+          "Darren Elkins",
+          "Juliana Miller",
+          "Carol Foro"
+        ],
+        "avg_own": 28.58,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 24
+      },
+      {
+        "rank": 44597,
+        "entry_name": "RyvlesGaming30 (55/100)",
+        "points": 295.7,
+        "percentile": 93.8,
+        "players": [
+          "Mateusz Gamrot",
+          "Bruno Lopes",
+          "Billy Ray Goff",
+          "Juliana Miller",
+          "Manoel Sousa",
+          "Carol Foro"
+        ],
+        "avg_own": 25.17,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 15
+      },
+      {
+        "rank": 45709,
+        "entry_name": "RyvlesGaming30 (100/100)",
+        "points": 271.37997,
+        "percentile": 96.1,
+        "players": [
+          "Bruno Lopes",
+          "Billy Quarantillo",
+          "Louie Sutherland",
+          "Yadier del Valle",
+          "Ravena Oliveira",
+          "Manoel Sousa"
+        ],
+        "avg_own": 25.07,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 1
+      },
+      {
+        "rank": 46329,
+        "entry_name": "RyvlesGaming30 (26/100)",
+        "points": 252.05,
+        "percentile": 97.4,
+        "players": [
+          "Mateusz Gamrot",
+          "Bruno Lopes",
+          "Billy Quarantillo",
+          "Louie Sutherland",
+          "Alexia Thainara",
+          "Carol Foro"
+        ],
+        "avg_own": 31.95,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 38
+      },
+      {
+        "rank": 46809,
+        "entry_name": "RyvlesGaming30 (47/100)",
+        "points": 238.2,
+        "percentile": 98.4,
+        "players": [
+          "Mateusz Gamrot",
+          "Billy Quarantillo",
+          "Louie Sutherland",
+          "Amanda Lemos",
+          "Manoel Sousa",
+          "Carol Foro"
+        ],
+        "avg_own": 26.94,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 3
+      },
+      {
+        "rank": 46923,
+        "entry_name": "RyvlesGaming30 (76/100)",
+        "points": 228.73997,
+        "percentile": 98.7,
+        "players": [
+          "Bruno Lopes",
+          "Louie Sutherland",
+          "Yadier del Valle",
+          "Ravena Oliveira",
+          "Manoel Sousa",
+          "Gianni Vazquez"
+        ],
+        "avg_own": 22.12,
+        "low_own_count": 1,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 3
+      },
+      {
+        "rank": 46954,
+        "entry_name": "RyvlesGaming30 (18/100)",
+        "points": 225.18999,
+        "percentile": 98.7,
+        "players": [
+          "Mateusz Gamrot",
+          "Bruno Lopes",
+          "Diego Ferreira",
+          "Louie Sutherland",
+          "Amanda Lemos",
+          "Carol Foro"
+        ],
+        "avg_own": 24.99,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 6
+      },
+      {
+        "rank": 46963,
+        "entry_name": "RyvlesGaming30 (66/100)",
+        "points": 224.44,
+        "percentile": 98.7,
+        "players": [
+          "Mateusz Gamrot",
+          "Bruno Lopes",
+          "Louie Sutherland",
+          "Amanda Lemos",
+          "Juliana Miller",
+          "Carol Foro"
+        ],
+        "avg_own": 25.36,
+        "low_own_count": 0,
+        "salary_used": null,
+        "proj_total": null,
+        "dup_count": 5
+      }
+    ],
+    "top_overperformers": [],
+    "top_underperformers": [],
+    "slate_defining_plays": [],
+    "winners_structure": {
+      "top_n": 100,
+      "avg_own_mean": 30.55,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": null,
+      "dup_max": 18,
+      "unique_pct": 0.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "nick1656 (20/118)",
+          "points": 632.85004,
+          "percentile": 0.0,
+          "players": [
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Yadier del Valle",
+            "Miles Johns",
+            "Gigi Canuto"
+          ],
+          "avg_own": 27.39,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 4
+        },
+        {
+          "rank": 1,
+          "entry_name": "davidmarchorn (82/150)",
+          "points": 632.85004,
+          "percentile": 0.0,
+          "players": [
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Yadier del Valle",
+            "Miles Johns",
+            "Gigi Canuto"
+          ],
+          "avg_own": 27.39,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 4
+        },
+        {
+          "rank": 1,
+          "entry_name": "mlief (2/75)",
+          "points": 632.85004,
+          "percentile": 0.0,
+          "players": [
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Yadier del Valle",
+            "Miles Johns",
+            "Gigi Canuto"
+          ],
+          "avg_own": 27.39,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 4
+        },
+        {
+          "rank": 1,
+          "entry_name": "vargas_63 (94/150)",
+          "points": 632.85004,
+          "percentile": 0.0,
+          "players": [
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Yadier del Valle",
+            "Miles Johns",
+            "Gigi Canuto"
+          ],
+          "avg_own": 27.39,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 4
+        },
+        {
+          "rank": 5,
+          "entry_name": "yodakk (67/150)",
+          "points": 632.59,
+          "percentile": 0.0,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Yadier del Valle",
+            "Gigi Canuto"
+          ],
+          "avg_own": 32.69,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 18
+        },
+        {
+          "rank": 5,
+          "entry_name": "SoCalHusker (4/20)",
+          "points": 632.59,
+          "percentile": 0.0,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Yadier del Valle",
+            "Gigi Canuto"
+          ],
+          "avg_own": 32.69,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 18
+        },
+        {
+          "rank": 5,
+          "entry_name": "lethuima (145/150)",
+          "points": 632.59,
+          "percentile": 0.0,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Yadier del Valle",
+            "Gigi Canuto"
+          ],
+          "avg_own": 32.69,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 18
+        },
+        {
+          "rank": 5,
+          "entry_name": "rtking (31/150)",
+          "points": 632.59,
+          "percentile": 0.0,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Yadier del Valle",
+            "Gigi Canuto"
+          ],
+          "avg_own": 32.69,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 18
+        },
+        {
+          "rank": 5,
+          "entry_name": "mncheetah (2/150)",
+          "points": 632.59,
+          "percentile": 0.0,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Yadier del Valle",
+            "Gigi Canuto"
+          ],
+          "avg_own": 32.69,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 18
+        },
+        {
+          "rank": 5,
+          "entry_name": "FlyHighTilliDie (42/50)",
+          "points": 632.59,
+          "percentile": 0.0,
+          "players": [
+            "Quillan Salkilld",
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Alexia Thainara",
+            "Yadier del Valle",
+            "Gigi Canuto"
+          ],
+          "avg_own": 32.69,
+          "low_own_count": 0,
+          "salary_used": null,
+          "proj_total": null,
+          "dup_count": 18
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 3.51,
+        "low_own_count_delta": -0.29,
+        "salary_used_delta": null
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 47351,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Quillan Salkilld",
+          "field_own": 46.0,
+          "actual_fpts": 104.7
+        },
+        {
+          "name": "Alexia Thainara",
+          "field_own": 42.8,
+          "actual_fpts": 109.9
+        },
+        {
+          "name": "Mateusz Gamrot",
+          "field_own": 41.3,
+          "actual_fpts": 1.8
+        },
+        {
+          "name": "Billy Quarantillo",
+          "field_own": 35.6,
+          "actual_fpts": 45.4
+        },
+        {
+          "name": "Steven Asplund",
+          "field_own": 33.6,
+          "actual_fpts": 98.5
+        },
+        {
+          "name": "Diyar Nurgozhay",
+          "field_own": 32.6,
+          "actual_fpts": 129.4
+        },
+        {
+          "name": "Ty Miller",
+          "field_own": 32.6,
+          "actual_fpts": 126.0
+        },
+        {
+          "name": "Louie Sutherland",
+          "field_own": 31.2,
+          "actual_fpts": 1.5
+        },
+        {
+          "name": "Yadier del Valle",
+          "field_own": 29.2,
+          "actual_fpts": 127.3
+        },
+        {
+          "name": "Juliana Miller",
+          "field_own": 28.6,
+          "actual_fpts": 102.3
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Alexia Thainara",
+            "Quillan Salkilld"
+          ],
+          "field_pct": 19.9,
+          "count": 9426
+        },
+        {
+          "players": [
+            "Alexia Thainara",
+            "Mateusz Gamrot"
+          ],
+          "field_pct": 17.9,
+          "count": 8463
+        },
+        {
+          "players": [
+            "Billy Quarantillo",
+            "Quillan Salkilld"
+          ],
+          "field_pct": 17.2,
+          "count": 8146
+        },
+        {
+          "players": [
+            "Alexia Thainara",
+            "Billy Quarantillo"
+          ],
+          "field_pct": 15.6,
+          "count": 7355
+        },
+        {
+          "players": [
+            "Diyar Nurgozhay",
+            "Quillan Salkilld"
+          ],
+          "field_pct": 15.4,
+          "count": 7257
+        },
+        {
+          "players": [
+            "Quillan Salkilld",
+            "Ty Miller"
+          ],
+          "field_pct": 14.9,
+          "count": 7050
+        },
+        {
+          "players": [
+            "Quillan Salkilld",
+            "Steven Asplund"
+          ],
+          "field_pct": 14.5,
+          "count": 6843
+        },
+        {
+          "players": [
+            "Mateusz Gamrot",
+            "Steven Asplund"
+          ],
+          "field_pct": 14.5,
+          "count": 6837
+        },
+        {
+          "players": [
+            "Louie Sutherland",
+            "Quillan Salkilld"
+          ],
+          "field_pct": 14.3,
+          "count": 6779
+        },
+        {
+          "players": [
+            "Billy Quarantillo",
+            "Mateusz Gamrot"
+          ],
+          "field_pct": 13.3,
+          "count": 6263
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Alexia Thainara",
+            "Billy Quarantillo",
+            "Diyar Nurgozhay",
+            "Juliana Miller",
+            "Louie Sutherland",
+            "Mateusz Gamrot"
+          ],
+          "count": 177,
+          "field_pct": 0.4
+        },
+        {
+          "players": [
+            "Alexia Thainara",
+            "Billy Ray Goff",
+            "Diyar Nurgozhay",
+            "Louie Sutherland",
+            "Quillan Salkilld",
+            "Steven Asplund"
+          ],
+          "count": 161,
+          "field_pct": 0.3
+        },
+        {
+          "players": [
+            "Alexia Thainara",
+            "Carol Foro",
+            "Jose Montanha",
+            "Mateusz Gamrot",
+            "Richie Miranda",
+            "Steven Asplund"
+          ],
+          "count": 158,
+          "field_pct": 0.3
+        },
+        {
+          "players": [
+            "Alexia Thainara",
+            "Gigi Canuto",
+            "Louie Sutherland",
+            "Mateusz Gamrot",
+            "Quillan Salkilld",
+            "Yadier del Valle"
+          ],
+          "count": 153,
+          "field_pct": 0.3
+        },
+        {
+          "players": [
+            "Alexia Thainara",
+            "Billy Quarantillo",
+            "Diyar Nurgozhay",
+            "Jose Montanha",
+            "Quillan Salkilld",
+            "Ty Miller"
+          ],
+          "count": 141,
+          "field_pct": 0.3
+        }
+      ],
+      "winners_profile": {
+        "n": 474,
+        "avg_own_per_slot": 32.6,
+        "dart_pct": 0.0,
+        "unique_pct": 5.7
+      },
+      "fish_profile": {
+        "n": 23626,
+        "avg_own_per_slot": 28.8,
+        "dart_pct": 0.2,
+        "unique_pct": 24.5
+      },
+      "fish_traps": [
+        {
+          "name": "Mateusz Gamrot",
+          "fish_pct": 61.5,
+          "winner_pct": 0.0,
+          "gap": 61.5,
+          "actual_fpts": 1.8,
+          "field_own": 41.3,
+          "own_rank": 3
+        },
+        {
+          "name": "Louie Sutherland",
+          "fish_pct": 52.0,
+          "winner_pct": 0.0,
+          "gap": 52.0,
+          "actual_fpts": 1.5,
+          "field_own": 31.2,
+          "own_rank": 8
+        },
+        {
+          "name": "Bruno Lopes",
+          "fish_pct": 32.8,
+          "winner_pct": 0.0,
+          "gap": 32.8,
+          "actual_fpts": 10.7,
+          "field_own": 21.4,
+          "own_rank": 15
+        },
+        {
+          "name": "Manoel Sousa",
+          "fish_pct": 27.0,
+          "winner_pct": 0.0,
+          "gap": 27.0,
+          "actual_fpts": 81.3,
+          "field_own": 23.8,
+          "own_rank": 12
+        },
+        {
+          "name": "Gianni Vazquez",
+          "fish_pct": 25.0,
+          "winner_pct": 0.0,
+          "gap": 25.0,
+          "actual_fpts": 2.8,
+          "field_own": 17.9,
+          "own_rank": 18
+        },
+        {
+          "name": "Carol Foro",
+          "fish_pct": 25.0,
+          "winner_pct": 0.0,
+          "gap": 25.0,
+          "actual_fpts": 82.7,
+          "field_own": 19.4,
+          "own_rank": 17
+        },
+        {
+          "name": "Steven Asplund",
+          "fish_pct": 33.0,
+          "winner_pct": 13.3,
+          "gap": 19.7,
+          "actual_fpts": 98.5,
+          "field_own": 33.6,
+          "own_rank": 5
+        },
+        {
+          "name": "Billy Ray Goff",
+          "fish_pct": 19.1,
+          "winner_pct": 0.0,
+          "gap": 19.1,
+          "actual_fpts": 17.0,
+          "field_own": 16.6,
+          "own_rank": 19
+        },
+        {
+          "name": "Amanda Lemos",
+          "fish_pct": 12.9,
+          "winner_pct": 0.0,
+          "gap": 12.9,
+          "actual_fpts": 25.5,
+          "field_own": 10.3,
+          "own_rank": 22
+        },
+        {
+          "name": "Ravena Oliveira",
+          "fish_pct": 11.9,
+          "winner_pct": 0.0,
+          "gap": 11.9,
+          "actual_fpts": 5.2,
+          "field_own": 9.2,
+          "own_rank": 23
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "nick1656",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "davidmarchorn",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "mlief",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "vargas_63",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "yodakk",
+          "best_rank": 5,
+          "percentile": 0.0
+        },
+        {
+          "handle": "SoCalHusker",
+          "best_rank": 5,
+          "percentile": 0.0
+        },
+        {
+          "handle": "lethuima",
+          "best_rank": 5,
+          "percentile": 0.0
+        },
+        {
+          "handle": "dlefort2",
+          "best_rank": 5,
+          "percentile": 0.0
+        },
+        {
+          "handle": "Standish",
+          "best_rank": 5,
+          "percentile": 0.0
+        },
+        {
+          "handle": "FlyHighTilliDie",
+          "best_rank": 5,
+          "percentile": 0.0
+        },
+        {
+          "handle": "mncheetah",
+          "best_rank": 5,
+          "percentile": 0.0
+        },
+        {
+          "handle": "rtking",
+          "best_rank": 5,
+          "percentile": 0.0
+        },
+        {
+          "handle": "deckeron",
+          "best_rank": 5,
+          "percentile": 0.0
+        },
+        {
+          "handle": "cliverano",
+          "best_rank": 5,
+          "percentile": 0.0
+        },
+        {
+          "handle": "Pta56",
+          "best_rank": 5,
+          "percentile": 0.0
+        }
+      ],
+      "read": [
+        "Field crowded **Quillan Salkilld** at 46.0% (104.7 fpts) \u2014 the chalk to consider fading.",
+        "**Alexia Thainara + Quillan Salkilld** were together in 19.9% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Mateusz Gamrot** was a fish trap: 61.5% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 632.85004,
+      "winner_handle": "nick1656",
+      "roster": [
+        {
+          "name": "Diyar Nurgozhay",
+          "own": 32.61,
+          "fpts": 129.44
+        },
+        {
+          "name": "Jose Montanha",
+          "own": 23.68,
+          "fpts": 98.63
+        },
+        {
+          "name": "Alexia Thainara",
+          "own": 42.81,
+          "fpts": 109.89
+        },
+        {
+          "name": "Yadier del Valle",
+          "own": 29.17,
+          "fpts": 127.27
+        },
+        {
+          "name": "Miles Johns",
+          "own": 14.21,
+          "fpts": 104.92
+        },
+        {
+          "name": "Gigi Canuto",
+          "own": 21.84,
+          "fpts": 62.7
+        }
+      ],
+      "avg_own": 27.4,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Miles Johns",
+        "own": 14.21,
+        "fpts": 104.92
+      },
+      "expected_dupes": 14.23
+    },
+    "near_miss": {
+      "gradable": true,
+      "won": false,
+      "your_points": 611.25,
+      "winner_points": 632.85004,
+      "gap": 21.6,
+      "your_percentile": 1.0,
+      "n_shared": 4,
+      "shared": [
+        "Diyar Nurgozhay",
+        "Jose Montanha",
+        "Miles Johns",
+        "Yadier del Valle"
+      ],
+      "your_uniques": [
+        {
+          "name": "Quillan Salkilld",
+          "fpts": 104.66
+        },
+        {
+          "name": "Richie Miranda",
+          "fpts": 46.33
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Alexia Thainara",
+          "fpts": 109.89
+        },
+        {
+          "name": "Gigi Canuto",
+          "fpts": 62.7
+        }
+      ],
+      "best_swap": {
+        "out": "Richie Miranda",
+        "in": "Alexia Thainara",
+        "gain": 63.6,
+        "would_have_won": true
+      },
+      "swaps_needed": 1
+    }
+  }
+]

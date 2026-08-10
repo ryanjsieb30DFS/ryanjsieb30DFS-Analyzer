@@ -1,0 +1,203 @@
+{
+  "generated_at": "2026-08-08 12:13",
+  "slug": "mma_se",
+  "calls": [
+    {
+      "name": "Quillan Salkilld",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Gianni Vazquez",
+      "verdict": "underweight"
+    }
+  ],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "Darren Elkins",
+      "own": 7.0
+    },
+    {
+      "name": "Ravena Oliveira",
+      "own": 9.0
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Mateusz Gamrot",
+        "Quillan Salkilld"
+      ],
+      "joint_pct": 22.3
+    },
+    {
+      "players": [
+        "Mateusz Gamrot",
+        "Steven Asplund"
+      ],
+      "joint_pct": 19.1
+    },
+    {
+      "players": [
+        "Mateusz Gamrot",
+        "Yadier del Valle"
+      ],
+      "joint_pct": 18.0
+    },
+    {
+      "players": [
+        "Mateusz Gamrot",
+        "Ty Miller"
+      ],
+      "joint_pct": 17.5
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Steven Asplund",
+        "Yadier del Valle",
+        "Ty Miller",
+        "Alexia Thainara"
+      ]
+    },
+    {
+      "players": [
+        "Diyar Nurgozhay",
+        "Billy Quarantillo",
+        "Juliana Miller",
+        "Gianni Vazquez"
+      ]
+    },
+    {
+      "players": [
+        "Jose Montanha",
+        "Bruno Lopes",
+        "Gigi Canuto"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "board": [
+    {
+      "name": "Mateusz Gamrot",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Yadier del Valle",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Juliana Miller",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Carol Foro",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Alexia Thainara",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Steven Asplund",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Ty Miller",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Diyar Nurgozhay",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Miles Johns",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Diego Ferreira",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Manoel Sousa",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Richie Miranda",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Billy Quarantillo",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Louie Sutherland",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Jose Montanha",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Gigi Canuto",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Bruno Lopes",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Quillan Salkilld",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Billy Ray Goff",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Guilherme Pat",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Gianni Vazquez",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Amanda Lemos",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Darren Elkins",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ravena Oliveira",
+      "tier": "Okay",
+      "leverage": false
+    }
+  ]
+}

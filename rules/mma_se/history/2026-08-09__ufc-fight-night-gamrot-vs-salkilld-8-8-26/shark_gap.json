@@ -1,0 +1,77 @@
+{
+  "field": 784,
+  "anchors": [
+    "alexia thainara",
+    "quillan salkilld",
+    "ty miller"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 29.8,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.333,
+    "anchor_exposure_by_player": {
+      "alexia thainara": 0.0,
+      "quillan salkilld": 0.0,
+      "ty miller": 1.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 43.49,
+    "median_pctile": 43.49
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 28.8,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.333,
+    "anchor_exposure_by_player": {
+      "alexia thainara": 1.0,
+      "quillan salkilld": 0.0,
+      "ty miller": 0.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 92.09,
+    "median_pctile": 92.09
+  },
+  "deltas": [
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 28.8,
+      "shark": 29.8,
+      "delta": -1.0
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 0.0,
+      "shark": 0.0,
+      "delta": 0.0
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.333,
+      "shark": 0.333,
+      "delta": 0.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "mma_se",
+  "sport": "mma"
+}

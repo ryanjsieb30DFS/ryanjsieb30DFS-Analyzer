@@ -1,0 +1,45 @@
+{
+  "gradable": true,
+  "n_pool": 24,
+  "n_matched": 23,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 2,
+      "avg_fpts": 64.5,
+      "max_fpts": 127.3
+    },
+    {
+      "tier": "Good",
+      "n": 9,
+      "avg_fpts": 104.2,
+      "max_fpts": 129.4
+    },
+    {
+      "tier": "Okay",
+      "n": 12,
+      "avg_fpts": 38.2,
+      "max_fpts": 104.7
+    }
+  ],
+  "tiers_ordered": false,
+  "leakage": [
+    {
+      "name": "Jose Montanha",
+      "tier": "Okay",
+      "fpts": 98.6
+    },
+    {
+      "name": "Quillan Salkilld",
+      "tier": "Okay",
+      "fpts": 104.7
+    }
+  ],
+  "excluded_scratches": [
+    {
+      "name": "Darren Elkins",
+      "tier": "Okay"
+    }
+  ],
+  "summary": "Core 64.5 > Good 104.2 > Okay 38.2  \u2717 OUT OF ORDER"
+}

@@ -1,0 +1,72 @@
+{
+  "gradable": true,
+  "n_lineups": 101,
+  "n_contests": 2,
+  "calls": [
+    {
+      "name": "Quillan Salkilld",
+      "verdict": "underweight",
+      "exposure_pct": 37.6,
+      "in_lineups": 38,
+      "of": 101,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193190112.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193190115.csv",
+          "in_lineups": 38,
+          "of": 100,
+          "exposure_pct": 38.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-193190112.csv"
+      ]
+    },
+    {
+      "name": "Gianni Vazquez",
+      "verdict": "underweight",
+      "exposure_pct": 8.9,
+      "in_lineups": 9,
+      "of": 101,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193190112.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193190115.csv",
+          "in_lineups": 9,
+          "of": 100,
+          "exposure_pct": 9.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-193190112.csv"
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 2,
+  "leverage_candidates": [
+    {
+      "name": "Darren Elkins",
+      "rostered": true
+    },
+    {
+      "name": "Ravena Oliveira",
+      "rostered": true
+    }
+  ],
+  "leverage_covered": 2,
+  "leverage_of": 2
+}

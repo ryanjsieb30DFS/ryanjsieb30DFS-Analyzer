@@ -1,0 +1,24 @@
+{
+  "slug": "mma_se",
+  "sport": "mma",
+  "contest_label": "MMA",
+  "date": "2026-08-09",
+  "slate_label": "UFC Fight Night: Gamrot vs. Salkilld 8.8.26",
+  "archived_at": "2026-08-09 21:50",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json"
+  ],
+  "missing": [
+    "lineup_selection.json",
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/mma_se/2026-08-08__MMA Matchups 8.8.26.pdf",
+    "articles/mma_se/2026-08-08__MMA Top Plays 8.8.26.pdf"
+  ],
+  "proj_source": null
+}

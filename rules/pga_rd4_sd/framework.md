@@ -52,6 +52,10 @@ This is the foundational decision infrastructure for every R4 SD build. Every li
 
 RD4 SD winners are structurally **chalkier** than PGA Classic winners: **~19% vs ~13% per-player ownership, ~1.7 vs ~2.5 sub-10% darts** (won-with-≥2-darts 64% vs 78%). A single final round (no cut), smaller fields, and lower scoring variance shrink the contrarian payoff relative to the 2-day Classic. **Do not import Classic's contrarian dosage into RD4 SD** — leverage is mandatory in both formats (≥1 sub-10% play in 93% of RD4 SD winners), but the correct DOSE is format-specific. (168 Classic / 146 RD4 SD slates, 2023-2026; the gap is stable every year.)
 
+### The One-Dart Mandate (codified 2026-08-08)
+
+Even in this chalkier format the leverage play is not optional: 97% of 146 mined slates had a sub-20%-own slate-definer, and both Rocket RD4 contest winners carried exactly one sub-10% carrier (Hideki 7.35% / 65.5; Jaeger 6.9% / 37.3). Every lineup carries ≥1 sub-10% piece; the dose is ONE dart (two on tough courses), never the Classic-grade three-plus.
+
 ## The Build Workflow (Four Stages)
 
 Every slate runs through this sequence. No lineup gets built before Stage 1 is complete; no lineup gets submitted before Stage 3 is verified.
@@ -117,6 +121,10 @@ The rule-set choice (birdie-fest vs tough-course) is the **highest-leverage deci
 **Rule-set splitting is the default for 4-bullet portfolios, not the exception.** Two consecutive R4 SDs lost at the rule-set commitment level — Cadillac with an uncertain analyst, Truist with a certain one. Analyst confidence is not sufficient evidence to commit; the analyst is reading the same noisy signals.
 
 **New default: 2-2 split on rule-set for any 4-bullet portfolio.** Override to one-sided commitment only when there's overwhelming forcing evidence (severe weather, course setup change, scoring distribution physically constrained to one direction). The cost of being wrong with full commitment is too high to bear, and we've now demonstrated this twice in succession.
+
+### The Three-Bucket Position Read (codified 2026-08-08)
+
+Final-round contention extends well past the 54-hole leaders. Bucket 1: leaders/T-10 = the chalk. Bucket 2: in-contention chasers just outside (2–4 back / roughly T-11 to T-25) = full ceiling at lower ownership — the real leverage tier (Fitzpatrick 65.4 from 3 back, 6/19; Wallace 52.8 from T-11, 8/8). Bucket 3: way-back (>6–7 back) = the only bucket a position gate should exclude on non-birdie-fests (Spaun T-48 → 22.8 and a pure fish trap, 8/8). Never collapse buckets 2 and 3 into one "not a leader" bin, and hedge reopened-scoring worlds with bucket-2 chasers, not bucket-3 darts.
 
 
 ## Roster Construction Targets by Format
@@ -279,6 +287,8 @@ For every analyst-named "structural value" anchor, identify the 1-2 equivalent-p
 
 **Pre-lock check:** for every chalk-tier (~20%+ own) anchor candidate, run the explicit anchor-equivalence scan — identify the equivalent-profile alternative and verify ≥1 lineup runs it before locking. This is a hard checklist item, not a vibe check.
 
+**Scope caution (2026-08-08): Equivalence requires profile equivalence, not just price and ownership proximity.** Rocket RD4 8/8: Kirk/Wallace were true twins and the cheap side paid (52.8 vs 37.5); Xander/Si Woo sat $400 apart at similar ownership and were NOT the same bet (59.2 vs 16.2 — Si Woo was the slate's biggest fish trap). Surface the pair always; auto-taking the cheaper side is not the rule.
+
 ## The Correct-Chalk Concentration Rule (PGA RD4 SD 5.31.26)
 
 **The near-inverse of Anchor-Equivalence, for a different slate shape.** Anchor-Equivalence governs the *coin-flip* case — two equivalent-profile chalk anchors, split exposure across them. Correct-Chalk Concentration governs the *shared-core* case — when 3-4 *justified* moderate-own plays (≈10-25% own, real ceiling, the field will largely share them) form the slate's correct core, **at least one lineup must roster the full core together.** Single legs of the core scattered across many lineups do not capture the win.
@@ -316,3 +326,7 @@ If a lineup has zero realistic 60+ ceiling players, it is structurally incapable
 **When evaluating any ceiling player's realism, explicitly name the rule-set the math is assuming.** If the rule-set call is uncertain (which is the default per the splitting rule above), keep the ceiling exposure rather than rationalizing it out. Removing a sub-5% ceiling shot based on tough-course math when the slate plays birdie-fest is the exact pattern that cost us Truist.
 
 **Sub-5% spike sub-clause (from PGA Championship 2026):** On major championship / birdie-fest slates, the portfolio must contain at least one sub-5% cheap-spike-of-the-week play across the build. The slate's three contest winners at PGA Championship 2026 all included the sub-5% spike (Kitayama at 3.40%). Each individual lineup needs a 60+ ceiling player; the portfolio needs at least one sub-5% spike across all lineups when birdie-fest is in play.
+
+### The Sub-15% Mid-Tier Score Source (codified 2026-08-08)
+
+On identified birdie-fest slates, the winning score comes disproportionately from mid-tier golfers under ~15% ownership: pricing lags moderate-own mid-tier ceiling on easy scoring days, so those profiles outscore both the popular chalk and the punts. Skipping that tier for "safer" mid-tier names is a structural floor violation on this slate type. Evidence: CJ Cup 5/24 (Suber 79.5 / Keefer 74.0 / Higgo 71.0 sub-15%), 5/31 (the 13–26% tier formed the winning core), Rocket RD4 8/8 (mini-MAX winner built on Wallace 52.8 @15.2%, Ventura 44.45 @14.9%, Gerard 47.2 @14.5%, Hideki 65.5 @10.5%).

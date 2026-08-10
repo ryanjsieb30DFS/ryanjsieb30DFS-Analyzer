@@ -1,0 +1,1322 @@
+{
+  "gradable": true,
+  "n_lineups": 101,
+  "lineups": [
+    {
+      "players": [
+        "Alexia Thainara",
+        "Billy Ray Goff",
+        "Carol Foro",
+        "Diyar Nurgozhay",
+        "Louie Sutherland",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 92.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Diyar Nurgozhay",
+        "Jose Montanha",
+        "Miles Johns",
+        "Quillan Salkilld",
+        "Richie Miranda",
+        "Yadier del Valle"
+      ],
+      "percentile": 1.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Carol Foro",
+        "Diyar Nurgozhay",
+        "Jose Montanha",
+        "Quillan Salkilld",
+        "Richie Miranda",
+        "Ty Miller"
+      ],
+      "percentile": 3.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Diego Ferreira",
+        "Diyar Nurgozhay",
+        "Jose Montanha",
+        "Quillan Salkilld",
+        "Ravena Oliveira",
+        "Yadier del Valle"
+      ],
+      "percentile": 6.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Diego Ferreira",
+        "Jose Montanha",
+        "Juliana Miller",
+        "Quillan Salkilld",
+        "Richie Miranda",
+        "Steven Asplund"
+      ],
+      "percentile": 8.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Diego Ferreira",
+        "Gigi Canuto",
+        "Juliana Miller",
+        "Miles Johns",
+        "Richie Miranda",
+        "Yadier del Valle"
+      ],
+      "percentile": 9.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Billy Quarantillo",
+        "Jose Montanha",
+        "Manoel Sousa",
+        "Miles Johns",
+        "Quillan Salkilld"
+      ],
+      "percentile": 10.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Darren Elkins",
+        "Diego Ferreira",
+        "Diyar Nurgozhay",
+        "Miles Johns",
+        "Quillan Salkilld",
+        "Steven Asplund"
+      ],
+      "percentile": 10.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Diyar Nurgozhay",
+        "Jose Montanha",
+        "Manoel Sousa",
+        "Quillan Salkilld",
+        "Steven Asplund"
+      ],
+      "percentile": 11.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Diego Ferreira",
+        "Diyar Nurgozhay",
+        "Gigi Canuto",
+        "Louie Sutherland",
+        "Quillan Salkilld",
+        "Ty Miller"
+      ],
+      "percentile": 14.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Quarantillo",
+        "Gigi Canuto",
+        "Manoel Sousa",
+        "Miles Johns",
+        "Quillan Salkilld",
+        "Yadier del Valle"
+      ],
+      "percentile": 14.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Diego Ferreira",
+        "Gigi Canuto",
+        "Juliana Miller",
+        "Quillan Salkilld",
+        "Yadier del Valle"
+      ],
+      "percentile": 14.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Ray Goff",
+        "Diego Ferreira",
+        "Jose Montanha",
+        "Juliana Miller",
+        "Quillan Salkilld",
+        "Steven Asplund"
+      ],
+      "percentile": 15.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Diego Ferreira",
+        "Gigi Canuto",
+        "Guilherme Pat",
+        "Manoel Sousa",
+        "Quillan Salkilld",
+        "Yadier del Valle"
+      ],
+      "percentile": 17.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Carol Foro",
+        "Darren Elkins",
+        "Jose Montanha",
+        "Juliana Miller",
+        "Quillan Salkilld",
+        "Ty Miller"
+      ],
+      "percentile": 17.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Diyar Nurgozhay",
+        "Gigi Canuto",
+        "Manoel Sousa",
+        "Quillan Salkilld",
+        "Ravena Oliveira",
+        "Yadier del Valle"
+      ],
+      "percentile": 19.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Quarantillo",
+        "Carol Foro",
+        "Jose Montanha",
+        "Miles Johns",
+        "Richie Miranda",
+        "Yadier del Valle"
+      ],
+      "percentile": 21.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Diyar Nurgozhay",
+        "Gigi Canuto",
+        "Louie Sutherland",
+        "Miles Johns",
+        "Quillan Salkilld",
+        "Steven Asplund"
+      ],
+      "percentile": 22.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Ray Goff",
+        "Diego Ferreira",
+        "Juliana Miller",
+        "Quillan Salkilld",
+        "Richie Miranda",
+        "Yadier del Valle"
+      ],
+      "percentile": 22.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Ray Goff",
+        "Diego Ferreira",
+        "Gigi Canuto",
+        "Manoel Sousa",
+        "Miles Johns",
+        "Yadier del Valle"
+      ],
+      "percentile": 23.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Diyar Nurgozhay",
+        "Gigi Canuto",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Quillan Salkilld"
+      ],
+      "percentile": 26.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Diego Ferreira",
+        "Diyar Nurgozhay",
+        "Gigi Canuto",
+        "Manoel Sousa",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 27.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Carol Foro",
+        "Darren Elkins",
+        "Diego Ferreira",
+        "Jose Montanha",
+        "Quillan Salkilld",
+        "Steven Asplund"
+      ],
+      "percentile": 27.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Diego Ferreira",
+        "Diyar Nurgozhay",
+        "Guilherme Pat",
+        "Louie Sutherland",
+        "Quillan Salkilld"
+      ],
+      "percentile": 27.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Billy Ray Goff",
+        "Carol Foro",
+        "Diyar Nurgozhay",
+        "Quillan Salkilld",
+        "Yadier del Valle"
+      ],
+      "percentile": 28.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Darren Elkins",
+        "Jose Montanha",
+        "Juliana Miller",
+        "Manoel Sousa",
+        "Miles Johns",
+        "Steven Asplund"
+      ],
+      "percentile": 28.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Billy Quarantillo",
+        "Jose Montanha",
+        "Manoel Sousa",
+        "Miles Johns",
+        "Yadier del Valle"
+      ],
+      "percentile": 30.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Billy Quarantillo",
+        "Jose Montanha",
+        "Manoel Sousa",
+        "Quillan Salkilld",
+        "Yadier del Valle"
+      ],
+      "percentile": 30.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Diego Ferreira",
+        "Gigi Canuto",
+        "Louie Sutherland",
+        "Miles Johns",
+        "Quillan Salkilld",
+        "Steven Asplund"
+      ],
+      "percentile": 32.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Gigi Canuto",
+        "Juliana Miller",
+        "Manoel Sousa",
+        "Miles Johns",
+        "Steven Asplund"
+      ],
+      "percentile": 33.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Diego Ferreira",
+        "Juliana Miller",
+        "Mateusz Gamrot",
+        "Miles Johns",
+        "Richie Miranda"
+      ],
+      "percentile": 35.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Diego Ferreira",
+        "Gigi Canuto",
+        "Manoel Sousa",
+        "Mateusz Gamrot",
+        "Miles Johns"
+      ],
+      "percentile": 37.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Carol Foro",
+        "Diego Ferreira",
+        "Gianni Vazquez",
+        "Jose Montanha",
+        "Richie Miranda",
+        "Yadier del Valle"
+      ],
+      "percentile": 39.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bruno Lopes",
+        "Diego Ferreira",
+        "Miles Johns",
+        "Quillan Salkilld",
+        "Ravena Oliveira",
+        "Ty Miller"
+      ],
+      "percentile": 42.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Ray Goff",
+        "Diego Ferreira",
+        "Diyar Nurgozhay",
+        "Louie Sutherland",
+        "Quillan Salkilld",
+        "Steven Asplund"
+      ],
+      "percentile": 42.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Bruno Lopes",
+        "Diego Ferreira",
+        "Guilherme Pat",
+        "Manoel Sousa",
+        "Quillan Salkilld"
+      ],
+      "percentile": 44.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Billy Quarantillo",
+        "Jose Montanha",
+        "Manoel Sousa",
+        "Mateusz Gamrot",
+        "Miles Johns"
+      ],
+      "percentile": 46.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Carol Foro",
+        "Jose Montanha",
+        "Juliana Miller",
+        "Mateusz Gamrot",
+        "Richie Miranda"
+      ],
+      "percentile": 47.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Billy Quarantillo",
+        "Billy Ray Goff",
+        "Carol Foro",
+        "Manoel Sousa",
+        "Quillan Salkilld"
+      ],
+      "percentile": 47.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Carol Foro",
+        "Guilherme Pat",
+        "Jose Montanha",
+        "Juliana Miller",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 50.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Quarantillo",
+        "Louie Sutherland",
+        "Miles Johns",
+        "Quillan Salkilld",
+        "Richie Miranda",
+        "Yadier del Valle"
+      ],
+      "percentile": 51.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bruno Lopes",
+        "Carol Foro",
+        "Darren Elkins",
+        "Diego Ferreira",
+        "Quillan Salkilld",
+        "Ty Miller"
+      ],
+      "percentile": 52.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Carol Foro",
+        "Darren Elkins",
+        "Diego Ferreira",
+        "Diyar Nurgozhay",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 52.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bruno Lopes",
+        "Darren Elkins",
+        "Juliana Miller",
+        "Manoel Sousa",
+        "Quillan Salkilld",
+        "Ty Miller"
+      ],
+      "percentile": 53.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Quarantillo",
+        "Gigi Canuto",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Quillan Salkilld",
+        "Yadier del Valle"
+      ],
+      "percentile": 54.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bruno Lopes",
+        "Darren Elkins",
+        "Diego Ferreira",
+        "Juliana Miller",
+        "Miles Johns",
+        "Steven Asplund"
+      ],
+      "percentile": 56.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Diego Ferreira",
+        "Gianni Vazquez",
+        "Jose Montanha",
+        "Manoel Sousa",
+        "Ravena Oliveira",
+        "Ty Miller"
+      ],
+      "percentile": 56.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Carol Foro",
+        "Diego Ferreira",
+        "Jose Montanha",
+        "Juliana Miller",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 58.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Carol Foro",
+        "Guilherme Pat",
+        "Jose Montanha",
+        "Manoel Sousa",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 58.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Diego Ferreira",
+        "Jose Montanha",
+        "Juliana Miller",
+        "Manoel Sousa",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 58.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Darren Elkins",
+        "Juliana Miller",
+        "Louie Sutherland",
+        "Miles Johns",
+        "Quillan Salkilld",
+        "Steven Asplund"
+      ],
+      "percentile": 59.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Quarantillo",
+        "Carol Foro",
+        "Jose Montanha",
+        "Manoel Sousa",
+        "Ravena Oliveira",
+        "Steven Asplund"
+      ],
+      "percentile": 59.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Carol Foro",
+        "Diyar Nurgozhay",
+        "Louie Sutherland",
+        "Richie Miranda",
+        "Ty Miller"
+      ],
+      "percentile": 59.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bruno Lopes",
+        "Carol Foro",
+        "Guilherme Pat",
+        "Juliana Miller",
+        "Richie Miranda",
+        "Yadier del Valle"
+      ],
+      "percentile": 61.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Quarantillo",
+        "Carol Foro",
+        "Louie Sutherland",
+        "Quillan Salkilld",
+        "Richie Miranda",
+        "Ty Miller"
+      ],
+      "percentile": 61.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Diego Ferreira",
+        "Diyar Nurgozhay",
+        "Guilherme Pat",
+        "Louie Sutherland",
+        "Ravena Oliveira",
+        "Yadier del Valle"
+      ],
+      "percentile": 62.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Carol Foro",
+        "Diyar Nurgozhay",
+        "Guilherme Pat",
+        "Louie Sutherland",
+        "Ty Miller"
+      ],
+      "percentile": 63.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Carol Foro",
+        "Diego Ferreira",
+        "Jose Montanha",
+        "Mateusz Gamrot",
+        "Ravena Oliveira"
+      ],
+      "percentile": 64.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Darren Elkins",
+        "Juliana Miller",
+        "Manoel Sousa",
+        "Mateusz Gamrot",
+        "Miles Johns"
+      ],
+      "percentile": 64.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Diego Ferreira",
+        "Gianni Vazquez",
+        "Jose Montanha",
+        "Manoel Sousa",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 65.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Ray Goff",
+        "Carol Foro",
+        "Diyar Nurgozhay",
+        "Guilherme Pat",
+        "Louie Sutherland",
+        "Yadier del Valle"
+      ],
+      "percentile": 66.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Billy Quarantillo",
+        "Bruno Lopes",
+        "Manoel Sousa",
+        "Miles Johns",
+        "Ty Miller"
+      ],
+      "percentile": 66.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bruno Lopes",
+        "Juliana Miller",
+        "Louie Sutherland",
+        "Quillan Salkilld",
+        "Richie Miranda",
+        "Ty Miller"
+      ],
+      "percentile": 67.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Diyar Nurgozhay",
+        "Gigi Canuto",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 70.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Diego Ferreira",
+        "Gigi Canuto",
+        "Juliana Miller",
+        "Louie Sutherland",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 72.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Quarantillo",
+        "Carol Foro",
+        "Louie Sutherland",
+        "Miles Johns",
+        "Richie Miranda",
+        "Steven Asplund"
+      ],
+      "percentile": 73.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Billy Quarantillo",
+        "Billy Ray Goff",
+        "Carol Foro",
+        "Manoel Sousa",
+        "Yadier del Valle"
+      ],
+      "percentile": 73.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Billy Quarantillo",
+        "Carol Foro",
+        "Manoel Sousa",
+        "Ravena Oliveira",
+        "Ty Miller"
+      ],
+      "percentile": 77.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Diego Ferreira",
+        "Juliana Miller",
+        "Louie Sutherland",
+        "Mateusz Gamrot",
+        "Richie Miranda"
+      ],
+      "percentile": 78.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Carol Foro",
+        "Diego Ferreira",
+        "Diyar Nurgozhay",
+        "Louie Sutherland",
+        "Mateusz Gamrot",
+        "Richie Miranda"
+      ],
+      "percentile": 78.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Billy Ray Goff",
+        "Bruno Lopes",
+        "Juliana Miller",
+        "Manoel Sousa",
+        "Yadier del Valle"
+      ],
+      "percentile": 78.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Gigi Canuto",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Mateusz Gamrot",
+        "Miles Johns"
+      ],
+      "percentile": 79.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Quarantillo",
+        "Carol Foro",
+        "Darren Elkins",
+        "Louie Sutherland",
+        "Miles Johns",
+        "Ty Miller"
+      ],
+      "percentile": 80.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Guilherme Pat",
+        "Juliana Miller",
+        "Louie Sutherland",
+        "Mateusz Gamrot",
+        "Miles Johns"
+      ],
+      "percentile": 80.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Billy Quarantillo",
+        "Carol Foro",
+        "Louie Sutherland",
+        "Quillan Salkilld",
+        "Steven Asplund"
+      ],
+      "percentile": 80.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Billy Quarantillo",
+        "Bruno Lopes",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Quillan Salkilld"
+      ],
+      "percentile": 82.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Diego Ferreira",
+        "Gigi Canuto",
+        "Juliana Miller",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 82.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Diego Ferreira",
+        "Diyar Nurgozhay",
+        "Louie Sutherland",
+        "Mateusz Gamrot",
+        "Ravena Oliveira"
+      ],
+      "percentile": 83.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Quarantillo",
+        "Bruno Lopes",
+        "Carol Foro",
+        "Louie Sutherland",
+        "Miles Johns",
+        "Quillan Salkilld"
+      ],
+      "percentile": 83.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Diego Ferreira",
+        "Gianni Vazquez",
+        "Gigi Canuto",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Steven Asplund"
+      ],
+      "percentile": 83.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Bruno Lopes",
+        "Guilherme Pat",
+        "Juliana Miller",
+        "Manoel Sousa",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 85.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Diego Ferreira",
+        "Diyar Nurgozhay",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 85.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Billy Ray Goff",
+        "Diyar Nurgozhay",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 86.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Ray Goff",
+        "Carol Foro",
+        "Louie Sutherland",
+        "Quillan Salkilld",
+        "Ravena Oliveira",
+        "Yadier del Valle"
+      ],
+      "percentile": 86.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bruno Lopes",
+        "Carol Foro",
+        "Diego Ferreira",
+        "Gianni Vazquez",
+        "Ravena Oliveira",
+        "Ty Miller"
+      ],
+      "percentile": 88.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Diyar Nurgozhay",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Mateusz Gamrot",
+        "Ravena Oliveira"
+      ],
+      "percentile": 89.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Bruno Lopes",
+        "Juliana Miller",
+        "Manoel Sousa",
+        "Mateusz Gamrot",
+        "Miles Johns"
+      ],
+      "percentile": 89.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Billy Quarantillo",
+        "Carol Foro",
+        "Manoel Sousa",
+        "Mateusz Gamrot",
+        "Ravena Oliveira"
+      ],
+      "percentile": 89.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bruno Lopes",
+        "Darren Elkins",
+        "Diego Ferreira",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Ty Miller"
+      ],
+      "percentile": 90.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Billy Ray Goff",
+        "Carol Foro",
+        "Diego Ferreira",
+        "Gianni Vazquez",
+        "Louie Sutherland"
+      ],
+      "percentile": 91.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Bruno Lopes",
+        "Diego Ferreira",
+        "Gianni Vazquez",
+        "Manoel Sousa",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 92.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Ray Goff",
+        "Diego Ferreira",
+        "Gianni Vazquez",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Steven Asplund"
+      ],
+      "percentile": 92.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bruno Lopes",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Quillan Salkilld",
+        "Ravena Oliveira",
+        "Steven Asplund"
+      ],
+      "percentile": 93.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Carol Foro",
+        "Darren Elkins",
+        "Juliana Miller",
+        "Louie Sutherland",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 93.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Ray Goff",
+        "Bruno Lopes",
+        "Carol Foro",
+        "Juliana Miller",
+        "Manoel Sousa",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 93.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Quarantillo",
+        "Bruno Lopes",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Ravena Oliveira",
+        "Yadier del Valle"
+      ],
+      "percentile": 96.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexia Thainara",
+        "Billy Quarantillo",
+        "Bruno Lopes",
+        "Carol Foro",
+        "Louie Sutherland",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 97.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Billy Quarantillo",
+        "Carol Foro",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 98.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bruno Lopes",
+        "Gianni Vazquez",
+        "Louie Sutherland",
+        "Manoel Sousa",
+        "Ravena Oliveira",
+        "Yadier del Valle"
+      ],
+      "percentile": 98.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Bruno Lopes",
+        "Carol Foro",
+        "Diego Ferreira",
+        "Louie Sutherland",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 98.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Amanda Lemos",
+        "Bruno Lopes",
+        "Carol Foro",
+        "Juliana Miller",
+        "Louie Sutherland",
+        "Mateusz Gamrot"
+      ],
+      "percentile": 98.7,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    92.1,
+    1.0,
+    3.1,
+    6.0,
+    8.3,
+    9.8,
+    10.1,
+    10.8,
+    11.1,
+    14.1,
+    14.6,
+    14.8,
+    15.2,
+    17.4,
+    17.8,
+    19.0,
+    21.0,
+    22.4,
+    22.7,
+    23.9,
+    26.2,
+    27.1,
+    27.4,
+    27.8,
+    28.1,
+    28.5,
+    30.0,
+    30.1,
+    32.8,
+    33.0,
+    35.2,
+    37.8,
+    39.3,
+    42.0,
+    42.1,
+    44.4,
+    46.7,
+    47.0,
+    47.2,
+    50.4,
+    51.7,
+    52.8,
+    52.9,
+    53.8,
+    54.6,
+    56.2,
+    56.9,
+    58.5,
+    58.7,
+    58.8,
+    59.0,
+    59.0,
+    59.0,
+    61.0,
+    61.5,
+    62.4,
+    63.1,
+    64.0,
+    64.5,
+    65.7,
+    66.1,
+    66.8,
+    67.9,
+    70.3,
+    72.9,
+    73.6,
+    73.7,
+    77.9,
+    78.2,
+    78.3,
+    78.8,
+    79.5,
+    80.2,
+    80.7,
+    80.8,
+    82.5,
+    82.8,
+    83.3,
+    83.6,
+    83.7,
+    85.2,
+    85.6,
+    86.2,
+    86.9,
+    88.7,
+    89.0,
+    89.5,
+    89.5,
+    90.2,
+    91.1,
+    92.1,
+    92.7,
+    93.0,
+    93.4,
+    93.8,
+    96.1,
+    97.4,
+    98.4,
+    98.7,
+    98.7,
+    98.7
+  ]
+}

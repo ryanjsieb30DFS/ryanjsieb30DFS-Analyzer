@@ -24,6 +24,18 @@ lessons:
       - date: "2026-05-24"
         slate: "CJ Cup 5.24.26"
         note: "100% Scheffler / 0% Wyndham Clark at the anchor slot across 4 lineups despite similar chalk-tier own; Clark scored 97.8 (slate-defining). Third consecutive slate manifestation."
+      - date: "2026-08-08"
+        slate: "Rocket Classic 2026 RD4 SD (rules/pga_rd4_sd/history/2026-08-08__rocket-classic-2026-rd4-sd)"
+        note: >
+          Mixed but mechanism-consistent, with a scope caution. Kirk/Wallace (same
+          $7,600, 0.3 proj pts apart, 25.4% vs 16.0% proj own): the low-owned twin
+          Wallace scored 52.8 vs Kirk's 37.5, was the SE slate-definer, and made the
+          mini-MAX winning lineup — the coin-flip split paid. But Xander/Si Woo ($400
+          apart, 26.0% vs 17.2%): Xander 59.2 vs Si Woo 16.2, and Si Woo was the #1
+          fish trap in both contests (34.1% of mini-MAX fish, 0% of winners). Scope
+          caution: price + ownership proximity alone is not equivalence — the profiles
+          must actually be interchangeable. Surfacing the pair (the codified mechanism)
+          holds; auto-taking the cheaper side does not.
     contradictions: []
     codified_in: "framework.md — The Anchor-Equivalence Rule (3-slate golf confirmation); philosophy.md — On Structural Leaks; rules/shared/anchor_equivalence.md"
     retired_reason: null
@@ -105,6 +117,16 @@ lessons:
       - date: "2026-05-31"
         slate: "PGA RD4 SD 5.31.26"
         note: "Heaviest exposure went to the ceiling-light 30-44% projected-own tier (flat results) while the justified-ceiling 13-25% own tier that smashed sat at ~1/10 exposure — anti-leverage on both axes."
+      - date: "2026-08-08"
+        slate: "Rocket Classic 2026 RD4 SD (rules/pga_rd4_sd/history/2026-08-08__rocket-classic-2026-rd4-sd)"
+        note: >
+          Michael Thorbjornsen was ~20-22% chalk whose only knock in the strategy was
+          "no written case in the article" — a popularity argument, not a ceiling one.
+          He had demonstrated venue ceiling (129.5 in the same event's Classic, per the
+          course file) and posted 74.75, the slate's top score, appearing in 93% of
+          mini-MAX top lineups and 8 of the SE top 10. He was tiered Okay/UNDERWEIGHT
+          and the lone SE entry zeroed him. Underweighting real-ceiling chalk because
+          the articles were silent is exactly the axis this rule warns about.
     contradictions: []
     codified_in: "philosophy.md — Foundational Rule 1 (Leverage > Floor, build around chalk sharply) and On Structural Leaks (Correct-Chalk Concentration paragraph)"
     retired_reason: null
@@ -153,7 +175,18 @@ lessons:
       winning block — loosen to max-2 and verify the play actually fits the coffin
       profile under the rule-set the lineup is built for.
     status: codified
-    confirmations: []
+    confirmations:
+      - date: "2026-08-08"
+        slate: "Rocket Classic 2026 RD4 SD (rules/pga_rd4_sd/history/2026-08-08__rocket-classic-2026-rd4-sd)"
+        note: >
+          First confirmation. The article called the cheap-end chalk (Riley $6,400 and
+          Rasmus $6,300, ~20% proj own each) salary-relief traps — "ridiculously bad
+          plays" — and Ventura "the shakiest chalk." On the scoring R4 all three
+          delivered: Rasmus 47.85 (in the SE winning lineup), Riley 39.8 (in the SE
+          winner; 32.4% of mini-MAX top lineups), Ventura 44.45 (in the mini-MAX
+          winner). On a birdie-fest the concentrated cheap ownership was accurate
+          ownership on real value — the presumed coffin block was again part of the
+          winning block.
     contradictions: []
     codified_in: "framework.md — Coffin Block Identification (rule-set dependence, from Truist 2026)"
     retired_reason: null
@@ -246,7 +279,7 @@ lessons:
       scoring days, so those profiles outscore both the popular chalk and the punts.
       Skipping that slot in favor of 'safer' mid-tier names is a structural floor
       violation on this slate type.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-05-24"
         slate: "CJ Cup 5.24.26"
@@ -254,8 +287,16 @@ lessons:
       - date: "2026-05-31"
         slate: "PGA RD4 SD 5.31.26"
         note: "The ~13-26% moderate-own mid-tier ceiling tier (Griffin, Woodland, Henley, Hoey) smashed projection by ~20 each and formed the winning core; the highest-projected-own chalk came in flat."
-    contradictions: []
-    codified_in: null
+      - date: "2026-08-08"
+        slate: "Rocket Classic 2026 RD4 SD (rules/pga_rd4_sd/history/2026-08-08__rocket-classic-2026-rd4-sd)"
+        note: >
+          Fourth confirming slate. The mini-MAX winner's score came from the sub-15%-own
+          mid-tier: Wallace 52.8 at 15.2% own, Ventura 44.45 at 14.9%, Gerard 47.2 at
+          14.5%, carrier Jaeger 37.3 at 6.9%; Hideki 65.5 at 10.5% was the top-lineup
+          staple (47.9% of top lineups). The popular chalk (Brennan 27.4 at 30.3%,
+          Young 35.4 at 36.4%) was outscored by the cheaper, less-owned mid-tier again.
+          Meets the 3-confirmation promotion bar — codification proposed 2026-08-08.
+    codified_in: "framework.md — The Sub-15% Mid-Tier Score Source (codified 2026-08-08, subsection after The Ceiling-Player Requirement)"
     retired_reason: null
 
   - id: pga-rd4-sd-2026-05-24-repeated-punt-needs-thesis
@@ -346,6 +387,15 @@ lessons:
           12.4 pct; L3 15.66% -> 4.5 pct; L5 16.2% -> 9.7 pct), while the two deep-contrarian builds
           finished worst (L4 10.08% -> 99.8 pct; L6 13.68% -> 91.7 pct). Sub-19% over-leverage was
           penalized in-sample.
+      - date: "2026-08-08"
+        slate: "Rocket Classic 2026 RD4 SD (rules/pga_rd4_sd/history/2026-08-08__rocket-classic-2026-rd4-sd)"
+        note: >
+          Third confirming slate, both contests. SE top-20 averaged 20.5% per-player own
+          with 1.85 sub-10% golfers; mini-MAX top-71 averaged 16.05% with 1.04. Both
+          winners carried exactly one sub-10% carrier (Hideki 7.35% in the SE, Jaeger
+          6.9% in the mini-MAX). The user's lone SE entry at 7.28% own with 5 sub-10%
+          golfers — far below the envelope — finished 26.1 pctile while the tracked pro
+          in-field (moklovin) ran 22.9% per slot and finished top 1%.
     contradictions: []
     codified_in: "framework.md — Historical Winning Structure (Actual DK winners 2023-2026 validation)"
     retired_reason: null
@@ -372,6 +422,15 @@ lessons:
           sub-10% darts; L6 13.68% / 3) finished dead last (99.8 / 91.7 pct), while the chalkier
           near-19% builds finished best. Concrete cost of importing Classic's dart-heavy contrarian
           dose into the chalkier RD4 SD format.
+      - date: "2026-08-08"
+        slate: "Rocket Classic 2026 RD4 SD (rules/pga_rd4_sd/history/2026-08-08__rocket-classic-2026-rd4-sd)"
+        note: >
+          Second live confirmation, sharpened to the contest level: the 34-entry
+          mini-MAX set averaged 14.85% per-slot own (near the format envelope) and
+          produced the 7.1-pctile best finish, while the single SE entry was built at
+          Classic dosage (7.28% own, 5 sub-10% darts) and finished 26.1 pctile against
+          SE winners at 20.5%/1.85. Same mechanism, same direction, third slate running
+          on the shark-gap own_per_slot axis (delta -15.6 this slate).
     contradictions: []
     codified_in: "framework.md — Cross-format note vs PGA Classic"
     retired_reason: null
@@ -385,7 +444,7 @@ lessons:
       own), and tough courses reward marginally more leverage (~1.9 sub-10% vs ~1.6
       on birdie-fests). Mechanism: the same sub-radar-smash dynamic as Classic, just
       one dart instead of two-to-three.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-06-13"
         slate: "146-slate mining 2023-2026"
@@ -398,8 +457,18 @@ lessons:
           rank-1 winner ran ~2 sub-10% darts (Taylor Moore + Keita Nakajima 1.39%). Winners' structure
           avg per-player own 17.21% / 1.63 sub-10% — leverage was mandatory AND sat right at the ~19%
           envelope, not deep-contrarian.
+      - date: "2026-08-08"
+        slate: "Rocket Classic 2026 RD4 SD (rules/pga_rd4_sd/history/2026-08-08__rocket-classic-2026-rd4-sd)"
+        note: >
+          Second live confirmation (third confirming slate incl. mining). Both contest
+          winners carried exactly one sub-10% leverage piece doing outsized work:
+          Hideki Matsuyama 7.35% own / 65.5 fpts as the SE winner's carrier, Stephan
+          Jaeger 6.9% / 37.3 as the mini-MAX winner's carrier. The strategy's mandatory
+          per-tier leverage screen named BOTH before lock, and 12/12 named candidates
+          were rostered somewhere (leverage capture 1.0 after 6/19's 0.0). Meets the
+          3-confirmation promotion bar — codification proposed 2026-08-08.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — The One-Dart Mandate (codified 2026-08-08, under Historical Winning Structure)"
     retired_reason: null
 
   - id: pga-rd4-sd-2026-06-19-contention-extends-past-54hole-leaders
@@ -417,7 +486,7 @@ lessons:
       exclude. The 'birdie hedge = way-back sub-5% lottery tickets' construction is its
       own leak: hedge the reopened-scoring world with bucket-2 chasers, not bucket-3
       darts; reserve true way-back darts for confirmed -19/-20 birdie-fests only.
-    status: hypothesis
+    status: codified
     confirmations:
       - date: "2026-06-19"
         slate: "PGA RD4 SD RBC Canada 2026 (rules/pga_rd4_sd/history/2026-06-19__pga-rd4-sd-rbc-canada-2026)"
@@ -431,6 +500,65 @@ lessons:
           Bezuidenhout -4) that did not deliver. Best user finish (L3, 4.5 pct) carried Cauley but no
           bucket-2 chaser -> ceiling capped. The position gate, reinforced by the red team's
           'all-in-the-red, exclude way-back' framing, faded the exact tier that won.
+      - date: "2026-08-08"
+        slate: "Rocket Classic 2026 RD4 SD (rules/pga_rd4_sd/history/2026-08-08__rocket-classic-2026-rd4-sd)"
+        note: >
+          Both halves of the three-bucket mechanism confirmed. Bucket 2 (in contention,
+          just outside the top 10): Matt Wallace, T-11 start at 12.65% SE own, was the
+          SE slate-definer (52.8, in 35% of top lineups) and made the mini-MAX winning
+          lineup. Bucket 3 (way back): J.J. Spaun, T-48 start and the article's own
+          contrarian call, scored 22.8 and was a pure fish trap (14.1% of mini-MAX
+          fish, 0% of winners). Meanwhile the 54-hole T-2 chalk (Brennan, 30-37% own)
+          busted at 27.4. Contention extended past the leaders exactly as stated, and
+          the bucket the gate should exclude is the one that busted. Promoted
+          hypothesis -> validated; meets the 3-confirming-slate bar — codification
+          proposed 2026-08-08. Caveat: exact stroke deficits weren't in the standings,
+          so position (T-11 vs T-48) proxied the 2-4-back vs way-back split.
+    contradictions: []
+    codified_in: "framework.md — The Three-Bucket Position Read (codified 2026-08-08, under Rule-Set Decision Framework)"
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-08-08-single-bullet-gets-envelope-not-darts
+    born: "2026-08-08"   # Rocket Classic 2026 RD4 SD
+    origin: "rules/pga_rd4_sd/history/2026-08-08__rocket-classic-2026-rd4-sd — shark_gap.json + adherence.json (SE contest 193066355)"
+    statement: >
+      Contrarian dose must scale WITH bullet count, and the build did the opposite:
+      the 34-entry set sat near the format envelope (14.85% avg per-slot own) while
+      the lone single-entry bullet — the home game — was built at 7.28% own with 5
+      sub-10% golfers, zero exposure to all three chalk anchors, and zeroed two of the
+      strategy's own UNDERWEIGHT calls (Thorbjornsen 74.75, the slate's top score;
+      Rasmus 47.85, in the SE winner). Mechanism: with one bullet there is no
+      portfolio to hold the modal outcome, so the single entry itself must be the
+      modal-shape bet (~19-23% per-slot own, 1-2 sub-10% pieces — SE winners ran
+      20.5%/1.85, the tracked pro moklovin 22.9%); darts belong in the multi-entry
+      set. Corollary: an UNDERWEIGHT call in a 1-entry contest can only execute as 0%
+      or 100%, and defaulting to 0% silently converts "own less" into "punch out" —
+      in a single bullet, underweight means the golfer must still be considered
+      must-appear unless explicitly full-faded. Recurring axis: shark-gap own_per_slot
+      has now separated in this same direction on both graded RD4 SD slates
+      (6/19 Fitzpatrick-to-zero; 8/8 delta -15.6).
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-08-08-sim-winpct-weak-ranking-signal
+    born: "2026-08-08"   # Rocket Classic 2026 RD4 SD
+    origin: "rules/pga_rd4_sd/history/2026-08-08__rocket-classic-2026-rd4-sd/sim_autopsy.json (first slate with the Sim autopsy hand-off)"
+    statement: >
+      The Sim's pre-lock Win% metric may be a threshold, not a ranking: its Spearman
+      correlation with actual lineup score was ~0 in BOTH contests this slate (0.133
+      in the 245-field SE, 0.067 in the 7,134-field mini-MAX) while Top-1%, ROI, and
+      Cash% all landed 0.34-0.43 with top-100-by-metric outscoring the pool average by
+      ~25-28 points. Mechanism guess: Win% concentrates on a tiny tail outcome, so its
+      ordering within a 10,500-lineup pool is dominated by noise even when the
+      coarser metrics rank usefully. One slate is noise — needs a second archived
+      sim_autopsy showing the same near-zero Win% before treating it as a
+      tool-calibration rule (rank/filter by ROI/Top-1%/Cash%, use Win% only as a
+      floor gate).
+    status: hypothesis
+    confirmations: []
     contradictions: []
     codified_in: null
     retired_reason: null
