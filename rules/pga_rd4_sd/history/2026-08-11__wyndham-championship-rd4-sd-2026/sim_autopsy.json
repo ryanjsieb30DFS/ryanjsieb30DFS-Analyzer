@@ -1,0 +1,150 @@
+[
+ {
+  "slug": "pga_rd4_sd",
+  "slate_name": "PGA RD4 Showdown contest-standings-193437329 2026-08-11",
+  "contest_id": "193437329",
+  "field_size": 294,
+  "schema_version": 1,
+  "generated_at": "2026-08-11 23:06",
+  "user": {
+   "n_entries": 1,
+   "best_points": 360.40002,
+   "avg_points": 360.4,
+   "best_rank": 1
+  },
+  "pool": {
+   "n": 15000,
+   "avg_actual": 237.18,
+   "median_actual": 236.85,
+   "max_actual": 384.1,
+   "n_beating_best_entry": 8,
+   "pct_beating_best_entry": 0.05,
+   "picking_edge_points": 123.22
+  },
+  "rank_signal": [
+   {
+    "metric": "pre_sim_top1_pct",
+    "label": "Top 1%",
+    "n": 7500,
+    "spearman_vs_actual": 0.149,
+    "top100_avg_actual": 246.76,
+    "pool_avg_actual": 236.18
+   },
+   {
+    "metric": "pre_sim_roi_pct",
+    "label": "ROI",
+    "n": 7500,
+    "spearman_vs_actual": 0.171,
+    "top100_avg_actual": 250.46,
+    "pool_avg_actual": 236.18
+   },
+   {
+    "metric": "pre_sim_win_pct",
+    "label": "Win%",
+    "n": 7500,
+    "spearman_vs_actual": 0.056,
+    "top100_avg_actual": 242.63,
+    "pool_avg_actual": 236.18
+   },
+   {
+    "metric": "pre_sim_cash_pct",
+    "label": "Cash%",
+    "n": 7500,
+    "spearman_vs_actual": 0.235,
+    "top100_avg_actual": 255.78,
+    "pool_avg_actual": 236.18
+   }
+  ],
+  "entered": [
+   {
+    "EntryName": "RyvlesGaming30",
+    "Rank": 1,
+    "Points": 360.4,
+    "Lineup": "G Justin Thomas G Michael Brennan G Benjamin James G Alex Noren G Jordan Spieth G Harry Hall",
+    "matched": true,
+    "pre_sim_roi_pct": 47.1,
+    "pre_sim_top1_pct": 1.88,
+    "pre_sim_win_pct": 1.045,
+    "pre_sim_cash_pct": 33.2,
+    "post_roi_pct": 31.39,
+    "post_top1_pct": 1.7,
+    "post_win_pct": 0.58,
+    "post_cash_pct": 28.82
+   }
+  ]
+ },
+ {
+  "slug": "pga_rd4_sd",
+  "slate_name": "PGA RD4 Showdown contest-standings-193437340 2026-08-11",
+  "contest_id": "193437340",
+  "field_size": 141,
+  "schema_version": 1,
+  "generated_at": "2026-08-11 23:07",
+  "user": {
+   "n_entries": 1,
+   "best_points": 290.85,
+   "avg_points": 290.85,
+   "best_rank": 19
+  },
+  "pool": {
+   "n": 15000,
+   "avg_actual": 223.71,
+   "median_actual": 223.0,
+   "max_actual": 370.0,
+   "n_beating_best_entry": 802,
+   "pct_beating_best_entry": 5.35,
+   "picking_edge_points": 67.14
+  },
+  "rank_signal": [
+   {
+    "metric": "pre_sim_top1_pct",
+    "label": "Top 1%",
+    "n": 7500,
+    "spearman_vs_actual": 0.218,
+    "top100_avg_actual": 241.69,
+    "pool_avg_actual": 222.74
+   },
+   {
+    "metric": "pre_sim_roi_pct",
+    "label": "ROI",
+    "n": 7500,
+    "spearman_vs_actual": 0.246,
+    "top100_avg_actual": 243.96,
+    "pool_avg_actual": 222.74
+   },
+   {
+    "metric": "pre_sim_win_pct",
+    "label": "Win%",
+    "n": 7500,
+    "spearman_vs_actual": 0.098,
+    "top100_avg_actual": 235.61,
+    "pool_avg_actual": 222.74
+   },
+   {
+    "metric": "pre_sim_cash_pct",
+    "label": "Cash%",
+    "n": 7500,
+    "spearman_vs_actual": 0.318,
+    "top100_avg_actual": 250.14,
+    "pool_avg_actual": 222.74
+   }
+  ],
+  "entered": [
+   {
+    "EntryName": "RyvlesGaming30",
+    "Rank": 19,
+    "Points": 290.85,
+    "Lineup": "G Tom Kim G Michael Brennan G Jordan L. Smith G Kevin Yu G Harry Hall G Kris Ventura",
+    "matched": true,
+    "pre_sim_roi_pct": 83.1,
+    "pre_sim_top1_pct": 2.88,
+    "pre_sim_win_pct": 2.88,
+    "pre_sim_cash_pct": 42.54,
+    "post_roi_pct": 63.57,
+    "post_top1_pct": 1.29,
+    "post_win_pct": 1.29,
+    "post_cash_pct": 37.76
+   }
+  ]
+ }
+]
