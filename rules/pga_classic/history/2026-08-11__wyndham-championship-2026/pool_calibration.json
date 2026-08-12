@@ -1,0 +1,51 @@
+{
+  "gradable": true,
+  "n_pool": 147,
+  "n_matched": 129,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 3,
+      "avg_fpts": 64.5,
+      "max_fpts": 91.0
+    },
+    {
+      "tier": "Good",
+      "n": 6,
+      "avg_fpts": 71.0,
+      "max_fpts": 111.0
+    },
+    {
+      "tier": "Okay",
+      "n": 107,
+      "avg_fpts": 60.3,
+      "max_fpts": 142.5
+    },
+    {
+      "tier": "Fade",
+      "n": 13,
+      "avg_fpts": 44.2,
+      "max_fpts": 89.5
+    }
+  ],
+  "tiers_ordered": false,
+  "leakage": [
+    {
+      "name": "Doug Ghim",
+      "tier": "Fade",
+      "fpts": 89.5
+    },
+    {
+      "name": "Maverick Mcnealy",
+      "tier": "Fade",
+      "fpts": 88.0
+    },
+    {
+      "name": "David Skinns",
+      "tier": "Fade",
+      "fpts": 83.0
+    }
+  ],
+  "excluded_scratches": [],
+  "summary": "Core 64.5 > Good 71.0 > Okay 60.3 > Fade 44.2  \u2717 OUT OF ORDER"
+}

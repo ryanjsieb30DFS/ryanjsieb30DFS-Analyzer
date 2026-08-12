@@ -1,0 +1,26 @@
+{
+  "contests": [
+    {
+      "name": "PGA Tour $35K Albatross",
+      "type": "SE",
+      "field_size": 3431,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "prize_pool": 35000,
+      "payout_shape": null,
+      "id": "ac218c74"
+    },
+    {
+      "name": "PGA TOUR $30K mini-MAX [150 Entry Max]",
+      "type": "150-Max",
+      "field_size": 71343,
+      "max_entries": 150,
+      "my_entries": 100,
+      "entry_fee": 0.5,
+      "prize_pool": 30000,
+      "payout_shape": "Top-heavy",
+      "id": "79b2ffe3"
+    }
+  ]
+}

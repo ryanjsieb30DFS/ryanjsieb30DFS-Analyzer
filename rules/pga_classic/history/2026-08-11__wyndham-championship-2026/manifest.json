@@ -1,0 +1,30 @@
+{
+  "slug": "pga_classic",
+  "sport": "golf",
+  "contest_label": "PGA Classic",
+  "date": "2026-08-11",
+  "slate_label": "Wyndham Championship 2026",
+  "archived_at": "2026-08-11 21:10",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json"
+  ],
+  "missing": [
+    "lineup_selection.json",
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/pga_classic/2026-08-05__ETR Golf Coffin List 8.6.26.pdf",
+    "articles/pga_classic/2026-08-05__ETR Golf Course Preview 8.6.26.pdf",
+    "articles/pga_classic/2026-08-05__ETR Golf Large Field Breakdown 8.6.26.pdf",
+    "articles/pga_classic/2026-08-05__ETR Golf Models 8.6.26.pdf",
+    "articles/pga_classic/2026-08-05__ETR Golf Ownership Analysis 8.6.26.pdf",
+    "articles/pga_classic/2026-08-05__ETR Golf Top Plays 8.6.26.pdf",
+    "articles/pga_classic/2026-08-05__ETR Golf Value Report 8.6.26.pdf",
+    "articles/pga_classic/2026-08-05__Establish-The-Green-Wyndham-Championship-1.pdf"
+  ],
+  "proj_source": null
+}

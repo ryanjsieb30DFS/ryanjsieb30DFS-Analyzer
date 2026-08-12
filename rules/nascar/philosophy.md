@@ -95,6 +95,8 @@ If the contrarian thesis is "absence of confidence," default to field exposure.
 
 **Coverage, not parity.** The Anchor-Equivalence Rule requires the equivalent alternative in *at least one* lineup as coverage — it is NOT a mandate to split the dominator coin flip 50/50. Size the alternative for leverage (1-2 lineups when the field is mispricing it), and keep the modal dominator as the portfolio anchor. Hedging both sides of the dom coin flip to parity guarantees you cannot fully capitalize on either outcome: at Pocono the 4-Larson hedge capped Hamlin-world equity when Hamlin (modal) delivered; at Chicagoland concentrating on modal Hamlin (70.8) while leverage-sizing the alternatives was right as both hedge-target equivalents busted (Reddick -10.8, Larson -12.5).
 
+**A list is not a lineup.** Three consecutive slates diagnosed the leverage gap in writing and entered zero of 36 named deciders while five of them sat in winning lineups. Analysis without a build-time gate transfers zero equity; the entered roster is the only artifact that scores.
+
 ## What We Are Not
 
 - **Not narrative-driven.** "Driver X had a bad week" or "Driver Y is due" is noise, not signal.

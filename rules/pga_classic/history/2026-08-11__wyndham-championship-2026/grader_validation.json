@@ -1,0 +1,1325 @@
+{
+  "gradable": true,
+  "n_lineups": 101,
+  "lineups": [
+    {
+      "players": [
+        "Ben Kohles",
+        "Benjamin James",
+        "Cameron Young",
+        "J.T. Poston",
+        "Justin Thomas",
+        "Sungjae Im"
+      ],
+      "percentile": 14.0,
+      "flags": [
+        "crowded_pair"
+      ]
+    },
+    {
+      "players": [
+        "Alex Smalley",
+        "Benjamin James",
+        "Brooks Koepka",
+        "Cameron Young",
+        "Michael Brennan",
+        "Michael Kim"
+      ],
+      "percentile": 1.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Davis Thompson",
+        "Harry Hall",
+        "Hideki Matsuyama",
+        "Marco Penge",
+        "Maverick McNealy"
+      ],
+      "percentile": 1.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Noren",
+        "Cameron Young",
+        "Jordan Spieth",
+        "Nicolas Echavarria",
+        "Sahith Theegala",
+        "Tom Kim"
+      ],
+      "percentile": 2.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Hideki Matsuyama",
+        "Keegan Bradley",
+        "Michael Brennan",
+        "Pontus Nyholm",
+        "Ryo Hisatsune",
+        "Tom Kim"
+      ],
+      "percentile": 4.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Aaron Rai",
+        "Eric Cole",
+        "Jordan Spieth",
+        "Keegan Bradley",
+        "Maverick McNealy",
+        "Sungjae Im"
+      ],
+      "percentile": 6.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Hideki Matsuyama",
+        "Keegan Bradley",
+        "Matthieu Pavon",
+        "Maverick McNealy",
+        "Max Greyserman",
+        "Michael Brennan"
+      ],
+      "percentile": 7.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Adrien Saddier",
+        "Alex Noren",
+        "Ben Griffin",
+        "Cameron Young",
+        "Matt Wallace",
+        "Michael Brennan"
+      ],
+      "percentile": 9.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brian Harman",
+        "Davis Thompson",
+        "Hideki Matsuyama",
+        "Justin Thomas",
+        "Max Greyserman",
+        "Nicolas Echavarria"
+      ],
+      "percentile": 13.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Aaron Rai",
+        "Davis Thompson",
+        "Harris English",
+        "Jordan L. Smith",
+        "Rasmus H\u00f8jgaard",
+        "Tom Kim"
+      ],
+      "percentile": 14.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Eric Cole",
+        "Keegan Bradley",
+        "Nick Taylor",
+        "Tom Hoge",
+        "Tom Kim"
+      ],
+      "percentile": 14.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Cameron Young",
+        "Christiaan Bezuidenhout",
+        "Michael Brennan",
+        "Taylor Pendrith",
+        "Zachary Bauchou"
+      ],
+      "percentile": 16.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Davis Riley",
+        "Davis Thompson",
+        "Hideki Matsuyama",
+        "Justin Thomas",
+        "Zachary Bauchou"
+      ],
+      "percentile": 16.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Andrew Novak",
+        "Cameron Young",
+        "Denny McCarthy",
+        "Justin Thomas",
+        "Tony Finau"
+      ],
+      "percentile": 17.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Noren",
+        "Ben Griffin",
+        "Hideki Matsuyama",
+        "Jordan Spieth",
+        "Keith Mitchell",
+        "Michael Kim"
+      ],
+      "percentile": 17.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Eric Cole",
+        "Justin Thomas",
+        "Michael Brennan",
+        "Michael Kim",
+        "Stephan Jaeger"
+      ],
+      "percentile": 17.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Smalley",
+        "Cameron Young",
+        "Davis Thompson",
+        "Maverick McNealy",
+        "Max Greyserman",
+        "Thorbj\u00f8rn Olesen"
+      ],
+      "percentile": 17.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Hideki Matsuyama",
+        "J.T. Poston",
+        "Justin Thomas",
+        "Matt Wallace",
+        "Sahith Theegala"
+      ],
+      "percentile": 17.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brian Campbell",
+        "Cameron Young",
+        "Keegan Bradley",
+        "Kris Ventura",
+        "Maverick McNealy",
+        "Michael Brennan"
+      ],
+      "percentile": 20.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Aaron Rai",
+        "Brooks Koepka",
+        "Keegan Bradley",
+        "Mac Meissner",
+        "Michael Brennan",
+        "Taylor Pendrith"
+      ],
+      "percentile": 21.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Alex Noren",
+        "Austin Eckroat",
+        "Cameron Young",
+        "John Parry",
+        "Maverick McNealy"
+      ],
+      "percentile": 21.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Aaron Rai",
+        "Brian Harman",
+        "Harris English",
+        "Kris Ventura",
+        "Michael Brennan",
+        "Tom Kim"
+      ],
+      "percentile": 22.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Harris English",
+        "Jackson Koivun",
+        "Jordan L. Smith",
+        "Jordan Spieth",
+        "Keegan Bradley",
+        "Nicolas Echavarria"
+      ],
+      "percentile": 24.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Austin Eckroat",
+        "Bud Cauley",
+        "Davis Thompson",
+        "Hideki Matsuyama",
+        "Justin Thomas",
+        "Mac Meissner"
+      ],
+      "percentile": 24.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brian Harman",
+        "Cameron Young",
+        "Jackson Suber",
+        "Michael Brennan",
+        "Stefano Mazzoli",
+        "Tom Kim"
+      ],
+      "percentile": 26.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Harry Hall",
+        "Justin Thomas",
+        "Keegan Bradley",
+        "Matthew McCarty",
+        "Zac Blair"
+      ],
+      "percentile": 28.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Benjamin James",
+        "Harris English",
+        "Hideki Matsuyama",
+        "Justin Thomas",
+        "Lee Hodges",
+        "Mac Meissner"
+      ],
+      "percentile": 28.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Billy Horschel",
+        "Jackson Koivun",
+        "Justin Thomas",
+        "Luke Clanton",
+        "Sungjae Im"
+      ],
+      "percentile": 28.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Hideki Matsuyama",
+        "Jackson Suber",
+        "Justin Thomas",
+        "Pierceson Coody",
+        "Sungjae Im"
+      ],
+      "percentile": 30.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Christiaan Bezuidenhout",
+        "John Parry",
+        "Justin Thomas",
+        "Keegan Bradley",
+        "Kris Ventura"
+      ],
+      "percentile": 32.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Davis Thompson",
+        "Harris English",
+        "Michael Brennan",
+        "Rico Hoey",
+        "Sam Stevens"
+      ],
+      "percentile": 33.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brian Harman",
+        "Cameron Young",
+        "Jesper Svensson",
+        "John Parry",
+        "Michael Brennan",
+        "Tom Kim"
+      ],
+      "percentile": 33.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brooks Koepka",
+        "Bud Cauley",
+        "Cameron Young",
+        "Justin Thomas",
+        "Kevin Roy",
+        "Thorbj\u00f8rn Olesen"
+      ],
+      "percentile": 33.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Aldrich Potgieter",
+        "Billy Horschel",
+        "Cameron Young",
+        "J.T. Poston",
+        "Justin Thomas",
+        "Michael Brennan"
+      ],
+      "percentile": 34.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Noren",
+        "Cameron Young",
+        "Jordan Spieth",
+        "Justin Thomas",
+        "Matti Schmid",
+        "Zac Blair"
+      ],
+      "percentile": 38.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Jackson Koivun",
+        "Justin Thomas",
+        "Keegan Bradley",
+        "Lucas Glover",
+        "Matt Wallace",
+        "Michael Kim"
+      ],
+      "percentile": 38.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Noren",
+        "Cameron Young",
+        "J.T. Poston",
+        "Max Greyserman",
+        "Rasmus H\u00f8jgaard",
+        "Tom Kim"
+      ],
+      "percentile": 39.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Noren",
+        "Cameron Young",
+        "Davis Thompson",
+        "Johnny Keefer",
+        "Lee Hodges",
+        "Maverick McNealy"
+      ],
+      "percentile": 39.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Smalley",
+        "Cameron Young",
+        "Keegan Bradley",
+        "Patrick Fishburn",
+        "Steven Fisk",
+        "Tom Kim"
+      ],
+      "percentile": 40.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Beau Hossler",
+        "Cameron Young",
+        "Keegan Bradley",
+        "Mac Meissner",
+        "Matti Schmid"
+      ],
+      "percentile": 40.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Billy Horschel",
+        "Brandt Snedeker",
+        "Brian Harman",
+        "Brooks Koepka",
+        "Cameron Young",
+        "Maverick McNealy"
+      ],
+      "percentile": 40.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Austin Eckroat",
+        "Cameron Young",
+        "Hank Lebioda",
+        "Keegan Bradley",
+        "Keith Mitchell",
+        "Tom Kim"
+      ],
+      "percentile": 42.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Chandler Blanchet",
+        "Justin Thomas",
+        "Keegan Bradley",
+        "Marco Penge",
+        "Rico Hoey"
+      ],
+      "percentile": 44.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Smalley",
+        "Blades Brown",
+        "Brian Harman",
+        "Hideki Matsuyama",
+        "Justin Thomas",
+        "Michael Kim"
+      ],
+      "percentile": 44.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Harris English",
+        "Harry Hall",
+        "Justin Thomas",
+        "Keegan Bradley",
+        "Matthew McCarty",
+        "Ryan Gerard"
+      ],
+      "percentile": 47.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Cameron Young",
+        "Justin Thomas",
+        "Kevin Roy",
+        "Max McGreevy",
+        "Taylor Pendrith"
+      ],
+      "percentile": 49.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brian Harman",
+        "Hideki Matsuyama",
+        "J.T. Poston",
+        "Keegan Bradley",
+        "Matti Schmid",
+        "Tom Kim"
+      ],
+      "percentile": 50.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Noren",
+        "Brooks Koepka",
+        "Cameron Young",
+        "J.T. Poston",
+        "Keegan Bradley",
+        "Matthew McCarty"
+      ],
+      "percentile": 52.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Austin Smotherman",
+        "Davis Thompson",
+        "Jackson Koivun",
+        "Jesper Svensson",
+        "Justin Thomas"
+      ],
+      "percentile": 55.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Ben Griffin",
+        "Hideki Matsuyama",
+        "Matt Wallace",
+        "Rasmus H\u00f8jgaard",
+        "Sepp Straka"
+      ],
+      "percentile": 56.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Emiliano Grillo",
+        "Hideki Matsuyama",
+        "Mac Meissner",
+        "Maverick McNealy",
+        "Tony Finau"
+      ],
+      "percentile": 57.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brooks Koepka",
+        "Cameron Young",
+        "Justin Thomas",
+        "Marco Penge",
+        "Rasmus Neergaard-Petersen",
+        "Tony Finau"
+      ],
+      "percentile": 57.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Smalley",
+        "Brian Harman",
+        "Cameron Young",
+        "Eric Cole",
+        "Justin Thomas",
+        "Seamus Power"
+      ],
+      "percentile": 59.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brian Harman",
+        "Davis Thompson",
+        "Hideki Matsuyama",
+        "J.T. Poston",
+        "Rasmus Neergaard-Petersen",
+        "Tom Kim"
+      ],
+      "percentile": 59.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brian Harman",
+        "Cameron Young",
+        "Davis Riley",
+        "Keith Mitchell",
+        "Sahith Theegala",
+        "Tom Kim"
+      ],
+      "percentile": 59.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Davis Thompson",
+        "Harris English",
+        "Jackson Koivun",
+        "Marco Penge",
+        "Tom Hoge"
+      ],
+      "percentile": 61.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Benjamin James",
+        "Brooks Koepka",
+        "Eric Cole",
+        "J.T. Poston",
+        "Jackson Koivun"
+      ],
+      "percentile": 62.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Harris English",
+        "Jackson Koivun",
+        "Justin Thomas",
+        "Keegan Bradley",
+        "Stefano Mazzoli",
+        "Zachary Bauchou"
+      ],
+      "percentile": 63.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Andrew Novak",
+        "Cameron Young",
+        "J.T. Poston",
+        "Johnny Keefer",
+        "Keegan Bradley",
+        "Maverick McNealy"
+      ],
+      "percentile": 64.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brian Harman",
+        "Cameron Young",
+        "Emiliano Grillo",
+        "Jordan Spieth",
+        "Justin Thomas",
+        "Patrick Fishburn"
+      ],
+      "percentile": 64.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brian Harman",
+        "Brooks Koepka",
+        "Harris English",
+        "Hideki Matsuyama",
+        "Keith Mitchell",
+        "Max Greyserman"
+      ],
+      "percentile": 65.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brandt Snedeker",
+        "Brooks Koepka",
+        "Cameron Young",
+        "Christiaan Bezuidenhout",
+        "Keegan Bradley",
+        "Mac Meissner"
+      ],
+      "percentile": 65.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Davis Riley",
+        "Jordan Spieth",
+        "Keegan Bradley",
+        "Seamus Power",
+        "Tom Kim"
+      ],
+      "percentile": 67.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Brian Harman",
+        "Davis Thompson",
+        "Jackson Koivun",
+        "Joe Highsmith",
+        "Sungjae Im"
+      ],
+      "percentile": 67.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brian Harman",
+        "Cameron Young",
+        "Jordan Spieth",
+        "Justin Lower",
+        "Justin Thomas",
+        "Rasmus Neergaard-Petersen"
+      ],
+      "percentile": 69.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Jackson Koivun",
+        "Jordan Spieth",
+        "Justin Thomas",
+        "Keegan Bradley",
+        "Matt Kuchar",
+        "Max McGreevy"
+      ],
+      "percentile": 69.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Brian Harman",
+        "Jackson Koivun",
+        "Keegan Bradley",
+        "Nicolas Echavarria",
+        "Stephan Jaeger"
+      ],
+      "percentile": 70.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brian Harman",
+        "Bud Cauley",
+        "Jackson Koivun",
+        "Justin Thomas",
+        "Keith Mitchell",
+        "Stephan Jaeger"
+      ],
+      "percentile": 72.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Chandler Phillips",
+        "J.T. Poston",
+        "Jackson Koivun",
+        "Keegan Bradley",
+        "Sungjae Im"
+      ],
+      "percentile": 72.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Aldrich Potgieter",
+        "Cameron Young",
+        "Davis Thompson",
+        "Keegan Bradley",
+        "Mac Meissner",
+        "Sahith Theegala"
+      ],
+      "percentile": 73.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Davis Thompson",
+        "Eric Cole",
+        "Harris English",
+        "Hideki Matsuyama",
+        "Zac Blair"
+      ],
+      "percentile": 73.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Aaron Rai",
+        "Alex Fitzpatrick",
+        "Brian Campbell",
+        "Brooks Koepka",
+        "Justin Thomas",
+        "Mac Meissner"
+      ],
+      "percentile": 76.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Alex Noren",
+        "Brian Harman",
+        "Cameron Young",
+        "J.T. Poston",
+        "Tony Finau"
+      ],
+      "percentile": 76.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Brooks Koepka",
+        "Cameron Young",
+        "Emiliano Grillo",
+        "Harry Hall",
+        "Max Greyserman"
+      ],
+      "percentile": 77.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Aaron Wise",
+        "Aldrich Potgieter",
+        "Alex Fitzpatrick",
+        "Cameron Young",
+        "Jordan Spieth",
+        "Justin Thomas"
+      ],
+      "percentile": 78.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Adrien Dumont De Chassart",
+        "Alex Fitzpatrick",
+        "Ben Griffin",
+        "Cameron Young",
+        "Jimmy Stanger",
+        "Michael Brennan"
+      ],
+      "percentile": 79.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brian Harman",
+        "Cameron Young",
+        "Jason Day",
+        "Keith Mitchell",
+        "Lee Hodges",
+        "Maverick McNealy"
+      ],
+      "percentile": 79.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Harris English",
+        "Jackson Koivun",
+        "Jason Day",
+        "Justin Thomas",
+        "Keith Mitchell",
+        "Matti Schmid"
+      ],
+      "percentile": 80.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Ben Griffin",
+        "Brian Harman",
+        "Eric Cole",
+        "Hideki Matsuyama",
+        "Sam Stevens"
+      ],
+      "percentile": 80.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Aaron Rai",
+        "Alex Fitzpatrick",
+        "Ben Griffin",
+        "Keegan Bradley",
+        "Michael Kim",
+        "Zac Blair"
+      ],
+      "percentile": 81.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brian Harman",
+        "Cameron Young",
+        "Harris English",
+        "Keegan Bradley",
+        "Kris Ventura",
+        "Ricky Castillo"
+      ],
+      "percentile": 81.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Cameron Young",
+        "Jordan Spieth",
+        "Justin Thomas",
+        "Marcelo Rozo",
+        "Pierceson Coody"
+      ],
+      "percentile": 83.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Davis Thompson",
+        "Harris English",
+        "Jackson Koivun",
+        "Lanto Griffin",
+        "Matt Wallace"
+      ],
+      "percentile": 84.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Chandler Blanchet",
+        "Denny McCarthy",
+        "Harris English",
+        "Hideki Matsuyama",
+        "Keegan Bradley"
+      ],
+      "percentile": 85.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Ben Kohles",
+        "Harris English",
+        "Hideki Matsuyama",
+        "John VanDerLaan",
+        "Keegan Bradley"
+      ],
+      "percentile": 86.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Smalley",
+        "Harris English",
+        "Jackson Koivun",
+        "Johnny Keefer",
+        "Justin Thomas",
+        "Sepp Straka"
+      ],
+      "percentile": 87.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Kohles",
+        "Brian Harman",
+        "Jackson Koivun",
+        "Justin Thomas",
+        "Mac Meissner",
+        "Patrick Rodgers"
+      ],
+      "percentile": 88.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Davis Thompson",
+        "J.T. Poston",
+        "Jackson Koivun",
+        "Justin Thomas",
+        "Rasmus Neergaard-Petersen",
+        "Ryo Hisatsune"
+      ],
+      "percentile": 88.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Harris English",
+        "Jordan Spieth",
+        "Karl Vilips",
+        "Pierceson Coody",
+        "Tom Kim"
+      ],
+      "percentile": 89.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Brooks Koepka",
+        "Bud Cauley",
+        "Harris English",
+        "Jackson Koivun",
+        "Sam Stevens"
+      ],
+      "percentile": 89.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Austin Eckroat",
+        "Ben Griffin",
+        "Cameron Young",
+        "Sepp Straka",
+        "Tony Finau"
+      ],
+      "percentile": 89.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Noren",
+        "Ben Griffin",
+        "Cameron Young",
+        "Jesper Svensson",
+        "Karl Vilips",
+        "Keegan Bradley"
+      ],
+      "percentile": 91.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Blades Brown",
+        "Cameron Young",
+        "Johnny Keefer",
+        "Jordan Spieth",
+        "Justin Thomas",
+        "Luke Clanton"
+      ],
+      "percentile": 91.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Cameron Young",
+        "Emiliano Grillo",
+        "Keegan Bradley",
+        "Sahith Theegala",
+        "Stephan Jaeger"
+      ],
+      "percentile": 92.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Austin Smotherman",
+        "Harris English",
+        "J.T. Poston",
+        "Justin Thomas",
+        "Keegan Bradley",
+        "Ryan Gerard"
+      ],
+      "percentile": 92.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Fitzpatrick",
+        "Davis Thompson",
+        "Harris English",
+        "J.T. Poston",
+        "Jackson Koivun",
+        "William Mouw"
+      ],
+      "percentile": 93.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Cameron Young",
+        "Eric Cole",
+        "Keegan Bradley",
+        "Sepp Straka",
+        "William Mouw"
+      ],
+      "percentile": 95.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Blades Brown",
+        "Cameron Young",
+        "Jordan Spieth",
+        "Marco Penge",
+        "Pierceson Coody"
+      ],
+      "percentile": 95.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Brian Harman",
+        "Davis Riley",
+        "Davis Thompson",
+        "Emiliano Grillo",
+        "Jackson Koivun"
+      ],
+      "percentile": 97.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Cameron Young",
+        "Johnny Keefer",
+        "Keegan Bradley",
+        "Sam Stevens",
+        "Zac Blair"
+      ],
+      "percentile": 98.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ben Griffin",
+        "Brooks Koepka",
+        "David Lipsky",
+        "Harris English",
+        "Mac Meissner",
+        "Ryan Gerard"
+      ],
+      "percentile": 99.3,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [
+    14.0
+  ],
+  "clean_pctiles": [
+    1.0,
+    1.5,
+    2.6,
+    4.5,
+    6.4,
+    7.4,
+    9.8,
+    13.0,
+    14.4,
+    14.4,
+    16.0,
+    16.7,
+    17.3,
+    17.7,
+    17.7,
+    17.9,
+    17.9,
+    20.7,
+    21.4,
+    21.8,
+    22.0,
+    24.2,
+    24.4,
+    26.0,
+    28.4,
+    28.6,
+    28.9,
+    30.3,
+    32.4,
+    33.2,
+    33.2,
+    33.5,
+    34.0,
+    38.4,
+    38.7,
+    39.4,
+    39.9,
+    40.5,
+    40.8,
+    40.8,
+    42.9,
+    44.5,
+    44.5,
+    47.8,
+    49.3,
+    50.7,
+    52.4,
+    55.7,
+    56.2,
+    57.6,
+    57.9,
+    59.0,
+    59.6,
+    59.8,
+    61.1,
+    62.4,
+    63.3,
+    64.3,
+    64.9,
+    65.5,
+    65.8,
+    67.6,
+    67.9,
+    69.5,
+    69.5,
+    70.8,
+    72.5,
+    72.5,
+    73.5,
+    73.8,
+    76.1,
+    76.3,
+    77.7,
+    78.1,
+    79.3,
+    79.3,
+    80.4,
+    80.9,
+    81.5,
+    81.9,
+    83.3,
+    84.2,
+    85.4,
+    86.2,
+    87.7,
+    88.4,
+    88.7,
+    89.0,
+    89.6,
+    89.9,
+    91.5,
+    91.5,
+    92.0,
+    92.4,
+    93.5,
+    95.8,
+    95.9,
+    97.1,
+    98.7,
+    99.3
+  ]
+}

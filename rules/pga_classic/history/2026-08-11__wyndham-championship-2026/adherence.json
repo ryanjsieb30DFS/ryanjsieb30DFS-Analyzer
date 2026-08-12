@@ -1,0 +1,203 @@
+{
+  "gradable": true,
+  "n_lineups": 101,
+  "n_contests": 2,
+  "calls": [
+    {
+      "name": "Doug Ghim",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 101,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193182823.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193182829 3.csv",
+          "in_lineups": 0,
+          "of": 100,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Maverick Mcnealy",
+      "verdict": "lean_fade",
+      "exposure_pct": 10.9,
+      "in_lineups": 11,
+      "of": 101,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193182823.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193182829 3.csv",
+          "in_lineups": 11,
+          "of": 100,
+          "exposure_pct": 11.0
+        }
+      ]
+    },
+    {
+      "name": "Blades Brown",
+      "verdict": "lean_fade",
+      "exposure_pct": 3.0,
+      "in_lineups": 3,
+      "of": 101,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193182823.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193182829 3.csv",
+          "in_lineups": 3,
+          "of": 100,
+          "exposure_pct": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Ryan Gerard",
+      "verdict": "underweight",
+      "exposure_pct": 3.0,
+      "in_lineups": 3,
+      "of": 101,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193182823.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193182829 3.csv",
+          "in_lineups": 3,
+          "of": 100,
+          "exposure_pct": 3.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-193182823.csv"
+      ]
+    },
+    {
+      "name": "Tom Kim",
+      "verdict": "underweight",
+      "exposure_pct": 14.9,
+      "in_lineups": 15,
+      "of": 101,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193182823.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193182829 3.csv",
+          "in_lineups": 15,
+          "of": 100,
+          "exposure_pct": 15.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-193182823.csv"
+      ]
+    },
+    {
+      "name": "Jackson Koivun",
+      "verdict": "underweight",
+      "exposure_pct": 19.8,
+      "in_lineups": 20,
+      "of": 101,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193182823.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193182829 3.csv",
+          "in_lineups": 20,
+          "of": 100,
+          "exposure_pct": 20.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-193182823.csv"
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 3,
+  "leverage_candidates": [
+    {
+      "name": "Keegan Bradley",
+      "rostered": true
+    },
+    {
+      "name": "Michael Kim",
+      "rostered": true
+    },
+    {
+      "name": "Emiliano Grillo",
+      "rostered": true
+    },
+    {
+      "name": "Brian Harman",
+      "rostered": true
+    },
+    {
+      "name": "Matt Wallace",
+      "rostered": true
+    },
+    {
+      "name": "Keith Mitchell",
+      "rostered": true
+    },
+    {
+      "name": "Alex Smalley",
+      "rostered": true
+    },
+    {
+      "name": "Nick Taylor",
+      "rostered": true
+    },
+    {
+      "name": "Alex Noren",
+      "rostered": true
+    },
+    {
+      "name": "Matthew McCarty",
+      "rostered": true
+    },
+    {
+      "name": "Eric Cole",
+      "rostered": true
+    },
+    {
+      "name": "Rasmus Neergaard-Petersen",
+      "rostered": true
+    }
+  ],
+  "leverage_covered": 12,
+  "leverage_of": 12
+}

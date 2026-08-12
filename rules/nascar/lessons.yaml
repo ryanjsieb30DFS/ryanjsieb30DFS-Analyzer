@@ -105,6 +105,7 @@ lessons:
     confirmations:
       - {date: "2026-07-21", slate: "North Wilkesboro (7/19/26)", history_dir: "rules/nascar/history/2026-07-21__nascar-north-wilkesboro-7-19-26", note: "First mechanism confirmation, and it's the whole slate story: the strategy DIAGNOSED the gap in writing ('your leverage capture went 0% and 50% the last two slates, and the definers list above is the screen that fixes it') and named 12 sub-10% candidates — then 0 of 12 reached an entered lineup. Three of the diagnosed plays defined the slate (SVG 61.0 @ 9.5%, Suarez 45.05 @ 5.6%, Gilliland 46.9 @ 5.1%) and the $15K winner carried three sub-10% pieces. Already-diagnosed, unaddressed, edge forfeited for free — the mechanism verbatim. Promoted to validated; the mechanical fix is the new [[nascar-2026-07-21-definer-screen-must-reach-entries]]."}
       - {date: "2026-07-26", slate: "Brickyard 400, Indianapolis", history_dir: "rules/nascar/history/2026-07-26__brickyard-400-at-indianapolis-motor-speedway-7-26-26", note: "Second mechanism confirmation — and the diagnosis was even louder this time. The strategy named the gap in its own text ('your last slate's definer list produced twelve names and zero of them reached an entered lineup') and put it in the pre-lock check ('Does it carry at least one driver owned under 10%?') — then AGAIN 0 of 12 named definers reached an entered lineup and both entries locked with zero sub-10% pieces. Two diagnosed plays decided the slate: Heim (70.45 @ 7.5%, in the WINNING lineup of both contests) and Keselowski (49.8 @ 5.7%, in the $5K winner). Diagnosed, unaddressed, forfeited for free. Origin Texas + North Wilkesboro + Indy = 3 confirming slates -> promoted to codified 2026-07-26 (user-approved)."}
+      - {date: "2026-08-09", slate: "Iowa Corn 350, Iowa Speedway", history_dir: "rules/nascar/history/2026-08-09__iowa-corn-350-iowa-speedway-2026", note: "Post-codification evidence that the RULE holds but codification alone has not changed behavior. The gap was diagnosed in the strategy's own text a third time ('Your last two slates entered zero names from this list; this list only matters if one reaches the entry') and again 0 of 12 diagnosed definers reached an entry, while two of them sat in the two winning lineups (Nemechek 31.4 @ 14.1% in the 588 winner; Stenhouse 23.45 @ 3.1% in the 392 winner). The already-diagnosed edge was forfeited for free a third time — the mechanical build-time gate lives in [[nascar-2026-07-21-definer-screen-must-reach-entries]], now itself at promotion."}
     contradictions: []
     codified_in: "framework.md — Quick-Reference Decision Heuristics (diagnosed gap must reach a roster); philosophy.md — On Process Discipline (Diagnosis is not execution)"
     retired_reason: null
@@ -714,11 +715,12 @@ lessons:
       and operationalizes [[nascar-2026-05-01-portfolio-gaps-addressed-pre-lock]];
       tension with [[nascar-2026-05-17-mme-or-fade-means-fade-in-se]] noted (the
       NW definers that paid carried the 'MME or fade' tag).
-    status: validated
+    status: codified
     confirmations:
       - {date: "2026-07-26", slate: "Brickyard 400, Indianapolis", history_dir: "rules/nascar/history/2026-07-26__brickyard-400-at-indianapolis-motor-speedway-7-26-26", note: "First mechanism confirmation — fourth slate of the hand-off pattern (0%, 50%, 0/12, now 0/12 again). The Indy screen named 12 sub-10% definers including Heim (9% proj) and Keselowski (8% proj); the winning lineup of BOTH contests carried a screen name (Heim 70.45 in both winners; Keselowski 49.8 also in the $5K winner, which held THREE sub-10% pieces), while both entered lineups locked with ZERO sub-10% pieces (low_own_count 0; leverage capture 0/12 for the second straight slate). The screen produces the definers; the hand-off transfers none of the equity — mechanism verbatim. Promoted to validated."}
+      - {date: "2026-08-09", slate: "Iowa Corn 350, Iowa Speedway", history_dir: "rules/nascar/history/2026-08-09__iowa-corn-350-iowa-speedway-2026", note: "Second mechanism confirmation — FIFTH slate of the hand-off pattern (0%, 50%, 0/12, 0/12, now 0/12 again), and the strategy even wrote the warning into the Leverage section itself ('Your last two slates entered zero names from this list; this list only matters if one reaches the entry'). The 12-name screen again produced winners' pieces: John H. Nemechek (5% proj) was in the 588-field WINNING lineup (31.4 @ 14.1% actual, 30% of the top-20) and Ricky Stenhouse Jr (2% proj) was in the 392-field WINNING lineup (23.45 @ 3.1%). Both entered lineups again carried 0 of 12 (adherence leverage_covered 0/12); the Engine Block entry was six chalk names with no definer and was duplicated 4x. Screen produces, hand-off transfers nothing — mechanism verbatim. Origin NW + Indy + Iowa = 3 confirming slates -> meets promotion criteria; codification proposal in autopsy_review Proposed codifications."}
     contradictions: []
-    codified_in: null
+    codified_in: "rules/nascar/framework.md — Step 6 Mandatory enforced checks, #11 Definer hand-off gate; rules/nascar/philosophy.md — On Process Discipline, 'A list is not a lineup'"
     retired_reason: null
 
   - id: nascar-2026-07-21-se-actual-own-concentrates-on-consensus
@@ -745,11 +747,12 @@ lessons:
       fade and overweight justified against the old number and triggers a
       full re-evaluation of the chalk structure (the drift panel is the
       surface), never confirmation of the existing plan.
-    status: validated
+    status: codified
     confirmations:
       - {date: "2026-07-26", slate: "Brickyard 400, Indianapolis", history_dir: "rules/nascar/history/2026-07-26__brickyard-400-at-indianapolis-motor-speedway-7-26-26", note: "First mechanism confirmation (DailyFan projected -> actual lock, $15K/$5K). Consensus side jammed: Bell 38% -> 50.2/51.2, Cindric 40% -> 46.8/49.8, Larson 27% -> 37.5/38.6, and the loudest cheap value Gilliland 15% -> 45.1/47.1 (+30pts, the biggest jam on the board). Co-anchors DEFLATED: Elliott 36% -> 25.9/27.6, Byron 35% -> 32.5/31.4, Hamlin 34% -> 29.7/30.2. The projected Bell/Elliott/Byron near-tie (38/36/35) resolved to a 50/26/32 landslide at lock — the asymmetric resolution the mechanism predicts, in a different SE field size. The strategy applied the lesson correctly pre-lock ('treat Preece's 44% and Bell's 38% as floors, not estimates') and lock own proved it. Promoted to validated."}
+      - {date: "2026-08-09", slate: "Iowa Corn 350, Iowa Speedway", history_dir: "rules/nascar/history/2026-08-09__iowa-corn-350-iowa-speedway-2026", note: "Second mechanism confirmation (DailyFan projected -> actual lock, 392/588 SE fields). Consensus anchor jammed massively: Blaney 52% -> 82.4/74.3 (+30pts, exactly the 'floor, not estimate' read — the strategy wrote '52% at lock could be 60%' and it went 82). The loud values jammed too: Ty Gibbs 20% -> 44.1/41.2, Preece 34% -> 44.6/38.6, Gilliland 22% -> 34.4/31.1. The Bell/Byron/Hamlin near-tie (35/33/32 projected) resolved asymmetrically: Bell held 37-38% while Byron deflated to 23.5-25.8 and Hamlin to 18. The equivalence alternatives deflated as the mechanism predicts (Larson 22% -> 12.5/13.3, Reddick 16% -> 9.9). Origin NW + Indy + Iowa = 3 confirming slates across three field sizes -> meets promotion criteria; codification proposal in autopsy_review Proposed codifications."}
     contradictions: []
-    codified_in: null
+    codified_in: "rules/nascar/framework.md — Quick-Reference Decision Heuristics, 'SE lock-ownership floor rule (codified 2026-08-09)'"
     retired_reason: null
 
   # ---------------------------------------------------------------
@@ -783,8 +786,9 @@ lessons:
       slots. Complements [[nascar-2026-05-01-sound-chalk-toward-field-rate]]
       and [[nascar-2026-05-24-anchor-equivalence]]; the leverage-slot half is
       [[nascar-2026-07-21-definer-screen-must-reach-entries]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - {date: "2026-08-09", slate: "Iowa Corn 350, Iowa Speedway", history_dir: "rules/nascar/history/2026-08-09__iowa-corn-350-iowa-speedway-2026", note: "First mechanism confirmation — and BOTH halves fired, one per contest. (a) Fish-shape half, 392 field: the entry dropped consensus anchors Bell (37.8% own, 115.1 — the slate's top score) and Gibbs (44.1%, 66.7) with no stated fade case and spent the slots on mid-owned mush — Byron (25.8%, the #2 fish trap, 0% of winners) and Reddick (9.9%, -26.0) — finishing 64.8 percentile while all four top-4 lineups carried Bell+Blaney+Gibbs. (b) Differentiation-slot half, 588 field: the entry HELD the anchors but put ZERO differentiation anywhere (six 30%+ names, 38.4%/slot, dup_count 4 — four entrants had the identical roster), while the winner held the same anchor core plus Chastain 14.6/Nemechek 14.1/Buescher 17.4 as unique-making pieces. Chalk-without-a-definer is the modal duplicated lineup; anchors held is necessary but the sixth slot must differentiate. Shark gap flipped positive for the first time (own_per_slot +3.3 — MORE chalky than the pros) — the leak is oscillating around the pros' shape (anchors + one definer) instead of copying it. Promoted to validated."}
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -811,6 +815,40 @@ lessons:
       `· Leverage` instead. Links
       [[nascar-2026-05-17-mme-or-fade-means-fade-in-se]] and
       [[nascar-2026-07-21-definer-screen-must-reach-entries]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---------------------------------------------------------------
+  # Iowa Corn 350, Iowa Speedway — 2026-08-09 (Slate #10 autopsy)
+  # ---------------------------------------------------------------
+
+  - id: nascar-2026-08-09-definer-band-scales-with-field-size
+    born: "2026-08-09"
+    origin: "rules/nascar/history/2026-08-09__iowa-corn-350-iowa-speedway-2026 (winner_story + field_profile)"
+    statement: >
+      In sub-600 SE fields the winning differentiation band is WIDER than the
+      strict sub-10% definer screen: three 10-18%-owned pieces with real PD/value
+      paths can supply all the separation a winner needs. Iowa 588-field winner
+      (Nadroj311, 410.8) held the consensus anchor core (Bell/Blaney/Bubba) and
+      differentiated ENTIRELY with Chastain (14.6% own), Nemechek (14.1%) and
+      Buescher (17.4%) — zero sub-10% pieces, yet a unique roster (expected
+      dupes 0.21). The smaller 392 field's winner still carried a true dart
+      (Stenhouse 3.1%). Mechanism: expected copies of a roster scale with field
+      size times the ownership product, so at N<=600 stacking three 10-18%
+      pieces already drives expected duplicates below 1, while a chalk-only
+      shell is duplicated (my Engine Block entry: six 30%+ names, dup_count 4);
+      in larger fields (N>=1500, e.g. the NW $15K winner's three sub-10%
+      pieces) the product needs sub-10% terms. Pre-lock: size the definer
+      slot's ownership ceiling to the FIELD — in sub-600 SE, mid-teens-owned PD
+      plays with a path are legitimate separation units (they still count as
+      'the definer'), while the sub-10% dart remains the ideal in top-heavy
+      payouts and the requirement in 1,000+ fields. This widens, not replaces,
+      [[nascar-2026-07-21-definer-screen-must-reach-entries]]; complements
+      [[nascar-2026-07-26-anchors-held-differentiate-in-sixth-slot]] and
+      [[nascar-2026-05-24-sleeper-spike-floor]].
     status: hypothesis
     confirmations: []
     contradictions: []

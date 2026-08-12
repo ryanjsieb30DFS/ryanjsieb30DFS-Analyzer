@@ -1,0 +1,76 @@
+[
+  {
+    "slug": "pga_classic",
+    "slate_name": "PGA Classic contest-standings-193182823 2026-08-11",
+    "contest_id": "193182823",
+    "field_size": 3431,
+    "schema_version": 1,
+    "generated_at": "2026-08-11 21:07",
+    "user": {
+      "n_entries": 1,
+      "best_points": 485.5,
+      "avg_points": 485.5,
+      "best_rank": 482
+    },
+    "pool": {
+      "n": 20000,
+      "avg_actual": 391.06,
+      "median_actual": 390.5,
+      "max_actual": 651.0,
+      "n_beating_best_entry": 2238,
+      "pct_beating_best_entry": 11.19,
+      "picking_edge_points": 94.44
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 20000,
+        "spearman_vs_actual": 0.005,
+        "top100_avg_actual": 376.56,
+        "pool_avg_actual": 391.06
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 20000,
+        "spearman_vs_actual": -0.002,
+        "top100_avg_actual": 363.45,
+        "pool_avg_actual": 391.06
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 20000,
+        "spearman_vs_actual": -0.052,
+        "top100_avg_actual": 367.37,
+        "pool_avg_actual": 391.06
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 20000,
+        "spearman_vs_actual": 0.107,
+        "top100_avg_actual": 389.14,
+        "pool_avg_actual": 391.06
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 482,
+        "Points": 485.5,
+        "Lineup": "G Cameron Young G Justin Thomas G Sungjae Im G Ben Kohles G J.T. Poston G Benjamin James",
+        "matched": true,
+        "pre_sim_roi_pct": 16.1,
+        "pre_sim_top1_pct": 1.63,
+        "pre_sim_win_pct": 0.01,
+        "pre_sim_cash_pct": 31.61,
+        "post_roi_pct": 13.32,
+        "post_top1_pct": 1.74,
+        "post_win_pct": 0.008,
+        "post_cash_pct": 31.19
+      }
+    ]
+  }
+]

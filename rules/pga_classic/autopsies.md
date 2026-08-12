@@ -415,3 +415,40 @@ Per Philosophy Section 4:
 - 🕳️ Buried: **Kevin Roy** (Fade) scored 88.0 — above the top tier's average.
 - 🕳️ Buried: **Beau Hossler** (Fade) scored 67.5 — above the top tier's average.
 - ⚪ Excluded as likely scratches (0.0 FPTS — didn't compete): Taylor Moore (Fade). Not counted in tier averages.
+
+
+## 2026-08-11 21:10 — PGA Classic (contest-standings-193182823.csv)
+- Entries: 3,431
+- Winning score: 607.5
+- Cash line (top 20%): 470.5
+- My entries: 1 · best rank 482/3,431 (top 14.0%)
+- Winners (top 34): avg own 15.53% vs mine 19.4% · sub-10% plays/lineup 2.91 vs mine 1.0
+- Slate-defining plays: Michael Brennan (142.5 pts @ 5.6%), Aaron Rai (84.0 pts @ 19.2%)
+
+
+## 2026-08-11 21:10 — PGA Classic (contest-standings-193182829 3.csv)
+- Entries: 71,343
+- Winning score: 686.5
+- Cash line (top 20%): 477.5
+- My entries: 100 · best rank 726/71,343 (top 1.0%)
+- Winners (top 100): avg own 12.7% vs mine 12.79% · sub-10% plays/lineup 3.03 vs mine 2.89
+- Slate-defining plays: Michael Brennan (142.5 pts @ 6.3%), Benjamin James (127.5 pts @ 6.5%)
+
+### Strategy adherence — did you follow your own strategy? (101 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Ryan Gerard** was in 0 of 1 lineups in contest-standings-193182823.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Tom Kim** was in 0 of 1 lineups in contest-standings-193182823.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Jackson Koivun** was in 0 of 1 lineups in contest-standings-193182823.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- Leverage candidates rostered somewhere: **12 of 12**.
+
+### Player-pool tier calibration (129 of 147 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 3 | 64.5 | 91.0 |
+| **Good** | 6 | 71.0 | 111.0 |
+| **Okay** | 107 | 60.3 | 142.5 |
+| **Fade** | 13 | 44.2 | 89.5 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+- 🕳️ Buried: **Doug Ghim** (Fade) scored 89.5 — above the top tier's average.
+- 🕳️ Buried: **Maverick Mcnealy** (Fade) scored 88.0 — above the top tier's average.
+- 🕳️ Buried: **David Skinns** (Fade) scored 83.0 — above the top tier's average.
