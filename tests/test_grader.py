@@ -185,3 +185,112 @@ def test_leverage_md_reads_exposure_vs_field():
     assert "| B | 50% | 8.0% | +42.0% |" in md
     assert "| C | 50% | — | — |" in md      # missing ownership never fabricated
     assert leverage_md([]) is None
+
+
+# ---- Per-contest letter grading (8/9/26) -----------------------------------
+
+
+def _flag(level, code):
+    return {"level": level, "code": code, "msg": f"[{code}]"}
+
+
+def test_flag_codes_present():
+    from src.autopsy import _norm_name
+    cal = _cal(fades={_norm_name("Alpha Guy")}, own_flag_above=10.0)
+    g = _grade_text("Alpha Guy, Beta Guy, Gamma Guy", cal)[0]
+    codes = {f.get("code") for f in g["flags"]}
+    assert "fade" in codes and "chalk_heavy" in codes
+
+
+def test_letter_grade_boundaries():
+    cal = _cal()
+    for n, expect in ((0, "A"), (1, "B"), (2, "C"), (3, "D"), (4, "F")):
+        g = {"flags": [_flag("warn", "chalk_heavy")] * n}
+        assert grader.letter_grade(g, cal)["letter"] == expect
+    # Hard F: a fade violation is final even with one warn.
+    g = {"flags": [_flag("warn", "fade")]}
+    lt = grader.letter_grade(g, cal)
+    assert lt["letter"] == "F" and "final" in lt["why"][0]
+    assert grader.letter_grade({"flags": [_flag("warn", "salary_cap")]},
+                               cal)["letter"] == "F"
+
+
+def test_letter_grade_sim_bumps():
+    cal = _cal(payout_shape="Top-heavy")
+    # 92nd percentile in this contest -> one step up.
+    g1 = {"flags": [_flag("warn", "chalk_heavy")] * 3}       # base D
+    lt = grader.letter_grade(g1, cal, {"pct_top1": 92.0, "pct_cash": 10.0})
+    assert lt["letter"] == "C" and lt["base"] == "D"
+    # A stays A.
+    lt2 = grader.letter_grade({"flags": []}, cal, {"pct_top1": 99.0, "pct_cash": 0})
+    assert lt2["letter"] == "A"
+    # 20th percentile -> one step down; D drops to F.
+    lt3 = grader.letter_grade(g1, cal, {"pct_top1": 20.0, "pct_cash": 95.0})
+    assert lt3["letter"] == "F"
+    lt4 = grader.letter_grade({"flags": []}, cal, {"pct_top1": 20.0, "pct_cash": 95.0})
+    assert lt4["letter"] == "B"
+    # Mid percentile -> unchanged.
+    assert grader.letter_grade({"flags": []}, cal,
+                               {"pct_top1": 50.0, "pct_cash": 50.0})["letter"] == "A"
+    # Hard F never bumps up.
+    hard = {"flags": [_flag("warn", "fade")]}
+    assert grader.letter_grade(hard, cal, {"pct_top1": 99.0,
+                                           "pct_cash": 99.0})["letter"] == "F"
+    # Flat contests read the cash percentile instead.
+    flat = _cal(payout_shape="Flat")
+    assert grader.letter_grade(g1, flat, {"pct_top1": 5.0,
+                                          "pct_cash": 95.0})["letter"] == "C"
+    # No sim row -> no adjustment + the plain-language note.
+    lt5 = grader.letter_grade({"flags": []}, cal, None)
+    assert lt5["letter"] == "A" and any("not in the Sim's pool" in w
+                                        for w in lt5["why"])
+
+
+def test_worst_letter():
+    assert grader.worst_letter(["A", "C", "B"]) == "C"
+    assert grader.worst_letter(["A", "F"]) == "F"
+    assert grader.worst_letter([]) is None
+
+
+def test_sim_standing_percentile_exact():
+    pool = {"rosters": [["A", "B"], ["C", "D"], ["E", "F"]]}
+    contest = {"metrics": {"top1_pct": [1.0, 5.0, 9.0],
+                           "cash_pct": [30.0, 20.0, 10.0]}}
+    std = grader.sim_standing(pool, contest, "C|D")
+    assert std["index"] == 1
+    assert std["pct_top1"] == 50.0      # 1 of 2 others strictly below
+    assert std["pct_cash"] == 50.0
+    assert grader.sim_standing(pool, contest, "X|Y") is None
+    top = grader.sim_standing(pool, contest, "E|F")
+    assert top["pct_top1"] == 100.0 and top["pct_cash"] == 0.0
+
+
+def test_contest_calibration_carries_contest_context(monkeypatch):
+    import src.grader as gmod
+    monkeypatch.setattr(gmod, "_baseline", lambda: {}, raising=False)
+    contest = {"id": "ab12cd34", "name": "Little SE", "type": "SE",
+               "field_size": 588, "my_entries": 1, "entry_fee": 12.0,
+               "payout_shape": "Top-heavy"}
+    cal = grader.contest_calibration("nascar", "nascar", contest)
+    assert cal["field_size"] == 588            # THIS contest, not a slate max
+    assert cal["payout_shape"] == "Top-heavy"
+    assert cal["contest_name"] == "Little SE" and cal["my_entries"] == 1
+
+
+def test_contest_grade_md_shows_letters():
+    cal = _cal(contest_name="Little SE", payout_shape="Top-heavy")
+    g = _grade_text("Alpha Guy, Beta Guy, Gamma Guy, Delta Guy, Echo Guy, Foxtrot Guy",
+                    cal)[0]
+    lt = grader.letter_grade(g, cal)
+    md = grader.contest_grade_md([g], [lt], [], cal)
+    assert f"Grade {lt['letter']} — Lineup 1" in md
+    assert "Little SE" in md
+
+
+def test_clear_drafts_globs_suffixed(tmp_path, monkeypatch):
+    import src.grader as gmod
+    monkeypatch.setattr(gmod, "_DRAFT_DIR", tmp_path)
+    (tmp_path / "nascar.txt").write_text("x")
+    (tmp_path / "nascar__ab12cd34.txt").write_text("y")
+    grader.clear_drafts("nascar")
+    assert not list(tmp_path.glob("nascar*"))

@@ -36,6 +36,14 @@ lessons:
           caution: price + ownership proximity alone is not equivalence — the profiles
           must actually be interchangeable. Surfacing the pair (the codified mechanism)
           holds; auto-taking the cheaper side does not.
+      - date: "2026-08-11"
+        slate: "Wyndham Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-11__wyndham-championship-rd4-sd-2026)"
+        note: >
+          Kim/Brennan twins ($1,000 apart, 41.7% vs 39.6% proj own, 1.4 proj pts apart)
+          diverged hard: Brennan 71.45 vs Kim 39.05. The user's entry holding Brennan
+          WITHOUT Kim won the 294-field SE outright; the entry carrying both twins
+          finished 13.5 pctile in the 141 field. Splitting the pair across the two
+          entries — the codified mechanism — was executed pre-lock and paid.
     contradictions: []
     codified_in: "framework.md — The Anchor-Equivalence Rule (3-slate golf confirmation); philosophy.md — On Structural Leaks; rules/shared/anchor_equivalence.md"
     retired_reason: null
@@ -296,6 +304,15 @@ lessons:
           staple (47.9% of top lineups). The popular chalk (Brennan 27.4 at 30.3%,
           Young 35.4 at 36.4%) was outscored by the cheaper, less-owned mid-tier again.
           Meets the 3-confirmation promotion bar — codification proposed 2026-08-08.
+      - date: "2026-08-11"
+        slate: "Wyndham Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-11__wyndham-championship-rd4-sd-2026)"
+        note: >
+          Fifth confirming slate. The strategy pre-named the squeezed $8,300-9,200 tier
+          as where quiet value lived; Benjamin James ($8,700, 8.16%/6.38% actual own)
+          posted the slate-top 84.25 and supplied the winning margin in both contests.
+          Caveat: the OTHER named squeezed-tier plays (Theegala 25.0, Ghim, Kohles)
+          busted — the SLOT keeps producing the winning score, individual names within
+          it stay coin flips.
     codified_in: "framework.md — The Sub-15% Mid-Tier Score Source (codified 2026-08-08, subsection after The Ceiling-Player Requirement)"
     retired_reason: null
 
@@ -307,11 +324,11 @@ lessons:
       floor, so a sub-6% punt that appears in 2+ lineups concentrates dead-slot risk.
       Pre-lock check: any sub-6% punt in 2+ lineups needs an articulated
       cheap-spike-of-the-week thesis; otherwise rotate punts across lineups.
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: "Absorbed by codified rules (one-thesis-per-bullet + single-bullet envelope); 0 confirmations in 3 slates including a 34-entry portfolio."
 
   - id: pga-rd4-sd-2026-05-24-one-thesis-per-bullet
     born: "2026-05-24"
@@ -396,6 +413,14 @@ lessons:
           6.9% in the mini-MAX). The user's lone SE entry at 7.28% own with 5 sub-10%
           golfers — far below the envelope — finished 26.1 pctile while the tracked pro
           in-field (moklovin) ran 22.9% per slot and finished top 1%.
+      - date: "2026-08-11"
+        slate: "Wyndham Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-11__wyndham-championship-rd4-sd-2026)"
+        note: >
+          Fourth confirming slate, both contests, this time from the winning side: the
+          294-field winner (the user's own entry) ran 22.2% avg per-player own with
+          exactly 1 sub-10% carrier; the 141-field winner ran 25.8% with 2. Top-20
+          structures averaged 24.3%/24.5% own with 1.3-1.6 sub-10% pieces. The envelope
+          shape didn't just describe the winners — it produced one.
     contradictions: []
     codified_in: "framework.md — Historical Winning Structure (Actual DK winners 2023-2026 validation)"
     retired_reason: null
@@ -467,6 +492,12 @@ lessons:
           per-tier leverage screen named BOTH before lock, and 12/12 named candidates
           were rostered somewhere (leverage capture 1.0 after 6/19's 0.0). Meets the
           3-confirmation promotion bar — codification proposed 2026-08-08.
+      - date: "2026-08-11"
+        slate: "Wyndham Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-11__wyndham-championship-rd4-sd-2026)"
+        note: >
+          Benjamin James (8.16% / 6.38% actual own, 84.25 fpts — the slate's top score)
+          was the sub-10% carrier in BOTH contest winners. The <20%-own slate-definer
+          appeared again, and the user's winning entry carried him.
     contradictions: []
     codified_in: "framework.md — The One-Dart Mandate (codified 2026-08-08, under Historical Winning Structure)"
     retired_reason: null
@@ -514,6 +545,14 @@ lessons:
           hypothesis -> validated; meets the 3-confirming-slate bar — codification
           proposed 2026-08-08. Caveat: exact stroke deficits weren't in the standings,
           so position (T-11 vs T-48) proxied the 2-4-back vs way-back split.
+      - date: "2026-08-11"
+        slate: "Wyndham Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-11__wyndham-championship-rd4-sd-2026)"
+        note: >
+          Bucket-2 chaser Justin Thomas ($9,500, 15.2% proj / 10.6-13.3% actual own,
+          outside the lead group) scored 55.9 and sat in BOTH contest-winning lineups;
+          chaser Hideki (18.5% proj) scored 60.0 and anchored 4 of the SE top 10.
+          Meanwhile leaderboard chalk Tom Kim (44-47% field own) busted at 39.05.
+          Contention extended past the 54-hole leaders exactly as codified.
     contradictions: []
     codified_in: "framework.md — The Three-Bucket Position Read (codified 2026-08-08, under Rule-Set Decision Framework)"
     retired_reason: null
@@ -537,6 +576,40 @@ lessons:
       must-appear unless explicitly full-faded. Recurring axis: shark-gap own_per_slot
       has now separated in this same direction on both graded RD4 SD slates
       (6/19 Fitzpatrick-to-zero; 8/8 delta -15.6).
+    status: validated
+    confirmations:
+      - date: "2026-08-11"
+        slate: "Wyndham Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-11__wyndham-championship-rd4-sd-2026)"
+        note: >
+          First live confirmation, from the corrective side. Both single-entry bullets
+          were built at the envelope the lesson prescribes — 22.2% and 22.8% avg
+          per-slot own with exactly 1 sub-10% piece each (vs 8/8's 7.28% own / 5
+          darts) — and produced rank 1 of 294 (WON the contest) and 19 of 141. The
+          recurring shark-gap own-per-slot delta narrowed from -15.6 to -5.6, and the
+          user beat the lone tracked shark in-field (their 0.34 pctile vs the shark's
+          77.9). Envelope-shaped single bullets captured the modal outcome exactly as
+          the mechanism states. 2 of 3 slates toward promotion.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-08-11-own-outrunning-projection-trap-shape
+    born: "2026-08-11"   # Wyndham Championship RD4 SD 2026
+    origin: "rules/pga_rd4_sd/history/2026-08-11__wyndham-championship-rd4-sd-2026 — field_profile.fish_traps + actual-vs-projected ownership, both contests"
+    statement: >
+      On RD4 SD, the trap SHAPE is actual lock ownership running far ahead of the
+      printed projection-own number. This slate the losing half's signature buys all
+      shared it: Van Rooyen 5.6% projected -> 12-20% actual (scored 8.2, a top-2 fish
+      trap in both contests), Koivun 11.2% -> 18-25% actual (27.6), Thompson 24.6% ->
+      32-36% actual (30.6) — all three at 0% of winners. Winners' rosters were built
+      from golfers at or below their printed number (James 10.5% -> 6-8%, JT 15.2% ->
+      11-13%). Mechanism: ownership drifts late toward comfort/leaderboard names after
+      the sheet prints, so the field pays a worse leverage price than the printed
+      number shows, while plays that hold or undershoot their number keep their
+      leverage for free. Pre-lock implication: treat a popular name's printed own as a
+      FLOOR, and prize plays whose ownership has no obvious reason to drift up.
+      Consistent with the trap-is-a-price doctrine — this is a price condition, never
+      a player list.
     status: hypothesis
     confirmations: []
     contradictions: []

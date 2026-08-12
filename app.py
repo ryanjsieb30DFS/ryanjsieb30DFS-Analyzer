@@ -17,6 +17,7 @@ import streamlit as st
 from src.autopsy import (
     parse_dk_results, analyze_contest,
     build_autopsy_record, record_md_summary,
+    USER_ALIASES,
 )
 from src.slate_analysis import load_persisted, clear_persisted
 from src.contests import (
@@ -28,11 +29,11 @@ from src.contest_templates import load_templates, save_template, remove_template
 from src.bundle import clear_bundle
 from src.analysis_runner import (
     run_analysis, run_autopsy_review, run_apply_proposals, run_player_pool,
-    run_grade,
+    run_grade, run_contest_selection,
 )
 from src import (
     history, sessions, landscape, player_pool, ledger_hygiene,
-    sim_sessions, field_tendencies, grader,
+    sim_sessions, field_tendencies, grader, sim_link,
 )
 from datetime import datetime as _dt
 from src.projections import load_projections, warn_missing_for_sport
@@ -120,7 +121,7 @@ def _purge_slate_session_keys(slug: str) -> None:
     last slate's Grade-tab lineups and autopsy notes resurrected after every
     clear. Purge the keys so the widgets reload from the now-empty drafts."""
     for k in [k for k in st.session_state
-              if k == f"grade_text_{slug}"
+              if k.startswith(f"grade_text_{slug}")
               or k == f"autopsy_slate_label_{slug}"
               or k == f"autopsy_done_{slug}"
               or k.startswith(f"autopsy_notes_{slug}_")
@@ -175,14 +176,26 @@ def _cached_breakdown(slug: str, src_mtime: float, primary_name: str, sport_: st
 
 
 @st.cache_data(show_spinner=False)
-def _cached_dk_analysis(csv_bytes: bytes, sport_: str | None, slug_: str):
+def _cached_dk_analysis(csv_bytes: bytes, sport_: str | None, slug_: str, src_mtime: float = 0.0):
     """Autopsy per-CSV heavy lifting (parse + structural analysis + shark gap),
     cached on the uploaded file's bytes. Without this, every keystroke in the
     notes/ROI widgets re-parsed and re-analyzed EVERY uploaded standings CSV
-    (~270ms each). Raises ValueError for unparseable CSVs (handled at call site)."""
+    (~270ms each). Raises ValueError for unparseable CSVs (handled at call site).
+    `src_mtime` is the projections session file's mtime — it keys the cache so
+    the salary enrichment refreshes when sources change (see _cached_breakdown)."""
     import io
     parsed = parse_dk_results(io.BytesIO(csv_bytes))
-    analysis = analyze_contest(parsed, None, sport_)
+    # Best-effort salary/proj enrichment from still-loaded projections. The
+    # autopsy never REQUIRES projections — no sources ⇒ proj_frame is None and
+    # every salary field stays None, exactly the old standings-only behavior.
+    proj_frame = None
+    try:
+        from src.autopsy import proj_frame_for_autopsy
+        pool = sessions.merge_same_vendor(sessions.load_sources(slug_))
+        proj_frame = proj_frame_for_autopsy([s.get("df") for s in pool.values()])
+    except Exception:  # noqa: BLE001 — enrichment is best-effort
+        proj_frame = None
+    analysis = analyze_contest(parsed, proj_frame, sport_)
     try:
         from src import shark_gap as _sg
         gap = _sg.gap_for_slug(slug_, parsed)
@@ -282,14 +295,18 @@ with st.sidebar:
             sessions.clear(slug)
             sim_sessions.clear(slug)
             _clear_notes_drafts(slug)
-            grader.clear_draft(slug)
+            grader.clear_drafts(slug)
             _purge_slate_session_keys(slug)
             (REPO_ROOT / "data" / "grade" / f"{slug}.md").unlink(missing_ok=True)
+            for _gp in (REPO_ROOT / "data" / "grade").glob(f"{slug}__*.md"):
+                _gp.unlink(missing_ok=True)
             from src.strategy_contract import clear_contract
             clear_contract(slug)
             from src.sim_link import clear_sim_entries, clear_sim_handoff
             clear_sim_entries(slug)
             clear_sim_handoff(slug)
+            from src.lineup_selection import clear_selection
+            clear_selection(slug)
             st.session_state[f"confirm_clear_{slug}"] = False
             st.rerun()
         if cc2.button("Cancel", key=f"cancel_clear_{slug}"):
@@ -754,7 +771,8 @@ with tab_strategy:
             if len(_crowd_missing) == len(_crowds):
                 st.warning(
                     "⚠️ **Field-tendency coverage gap** — the strategy surfaces none of the "
-                    "plays your field reliably crowds (leverage lives AWAY from these): "
+                    "plays your opponents reliably crowd (a map of THEM, not a read on the "
+                    "players — leverage lives AWAY from these): "
                     + ", ".join(_crowds)
                 )
         # Ownership drift: if the loaded projections moved since the strategy was
@@ -831,87 +849,280 @@ with tab_strategy:
         st.info(f"Click **🏆 Rank {_pnoun}** above (or generate the slate strategy) to build the board.")
 
 
-# ===== Tab: Grade (hand-built lineups, pre-lock) =====
+# ===== Tab: Grade (per contest — Claude picks + A-F letter grades) =====
 with tab_grade:
-    st.markdown("### ✅ Grade — check your hand-built lineups before lock")
+    st.markdown("### ✅ Grade — pick and grade your entries, contest by contest")
     st.caption(
-        "Paste the lineups you built in DK (one per line, names comma-separated). "
-        "Every threshold is calibrated to THIS sport's observed data — the shark "
-        "envelope, your contests' winners, your strategy's calls, the board's tiers, "
-        "and the field's dupe-magnet pairs. It grades and names weaknesses; it never "
-        "builds, swaps, or fixes — you decide."
+        "Not every contest is the same. Each contest below is picked and graded "
+        "against ITS OWN field size, payout shape, and comparable history. Claude "
+        "can pick a contest's entries from the Sim's pool (real lineups only — it "
+        "never builds or edits one), and every lineup gets a letter grade (A to F) "
+        "with the reasons spelled out."
     )
+    from src import lineup_selection as _ls
+    from src.autopsy import _norm_name as _nn_g
+
+    # Sim pool, cached on the file's mtime (multi-MB parse).
+    _pk_mtime = sim_link.sim_pool_mtime(slug)
+    _pk_pool = None
+    if _pk_mtime is not None:
+        _pk_cache = st.session_state.get(f"_sim_pool_cache_{slug}")
+        if not _pk_cache or _pk_cache.get("mtime") != _pk_mtime:
+            _pk_cache = {"mtime": _pk_mtime, "pool": sim_link.load_sim_pool(slug)}
+            st.session_state[f"_sim_pool_cache_{slug}"] = _pk_cache
+        _pk_pool = _pk_cache.get("pool")
+
     _src_g = cached_sources(slug)
+    _gpool = player_pool.build_pool(_src_g) if _src_g else pd.DataFrame()
+    _declared_g = load_contests(slug)
+
+    # One section per contest: every Sim-pool contest (matched to a declared
+    # one when possible) plus any declared contest the Sim didn't sim.
+    _sections = []
+    if _pk_pool:
+        _match_g = _ls.match_contests(_pk_pool.get("contests") or [], _declared_g)
+        _used_ids = set()
+        for _c in _pk_pool.get("contests") or []:
+            _lbl = str(_c.get("label"))
+            _d = _match_g.get(_lbl)
+            if _d and _d.get("id"):
+                _used_ids.add(_d["id"])
+            _sections.append({"label": _lbl, "sim": _c, "declared": _d,
+                              "key": _ls.contest_file_key(_lbl, _d)})
+        for _d in _declared_g:
+            if _d.get("id") not in _used_ids:
+                _sections.append({"label": _d.get("name"), "sim": None,
+                                  "declared": _d,
+                                  "key": _ls.contest_file_key(_d.get("name"), _d)})
+    else:
+        for _d in _declared_g:
+            _sections.append({"label": _d.get("name"), "sim": None, "declared": _d,
+                              "key": _ls.contest_file_key(_d.get("name"), _d)})
+
+    # Normalized name -> the Sim pool's exact spelling (for sim-standing lookups).
+    _pool_name_map = {}
+    if _pk_pool:
+        for _r_nm in _pk_pool.get("rosters") or []:
+            for _n_nm in _r_nm:
+                _pool_name_map.setdefault(_nn_g(str(_n_nm)), str(_n_nm))
+
     if not _src_g:
         st.info("Load projections first (Projections tab) — grading needs ownership + salary.")
-    else:
+    elif not _sections:
+        # Fallback: nothing declared and no pool — one generic box, pooled calibration.
         _gk = f"grade_text_{slug}"
         if _gk not in st.session_state:
             st.session_state[_gk] = grader.load_draft(slug)
-        # One-click load of the Sim-pushed entry set (replaces the hand-paste;
-        # the Sim's Portfolio tab has the matching "📨 Send entries" button).
-        from src import sim_link as _simlink
-        _sim_entries = _simlink.load_sim_entries(slug)
+        _gtext = st.text_area("Lineups (one per line — declare contests in Slate "
+                              "Strategy for per-contest grading)", key=_gk, height=160)
+        grader.save_draft(slug, _gtext)
+        _glus = grader.parse_lineups(_gtext, _gpool) if _gtext.strip() else []
+        if _glus:
+            _gcal = grader.calibration(slug, sport, [])
+            _ggrades = [grader.grade_lineup(l, _gcal) for l in _glus]
+            _gletters = [grader.letter_grade(g, _gcal) for g in _ggrades]
+            _ghead = grader.worst_letter([l["letter"] for l in _gletters])
+            st.markdown(f"## Grade: {_ghead}")
+            with st.container(border=True):
+                st.markdown(_md_safe(grader.contest_grade_md(
+                    _ggrades, _gletters, grader.grade_portfolio(_ggrades), _gcal)))
+        else:
+            st.caption("Paste lineups above to grade them.")
+    else:
+        # One-click distribution of the Sim's pushed entry set into the boxes.
+        _sim_entries = sim_link.load_sim_entries(slug)
         if _sim_entries:
             _se_n = len(_sim_entries.get("entries") or [])
-            if st.button(
-                f"📥 Load {_se_n} entries from Sim ({_sim_entries.get('generated_at', '?')})",
-                key=f"load_sim_entries_{slug}",
-                help="Fills the lineup box with the portfolio the Sim tool "
-                     "pushed (players per entry); their Win%/Top1%/Cash%/ROI "
-                     "sim numbers render beside the grade.",
-            ):
-                st.session_state[_gk] = _simlink.entries_as_grade_text(_sim_entries)
-                st.rerun()
-        _gtext = st.text_area(
-            "Lineups (one per line — e.g. `Ryan Blaney, Joey Logano, Kyle Larson, ...`)",
-            key=_gk, height=160,
-        )
-        grader.save_draft(slug, _gtext)  # survives a crash/restart
-        _gpool = player_pool.build_pool(_src_g)
-        _glus = grader.parse_lineups(_gtext, _gpool)
-        if _glus:
-            _gcal = grader.calibration(slug, sport, load_contests(slug))
-            if not _gcal.get("fades") and not _gcal.get("soft_fades"):
-                st.caption("ℹ️ No strategy-contract calls loaded — the fade checks are "
-                           "inactive. Generate a slate strategy first to arm them.")
-            _ggrades = [grader.grade_lineup(l, _gcal) for l in _glus]
-            _gpf = grader.grade_portfolio(_ggrades)
-            with st.container(border=True):
-                st.markdown(_md_safe(grader.grade_md(_ggrades, _gpf, _gcal)))
-            # The leverage read — exposure vs field ownership per player. Every
-            # commercial sim makes this the sharp's final pre-lock pass; here it
-            # rides the grade so pasted AND Sim-pushed entries both get it.
-            _lev_md = grader.leverage_md(_glus)
-            if _lev_md:
-                with st.expander("🎚 Your exposure vs the field (leverage read)"):
-                    st.markdown(_md_safe(_lev_md))
-            # The Sim's own numbers for the loaded entries, beside the
-            # deterministic checks — two views of the same portfolio.
-            if _sim_entries:
-                _smd = _simlink.sim_metrics_md(_sim_entries)
-                if _smd:
-                    with st.expander("📊 Sim metrics for these entries "
-                                     "(from the Sim tool's contest sim)"):
-                        st.markdown(_smd)
-            # Optional claude pass: the thesis check (every lineup needs an
-            # articulable one-sentence "how it wins").
-            if st.button("🧠 Thesis check — one-line 'how it wins' per lineup (claude)",
-                         key=f"grade_thesis_{slug}"):
-                with st.spinner("Reading the strategy + pool and checking each thesis…"):
-                    _gres = run_grade(slug, contest_label, sport, _gtext)
-                if _gres["ok"]:
-                    st.success(f"Thesis check done in {_gres['duration_s']:.0f}s.")
+            if st.button(f"📥 Distribute {_se_n} Sim entr"
+                         f"{'y' if _se_n == 1 else 'ies'} into the contest boxes",
+                         key=f"load_sim_entries_{slug}",
+                         help="Routes each pushed entry to its contest's box by the "
+                              "contest name the Sim sent with it."):
+                _routed, _unrouted = 0, []
+                _by_label = {s["label"]: s["key"] for s in _sections}
+                _box_lines: dict = {}
+                for _e in _sim_entries.get("entries") or []:
+                    _ck = _by_label.get(str(_e.get("contest")))
+                    if _ck and _e.get("players"):
+                        _box_lines.setdefault(_ck, []).append(", ".join(_e["players"]))
+                        _routed += 1
+                    else:
+                        _unrouted.append(str(_e.get("contest")))
+                for _ck, _lines in _box_lines.items():
+                    st.session_state[f"grade_text_{slug}_{_ck}"] = "\n".join(_lines)
+                    grader.save_draft(f"{slug}__{_ck}", "\n".join(_lines))
+                if _unrouted:
+                    st.caption("Couldn't route entries for: "
+                               + ", ".join(sorted(set(_unrouted))))
+                if _routed:
                     st.rerun()
+
+        _selection_g = _ls.load_selection(slug)
+        _sel_stale = bool(_selection_g and _pk_pool
+                          and _selection_g.get("pool_fp") != _pk_pool.get("pool_fp"))
+        if _sel_stale:
+            st.info("The Sim re-sent a different pool since Claude's picks were made "
+                    "— the old picks are stale; re-run them below.")
+
+        _all_parsed = []   # (label, parsed lineups) for the cross-contest view
+        for _sec in _sections:
+            _key = _sec["key"]
+            _sim_c = _sec["sim"]
+            _decl = _sec["declared"] or (_ls.as_declared(_sim_c) if _sim_c else {})
+            _fs_c = int(_decl.get("field_size") or (_sim_c or {}).get("field_size") or 0)
+            _my_c = int(_decl.get("my_entries") or (_sim_c or {}).get("my_entries") or 1)
+            _shape_c = (_sec["declared"] or {}).get("payout_shape")
+            with st.container(border=True):
+                st.markdown(
+                    f"#### {str(_sec['label']).replace('$', chr(92) + '$')}")
+                st.caption(f"field {_fs_c:,} · {_my_c} entr"
+                           f"{'y' if _my_c == 1 else 'ies'}"
+                           + (f" · payout {_shape_c}" if _shape_c
+                              else " · payout shape not declared"))
+                if _sec["declared"] is None and _sim_c is not None:
+                    st.caption("⚠️ Not declared in Slate Strategy → Contests — "
+                               "declare it for payout shape + history bookkeeping. "
+                               "Picking and grading still work off the Sim's numbers.")
+                if _sim_c is None and _pk_pool:
+                    st.caption("No matching Sim contest in the pushed pool — grade "
+                               "box only (no Claude pick, no sim adjustment).")
+
+                _gk = f"grade_text_{slug}_{_key}"
+                if _gk not in st.session_state:
+                    st.session_state[_gk] = grader.load_draft(f"{slug}__{_key}")
+
+                # ---- Claude pick (selection is not construction) ----------
+                if _sim_c is not None and _pk_pool:
+                    if st.button(
+                        f"🎯 Have Claude pick this contest's {_my_c} entr"
+                        f"{'y' if _my_c == 1 else 'ies'}",
+                        key=f"pick_{slug}_{_key}",
+                        help="Claude reads this contest's top ~50 Sim lineups (with "
+                             "THIS contest's sim numbers), the slate strategy, and "
+                             "the open lessons, then picks by lineup id. Every pick "
+                             "is validated against the Sim's table — a made-up or "
+                             "modified lineup is rejected and nothing saves.",
+                    ):
+                        with st.spinner("Reading the slate docs and picking… (~1-2 min)"):
+                            _pres = run_contest_selection(slug, contest_label, sport,
+                                                          _sec["label"])
+                        if not _pres.get("ok"):
+                            st.error(f"Pick failed — {_pres.get('error')}")
+                        else:
+                            _rows_v = _ls.candidate_slice(_pk_pool, _sim_c)
+                            _pick_p = _ls.pick_path(slug, _key)
+                            _pick_md = _pick_p.read_text() if _pick_p.exists() else ""
+                            _pp = _ls.parse_pick(_pick_md, _rows_v, _my_c)
+                            if _pp["errors"]:
+                                for _e in _pp["errors"]:
+                                    st.error(f"Pick rejected — {_e}")
+                            else:
+                                _ls.save_contest_pick(slug, _pk_pool, _sec["label"],
+                                                      _sec["declared"], _pp["picks"],
+                                                      _pp["why"])
+                                st.rerun()
+                    _stored = (((_selection_g or {}).get("contests") or {})
+                               .get(_sec["label"]) if not _sel_stale else None)
+                    if _stored:
+                        _own_g = _pk_pool.get("ownership") or {}
+                        _m_g = _sim_c.get("metrics") or {}
+                        st.markdown("**Claude's pick for this contest:**")
+                        for _p in _stored.get("picked") or []:
+                            _i = _p.get("index")
+                            if _i is None or _i >= len(_pk_pool["rosters"]):
+                                continue
+                            _names_g = [str(x) for x in _pk_pool["rosters"][_i]]
+                            _bits_g = []
+                            for _mk, _ml in (("top1_pct", "chance of 1st (top1)"),
+                                             ("win_pct", "win"),
+                                             ("cash_pct", "any payout (cash)")):
+                                _arr = _m_g.get(_mk) or []
+                                if _i < len(_arr) and _arr[_i] is not None:
+                                    _bits_g.append(f"{_ml} {_arr[_i]}%")
+                            st.markdown(
+                                "- " + ", ".join(f"{n} ({_own_g.get(n, '?')}%)"
+                                                 for n in _names_g)
+                                + ("  \n  _" + " · ".join(_bits_g) + "_" if _bits_g else ""))
+                        if _stored.get("why"):
+                            st.caption(f"💡 {_stored['why']}")
+                        if st.button("📋 Load pick into the grade box",
+                                     key=f"loadpick_{slug}_{_key}"):
+                            _lines_g = [
+                                ", ".join(map(str, _pk_pool["rosters"][_p["index"]]))
+                                for _p in _stored.get("picked") or []
+                                if _p.get("index") is not None
+                                and _p["index"] < len(_pk_pool["rosters"])]
+                            if _lines_g:
+                                st.session_state[_gk] = "\n".join(_lines_g)
+                                grader.save_draft(f"{slug}__{_key}", "\n".join(_lines_g))
+                                st.rerun()
+
+                # ---- Grade box (A-F, calibrated to THIS contest) ----------
+                _gtext = st.text_area("Lineups for this contest (one per line)",
+                                      key=_gk, height=100)
+                grader.save_draft(f"{slug}__{_key}", _gtext)
+                _glus = (grader.parse_lineups(_gtext, _gpool)
+                         if _gtext.strip() and not _gpool.empty else [])
+                if _glus:
+                    _cal_c = grader.contest_calibration(slug, sport, _decl)
+                    _grades_c = [grader.grade_lineup(l, _cal_c) for l in _glus]
+                    _letters_c = []
+                    for _g_i, _lu_i in zip(_grades_c, _glus):
+                        _std = None
+                        if (_pk_pool and _sim_c is not None
+                                and _lu_i.get("players") and not _lu_i.get("unmatched")):
+                            _mapped = [_pool_name_map.get(_nn_g(p["name"]))
+                                       for p in _lu_i["players"]]
+                            if all(_mapped):
+                                _std = grader.sim_standing(
+                                    _pk_pool, _sim_c, "|".join(sorted(_mapped)))
+                        _letters_c.append(grader.letter_grade(_g_i, _cal_c, _std))
+                    _head_l = grader.worst_letter([l["letter"] for l in _letters_c])
+                    st.markdown(f"## Grade: {_head_l}")
+                    with st.container(border=True):
+                        st.markdown(_md_safe(grader.contest_grade_md(
+                            _grades_c, _letters_c,
+                            grader.grade_portfolio(_grades_c), _cal_c)))
+                    _all_parsed.append((_sec["label"], _glus))
+                    if st.button("🧠 Thesis check for this contest (claude)",
+                                 key=f"grade_thesis_{slug}_{_key}"):
+                        with st.spinner("Reading the strategy + pool and checking "
+                                        "each thesis…"):
+                            _gres = run_grade(slug, contest_label, sport, _gtext,
+                                              contest=_decl, file_key=_key)
+                        if _gres.get("ok"):
+                            st.rerun()
+                        else:
+                            st.error(_gres["error"])
+                    _gpath_c = REPO_ROOT / "data" / "grade" / f"{slug}__{_key}.md"
+                    if _gpath_c.exists():
+                        with st.container(border=True):
+                            st.markdown(_md_safe(_gpath_c.read_text()))
                 else:
-                    st.error(_gres["error"])
-            _gpath = REPO_ROOT / "data" / "grade" / f"{slug}.md"
-            if _gpath.exists():
-                with st.container(border=True):
-                    st.markdown(_md_safe(_gpath.read_text()))
-        else:
-            st.caption("Paste lineups above to grade them — matching runs against the "
-                       "loaded projections.")
+                    st.caption("Paste lineups (or load Claude's pick) to grade "
+                               "this contest.")
+
+        # ---- Cross-contest view (info only — reuse across contests is legal) --
+        _every_lu = [lu for _, lus in _all_parsed for lu in lus]
+        if _every_lu:
+            with st.expander("🎚 Portfolio view across ALL contests"):
+                st.caption("Cross-contest reads only. Reusing one lineup in two "
+                           "different contests is allowed on DK — noted as info, "
+                           "never a warning.")
+                _lmd = grader.leverage_md(_every_lu)
+                if _lmd:
+                    st.markdown(_lmd)
+                _seen_ros: dict = {}
+                for _lblx, _lusx in _all_parsed:
+                    for _lux in _lusx:
+                        _rk = frozenset(_nn_g(p["name"])
+                                        for p in _lux.get("players") or [])
+                        if _rk:
+                            _seen_ros.setdefault(_rk, set()).add(str(_lblx))
+                for _rk, _lbls in _seen_ros.items():
+                    if len(_lbls) > 1:
+                        st.caption("ℹ️ The same lineup appears in: "
+                                   + ", ".join(sorted(_lbls)) + " — allowed on DK.")
 
 
 # ===== Tab 3: Autopsy =====
@@ -987,7 +1198,9 @@ with tab_autopsy:
         _csv_infos = []
         for _dc in dk_csvs:
             try:
-                _p, _a, _g, _f = _cached_dk_analysis(_dc.getvalue(), sport, slug)
+                _p, _a, _g, _f = _cached_dk_analysis(
+                    _dc.getvalue(), sport, slug,
+                    _file_mtime(REPO_ROOT / "data" / "sessions" / f"{slug}.json"))
             except ValueError:
                 continue
             _csv_infos.append({
@@ -1015,7 +1228,8 @@ with tab_autopsy:
                 # Cached on the file's bytes — typing in the notes/ROI widgets no
                 # longer re-parses and re-analyzes every uploaded CSV per keystroke.
                 parsed, analysis, _gap_cached, _field_cached = _cached_dk_analysis(
-                    dk_csv.getvalue(), sport, slug)
+                    dk_csv.getvalue(), sport, slug,
+                    _file_mtime(REPO_ROOT / "data" / "sessions" / f"{slug}.json"))
             except ValueError as e:
                 st.error(f"{dk_csv.name}: {e}")
                 continue
@@ -1054,7 +1268,11 @@ with tab_autopsy:
                 st.markdown("### Your entries")
                 user_df = analysis["user_lineups_df"]
                 if user_df.empty:
-                    st.info("No entries matching RyvlesGaming30 / ryanjsieb30 found in this contest.")
+                    st.info(
+                        "No entries matching "
+                        + " / ".join(USER_ALIASES)
+                        + " found in this contest."
+                    )
                 else:
                     show_cols = ["rank", "points", "avg_own", "low_own_count",
                                  "salary_used", "proj_total", "dup_count", "players"]
@@ -1200,10 +1418,18 @@ with tab_autopsy:
                                 columns={"name": "Player", "field_own": "Field %", "actual_fpts": "FPTS"}),
                                 use_container_width=True, hide_index=True, height=240)
                         with fc2:
-                            st.caption("**Fish traps** (loved by losers, faded by winners)")
+                            st.caption("**Fish traps** (price shapes the losing half "
+                                       "bought and winners didn't — a trap is a "
+                                       "price, not a player)")
                             if _fp["fish_traps"]:
-                                st.dataframe(pd.DataFrame(_fp["fish_traps"])[["name", "fish_pct", "winner_pct", "gap"]].rename(
-                                    columns={"name": "Player", "fish_pct": "Fish %", "winner_pct": "Win %", "gap": "Gap"}),
+                                _ft_df = pd.DataFrame(_fp["fish_traps"])
+                                _ft_cols = [c for c in ("name", "field_own", "fish_pct",
+                                                        "winner_pct", "gap")
+                                            if c in _ft_df.columns]
+                                st.dataframe(_ft_df[_ft_cols].rename(
+                                    columns={"name": "Player", "field_own": "Field %",
+                                             "fish_pct": "Fish %",
+                                             "winner_pct": "Win %", "gap": "Gap"}),
                                     use_container_width=True, hide_index=True, height=240)
                             else:
                                 st.caption("None — fish and winners played similarly.")
@@ -1227,16 +1453,19 @@ with tab_autopsy:
                             if _fs and abs(_fs - len(lineups)) / _fs <= 0.10:
                                 _c_match = _c; break
                         from src import field_tendencies as _ft
-                        _hist = _ft.summarize_contest(slug, _c_match["name"]) if _c_match else None
+                        _hist = (_ft.summarize_contest(slug, _c_match["name"],
+                                                       target_field_size=len(lineups))
+                                 if _c_match else None)
                         _scope = f"**{_c_match['name']}**" if (_hist and _c_match) else None
                         if not _hist and _c_match:
-                            _hist = _ft.summarize(slug, _c_match.get("type"))
+                            _hist = _ft.summarize(slug, _c_match.get("type"),
+                                                  target_field_size=len(lineups))
                             _scope = f"**{_c_match.get('type')}** contests"
                         if _hist:
                             _rc = ", ".join(f"{d['name']} ({d['in_n']}/{d['of']})"
                                             for d in _hist["reliably_crowded"][:6])
-                            _msg = (f"📁 Across {_hist['n_contests']} past logs of {_scope}, "
-                                    f"the field reliably crowds: {_rc or '—'}")
+                            _msg = (f"📁 Across {_hist['n_contests']} comparable past logs of "
+                                    f"{_scope}, your opponents reliably pile onto: {_rc or '—'}")
                             _opp = _hist.get("recurring_opponents") or []
                             if _opp:
                                 _msg += ("  ·  recurring opponents: "
@@ -1437,11 +1666,20 @@ with tab_autopsy:
                                                   contest_id=pc.get("contest_id"))
                             except Exception:  # noqa: BLE001
                                 _cap_stats = None
+                            # This slate's projections (still loaded at Log
+                            # time) attach salary/projection/projected-own to
+                            # each trap and crowd row — a trap is a price, not
+                            # a player, so the price must be stored with it.
+                            try:
+                                _ft_pool = player_pool.build_pool(cached_sources(slug))
+                            except Exception:  # noqa: BLE001
+                                _ft_pool = None
                             _ft.record(slug, pc.get("contest_type"), len(lineups),
                                        pc.get("field_profile") or {}, ts,
                                        contest_name=pc.get("contest_name"),
                                        contest_id=pc.get("contest_id"),
-                                       sim_capture=_cap_stats)
+                                       sim_capture=_cap_stats,
+                                       pool=_ft_pool)
                         except Exception as _fte:  # noqa: BLE001 — never blocks the log
                             _log_warnings.append(
                                 f"Field-tendency row NOT written for {pc['name']}: {_fte}")
@@ -1695,14 +1933,18 @@ with tab_autopsy:
             sessions.clear(slug)
             sim_sessions.clear(slug)
             _clear_notes_drafts(slug)
-            grader.clear_draft(slug)
+            grader.clear_drafts(slug)
             _purge_slate_session_keys(slug)
             (REPO_ROOT / "data" / "grade" / f"{slug}.md").unlink(missing_ok=True)
+            for _gp in (REPO_ROOT / "data" / "grade").glob(f"{slug}__*.md"):
+                _gp.unlink(missing_ok=True)
             from src.strategy_contract import clear_contract
             clear_contract(slug)
             from src.sim_link import clear_sim_entries, clear_sim_handoff
             clear_sim_entries(slug)
             clear_sim_handoff(slug)
+            from src.lineup_selection import clear_selection
+            clear_selection(slug)
             del st.session_state[f"autopsy_done_{slug}"]
             st.success("Slate data cleared — ready for the next slate.")
             st.rerun()

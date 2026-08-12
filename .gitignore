@@ -24,3 +24,13 @@ data/sim_entries/
 # Pasted-lineup drafts for the Grade tab — per-slate scratch, cleared with the
 # slate. Every other per-slate data/ store is ignored; this one was missed.
 data/grade_drafts/
+
+# Sim-pushed per-slate hand-off payloads + per-contest pick artifacts (8/10/26
+# sweep — four more per-slate stores had been missed since the sim_entries
+# note above; data/sim_pool alone is a ~2 MB JSON that must never ride a
+# `git add -A`). All are cleared with the slate.
+data/sim_pool/
+data/sim_autopsy/
+data/sim_standings/
+data/lineup_selection/
+data/grade/

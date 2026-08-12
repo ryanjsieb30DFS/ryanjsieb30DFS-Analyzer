@@ -79,6 +79,41 @@ def test_md_renders():
     assert "How the winner was built" in md and "Near-miss" in md
 
 
+def test_no_salary_map_degrades_to_points_only():
+    parsed, analysis = _base()
+    m = cf.near_miss(parsed, analysis)
+    assert m["salary_checked"] is False
+    assert m["blocked_swap"] is None
+    assert m["best_swap"]["out"] == "D" and m["best_swap"]["in"] == "C"
+
+
+def test_over_cap_swap_is_blocked_not_recommended():
+    # The Ventura→James shape: the points-best swap costs more than the cap
+    # room left, so it must move to blocked_swap and best_swap must be None.
+    parsed, analysis = _base()
+    analysis["salary_map"] = {"a": 20000, "b": 20000, "d": 9800, "c": 11500}
+    m = cf.near_miss(parsed, analysis)
+    assert m["salary_checked"] is True
+    assert m["best_swap"] is None
+    assert m["blocked_swap"]["out"] == "D" and m["blocked_swap"]["in"] == "C"
+    assert m["blocked_swap"]["over_cap_by"] == 1500  # 49800 - 9800 + 11500 - 50000
+    assert m["swaps_needed"] is None
+    md = cf.counterfactual_md(None, m)
+    assert "did NOT fit under the $50K salary cap" in md
+    assert "No single swap fits under the cap" in md
+
+
+def test_feasible_swap_still_recommended_with_salaries():
+    parsed, analysis = _base()
+    analysis["salary_map"] = {"a": 20000, "b": 20000, "d": 9800, "c": 10000}
+    m = cf.near_miss(parsed, analysis)
+    assert m["salary_checked"] is True
+    assert m["blocked_swap"] is None
+    assert m["best_swap"]["out"] == "D" and m["best_swap"]["in"] == "C"
+    md = cf.counterfactual_md(None, m)
+    assert "that fits the cap" in md
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
     for fn in fns:

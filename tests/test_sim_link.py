@@ -335,3 +335,31 @@ def test_load_sim_autopsy_and_md_and_clear(tmp_path, monkeypatch):
     sl.clear_sim_handoff("pga_classic")
     assert sl.load_sim_autopsy("pga_classic") == {}
     assert sl.list_sim_standings("pga_classic") == []
+
+
+def test_load_sim_pool_gates_schema_and_content(tmp_path, monkeypatch):
+    monkeypatch.setattr(sl, "_SIM_POOL_DIR", tmp_path)
+    ok = {"schema_version": 1, "rosters": [["A", "B"]],
+          "contests": [{"label": "X", "my_entries": 1}]}
+    (tmp_path / "mma_se.json").write_text(json.dumps(ok))
+    assert sl.load_sim_pool("mma_se")["rosters"] == [["A", "B"]]
+    assert sl.sim_pool_mtime("mma_se") is not None
+    # Wrong schema / empty contests / garbage / absent -> None.
+    (tmp_path / "nascar.json").write_text(json.dumps({**ok, "schema_version": 2}))
+    assert sl.load_sim_pool("nascar") is None
+    (tmp_path / "pga_classic.json").write_text(json.dumps({**ok, "contests": []}))
+    assert sl.load_sim_pool("pga_classic") is None
+    (tmp_path / "pga_rd4_sd.json").write_text("{not json")
+    assert sl.load_sim_pool("pga_rd4_sd") is None
+    assert sl.load_sim_pool("absent") is None
+    assert sl.sim_pool_mtime("absent") is None
+
+
+def test_clear_sim_handoff_also_removes_pool(tmp_path, monkeypatch):
+    monkeypatch.setattr(sl, "_SIM_STANDINGS_DIR", tmp_path / "standings")
+    monkeypatch.setattr(sl, "_SIM_AUTOPSY_DIR", tmp_path / "autopsy")
+    monkeypatch.setattr(sl, "_SIM_POOL_DIR", tmp_path / "pool")
+    (tmp_path / "pool").mkdir()
+    (tmp_path / "pool" / "mma_se.json").write_text("{}")
+    sl.clear_sim_handoff("mma_se")
+    assert not (tmp_path / "pool" / "mma_se.json").exists()

@@ -85,3 +85,20 @@ def test_rd4_sd_adds_finish_points_into_proj_mirrors_sim():
     assert "finish_points" in out.columns
     assert "current_score" in out.columns
     assert "value" not in out.columns
+
+
+def test_zero_salary_wd_rows_dropped_mirrors_sim():
+    """ETR ships withdrawn golfers at $0 salary (8/5/26: Troy Merritt). DK
+    cannot roster them, so they must not reach the board or chalk/leverage
+    tiers (ported from the Sim repo 8/10/26 — the Analyzer used to rank WDs
+    and only patched the downstream value_by_tier crash)."""
+    import io
+    from src.projections import load_projections
+    csv = io.StringIO(
+        "NAME,SAL,PROJ,CEIL,OWN,PT/$\n"
+        "Real Golfer,\"$11,000\",87.0,118.0,12.0,7.91\n"
+        "Troy Merritt,$0,55.0,80.0,0.1,0.0\n"
+    )
+    df = load_projections(csv)
+    assert df["name"].tolist() == ["Real Golfer"]
+    assert "Troy Merritt" in df.attrs.get("junk_dropped", [])

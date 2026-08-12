@@ -4,13 +4,15 @@ leverage AWAY from the crowd.
 The inverse of `shark_gap`: instead of "what did the sharks do," this profiles
 (a) where the WHOLE FIELD converges — the chalk players and roster combinations
 so many entries share that they're dupe magnets — and (b) the FISH specifically —
-the bottom finishers vs the winners, and the plays the losing crowd loved that
-winners faded. Standings-only (Rank, EntryName, Lineup, field `actual_own`), so it
-fits the "autopsy = standings only" rule.
+the bottom finishers vs the winners. `fish_traps` = the PRICE CONDITIONS the
+losing half bought that winners didn't (a trap is a price, not a player — each
+trap row carries its realized ownership + own rank so downstream stores
+accumulate conditions, never bare names). Standings-only (Rank, EntryName,
+Lineup, field `actual_own`), so it fits the "autopsy = standings only" rule.
 
-Pure functions. The Autopsy tab renders it as a "leverage away from this" fade
-board; `field_tendencies` accumulates it per contest type for the forward-looking
-picture ("this contest type reliably crowds X").
+Pure functions. The Autopsy tab renders it as a "leverage away from this"
+board; `field_tendencies` accumulates it per contest for the forward-looking
+picture (where the OPPONENTS reliably go + the trap SHAPE they keep buying).
 """
 from __future__ import annotations
 
@@ -112,12 +114,23 @@ def field_profile(parsed: dict, sport: str, contest_type: str | None = None,
         return {p: c / n for p, c in ct.items()}
 
     win_exp, fish_exp = _exposure(winners_rosters), _exposure(fish_rosters)
+    # A trap is a PRICE, not a player — each trap carries the realized price
+    # context (field ownership + its rank in this contest) so the cross-slate
+    # store can accumulate CONDITIONS, never bare names.
+    all_owns = sorted((float(v) for v in own_map.values()), reverse=True)
+
+    def _own_rank(o: float) -> int:
+        # 1 = highest-owned; ties share the top rank (mispricing_table semantics).
+        return 1 + sum(1 for v in all_owns if v > o)
+
     fish_traps = sorted(
         ({"name": display.get(p, p),
           "fish_pct": round(fish_exp[p] * 100, 1),
           "winner_pct": round(win_exp.get(p, 0.0) * 100, 1),
           "gap": round((fish_exp[p] - win_exp.get(p, 0.0)) * 100, 1),
-          "actual_fpts": round(float(fpts_map.get(p, 0.0)), 1)}
+          "actual_fpts": round(float(fpts_map.get(p, 0.0)), 1),
+          "field_own": round(float(own_map.get(p, 0.0)), 1),
+          "own_rank": _own_rank(float(own_map.get(p, 0.0)))}
          for p in fish_exp),
         key=lambda d: -d["gap"],
     )

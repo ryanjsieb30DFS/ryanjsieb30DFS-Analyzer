@@ -10,8 +10,9 @@ returns None/{} when the Sim repo or file is absent — no exceptions, no UI):
    loads it into the lineup box, replacing the hand-paste. (This file lives in
    THIS repo — the Sim writes across; cleared with the slate.)
 
-2. The Sim's field-concentration corpus + fitted field params — used to
-   correct the grader's expected-dupes estimate. The naive independence product
+2. The Sim's field-concentration corpus (data/field_corpus/
+   field_concentration.jsonl — the only fitted-data file this module reads) —
+   used to correct the grader's expected-dupes estimate. The naive independence product
    (Π own × field size) UNDER-predicts real duplication, because entrants
    converge on the same chalk rosters rather than drawing players independently;
    measured over the Sim's corpus every factor is > 1 (MMA 1.7-4.2x, NASCAR
@@ -20,6 +21,9 @@ returns None/{} when the Sim repo or file is absent — no exceptions, no UI):
    factor is measured, not assumed.
 
 3. The Sim's full-slate captures — roster-level field structure for the autopsy.
+
+4. The Sim's saved settings (data/user_config.json) — `dk_username()` makes the
+   Sim the single source of truth for the user's DK handle (8/10/26).
 
 The Analyzer still never builds lineups; every read is a grade/analysis input.
 
@@ -48,6 +52,28 @@ def sim_root() -> Path | None:
         p = Path(env).expanduser()
         return p if p.exists() else None
     return _SIM_ROOT if _SIM_ROOT.exists() else None
+
+
+def dk_username() -> str | None:
+    """The DK handle the user saved in the SIM's settings, or None.
+
+    The Sim persists it at data/user_config.json (its Autopsy tab pre-fills
+    from it). Reading it here makes the Sim the single source of truth — the
+    Analyzer's autopsy previously hardcoded the handle, so changing it in the
+    Sim silently broke the Analyzer's your-entries matching (fixed 8/10/26).
+    Degrades to None when the bridge or key is absent."""
+    root = sim_root()
+    if root is None:
+        return None
+    path = root / "data" / "user_config.json"
+    if not path.exists():
+        return None
+    try:
+        value = json.loads(path.read_text()).get("dk_username")
+    except (json.JSONDecodeError, OSError):
+        return None
+    value = str(value or "").strip()
+    return value or None
 
 
 # ---------------------------------------------------------------------------
@@ -125,6 +151,40 @@ def clear_sim_entries(slug: str) -> None:
 
 _SIM_STANDINGS_DIR = _REPO_ROOT / "data" / "sim_standings"
 _SIM_AUTOPSY_DIR = _REPO_ROOT / "data" / "sim_autopsy"
+_SIM_POOL_DIR = _REPO_ROOT / "data" / "sim_pool"
+
+
+def load_sim_pool(slug: str) -> dict | None:
+    """The Sim's FULL simmed pool + entered contests for the Entry picker
+    (pushed by the Sim Portfolio tab's "📤 Send pool" button, 8/9/26) — or
+    None (absent, unreadable, wrong schema, or carrying no contests).
+
+    Columnar payload: rosters/salary/proj/avg_own arrays aligned by pool
+    index, plus per-contest metric arrays (win/top1/top10/cash/roi + expected
+    dupes). Selection over this pool is the ONE sanctioned exception to the
+    no-selecting rule — see CLAUDE.md "Selection is not construction"."""
+    path = _SIM_POOL_DIR / f"{slug}.json"
+    if not path.exists():
+        return None
+    try:
+        payload = json.loads(path.read_text())
+    except (json.JSONDecodeError, OSError):
+        return None
+    if not isinstance(payload, dict) or payload.get("schema_version") != 1:
+        return None
+    if not payload.get("rosters") or not payload.get("contests"):
+        return None
+    return payload
+
+
+def sim_pool_mtime(slug: str) -> float | None:
+    """Modification time of the pushed pool file — session-state cache key so
+    the multi-MB payload isn't re-parsed on every Streamlit rerun."""
+    path = _SIM_POOL_DIR / f"{slug}.json"
+    try:
+        return path.stat().st_mtime
+    except OSError:
+        return None
 
 
 def list_sim_standings(slug: str) -> list[dict]:
@@ -224,6 +284,12 @@ def clear_sim_handoff(slug: str) -> None:
                 p.unlink()
             except OSError:
                 pass
+    pool_path = _SIM_POOL_DIR / f"{slug}.json"
+    if pool_path.exists():
+        try:
+            pool_path.unlink()
+        except OSError:
+            pass
 
 
 # ---------------------------------------------------------------------------

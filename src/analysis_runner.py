@@ -172,7 +172,7 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"qualitative article reads with the projection ownership/projections; cite each ownership "
         f"or projection number from its source (name the article OR the vendor). Where the vendors "
         f"disagree with each other, or a vendor disagrees with the articles, SURFACE that gap — it "
-        f"is leverage signal (put it in Key themes / the Leverage section).\n\n"
+        f"is leverage signal (surface it in Edges & tensions / the Leverage section).\n\n"
         f"HARD RULE — NEVER CREATE LINEUPS: write NO lineup tables, build NO rosters, and give NO "
         f"sample/example lineups or player groupings presented as a build. Name plays INDIVIDUALLY "
         f"only; this is a strategy doc the user hand-builds from — construction lives in the "
@@ -183,6 +183,13 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"command needed — just surface them). A sub-10% high-ceiling play left "
         f"unmentioned is a coverage leak (the play that decides the slate from nowhere) — never "
         f"silently omit one.\n\n"
+        f"HARD RULE — A TRAP IS A PRICE, NOT A PLAYER (user directive 8/9/26): NEVER justify a "
+        f"fade or underweight with a cross-slate name count ('he was a trap in 2 of 3'). A player "
+        f"cannot be a trap — his salary, projection, and ownership change every slate. Justify "
+        f"every fade/underweight with THIS slate's numbers: a same-projection peer at lower "
+        f"ownership, or ownership ranking ahead of projection rank (see the bundle's "
+        f"`## Trap-shaped prices` section when present). History informs the FIELD'S behavior "
+        f"(where your opponents go); it never informs a player's quality.\n\n"
         f"MANDATORY pre-flight — do ALL of this SILENTLY as prep. **Do NOT print a checklist or a "
         f"pre-flight section; the user does not want to see it.** Only the RESULT of this prep shows, "
         f"inside the sections below. Confirm the article files are for the CURRENT slate (compare the "
@@ -205,11 +212,13 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"state what the data says and stop. Scannable structure, but every line fully understandable "
         f"on its own — clarity over compression, always.\n\n"
         f"HARD WRITING RULES (apply to EVERY section — user directive 7/27/26: 'spell it out like "
-        f"it's for a 5th grader; more words is totally fine'):\n"
+        f"it's for a 5th grader', UPDATED 8/9/26: the doc must ALSO be SHORT — the old 'more words "
+        f"is totally fine' is revoked; a 6,000-word brief takes 25 minutes to read and the user "
+        f"asked for compact, simple, straightforward):\n"
         f"- **Write for a 5th grader. This is the master rule.** Short sentences. Ordinary words. "
         f"One fact at a time. After you write each sentence, ask: would a smart 11-year-old have to "
-        f"re-read this, or ask what a word means? If yes, REWRITE IT. More words is always fine — "
-        f"confusion is not.\n"
+        f"re-read this, or ask what a word means? If yes, REWRITE IT. Clarity wins every tie — but "
+        f"say it ONCE, in the fewest plain words that stay clear.\n"
         f"- **Say the plain meaning FIRST, put the DFS word in parentheses after.** Write 'the "
         f"players most teams will pick (the chalk)', NOT 'the chalk (the most-picked players)'. The "
         f"plain phrase carries the sentence; the DFS word tags along so the user learns it. Do this "
@@ -220,7 +229,7 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"always know why he is reading a section before the details start.\n"
         f"- **ONE IDEA PER SENTENCE. Aim for ~15 words, hard stop at 25.** Do NOT chain clauses with "
         f"semicolons, dashes or 'and'. Do NOT put more than TWO numbers in one sentence — split it. "
-        f"Prefer four short sentences over one dense one. Length is fine; density is the enemy.\n"
+        f"Density AND length are both enemies — one idea per sentence, and no idea said twice.\n"
         f"- **Explain what every number MEANS, not just what it is.** Not '34% owned' but '34% "
         f"owned — about 1 of every 3 teams will have him'. Not 'ceiling 110' but 'his best "
         f"realistic night is about 110 points (his ceiling)'. A number without its meaning is "
@@ -232,7 +241,8 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"out an initialism the FIRST time it appears in the document, then the short form is fine.\n"
         f"- **The DFS terms that MUST always get the plain-first treatment:** ownership, chalk, "
         f"leverage, ceiling, floor, dupe/duplication, anchor, anchor-equivalence, fade, dominator, "
-        f"place differential, fish trap, own-per-slot, stars-and-scrubs, punt, and every vendor term "
+        f"place differential, fish trap (a PRICE the losing half buys — never a player), "
+        f"own-per-slot, stars-and-scrubs, punt, and every vendor term "
         f"(coffin, dock, boost, sim-optimal, steam, exposure). E.g. 'ETR is playing him 8 points "
         f"MORE than the field expects (their coffin number, +8.2)'.\n"
         f"- **Cite everything:** every play / leverage / fade names a SPECIFIC article line OR a "
@@ -241,6 +251,22 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"words too: 'Brett's article says his points come almost entirely from a finish'.\n"
         f"- **Readable:** use short tables where they compress; consistent, skimmable structure. "
         f"ONE idea per bullet — expressed fully, not abbreviated.\n\n"
+        f"LENGTH BUDGET (updated 8/11/26 — specificity beats brevity; the user: 'I don't want "
+        f"the strategy and autopsy findings to become too vague'): the WHOLE document is **at "
+        f"most 2,200 words** — aim for 1,500–2,000. Plan the spend before writing: Short version "
+        f"~120 · Slate at a glance ~60 · Edges & tensions ~200 · Field vs Sharp ~200 · Top plays "
+        f"~400 · Leverage ~250 · Fades ~150 · Build it like a sharp ~300, with the remaining "
+        f"headroom going to whichever section this slate genuinely needs. Trim by SELECTION — "
+        f"delete whole repeated ideas, never blur a claim to save words.\n\n"
+        f"NEVER VAGUE (user directive 8/11/26): every claim names its subject AND its numbers. "
+        f"Never 'the top scorer' without the player's name; never 'a cheap golfer spiked' "
+        f"without who, salary, and score; never 'the screen missed him' without the number it "
+        f"missed by. If cutting words would cost a claim its name or number, keep the words.\n\n"
+        f"ONE HOME PER PLAYER: each player is EXPLAINED in exactly ONE section — almost always "
+        f"`## Top plays` (leverage plays in `## Leverage`, fades in `## Fades`). Everywhere else he "
+        f"appears as his NAME plus at most five words ('Jones — the fight-3 leverage piece'). If "
+        f"you explained him once, you are done explaining him. Never write a second paragraph "
+        f"about the same player — repetition is where the old 6,000-word briefs came from.\n\n"
         f"Sections, in THIS order (NO pre-flight/checklist section — that prep is silent):\n"
         f"1. `## The short version` — THE FIRST THING THE USER READS, and the one section that must "
         f"be understandable on its own with no DFS knowledge at all. 6–9 numbered sentences, each a "
@@ -253,73 +279,64 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"the detail and the sourcing live in the sections below.\n"
         f"2. `## Slate at a glance` — ≤6 lines: games/fights/races, implied totals or win probs, "
         f"weather, contests + field sizes. A short table, nothing more.\n"
-        f"3. `## Edges & tensions` — THE STAR, right up top: the 3–6 things that actually matter this "
-        f"slate, SYNTHESIZED — **NOT play/fade calls.** Each is ONE line: **the edge/tension** · the "
-        f"cited data that reveals it (article line or number). Surface things like: where the "
-        f"scoring/leverage concentrates, an ownership-vs-ceiling mispricing, where the vendors or "
-        f"articles DISAGREE, a chalk cluster that's substitutable. **Anchor-Equivalence MUST appear "
-        f"here** — but as a SURFACED observation (e.g. 'X and Y are near-identical profiles at "
-        f"similar ownership'), NEVER as 'run the alternative.' If the bundle has a `## Field "
-        f"tendencies` section, you MUST surface EVERY reliably-crowded cluster it lists here as a "
-        f"tension, citing the exact in-N-of-M counts ('the field piles into X/Y in your <type> "
-        f"contests, in 3 of 4 — that's where leverage-away lives'). A listed crowd left unsurfaced "
-        f"is a coverage leak. If the bundle has a `## Chalk combos` section, you MUST also surface "
-        f"its top pairs here as a DUPLICATION tension in plain English — 'the field will pair X + Y "
-        f"in roughly N% of lineups (~M lineups in this field); lineups carrying both start the "
-        f"night sharing that crowd' (descriptive only; whether to break a pair is the user's call). "
-        f"Use NO imperative verbs (no PLAY / FADE / run / cap / pair / build): state the edge and "
-        f"stop — the user decides what to do with it. This is the synthesis the user reads first.\n"
+        f"3. `## Edges & tensions` — THE STAR, right up top: the things that actually matter this "
+        f"slate, SYNTHESIZED — **NOT play/fade calls.** A numbered list, **max 8 lines, each ONE "
+        f"line of at most ~20 words**: **the edge/tension** · the cited data that reveals it "
+        f"(article line or number). Grow to 10 lines ONLY if the mandates below need the room. "
+        f"Candidates: where scoring/leverage concentrates, an ownership-vs-ceiling mispricing, "
+        f"where vendors or articles DISAGREE (that gap IS the edge — this replaces the old "
+        f"`## Key themes` section, which no longer exists), a substitutable chalk cluster. "
+        f"MANDATES (each gets ONE line, never a paragraph): **Anchor-Equivalence MUST appear** — "
+        f"as an observation ('X and Y near-identical at similar own'), never 'run the "
+        f"alternative'; if the bundle has `## Field tendencies`, EVERY reliably-crowded cluster "
+        f"it lists gets a line with its in-N-of-M count, framed ONLY as opponent behavior "
+        f"('your opponents pile onto X/Y, in 3 of 4') — never player quality, never fade "
+        f"evidence — plus one line for its trap SHAPE (the price conditions losers keep buying); "
+        f"if the bundle has `## Trap-shaped prices`, its THIS-slate names get a line; if the "
+        f"bundle has `## Chalk combos`, the top pair gets a duplication line ('the field pairs "
+        f"X + Y in ~N% of lineups, ~M in this field'). A listed crowd or leverage candidate left "
+        f"unsurfaced is a coverage leak. NO imperative verbs (no PLAY / FADE / run / cap / pair "
+        f"/ build): state the edge and stop — the user decides.\n"
         f"4. `## Field vs Sharp — how this slate gets played` — the head-to-head read the user "
-        f"builds against: two short cited paragraphs and a punchline, ALL derived from the data.\n"
-        f"   - **How the FIELD will play it:** synthesize the mass of lineups' shape from the "
-        f"projected ownership (which chalk clusters and salary tiers get jammed — cite the "
-        f"breakdown/article reads), the `## Chalk combos` pairs (what most lineups will share), "
-        f"and the `## Field tendencies` history (what the field in YOUR contests reliably crowds). "
-        f"Be concrete: the anchors, the tiers, the pairings the typical entry will carry.\n"
-        f"   - **How a SHARP will play it:** synthesize from the `## Shark reality` envelope "
-        f"(own/slot, leverage rate, anchor discipline, uniqueness — the OBSERVED numbers), the "
-        f"sharp playbook, and THIS slate's structure: which tier the sharp's anchor comes from, "
-        f"where their sub-10%/sub-5% piece lives (use the leverage candidates), and what they "
+        f"builds against, in THREE short parts, ~180 words total, ALL derived from the data. "
+        f"Players by NAME only here — their explanations live in `## Top plays`.\n"
+        f"   - **How the FIELD will play it (~2 sentences):** the mass of lineups' shape from "
+        f"projected ownership, the `## Chalk combos` pairs, and `## Field tendencies` history — "
+        f"the anchors, tiers, and pairings the typical entry carries.\n"
+        f"   - **How a SHARP will play it (~2 sentences):** from the `## Shark reality` envelope "
+        f"(own/slot, leverage rate, anchor discipline, uniqueness — the OBSERVED numbers) applied "
+        f"to THIS slate: the sharp's anchor tier, where their sub-10% piece lives, what they "
         f"refuse to share with the field.\n"
-        f"   - **The gap:** 1–2 plain sentences naming exactly where the two pictures diverge on "
-        f"THIS slate — that divergence is where 'avoid the field, follow the sharp' lives, and it "
-        f"should be concrete enough to build from ('the field pays 25% ownership for the $10K "
-        f"tier; the sharp gets the same ceiling at 10% in the $9K tier').\n"
-        f"   - **How a sharp USES the key players (4–8 of them + the top chalk combos):** for each "
-        f"slate-defining player (the jammed chalk anchors, the narrative steamers, the discounted "
-        f"elites, the flag-plant tier) give the SHARP'S USAGE in 1–2 plain sentences: their "
-        f"exposure stance vs the field (with the number and why — 'the field is at ~30%; a sharp "
-        f"runs him underweight around 10% because the ownership is narrative, not projection'), "
-        f"the CONSTRUCTION IMPLICATION of using him (the ownership/salary math — 'anchoring him "
-        f"at 30% own means the other five slots must average under ~8% to stay inside the sharp "
-        f"window; his natural salary partners are exactly the $6K tier the field jams, so a build "
-        f"with him needs its uniqueness from elsewhere'), and what a sharp REFUSES around him "
-        f"(the chalk combo/pairing the field will share). Same treatment for the top `## Chalk "
-        f"combos` pairs: how a sharp handles the combo (skip it / carry at most one side / accept "
-        f"it only with the rest of the build unique). This is USAGE GUIDANCE for players the user "
-        f"chooses to play — voiced as how the sharp archetype deploys them, with cited numbers. "
-        f"It is NEVER a roster, NEVER 'play this lineup,' and NEVER a full combination handed to "
-        f"the user — the user picks the players; this teaches how a sharp would hold them.\n"
-        f"5. `## Top plays` — tiered **Core / Good / Okay** (same vocabulary as the Player pool; "
-        f"Fades live in section 5, not here), one line each: **player** ($sal, own% per source) — "
-        f"tier — then 1–2 full plain sentences on WHY, citing the source (article line or number); "
-        f"append `· Leverage` to any low-owned high-ceiling play. Clear beats compressed.\n"
+        f"   - **The gap (1–2 sentences):** exactly where the two pictures diverge on THIS slate, "
+        f"concrete enough to build from ('the field pays 25% ownership for the $10K tier; the "
+        f"sharp gets the same ceiling at 10% in the $9K tier').\n"
+        f"   (The old sub-part (d) — a second per-player usage essay — is DELETED 8/9/26: it "
+        f"restated `## Top plays` in different words. The sharp's stance on each key player now "
+        f"lives as the one-line 'sharp stance' inside `## Top plays`.)\n"
+        f"5. `## Top plays` — **the ONE home for every player write-up.** Tiered **Core / Good / "
+        f"Okay** (same vocabulary as the Player pool; Fades live in `## Fades`). **At most 12 "
+        f"players**, best table-formatted, one row each: **player** ($sal, own%) — tier — ONE "
+        f"plain sentence (~20 words max) on WHY, citing its source — plus a short **sharp "
+        f"stance** for the slate-defining ones ('field ~30%, a sharp runs ~10% — narrative "
+        f"ownership'). Append `· Leverage` to any low-owned high-ceiling play. Twelve rows the "
+        f"user remembers beat twenty-five he skims.\n"
         f"6. `## Leverage` — its own section (user directive 7/27/26: leverage and fades are "
         f"SEPARATE sections, never combined). Open with one plain sentence: this section names the "
         f"low-owned players who could decide the slate (the leverage plays). Then the MANDATORY "
-        f"screen: for EVERY game/fight/race on the slate, name the single sub-10%-owned high-ceiling "
-        f"play — INCLUDING ones the articles never named — with its one-line ceiling path in plain "
-        f"words. This is the non-negotiable fix for the recurring miss (the winning sub-10% definer "
-        f"that gets faded or never screened). Every spot gets a line. NO fade verdicts in this "
-        f"section — fades live in their own section below.\n"
-        f"7. `## Fades` — its own section. Open with one plain sentence: this section names the "
-        f"popular players whose price in ownership looks too high for what they must do (the fades). "
-        f"Then the chalk worth fading, each with the world it needs (a fade is a bet). Name the "
-        f"player + verdict in caps (FADE / LEAN FADE / UNDERWEIGHT) and say in plain words what "
-        f"each verdict means the first time it appears.\n"
-        f"8. `## Key themes` — ≤3 bullets: the structural storylines + where the sources DISAGREE "
-        f"(article vs article / vendor vs vendor / article vs projection — that gap is the edge).\n"
-        f"9. `## Build it like a sharp` — THE CLOSING SECTION and, with `## The short version`, the "
+        f"screen: for EVERY game/fight/race on the slate, name the single sub-10%-owned "
+        f"high-ceiling play — INCLUDING ones the articles never named. **ONE flat list, ONE line "
+        f"per spot, ~15 words max per line** ('**Name** ($sal, own%) — his ceiling path in plain "
+        f"words'). NO sub-headers, NO price-band subsections, NO paragraphs. Every spot gets its "
+        f"line — the screen is the non-negotiable fix for the recurring faded-winning-definer "
+        f"miss — but a line is ALL each spot gets. NO fade verdicts here.\n"
+        f"7. `## Fades` — its own section. Open with ONE plain sentence explaining what the three "
+        f"verdicts mean, once for the whole section: FADE = play him nowhere, LEAN FADE = mostly "
+        f"avoid, UNDERWEIGHT = use him less than the crowd does, never zero. Then one line per "
+        f"player: **NAME — VERDICT** — one ~20-word sentence citing THIS slate's salary + "
+        f"projection + ownership (a cheaper same-projection peer, or ownership outrunning "
+        f"projection rank) and the world the fade needs. NEVER cite a past-slate name count as "
+        f"fade evidence — a trap is a price, not a player.\n"
+        f"8. `## Build it like a sharp` — THE CLOSING SECTION and, with `## The short version`, the "
         f"one the user actually acts on. The user plays **SINGLE ENTRY** almost exclusively: one "
         f"lineup per contest, so each entry is their whole tournament. Their stated goal is to MIMIC "
         f"THE SHARPS. So write this as a numbered walk-through of the decisions a sharp makes, in the "
@@ -330,70 +347,56 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"what to do ('you should play X', 'fade Y'), naming a full roster, or presenting any group "
         f"of players as a build. Describe the sharp's reasoning and name candidate players for each "
         f"decision; the user picks.\n"
-        f"   Use these numbered steps, each 2–4 SHORT sentences:\n"
-        f"   1. **The anchor decision.** Which tier a sharp anchors from here and why the venue or "
-        f"format pushes them there. Name the 2–3 realistic anchor candidates with ownership, and note "
-        f"which are near-identical (anchor-equivalence) so the user can see the cheaper/less-owned "
-        f"side of the same bet.\n"
-        f"   2. **The leverage piece.** Where a sharp's low-owned player comes from on THIS slate, "
-        f"with 2–4 named candidates and their ownership. Anchor the target to the observed "
-        f"`## Shark reality` numbers when that section exists (their real own-per-slot and how often "
-        f"they carry a sub-5% player), not the generic playbook. State the user's own gap to that "
-        f"number if the data shows one.\n"
-        f"   3. **What a sharp refuses.** The specific pairs the field will duplicate most, from the "
-        f"`## Chalk combos` and `## Field tendencies` data, with the counts. Say plainly that carrying "
-        f"both halves means sharing the entry with roughly N opponents before the race starts.\n"
-        f"   4. **The salary shape.** What anchoring at the top costs downstream in plain arithmetic "
-        f"— if the anchor takes X of the $50,000, the remaining slots average Y, which lands in "
-        f"whichever tier. Note if the slate's chalk cannot all fit under the cap, because then every "
-        f"entry must drop one and WHICH one it drops is the real decision.\n"
-        f"   5. **Two contests, two different entries.** If the user declared more than one "
-        f"single-entry contest, say how a sharp would differentiate them — usually field size and "
-        f"payout shape (a bigger, more top-heavy field wants the more contrarian of the two). Each "
-        f"entry needs its OWN one-sentence reason it wins; two entries answering the same question "
-        f"is one bet paid for twice.\n"
-        f"   6. **The pre-lock check.** 3–5 short yes/no questions the user can answer against their "
-        f"own built lineup: does it have at least one sub-10% player, is it inside the sharp "
-        f"own-per-slot band (cite the observed number), does it avoid both halves of the top "
-        f"duplicated pair, can it be explained in one sentence.\n"
-        f"   Close with the sharp-envelope target as a one-line summary. If `## Shark reality` names "
-        f"individual pros, cite the most relevant one as coaching — e.g. 'moklovin beat you 2 of 3 by "
-        f"riding chalk anchors and skipping leverage; the sub-5% piece he never carries is where your "
-        f"edge against him lives.'\n\n"
-        f"LARGE-FIELD ADDENDUM (MME plan Phase 1): ONLY when the bundle's contest list declares a "
-        f"20-Max or 150-Max contest, insert one extra section `## Field attack plan` immediately "
-        f"after `## Fades`. Open with one plain sentence: in a big field you win by standing on the "
-        f"other side of the crowd's recurring mistakes, not by projecting better. Then, for EACH of "
-        f"the field's eight recurring mistakes that has EVIDENCE on THIS slate, write exactly two "
-        f"plain sentences: one naming the mistake with this slate's evidence, one naming the attack. "
-        f"The eight mistakes (skip any without slate evidence, and say which you skipped in one "
-        f"line): (1) the field copies itself — name this slate's likeliest duplicated builds from "
-        f"`## Chalk combos`; (2) ownership is mispriced where the public numbers are wrong — the "
-        f"cross-vendor disagreements and own-vs-ceiling gaps; (3) the field chases last week's "
-        f"highlight (recency) — name who carries narrative ownership without matching equity; "
-        f"(4) the field herds onto one of two equal anchors — the anchor-equivalence twins, and in "
-        f"a big field the underowned twin is a SIZED bet, not one lineup's pivot; (5) the field "
-        f"skips the mid-price scorer tier — name this slate's ignored-tier players (the leverage "
-        f"list); (6) part of the field builds dead lineups (MMA: both sides of a fight; NASCAR: "
-        f"two max-dominator bets) — one line on what dead structure looks like here; (7) the field "
-        f"stampedes on unconfirmed news — only if live this slate; (8) the trap plays losers love "
-        f"— from `## Field tendencies` / fish-trap history when present. Close the section with one "
-        f"sentence: the effective field is smaller than the listed size because of these mistakes. "
-        f"STILL ZERO LINEUPS — this is a target list the user attacks in the Sim tool. The 5th-grade "
-        f"writing rules apply here like everywhere.\n\n"
+        f"   Use these numbered steps, **each 1–2 SHORT sentences — players by NAME only, no "
+        f"re-explaining anyone (their write-ups live in `## Top plays`)**:\n"
+        f"   1. **The anchor decision.** The tier a sharp anchors from and why. The 2–3 anchor "
+        f"candidates with ownership, flagging any anchor-equivalence twins.\n"
+        f"   2. **The leverage piece.** Where the sharp's low-owned player comes from, 2–4 named "
+        f"candidates with ownership, target anchored to the observed `## Shark reality` numbers "
+        f"when present.\n"
+        f"   3. **What a sharp refuses.** The top duplicated pair(s) with counts — 'carrying both "
+        f"means sharing the entry with ~N opponents before it starts.' Pair counts describe the "
+        f"FIELD's habit, never the players' quality.\n"
+        f"   4. **The salary shape.** The anchor's downstream cost in plain arithmetic — anchor "
+        f"takes $X, the other slots average $Y. If the chalk cannot all fit under the cap, say "
+        f"WHICH-one-to-drop is the real decision.\n"
+        f"   5. **Two contests, two different entries.** Only if 2+ contests are declared: how a "
+        f"sharp differentiates them by field size and payout shape, each entry with its own "
+        f"one-sentence reason it wins.\n"
+        f"   6. **The big-field attack** — ONLY when the bundle's contest list declares a 20-Max "
+        f"or 150-Max contest (this replaces the old separate `## Field attack plan` section, "
+        f"deleted 8/9/26). One line, ~15 words, per field mistake that has evidence on THIS "
+        f"slate — mistake · evidence · attack. The catalog to screen: self-copying (chalk "
+        f"combos), mispriced ownership, recency chasing, anchor-twin herding, ignored mid-price "
+        f"tier, dead builds, news stampedes, trap-shaped prices (never a cross-slate name "
+        f"count). Skip silent mistakes without listing them. Close: the effective field is "
+        f"smaller than the listed size. Still ZERO lineups.\n"
+        f"   7. **The pre-lock check.** 3–5 short yes/no questions against the built lineup: at "
+        f"least one sub-10% player, inside the sharp own-per-slot band (cite the number), avoids "
+        f"the top duplicated pair, explainable in one sentence.\n"
+        f"   Close with the sharp-envelope target in ONE line, citing the most relevant named pro "
+        f"from `## Shark reality` as coaching where one exists.\n\n"
         f"Do not ask any questions — read the inputs and produce the file."
     )
     return _run_claude(prompt, out_path)
 
 
-def run_grade(slug: str, contest_label: str, sport: str, lineups_text: str) -> dict:
-    """Thesis check for HAND-BUILT lineups (the Grade tab's claude pass, on top of
-    the deterministic checks in src/grader.py). For each pasted lineup: a one-line
+def run_grade(slug: str, contest_label: str, sport: str, lineups_text: str,
+              contest: dict | None = None, file_key: str | None = None) -> dict:
+    """Thesis check for lineups (the Grade tab's claude pass, on top of the
+    deterministic checks in src/grader.py). For each pasted lineup: a one-line
     'how it wins' thesis grounded in the slate data — or THESIS-LESS — plus a
-    portfolio distinctness read. GRADES ONLY: never builds, swaps, or fixes.
+    distinctness read. GRADES ONLY: never builds, swaps, or fixes.
 
-    Writes data/grade/<slug>.md. Returns {ok, error, duration_s, cost_usd}."""
-    out_path = _REPO_ROOT / "data" / "grade" / f"{slug}.md"
+    PER-CONTEST mode (8/9/26 — not every contest is the same): pass `contest`
+    (a declared-contest dict) + `file_key` and the grade judges the lineups
+    against THAT contest only (its field size, payout shape, and comparable
+    history), writing data/grade/<slug>__<file_key>.md. Without them: the
+    legacy pooled grade at data/grade/<slug>.md."""
+    if contest is not None and file_key:
+        out_path = _REPO_ROOT / "data" / "grade" / f"{slug}__{file_key}.md"
+    else:
+        out_path = _REPO_ROOT / "data" / "grade" / f"{slug}.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     # Same numbers as the deterministic pass, so the two graders can never
@@ -404,7 +407,10 @@ def run_grade(slug: str, contest_label: str, sport: str, lineups_text: str) -> d
     try:
         from src import grader as _grader
         from src.contests import load_contests as _load_contests
-        _cal = _grader.calibration(slug, sport, _load_contests(slug))
+        if contest is not None:
+            _cal = _grader.contest_calibration(slug, sport, contest)
+        else:
+            _cal = _grader.calibration(slug, sport, _load_contests(slug))
         _tgt = _cal.get("shark_own") or _cal.get("winners_own")
         _flag = _cal.get("own_flag_above")
         if _flag is not None:
@@ -418,9 +424,25 @@ def run_grade(slug: str, contest_label: str, sport: str, lineups_text: str) -> d
     except Exception:  # noqa: BLE001 — calibration context is additive
         cal_line = ""
 
+    contest_line = ""
+    if contest is not None:
+        _shape = contest.get("payout_shape") or "not declared"
+        contest_line = (
+            f"This grade is for ONE contest only: \"{contest.get('name')}\" — field "
+            f"{int(contest.get('field_size') or 0):,} entrants, ${contest.get('entry_fee')} "
+            f"entry, payout shape {_shape}, {contest.get('my_entries')} entry(ies). "
+            f"Judge every lineup against THIS contest: a top-heavy payout needs a "
+            f"first-place story; a flat payout needs a safe-floor story. Do not compare "
+            f"against other contests.\n\n"
+        )
+
+    n_lineups = len([l for l in (lineups_text or "").splitlines() if l.strip()])
+    distinct = (
+        f"2. `## Distinctness` — do the lineups answer DIFFERENT what-ifs? Name any pair that "
+        f"answers the same question (competing lineups).\n" if n_lineups > 1 else "")
     prompt = (
-        cal_line +
-        f"You are grading the user's HAND-BUILT {contest_label} DK lineups (sport: {sport}) "
+        cal_line + contest_line +
+        f"You are grading the user's {contest_label} DK lineups (sport: {sport}) "
         f"before lock. HARD RULE: you grade — you NEVER build, select, swap, fix, or suggest "
         f"replacement players/lineups. Name weaknesses; the user decides.\n\n"
         f"Read: the slate strategy at `data/slate_analysis/{slug}.md`, the player pool at "
@@ -431,13 +453,12 @@ def run_grade(slug: str, contest_label: str, sport: str, lineups_text: str) -> d
         f"thesis in one sentence, citing a specific data point (article read, own%, ceiling), "
         f"OR `**THESIS-LESS**` if no coherent winning story exists. Every lineup needs an "
         f"articulable thesis — vague labels don't count.\n"
-        f"2. `## Distinctness` — do the lineups answer DIFFERENT what-ifs? Name any pair that "
-        f"answers the same question (competing lineups).\n"
+        + distinct +
         f"3. `## Lessons that activate` — any open lesson from lessons.yaml this set of "
         f"lineups triggers, or 'None.' State the lesson as one plain sentence about what keeps "
         f"happening and why (the mechanism) — the lesson id may follow in parentheses.\n"
-        f"WRITING STYLE (user directive 7/27/26 — write for a smart 5th grader; more words is "
-        f"fine): short sentences, one idea each (~15 words, hard stop 25). Say the plain meaning "
+        f"WRITING STYLE (user directives 7/27/26 write for a smart 5th grader + 8/9/26 keep it "
+        f"SHORT — say each thing once): short sentences, one idea each (~15 words, hard stop 25). Say the plain meaning "
         f"FIRST with the DFS word in parentheses after, every time — 'the players most teams "
         f"will pick (the chalk)'. Explain what each number means: '32% owned — about 1 in 3 "
         f"teams has him'. Open each section with one sentence saying what it is for. "
@@ -445,6 +466,99 @@ def run_grade(slug: str, contest_label: str, sport: str, lineups_text: str) -> d
         f"lineups, NO swap suggestions. Do not ask questions — produce the file."
     )
     return _run_claude(prompt, out_path)
+
+
+def run_contest_selection(slug: str, contest_label: str, sport: str,
+                          sim_label: str) -> dict:
+    """Claude PICKS one contest's entries from that contest's candidate slice
+    of the Sim's pool (8/9/26 — per-contest selection; not every contest is
+    the same).
+
+    Selection is not construction: the slice is ~50 REAL pool rows with THIS
+    contest's own sim numbers; Claude chooses rows BY ID. The app then runs
+    `lineup_selection.parse_pick`, which rejects fabricated ids, modified
+    rosters, and wrong counts — a bad pick saves nothing.
+
+    Writes data/lineup_selection/<slug>__<key>_pick.md (slice digest beside
+    it). Returns {ok, error, duration_s, cost_usd, key, sim_label}."""
+    from src import lineup_selection as ls, sim_link
+    from src.contests import load_contests as _load_contests
+
+    pool = sim_link.load_sim_pool(slug)
+    if not pool:
+        return {"ok": False, "error": "No Sim pool — send it from the Sim's "
+                "Lineups or Portfolio tab first.", "duration_s": 0.0,
+                "cost_usd": None}
+    sim_contest = next((c for c in pool.get("contests") or []
+                        if str(c.get("label")) == str(sim_label)), None)
+    if sim_contest is None:
+        return {"ok": False, "error": f"Contest '{sim_label}' is not in the "
+                "Sim's pushed pool.", "duration_s": 0.0, "cost_usd": None}
+
+    declared = ls.match_contests(pool.get("contests") or [],
+                                 _load_contests(slug)).get(str(sim_label))
+    key = ls.contest_file_key(sim_label, declared)
+    rows = ls.candidate_slice(pool, sim_contest)
+    if not rows:
+        return {"ok": False, "error": "The pool has no rows for this contest.",
+                "duration_s": 0.0, "cost_usd": None}
+    slice_p = ls.slice_path(slug, key)
+    slice_p.parent.mkdir(parents=True, exist_ok=True)
+    slice_p.write_text(ls.slice_digest_md(slug, str(sim_label), sim_contest,
+                                          declared, rows,
+                                          pool.get("ownership") or {}))
+    out_path = ls.pick_path(slug, key)
+    bundle_path = build_bundle(slug, contest_label, sport)
+    my = int(sim_contest.get("my_entries") or 1)
+    shape = (declared or {}).get("payout_shape") or "not declared"
+
+    prompt = (
+        f"You are PICKING the user's entries for ONE DraftKings contest: \"{sim_label}\" "
+        f"(sport: {sport}). Field size {int(sim_contest.get('field_size') or 0):,} entrants · "
+        f"${sim_contest.get('entry_fee')} entry · payout shape {shape} · the user is entering "
+        f"exactly {my} lineup(s) in this contest.\n\n"
+        f"HARD RULE — selection is not construction: every lineup you may pick already "
+        f"exists, built and simmed by the Sim tool, in the candidate table at `{slice_p}`. "
+        f"You choose rows BY ID from that table. You NEVER write, edit, combine, or swap "
+        f"players. A pick that is not a row in the table will be rejected by the app and "
+        f"nothing will be saved.\n\n"
+        f"Read, in this order: the candidate table at `{slice_p}` (each row: id, salary, "
+        f"projection, average ownership, THIS contest's sim numbers, and the players with "
+        f"their ownership); the bundle at `{bundle_path}`; the slate strategy at "
+        f"`data/slate_analysis/{slug}.md` and the player pool board at "
+        f"`data/player_pool/{slug}.md` when they exist; the strategy docs for sport "
+        f"`{sport}`: `rules/{slug}/philosophy.md`, `rules/{slug}/framework.md`, "
+        f"`rules/{slug}/autopsies.md`, `rules/{slug}/lessons.yaml` (apply every OPEN "
+        f"hypothesis/validated lesson whose mechanism fits; silently drop the rest), "
+        f"`rules/shared/anchor_equivalence.md`, `rules/shared/sharp_playbook.md`, and the "
+        f"venue file (golf → rules/pga_classic/courses, nascar → rules/nascar/tracks; "
+        f"mma has none).\n\n"
+        f"How to think about THIS contest (its numbers, not another contest's):\n"
+        f"- The payout shape decides the metric that matters most. Top-heavy: the chance to "
+        f"finish 1st (the top1% column). Flat or Balanced: the chance of any payout (the "
+        f"cash% column). Not declared: balance the two.\n"
+        f"- Small fields (under ~2,500 entrants) reward the steadier ceiling — the win% "
+        f"column matters more there.\n"
+        f"- Duplication: the dupes column (when present) estimates how many opponents hold "
+        f"the same lineup. Being alone on a winner beats sharing it.\n"
+        f"- Picking {my} lineup(s) means each pick must earn its own reason. If that is more "
+        f"than 1, the picks should win in DIFFERENT ways, not be near-copies.\n"
+        f"- A trap is a price, not a player: judge every lineup on THIS slate's numbers.\n\n"
+        f"Write `{out_path}` in EXACTLY this format:\n\n"
+        f"## Picks — {sim_label}\n\n"
+        f"| pick | id | players | why |\n"
+        f"|---|---|---|---|\n"
+        f"| 1 | <id from the table> | <players copied from that row> | <one short sentence> |\n\n"
+        f"(exactly {my} data row(s) — never more, never fewer)\n\n"
+        f"**Why these picks:** <3-6 short sentences. Say what has to happen on the slate for "
+        f"the pick(s) to win, citing one sim number and one strategy read. Plain meaning "
+        f"first, DFS word in parentheses after — 'picked by few teams (low-owned)'. Explain "
+        f"each number — '1.9% top1 means about a 1-in-50 shot at first place'.>\n\n"
+        f"Do not add sections. Do not ask questions — read the inputs and produce the file."
+    )
+    res = _run_claude(prompt, out_path)
+    res.update(key=key, sim_label=str(sim_label))
+    return res
 
 
 def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
@@ -536,10 +650,10 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
            "label.\n") +
         f"- THEN a single continuous numbered list (the detailed write-ups), best to worst. "
         f"Each entry LEADS WITH THE DATA, tier LAST as a one-word read:\n"
-        f"  `**N. Player Name** — $salary, own% (per source), proj X[, ceiling Y]` then a 2–4 "
+        f"  `**N. Player Name** — $salary, own% (per source), proj X[, ceiling Y]` then a 1–2 "
         f"sentence synthesis in PLAIN, COMPLETE ENGLISH: how it wins (the ceiling path / the edge) "
-        f"+ the key risk or condition. Write for a smart 5th grader (user directive 7/27/26) — "
-        f"more words is totally fine, confusion is not. "
+        f"+ the key risk or condition. Write for a smart 5th grader (user directive 7/27/26), and "
+        f"keep it SHORT (8/9/26) — say it once, clearly, and stop. "
         f"**ONE IDEA PER SENTENCE, ~15 words, hard stop at 25.** Do not chain clauses with "
         f"semicolons or dashes into one long sentence, and never stack more than two numbers in a "
         f"sentence — split it. **Say the plain meaning FIRST and put the DFS word in parentheses "
@@ -567,7 +681,8 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
         f"- **Field-crowds flag (mandatory):** if the bundle at `{bundle_path}` has a `## Field "
         f"tendencies` section, you MUST append a small `(field crowds)` note in the write-up of "
         f"EVERY board player that appears in its reliably-crowded list — no exceptions. It is a "
-        f"heads-up that the field piles in, not a fade command.\n"
+        f"heads-up that YOUR OPPONENTS pile in — a map of their habit, never a quality read, "
+        f"never a fade command, and never a reason to tier the player lower.\n"
         f"- Then a `## Leverage candidates addressed` section: if the bundle at `{bundle_path}` "
         f"lists a `## Leverage candidates to address` section, confirm EACH player there is ranked "
         f"above (name it + its rank) — carrying the `· Leverage` label unless you tiered it `Fade` "
@@ -682,36 +797,65 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str, hist_dir=None)
         f"3. UPDATE THE VENUE FILE for this slate's venue (sport `{sport}`; see CLAUDE.md for the "
         f"venue dir; create the file from the archived strategy if missing): append a date-stamped "
         f"'Per-slate observation' line with what this slate proved or disproved about the venue.\n"
-        f"4. WRITE `{out_path}` with sections: '## Process scorecard', '## Lesson ledger changes', "
-        f"'## Venue file changes', '## Ledger hygiene' (the 1e decisions; omit the section if there "
-        f"were no flags), and '## Proposed codifications' — for any lesson meeting the "
-        f"promotion criteria (3 confirming slates) write the exact framework.md/philosophy.md edit "
-        f"you propose; for retirement candidates (2 mechanism contradictions) the same. If nothing "
-        f"qualifies, write 'None this slate.' under that heading. "
-        f"Do NOT edit framework.md or philosophy.md in this run — proposals only; the user approves.\n"
+        f"4. WRITE `{out_path}` with EXACTLY these sections, in this order, with these word "
+        f"budgets (LENGTH BUDGET updated 8/11/26 — specificity beats brevity; the user: 'I "
+        f"don't want the strategy and autopsy findings to become too vague': the WHOLE review "
+        f"is **at most 1,800 words** — aim for 1,000–1,500; the old 2,500-6,600-word reviews "
+        f"stay the failure this replaces, but NEVER VAGUE outranks short: every finding names "
+        f"its player and its numbers — 'the day's top scorer sat in Okay' is banned, write "
+        f"'Benjamin James ($8,700) — the day's top scorer at 84.25 — sat in Okay'; if cutting "
+        f"words would cost a claim its name or number, keep the words):\n"
+        f"   - '## What happened' (~150 words) — at most 6 numbered PLAIN sentences anyone could "
+        f"follow with zero DFS knowledge: how the user finished, who won the contest and what "
+        f"their lineup did differently, and the one thing that decided the slate — every "
+        f"deciding player NAMED with salary/score/ownership.\n"
+        f"   - '## Process scorecard' (~400 words) — WHY it happened: the findings from steps "
+        f"1/1b/1c/1c2/1d above, each finding two or three SPECIFIC sentences carrying its "
+        f"player names and numbers (never a vague summary line), each with its what-to-do-next "
+        f"attached. Grade the decisions, not the results.\n"
+        f"   - '## Lesson ledger changes' (~120 words) — ONE line per lesson touched: what "
+        f"changed and the one-line evidence.\n"
+        f"   - '## Venue file changes' (~40 words) — the observation appended, in one or two "
+        f"lines.\n"
+        f"   - '## Ledger hygiene' (~150 words; ONLY if step 1e ran — omit the section when "
+        f"there were no flags) — ONE line per decision (RETIRE/KEEP/MERGE + the one-line "
+        f"reason).\n"
+        f"   - '## Proposed codifications' (~150 words) — for any lesson meeting the promotion "
+        f"criteria (3 confirming slates) the exact framework.md/philosophy.md edit you propose; "
+        f"for retirement candidates (2 mechanism contradictions) the same. If nothing "
+        f"qualifies, write 'None this slate.' under the heading.\n"
+        f"   - '## What this means for next slate' (~80 words) — 3-5 numbered single-sentence "
+        f"takeaways a 5th grader could follow, most important first.\n"
+        f"Do NOT edit framework.md or philosophy.md in this run — proposals only; the user "
+        f"approves.\n"
         f"GPP guard: a bad ROI or a lost contest is NEVER a contradiction by itself; only mechanism "
         f"failures count. Do not ask any questions — produce the file.\n\n"
-        f"HOW TO WRITE THE REVIEW (user directive 7/27/26 — the review must read like it was "
-        f"written for a smart 5th grader; more words is totally fine):\n"
+        f"HOW TO WRITE THE REVIEW (user directives 7/27/26 'write for a smart 5th grader' + "
+        f"8/9/26 'keep it SHORT — compact, simple, straightforward'):\n"
         f"- Keep the EXACT section headers listed above (the app reads them by name), but under "
         f"every header, START with one plain sentence saying what the section is about. Example "
         f"under '## Process scorecard': 'This section grades HOW you played the slate — the "
         f"decisions, not the results.'\n"
         f"- Short sentences, ordinary words, one fact per sentence (~15 words, hard stop 25). No "
-        f"semicolon chains. No more than two numbers in a sentence.\n"
+        f"semicolon chains. No more than two numbers in a sentence. Say each thing ONCE — "
+        f"repetition across sections is where the old 6,000-word reviews came from.\n"
+        f"- DO THE ANALYSIS with the full analyst vocabulary in your head — WRITE the finding the "
+        f"way you'd tell a smart 12-year-old what it means. Never print these words bare: "
+        f"'structural axis' → 'the main way winning lineups looked different from yours'; "
+        f"'own/slot' → 'average ownership per roster spot'; 'Spearman near 0' → 'this pre-lock "
+        f"number did not predict the real scores at all'; 'picking_edge_points' → 'how many "
+        f"points better picking from the pool would have added'; 'mechanism' → 'the reason it "
+        f"works'. The number still appears — the plain meaning carries the sentence.\n"
         f"- Say the plain meaning FIRST and put the DFS or ledger word in parentheses after, EVERY "
         f"time it appears: 'the low-owned player who could decide the slate (the definer)', 'an "
         f"idea we are still testing (a hypothesis lesson)', 'a rule that has proven itself and now "
         f"lives in your framework (codified)', 'whether your entries followed your own plan "
-        f"(adherence)', 'the reason WHY something happens (the mechanism)'. Never assume a term "
-        f"stuck from an earlier section — the user has said the verbiage loses him.\n"
+        f"(adherence)'. Never assume a term stuck from an earlier section.\n"
         f"- Explain what every number MEANS: not 'best percentile 3.5' but 'your best entry beat "
         f"96.5% of the field (top 3.5%)'. Not '0 of 2 leverage candidates' but 'the strategy named "
         f"2 low-owned players who could decide the slate, and none of your entries had either one'.\n"
         f"- When you grade something as good or bad, say in one plain sentence WHAT TO DO ABOUT IT "
-        f"next slate. A grade without a next step is just a scold.\n"
-        f"- End the whole review with a section '## What this means for next slate' — 3-5 numbered, "
-        f"single-sentence takeaways a 5th grader could follow, most important first."
+        f"next slate. A grade without a next step is just a scold."
     )
     # lessons.yaml is a collateral edit of this run — snapshot/restore + parse
     # gate. The venue file is append-mostly and its path isn't statically

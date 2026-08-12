@@ -20,7 +20,27 @@ import pandas as pd
 
 
 # DK entry names use the account's display name, not the login email prefix.
-USER_ALIASES = ("ryvlesgaming30", "ryanjsieb30")
+def _user_aliases() -> tuple:
+    """The user's DK handles, casefolded, for EntryName matching.
+
+    Single source of truth is the SIM's saved settings (data/user_config.json,
+    read via sim_link.dk_username) — change the handle there and this repo
+    follows. The historical aliases stay as a UNION fallback so old standings
+    and an absent Sim repo keep matching (8/10/26; previously hardcoded only)."""
+    aliases = ["ryvlesgaming30", "ryanjsieb30"]
+    try:
+        from src.sim_link import dk_username
+        configured = dk_username()
+        if configured:
+            configured = configured.casefold()
+            if configured not in aliases:
+                aliases.insert(0, configured)
+    except Exception:
+        pass
+    return tuple(aliases)
+
+
+USER_ALIASES = _user_aliases()
 
 
 def parse_dk_results(csv_path_or_buffer) -> dict:
@@ -133,6 +153,35 @@ def ambiguous_actual_norms(players: pd.DataFrame) -> set[str]:
     df["_norm"] = df["name"].apply(_norm_name)
     counts = df.groupby("_norm")["actual_fpts"].nunique()
     return set(counts[counts > 1].index)
+
+
+def proj_frame_for_autopsy(dfs: list) -> pd.DataFrame | None:
+    """Combine the slate's still-loaded vendor projection frames into the
+    proj_df that analyze_contest expects (needs a `_norm` join column).
+
+    Salary is the same on DK regardless of vendor, so dedupe on `_norm` keeps
+    the first row seen. Rows with no salary (or the $0 ETR WD placeholders)
+    are dropped — a zero would silently deflate a lineup's salary-used sum.
+    Returns None when nothing usable is loaded, which keeps the autopsy
+    standings-only exactly as before.
+    """
+    frames = []
+    for df in dfs:
+        if df is None or getattr(df, "empty", True):
+            continue
+        if "name" not in df.columns or "salary" not in df.columns or "proj_points" not in df.columns:
+            continue
+        frames.append(df)
+    if not frames:
+        return None
+    combined = pd.concat(frames, ignore_index=True)
+    combined = combined[pd.to_numeric(combined["salary"], errors="coerce").fillna(0) > 0]
+    if combined.empty:
+        return None
+    combined = combined.copy()
+    combined["_norm"] = combined["name"].apply(_norm_name)
+    combined = combined.drop_duplicates(subset="_norm", keep="first")
+    return combined
 
 
 def is_user_entry(entry_name) -> bool:
@@ -333,6 +382,11 @@ def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str) -> d
         "proj_match": {"matched": matched, "total": int(len(players)),
                        "available": proj_lookup is not None},
         "ambiguous_players": ambiguous_players,
+        # norm → salary, for salary-aware counterfactual swaps (None when the
+        # autopsy runs standings-only). Consumed by counterfactual.near_miss.
+        "salary_map": ({n: int(e["salary"]) for n, e in proj_lookup.items()
+                        if e.get("salary") == e.get("salary")}
+                       if proj_lookup else None),
     }
 
 

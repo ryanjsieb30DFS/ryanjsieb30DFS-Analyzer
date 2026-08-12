@@ -31,6 +31,34 @@ _VENUE_DIRS = {
 }
 
 
+def _trap_price_lines(pool: pd.DataFrame) -> list[str]:
+    """THIS slate's trap-shaped prices, as bundle bullet lines.
+
+    A trap is a price, not a player: a row lands here only because TODAY'S
+    numbers misalign — the field's pick rate (ownership rank) is ahead of the
+    projection rank (`edge < 0`, via landscape.mispricing_table, which already
+    floors the overowned side at >=10% ownership so only real chalk shows).
+    Pure — testable without disk."""
+    from src.landscape import mispricing_table
+    try:
+        over = mispricing_table(pool).get("overowned")
+    except Exception:  # noqa: BLE001 — additive section, never blocks the bundle
+        return []
+    if over is None or over.empty or "edge" not in over.columns:
+        return []
+    lines = []
+    for _, r in over[over["edge"] < 0].head(6).iterrows():
+        sal = (f"${int(r['salary']):,}" if "salary" in over.columns
+               and pd.notna(r.get("salary")) else "n/a")
+        own = (f"{r['ownership']:.1f}%" if pd.notna(r.get("ownership")) else "n/a")
+        gap = int(-r["edge"])
+        lines.append(
+            f"- **{r['name']}** — {sal}, {own} own: the crowd pays {gap} rank"
+            f"{'s' if gap != 1 else ''} more ownership than his projection earns "
+            f"(owned ahead of projection).")
+    return lines
+
+
 def _path(slug: str) -> Path:
     return _BUNDLE_DIR / f"{slug}.md"
 
@@ -86,11 +114,13 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
             L.append(
                 "_**LARGE-FIELD CONTEST(S) DECLARED** ("
                 + ", ".join(f"{c['name']} ({c['type']})" for c in _mme_declared)
-                + ") — the strategy MUST include the `## Field attack plan` section "
-                "(see CLAUDE.md): the large-field game is exploiting the field's "
-                "recurring mistakes, entry by entry. The small-field guidance below "
-                "still applies to any SE/3-Max/5-Max contests on the same slate — "
-                "the two games never blend._"
+                + ") — the strategy MUST include the **big-field attack step** inside "
+                "`## Build it like a sharp` (one evidence-backed line per field "
+                "mistake; replaced the separate `## Field attack plan` section "
+                "8/9/26, see CLAUDE.md): the large-field game is exploiting the "
+                "field's recurring mistakes, entry by entry. The small-field "
+                "guidance below still applies to any SE/3-Max/5-Max contests on "
+                "the same slate — the two games never blend._"
             )
         L.append(
             "_The home game is **small-field GPPs — Single Entry, 3-Max, and "
@@ -232,6 +262,19 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
                 if field:
                     line += f" (~{int(round(c['joint_pct'] / 100 * field)):,} lineups of {field:,})"
                 L.append(line)
+
+        # --- Trap-shaped prices: THIS slate's ownership-ahead-of-projection --- #
+        trap_lines = _trap_price_lines(pool) if not pool.empty else []
+        if trap_lines:
+            L += ["", "## Trap-shaped prices on THIS slate (ownership ahead of projection)"]
+            L.append(
+                "A trap is a price, not a player. This list is where TODAY'S numbers have the "
+                "trap shape: the field's pick rate (ownership) ranks higher than the player's "
+                "projection ranks. Naming a player here is fine — these are this slate's prices, "
+                "not a history of the player. State each as a tension in `## Edges & tensions` "
+                "or `## Fades`; the user decides."
+            )
+            L += trap_lines
 
     # --- References for Claude --- #
     L += ["", "## References for Claude (read as needed)"]

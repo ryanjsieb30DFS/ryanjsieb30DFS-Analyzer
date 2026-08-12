@@ -13,14 +13,23 @@ but nothing answered the small-field GPP question that matters most post-contest
     that carried it (the leverage that actually won), and the ownership product →
     expected duplicates in this field (the dupe risk the winner accepted).
 
-Salary is deliberately absent: DK standings carry no salaries and the autopsy is
-standings-only (projections don't exist at autopsy time). Ownership + FPTS are
-real actuals, so everything here is ground truth. Pure/deterministic; synthesis
-only — it explains what happened, it never commands a play.
+Salary (8/11/26): DK standings carry no salaries, but when the slate's
+projections are still loaded at autopsy time, analyze_contest passes a
+`salary_map` through — and then every proposed swap is checked against the
+$50K cap (the Ventura→James lesson: the points-best swap cost $1,900 more
+than the lineup had left, so "one swap away" was impossible). Without salary
+data the module degrades to the old points-only read, flagged
+`salary_checked: False`. Ownership + FPTS are real actuals, so everything
+here is ground truth. Pure/deterministic; synthesis only — it explains what
+happened, it never commands a play.
 """
 from __future__ import annotations
 
+from itertools import combinations
+
 from src.autopsy import _norm_name
+
+_SALARY_CAP = 50_000
 
 # "Leverage piece" threshold for the winner-story read (matches shark_gap's
 # sub-10 low-own convention for definers; sub-5 is the dart line).
@@ -115,33 +124,74 @@ def near_miss(parsed: dict, analysis: dict) -> dict:
                 for k in win_roster.keys() - your_roster.keys()]
 
     gap = win_pts - your_pts
-    # Best single swap: your unique OUT → winner's unique IN, max FPTS gain.
+
+    # Salary feasibility: available only when analyze_contest ran with the
+    # slate's projections still loaded. A swap must keep the lineup ≤ $50K —
+    # salary_checked requires YOUR full roster priced plus every candidate.
+    salary_map = analysis.get("salary_map") or {}
+    your_sal = [salary_map.get(k) for k in your_roster]
+    your_total = sum(your_sal) if all(s is not None for s in your_sal) else None
+    for o in your_uniq:
+        o["salary"] = salary_map.get(_norm_name(o["name"]))
+    for i in win_uniq:
+        i["salary"] = salary_map.get(_norm_name(i["name"]))
+    salary_checked = (your_total is not None
+                      and all(i["salary"] is not None for i in win_uniq))
+
+    def _fits(outs_, ins_) -> bool:
+        if not salary_checked:
+            return True
+        delta = sum(i["salary"] for i in ins_) - sum(o["salary"] for o in outs_)
+        return your_total + delta <= _SALARY_CAP
+
+    # Best single swap: your unique OUT → winner's unique IN, max FPTS gain
+    # among the swaps the salary cap actually allows. The points-best-but-
+    # over-cap swap is kept separately so the display can say why it's absent.
     best_swap = None
+    blocked_swap = None
     for o in your_uniq:
         for i in win_uniq:
             if o["fpts"] is None or i["fpts"] is None:
                 continue
-            gain = i["fpts"] - o["fpts"]
-            if best_swap is None or gain > best_swap["gain"]:
-                best_swap = {"out": o["name"], "in": i["name"],
-                             "gain": round(gain, 1)}
+            cand = {"out": o["name"], "in": i["name"],
+                    "gain": round(i["fpts"] - o["fpts"], 1)}
+            if _fits([o], [i]):
+                if best_swap is None or cand["gain"] > best_swap["gain"]:
+                    best_swap = cand
+            elif blocked_swap is None or cand["gain"] > blocked_swap["gain"]:
+                over = (your_total - o["salary"] + i["salary"]) - _SALARY_CAP
+                blocked_swap = {**cand, "over_cap_by": int(over)}
     if best_swap:
         best_swap["would_have_won"] = best_swap["gain"] > gap
+    # Only surface the blocked swap when it out-gains every legal one — that's
+    # exactly the case where the old points-only read told a false story.
+    if blocked_swap and best_swap and blocked_swap["gain"] <= best_swap["gain"]:
+        blocked_swap = None
 
-    # Minimum swaps to win: greedily pair your worst uniques out for the
-    # winner's best uniques in until the cumulative gain clears the gap.
+    # Minimum swaps to win: exact search over swap SETS (≤6 uniques a side, so
+    # brute force is cheap) — points gained and salary delta both depend only
+    # on WHICH players move, not how they pair up. Without salary data this
+    # reduces to the best-gain-per-k check (same result as the old greedy).
     swaps_needed = None
-    outs = sorted((o for o in your_uniq if o["fpts"] is not None), key=lambda r: r["fpts"])
-    ins = sorted((i for i in win_uniq if i["fpts"] is not None),
-                 key=lambda r: r["fpts"], reverse=True)
-    cum = 0.0
-    for k, (o, i) in enumerate(zip(outs, ins), start=1):
-        cum += i["fpts"] - o["fpts"]
-        if cum > gap:
+    outs = [o for o in your_uniq if o["fpts"] is not None]
+    ins = [i for i in win_uniq if i["fpts"] is not None]
+    for k in range(1, min(len(outs), len(ins)) + 1):
+        found = False
+        for out_set in combinations(outs, k):
+            for in_set in combinations(ins, k):
+                gain = sum(i["fpts"] for i in in_set) - sum(o["fpts"] for o in out_set)
+                if gain > gap and _fits(out_set, in_set):
+                    found = True
+                    break
+            if found:
+                break
+        if found:
             swaps_needed = k
             break
 
     return {
+        "salary_checked": salary_checked,
+        "blocked_swap": blocked_swap,
         "gradable": True,
         "won": False,
         "your_points": your_pts,
@@ -178,15 +228,24 @@ def counterfactual_md(story: dict, miss: dict) -> str | None:
         else:
             head = (f"**🎯 Near-miss:** your best lineup scored {miss['your_points']:.1f} "
                     f"({miss['gap']} back), sharing {miss['n_shared']} player(s) with the winner.")
+            if miss.get("blocked_swap"):
+                b = miss["blocked_swap"]
+                head += (f" The points-best swap ({b['out']} → {b['in']}, +{b['gain']} pts) "
+                         f"did NOT fit under the $50K salary cap (over by ${b['over_cap_by']:,}).")
             if miss.get("best_swap"):
                 s = miss["best_swap"]
                 verdict = ("**that ONE swap wins the contest**" if s["would_have_won"]
                            else "not enough alone")
-                head += (f" Best single swap: {s['out']} → **{s['in']}** "
+                fit = " that fits the cap" if miss.get("salary_checked") else ""
+                head += (f" Best single swap{fit}: {s['out']} → **{s['in']}** "
                          f"(+{s['gain']} pts — {verdict}).")
+            elif miss.get("blocked_swap"):
+                head += " No single swap fits under the cap."
             if miss.get("swaps_needed"):
-                head += f" Minimum swaps to win: **{miss['swaps_needed']}**."
-            elif miss.get("best_swap"):
+                cap_note = (" (salary-cap checked)" if miss.get("salary_checked")
+                            else " (salary not checked — projections were cleared)")
+                head += f" Minimum swaps to win: **{miss['swaps_needed']}**{cap_note}."
+            elif miss.get("best_swap") or miss.get("blocked_swap"):
                 head += " Even swapping every differing player wouldn't have won — structural, not marginal."
             out.append(head)
     return "\n\n".join(out) if out else None

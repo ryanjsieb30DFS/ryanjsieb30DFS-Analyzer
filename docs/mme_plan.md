@@ -86,16 +86,16 @@ Every error above is only exploitable while it's *current*. Fields adapt slowly,
 
 # PART 2 — TOOLING (Analyzer only; optimizer is third-party)
 
-**Division of labor (updated 7/26/26):** the SIM REPO builds (revived 7/18/26 as the SaberSim replacement — pool builder + contest sim + portfolio); the Analyzer thinks, checks, and measures; the Analyzer never creates lineups. (Original 7/17 text said "SaberSim now, Sim repo shelved" — both halves flipped one day later.)
+**Division of labor (updated 7/26/26):** the SIM REPO builds (revived 7/18/26 as the SaberSim replacement — pool builder + contest sim + portfolio); the Analyzer thinks, checks, and measures; the Analyzer never creates lineups. (Original 7/17 text said "SaberSim now, Sim repo shelved" — both halves flipped one day later.) Since 8/9/26 the Analyzer may additionally SHOW candidate sets selected from the Sim's already-built pool in the Grade tab's Entry-options section (display-only) — selection, never construction; see CLAUDE.md "Selection is not construction".
 
 ## Phase 0 — Play now, zero code
 
 Next MMA card: micro-stakes large-field GPP, 20–50 entries, built in SaberSim with the existing `mma_mme` framework doc (Sim repo, `rules/mma_mme/` — it's a written solver guide). Run the normal Analyzer slate flow. Manually check the entries against the eight errors above — especially expected dupes ≈ 0 and no crowded-pair copies. Upload standings to autopsy as always; the field data is what Phase 2 feeds on.
 
-## Phase 1 — Analyzer learns large fields (first code wave) — items 1-2 ✅ SHIPPED 7/29/26 (contest types + sealed headline + `## Field attack plan`); item 3 (Grade portfolio mode) still open
+## Phase 1 — Analyzer learns large fields (first code wave) — items 1-2 ✅ SHIPPED 7/29/26 (contest types + sealed headline + the field-attack output — originally `## Field attack plan`, folded into `## Build it like a sharp` as the big-field attack step 8/9/26); item 3 (Grade portfolio mode) still open
 
 1. **Contest types:** add `20-Max` / `150-Max` as `MME_CONTEST_TYPES` in `src/contests.py`, fully separate from `FOCUS_CONTEST_TYPES`. SE/3/5-max baselines, grading calibration, and shark envelope stay sealed — your small-field game is working; large-field data never bleeds into it.
-2. **Strategy prompt gains a `## Field attack plan` section** (only when a large-field contest is declared): for each catalog error with evidence on THIS slate, one line naming the field's mistake and one line naming the attack — mispriced-ownership list, anchor-equivalence twins with split sizing, the ignored value-tier scorers, trap-list players present, crowded pairs to refuse, news-swing reads. Still zero lineups; it's a target list, not a build.
+2. **Strategy prompt gains a field-attack output** (only when a large-field contest is declared — shipped as `## Field attack plan`, compressed into the `## Build it like a sharp` big-field attack step 8/9/26): for each catalog error with evidence on THIS slate, one line naming the field's mistake and one line naming the attack — mispriced-ownership list, anchor-equivalence twins with split sizing, the ignored value-tier scorers, trap-list players present, crowded pairs to refuse, news-swing reads. Still zero lineups; it's a target list, not a build.
 3. **Grade tab portfolio mode** (upload the optimizer's export CSV, up to 150 rows) — exploitation checks, deterministic: expected dupes per lineup, trap-list exposure, crowded-pair copies, anchor-equivalence split actually taken, value-tier coverage, structural-dead checks (opponent stacks, dominator double-ups). Grades only, no fixes.
 
 ## Phase 2 — Make the catalog self-updating
@@ -110,7 +110,7 @@ Evaluation, not code. Requirements: covers MMA/PGA/NASCAR on DK; accepts your ve
 
 ## Guardrails
 
-- Analyzer never builds a lineup; construction is third-party only.
+- Analyzer never builds a lineup; construction is third-party only. (Showing candidate sets selected from the Sim's built pool in the Entry-options display is allowed — CLAUDE.md "Selection is not construction", 8/9/26.)
 - SE/3/5-max benchmarks stay sealed from large-field data — parallel files, never merged.
 - No scraping — all field data comes from standings CSVs you upload.
 - Winnings/ROI stay in the third-party tracker; percentile + process are the in-repo metrics.

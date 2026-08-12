@@ -2,8 +2,10 @@
 
 The user hand-builds in DK, pastes the lineups here, and gets an instant grade
 BEFORE lock — leak-prevention at the moment where GPP EV is actually decided.
-The tool still NEVER builds, selects, fixes, or swaps: it names weaknesses and
-the user decides.
+The tool still NEVER builds, fixes, or swaps: it names weaknesses and
+the user decides. (The Grade tab's separate Entry-options section — see
+src/lineup_selection.py — displays candidate sets selected from the Sim's
+pool; this module itself still only grades.)
 
 EVERY threshold is data-derived — never a hardcoded universal number (the retro
 -audit proved universal thresholds false-positive on winning chalky MMA builds):
@@ -109,9 +111,15 @@ def calibration(slug: str, sport: str | None, contests: list[dict] | None) -> di
     try:
         from src import field_tendencies as ft
         from src.contests import FOCUS_CONTEST_TYPES
+        # Comparable fields only (8/9/26): a 1,470-entry contest's winner
+        # ownership must not calibrate a sub-600 SE gate. Target = the biggest
+        # declared focus contest; ft._size_ok applies the 0.5x-2x band.
+        _target_fs = max((int(c.get("field_size") or 0) for c in (contests or [])
+                          if c.get("type") in FOCUS_CONTEST_TYPES), default=0)
         vals = sorted(r["winners_avg_own"] for r in ft._load(slug)
                       if r.get("winners_avg_own") is not None
-                      and r.get("contest_type") in FOCUS_CONTEST_TYPES)
+                      and r.get("contest_type") in FOCUS_CONTEST_TYPES
+                      and ft._size_ok(r.get("field_size"), _target_fs))
         if vals:
             winners_own = round(vals[len(vals) // 2], 1)
     except Exception:  # noqa: BLE001
@@ -159,10 +167,12 @@ def calibration(slug: str, sport: str | None, contests: list[dict] | None) -> di
             key = ft.contest_key(c.get("name"))
             if key and key not in seen_keys:
                 seen_keys.add(key)
-                s = ft.summarize_contest(slug, c.get("name"))
+                s = ft.summarize_contest(slug, c.get("name"),
+                                         target_field_size=c.get("field_size"))
             if s is None and c.get("type") and c["type"] not in seen_types:
                 seen_types.add(c["type"])
-                s = ft.summarize(slug, c.get("type"))
+                s = ft.summarize(slug, c.get("type"),
+                                 target_field_size=c.get("field_size"))
             if not s:
                 continue
             for r in s.get("reliably_crowded") or []:
@@ -179,6 +189,173 @@ def calibration(slug: str, sport: str | None, contests: list[dict] | None) -> di
     cal["field_size"] = max((c.get("field_size") or 0) for c in (contests or [])) \
         if contests else 0
     return cal
+
+
+def contest_calibration(slug: str, sport: str | None, contest: dict) -> dict:
+    """Calibration for ONE contest — not every contest is the same (user
+    directive 8/9/26): field size, winners-own gate, dupe field, and
+    crowded/pairs history all come from THIS contest (a single-contest list
+    already makes `calibration` do that), plus its payout shape and entry
+    count for the letter grade."""
+    cal = calibration(slug, sport, [contest])
+    cal.update(
+        contest_name=contest.get("name"),
+        contest_id=contest.get("id"),
+        payout_shape=contest.get("payout_shape"),
+        my_entries=contest.get("my_entries"),
+    )
+    return cal
+
+
+def sim_standing(pool: dict, contest: dict, roster_key: str) -> dict | None:
+    """Where this EXACT roster ranks inside the Sim's pool FOR THIS CONTEST.
+    None when the roster isn't a pool row (hand-edited lineups get no sim
+    adjustment). Percentile = share of pool lineups strictly below it."""
+    rosters = pool.get("rosters") or []
+    idx = None
+    for i, r in enumerate(rosters):
+        if "|".join(sorted(str(n) for n in r)) == roster_key:
+            idx = i
+            break
+    if idx is None:
+        return None
+    m = contest.get("metrics") or {}
+
+    def _pct(arr):
+        if not arr or idx >= len(arr) or arr[idx] is None:
+            return None
+        vals = [v for v in arr if v is not None]
+        if len(vals) <= 1:
+            return 100.0
+        below = sum(1 for v in vals if v < arr[idx])
+        return round(100.0 * below / (len(vals) - 1), 1)
+
+    return {"index": idx,
+            "pct_top1": _pct(m.get("top1_pct")),
+            "pct_cash": _pct(m.get("cash_pct"))}
+
+
+_LETTERS = ["F", "D", "C", "B", "A"]
+
+
+def letter_grade(grade: dict, cal: dict, sim: dict | None = None) -> dict:
+    """A/B/C/D/F for one lineup in ONE contest. Deterministic and explainable:
+
+    - Hard F (final): a FADE violation (your own strategy said zero), a
+      salary over the cap (almost always a wrong-player match), or 4+
+      calibrated warnings.
+    - Otherwise the warning count sets the base: 0→A, 1→B, 2→C, 3→D.
+    - When the pasted roster IS a Sim pool row, its sim standing in THIS
+      contest adjusts ONE step: the metric follows the payout shape
+      (top-heavy → chance of 1st, flat/balanced → chance of any payout,
+      undeclared → the average of both); ≥90th percentile bumps up,
+      <25th bumps down. Exactly one step, never past A, D drops to F.
+
+    Returns {letter, base, why: [plain-language lines], sim_pct, sim_metric}."""
+    flags = grade.get("flags") or []
+    warns = [f for f in flags if f.get("level") == "warn"]
+    codes = {f.get("code") for f in warns}
+    why: list[str] = []
+
+    hard_f = ("fade" in codes or "salary_cap" in codes or len(warns) >= 4)
+    if hard_f:
+        base = "F"
+        if "fade" in codes:
+            why.append("F is final: it rosters a player your own strategy "
+                       "said to zero (a fade violation).")
+        elif "salary_cap" in codes:
+            why.append("F is final: the salary is over the cap — almost "
+                       "certainly a name matched to the wrong player.")
+        else:
+            why.append(f"F is final: {len(warns)} calibrated warnings.")
+    else:
+        base = {0: "A", 1: "B", 2: "C", 3: "D"}[len(warns)]
+        if warns:
+            why.append(f"{len(warns)} warning{'s' if len(warns) != 1 else ''} "
+                       f"from the calibrated checks → starts at {base}.")
+        else:
+            why.append("No calibrated warnings → starts at A.")
+    for f in warns:
+        why.append(f.get("msg", ""))
+
+    letter = base
+    sim_pct = sim_metric = None
+    if not hard_f and sim is not None:
+        shape = cal.get("payout_shape")
+        if shape == "Top-heavy":
+            sim_pct, sim_metric = sim.get("pct_top1"), "chance of finishing 1st (top1%)"
+        elif shape in ("Flat", "Balanced"):
+            sim_pct, sim_metric = sim.get("pct_cash"), "chance of any payout (cash%)"
+        else:
+            pts = [v for v in (sim.get("pct_top1"), sim.get("pct_cash"))
+                   if v is not None]
+            sim_pct = round(sum(pts) / len(pts), 1) if pts else None
+            sim_metric = "blend of first-place and any-payout chances"
+        if sim_pct is not None:
+            pos = _LETTERS.index(letter)
+            if sim_pct >= 90.0 and letter != "A":
+                letter = _LETTERS[pos + 1]
+                why.append(f"Its {sim_metric} beats {sim_pct:.0f} of every 100 "
+                           f"lineups the Sim built for this contest → one step "
+                           f"up to {letter}.")
+            elif sim_pct < 25.0:
+                letter = _LETTERS[pos - 1]
+                why.append(f"Its {sim_metric} beats only {sim_pct:.0f} of every "
+                           f"100 lineups the Sim built for this contest → one "
+                           f"step down to {letter}.")
+    elif not hard_f and sim is None:
+        why.append("This exact lineup is not in the Sim's pool, so no sim "
+                   "adjustment was applied.")
+
+    return {"letter": letter, "base": base, "why": [w for w in why if w],
+            "sim_pct": sim_pct, "sim_metric": sim_metric}
+
+
+def worst_letter(letters: list[str]) -> str | None:
+    """The section's headline: the WORST lineup letter (conservative)."""
+    ranked = [l for l in letters if l in _LETTERS]
+    return min(ranked, key=_LETTERS.index) if ranked else None
+
+
+def contest_grade_md(grades: list[dict], letters: list[dict],
+                     portfolio_flags: list[dict], cal: dict) -> str:
+    """Per-contest grade markdown: each lineup headed by its LETTER, the
+    calibration line naming the contest."""
+    out = []
+    bits = []
+    if cal.get("field_size"):
+        bits.append(f"field {int(cal['field_size']):,}")
+    if cal.get("payout_shape"):
+        bits.append(f"payout {cal['payout_shape']}")
+    if cal.get("winners_own") is not None:
+        bits.append(f"your comparable winners ~{cal['winners_own']}%/slot")
+    if cal.get("shark_own") is not None:
+        bits.append(f"sharks {cal['shark_own']}%/slot")
+    if bits:
+        out.append(f"_Calibration for **{cal.get('contest_name') or 'this contest'}** — "
+                   + " · ".join(bits) + "_")
+    for i, (g, lt) in enumerate(zip(grades, letters), 1):
+        warns = [f for f in g["flags"] if f["level"] == "warn"]
+        infos = [f for f in g["flags"] if f["level"] == "info"]
+        stats = []
+        if g["avg_own"] is not None:
+            stats.append(f"{g['avg_own']}% avg own")
+        stats.append(f"{g['n_sub10']} sub-10% / {g['n_sub5']} sub-5%")
+        if g.get("salary_used") is not None:
+            stats.append(f"${g['salary_used']:,} of ${_SALARY_CAP:,}")
+        if g.get("expected_dupes") is not None:
+            _how = ("corpus-corrected" if g.get("dupes_corrected")
+                    else "raw independence estimate")
+            stats.append(f"~{g['expected_dupes']} expected dupes ({_how})")
+        out.append(f"**Grade {lt['letter']} — Lineup {i}** — {', '.join(g['names'])}  \n"
+                   f"_{' · '.join(stats)}_")
+        for w in lt.get("why") or []:
+            out.append(f"- {w}")
+        for f in infos:
+            out.append(f"- ℹ️ {f['msg']}")
+    for f in portfolio_flags:
+        out.append(f"- {'⚠️' if f['level'] == 'warn' else 'ℹ️'} **Within this contest:** {f['msg']}")
+    return "\n\n".join(out) if out else "_Nothing to grade yet._"
 
 
 # ------------------------------------------------------------------ grading ----
@@ -227,7 +404,7 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
     # 0) Salary sanity: DK wouldn't accept an over-cap lineup, so exceeding the
     # cap here almost always means a token matched the WRONG player.
     if g["salary_used"] is not None and g["salary_used"] > _SALARY_CAP:
-        g["flags"].append({"level": "warn",
+        g["flags"].append({"level": "warn", "code": "salary_cap",
                            "msg": f"Salary ${g['salary_used']:,} exceeds the "
                                   f"${_SALARY_CAP:,} cap — DK wouldn't accept this; "
                                   f"check for a name matched to the wrong player"})
@@ -235,11 +412,11 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
     # 1) Fade violations — your OWN strategy said zero exposure.
     fade_hits = [p["name"] for p in players if _norm_name(p["name"]) in cal.get("fades", set())]
     if fade_hits:
-        g["flags"].append({"level": "warn",
+        g["flags"].append({"level": "warn", "code": "fade",
                            "msg": f"Rosters your own FADE call(s): **{', '.join(fade_hits)}**"})
     soft_hits = [p["name"] for p in players if _norm_name(p["name"]) in cal.get("soft_fades", set())]
     if soft_hits:
-        g["flags"].append({"level": "info",
+        g["flags"].append({"level": "info", "code": "soft_fade",
                            "msg": f"Carries under-own call(s): {', '.join(soft_hits)} "
                                   f"(strategy said light, not zero)"})
 
@@ -248,7 +425,7 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
         bottom = [p["name"] for p in players
                   if cal["tiers"].get(_norm_name(p["name"])) == cal["bottom_tier"]]
         if bottom:
-            g["flags"].append({"level": "warn",
+            g["flags"].append({"level": "warn", "code": "bottom_tier",
                                "msg": f"Board tiers **{', '.join(bottom)}** as "
                                       f"`{cal['bottom_tier']}` (its bottom tier)"})
 
@@ -257,7 +434,7 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
         if g["avg_own"] > cal["own_flag_above"]:
             tgt = " / ".join(f"{v}" for v in (cal.get("shark_own"), cal.get("winners_own"))
                              if v is not None)
-            g["flags"].append({"level": "warn",
+            g["flags"].append({"level": "warn", "code": "chalk_heavy",
                                "msg": f"Chalk-heavy: **{g['avg_own']}% avg own** vs your "
                                       f"contests' winning envelope ({tgt}%/slot)"})
 
@@ -265,29 +442,29 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
     lev = cal.get("shark_leverage_pct")
     if g["n_sub10"] == 0 and owns:
         if lev is not None and lev >= _LEV_GATE:
-            g["flags"].append({"level": "warn",
+            g["flags"].append({"level": "warn", "code": "no_leverage",
                                "msg": f"No sub-10% piece — the {cal.get('sport')} sharks carry "
                                       f"leverage in {lev:.0f}% of lineups"})
         else:
-            g["flags"].append({"level": "info",
+            g["flags"].append({"level": "info", "code": "no_leverage",
                                "msg": "No sub-10% piece (info: this sport's observed pros run "
                                       "chalk-heavy, so not auto-flagged)"})
 
     # 5) Recurring crowded pairs — the dupe-magnet stacks of YOUR contests.
     for pr in cal.get("pairs") or []:
         if set(pr["norm"]) <= norms:
-            g["flags"].append({"level": "warn",
+            g["flags"].append({"level": "warn", "code": "crowded_pair",
                                "msg": f"Contains the field's recurring pair "
                                       f"**{pr['players'][0]} + {pr['players'][1]}** "
                                       f"(together in {pr['in_n']} of {pr['of']} of your logs "
                                       f"— a dupe magnet)"})
     crowded_hits = [p["name"] for p in players if _norm_name(p["name"]) in cal.get("crowded", set())]
     if crowded_hits:
-        g["flags"].append({"level": "info",
+        g["flags"].append({"level": "info", "code": "crowded_info",
                            "msg": f"Reliably-crowded players aboard: {', '.join(crowded_hits)}"})
 
     if g.get("unmatched"):
-        g["flags"].append({"level": "info",
+        g["flags"].append({"level": "info", "code": "unmatched",
                            "msg": f"Not matched to projections (typo?): "
                                   f"{', '.join(str(u) for u in g['unmatched'])}"})
     return g
@@ -436,6 +613,18 @@ def clear_draft(slug: str) -> None:
         (_DRAFT_DIR / f"{slug}.txt").unlink(missing_ok=True)
     except OSError:
         pass
+
+
+def clear_drafts(slug: str) -> None:
+    """Slate-scoped: the legacy single draft plus every per-contest draft
+    (`<slug>__<contest key>.txt`)."""
+    clear_draft(slug)
+    if _DRAFT_DIR.exists():
+        for p in _DRAFT_DIR.glob(f"{slug}__*.txt"):
+            try:
+                p.unlink()
+            except OSError:
+                pass
 
 
 def leverage_md(lineups: list[dict]) -> str | None:

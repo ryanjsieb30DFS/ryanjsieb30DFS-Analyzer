@@ -59,14 +59,20 @@ def test_json_serializable():
 def test_tendencies_record_and_summarize(tmp_path, monkeypatch):
     monkeypatch.setattr(ft, "_REPO_ROOT", tmp_path)
     prof = field_profile(_standings(), "nascar", contest_type="Test SE")
-    # Two contests of the same type → Chalky/Trap recur → "reliably crowded".
+    # Two contests of the same type → Chalky recurs → "reliably crowded".
     assert ft.record("nascar", "Test SE", 10, prof, "2026-07-11") is True
     assert ft.summarize("nascar", "Test SE") is None       # 1 contest: not yet
     ft.record("nascar", "Test SE", 10, prof, "2026-07-12")
     summ = ft.summarize("nascar", "Test SE")
     assert summ["n_contests"] == 2
     assert "Chalky" in [d["name"] for d in summ["reliably_crowded"]]
-    assert "Trap" in [d["name"] for d in summ["recurring_traps"]]
+    # A trap is a price, not a player: no cross-slate trap NAME count exists —
+    # trap history rolls up as the price SHAPE instead.
+    assert "recurring_traps" not in summ
+    ts = summ["trap_shape"]
+    assert ts is not None and isinstance(ts["fish_pct_median"], float)
+    # 'Trap' was 40% realized own → counts as a chalk-shaped trap (k of t).
+    assert ts["chalk_share"]["k"] >= 1 and ts["chalk_share"]["t"] >= 1
 
 
 def test_record_skips_ungradable(tmp_path, monkeypatch):

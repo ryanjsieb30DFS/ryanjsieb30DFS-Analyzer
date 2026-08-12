@@ -25,14 +25,43 @@ from pathlib import Path
 _REPO_ROOT = Path(__file__).parent.parent
 
 # Per-slate workspace artifacts worth preserving (source path per slug).
+# lineup_grade.md is handled separately in archive_slate: per-contest grade
+# files (data/grade/<slug>__<key>.md) are CONCATENATED into one history file
+# so every existing reader of lineup_grade.md keeps working.
 _ARCHIVE_SOURCES = {
     "slate_analysis.md": lambda slug: _REPO_ROOT / "data" / "slate_analysis" / f"{slug}.md",
     "player_pool.md": lambda slug: _REPO_ROOT / "data" / "player_pool" / f"{slug}.md",
     "bundle.md": lambda slug: _REPO_ROOT / "data" / "bundle" / f"{slug}.md",
     "contests.json": lambda slug: _REPO_ROOT / "data" / "contests" / f"{slug}.json",
     "strategy_contract.json": lambda slug: _REPO_ROOT / "data" / "strategy_contract" / f"{slug}.json",
-    "lineup_grade.md": lambda slug: _REPO_ROOT / "data" / "grade" / f"{slug}.md",
+    # Claude's per-contest picks + whys — autopsy-reviewable selection record.
+    "lineup_selection.json": lambda slug: _REPO_ROOT / "data" / "lineup_selection" / f"{slug}.json",
 }
+
+
+def _archive_grades(slug: str, hist_dir: Path) -> bool:
+    """Concatenate the slate's grade files (the legacy pooled data/grade/
+    <slug>.md plus every per-contest <slug>__<key>.md) into ONE history
+    lineup_grade.md. Returns True when anything was written."""
+    grade_dir = _REPO_ROOT / "data" / "grade"
+    parts = []
+    legacy = grade_dir / f"{slug}.md"
+    if legacy.exists():
+        parts.append(("slate", legacy))
+    for p in sorted(grade_dir.glob(f"{slug}__*.md")):
+        parts.append((p.stem.split("__", 1)[1], p))
+    if not parts:
+        return False
+    chunks = []
+    for name, p in parts:
+        try:
+            chunks.append(f"# Grade — {name}\n\n{p.read_text()}")
+        except OSError:
+            continue
+    if not chunks:
+        return False
+    (hist_dir / "lineup_grade.md").write_text("\n\n---\n\n".join(chunks))
+    return True
 
 
 def _history_root(slug: str) -> Path:
@@ -249,6 +278,12 @@ def archive_slate(
             archived.append(dest_name)
         else:
             missing.append(dest_name)
+    # Per-contest grades concatenate into the single lineup_grade.md every
+    # existing history reader already knows.
+    if _archive_grades(slug, hist_dir):
+        archived.append("lineup_grade.md")
+    else:
+        missing.append("lineup_grade.md")
 
     articles_dir = _REPO_ROOT / "articles" / slug
     article_files = (

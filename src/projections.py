@@ -54,6 +54,16 @@ def drop_junk_rows(projections: pd.DataFrame) -> pd.DataFrame:
     keep = pd.to_numeric(projections["proj_points"], errors="coerce").notna() & ~name_lower.isin(
         ["", "nan", "none"]
     )
+    # $0/blank salary = withdrawn or unrosterable (ETR ships WDs at $0, 8/5/26:
+    # Troy Merritt). DK won't roster them, so they must not appear on the board
+    # or in chalk/leverage tiers. Ported from the Sim repo 8/10/26 — the
+    # Analyzer previously patched the downstream value_by_tier crash instead
+    # and kept ranking WDs.
+    if "salary" in projections.columns:
+        keep &= pd.to_numeric(
+            projections["salary"].astype(str).str.replace(r"[$,]", "", regex=True),
+            errors="coerce",
+        ).fillna(0) > 0
     out = projections[keep].reset_index(drop=True)
     # Surface what was silently filtered (a NAMED row with no projection could be
     # a real player the vendor half-exported — the user should see it go).
