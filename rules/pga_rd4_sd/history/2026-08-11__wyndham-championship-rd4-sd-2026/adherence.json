@@ -1,0 +1,106 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "n_contests": 2,
+  "calls": [
+    {
+      "name": "Beau Hossler",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193437329 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193437340 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Davis Thompson",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193437329 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193437340 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 0,
+  "leverage_candidates": [
+    {
+      "name": "Ben Kohles",
+      "rostered": false
+    },
+    {
+      "name": "Sahith Theegala",
+      "rostered": false
+    },
+    {
+      "name": "Cameron Young",
+      "rostered": false
+    },
+    {
+      "name": "Doug Ghim",
+      "rostered": false
+    },
+    {
+      "name": "Billy Horschel",
+      "rostered": false
+    },
+    {
+      "name": "Eric Cole",
+      "rostered": false
+    },
+    {
+      "name": "Jackson Suber",
+      "rostered": false
+    },
+    {
+      "name": "Zachary Bauchou",
+      "rostered": false
+    },
+    {
+      "name": "Jordan Spieth",
+      "rostered": true
+    },
+    {
+      "name": "Michael Kim",
+      "rostered": false
+    },
+    {
+      "name": "Denny McCarthy",
+      "rostered": false
+    },
+    {
+      "name": "Aaron Rai",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 1,
+  "leverage_of": 12
+}

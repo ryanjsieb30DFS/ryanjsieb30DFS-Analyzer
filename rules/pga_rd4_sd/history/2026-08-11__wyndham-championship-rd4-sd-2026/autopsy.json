@@ -1,0 +1,1605 @@
+[
+  {
+    "timestamp": "2026-08-11 22:28",
+    "contest_type": "PGA RD4 Showdown",
+    "source_file": "contest-standings-193437329 2.csv",
+    "contest_id": "193437329",
+    "entries": 294,
+    "winning_score": 360.40002,
+    "cash_line_p80": 288.939988,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "pga_rd4_sd",
+    "sport": "golf",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 73,
+      "total": 73
+    },
+    "user_summary": {
+      "avg_own_mean": 22.16,
+      "low_own_count_mean": 1.0,
+      "salary_used_mean": 49900.0,
+      "entry_count": 1,
+      "best_rank": 1,
+      "best_percentile": 0.3
+    },
+    "user_lineups": [
+      {
+        "rank": 1,
+        "entry_name": "RyvlesGaming30",
+        "points": 360.40002,
+        "percentile": 0.3,
+        "players": [
+          "Justin Thomas",
+          "Michael Brennan",
+          "Benjamin James",
+          "Alex Noren",
+          "Jordan Spieth",
+          "Harry Hall"
+        ],
+        "avg_own": 22.16,
+        "low_own_count": 1,
+        "salary_used": 49900,
+        "proj_total": 286.28,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Benjamin James",
+        "proj_points": 45.01,
+        "actual_fpts": 84.25,
+        "fpts_delta": 39.24,
+        "ownership": 10.5,
+        "actual_own": 8.16
+      },
+      {
+        "name": "Andrew Novak",
+        "proj_points": 40.55,
+        "actual_fpts": 70.65,
+        "fpts_delta": 30.1,
+        "ownership": 5.4,
+        "actual_own": 0.68
+      },
+      {
+        "name": "Marco Penge",
+        "proj_points": 35.94,
+        "actual_fpts": 63.7,
+        "fpts_delta": 27.76,
+        "ownership": 1.4,
+        "actual_own": 0.68
+      },
+      {
+        "name": "Maverick McNealy",
+        "proj_points": 39.64,
+        "actual_fpts": 62.4,
+        "fpts_delta": 22.76,
+        "ownership": 1.3,
+        "actual_own": 1.7
+      },
+      {
+        "name": "Taylor Pendrith",
+        "proj_points": 36.18,
+        "actual_fpts": 58.5,
+        "fpts_delta": 22.32,
+        "ownership": 0.7,
+        "actual_own": 0.68
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Erik Van Rooyen",
+        "proj_points": 40.26,
+        "actual_fpts": 8.2,
+        "fpts_delta": -32.06,
+        "ownership": 5.6,
+        "actual_own": 20.07
+      },
+      {
+        "name": "Joe Highsmith",
+        "proj_points": 35.32,
+        "actual_fpts": 12.65,
+        "fpts_delta": -22.67,
+        "ownership": 0.6,
+        "actual_own": 0.34
+      },
+      {
+        "name": "Davis Thompson",
+        "proj_points": 51.57,
+        "actual_fpts": 30.6,
+        "fpts_delta": -20.97,
+        "ownership": 24.6,
+        "actual_own": 36.39
+      },
+      {
+        "name": "Jackson Koivun",
+        "proj_points": 48.25,
+        "actual_fpts": 27.6,
+        "fpts_delta": -20.65,
+        "ownership": 11.2,
+        "actual_own": 18.37
+      },
+      {
+        "name": "Sahith Theegala",
+        "proj_points": 44.84,
+        "actual_fpts": 25.0,
+        "fpts_delta": -19.84,
+        "ownership": 7.1,
+        "actual_own": 8.84
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Benjamin James",
+        "salary": 8700,
+        "actual_fpts": 84.25,
+        "actual_own": 8.16,
+        "top_lineup_pct": 40.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 24.28,
+      "low_own_count_mean": 1.6,
+      "salary_used_mean": 49860.0,
+      "dup_max": 3,
+      "unique_pct": 85.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "RyvlesGaming30",
+          "points": 360.40002,
+          "percentile": 0.3,
+          "players": [
+            "Justin Thomas",
+            "Michael Brennan",
+            "Benjamin James",
+            "Alex Noren",
+            "Jordan Spieth",
+            "Harry Hall"
+          ],
+          "avg_own": 22.16,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 286.28,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "Brionspicks17",
+          "points": 359.6,
+          "percentile": 0.7,
+          "players": [
+            "Tom Kim",
+            "Michael Brennan",
+            "Benjamin James",
+            "Zachary Bauchou",
+            "Matt Wallace",
+            "Harry Hall"
+          ],
+          "avg_own": 24.66,
+          "low_own_count": 2,
+          "salary_used": 50000,
+          "proj_total": 288.68,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "luka0077",
+          "points": 336.65,
+          "percentile": 1.0,
+          "players": [
+            "Hideki Matsuyama",
+            "Michael Brennan",
+            "Sungjae Im",
+            "Kevin Yu",
+            "David Skinns",
+            "Harry Hall"
+          ],
+          "avg_own": 20.01,
+          "low_own_count": 2,
+          "salary_used": 49900,
+          "proj_total": 283.23,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "LeSnuke",
+          "points": 335.65,
+          "percentile": 1.4,
+          "players": [
+            "Michael Brennan",
+            "Doug Ghim",
+            "Sungjae Im",
+            "Alex Smalley",
+            "Jordan Spieth",
+            "Andrew Novak"
+          ],
+          "avg_own": 18.37,
+          "low_own_count": 3,
+          "salary_used": 50000,
+          "proj_total": 280.21,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "Player_10000",
+          "points": 330.7,
+          "percentile": 1.7,
+          "players": [
+            "Hideki Matsuyama",
+            "Michael Brennan",
+            "Beau Hossler",
+            "Kevin Yu",
+            "Matt Wallace",
+            "David Skinns"
+          ],
+          "avg_own": 22.16,
+          "low_own_count": 1,
+          "salary_used": 49700,
+          "proj_total": 289.65,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "bowldawg22",
+          "points": 327.0,
+          "percentile": 2.0,
+          "players": [
+            "Tom Kim",
+            "Michael Brennan",
+            "Benjamin James",
+            "Jordan Spieth",
+            "Zachary Bauchou",
+            "Thorbj\u00f8rn Olesen"
+          ],
+          "avg_own": 18.82,
+          "low_own_count": 3,
+          "salary_used": 49800,
+          "proj_total": 281.72,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "superstarsaga",
+          "points": 324.45,
+          "percentile": 2.4,
+          "players": [
+            "Hideki Matsuyama",
+            "Michael Brennan",
+            "Alex Noren",
+            "Beau Hossler",
+            "Harry Hall",
+            "Nicolas Echavarria"
+          ],
+          "avg_own": 28.74,
+          "low_own_count": 0,
+          "salary_used": 49100,
+          "proj_total": 300.88,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "robvaughan",
+          "points": 321.55002,
+          "percentile": 2.7,
+          "players": [
+            "Michael Brennan",
+            "Ben Kohles",
+            "Brooks Koepka",
+            "Benjamin James",
+            "Zachary Bauchou",
+            "Davis Chatfield"
+          ],
+          "avg_own": 10.71,
+          "low_own_count": 5,
+          "salary_used": 49800,
+          "proj_total": 261.92,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "Rotomania",
+          "points": 320.94998,
+          "percentile": 3.1,
+          "players": [
+            "Hideki Matsuyama",
+            "Michael Brennan",
+            "Alex Smalley",
+            "Billy Horschel",
+            "Matt Wallace",
+            "Kevin Roy"
+          ],
+          "avg_own": 23.47,
+          "low_own_count": 2,
+          "salary_used": 50000,
+          "proj_total": 288.95,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "mikemtz18",
+          "points": 317.0,
+          "percentile": 3.4,
+          "players": [
+            "Tom Kim",
+            "Michael Brennan",
+            "Alex Smalley",
+            "Beau Hossler",
+            "Matt Wallace",
+            "Harry Hall"
+          ],
+          "avg_own": 35.2,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 306.03,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 2.12,
+        "low_own_count_delta": 0.6,
+        "salary_used_delta": -40.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 294,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Alex Smalley",
+          "field_own": 51.0,
+          "actual_fpts": 36.9
+        },
+        {
+          "name": "Tom Kim",
+          "field_own": 46.9,
+          "actual_fpts": 39.0
+        },
+        {
+          "name": "Davis Thompson",
+          "field_own": 36.4,
+          "actual_fpts": 30.6
+        },
+        {
+          "name": "Michael Brennan",
+          "field_own": 35.4,
+          "actual_fpts": 71.5
+        },
+        {
+          "name": "Alex Noren",
+          "field_own": 35.4,
+          "actual_fpts": 37.1
+        },
+        {
+          "name": "Harry Hall",
+          "field_own": 28.2,
+          "actual_fpts": 59.9
+        },
+        {
+          "name": "Beau Hossler",
+          "field_own": 27.9,
+          "actual_fpts": 52.6
+        },
+        {
+          "name": "Nicolas Echavarria",
+          "field_own": 25.9,
+          "actual_fpts": 43.4
+        },
+        {
+          "name": "Kevin Yu",
+          "field_own": 22.4,
+          "actual_fpts": 53.5
+        },
+        {
+          "name": "Matt Wallace",
+          "field_own": 21.8,
+          "actual_fpts": 57.1
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Alex Smalley",
+            "Tom Kim"
+          ],
+          "field_pct": 25.9,
+          "count": 76
+        },
+        {
+          "players": [
+            "Alex Smalley",
+            "Michael Brennan"
+          ],
+          "field_pct": 20.5,
+          "count": 60
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Alex Smalley"
+          ],
+          "field_pct": 19.8,
+          "count": 58
+        },
+        {
+          "players": [
+            "Alex Smalley",
+            "Davis Thompson"
+          ],
+          "field_pct": 19.5,
+          "count": 57
+        },
+        {
+          "players": [
+            "Nicolas Echavarria",
+            "Tom Kim"
+          ],
+          "field_pct": 19.1,
+          "count": 56
+        },
+        {
+          "players": [
+            "Harry Hall",
+            "Tom Kim"
+          ],
+          "field_pct": 16.7,
+          "count": 49
+        },
+        {
+          "players": [
+            "Alex Smalley",
+            "Beau Hossler"
+          ],
+          "field_pct": 16.0,
+          "count": 47
+        },
+        {
+          "players": [
+            "Beau Hossler",
+            "Tom Kim"
+          ],
+          "field_pct": 15.4,
+          "count": 45
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Tom Kim"
+          ],
+          "field_pct": 15.4,
+          "count": 45
+        },
+        {
+          "players": [
+            "Michael Brennan",
+            "Tom Kim"
+          ],
+          "field_pct": 14.3,
+          "count": 42
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Alex Smalley",
+            "Beau Hossler",
+            "Kevin Yu",
+            "Michael Brennan",
+            "Nicolas Echavarria",
+            "Tom Kim"
+          ],
+          "count": 5,
+          "field_pct": 1.7
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Alex Smalley",
+            "Beau Hossler",
+            "Davis Thompson",
+            "Harry Hall",
+            "Michael Brennan"
+          ],
+          "count": 5,
+          "field_pct": 1.7
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Beau Hossler",
+            "Harry Hall",
+            "Kevin Yu",
+            "Michael Brennan",
+            "Tom Kim"
+          ],
+          "count": 3,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Beau Hossler",
+            "Ben Kohles",
+            "Harry Hall",
+            "Michael Brennan",
+            "Nicolas Echavarria",
+            "Tom Kim"
+          ],
+          "count": 3,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Alex Smalley",
+            "Beau Hossler",
+            "Davis Thompson",
+            "Matt Wallace",
+            "Nicolas Echavarria",
+            "Tom Kim"
+          ],
+          "count": 3,
+          "field_pct": 1.0
+        }
+      ],
+      "winners_profile": {
+        "n": 3,
+        "avg_own_per_slot": 21.0,
+        "dart_pct": 33.3,
+        "unique_pct": 100.0
+      },
+      "fish_profile": {
+        "n": 146,
+        "avg_own_per_slot": 23.2,
+        "dart_pct": 60.3,
+        "unique_pct": 97.3
+      },
+      "fish_traps": [
+        {
+          "name": "Davis Thompson",
+          "fish_pct": 48.6,
+          "winner_pct": 0.0,
+          "gap": 48.6,
+          "actual_fpts": 30.6,
+          "field_own": 36.4,
+          "own_rank": 3
+        },
+        {
+          "name": "Erik Van Rooyen",
+          "fish_pct": 34.9,
+          "winner_pct": 0.0,
+          "gap": 34.9,
+          "actual_fpts": 8.2,
+          "field_own": 20.1,
+          "own_rank": 11
+        },
+        {
+          "name": "Alex Noren",
+          "fish_pct": 33.6,
+          "winner_pct": 0.0,
+          "gap": 33.6,
+          "actual_fpts": 37.1,
+          "field_own": 35.4,
+          "own_rank": 4
+        },
+        {
+          "name": "Jackson Koivun",
+          "fish_pct": 26.7,
+          "winner_pct": 0.0,
+          "gap": 26.7,
+          "actual_fpts": 27.6,
+          "field_own": 18.4,
+          "own_rank": 13
+        },
+        {
+          "name": "Nicolas Echavarria",
+          "fish_pct": 22.6,
+          "winner_pct": 0.0,
+          "gap": 22.6,
+          "actual_fpts": 43.4,
+          "field_own": 25.9,
+          "own_rank": 8
+        },
+        {
+          "name": "Alex Smalley",
+          "fish_pct": 54.8,
+          "winner_pct": 33.3,
+          "gap": 21.5,
+          "actual_fpts": 36.9,
+          "field_own": 51.0,
+          "own_rank": 1
+        },
+        {
+          "name": "Beau Hossler",
+          "fish_pct": 19.2,
+          "winner_pct": 0.0,
+          "gap": 19.2,
+          "actual_fpts": 52.6,
+          "field_own": 27.9,
+          "own_rank": 7
+        },
+        {
+          "name": "Jordan L. Smith",
+          "fish_pct": 16.4,
+          "winner_pct": 0.0,
+          "gap": 16.4,
+          "actual_fpts": 37.2,
+          "field_own": 15.7,
+          "own_rank": 14
+        },
+        {
+          "name": "Tom Kim",
+          "fish_pct": 49.3,
+          "winner_pct": 33.3,
+          "gap": 16.0,
+          "actual_fpts": 39.0,
+          "field_own": 46.9,
+          "own_rank": 2
+        },
+        {
+          "name": "Webb Simpson",
+          "fish_pct": 12.3,
+          "winner_pct": 0.0,
+          "gap": 12.3,
+          "actual_fpts": 27.6,
+          "field_own": 10.5,
+          "own_rank": 17
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "Brionspicks17",
+          "best_rank": 2,
+          "percentile": 0.7
+        },
+        {
+          "handle": "luka0077",
+          "best_rank": 3,
+          "percentile": 1.0
+        },
+        {
+          "handle": "LeSnuke",
+          "best_rank": 4,
+          "percentile": 1.4
+        },
+        {
+          "handle": "Player_10000",
+          "best_rank": 5,
+          "percentile": 1.7
+        },
+        {
+          "handle": "bowldawg22",
+          "best_rank": 6,
+          "percentile": 2.0
+        },
+        {
+          "handle": "superstarsaga",
+          "best_rank": 7,
+          "percentile": 2.4
+        },
+        {
+          "handle": "robvaughan",
+          "best_rank": 8,
+          "percentile": 2.7
+        },
+        {
+          "handle": "Rotomania",
+          "best_rank": 9,
+          "percentile": 3.1
+        },
+        {
+          "handle": "mikemtz18",
+          "best_rank": 10,
+          "percentile": 3.4
+        },
+        {
+          "handle": "ketchupstain",
+          "best_rank": 11,
+          "percentile": 3.7
+        },
+        {
+          "handle": "itsbusinesstime",
+          "best_rank": 12,
+          "percentile": 4.1
+        },
+        {
+          "handle": "eje23",
+          "best_rank": 13,
+          "percentile": 4.4
+        },
+        {
+          "handle": "bbritain",
+          "best_rank": 14,
+          "percentile": 4.8
+        },
+        {
+          "handle": "blitzburgh07",
+          "best_rank": 15,
+          "percentile": 5.1
+        },
+        {
+          "handle": "dewey8987",
+          "best_rank": 15,
+          "percentile": 5.1
+        }
+      ],
+      "read": [
+        "Field crowded **Alex Smalley** at 51.0% (36.9 fpts) \u2014 the chalk to consider fading.",
+        "**Alex Smalley + Tom Kim** were together in 25.9% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Davis Thompson** was a fish trap: 48.6% of the fish, only 0.0% of winners.",
+        "Fish ran 2.2 pts/slot more chalk than winners (23.2% vs 21.0%)."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 360.40002,
+      "winner_handle": "RyvlesGaming30",
+      "roster": [
+        {
+          "name": "Justin Thomas",
+          "own": 13.27,
+          "fpts": 55.9
+        },
+        {
+          "name": "Michael Brennan",
+          "own": 35.37,
+          "fpts": 71.45
+        },
+        {
+          "name": "Benjamin James",
+          "own": 8.16,
+          "fpts": 84.25
+        },
+        {
+          "name": "Alex Noren",
+          "own": 35.37,
+          "fpts": 37.1
+        },
+        {
+          "name": "Jordan Spieth",
+          "own": 12.59,
+          "fpts": 51.85
+        },
+        {
+          "name": "Harry Hall",
+          "own": 28.23,
+          "fpts": 59.85
+        }
+      ],
+      "avg_own": 22.2,
+      "n_low_own": 1,
+      "carrier": {
+        "name": "Benjamin James",
+        "own": 8.16,
+        "fpts": 84.25
+      },
+      "expected_dupes": 0.01
+    },
+    "near_miss": {
+      "gradable": true,
+      "won": true,
+      "your_points": 360.40002,
+      "winner_points": 360.40002
+    }
+  },
+  {
+    "timestamp": "2026-08-11 22:28",
+    "contest_type": "PGA RD4 Showdown",
+    "source_file": "contest-standings-193437340 2.csv",
+    "contest_id": "193437340",
+    "entries": 141,
+    "winning_score": 318.65,
+    "cash_line_p80": 283.0,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "pga_rd4_sd",
+    "sport": "golf",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 63,
+      "total": 63
+    },
+    "user_summary": {
+      "avg_own_mean": 22.81,
+      "low_own_count_mean": 1.0,
+      "salary_used_mean": 49800.0,
+      "entry_count": 1,
+      "best_rank": 19,
+      "best_percentile": 13.5
+    },
+    "user_lineups": [
+      {
+        "rank": 19,
+        "entry_name": "RyvlesGaming30",
+        "points": 290.85,
+        "percentile": 13.5,
+        "players": [
+          "Tom Kim",
+          "Michael Brennan",
+          "Jordan L. Smith",
+          "Kevin Yu",
+          "Harry Hall",
+          "Kris Ventura"
+        ],
+        "avg_own": 22.81,
+        "low_own_count": 1,
+        "salary_used": 49800,
+        "proj_total": 293.97,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Benjamin James",
+        "proj_points": 45.01,
+        "actual_fpts": 84.25,
+        "fpts_delta": 39.24,
+        "ownership": 10.5,
+        "actual_own": 6.38
+      },
+      {
+        "name": "Andrew Novak",
+        "proj_points": 40.55,
+        "actual_fpts": 70.65,
+        "fpts_delta": 30.1,
+        "ownership": 5.4,
+        "actual_own": 2.13
+      },
+      {
+        "name": "Marco Penge",
+        "proj_points": 35.94,
+        "actual_fpts": 63.7,
+        "fpts_delta": 27.76,
+        "ownership": 1.4,
+        "actual_own": 0.71
+      },
+      {
+        "name": "Maverick McNealy",
+        "proj_points": 39.64,
+        "actual_fpts": 62.4,
+        "fpts_delta": 22.76,
+        "ownership": 1.3,
+        "actual_own": 0.71
+      },
+      {
+        "name": "Davis Chatfield",
+        "proj_points": 34.95,
+        "actual_fpts": 53.2,
+        "fpts_delta": 18.25,
+        "ownership": 0.9,
+        "actual_own": 2.13
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Erik Van Rooyen",
+        "proj_points": 40.26,
+        "actual_fpts": 8.2,
+        "fpts_delta": -32.06,
+        "ownership": 5.6,
+        "actual_own": 12.06
+      },
+      {
+        "name": "Davis Thompson",
+        "proj_points": 51.57,
+        "actual_fpts": 30.6,
+        "fpts_delta": -20.97,
+        "ownership": 24.6,
+        "actual_own": 31.91
+      },
+      {
+        "name": "Jackson Koivun",
+        "proj_points": 48.25,
+        "actual_fpts": 27.6,
+        "fpts_delta": -20.65,
+        "ownership": 11.2,
+        "actual_own": 24.82
+      },
+      {
+        "name": "Sahith Theegala",
+        "proj_points": 44.84,
+        "actual_fpts": 25.0,
+        "fpts_delta": -19.84,
+        "ownership": 7.1,
+        "actual_own": 12.06
+      },
+      {
+        "name": "Tom Kim",
+        "proj_points": 57.09,
+        "actual_fpts": 39.05,
+        "fpts_delta": -18.04,
+        "ownership": 41.7,
+        "actual_own": 43.97
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Harry Hall",
+        "salary": 6800,
+        "actual_fpts": 59.85,
+        "actual_own": 19.86,
+        "top_lineup_pct": 50.0
+      },
+      {
+        "name": "Kevin Yu",
+        "salary": 7600,
+        "actual_fpts": 53.45,
+        "actual_own": 16.31,
+        "top_lineup_pct": 40.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 24.5,
+      "low_own_count_mean": 1.3,
+      "salary_used_mean": 49900.0,
+      "dup_max": 2,
+      "unique_pct": 90.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "NYblue28",
+          "points": 318.65,
+          "percentile": 0.7,
+          "players": [
+            "Justin Thomas",
+            "Benjamin James",
+            "Alex Smalley",
+            "Alex Noren",
+            "Beau Hossler",
+            "Billy Horschel"
+          ],
+          "avg_own": 25.77,
+          "low_own_count": 2,
+          "salary_used": 49700,
+          "proj_total": 291.65,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "spataron",
+          "points": 317.0,
+          "percentile": 1.4,
+          "players": [
+            "Tom Kim",
+            "Michael Brennan",
+            "Alex Smalley",
+            "Beau Hossler",
+            "Matt Wallace",
+            "Harry Hall"
+          ],
+          "avg_own": 34.28,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 306.03,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "blank5759",
+          "points": 313.55,
+          "percentile": 2.1,
+          "players": [
+            "Tom Kim",
+            "Michael Brennan",
+            "Alex Noren",
+            "Beau Hossler",
+            "Kevin Yu",
+            "Harry Hall"
+          ],
+          "avg_own": 30.38,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 309.1,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "jhnhng",
+          "points": 307.25,
+          "percentile": 2.8,
+          "players": [
+            "Hideki Matsuyama",
+            "Jordan L. Smith",
+            "Sungjae Im",
+            "Alex Noren",
+            "Matt Wallace",
+            "Harry Hall"
+          ],
+          "avg_own": 20.57,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 283.95,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "Willroy1212",
+          "points": 305.44998,
+          "percentile": 3.5,
+          "players": [
+            "Hideki Matsuyama",
+            "Benjamin James",
+            "Sahith Theegala",
+            "Alex Smalley",
+            "Chandler Phillips",
+            "Harry Hall"
+          ],
+          "avg_own": 19.86,
+          "low_own_count": 2,
+          "salary_used": 49900,
+          "proj_total": 280.27,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "smoke_401",
+          "points": 301.59998,
+          "percentile": 4.3,
+          "players": [
+            "Hideki Matsuyama",
+            "Michael Brennan",
+            "Jordan L. Smith",
+            "Kevin Yu",
+            "Billy Horschel",
+            "Webb Simpson"
+          ],
+          "avg_own": 17.85,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 285.2,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "cooljules",
+          "points": 301.1,
+          "percentile": 5.0,
+          "players": [
+            "Michael Brennan",
+            "Jordan L. Smith",
+            "Sungjae Im",
+            "Alex Smalley",
+            "Jordan Spieth",
+            "Zachary Bauchou"
+          ],
+          "avg_own": 21.99,
+          "low_own_count": 2,
+          "salary_used": 49800,
+          "proj_total": 287.07,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "chrance519",
+          "points": 301.05,
+          "percentile": 5.7,
+          "players": [
+            "Davis Thompson",
+            "Doug Ghim",
+            "Benjamin James",
+            "Alex Smalley",
+            "Ricky Castillo",
+            "Harry Hall"
+          ],
+          "avg_own": 19.98,
+          "low_own_count": 3,
+          "salary_used": 50000,
+          "proj_total": 277.77,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "lolo42069",
+          "points": 300.3,
+          "percentile": 6.4,
+          "players": [
+            "Jackson Koivun",
+            "Michael Brennan",
+            "Alex Smalley",
+            "Beau Hossler",
+            "Billy Horschel",
+            "Harry Hall"
+          ],
+          "avg_own": 28.96,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 297.2,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "Rayvenz",
+          "points": 299.2,
+          "percentile": 7.1,
+          "players": [
+            "Hideki Matsuyama",
+            "Michael Brennan",
+            "Eric Cole",
+            "Jackson Suber",
+            "Zachary Bauchou",
+            "Nicolas Echavarria"
+          ],
+          "avg_own": 15.96,
+          "low_own_count": 2,
+          "salary_used": 49900,
+          "proj_total": 281.2,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 1.69,
+        "low_own_count_delta": 0.3,
+        "salary_used_delta": 100.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 139,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Alex Smalley",
+          "field_own": 56.7,
+          "actual_fpts": 36.9
+        },
+        {
+          "name": "Tom Kim",
+          "field_own": 44.0,
+          "actual_fpts": 39.0
+        },
+        {
+          "name": "Alex Noren",
+          "field_own": 39.0,
+          "actual_fpts": 37.1
+        },
+        {
+          "name": "Beau Hossler",
+          "field_own": 32.6,
+          "actual_fpts": 52.6
+        },
+        {
+          "name": "Davis Thompson",
+          "field_own": 31.9,
+          "actual_fpts": 30.6
+        },
+        {
+          "name": "Michael Brennan",
+          "field_own": 30.5,
+          "actual_fpts": 71.5
+        },
+        {
+          "name": "Jackson Koivun",
+          "field_own": 24.8,
+          "actual_fpts": 27.6
+        },
+        {
+          "name": "Matt Wallace",
+          "field_own": 22.0,
+          "actual_fpts": 57.1
+        },
+        {
+          "name": "Nicolas Echavarria",
+          "field_own": 21.3,
+          "actual_fpts": 43.4
+        },
+        {
+          "name": "Harry Hall",
+          "field_own": 19.9,
+          "actual_fpts": 59.9
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Alex Smalley",
+            "Tom Kim"
+          ],
+          "field_pct": 28.3,
+          "count": 39
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Alex Smalley"
+          ],
+          "field_pct": 22.5,
+          "count": 31
+        },
+        {
+          "players": [
+            "Alex Smalley",
+            "Beau Hossler"
+          ],
+          "field_pct": 22.5,
+          "count": 31
+        },
+        {
+          "players": [
+            "Alex Smalley",
+            "Davis Thompson"
+          ],
+          "field_pct": 22.5,
+          "count": 31
+        },
+        {
+          "players": [
+            "Alex Smalley",
+            "Michael Brennan"
+          ],
+          "field_pct": 20.3,
+          "count": 28
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Beau Hossler"
+          ],
+          "field_pct": 16.7,
+          "count": 23
+        },
+        {
+          "players": [
+            "Beau Hossler",
+            "Tom Kim"
+          ],
+          "field_pct": 16.7,
+          "count": 23
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Michael Brennan"
+          ],
+          "field_pct": 13.8,
+          "count": 19
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Davis Thompson"
+          ],
+          "field_pct": 13.8,
+          "count": 19
+        },
+        {
+          "players": [
+            "Alex Smalley",
+            "Harry Hall"
+          ],
+          "field_pct": 13.0,
+          "count": 18
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Alex Noren",
+            "Alex Smalley",
+            "Beau Hossler",
+            "Davis Thompson",
+            "Michael Brennan",
+            "Nicolas Echavarria"
+          ],
+          "count": 4,
+          "field_pct": 2.9
+        },
+        {
+          "players": [
+            "Alex Smalley",
+            "Beau Hossler",
+            "Kevin Yu",
+            "Michael Brennan",
+            "Nicolas Echavarria",
+            "Tom Kim"
+          ],
+          "count": 2,
+          "field_pct": 1.4
+        }
+      ],
+      "winners_profile": {
+        "n": 1,
+        "avg_own_per_slot": 25.8,
+        "dart_pct": 0.0,
+        "unique_pct": 100.0
+      },
+      "fish_profile": {
+        "n": 69,
+        "avg_own_per_slot": 22.7,
+        "dart_pct": 55.1,
+        "unique_pct": 100.0
+      },
+      "fish_traps": [
+        {
+          "name": "Tom Kim",
+          "fish_pct": 47.8,
+          "winner_pct": 0.0,
+          "gap": 47.8,
+          "actual_fpts": 39.0,
+          "field_own": 44.0,
+          "own_rank": 2
+        },
+        {
+          "name": "Jackson Koivun",
+          "fish_pct": 39.1,
+          "winner_pct": 0.0,
+          "gap": 39.1,
+          "actual_fpts": 27.6,
+          "field_own": 24.8,
+          "own_rank": 7
+        },
+        {
+          "name": "Davis Thompson",
+          "fish_pct": 36.2,
+          "winner_pct": 0.0,
+          "gap": 36.2,
+          "actual_fpts": 30.6,
+          "field_own": 31.9,
+          "own_rank": 5
+        },
+        {
+          "name": "Erik Van Rooyen",
+          "fish_pct": 23.2,
+          "winner_pct": 0.0,
+          "gap": 23.2,
+          "actual_fpts": 8.2,
+          "field_own": 12.1,
+          "own_rank": 16
+        },
+        {
+          "name": "Jordan L. Smith",
+          "fish_pct": 18.8,
+          "winner_pct": 0.0,
+          "gap": 18.8,
+          "actual_fpts": 37.2,
+          "field_own": 19.1,
+          "own_rank": 11
+        },
+        {
+          "name": "Matt Wallace",
+          "fish_pct": 17.4,
+          "winner_pct": 0.0,
+          "gap": 17.4,
+          "actual_fpts": 57.1,
+          "field_own": 22.0,
+          "own_rank": 8
+        },
+        {
+          "name": "Hideki Matsuyama",
+          "fish_pct": 17.4,
+          "winner_pct": 0.0,
+          "gap": 17.4,
+          "actual_fpts": 60.0,
+          "field_own": 19.1,
+          "own_rank": 11
+        },
+        {
+          "name": "Webb Simpson",
+          "fish_pct": 17.4,
+          "winner_pct": 0.0,
+          "gap": 17.4,
+          "actual_fpts": 27.6,
+          "field_own": 12.8,
+          "own_rank": 15
+        },
+        {
+          "name": "Sahith Theegala",
+          "fish_pct": 15.9,
+          "winner_pct": 0.0,
+          "gap": 15.9,
+          "actual_fpts": 25.0,
+          "field_own": 12.1,
+          "own_rank": 16
+        },
+        {
+          "name": "Nicolas Echavarria",
+          "fish_pct": 14.5,
+          "winner_pct": 0.0,
+          "gap": 14.5,
+          "actual_fpts": 43.4,
+          "field_own": 21.3,
+          "own_rank": 9
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "NYblue28",
+          "best_rank": 1,
+          "percentile": 0.7
+        },
+        {
+          "handle": "spataron",
+          "best_rank": 2,
+          "percentile": 1.4
+        },
+        {
+          "handle": "blank5759",
+          "best_rank": 3,
+          "percentile": 2.2
+        },
+        {
+          "handle": "jhnhng",
+          "best_rank": 4,
+          "percentile": 2.9
+        },
+        {
+          "handle": "Willroy1212",
+          "best_rank": 5,
+          "percentile": 3.6
+        },
+        {
+          "handle": "smoke_401",
+          "best_rank": 6,
+          "percentile": 4.3
+        },
+        {
+          "handle": "cooljules",
+          "best_rank": 7,
+          "percentile": 5.0
+        },
+        {
+          "handle": "chrance519",
+          "best_rank": 8,
+          "percentile": 5.8
+        },
+        {
+          "handle": "lolo42069",
+          "best_rank": 9,
+          "percentile": 6.5
+        },
+        {
+          "handle": "Rayvenz",
+          "best_rank": 10,
+          "percentile": 7.2
+        },
+        {
+          "handle": "Thechamp1995",
+          "best_rank": 11,
+          "percentile": 7.9
+        },
+        {
+          "handle": "Cicima6709",
+          "best_rank": 12,
+          "percentile": 8.6
+        },
+        {
+          "handle": "Ksinclair16",
+          "best_rank": 12,
+          "percentile": 8.6
+        },
+        {
+          "handle": "thearncat",
+          "best_rank": 14,
+          "percentile": 10.1
+        },
+        {
+          "handle": "kgcom21",
+          "best_rank": 15,
+          "percentile": 10.8
+        }
+      ],
+      "read": [
+        "Field crowded **Alex Smalley** at 56.7% (36.9 fpts) \u2014 the chalk to consider fading.",
+        "**Alex Smalley + Tom Kim** were together in 28.3% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Tom Kim** was a fish trap: 47.8% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 318.65,
+      "winner_handle": "NYblue28",
+      "roster": [
+        {
+          "name": "Justin Thomas",
+          "own": 10.64,
+          "fpts": 55.9
+        },
+        {
+          "name": "Benjamin James",
+          "own": 6.38,
+          "fpts": 84.25
+        },
+        {
+          "name": "Alex Smalley",
+          "own": 56.74,
+          "fpts": 36.85
+        },
+        {
+          "name": "Alex Noren",
+          "own": 39.01,
+          "fpts": 37.1
+        },
+        {
+          "name": "Beau Hossler",
+          "own": 32.62,
+          "fpts": 52.65
+        },
+        {
+          "name": "Billy Horschel",
+          "own": 9.22,
+          "fpts": 51.9
+        }
+      ],
+      "avg_own": 25.8,
+      "n_low_own": 2,
+      "carrier": {
+        "name": "Benjamin James",
+        "own": 6.38,
+        "fpts": 84.25
+      },
+      "expected_dupes": 0.01
+    },
+    "near_miss": {
+      "gradable": true,
+      "won": false,
+      "your_points": 290.85,
+      "winner_points": 318.65,
+      "gap": 27.8,
+      "your_percentile": 13.5,
+      "n_shared": 0,
+      "shared": [],
+      "your_uniques": [
+        {
+          "name": "Michael Brennan",
+          "fpts": 71.45
+        },
+        {
+          "name": "Harry Hall",
+          "fpts": 59.85
+        },
+        {
+          "name": "Kevin Yu",
+          "fpts": 53.45
+        },
+        {
+          "name": "Tom Kim",
+          "fpts": 39.05
+        },
+        {
+          "name": "Jordan L. Smith",
+          "fpts": 37.2
+        },
+        {
+          "name": "Kris Ventura",
+          "fpts": 29.85
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Benjamin James",
+          "fpts": 84.25
+        },
+        {
+          "name": "Justin Thomas",
+          "fpts": 55.9
+        },
+        {
+          "name": "Beau Hossler",
+          "fpts": 52.65
+        },
+        {
+          "name": "Billy Horschel",
+          "fpts": 51.9
+        },
+        {
+          "name": "Alex Noren",
+          "fpts": 37.1
+        },
+        {
+          "name": "Alex Smalley",
+          "fpts": 36.85
+        }
+      ],
+      "best_swap": {
+        "out": "Kris Ventura",
+        "in": "Benjamin James",
+        "gain": 54.4,
+        "would_have_won": true
+      },
+      "swaps_needed": 1
+    }
+  }
+]

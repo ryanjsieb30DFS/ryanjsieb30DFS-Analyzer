@@ -326,3 +326,38 @@ Concentrating 100% on one chalk-tier anchor when an equivalent-profile alternati
 - ✅ Tier ordering HELD — higher tiers outscored lower ones on average.
 - 🕳️ Buried: **Kris Ventura** (Fade) scored 44.5 — above the top tier's average.
 - 🕳️ Buried: **Chandler Blanchet** (Fade) scored 47.8 — above the top tier's average.
+
+
+## 2026-08-11 22:28 — PGA RD4 Showdown (contest-standings-193437329 2.csv)
+- Entries: 294
+- Winning score: 360.4
+- Cash line (top 20%): 288.9
+- My entries: 1 · best rank 1/294 (top 0.3%)
+- Winners (top 20): avg own 24.28% vs mine 22.16% · sub-10% plays/lineup 1.6 vs mine 1.0 · salary Δ -40
+- Overperformed proj: Benjamin James, Andrew Novak, Marco Penge
+- Underperformed proj: Erik Van Rooyen, Joe Highsmith, Davis Thompson
+- Slate-defining plays: Benjamin James (84.2 pts @ 8.2%)
+
+
+## 2026-08-11 22:28 — PGA RD4 Showdown (contest-standings-193437340 2.csv)
+- Entries: 141
+- Winning score: 318.6
+- Cash line (top 20%): 283.0
+- My entries: 1 · best rank 19/141 (top 13.5%)
+- Winners (top 20): avg own 24.5% vs mine 22.81% · sub-10% plays/lineup 1.3 vs mine 1.0 · salary Δ +100
+- Overperformed proj: Benjamin James, Andrew Novak, Marco Penge
+- Underperformed proj: Erik Van Rooyen, Davis Thompson, Jackson Koivun
+- Slate-defining plays: Harry Hall (59.9 pts @ 19.9%), Kevin Yu (53.5 pts @ 16.3%)
+
+### Strategy adherence — did you follow your own strategy? (2 unique lineups)
+- ✅ Every hard FADE honored.
+- Leverage candidates rostered somewhere: **1 of 12**.
+
+### Player-pool tier calibration (73 of 81 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 4 | 55.9 | 71.5 |
+| **Good** | 9 | 41.0 | 60.0 |
+| **Okay** | 50 | 38.6 | 84.2 |
+| **Fade** | 10 | 36.9 | 53.2 |
+- ✅ Tier ordering HELD — higher tiers outscored lower ones on average.

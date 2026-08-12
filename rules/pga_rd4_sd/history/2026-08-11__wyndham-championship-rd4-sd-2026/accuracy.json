@@ -1,0 +1,47 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 10,
+    "leverage_capture": 1.0,
+    "leverage_hit": [
+      "Benjamin James",
+      "Harry Hall",
+      "Kevin Yu"
+    ],
+    "leverage_missed": [],
+    "overperformer_capture": 0.167,
+    "overperformer_hit": [
+      "Benjamin James"
+    ],
+    "underperformer_exposure": 0.167,
+    "underperformer_hit": [
+      "Tom Kim"
+    ]
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 2,
+    "avg_ratio": 1.124,
+    "best_percentile": 0.3,
+    "median_percentile": 13.5,
+    "n_top_10pct": 1,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 360.40002,
+        "proj_total": 286.28,
+        "ratio": 1.259,
+        "percentile": 0.3,
+        "avg_own": 22.16
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 290.85,
+        "proj_total": 293.97,
+        "ratio": 0.989,
+        "percentile": 13.5,
+        "avg_own": 22.81
+      }
+    ]
+  }
+}

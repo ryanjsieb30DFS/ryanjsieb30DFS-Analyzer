@@ -1,6 +1,6 @@
 # PGA Classic Framework
 
-*Last updated: 2026-07-26*
+*Last updated: 2026-08-11*
 
 The tactical playbook. Decision rules, construction templates, and exposure logic derived from accumulated autopsies. This is the *how* document. Updates here should be triggered by patterns in the Autopsies, not by single-week reactions.
 
@@ -139,6 +139,8 @@ For multi-lineup portfolios, the exposure ceiling scales with portfolio size:
 The portfolio cap protects against the reverse failure mode — when a high-conviction play bombs in all lineups simultaneously.
 
 **Soft guideline: every lineup should have at least 1 player at sub-8% projected ownership.** If a lineup has zero sub-8% pieces, it is structurally identical to thousands of field lineups; no path to the top 0.1%.
+
+**Per-contest UNDERWEIGHT floor (codified 2026-08-11).** An UNDERWEIGHT call on top-skill contested chalk means at least one bullet IN EACH entered contest (in a 1–5 entry contest: exactly one). Check the floor per contest, never on the pooled entry set — 0-of-N in the focus contest is a full fade the analysis never argued.
 
 **Exposures before lineups:** before building any multi-lineup set (and even a single bullet), write target exposures first — the value spine's carry rate, the mid-owned multipliers, the dart pool drawn FROM the strategy's definer screen, and a hard cap per expensive chalk anchor — then fill lineups to those targets. Independent lineup-by-lineup assembly has no governor: the screen's best value loses slot competition (Young 0/5 at Birkdale as the winner's carrier; Fox/Yellamaraju at RBC) and incoherent chalk-stack builds slip through.
 

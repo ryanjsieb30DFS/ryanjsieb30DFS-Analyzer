@@ -1,0 +1,77 @@
+{
+  "field": 294,
+  "anchors": [
+    "alex smalley",
+    "tom kim",
+    "davis thompson"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 27.8,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.667,
+    "anchor_exposure_by_player": {
+      "alex smalley": 1.0,
+      "tom kim": 0.0,
+      "davis thompson": 1.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 77.89,
+    "median_pctile": 77.89
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 22.2,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.0,
+    "anchor_exposure_by_player": {
+      "alex smalley": 0.0,
+      "tom kim": 0.0,
+      "davis thompson": 0.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 0.34,
+    "median_pctile": 0.34
+  },
+  "deltas": [
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 22.2,
+      "shark": 27.8,
+      "delta": -5.6
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.0,
+      "shark": 0.667,
+      "delta": -0.667
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 0.0,
+      "shark": 0.0,
+      "delta": 0.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "pga_rd4_sd",
+  "sport": "golf"
+}

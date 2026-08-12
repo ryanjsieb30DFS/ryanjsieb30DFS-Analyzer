@@ -1,0 +1,24 @@
+{
+  "slug": "pga_rd4_sd",
+  "sport": "golf",
+  "contest_label": "PGA RD4 Showdown",
+  "date": "2026-08-11",
+  "slate_label": "Wyndham Championship RD4 SD 2026",
+  "archived_at": "2026-08-11 22:28",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json"
+  ],
+  "missing": [
+    "lineup_selection.json",
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/pga_rd4_sd/2026-08-09__ETR PGA RD4 SD Article.pdf",
+    "articles/pga_rd4_sd/2026-08-09__PGA RD4 SD Update 8.10.26.pdf"
+  ],
+  "proj_source": null
+}

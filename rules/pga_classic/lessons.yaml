@@ -1425,11 +1425,19 @@ lessons:
       remove. Partner of [[pga-classic-2026-06-17-design-exposures-before-lineups]]
       (which governs HOW MUCH of the screen gets covered); this governs WHERE dart
       slots may come from at all.
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: >
+      Retired 2026-08-11 (hygiene): absorbed, not refuted. The screen-sourcing
+      instruction was folded into the codified portfolio-dart-rate rule on
+      2026-08-03 ("fill the slot from the written screen" — framework.md Section
+      3), so this standalone hypothesis can no longer accumulate independent
+      evidence. Its strong form (off-screen darts strictly underperform) also has
+      two counter-observations: the winning carrier was an OFF-screen sub-5%
+      piece at both the 3M (McCarthy 121.0 @ 2.68%) and the Wyndham (Hossler
+      127.0 @ 1.86%). The durable content lives in the codified rule.
 
   - id: pga-classic-2026-07-26-unprojected-cheap-steam-screen
     born: "2026-07-26"
@@ -1460,8 +1468,21 @@ lessons:
       [[pga-classic-2026-06-17-single-vendor-overweight-self-erosion]] (drift on
       the vendor's NAMED overweights) — this covers the names the vendor never
       priced as owned at all.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-08-11"
+        slate: "Wyndham Championship at Sedgefield (rules/pga_classic/history/2026-08-11__wyndham-championship-2026)"
+        note: >
+          First mechanism confirmation, with the screen WORKING. ETR projected
+          Blades Brown at 11.9%; the SE field crowded him to 32.5% (3rd-highest
+          own) and he was the #1 SE fish trap (44.0% of fish, 2.9% of winners,
+          23.5 FPTS). The doc's panel-quote steam screen caught it pre-lock
+          (Sky: "the field is all in on him"; Sam: ownership "will probably come
+          UP" — LEAN FADE), and the entries held him to 3 of 101. Vendor
+          under-projection of the steam tier + a panel-quote screen = exactly
+          this lesson's mechanism, this time on the trap side. Residual miss the
+          lesson still covers: Mac Meissner (15.8% SE own, a fish trap in both
+          contests) appeared nowhere in the doc. Promoted to validated.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1490,7 +1511,7 @@ lessons:
       Partner of [[pga-classic-2026-05-11-never-zero-value-chalk-anchor]]
       (which covers the projection #1) — this extends the same asymmetry to
       contested top-skill chalk the doc itself declined to fade.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-08-03"
         slate: "Rocket Classic at Detroit Golf Club (rules/pga_classic/history/2026-08-03__rocket-classic-2026)"
@@ -1517,8 +1538,22 @@ lessons:
           spelling carries a slashed-o Scandinavian character that the strategy
           doc's plain-ASCII spelling does not, and the name matcher missed it, so
           that call's grade was wrong in the opposite direction.
+      - date: "2026-08-11"
+        slate: "Wyndham Championship at Sedgefield (rules/pga_classic/history/2026-08-11__wyndham-championship-2026)"
+        note: >
+          Second mechanism confirmation — third slate total, meets the promotion
+          bar. All three UNDERWEIGHT calls (Gerard, Tom Kim, Koivun) were ZERO in
+          the SE Albatross (adherence.json zeroed_in flags on all three), covered
+          only by mini-MAX exposure (Gerard 3, Tom Kim 15, Koivun 20 of 100), and
+          pooled adherence graded every call "followed" (0 fades violated). Tom
+          Kim (105.0 FPTS) anchored the SE-winning lineup and appeared in 4 of the
+          SE top-6; the zeroed underweight was again a silent full fade in the
+          focus contest that the pooled gate could not see. Mechanism identical to
+          3M (Matsuyama) and Rocket (Young): the gate passes 0-of-N at small N
+          when another contest carries the exposure. See Proposed codifications
+          2026-08-11 — per-contest floor into framework.md.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Section 7 Exposure Caps (Per-contest UNDERWEIGHT floor, codified 2026-08-11)"
     retired_reason: null
 
   - id: pga-classic-2026-08-03-equivalence-take-the-discounted-half
@@ -1551,8 +1586,23 @@ lessons:
       exposure. Partner of
       [[pga-classic-2026-06-17-design-exposures-before-lineups]] (the mechanism by
       which an unstated preference wins slot competition).
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-08-11"
+        slate: "Wyndham Championship at Sedgefield (rules/pga_classic/history/2026-08-11__wyndham-championship-2026)"
+        note: >
+          First mechanism confirmation, this time EXECUTED. The strategy named the
+          five-way $9K equivalence cluster (Gerard 21.5 / Koivun 20.2 / Griffin
+          19.1 / T.Kim 18.3 / Thomas 18.2 projected) and called Thomas the
+          discounted half; the entries weighted Thomas heavily (SE bullet + a
+          large share of the 100-entry set) while holding Gerard to 3 of 101.
+          The discount materialized exactly as the mechanism predicts: Thomas
+          came in at 15.8% actual own vs Gerard 21.2-23.8%, and Thomas (91.0
+          FPTS) anchored the mini-MAX WINNER while Gerard (32.0) was the #1
+          mini-MAX fish trap (30.4% of fish, 1.0% of winners). The scoring gap
+          is variance; the confirmed mechanism is that naming the pair AND
+          writing exposure to the less-owned half captured the same-tier bet at
+          a fraction of the duplication cost. Promoted to validated.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1584,6 +1634,47 @@ lessons:
       be able to invert the board. Related to
       [[pga-classic-2026-05-17-trap-vs-value-chalk]] (which mis-sorted the same player
       upstream) — this is the downstream tiering expression of the same failure.
+    status: validated
+    confirmations:
+      - date: "2026-08-11"
+        slate: "Wyndham Championship at Sedgefield (rules/pga_classic/history/2026-08-11__wyndham-championship-2026)"
+        note: >
+          First confirmation, on the thin-Core prong. The board again carried a
+          three-name Core (Young, Thomas, English) and again inverted — Core
+          64.5 avg FPTS below Good 71.0 (pool_calibration.json OUT OF ORDER,
+          second inversion in three boards) — because ONE bust (Harris English,
+          33.5) flipped it. The crowding-gate prong was FOLLOWED this slate
+          (Young's Core line stated "nearly half the field shares him... buys
+          zero separation"), so that prong goes untested; what confirmed is
+          that a 3-name Core is structurally too thin for a single bust not to
+          invert the board. Promoted to validated on the thin-Core prong:
+          Core should carry 5-6 names.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-classic-2026-08-11-leverage-floor-is-per-contest
+    born: "2026-08-11"
+    origin: "rules/pga_classic/history/2026-08-11__wyndham-championship-2026 — Wyndham Championship (shark_gap.json leverage_pct delta -50)"
+    statement: >
+      The portfolio-level dart-rate cap ([[pga-classic-2026-07-22-dart-rate-exceeds-in-field-pros]],
+      codified) must be floored PER CONTEST, because a rate expressed as "one
+      sub-5% piece in about half the set" is unexecutable in a 1-entry contest —
+      at N=1 it rounds to zero. leverage_pct was the top shark-gap axis for the
+      FIFTH straight slate, but the sign FLIPPED: after +53.3 / +60.0 / +20.0 /
+      +16.4 (too many darts), the Wyndham SE read -50.0 — the single Albatross
+      bullet carried ZERO sub-5% pieces and 19.4% own/slot vs the in-field pros'
+      50% and 14.6%, while the SE top-34 averaged 2.91 sub-10% pieces and 15.5%
+      own/slot (my bullet: 1 and 19.4). Meanwhile the SAME correction produced a
+      near-perfect mini-MAX envelope (12.79 own/slot vs the top-100 winners'
+      12.7; 2.89 sub-10% pieces vs their 3.03) — proof the guard works at
+      portfolio scale and overcorrects only where N is small. Mechanism: this is
+      the leverage-side twin of
+      [[pga-classic-2026-07-26-underweight-is-not-zero-small-portfolio]] — any
+      rule stated as a pooled rate silently fails in the focus contest when the
+      focus contest is a single bullet. Guard: the SE/focus-contest bullet must
+      itself satisfy the winning structure (>=2 sub-10% pieces, ~13-16% own/slot,
+      dart from the written screen), whatever the portfolio rate says.
     status: hypothesis
     confirmations: []
     contradictions: []

@@ -1,0 +1,35 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "lineups": [
+    {
+      "players": [
+        "Alex Noren",
+        "Benjamin James",
+        "Harry Hall",
+        "Jordan Spieth",
+        "Justin Thomas",
+        "Michael Brennan"
+      ],
+      "percentile": 0.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Harry Hall",
+        "Jordan L. Smith",
+        "Kevin Yu",
+        "Kris Ventura",
+        "Michael Brennan",
+        "Tom Kim"
+      ],
+      "percentile": 13.5,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    0.3,
+    13.5
+  ]
+}
