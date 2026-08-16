@@ -1,0 +1,74 @@
+{
+  "gradable": true,
+  "n_lineups": 5,
+  "lineups": [
+    {
+      "players": [
+        "Eduardo Chapolin",
+        "Gillian Robertson",
+        "Islam Makhachev",
+        "Myktybek Orolbai",
+        "Ramiz Brahimaj",
+        "Vicente Luque"
+      ],
+      "percentile": 67.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Eduardo Chapolin",
+        "Gillian Robertson",
+        "Islam Makhachev",
+        "Jalin Turner",
+        "Joel Alvarez",
+        "Ramiz Brahimaj"
+      ],
+      "percentile": 30.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Chidi Njokuani",
+        "Donte Johnson",
+        "Eduardo Chapolin",
+        "Islam Makhachev",
+        "Mackenzie Dern",
+        "Vicente Luque"
+      ],
+      "percentile": 11.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Charles Johnson",
+        "Donte Johnson",
+        "Gillian Robertson",
+        "Islam Makhachev",
+        "Mansur Abdul-Malik",
+        "Tresean Gore"
+      ],
+      "percentile": 23.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Eduardo Chapolin",
+        "Gillian Robertson",
+        "Islam Makhachev",
+        "Joel Alvarez",
+        "Kaue Fernandes",
+        "Lucas Fernando"
+      ],
+      "percentile": 65.4,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    67.8,
+    30.0,
+    11.8,
+    23.6,
+    65.4
+  ]
+}

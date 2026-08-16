@@ -1,0 +1,254 @@
+[
+  {
+    "slug": "mma_se",
+    "slate_name": "MMA contest-standings-193553894 2026-08-16",
+    "contest_id": "193553894",
+    "field_size": 2378,
+    "schema_version": 1,
+    "generated_at": "2026-08-16 15:19",
+    "user": {
+      "n_entries": 1,
+      "best_points": 319.13995,
+      "avg_points": 319.14,
+      "best_rank": 1612
+    },
+    "pool": {
+      "n": 3156,
+      "avg_actual": 381.26,
+      "median_actual": 382.0,
+      "max_actual": 647.24,
+      "n_beating_best_entry": 2343,
+      "pct_beating_best_entry": 74.24,
+      "picking_edge_points": -62.12
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 3156,
+        "spearman_vs_actual": 0.002,
+        "top100_avg_actual": 383.19,
+        "pool_avg_actual": 381.26
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 3156,
+        "spearman_vs_actual": -0.01,
+        "top100_avg_actual": 380.6,
+        "pool_avg_actual": 381.26
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 3156,
+        "spearman_vs_actual": -0.018,
+        "top100_avg_actual": 396.41,
+        "pool_avg_actual": 381.26
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 3156,
+        "spearman_vs_actual": -0.025,
+        "top100_avg_actual": 402.24,
+        "pool_avg_actual": 381.26
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 1612,
+        "Points": 319.14,
+        "Lineup": "F Islam Makhachev F Gillian Robertson F Ramiz Brahimaj F Myktybek Orolbai F Vicente Luque F Eduardo Chapolin",
+        "matched": true,
+        "pre_sim_roi_pct": 33.2,
+        "pre_sim_top1_pct": 3.52,
+        "pre_sim_win_pct": 0.39,
+        "pre_sim_cash_pct": 35.63,
+        "post_roi_pct": -4.79,
+        "post_top1_pct": 2.77,
+        "post_win_pct": 0.145,
+        "post_cash_pct": 33.59
+      }
+    ]
+  },
+  {
+    "slug": "mma_se",
+    "slate_name": "MMA contest-standings-193553902 2026-08-16",
+    "contest_id": "193553902",
+    "field_size": 1176,
+    "schema_version": 1,
+    "generated_at": "2026-08-16 15:19",
+    "user": {
+      "n_entries": 1,
+      "best_points": 408.14996,
+      "avg_points": 408.15,
+      "best_rank": 353
+    },
+    "pool": {
+      "n": 3156,
+      "avg_actual": 381.26,
+      "median_actual": 382.0,
+      "max_actual": 647.24,
+      "n_beating_best_entry": 1236,
+      "pct_beating_best_entry": 39.16,
+      "picking_edge_points": 26.89
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 3156,
+        "spearman_vs_actual": 0.002,
+        "top100_avg_actual": 383.19,
+        "pool_avg_actual": 381.26
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 3156,
+        "spearman_vs_actual": -0.01,
+        "top100_avg_actual": 380.6,
+        "pool_avg_actual": 381.26
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 3156,
+        "spearman_vs_actual": -0.018,
+        "top100_avg_actual": 396.41,
+        "pool_avg_actual": 381.26
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 3156,
+        "spearman_vs_actual": -0.025,
+        "top100_avg_actual": 402.24,
+        "pool_avg_actual": 381.26
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 353,
+        "Points": 408.15,
+        "Lineup": "F Islam Makhachev F Gillian Robertson F Ramiz Brahimaj F Jalin Turner F Joel Alvarez F Eduardo Chapolin",
+        "matched": true,
+        "pre_sim_roi_pct": 168.0,
+        "pre_sim_top1_pct": 4.33,
+        "pre_sim_win_pct": 1.235,
+        "pre_sim_cash_pct": 32.73,
+        "post_roi_pct": 66.0,
+        "post_top1_pct": 2.6,
+        "post_win_pct": 0.284,
+        "post_cash_pct": 30.96
+      }
+    ]
+  },
+  {
+    "slug": "mma_se",
+    "slate_name": "MMA contest-standings-193553903 2026-08-16",
+    "contest_id": "193553903",
+    "field_size": 891,
+    "schema_version": 1,
+    "generated_at": "2026-08-16 15:19",
+    "user": {
+      "n_entries": 3,
+      "best_points": 482.38,
+      "avg_points": 425.42,
+      "best_rank": 105
+    },
+    "pool": {
+      "n": 3156,
+      "avg_actual": 381.26,
+      "median_actual": 382.0,
+      "max_actual": 647.24,
+      "n_beating_best_entry": 432,
+      "pct_beating_best_entry": 13.69,
+      "picking_edge_points": 44.16
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 3156,
+        "spearman_vs_actual": 0.002,
+        "top100_avg_actual": 383.19,
+        "pool_avg_actual": 381.26
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 3156,
+        "spearman_vs_actual": -0.01,
+        "top100_avg_actual": 380.6,
+        "pool_avg_actual": 381.26
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 3156,
+        "spearman_vs_actual": -0.018,
+        "top100_avg_actual": 396.41,
+        "pool_avg_actual": 381.26
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 3156,
+        "spearman_vs_actual": -0.025,
+        "top100_avg_actual": 402.24,
+        "pool_avg_actual": 381.26
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30 (1/3)",
+        "Rank": 105,
+        "Points": 482.38,
+        "Lineup": "F Islam Makhachev F Mackenzie Dern F Vicente Luque F Donte Johnson F Chidi Njokuani F Eduardo Chapolin",
+        "matched": true,
+        "pre_sim_roi_pct": 87.3,
+        "pre_sim_top1_pct": 2.92,
+        "pre_sim_win_pct": 0.815,
+        "pre_sim_cash_pct": 28.45,
+        "post_roi_pct": 14.23,
+        "post_top1_pct": 1.69,
+        "post_win_pct": 0.128,
+        "post_cash_pct": 25.75
+      },
+      {
+        "EntryName": "RyvlesGaming30 (2/3)",
+        "Rank": 210,
+        "Points": 447.76,
+        "Lineup": "F Islam Makhachev F Gillian Robertson F Mansur Abdul-Malik F Tresean Gore F Donte Johnson F Charles Johnson",
+        "matched": true,
+        "pre_sim_roi_pct": 144.5,
+        "pre_sim_top1_pct": 4.12,
+        "pre_sim_win_pct": 0.885,
+        "pre_sim_cash_pct": 37.84,
+        "post_roi_pct": 60.51,
+        "post_top1_pct": 2.57,
+        "post_win_pct": 0.165,
+        "post_cash_pct": 35.36
+      },
+      {
+        "EntryName": "RyvlesGaming30 (3/3)",
+        "Rank": 583,
+        "Points": 346.12,
+        "Lineup": "F Islam Makhachev F Gillian Robertson F Kaue Fernandes F Joel Alvarez F Lucas Fernando F Eduardo Chapolin",
+        "matched": true,
+        "pre_sim_roi_pct": 118.3,
+        "pre_sim_top1_pct": 3.36,
+        "pre_sim_win_pct": 1.125,
+        "pre_sim_cash_pct": 30.57,
+        "post_roi_pct": 14.03,
+        "post_top1_pct": 1.56,
+        "post_win_pct": 0.103,
+        "post_cash_pct": 28.04
+      }
+    ]
+  }
+]

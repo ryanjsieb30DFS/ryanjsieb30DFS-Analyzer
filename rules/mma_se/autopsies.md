@@ -390,3 +390,51 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 - 🕳️ Buried: **Jose Montanha** (Okay) scored 98.6 — above the top tier's average.
 - 🕳️ Buried: **Quillan Salkilld** (Okay) scored 104.7 — above the top tier's average.
 - ⚪ Excluded as likely scratches (0.0 FPTS — didn't compete): Darren Elkins (Okay). Not counted in tier averages.
+
+
+## 2026-08-16 16:26 — MMA (contest-standings-193553894.csv)
+- Entries: 2,378
+- Winning score: 623.2
+- Cash line (top 20%): 435.3
+- My entries: 1 · best rank 1,612/2,378 (top 67.8%)
+- Winners (top 24): avg own 30.01% vs mine 38.79% · sub-10% plays/lineup 0.79 vs mine 0.0 · salary Δ -38
+- Overperformed proj: Dustin Stoltzfus, Jalin Turner, Chidi Njokuani
+- Underperformed proj: Mansur Abdul-Malik, Kaue Fernandes, Joel Alvarez
+- Slate-defining plays: Dustin Stoltzfus (106.3 pts @ 3.5%), Tresean Gore (69.3 pts @ 16.1%)
+
+
+## 2026-08-16 16:26 — MMA (contest-standings-193553902.csv)
+- Entries: 1,176
+- Winning score: 623.2
+- Cash line (top 20%): 435.3
+- My entries: 1 · best rank 353/1,176 (top 30.0%)
+- Winners (top 20): avg own 31.92% vs mine 32.64% · sub-10% plays/lineup 0.75 vs mine 0.0 · salary Δ -205
+- Overperformed proj: Dustin Stoltzfus, Jalin Turner, Chidi Njokuani
+- Underperformed proj: Mansur Abdul-Malik, Kaue Fernandes, Joel Alvarez
+- Slate-defining plays: Dustin Stoltzfus (106.3 pts @ 3.1%), Chidi Njokuani (93.2 pts @ 6.7%)
+
+
+## 2026-08-16 16:26 — MMA (contest-standings-193553903.csv)
+- Entries: 891
+- Winning score: 629.1
+- Cash line (top 20%): 455.8
+- My entries: 3 · best rank 105/891 (top 11.8%)
+- Winners (top 20): avg own 31.11% vs mine 32.79% · sub-10% plays/lineup 0.7 vs mine 0.33 · salary Δ -122
+- Overperformed proj: Dustin Stoltzfus, Jalin Turner, Chidi Njokuani
+- Underperformed proj: Mansur Abdul-Malik, Kaue Fernandes, Joel Alvarez
+- Slate-defining plays: Neil Magny (93.8 pts @ 12.1%), Chidi Njokuani (93.2 pts @ 9.2%), Lucas Fernando (92.9 pts @ 15.4%), Tresean Gore (69.3 pts @ 17.7%)
+
+### Strategy adherence — did you follow your own strategy? (5 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Kaue Fernandes** was in 0 of 1 lineups in contest-standings-193553894.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Kaue Fernandes** was in 0 of 1 lineups in contest-standings-193553902.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- Leverage candidates rostered somewhere: **0 of 3**.
+
+### Player-pool tier calibration (24 of 24 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 3 | 91.4 | 117.5 |
+| **Good** | 3 | 47.9 | 97.2 |
+| **Okay** | 15 | 63.6 | 128.8 |
+| **Fade** | 3 | 26.3 | 64.5 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.

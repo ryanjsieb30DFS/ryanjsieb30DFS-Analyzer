@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-16",
+  "slug": "mma_se",
+  "sport": "mma",
+  "slate_label": "UFC 330 8.15.26",
+  "history_dir": "rules/mma_se/history/2026-08-16__ufc-330-8-15-26",
+  "contests": [
+    {
+      "name": "UFC $10K Clinch [Single Entry]",
+      "type": "SE",
+      "source_file": "contest-standings-193553894.csv",
+      "field_size": 2378,
+      "my_entries": 1,
+      "entry_fee": 5.0,
+      "buy_in": 5.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 1612,
+      "best_percentile": 67.8
+    },
+    {
+      "name": "UFC $12K Flying Knee [Single Entry]",
+      "type": "SE",
+      "source_file": "contest-standings-193553902.csv",
+      "field_size": 1176,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "buy_in": 12.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 353,
+      "best_percentile": 30.0
+    },
+    {
+      "name": "UFC $3K Sprawl [3 Entry Max]",
+      "type": "3-Max",
+      "source_file": "contest-standings-193553903.csv",
+      "field_size": 891,
+      "my_entries": 3,
+      "entry_fee": 4.0,
+      "buy_in": 12.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 105,
+      "best_percentile": 11.8
+    }
+  ],
+  "total_buy_in": 29.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 105,
+  "best_percentile": 11.8,
+  "best_rank_mme": null,
+  "best_percentile_mme": null,
+  "entries_total": 5,
+  "edge_leverage_capture": 0.6,
+  "edge_overperformer_capture": 0.4,
+  "edge_bust_exposure": 1.0,
+  "lineup_avg_ratio": 0.95,
+  "shark_gap_top": {
+    "dim": "own_per_slot",
+    "delta": 1.0
+  },
+  "adherence_fades_violated": 0,
+  "adherence_leverage_covered": "0/3",
+  "tier_summary": "Core 91.4 > Good 47.9 > Okay 63.6 > Fade 26.3  \u2717 OUT OF ORDER",
+  "tiers_ordered": false,
+  "grader_check": {
+    "flagged_pctiles": [],
+    "clean_pctiles": [
+      67.8,
+      30.0,
+      11.8,
+      23.6,
+      65.4
+    ]
+  }
+}

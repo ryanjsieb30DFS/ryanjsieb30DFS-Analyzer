@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "slug": "mma_se",
+  "pool_fp": "041aa429f4a9",
+  "pool_len": 3156,
+  "contests": {
+    "UFC $3K Sprawl [3 Entry Max] (3-Max)": {
+      "picked": [
+        {
+          "index": 2209,
+          "roster_key": "Eduardo Chapolin|Gillian Robertson|Islam Makhachev|Jalin Turner|Joel Alvarez|Ramiz Brahimaj"
+        },
+        {
+          "index": 234,
+          "roster_key": "Charles Johnson|Donte Johnson|Gillian Robertson|Islam Makhachev|Mansur Abdul-Malik|Tresean Gore"
+        },
+        {
+          "index": 718,
+          "roster_key": "Eduardo Chapolin|Gillian Robertson|Islam Makhachev|Joel Alvarez|Kaue Fernandes|Lucas Fernando"
+        }
+      ],
+      "why": "This contest pays flat, so the chance of any payout (the cash% column) matters most, and all three rows sit in the pool's top tier there while ranking 1st, 2nd, and 8th in overall value (roi%). Every fighter in all three rows has a real path to winning his fight \u2014 no knockout-or-nothing long shots \u2014 which is the shape your last four logged slates say wins these small fields. Pick 1 needs its finishers (Turner, Alvarez, Brahimaj) to convert, and its 4.48% top1 means about a 1-in-22 shot at first place, the best in the pool. Pick 2 needs six steady winners, led by Abdul-Malik, the board's biggest gap between win chance (83%) and how few teams will have him (16% \u2014 about 1 in 6). Pick 3 wins when Fernandes and Fernando, two under-trusted sides the crowd partly ignores, both land. The three entries never share more than one coin-flip fighter, and each fighter your strategy said to use less than the crowd (Charles Johnson, Donte Johnson, Fernandes) appears in exactly 1 of the 3 entries \u2014 less than the field, never zero.",
+      "generated_at": "2026-08-15 14:02",
+      "declared_contest_id": "c38eccc0"
+    },
+    "UFC $12K Flying Knee [Single Entry] (SE)": {
+      "picked": [
+        {
+          "index": 2209,
+          "roster_key": "Eduardo Chapolin|Gillian Robertson|Islam Makhachev|Jalin Turner|Joel Alvarez|Ramiz Brahimaj"
+        }
+      ],
+      "why": "This lineup leads the candidate table in both numbers that matter for a top-heavy prize pool: a 4.59% chance to finish in the top 1% (about a 1-in-22 shot at the top 12 of 1,176 teams) and a 1.36% chance to win outright (about 1 in 74) \u2014 no other row is best at both. For it to win, Makhachev has to control five rounds for his usual ~100 points, and the two coin flips have to land your way: Turner finishing (all 8 of his UFC wins are finishes, 118 points per win) and Chapolin beating Charles Johnson. Chapolin is the strategy's named gap play \u2014 he is picked by about 1 in 6 teams (17% owned, low-owned) while the man he fights is picked by more than 4 in 10 (43%), so winning that fight quietly passes hundreds of teams. It also does the discipline part right: it takes only one of the three big grapplers the crowd shares (Makhachev, not Dern or Orolbai), so it skips the pair the field copies most (Makhachev + Dern, roughly 523 of the field's teams), and the sim expects zero opponents to hold this exact roster. Nothing here is a knockout-or-nothing dart \u2014 the lowest win chance on the roster is Robertson at 37%, and she scores even in a loss, which is what the small-field record says a single bullet needs.",
+      "generated_at": "2026-08-15 14:07",
+      "declared_contest_id": "14b7f7a9"
+    },
+    "UFC $10K Clinch [Single Entry] (SE)": {
+      "picked": [
+        {
+          "index": 2209,
+          "roster_key": "Eduardo Chapolin|Gillian Robertson|Islam Makhachev|Jalin Turner|Joel Alvarez|Ramiz Brahimaj"
+        }
+      ],
+      "why": "This contest pays the top spots most (top-heavy), so the number that matters is top1% \u2014 the chance to finish 1st \u2014 and 4.34% here is about a 1-in-23 shot at first place, the highest of any row. It also holds up on the steadier measure this field size rewards: 0.59 win% and a +55.9% return score (roi%), both near the top of the table, with 0 opponents expected to hold the same six fighters (dupes). The strategy read it carries is Eduardo Chapolin at 17% picked \u2014 direct leverage on Charles Johnson, who is picked by 43% of teams while his projection ranks 20 spots lower (the slate's most trap-shaped price). It also breaks the field's biggest pair: Makhachev + Dern sits in roughly 523 of the 2,378 lineups, and this one has Makhachev without Dern. For it to win, Makhachev has to control five rounds for ~100 points, Chapolin has to beat Charles Johnson, and the two coin flips (Turner over Fernandes, Brahimaj's early submission) have to land \u2014 six fighters who can each win their own fight, with no dead dart slot.",
+      "generated_at": "2026-08-15 14:14",
+      "declared_contest_id": "f273f6a6"
+    }
+  }
+}

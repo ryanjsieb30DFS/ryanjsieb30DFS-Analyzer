@@ -1,0 +1,210 @@
+{
+  "generated_at": "2026-08-15 13:46",
+  "slug": "mma_se",
+  "calls": [
+    {
+      "name": "Kaue Fernandes",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Eric McConico",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Ian Machado Garry",
+      "verdict": "lean_fade"
+    }
+  ],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "Jeremiah Wells",
+      "own": 5.0
+    },
+    {
+      "name": "Dustin Stoltzfus",
+      "own": 8.0
+    },
+    {
+      "name": "Edson Barboza",
+      "own": 7.0
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Islam Makhachev",
+        "Mackenzie Dern"
+      ],
+      "joint_pct": 22.0
+    },
+    {
+      "players": [
+        "Islam Makhachev",
+        "Charles Johnson"
+      ],
+      "joint_pct": 21.5
+    },
+    {
+      "players": [
+        "Islam Makhachev",
+        "Myktybek Orolbai"
+      ],
+      "joint_pct": 20.0
+    },
+    {
+      "players": [
+        "Mackenzie Dern",
+        "Charles Johnson"
+      ],
+      "joint_pct": 18.9
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Mackenzie Dern",
+        "Charles Johnson",
+        "Myktybek Orolbai"
+      ]
+    },
+    {
+      "players": [
+        "Gillian Robertson",
+        "Ramiz Brahimaj",
+        "Kaue Fernandes"
+      ]
+    },
+    {
+      "players": [
+        "Vicente Luque",
+        "Esteban Ribovics",
+        "Joel Alvarez",
+        "Donte Johnson"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "board": [
+    {
+      "name": "Myktybek Orolbai",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Islam Makhachev",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Mackenzie Dern",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Esteban Ribovics",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Mansur Abdul-Malik",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Ramiz Brahimaj",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Gillian Robertson",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Jalin Turner",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Kaue Fernandes",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Joel Alvarez",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Vicente Luque",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Donte Johnson",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Charles Johnson",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Chidi Njokuani",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Eduardo Chapolin",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Rafael Tobias",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Lucas Fernando",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Neil Magny",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Tresean Gore",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ian Machado Garry",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Dustin Stoltzfus",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Eric McConico",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Edson Barboza",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Jeremiah Wells",
+      "tier": "Fade",
+      "leverage": false
+    }
+  ]
+}

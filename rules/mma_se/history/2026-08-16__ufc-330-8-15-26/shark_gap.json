@@ -1,0 +1,77 @@
+{
+  "field": 2378,
+  "anchors": [
+    "myktybek orolbai",
+    "islam makhachev",
+    "charles johnson"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 37.8,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.667,
+    "anchor_exposure_by_player": {
+      "myktybek orolbai": 1.0,
+      "islam makhachev": 0.0,
+      "charles johnson": 1.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 22.67,
+    "median_pctile": 22.67
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 38.8,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.667,
+    "anchor_exposure_by_player": {
+      "myktybek orolbai": 1.0,
+      "islam makhachev": 1.0,
+      "charles johnson": 0.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 67.79,
+    "median_pctile": 67.79
+  },
+  "deltas": [
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 38.8,
+      "shark": 37.8,
+      "delta": 1.0
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 0.0,
+      "shark": 0.0,
+      "delta": 0.0
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.667,
+      "shark": 0.667,
+      "delta": 0.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "mma_se",
+  "sport": "mma"
+}

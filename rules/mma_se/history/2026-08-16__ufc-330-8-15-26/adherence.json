@@ -1,0 +1,114 @@
+{
+  "gradable": true,
+  "n_lineups": 5,
+  "n_contests": 3,
+  "calls": [
+    {
+      "name": "Kaue Fernandes",
+      "verdict": "underweight",
+      "exposure_pct": 20.0,
+      "in_lineups": 1,
+      "of": 5,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193553894.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193553902.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193553903.csv",
+          "in_lineups": 1,
+          "of": 3,
+          "exposure_pct": 33.3
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-193553894.csv",
+        "contest-standings-193553902.csv"
+      ]
+    },
+    {
+      "name": "Eric McConico",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 5,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193553894.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193553902.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193553903.csv",
+          "in_lineups": 0,
+          "of": 3,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Ian Machado Garry",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 5,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193553894.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193553902.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193553903.csv",
+          "in_lineups": 0,
+          "of": 3,
+          "exposure_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 1,
+  "leverage_candidates": [
+    {
+      "name": "Jeremiah Wells",
+      "rostered": false
+    },
+    {
+      "name": "Dustin Stoltzfus",
+      "rostered": false
+    },
+    {
+      "name": "Edson Barboza",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 0,
+  "leverage_of": 3
+}
