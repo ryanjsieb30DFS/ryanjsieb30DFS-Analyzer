@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-19",
+  "slug": "pga_classic",
+  "sport": "golf",
+  "slate_label": "FedEx St. Jude Championship 2026",
+  "history_dir": "rules/pga_classic/history/2026-08-19__fedex-st-jude-championship-2026",
+  "contests": [
+    {
+      "name": "PGA TOUR $12K Scramble [5 Entry Max]",
+      "type": "5-Max",
+      "source_file": "contest-standings-193547328 3.csv",
+      "field_size": 705,
+      "my_entries": 2,
+      "entry_fee": 20.0,
+      "buy_in": 40.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 189,
+      "best_percentile": 26.8
+    }
+  ],
+  "total_buy_in": 40.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 189,
+  "best_percentile": 26.8,
+  "best_rank_mme": null,
+  "best_percentile_mme": null,
+  "entries_total": 2,
+  "edge_leverage_capture": 0.0,
+  "edge_overperformer_capture": 0.2,
+  "edge_bust_exposure": 0.0,
+  "lineup_avg_ratio": 0.834,
+  "shark_gap_top": {
+    "dim": "leverage_pct",
+    "delta": 20.0
+  },
+  "adherence_fades_violated": 0,
+  "adherence_leverage_covered": "5/12",
+  "tier_summary": "Core 83.2 > Good 69.7 > Okay 63.6 > Fade 62.7  \u2713 ordered",
+  "tiers_ordered": true,
+  "grader_check": {
+    "flagged_pctiles": [],
+    "clean_pctiles": [
+      26.8,
+      88.1
+    ]
+  }
+}

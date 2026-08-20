@@ -1,0 +1,118 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "n_contests": 1,
+  "calls": [
+    {
+      "name": "Justin Thomas",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Ludvig Aberg",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Michael Brennan",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Tom Kim",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Sungjae Im",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Alex Fitzpatrick",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    },
+    {
+      "name": "Akshay Bhatia",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 0,
+  "leverage_candidates": [
+    {
+      "name": "Robert Macintyre",
+      "rostered": false
+    },
+    {
+      "name": "Ben Griffin",
+      "rostered": false
+    },
+    {
+      "name": "Wyndham Clark",
+      "rostered": false
+    },
+    {
+      "name": "J.T. Poston",
+      "rostered": true
+    },
+    {
+      "name": "Rickie Fowler",
+      "rostered": false
+    },
+    {
+      "name": "J.J. Spaun",
+      "rostered": true
+    },
+    {
+      "name": "Min Woo Lee",
+      "rostered": false
+    },
+    {
+      "name": "Kurt Kitayama",
+      "rostered": false
+    },
+    {
+      "name": "Eric Cole",
+      "rostered": false
+    },
+    {
+      "name": "Corey Conners",
+      "rostered": true
+    },
+    {
+      "name": "Michael Kim",
+      "rostered": true
+    },
+    {
+      "name": "Jacob Bridgeman",
+      "rostered": true
+    }
+  ],
+  "leverage_covered": 5,
+  "leverage_of": 12
+}

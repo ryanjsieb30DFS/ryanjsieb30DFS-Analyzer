@@ -1,0 +1,28 @@
+{
+  "slug": "pga_classic",
+  "sport": "golf",
+  "contest_label": "PGA Classic",
+  "date": "2026-08-19",
+  "slate_label": "FedEx St. Jude Championship 2026",
+  "archived_at": "2026-08-19 20:20",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json",
+    "lineup_selection.json",
+    "lineup_grade.md"
+  ],
+  "missing": [],
+  "article_files": [
+    "articles/pga_classic/2026-08-12__ETR DK Ownership Model Golf 8.13.26.pdf",
+    "articles/pga_classic/2026-08-12__ETR Golf Coffin List 8.16.26.pdf",
+    "articles/pga_classic/2026-08-12__ETR Golf Course Fits & Preview 8.13.26.pdf",
+    "articles/pga_classic/2026-08-12__ETR Golf Models 8.13.26.pdf",
+    "articles/pga_classic/2026-08-12__ETR Golf Value Report 8.13.26.pdf",
+    "articles/pga_classic/2026-08-12__ETR PGA Large Field Breakdown 8.13.26.pdf",
+    "articles/pga_classic/2026-08-12__ETR PGA Top Plays 8.13.26.pdf"
+  ],
+  "proj_source": null
+}

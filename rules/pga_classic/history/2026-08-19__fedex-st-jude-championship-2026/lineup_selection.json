@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "slug": "pga_classic",
+  "pool_fp": "53ef468c881c",
+  "pool_len": 10000,
+  "contests": {
+    "PGA TOUR $12K Scramble [5 Entry Max] (5-Max)": {
+      "picked": [
+        {
+          "index": 3534,
+          "roster_key": "Cameron Young|Collin Morikawa|J.J. Spaun|Jacob Bridgeman|Michael Kim|Sam Burns"
+        },
+        {
+          "index": 8,
+          "roster_key": "J.T. Poston|Michael Kim|Michael Thorbjornsen|Russell Henley|Ryan Gerard|Scottie Scheffler"
+        }
+      ],
+      "why": "The payout here is top-heavy, so the number that matters is the top1 column \u2014 the chance to finish first. Pick 1 has the table's best, 3.84%, about a 1-in-26 shot at winning outright; it skips Scheffler and instead stacks three $9K stars with three players few teams will pick (low-owned): Spaun, Bridgeman, and Michael Kim \u2014 all named in the strategy's leverage list. Pick 2 carries the crowd's anchor Scheffler at the best available top1 (2.9%, about 1-in-34), honoring the strategy's rule for this exact contest: one Scheffler entry, one without, because zeroing the field's #1 player has been the ledger's most expensive mistake. Both entries pass the open 8/11 lesson on their own: each carries at least two sub-10% pieces (three and two) at a 13.8% and 14.1% average pick-rate per spot, right in the ~13\u201316% band the winners of 168 past slates actually ran. They share only one player (Michael Kim) and neither touches a fade-listed name or the crowded Scheffler+Thomas pair, so they win in genuinely different ways.",
+      "generated_at": "2026-08-12 22:25",
+      "declared_contest_id": "9ee86af4"
+    }
+  }
+}

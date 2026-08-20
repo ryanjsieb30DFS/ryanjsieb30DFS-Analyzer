@@ -1,0 +1,46 @@
+{
+  "gradable": true,
+  "n_pool": 69,
+  "n_matched": 68,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 5,
+      "avg_fpts": 83.2,
+      "max_fpts": 125.5
+    },
+    {
+      "tier": "Good",
+      "n": 12,
+      "avg_fpts": 69.7,
+      "max_fpts": 96.0
+    },
+    {
+      "tier": "Okay",
+      "n": 33,
+      "avg_fpts": 63.6,
+      "max_fpts": 90.5
+    },
+    {
+      "tier": "Fade",
+      "n": 18,
+      "avg_fpts": 62.7,
+      "max_fpts": 88.5
+    }
+  ],
+  "tiers_ordered": true,
+  "leakage": [
+    {
+      "name": "Sungjae Im",
+      "tier": "Fade",
+      "fpts": 88.5
+    },
+    {
+      "name": "Jake Knapp",
+      "tier": "Fade",
+      "fpts": 84.5
+    }
+  ],
+  "excluded_scratches": [],
+  "summary": "Core 83.2 > Good 69.7 > Okay 63.6 > Fade 62.7  \u2713 ordered"
+}

@@ -1,0 +1,15 @@
+{
+  "contests": [
+    {
+      "name": "PGA TOUR $12K Scramble [5 Entry Max]",
+      "type": "5-Max",
+      "field_size": 705,
+      "max_entries": 5,
+      "my_entries": 2,
+      "entry_fee": 20.0,
+      "prize_pool": 12000,
+      "payout_shape": "Top-heavy",
+      "id": "9ee86af4"
+    }
+  ]
+}

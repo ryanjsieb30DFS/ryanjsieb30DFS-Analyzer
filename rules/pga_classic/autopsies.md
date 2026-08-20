@@ -452,3 +452,29 @@ Per Philosophy Section 4:
 - 🕳️ Buried: **Doug Ghim** (Fade) scored 89.5 — above the top tier's average.
 - 🕳️ Buried: **Maverick Mcnealy** (Fade) scored 88.0 — above the top tier's average.
 - 🕳️ Buried: **David Skinns** (Fade) scored 83.0 — above the top tier's average.
+
+
+## 2026-08-19 20:20 — PGA Classic (contest-standings-193547328 3.csv)
+- Entries: 705
+- Winning score: 521.0
+- Cash line (top 20%): 460.0
+- My entries: 2 · best rank 189/705 (top 26.8%)
+- Winners (top 20): avg own 14.1% vs mine 14.0% · sub-10% plays/lineup 2.35 vs mine 2.0 · salary Δ -130
+- Overperformed proj: Scottie Scheffler, Alex Noren, Sungjae Im
+- Underperformed proj: Robert MacIntyre, Rory McIlroy, Eric Cole
+- Slate-defining plays: Si Woo Kim (95.0 pts @ 19.6%), Alex Noren (90.5 pts @ 4.5%), Sungjae Im (88.5 pts @ 17.3%), Viktor Hovland (85.5 pts @ 18.4%)
+
+### Strategy adherence — did you follow your own strategy? (2 unique lineups)
+- ✅ Every hard FADE honored.
+- Leverage candidates rostered somewhere: **5 of 12**.
+
+### Player-pool tier calibration (68 of 69 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 5 | 83.2 | 125.5 |
+| **Good** | 12 | 69.7 | 96.0 |
+| **Okay** | 33 | 63.6 | 90.5 |
+| **Fade** | 18 | 62.7 | 88.5 |
+- ✅ Tier ordering HELD — higher tiers outscored lower ones on average.
+- 🕳️ Buried: **Sungjae Im** (Fade) scored 88.5 — above the top tier's average.
+- 🕳️ Buried: **Jake Knapp** (Fade) scored 84.5 — above the top tier's average.

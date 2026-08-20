@@ -1,0 +1,35 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "lineups": [
+    {
+      "players": [
+        "Corey Conners",
+        "J.T. Poston",
+        "Michael Thorbjornsen",
+        "Russell Henley",
+        "Ryan Gerard",
+        "Scottie Scheffler"
+      ],
+      "percentile": 26.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cameron Young",
+        "Collin Morikawa",
+        "J.J. Spaun",
+        "Jacob Bridgeman",
+        "Michael Kim",
+        "Sam Burns"
+      ],
+      "percentile": 88.1,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    26.8,
+    88.1
+  ]
+}

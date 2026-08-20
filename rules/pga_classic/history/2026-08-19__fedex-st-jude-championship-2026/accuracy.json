@@ -1,0 +1,46 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 12,
+    "leverage_capture": 0.0,
+    "leverage_hit": [],
+    "leverage_missed": [
+      "Si Woo Kim",
+      "Alex Noren",
+      "Sungjae Im",
+      "Viktor Hovland"
+    ],
+    "overperformer_capture": 0.2,
+    "overperformer_hit": [
+      "Scottie Scheffler"
+    ],
+    "underperformer_exposure": 0.0,
+    "underperformer_hit": []
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 2,
+    "avg_ratio": 0.834,
+    "best_percentile": 26.8,
+    "median_percentile": 88.1,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30 (2/2)",
+        "points": 453.0,
+        "proj_total": 504.3,
+        "ratio": 0.898,
+        "percentile": 26.8,
+        "avg_own": 14.16
+      },
+      {
+        "entry_name": "RyvlesGaming30 (1/2)",
+        "points": 383.0,
+        "proj_total": 498,
+        "ratio": 0.769,
+        "percentile": 88.1,
+        "avg_own": 13.85
+      }
+    ]
+  }
+}
