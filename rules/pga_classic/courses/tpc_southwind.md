@@ -1,6 +1,6 @@
 # TPC Southwind (Memphis, TN) — FedEx St. Jude Championship
 
-**UNVERIFIED — built from this slate's articles only** (ETR Course Fits & Preview 8/13/26, ETR Value Report 8/13/26, ETR Large Field Breakdown 8/13/26). Verify against the post-slate autopsy.
+Built from the 2026 St. Jude articles (ETR Course Fits & Preview 8/13/26, ETR Value Report 8/13/26, ETR Large Field Breakdown 8/13/26); **course profile verified against the 2026-08-19 autopsy** (accuracy archetype + long-driver docks held; see per-slate observations).
 
 ## Course profile
 - Par 70, ~7,290 yards, Bermuda tee to green. Hosts the first FedEx Cup playoff event (top-70 field, no cut).
@@ -20,4 +20,5 @@
 - Three of the last four ended in playoffs.
 
 ## Per-slate observations
+- **2026-08-19 (post-slate, St. Jude 2026):** The accuracy archetype VERIFIED — the winning DK lineup (521) was Scheffler (125.5, 27.2% own) plus mid-priced accuracy irons: Si Woo Kim 95.0, Alex Noren 90.5 (the #5 fit-boost accurate driver, 4.5% own), Sungjae Im 88.5. The fit model's long-driver docks also verified: McIlroy (docked) busted 50.5, Brennan (docked) 59.0. Course-history boosts were mixed — Hideki (#1 CH) 82.5 and Rose (#6) quiet, so at Southwind fit > history. Scheffler chalk HELD at a no-cut playoff (7 of the top-10 lineups). MacIntyre scored 1.5 (out early). The strategy's -15 to -17 winner read and heat/wind call drew no contradiction.
 - **2026-08-12 (pre-slate, St. Jude 2026):** 69-man no-cut field (68 competing — Berger out injured, Rodgers a non-factor per ETR). 100° heat all week; wind impacts negligible (±0.2 DK pts by tee block, ETR Models). ETR fit boosts: Henley/Morikawa (t-1), Rai (3), Fleetwood (4), M. Fitzpatrick/Noren (t-5), Tom Kim/Hideki/Jordan Smith (t-7), Si Woo (10). Fit docks: Hojgaard/Potgieter (t-1), Brennan/Gotterup (t-3), Clark/Knapp/McIlroy/Mitchell (t-5). Course-history boosts: Hideki (1), Cantlay (2), Xander (3), Fleetwood/Poston (t-4), Rose (6).

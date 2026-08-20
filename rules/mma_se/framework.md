@@ -2,7 +2,7 @@
 
 **Contest Type:** Single Entry (SE)
 **Document Type:** Operational Process & Manual Build Playbook
-**Last Updated:** May 30, 2026
+**Last Updated:** August 16, 2026
 **Companion Files:** SE_mma_philosophy_2026-05-17.md, SE_mma_autopsies_2026-05-17.md
 
 ---
@@ -237,6 +237,22 @@ DK MMA scoring pays heavily for significant strikes, control time and takedowns,
 - 8/2 Stirling: lean-faded because a big score "requires the first round-one knockout of Blachowicz's career" → **106.1**, the slate's #7 score.
 
 **Rule:** before capping any fighter's ceiling because his fight is likely to go the distance, check projected **pace, volume and control**. A high-output fighter favored to dominate carries a real 100+ ceiling with no finish. A distance projection caps the ceiling ONLY when it is also low-volume and low-control — a true point-fighting stalemate.
+
+### The Okay Tier Is a Verdict, Not a Shrug (8/16/26 — 3-slate validated)
+
+Cap `Okay` at ~1/3 of the board; every other fighter gets `Good` or `Fade` with a one-line reason; check the tier-order flag each autopsy.
+
+### A Clean MMA Grade Carries No Information (8/16/26)
+
+~115 straight flag-free lineups spanning the whole field; rebuild MMA gates on convergence-adjusted ownership and add a no-win-path-slot gate; until then ignore clean grades.
+
+### Exact-Roster Duplication Is Superlinear (8/16/26)
+
+Before locking a top-heavy SE, multiply the roster's ownership product × field size × the measured MMA 1.7–6.6× factor; a double-digit copy count is a build-defining flag (the 8/16 $12K winner split first place three ways).
+
+### Envelope Targets Are Rates (8/16/26)
+
+State pro targets as "in N of 10 lineups"; on 1–3 bullets the dart is optional; treat shark-gap axis deltas ≤2 ownership points as noise — the gap is selection.
 
 ## Post-SE Review
 

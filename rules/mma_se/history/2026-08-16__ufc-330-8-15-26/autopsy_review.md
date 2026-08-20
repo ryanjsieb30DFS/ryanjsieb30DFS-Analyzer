@@ -75,3 +75,7 @@ This section is the short list to carry forward.
 3. Keep building six fighters who can all win, and make the one low-owned piece a winner-type — that decided all three contests.
 4. Shrink the Okay tier before trusting the board's ranking.
 5. Treat sim rankings as a cut line, not an order.
+
+## Applied
+
+Applied 2026-08-19 (user-approved). All four proposed codifications were added exactly as written: framework.md gained "The Okay Tier Is a Verdict, Not a Shrug (8/16/26 — 3-slate validated)", "A Clean MMA Grade Carries No Information (8/16/26)", "Exact-Roster Duplication Is Superlinear (8/16/26)", and "Envelope Targets Are Rates (8/16/26)"; philosophy.md gained "Envelope Targets Are Rates (8/16/26)". The four promoted lessons were set to `codified` with `codified_in` pointing at those sections: `mma-se-2026-08-02-okay-tier-is-a-dumping-ground`, `mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma`, `mma-se-2026-07-19-exact-roster-duplication-is-superlinear-in-consensus`, and `mma-se-2026-07-19-sharp-envelope-is-a-rate-not-a-per-bullet-quota`. Ledger hygiene required no edits: every decision was KEEP / KEEP-SEPARATE / HOLD / DECLINE (no retirements, no merges); `showdown-cap-single-favorite-exposure` stays validated at 2 of 3 and `field-value-side-vs-your-named-converter` holds at 2 of 3. The three new 8/16 hypotheses were already in the ledger and were left untouched.

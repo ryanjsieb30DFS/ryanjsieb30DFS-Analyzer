@@ -2,7 +2,7 @@
 
 **Contest Type:** Single Entry (SE)
 **Document Type:** Core Philosophy
-**Last Updated:** May 17, 2026
+**Last Updated:** August 16, 2026
 **Companion Files:** SE_mma_framework_2026-05-17.md, SE_mma_autopsies_2026-05-17.md
 
 ---
@@ -94,3 +94,7 @@ They are different games. Different field dynamics. Different variance. Differen
 If you don't believe in the SE process enough to treat it as its own sport with its own framework, don't play SEs. If you do, commit to learning it, documenting it, and playing it enough (10+ slates) to know whether you have an edge.
 
 Mixing MME + SE as "one bankroll" without separate frameworks is a fast way to lose the confidence to play either one well.
+
+## Envelope Targets Are Rates (8/16/26)
+
+State pro targets as "in N of 10 lineups"; on 1–3 bullets the dart is optional; treat shark-gap axis deltas ≤2 ownership points as noise — the gap is selection.

@@ -1306,7 +1306,7 @@ lessons:
       Links [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]],
       [[mma-se-2026-05-17-one-leverage-swing-conviction-core]].
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-08-02"
         slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
@@ -1358,7 +1358,7 @@ lessons:
           target while the live in-field shark ran 37.8% — the envelope number
           transfers poorly even when a pro IS present.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Envelope Targets Are Rates (8/16/26); philosophy.md — Envelope Targets Are Rates (8/16/26)"
     retired_reason: null
 
   - id: mma-se-2026-07-19-exact-roster-duplication-is-superlinear-in-consensus
@@ -1391,7 +1391,7 @@ lessons:
       overridden. Links [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence]],
       [[mma-se-2026-05-16-no-identical-conviction-cores]].
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-08-09"
         slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26 — 784 SE"
@@ -1421,7 +1421,7 @@ lessons:
           concentration, not field size, set the duplication. Origin + 8/9 + 8/16 =
           three slates -> propose codifying.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Exact-Roster Duplication Is Superlinear (8/16/26)"
     retired_reason: null
 
   # ---- 2026-07-26 — UFC Fight Night: Ankalaev vs Guskov 7.25.26 ----
@@ -1500,7 +1500,7 @@ lessons:
       a shrug. Watch the tier-ordering flag in `pool_calibration.json` as the read-out.
       Links [[mma-se-2026-06-20-finish-capable-favorite-is-not-secondary-chalk]],
       [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]].
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-08-09"
         slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26"
@@ -1530,7 +1530,7 @@ lessons:
           Good-vs-Okay. A tier spanning 0.8 to 128.8 points carries no information,
           and it once again held the fighters who decided the slate.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — The Okay Tier Is a Verdict, Not a Shrug (8/16/26 — 3-slate validated)"
     retired_reason: null
 
   - id: mma-se-2026-08-02-shared-coin-flip-slots-not-shared-players-kill-a-portfolio
@@ -1591,7 +1591,7 @@ lessons:
       actually share. Until a gate fires on a losing lineup and stays silent on a winning
       one, treat a clean grade as carrying no information. Links
       [[mma-se-2026-07-19-exact-roster-duplication-is-superlinear-in-consensus]].
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-08-09"
         slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26 — 101 entered lineups"
@@ -1617,7 +1617,7 @@ lessons:
           26.95, Luque 20.52) and graded clean at 67.8%ile. The proposed no-win-path
           gate and convergence-adjusted ownership inputs remain the fix.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — A Clean MMA Grade Carries No Information (8/16/26)"
     retired_reason: null
 
   # ---- 2026-08-09 — UFC Fight Night: Gamrot vs. Salkilld ----

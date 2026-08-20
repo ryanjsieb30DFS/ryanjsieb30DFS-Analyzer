@@ -35,6 +35,8 @@ Before constructing any lineup, answer these:
 
 **Vendor-independent ceiling board (codified 2026-07-26).** Before writing Top plays, independently list the ~12-15 highest-ceiling players for the week from the projections + form (best ball-strikers, hottest approach numbers, elite anchors) REGARDLESS of whether the vendor's coffin list or a panel flagged them, and reconcile every elite/mid ceiling against that board so no stud is silently omitted (the Hovland/Morikawa/Burns failure class). The board MUST include recent tournament/major champions and proven closers gated on a current-form floor: any that survive the gate at sub-15% projected own are leverage; pedigree without form stays lottery-only (Koepka).
 
+**Core-tier gate (codified 2026-08-19).** The board's Core tier carries 5–6 names, never 3. No player inside the slate's top-3 projected-ownership tier may be tiered Core unless his row states the crowding cost in the same line ("at 33–35% he is pure chalk to size"). Core reads as "start here," so an ungated Core label converts a tiering error straight into a duplication error (Gotterup, Rocket 2026); a 3-name Core lets one bust invert the whole board (English, Wyndham 2026); the 5-name gated Core held ordered through a McIlroy bust (FedEx St. Jude 2026).
+
 ## 3. Ownership Tier Framework
 
 | Tier | Projected Own | Strategic Role |
