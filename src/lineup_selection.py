@@ -8,7 +8,7 @@ Per-contest flow (8/9/26 evening rework — the user's contests are all small
 single-entry GPPs but NOT interchangeable: different field sizes, payout
 shapes, and histories, so every contest gets its own pick and its own grade):
 
-1. `candidate_slice` deterministically cuts THAT contest's top ~50 pool rows
+1. `candidate_slice` deterministically cuts THAT contest's top ~100 pool rows
    (by that contest's own sim metrics — top1/win/cash/roi — plus projection,
    low-ownership and low-dupe standouts).
 2. `slice_digest_md` renders the slice as one id-keyed markdown table; the
@@ -20,6 +20,14 @@ shapes, and histories, so every contest gets its own pick and its own grade):
    choose; it can never invent.
 4. `save_contest_pick` persists picks per contest (schema v2) so the Grade
    tab can one-click them into that contest's grade box.
+
+**One lineup, one contest (user directive 8/15/26).** Across every contest on
+a slate (all sports), a pool lineup may be picked ONCE. `taken_roster_keys`
+reads the picks already saved for the slate's OTHER contests; `candidate_slice`
+drops those rosters from the slice so the claude pass never sees them, and
+`parse_pick` rejects one that slips through by roster identity — so the same
+six players can't be re-picked at a different pool index. DK allows the reuse;
+the user does not want it.
 
 Crowd/trap discipline still applies: a trap is a price, not a player, and
 nothing here carries player-name quality signals across slates.
@@ -42,7 +50,190 @@ _SMALL_FIELD_TYPES = {"se", "3max", "5max"}
 # (docs/mme_plan.md: "Under ~2,500 entries plays like SE").
 _PLAYS_LIKE_SE_FIELD = 2_500
 
-_SLICE_CAP = 50
+_SLICE_CAP = 100  # user directive 8/15/26: expanded from 50, all sports
+
+_CONTRACT_DIR = Path(__file__).parent.parent / "data" / "strategy_contract"
+
+
+def strategy_slice_names(slug: str) -> dict:
+    """Names the strategy-aware slice angle seats: the contract's leverage
+    candidates + its UNDERWEIGHT calls (underweight means never zero — the
+    slice must always offer a lineup carrying each such player). Empty dict
+    when no contract exists; the slice then runs on the numbers angles only."""
+    p = _CONTRACT_DIR / f"{slug}.json"
+    try:
+        d = json.loads(p.read_text())
+    except Exception:  # noqa: BLE001 — missing/bad contract → no angle
+        return {}
+    lev = [str(c.get("name")) for c in d.get("leverage_candidates") or []
+           if c.get("name")]
+    uw = [str(c.get("name")) for c in d.get("calls") or []
+          if c.get("verdict") == "underweight" and c.get("name")]
+    return {"leverage": lev, "underweight": uw} if (lev or uw) else {}
+
+
+def strategy_gate(slug: str) -> dict:
+    """The slate strategy's rules, as an ENFORCEABLE gate (user directive
+    8/15/26: "the lineups that are picked HAVE TO FOLLOW THE SLATE STRATEGY").
+
+    Everything here is read from `data/strategy_contract/<slug>.json`, which the
+    strategy generation writes — nothing is hardcoded per sport. The rules:
+
+    * `fade` / `lean_fade` calls  — the strategy said play him nowhere / mostly
+      avoid. A lineup carrying one is out. This rule NEVER relaxes.
+    * `underweight` calls — "less than the crowd, never zero". On a 1-2 entry
+      slate any lineup carrying one puts you AT or ABOVE the crowd, so they are
+      out by default (relaxable only if the pool can't fill a slice without).
+    * `leverage_candidates` — every lineup must carry at least one. This is the
+      recurring miss the strategy names on its own leverage screen.
+    * `Core` tier from the board — at least two, the strategy's own anchors.
+    * `chalk_pairs[0]` — the top duplicated pair, "what a sharp refuses".
+
+    Returns `{"has_contract": bool, ...}`; an empty gate (no contract) filters
+    nothing, and the caller decides whether to run at all."""
+    p = _CONTRACT_DIR / f"{slug}.json"
+    try:
+        d = json.loads(p.read_text())
+    except Exception:  # noqa: BLE001 — no contract → no gate
+        return {"has_contract": False, "fade": {}, "underweight": {},
+                "leverage": {}, "core": {}, "chalk_pair": []}
+    fade, uw = {}, {}
+    for c in d.get("calls") or []:
+        nm, v = c.get("name"), c.get("verdict")
+        if not nm:
+            continue
+        if v in ("fade", "lean_fade"):
+            fade[_strat_norm(nm)] = (str(nm), v)
+        elif v == "underweight":
+            uw[_strat_norm(nm)] = str(nm)
+    lev = {_strat_norm(c["name"]): str(c["name"])
+           for c in d.get("leverage_candidates") or [] if c.get("name")}
+    core = {_strat_norm(r["name"]): str(r["name"])
+            for r in d.get("board") or []
+            if r.get("name") and str(r.get("tier")).strip().lower() == "core"}
+    pair = []
+    for cp in d.get("chalk_pairs") or []:
+        names = [str(x) for x in (cp.get("players") or []) if x]
+        if len(names) == 2:
+            pair = names
+            break
+    return {"has_contract": True, "fade": fade, "underweight": uw,
+            "leverage": lev, "core": core, "chalk_pair": pair}
+
+
+# Rules are dropped in THIS order when the pool can't fill a slice under the
+# full gate. `fade` is absent on purpose — "play him nowhere" never relaxes.
+_RELAX_ORDER = ("underweight", "core", "chalk_pair", "leverage")
+_GATE_MIN_ROWS = 25   # below this the slice stops being a real choice
+
+
+def compliance(roster: list, gate: dict, relaxed: tuple = ()) -> list[str]:
+    """The strategy rules THIS roster breaks, in plain words. Empty list = the
+    lineup follows the slate strategy. `relaxed` names rules to skip (see
+    `_RELAX_ORDER`)."""
+    if not gate.get("has_contract"):
+        return []
+    names = {_strat_norm(str(p)) for p in roster}
+    out = []
+    hit_fade = [gate["fade"][n] for n in names & set(gate.get("fade") or {})]
+    for nm, verdict in hit_fade:
+        out.append(f"carries {nm} — the strategy calls him "
+                   f"{'LEAN FADE' if verdict == 'lean_fade' else 'FADE'}")
+    if "underweight" not in relaxed:
+        for n in sorted(names & set(gate.get("underweight") or {})):
+            out.append(f"carries {gate['underweight'][n]} — an UNDERWEIGHT call "
+                       "(use him less than the crowd; one of your few entries is "
+                       "more than the crowd)")
+    if "leverage" not in relaxed and gate.get("leverage"):
+        if not (names & set(gate["leverage"])):
+            out.append("carries no driver/player from the strategy's leverage "
+                       "list (every lineup needs one)")
+    core = gate.get("core") or {}
+    if "core" not in relaxed and core:
+        need = min(2, len(core))
+        have = len(names & set(core))
+        if have < need:
+            out.append(f"has {have} Core-tier player(s), the strategy's anchors "
+                       f"— it needs {need}")
+    pair = gate.get("chalk_pair") or []
+    if "chalk_pair" not in relaxed and len(pair) == 2:
+        if {_strat_norm(pair[0]), _strat_norm(pair[1])} <= names:
+            out.append(f"carries both {pair[0]} and {pair[1]} — the most "
+                       "duplicated pair, the one a sharp refuses")
+    return out
+
+
+def eligible_indexes(pool: dict, gate: dict,
+                     min_rows: int = _GATE_MIN_ROWS) -> dict:
+    """Which pool rows the slate strategy actually allows.
+
+    Returns `{"allowed": set[int], "relaxed": [rule], "full": int, "total": int}`.
+    If the full gate leaves fewer than `min_rows` lineups, rules are dropped one
+    at a time in `_RELAX_ORDER` and every drop is REPORTED — the picker and the
+    app both say so out loud rather than quietly loosening the strategy."""
+    rosters = pool.get("rosters") or []
+    if not gate.get("has_contract"):
+        return {"allowed": set(range(len(rosters))), "relaxed": [],
+                "full": len(rosters), "total": len(rosters)}
+
+    def _pass(relaxed):
+        return {i for i, r in enumerate(rosters) if not compliance(r, gate, relaxed)}
+
+    allowed = _pass(())
+    full = len(allowed)
+    relaxed: list = []
+    for rule in _RELAX_ORDER:
+        if len(allowed) >= min_rows:
+            break
+        relaxed.append(rule)
+        allowed = _pass(tuple(relaxed))
+    return {"allowed": allowed, "relaxed": relaxed, "full": full,
+            "total": len(rosters)}
+
+
+def gate_summary(gate: dict, elig: dict) -> str:
+    """One plain-language block naming the rules every slice row satisfies —
+    rendered into the digest Claude reads and into the app."""
+    if not gate.get("has_contract"):
+        return ("No slate strategy contract was found, so no strategy rules "
+                "could be enforced on this table.")
+    rules = []
+    if gate.get("fade"):
+        rules.append("no player the strategy called FADE or LEAN FADE ("
+                     + ", ".join(sorted(nm for nm, _v in gate["fade"].values()))
+                     + ")")
+    if gate.get("underweight") and "underweight" not in elig.get("relaxed", []):
+        rules.append("no player the strategy called UNDERWEIGHT ("
+                     + ", ".join(sorted(gate["underweight"].values())) + ")")
+    if gate.get("leverage") and "leverage" not in elig.get("relaxed", []):
+        rules.append("at least one player off the strategy's leverage list")
+    if gate.get("core") and "core" not in elig.get("relaxed", []):
+        rules.append(f"at least {min(2, len(gate['core']))} Core-tier players "
+                     "(the strategy's anchors)")
+    if len(gate.get("chalk_pair") or []) == 2 \
+            and "chalk_pair" not in elig.get("relaxed", []):
+        rules.append(f"never both {gate['chalk_pair'][0]} and "
+                     f"{gate['chalk_pair'][1]} (the most duplicated pair)")
+    lines = ["Every lineup in the table below ALREADY follows the slate "
+             "strategy. The app removed the ones that did not:"]
+    lines += [f"- {r}" for r in rules]
+    lines.append(f"\n{elig.get('full', 0):,} of {elig.get('total', 0):,} pooled "
+                 "lineups pass the full strategy gate.")
+    if elig.get("relaxed"):
+        lines.append("⚠️ Too few lineups passed, so these rules had to be "
+                     "dropped to fill the table: "
+                     + ", ".join(elig["relaxed"])
+                     + ". Prefer rows that still honor them.")
+    return "\n".join(lines)
+
+
+def _strat_norm(name: str) -> str:
+    """Join key for strategy-contract names vs Sim roster names (case,
+    periods, hyphens — 'J.T. Poston' == 'JT Poston', 'Macintyre' ==
+    'MacIntyre'). Kept local + tiny; both sides are already clean vendor
+    names, unlike DK standings parsing."""
+    s = re.sub(r"[.']", "", str(name))          # J.T. -> JT, O'Neal -> ONeal
+    return re.sub(r"[\-\s]+", " ", s).casefold().strip()
 
 
 # ---------------------------------------------------------------------------
@@ -110,6 +301,37 @@ def save_contest_pick(slug: str, pool: dict, label: str, declared: dict | None,
     _SELECTION_DIR.mkdir(parents=True, exist_ok=True)
     _path(slug).write_text(json.dumps(data, indent=2))
     return data
+
+
+def taken_roster_keys(slug: str, pool: dict | None,
+                      exclude_label: str | None = None) -> dict:
+    """`{roster_key: contest label}` for every lineup already picked in one of
+    THIS slate's other contests — the one-lineup-one-contest rule (user
+    directive 8/15/26, all sports).
+
+    `exclude_label` is the contest being picked right now: its own saved picks
+    never block it, so re-running a pick is always allowed. Picks made against
+    a different pool fingerprint are stale and count as nothing (the Sim re-sent
+    the pool, so the indexes no longer mean anything)."""
+    data = load_selection(slug)
+    if not data:
+        return {}
+    if pool and data.get("pool_fp") != pool.get("pool_fp"):
+        return {}
+    rosters = (pool or {}).get("rosters") or []
+    taken: dict = {}
+    for label, rec in (data.get("contests") or {}).items():
+        if exclude_label is not None and str(label) == str(exclude_label):
+            continue
+        for p in (rec or {}).get("picked") or []:
+            key = p.get("roster_key")
+            if not key:  # older row / hand-edited file — rebuild from the pool
+                i = p.get("index")
+                if i is None or i >= len(rosters):
+                    continue
+                key = "|".join(sorted(str(x) for x in rosters[i]))
+            taken.setdefault(key, str(label))
+    return taken
 
 
 def clear_selection(slug: str) -> None:
@@ -198,21 +420,44 @@ def _norm(vals: list) -> list[float]:
     return [((v - lo) / (hi - lo)) if v is not None else 0.0 for v in nums]
 
 
-def _top_idx(vals: list, n: int, reverse: bool = True) -> list[int]:
-    """Indexes of the best n values (None last; ties by index — deterministic)."""
-    order = sorted(range(len(vals)),
+def _top_idx(vals: list, n: int, reverse: bool = True,
+             universe: list | None = None) -> list[int]:
+    """Indexes of the best n values (None last; ties by index — deterministic).
+
+    `universe` restricts the ranking to those indexes, so every angle ranks the
+    lineups the strategy ALLOWS. Ranking the whole pool and filtering afterwards
+    is what shrank a 100-row slice to 16 — the top of the pool is mostly rows
+    the gate cut."""
+    idxs = range(len(vals)) if universe is None else universe
+    order = sorted(idxs,
                    key=lambda i: ((vals[i] is None),
                                   -(vals[i] or 0) if reverse else (vals[i] or 0),
                                   i))
     return order[:n]
 
 
-def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP) -> list[dict]:
+def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP,
+                    strategy: dict | None = None,
+                    taken: dict | set | None = None,
+                    allowed: set | None = None) -> list[dict]:
     """THIS contest's top pool rows, deterministically: the union of the best
-    lineups by each of the contest's own sim metrics, plus projection and
-    low-ownership / low-duplication standouts, capped at `k` by a blend score.
-    Same pool + contest in, same slice out — the claude pass only ever
-    chooses among these real rows."""
+    lineups by each of the contest's own sim metrics, plus projection,
+    low-ownership / low-duplication standouts, and (8/15/26) a STRATEGY-AWARE
+    angle — lineups carrying the contract's named leverage candidates or
+    UNDERWEIGHT-call players get seats even when they sim mid-pack, closing
+    the numbers-only blind spot (a thesis lineup the strategy argued for must
+    be pickable). Capped at `k` by a blend score with all standout/strategy
+    seats reserved. Same inputs in, same slice out — the claude pass only
+    ever chooses among these real rows.
+
+    `taken` (roster_key -> contest label, from `taken_roster_keys`) removes the
+    lineups already picked for another contest on this slate, so one lineup is
+    only ever entered once (user directive 8/15/26).
+
+    `allowed` (from `eligible_indexes`) is the STRATEGY GATE: only lineups that
+    already follow the slate strategy may enter the slice. Rows outside it are
+    invisible to every angle below, so no sim score can promote a lineup the
+    strategy ruled out."""
     rosters = pool.get("rosters") or []
     n = len(rosters)
     if n == 0:
@@ -226,8 +471,18 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP) -> list[dict
     avg_own = (pool.get("avg_own") or [None] * n)[:n]
     dupes = contest.get("exp_dupes")
 
+    # One lineup, one contest: rosters already picked elsewhere on this slate
+    # never enter the slice, whatever index they sit at in the pool.
+    taken_keys = set(taken or ())
+    blocked = {i for i in range(n)
+               if "|".join(sorted(str(x) for x in rosters[i])) in taken_keys} \
+        if taken_keys else set()
+    # The strategy gate: anything it excluded can never be chosen by any angle.
+    if allowed is not None:
+        blocked |= {i for i in range(n) if i not in allowed}
+
     chosen: list[int] = []
-    seen: set = set()
+    seen: set = set(blocked)
 
     def _add(idxs):
         for i in idxs:
@@ -235,29 +490,75 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP) -> list[dict
                 seen.add(i)
                 chosen.append(i)
 
-    _add(_top_idx(top1, 15))
-    _add(_top_idx(win, 15))
-    _add(_top_idx(cash, 10))
-    _add(_top_idx(roi, 10))
-    _add(_top_idx(proj, 10))
+    # Every angle ranks only the lineups still standing after the gate + the
+    # one-per-contest cut, so the slice is the top of what is ACTUALLY pickable.
+    universe = [i for i in range(n) if i not in blocked]
+    if not universe:
+        return []
+    u = len(universe)
+
+    _add(_top_idx(top1, 30, universe=universe))
+    _add(_top_idx(win, 30, universe=universe))
+    _add(_top_idx(cash, 20, universe=universe))
+    _add(_top_idx(roi, 20, universe=universe))
+    _add(_top_idx(proj, 20, universe=universe))
     # Standouts within the top quartile by this contest's top1: the
     # lowest-owned (leverage) and, when dupe data exists, least-duplicated.
-    q_list = sorted(_top_idx(top1, max(1, n // 4)))
-    _add([q_list[j] for j in _top_idx([avg_own[i] for i in q_list], 10,
-                                      reverse=False)])
+    # These carry reserved seats through the cap below — they were added for
+    # their angle, not their blend score, and the blend must not evict them.
+    standouts: set = set()
+    q_list = sorted(_top_idx(top1, max(1, u // 4), universe=universe))
+    lev = [q_list[j] for j in _top_idx([avg_own[i] for i in q_list], 20,
+                                       reverse=False)]
+    _add(lev)
+    standouts.update(lev)
     if dupes:
-        _add([q_list[j] for j in _top_idx([dupes[i] for i in q_list], 10,
-                                          reverse=False)])
+        low_dupe = [q_list[j] for j in _top_idx([dupes[i] for i in q_list], 20,
+                                                reverse=False)]
+        _add(low_dupe)
+        standouts.update(low_dupe)
 
-    # Cap by blend score (small fields lean on win% — plays like SE).
+    # Strategy-aware angle (8/15/26): seat the thesis lineups the numbers
+    # angles can miss. Restricted to the top HALF by this contest's top1 so a
+    # named player can't drag a genuinely dead lineup into the slice.
+    strat = strategy or {}
+    lev_norm = {_strat_norm(nm): nm for nm in strat.get("leverage") or []}
+    uw_norm = {_strat_norm(nm): nm for nm in strat.get("underweight") or []}
+    strat_hits: dict[int, list] = {}
+    if lev_norm or uw_norm:
+        roster_norms = [{_strat_norm(p) for p in r} for r in rosters]
+        top_half = set(_top_idx(top1, max(1, u // 2), universe=universe))
+        for i in top_half:
+            # Leverage names are what the strategy ASKED for; an underweight
+            # name is a COST, flagged ⚠ so the table can never read as an
+            # endorsement (8/15/26 — the old "(UW)" label did exactly that,
+            # and both NASCAR picks came back carrying an underweight call).
+            hit = ([lev_norm[m] for m in roster_norms[i] & set(lev_norm)]
+                   + ["⚠ " + uw_norm[m] + " (UNDERWEIGHT)"
+                      for m in roster_norms[i] & set(uw_norm)])
+            if hit:
+                strat_hits[i] = sorted(hit)
+        if lev_norm:
+            cov = sorted((i for i in strat_hits
+                          if any(not h.startswith("⚠") for h in strat_hits[i])),
+                         key=lambda i: (-len(strat_hits[i]), -(top1[i] or 0), i))
+            _add(cov[:20])
+            standouts.update(cov[:20])
+
+    # Cap by blend score (small fields lean on win% — plays like SE), with the
+    # leverage/low-dupe standouts guaranteed to survive the cut.
     t1n, wn, cn = _norm(top1), _norm(win), _norm(cash)
     field = int(contest.get("field_size") or 0)
     if field and field < _PLAYS_LIKE_SE_FIELD:
         blend = [0.4 * t1n[i] + 0.4 * wn[i] + 0.2 * cn[i] for i in range(n)]
     else:
         blend = [0.5 * t1n[i] + 0.3 * wn[i] + 0.2 * cn[i] for i in range(n)]
+    if len(chosen) > k:
+        keep = [i for i in chosen if i in standouts]
+        rest = [i for i in chosen if i not in standouts]
+        rest.sort(key=lambda i: (-blend[i], i))
+        chosen = keep + rest[:max(0, k - len(keep))]
     chosen.sort(key=lambda i: (-blend[i], i))
-    chosen = chosen[:k]
 
     def _val(arr, i, nd=2):
         v = arr[i] if arr and i < len(arr) else None
@@ -279,12 +580,14 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP) -> list[dict
             "cash_pct": _val(cash, i, 1),
             "roi_pct": _val(roi, i, 1),
             "exp_dupes": _val(dupes or [], i),
+            "strategy": ", ".join(strat_hits[i]) if strat_hits.get(i) else None,
         })
     return out
 
 
 def slice_digest_md(slug: str, label: str, contest: dict, declared: dict | None,
-                    rows: list[dict], ownership: dict) -> str:
+                    rows: list[dict], ownership: dict,
+                    gate_md: str | None = None) -> str:
     """The candidate table the claude pass reads and picks ids from."""
     shape = (declared or {}).get("payout_shape") or "not declared"
     my = contest.get("my_entries")
@@ -296,8 +599,12 @@ def slice_digest_md(slug: str, label: str, contest: dict, declared: dict | None,
         "Every lineup below was built and simmed by the Sim tool. "
         "Pick ONLY from this table, by id.",
         "",
-        "| id | salary | proj | avg own% | win% | top1% | cash% | roi% | dupes | players |",
-        "|---|---|---|---|---|---|---|---|---|---|",
+    ]
+    if gate_md:
+        lines += ["## The strategy gate", "", gate_md, ""]
+    lines += [
+        "| id | salary | proj | avg own% | win% | top1% | cash% | roi% | dupes | strategy | players |",
+        "|---|---|---|---|---|---|---|---|---|---|---|",
     ]
     for r in rows:
         players = ", ".join(
@@ -308,7 +615,15 @@ def slice_digest_md(slug: str, label: str, contest: dict, declared: dict | None,
             f"{r.get('avg_own')} | {r.get('win_pct')} | {r.get('top1_pct')} | "
             f"{r.get('cash_pct')} | {r.get('roi_pct')} | "
             f"{r.get('exp_dupes') if r.get('exp_dupes') is not None else '—'} | "
+            f"{r.get('strategy') or '—'} | "
             f"{players} |")
+    lines.append("")
+    lines.append("The `strategy` column names the leverage-list players this "
+                 "lineup carries — the strategy asked for those, so those rows "
+                 "are here for their thesis, not just their sim numbers. A ⚠ "
+                 "entry is the opposite: a player the strategy called "
+                 "UNDERWEIGHT, only present because too few lineups passed the "
+                 "full gate. Prefer a row without one.")
     return "\n".join(lines)
 
 
@@ -322,20 +637,33 @@ def _strip_own(cell: str) -> list[str]:
             for p in str(cell).split(",") if p.strip()]
 
 
-def parse_pick(md: str, slice_rows: list[dict], my_entries: int) -> dict:
+def parse_pick(md: str, slice_rows: list[dict], my_entries: int,
+               taken: dict | None = None, gate: dict | None = None,
+               relaxed: tuple = ()) -> dict:
     """Validate the claude pick file against the slice it was given.
 
     Returns {"picks": [{"index", "roster_key"}], "why": str|None,
     "errors": [str]}. Non-empty errors => the picks are unusable and the
     caller must save NOTHING (selection is not construction — a pick that
     isn't a real slice row, or that lists different players than its row,
-    is rejected outright)."""
+    is rejected outright).
+
+    `taken` (roster_key -> contest label) enforces one-lineup-one-contest by
+    ROSTER, not by id: the same players picked for another contest are rejected
+    even if the pool holds them at a second index.
+
+    `gate` (from `strategy_gate`) is the last line of the strategy rules: a pick
+    that breaks one is rejected with the broken rule named, even if it somehow
+    reached the table. `relaxed` mirrors whatever `eligible_indexes` had to drop
+    so the check and the table agree."""
     from src.autopsy import _norm_name
 
     by_index = {int(r["index"]): r for r in slice_rows}
     picks: list[dict] = []
     errors: list[str] = []
     seen_ids: set = set()
+    seen_rosters: dict = {}
+    taken = taken or {}
 
     lines = (md or "").splitlines()
     cols: list[str] | None = None
@@ -381,7 +709,22 @@ def parse_pick(md: str, slice_rows: list[dict], my_entries: int) -> dict:
                     f"the players listed for id {rid} do not match that "
                     "lineup — a selection may never modify a roster.")
                 continue
-        picks.append({"index": rid, "roster_key": srow["roster_key"]})
+        rkey = srow["roster_key"]
+        if rkey in taken:
+            errors.append(f"id {rid} is the same lineup you already picked for "
+                          f"\"{taken[rkey]}\" — a lineup can only be picked once.")
+            continue
+        if rkey in seen_rosters:
+            errors.append(f"id {rid} has the same players as id "
+                          f"{seen_rosters[rkey]} — a lineup can only be picked once.")
+            continue
+        broken = compliance(srow["roster"], gate or {}, relaxed) if gate else []
+        if broken:
+            errors.append(f"id {rid} does not follow the slate strategy — it "
+                          + "; ".join(broken) + ".")
+            continue
+        seen_rosters[rkey] = rid
+        picks.append({"index": rid, "roster_key": rkey})
 
     if len(picks) != int(my_entries):
         errors.append(f"{len(picks)} valid pick(s) but this contest takes "

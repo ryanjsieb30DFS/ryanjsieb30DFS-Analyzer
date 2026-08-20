@@ -993,11 +993,39 @@ with tab_grade:
 
                 # ---- Claude pick (selection is not construction) ----------
                 if _sim_c is not None and _pk_pool:
+                    # One lineup, one contest (8/15/26, all sports): whatever is
+                    # already picked for this slate's OTHER contests is off the
+                    # table here. This contest's own picks never block itself.
+                    _taken_c = _ls.taken_roster_keys(slug, _pk_pool,
+                                                     exclude_label=_sec["label"])
+                    if _taken_c:
+                        st.caption(f"🔒 {len(_taken_c)} lineup(s) are already picked "
+                                   "for your other contests — they are off this "
+                                   "contest's table. A lineup is only entered once.")
+                    # The strategy gate: Claude only ever sees lineups that
+                    # already follow the slate strategy (8/15/26).
+                    _gate_c = _ls.strategy_gate(slug)
+                    _elig_c = _ls.eligible_indexes(_pk_pool, _gate_c)
+                    if not _gate_c.get("has_contract"):
+                        st.warning("No slate strategy for this slate yet — picks must "
+                                   "follow it, so picking is off. Generate the slate "
+                                   "strategy first.")
+                    else:
+                        st.caption(
+                            f"📋 Strategy gate: {len(_elig_c['allowed']):,} of "
+                            f"{_elig_c['total']:,} pooled lineups follow this slate's "
+                            "strategy — only those can be picked."
+                            + (" ⚠️ Too few passed, so these rules had to be dropped: "
+                               + ", ".join(_elig_c["relaxed"]) + "."
+                               if _elig_c["relaxed"] else ""))
+                        with st.expander("What the gate is enforcing"):
+                            st.markdown(_md_safe(_ls.gate_summary(_gate_c, _elig_c)))
                     if st.button(
                         f"🎯 Have Claude pick this contest's {_my_c} entr"
                         f"{'y' if _my_c == 1 else 'ies'}",
                         key=f"pick_{slug}_{_key}",
-                        help="Claude reads this contest's top ~50 Sim lineups (with "
+                        disabled=not _gate_c.get("has_contract"),
+                        help="Claude reads this contest's top ~100 Sim lineups (with "
                              "THIS contest's sim numbers), the slate strategy, and "
                              "the open lessons, then picks by lineup id. Every pick "
                              "is validated against the Sim's table — a made-up or "
@@ -1009,10 +1037,17 @@ with tab_grade:
                         if not _pres.get("ok"):
                             st.error(f"Pick failed — {_pres.get('error')}")
                         else:
-                            _rows_v = _ls.candidate_slice(_pk_pool, _sim_c)
+                            # Re-validate against the SAME slice the runner wrote
+                            # (same strategy angles, same one-per-contest cut).
+                            _rows_v = _ls.candidate_slice(
+                                _pk_pool, _sim_c,
+                                strategy=_ls.strategy_slice_names(slug),
+                                taken=_taken_c, allowed=_elig_c["allowed"])
                             _pick_p = _ls.pick_path(slug, _key)
                             _pick_md = _pick_p.read_text() if _pick_p.exists() else ""
-                            _pp = _ls.parse_pick(_pick_md, _rows_v, _my_c)
+                            _pp = _ls.parse_pick(_pick_md, _rows_v, _my_c,
+                                                 taken=_taken_c, gate=_gate_c,
+                                                 relaxed=tuple(_elig_c["relaxed"]))
                             if _pp["errors"]:
                                 for _e in _pp["errors"]:
                                     st.error(f"Pick rejected — {_e}")
@@ -1043,6 +1078,14 @@ with tab_grade:
                                 "- " + ", ".join(f"{n} ({_own_g.get(n, '?')}%)"
                                                  for n in _names_g)
                                 + ("  \n  _" + " · ".join(_bits_g) + "_" if _bits_g else ""))
+                            # Picks saved before the gate (or under a relaxed
+                            # one) get audited against the strategy on sight.
+                            _brk = _ls.compliance(_names_g, _gate_c,
+                                                  tuple(_elig_c["relaxed"]))
+                            if _brk:
+                                st.warning("⚠️ This pick does NOT follow the slate "
+                                           "strategy — it " + "; ".join(_brk)
+                                           + ". Re-run the pick.")
                         if _stored.get("why"):
                             st.caption(f"💡 {_stored['why']}")
                         if st.button("📋 Load pick into the grade box",
@@ -1102,13 +1145,13 @@ with tab_grade:
                     st.caption("Paste lineups (or load Claude's pick) to grade "
                                "this contest.")
 
-        # ---- Cross-contest view (info only — reuse across contests is legal) --
+        # ---- Cross-contest view (one lineup, one contest — 8/15/26) ----------
         _every_lu = [lu for _, lus in _all_parsed for lu in lus]
         if _every_lu:
             with st.expander("🎚 Portfolio view across ALL contests"):
-                st.caption("Cross-contest reads only. Reusing one lineup in two "
-                           "different contests is allowed on DK — noted as info, "
-                           "never a warning.")
+                st.caption("Cross-contest reads. DK would let you enter the same "
+                           "lineup in two contests, but your rule is one lineup, "
+                           "one contest — a repeat is flagged below.")
                 _lmd = grader.leverage_md(_every_lu)
                 if _lmd:
                     st.markdown(_lmd)
@@ -1119,10 +1162,16 @@ with tab_grade:
                                         for p in _lux.get("players") or [])
                         if _rk:
                             _seen_ros.setdefault(_rk, set()).add(str(_lblx))
+                _dupe_seen = False
                 for _rk, _lbls in _seen_ros.items():
                     if len(_lbls) > 1:
-                        st.caption("ℹ️ The same lineup appears in: "
-                                   + ", ".join(sorted(_lbls)) + " — allowed on DK.")
+                        _dupe_seen = True
+                        st.warning("⚠️ The same lineup is in " + str(len(_lbls))
+                                   + " contests: " + ", ".join(sorted(_lbls))
+                                   + " — a lineup should only be entered once. "
+                                     "Replace it in all but one.")
+                if not _dupe_seen:
+                    st.caption("✅ Every lineup is in exactly one contest.")
 
 
 # ===== Tab 3: Autopsy =====

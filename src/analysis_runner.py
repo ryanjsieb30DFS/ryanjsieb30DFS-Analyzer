@@ -474,7 +474,7 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
     of the Sim's pool (8/9/26 — per-contest selection; not every contest is
     the same).
 
-    Selection is not construction: the slice is ~50 REAL pool rows with THIS
+    Selection is not construction: the slice is ~100 REAL pool rows with THIS
     contest's own sim numbers; Claude chooses rows BY ID. The app then runs
     `lineup_selection.parse_pick`, which rejects fabricated ids, modified
     rosters, and wrong counts — a bad pick saves nothing.
@@ -498,15 +498,35 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
     declared = ls.match_contests(pool.get("contests") or [],
                                  _load_contests(slug)).get(str(sim_label))
     key = ls.contest_file_key(sim_label, declared)
-    rows = ls.candidate_slice(pool, sim_contest)
+    # THE STRATEGY GATE (8/15/26): a pick must follow the slate strategy, so
+    # every lineup that breaks it is removed BEFORE Claude sees the table. No
+    # strategy contract => nothing to follow => no pick.
+    gate = ls.strategy_gate(slug)
+    if not gate.get("has_contract"):
+        return {"ok": False, "error": "No slate strategy for this slate — picks "
+                "must follow it. Generate the slate strategy first (Slate "
+                "Strategy tab), then pick.", "duration_s": 0.0, "cost_usd": None}
+    elig = ls.eligible_indexes(pool, gate)
+    if not elig["allowed"]:
+        return {"ok": False, "error": "No lineup in the Sim's pool follows this "
+                "slate's strategy — rebuild the pool in the Sim with the "
+                "strategy's rules applied.", "duration_s": 0.0, "cost_usd": None}
+    # One lineup, one contest (8/15/26): lineups already picked for another
+    # contest on this slate are cut from the slice, so Claude never sees them.
+    taken = ls.taken_roster_keys(slug, pool, exclude_label=str(sim_label))
+    rows = ls.candidate_slice(pool, sim_contest,
+                              strategy=ls.strategy_slice_names(slug),
+                              taken=taken, allowed=elig["allowed"])
     if not rows:
         return {"ok": False, "error": "The pool has no rows for this contest.",
                 "duration_s": 0.0, "cost_usd": None}
+    gate_md = ls.gate_summary(gate, elig)
     slice_p = ls.slice_path(slug, key)
     slice_p.parent.mkdir(parents=True, exist_ok=True)
     slice_p.write_text(ls.slice_digest_md(slug, str(sim_label), sim_contest,
                                           declared, rows,
-                                          pool.get("ownership") or {}))
+                                          pool.get("ownership") or {},
+                                          gate_md=gate_md))
     out_path = ls.pick_path(slug, key)
     bundle_path = build_bundle(slug, contest_label, sport)
     my = int(sim_contest.get("my_entries") or 1)
@@ -522,6 +542,21 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
         f"You choose rows BY ID from that table. You NEVER write, edit, combine, or swap "
         f"players. A pick that is not a row in the table will be rejected by the app and "
         f"nothing will be saved.\n\n"
+        + (f"HARD RULE — one lineup, one contest: {len(taken)} lineup(s) are already "
+           f"picked for this slate's other contests and have been REMOVED from the table "
+           f"below. Every contest gets its own lineups; nothing is entered twice.\n\n"
+           if taken else "")
+        + f"HARD RULE — THE PICK MUST FOLLOW THE SLATE STRATEGY. This is the whole "
+          f"point of the pick; sim numbers decide only BETWEEN lineups the strategy "
+          f"already allows. The table has been filtered for you:\n\n{gate_md}\n\n"
+          f"Because of that filter you cannot pick a lineup that breaks those rules — "
+          f"but the strategy also has rules no filter can check. Read "
+          f"`data/slate_analysis/{slug}.md` IN FULL before you choose, and obey its "
+          f"`## Build it like a sharp` steps — the anchor decision, the leverage piece, "
+          f"what a sharp refuses, the salary shape, and especially its numbered "
+          f"**pre-lock check**. Run that pre-lock check against your pick and change "
+          f"the pick if any answer is wrong. A row with better sim numbers that fails a "
+          f"pre-lock question LOSES to a row that passes it.\n\n" +
         f"Read, in this order: the candidate table at `{slice_p}` (each row: id, salary, "
         f"projection, average ownership, THIS contest's sim numbers, and the players with "
         f"their ownership); the bundle at `{bundle_path}`; the slate strategy at "
@@ -543,7 +578,11 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
         f"the same lineup. Being alone on a winner beats sharing it.\n"
         f"- Picking {my} lineup(s) means each pick must earn its own reason. If that is more "
         f"than 1, the picks should win in DIFFERENT ways, not be near-copies.\n"
-        f"- A trap is a price, not a player: judge every lineup on THIS slate's numbers.\n\n"
+        f"- A trap is a price, not a player: judge every lineup on THIS slate's numbers.\n"
+        f"- The `strategy` column names the slate strategy's leverage candidates (and "
+        f"UNDERWEIGHT-call players, marked (UW)) a lineup carries. Those rows are in the "
+        f"table for their thesis, not just their sim numbers — weigh the strategy case "
+        f"alongside the metrics.\n\n"
         f"Write `{out_path}` in EXACTLY this format:\n\n"
         f"## Picks — {sim_label}\n\n"
         f"| pick | id | players | why |\n"
@@ -554,6 +593,9 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
         f"the pick(s) to win, citing one sim number and one strategy read. Plain meaning "
         f"first, DFS word in parentheses after — 'picked by few teams (low-owned)'. Explain "
         f"each number — '1.9% top1 means about a 1-in-50 shot at first place'.>\n\n"
+        f"**Strategy check:** <one line per question in the slate strategy's numbered "
+        f"pre-lock check, each answered YES or NO for the pick, quoting the question. "
+        f"Every answer must be YES — if one is NO, go back and pick a different row.>\n\n"
         f"Do not add sections. Do not ask questions — read the inputs and produce the file."
     )
     res = _run_claude(prompt, out_path)

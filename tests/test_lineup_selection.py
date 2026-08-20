@@ -45,7 +45,7 @@ def test_candidate_slice_deterministic_and_capped():
     a = ls.candidate_slice(pool, pool["contests"][0])
     b = ls.candidate_slice(pool, pool["contests"][0])
     assert a == b
-    assert 0 < len(a) <= 50
+    assert 0 < len(a) <= 100
     for r in a:
         assert set(r) >= {"index", "roster", "roster_key", "salary", "proj",
                           "avg_own", "win_pct", "top1_pct", "cash_pct"}
@@ -216,3 +216,274 @@ def test_slice_digest_contains_ids_and_context():
     assert "payout shape Top-heavy" in md
     assert f"| {rows[0]['index']} |" in md
     assert "Pick ONLY from this table" in md
+
+
+def test_pick_flow_is_sport_agnostic():
+    """User directive 8/15/26: the per-contest pick flow must work for EVERY
+    sport slug, not just golf. Slice -> digest -> parse_pick for each."""
+    for slug in ("pga_classic", "pga_rd4_sd", "mma_se", "nascar"):
+        pool = _pool()
+        c = pool["contests"][0]
+        rows = ls.candidate_slice(pool, c)
+        assert rows, slug
+        md = ls.slice_digest_md(slug, c["label"], c, None, rows, pool["ownership"])
+        assert f"| {rows[0]['index']} |" in md, slug
+        pick_md = (
+            "## Picks — x\n\n| pick | id | players | why |\n|---|---|---|---|\n"
+            f"| 1 | {rows[0]['index']} | {', '.join(rows[0]['roster'])} | t |"
+        )
+        parsed = ls.parse_pick(pick_md, rows, 1)
+        assert len(parsed["picks"]) == 1, slug
+
+
+def test_strategy_angle_seats_leverage_but_never_underweight():
+    """A lineup carrying the strategy's named leverage candidates must make the
+    slice even when it sims mid-pack. An UNDERWEIGHT name earns NO seat —
+    8/15/26: seating them (and labelling them like an endorsement) is what put
+    Van Gisbergen and Austin Dillon into both NASCAR picks."""
+    pool = _pool()
+    c = pool["contests"][0]
+    # LevGuy (leverage) sits in lineup 60; UwGuy (underweight) sits alone in
+    # lineup 61. Both are mid-pack, so only the strategy angle can seat them.
+    pool["rosters"][60] = ["LevGuy", "UwGuy", "P0", "P1", "P2", "P3"]
+    pool["rosters"][61] = ["UwGuy", "P4", "P5", "P6", "P7", "P8"]
+    baseline = {r["index"] for r in ls.candidate_slice(pool, c)}
+    assert 60 not in baseline and 61 not in baseline
+    strat = {"leverage": ["LevGuy"], "underweight": ["UwGuy"]}
+    rows = ls.candidate_slice(pool, c, strategy=strat)
+    by_id = {r["index"]: r for r in rows}
+    assert 60 in by_id                      # seated for its leverage name
+    assert 61 not in by_id                  # underweight alone earns nothing
+    # ...and where an underweight name rides along it is marked as a COST.
+    assert "LevGuy" in by_id[60]["strategy"]
+    assert "⚠ UwGuy (UNDERWEIGHT)" in by_id[60]["strategy"]
+    md = ls.slice_digest_md("mma_se", c["label"], c, None, rows, pool["ownership"])
+    assert "⚠ UwGuy (UNDERWEIGHT)" in md and "| strategy |" in md
+
+
+def test_strategy_names_normalization():
+    assert ls._strat_norm("J.T. Poston") == ls._strat_norm("JT Poston")
+    assert ls._strat_norm("Robert Macintyre") == ls._strat_norm("Robert MacIntyre")
+
+
+# ---------------------------------------------------------------------------
+# One lineup, one contest (user directive 8/15/26, all sports)
+# ---------------------------------------------------------------------------
+
+def test_taken_roster_keys_excludes_own_contest_and_stale_pools(tmp_path,
+                                                                monkeypatch):
+    monkeypatch.setattr(ls, "_SELECTION_DIR", tmp_path)
+    pool = _pool()
+    rows = ls.candidate_slice(pool, pool["contests"][0])
+    ls.save_contest_pick("nascar", pool, "Big SE ($12)", None,
+                         [{"index": rows[0]["index"],
+                           "roster_key": rows[0]["roster_key"]}], None)
+    # Seen from the OTHER contest: that roster is taken.
+    taken = ls.taken_roster_keys("nascar", pool, exclude_label="Flat 3max ($5)")
+    assert taken == {rows[0]["roster_key"]: "Big SE ($12)"}
+    # Seen from its OWN contest: re-picking it is always allowed.
+    assert ls.taken_roster_keys("nascar", pool,
+                                exclude_label="Big SE ($12)") == {}
+    # A re-sent pool makes the old picks stale — they block nothing.
+    assert ls.taken_roster_keys("nascar", dict(pool, pool_fp="fp999"),
+                                exclude_label="Flat 3max ($5)") == {}
+
+
+def test_taken_roster_keys_rebuilds_missing_key_from_pool(tmp_path, monkeypatch):
+    """A pick row saved without roster_key still blocks — the roster is
+    rebuilt from the pool at that index."""
+    monkeypatch.setattr(ls, "_SELECTION_DIR", tmp_path)
+    pool = _pool()
+    ls.save_contest_pick("nascar", pool, "Big SE ($12)", None,
+                         [{"index": 7}], None)
+    taken = ls.taken_roster_keys("nascar", pool, exclude_label="Flat 3max ($5)")
+    assert taken == {"|".join(sorted(pool["rosters"][7])): "Big SE ($12)"}
+
+
+def test_candidate_slice_drops_taken_lineups_by_roster():
+    """The slice never offers a lineup already picked elsewhere — and drops
+    every pool index holding those SAME players, not just the picked one."""
+    pool = _pool()
+    c = pool["contests"][0]
+    base = ls.candidate_slice(pool, c)
+    victim = base[0]
+    twins = {i for i, r in enumerate(pool["rosters"])
+             if "|".join(sorted(map(str, r))) == victim["roster_key"]}
+    assert len(twins) > 1                      # the synthetic pool repeats rosters
+    cut = ls.candidate_slice(pool, c, taken={victim["roster_key"]: "Other SE"})
+    idxs = {r["index"] for r in cut}
+    assert not (idxs & twins)
+    # Still a full, usable slice — the freed seats backfill from the next-best
+    # eligible rows rather than leaving holes.
+    assert len(cut) >= len(base) - 1
+    assert len(cut) > 50
+
+
+def test_parse_pick_rejects_lineup_taken_by_another_contest():
+    pool = _pool()
+    rows, picked, md = _slice_and_table(pool, pool["contests"][0])
+    out = ls.parse_pick(md, rows, my_entries=1,
+                        taken={picked["roster_key"]: "Flat 3max ($5)"})
+    assert out["picks"] == []
+    assert any("only be picked once" in e and "Flat 3max ($5)" in e
+               for e in out["errors"])
+
+
+def test_parse_pick_rejects_same_roster_at_two_ids():
+    """Different ids, identical players — one lineup picked twice."""
+    pool = _pool()
+    rows = ls.candidate_slice(pool, pool["contests"][0])
+    by_key: dict = {}
+    for r in rows:
+        by_key.setdefault(r["roster_key"], []).append(r)
+    twins = next(v for v in by_key.values() if len(v) > 1)
+    a, b = twins[0], twins[1]
+    md = "\n".join([
+        "| pick | id | players | why |",
+        "|---|---|---|---|",
+        f"| 1 | {a['index']} | {', '.join(a['roster'])} | one |",
+        f"| 2 | {b['index']} | {', '.join(b['roster'])} | same six players |",
+    ])
+    out = ls.parse_pick(md, rows, my_entries=2)
+    assert out["picks"] == []
+    assert any("same players as id" in e for e in out["errors"])
+
+
+# ---------------------------------------------------------------------------
+# The strategy gate — picks must FOLLOW the slate strategy (8/15/26)
+# ---------------------------------------------------------------------------
+
+def _contract(tmp_path, monkeypatch, **over):
+    """Write a strategy contract and point the module at it."""
+    monkeypatch.setattr(ls, "_CONTRACT_DIR", tmp_path)
+    tmp_path.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "calls": [{"name": "FadeGuy", "verdict": "fade"},
+                  {"name": "LeanGuy", "verdict": "lean_fade"},
+                  {"name": "UwGuy", "verdict": "underweight"}],
+        "leverage_candidates": [{"name": "LevGuy"}],
+        "board": [{"name": "CoreA", "tier": "Core"}, {"name": "CoreB", "tier": "Core"},
+                  {"name": "CoreC", "tier": "Core"}, {"name": "MidGuy", "tier": "Good"}],
+        "chalk_pairs": [{"players": ["ChalkA", "ChalkB"], "joint_pct": 21.5}],
+    }
+    payload.update(over)
+    (tmp_path / "nascar.json").write_text(json.dumps(payload))
+    return ls.strategy_gate("nascar")
+
+
+def test_strategy_gate_reads_every_rule(tmp_path, monkeypatch):
+    gate = _contract(tmp_path, monkeypatch)
+    assert gate["has_contract"]
+    assert sorted(n for n, _v in gate["fade"].values()) == ["FadeGuy", "LeanGuy"]
+    assert list(gate["underweight"].values()) == ["UwGuy"]
+    assert list(gate["leverage"].values()) == ["LevGuy"]
+    assert sorted(gate["core"].values()) == ["CoreA", "CoreB", "CoreC"]
+    assert gate["chalk_pair"] == ["ChalkA", "ChalkB"]
+
+
+def test_compliance_names_each_broken_rule(tmp_path, monkeypatch):
+    gate = _contract(tmp_path, monkeypatch)
+    ok = ["CoreA", "CoreB", "LevGuy", "MidGuy", "X1", "X2"]
+    assert ls.compliance(ok, gate) == []
+    # A fade call.
+    assert any("FADE" in v for v in ls.compliance(
+        ["CoreA", "CoreB", "LevGuy", "FadeGuy", "X1", "X2"], gate))
+    # A lean fade reads as LEAN FADE, not FADE.
+    assert any("LEAN FADE" in v for v in ls.compliance(
+        ["CoreA", "CoreB", "LevGuy", "LeanGuy", "X1", "X2"], gate))
+    # An underweight call.
+    assert any("UNDERWEIGHT" in v for v in ls.compliance(
+        ["CoreA", "CoreB", "LevGuy", "UwGuy", "X1", "X2"], gate))
+    # No leverage piece.
+    assert any("leverage list" in v for v in ls.compliance(
+        ["CoreA", "CoreB", "MidGuy", "X1", "X2", "X3"], gate))
+    # Only one Core anchor — the exact miss in the 8/15 Rainbow Warrior pick.
+    assert any("Core-tier" in v for v in ls.compliance(
+        ["CoreA", "MidGuy", "LevGuy", "X1", "X2", "X3"], gate))
+    # Both halves of the most-duplicated pair.
+    assert any("duplicated pair" in v for v in ls.compliance(
+        ["CoreA", "CoreB", "LevGuy", "ChalkA", "ChalkB", "X2"], gate))
+
+
+def test_compliance_respects_relaxations(tmp_path, monkeypatch):
+    gate = _contract(tmp_path, monkeypatch)
+    uw = ["CoreA", "CoreB", "LevGuy", "UwGuy", "X1", "X2"]
+    assert ls.compliance(uw, gate) != []
+    assert ls.compliance(uw, gate, relaxed=("underweight",)) == []
+    # A FADE never relaxes, whatever is passed.
+    fade = ["CoreA", "CoreB", "LevGuy", "FadeGuy", "X1", "X2"]
+    assert ls.compliance(fade, gate, relaxed=ls._RELAX_ORDER) != []
+
+
+def test_eligible_indexes_filters_and_relaxes_in_order(tmp_path, monkeypatch):
+    gate = _contract(tmp_path, monkeypatch)
+    good = ["CoreA", "CoreB", "LevGuy", "MidGuy", "X1", "X2"]
+    uw = ["CoreA", "CoreB", "LevGuy", "UwGuy", "X1", "X2"]
+    bad = ["MidGuy", "FadeGuy", "X1", "X2", "X3", "X4"]
+    pool = {"rosters": [good] * 30 + [uw] * 30 + [bad] * 30}
+    elig = ls.eligible_indexes(pool, gate)
+    assert elig["relaxed"] == [] and elig["full"] == 30
+    assert elig["allowed"] == set(range(30))
+    # Too few clean rows -> underweight is dropped FIRST, and reported.
+    pool2 = {"rosters": [good] * 3 + [uw] * 40 + [bad] * 10}
+    elig2 = ls.eligible_indexes(pool2, gate)
+    assert elig2["relaxed"] == ["underweight"]
+    assert len(elig2["allowed"]) == 43
+    # The fade rows stay out even then.
+    assert not (elig2["allowed"] & set(range(43, 53)))
+
+
+def test_no_contract_gates_nothing(tmp_path, monkeypatch):
+    monkeypatch.setattr(ls, "_CONTRACT_DIR", tmp_path / "missing")
+    gate = ls.strategy_gate("nascar")
+    assert gate["has_contract"] is False
+    assert ls.compliance(["Anyone"], gate) == []
+    elig = ls.eligible_indexes({"rosters": [["a"], ["b"]]}, gate)
+    assert elig["allowed"] == {0, 1} and elig["relaxed"] == []
+
+
+def test_candidate_slice_only_offers_compliant_rows(tmp_path, monkeypatch):
+    """The gate is upstream of every angle: no sim score can promote a lineup
+    the strategy ruled out, and the slice still fills up."""
+    gate = _contract(tmp_path, monkeypatch)
+    pool = _pool()
+    c = pool["contests"][0]
+    # Make the pool's very BEST sim rows strategy-illegal, the rest legal.
+    for i in range(len(pool["rosters"])):
+        if i >= 180:                      # top of contest 1's rising metrics
+            pool["rosters"][i] = ["CoreA", "CoreB", "LevGuy", "FadeGuy", "X1", "X2"]
+        else:
+            pool["rosters"][i] = ["CoreA", "CoreB", "LevGuy", f"M{i}", "X1", "X2"]
+    elig = ls.eligible_indexes(pool, gate)
+    rows = ls.candidate_slice(pool, c, allowed=elig["allowed"])
+    assert rows and all(r["index"] < 180 for r in rows)
+    assert all(ls.compliance(r["roster"], gate) == [] for r in rows)
+    assert len(rows) > 50                 # a real choice, not a rump table
+
+
+def test_parse_pick_rejects_a_pick_that_breaks_the_strategy(tmp_path, monkeypatch):
+    """Defense in depth: even handed a slice row, a non-compliant pick saves
+    nothing and the broken rule is named."""
+    gate = _contract(tmp_path, monkeypatch)
+    row = {"index": 42, "roster": ["CoreA", "MidGuy", "UwGuy", "X1", "X2", "X3"],
+           "roster_key": "|".join(sorted(["CoreA", "MidGuy", "UwGuy",
+                                          "X1", "X2", "X3"]))}
+    md = "\n".join(["| pick | id | players | why |", "|---|---|---|---|",
+                    "| 1 | 42 | " + ", ".join(row["roster"]) + " | best sim row |"])
+    out = ls.parse_pick(md, [row], my_entries=1, gate=gate)
+    assert out["picks"] == []
+    assert any("does not follow the slate strategy" in e for e in out["errors"])
+    assert any("UNDERWEIGHT" in e and "Core-tier" in e for e in out["errors"])
+
+
+def test_gate_summary_is_plain_language(tmp_path, monkeypatch):
+    gate = _contract(tmp_path, monkeypatch)
+    elig = {"allowed": set(range(5)), "relaxed": ["underweight"],
+            "full": 3, "total": 100}
+    md = ls.gate_summary(gate, elig)
+    assert "FADE or LEAN FADE" in md and "FadeGuy" in md
+    assert "Core-tier" in md and "ChalkA" in md
+    assert "3 of 100" in md
+    assert "⚠️" in md and "underweight" in md      # the relaxation is announced
+    # A dropped rule is not advertised as enforced.
+    assert "no player the strategy called UNDERWEIGHT" not in md
