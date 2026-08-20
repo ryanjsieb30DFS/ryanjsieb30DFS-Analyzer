@@ -1152,6 +1152,20 @@ lessons:
           CONVERTING favorite the strategy had named, not a dart. Win-side selection was
           again the whole edge: the user's best mini-MAX entry (611.25, top 1.0%) was six
           live slots and ONE swap (Miranda -> Thainara) from the 632.85 win.
+      - date: "2026-08-16"
+        slate: "UFC 330 8.15.26 — 2,378 + 1,176 SEs + 891 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-16__ufc-330-8-15-26"
+        note: >
+          Fifth confirming slate, in all three contests. Every winning roster was six
+          fighters who all won, chalk-anchored (avg own 32.0 / 33.2 / 33.6), with
+          exactly ONE low-owned piece that was a CONVERTER, not a dart: Njokuani
+          (6.7-7.5% own, 93.16) in both SE winners, Stoltzfus (5.16% own, 106.26) in
+          the 3-Max winner. The user's structure again sat inside the winners'
+          envelope (29.98-38.79% avg own vs winners' 32.0-33.6) and every entry died
+          on WHICH mid-owns: Brahimaj 26.95 (2 entries), Alvarez 30.78 (2), Luque
+          20.52 (2), Orolbai 50.0 — while the crowd's own traps confirmed the shape
+          (Fernandes 46.6% own, 0.8 points). Win-side selection in the mid-tier was,
+          for the fifth slate, the whole edge.
     contradictions: []
     codified_in: "framework.md — The Winning MMA SE Shape (8/2/26 — 3-slate validated)"
     retired_reason: null
@@ -1225,6 +1239,20 @@ lessons:
           identify the consensus name from narrative agreement across sources, not from
           the projected-own ranking, and apply the upward adjustment to THAT name's
           pairs before computing duplication.
+      - date: "2026-08-16"
+        slate: "UFC 330 8.15.26 — 2,378/1,176 SEs + 891 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-16__ufc-330-8-15-26"
+        note: >
+          Fourth confirmation, and it supports the 8/9 boundary (the field converges
+          above projection on consensus FAVORITES, not dogs). The consensus-narrative
+          favorites ran far above projection — Orolbai 40% projected -> 48.8-57.2%
+          actual (+9 to +17, the Clinch's true #1 chalk), C. Johnson 43% -> 52.5-57.9%
+          (+10 to +15) — while the projected #1, Makhachev, moved only +4-5 points
+          (50% -> 53.7-55.2%). Third-plus slate where the projected #1 was NOT the
+          field's true #1. The strategy applied the codified upward adjustment but to
+          the wrong name ("expect Makhachev near 60%"); the concentration landed on
+          both articles' #1 lock (Orolbai) and the salary-saver every build needs
+          (C. Johnson).
     contradictions:
       - date: "2026-08-09"
         slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26 — 784 SE + 47,562 mini-MAX"
@@ -1316,6 +1344,19 @@ lessons:
           Structure identical, outcome 49 percentile points apart: the whole gap was
           WHICH fighters (selection), not a structural axis. Third consecutive slate
           where the measured axis delta was <=1.3 ownership points.
+      - date: "2026-08-16"
+        slate: "UFC 330 8.15.26 — 2,378-entry Clinch SE"
+        origin_dir: "rules/mma_se/history/2026-08-16__ufc-330-8-15-26"
+        note: >
+          Fourth confirming slate for the axis-is-noise corollary. One tracked shark
+          in the Clinch field: own-per-slot 37.8 vs the user's 38.8 (delta 1.0
+          point), leverage 0.0 = 0.0, anchor exposure 0.667 = 0.667 — structure
+          statistically identical — yet the shark finished 22.7%ile and the user
+          67.8%ile: a 45-percentile gap that was entirely WHICH fighters. Fourth
+          consecutive slate with the measured axis delta <= 1.3 ownership points.
+          Note also the strategy cited moklovin's 27.8% own-per-slot as the coaching
+          target while the live in-field shark ran 37.8% — the envelope number
+          transfers poorly even when a pro IS present.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1365,6 +1406,20 @@ lessons:
           the 1.7-6.6x measured MMA concentration band. The user's SE bullet, by
           contrast, was unique (dup_count 1) — the duplication discipline this rule
           prescribes was honored this slate; what failed there was win-side selection.
+      - date: "2026-08-16"
+        slate: "UFC 330 8.15.26 — 1,176-entry $12K Flying Knee SE"
+        origin_dir: "rules/mma_se/history/2026-08-16__ufc-330-8-15-26"
+        note: >
+          Second confirmation — the value-cap half realized at rank ONE. The $12K
+          winning roster (Makhachev/Dern/Turner/D.Johnson/Njokuani/C.Johnson, 33.2%
+          avg own) was entered by THREE separate entrants (Raider4Life951 /
+          jsalvatori21 / dreams9801, dup_count 3): first prize split three ways. The
+          tool's naive expected_dupes for that roster was 0.46 — actual 3 is ~6.5x
+          the independence estimate, at the top of the measured MMA 1.7-6.6x band.
+          The identical six names won the 2,378 Clinch UNIQUE (dup_count 1, expected
+          0.85) — same roster, double the field, one-third the copies: consensus
+          concentration, not field size, set the duplication. Origin + 8/9 + 8/16 =
+          three slates -> propose codifying.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1461,6 +1516,19 @@ lessons:
           graded slate (7/26 Core-vs-Good, 8/2 Okay-vs-Fade, 8/9 Core-vs-Good — Core was
           dragged to 64.5 by Gamrot's 1.8 on an n of 2). A tier spanning 1.5 to 104.7
           points still carries no information.
+      - date: "2026-08-16"
+        slate: "UFC 330 8.15.26"
+        origin_dir: "rules/mma_se/history/2026-08-16__ufc-330-8-15-26"
+        note: >
+          THIRD confirming slate -> promotion candidate. The board put 15 of 24
+          fighters (63%) into `Okay` — the worst ratio yet — and the bucket again
+          spanned busts to the slate's best score: Jalin Turner 128.75 (the #1 score,
+          in every SE-winning lineup), Donte Johnson 104.4 and Charles Johnson 72.59
+          (both in ALL winning lineups) buried alongside Fernandes 0.8 and Luque
+          20.5. `Okay` averaged 63.6 while `Good` (n=3) averaged 47.9 — tier ordering
+          OUT OF ORDER for the FOURTH consecutive graded slate, this time at
+          Good-vs-Okay. A tier spanning 0.8 to 128.8 points carries no information,
+          and it once again held the fighters who decided the slate.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1537,6 +1605,17 @@ lessons:
           no-win-path/dead slots (Gamrot 1.8, Sutherland 1.5, Goff 17.0) and graded
           clean at 92.1%ile. The proposed no-win-path gate and convergence-adjusted
           ownership inputs remain the fix to test.
+      - date: "2026-08-16"
+        slate: "UFC 330 8.15.26 — 5 entries, 3 contests"
+        origin_dir: "rules/mma_se/history/2026-08-16__ufc-330-8-15-26"
+        note: >
+          Second confirmation (origin + 2 = three slates) -> promotion candidate.
+          `retro_grade` returned ZERO flags on all 5 entered lineups, whose finishes
+          spanned 11.8%ile to 67.8%ile — now ~115 consecutive clean MMA lineups with
+          no flag ever fired. The failure class repeated exactly: the Clinch entry
+          carried four sub-51-point slots (Orolbai 50.0, Chapolin 39.96, Brahimaj
+          26.95, Luque 20.52) and graded clean at 67.8%ile. The proposed no-win-path
+          gate and convergence-adjusted ownership inputs remain the fix.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1570,6 +1649,91 @@ lessons:
       [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]],
       [[mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-08-16 — UFC 330 (Makhachev vs. Machado Garry) ----
+
+  - id: mma-se-2026-08-16-abbreviated-names-drop-contract-calls
+    born: "2026-08-16"
+    origin: "rules/mma_se/history/2026-08-16__ufc-330-8-15-26"
+    statement: >
+      A fade/underweight call written with an abbreviated name never becomes an
+      enforceable call. The strategy's `## Fades` listed FIVE verdicts, but the
+      strategy contract parsed only the three written with matchable names
+      (Fernandes, McConico, Garry): "C. Johnson — UNDERWEIGHT" and "D. Johnson —
+      UNDERWEIGHT" matched no projection row (a slate with TWO Johnsons), so the
+      contract, the pick engine's strategy gate, and the adherence grader all
+      silently carried 3 of 5 calls. The two dropped calls were slate-relevant:
+      Donte Johnson scored 104.4 and was in EVERY winning lineup of both SEs,
+      Charles Johnson 72.59 in all of them — and no tool ever graded the user's
+      exposure to either. Mechanism: the verdict parser matches names against the
+      projection pool, and an initial-plus-surname alias resolves to nothing; a call
+      that fails to parse does not gate picks, does not appear in adherence, and
+      leaves the review blind to whether the call was followed. Rule to test: the
+      slate strategy writes every `## Fades` / `## Leverage` name in full (matching
+      the projection file), and a contract whose parsed-call count differs from the
+      rendered fade-line count warns at generation time. Links
+      [[mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-08-16-duplicate-pick-across-contests-forces-hand-edits
+    born: "2026-08-16"
+    origin: "rules/mma_se/history/2026-08-16__ufc-330-8-15-26"
+    statement: >
+      The one-lineup-one-contest rule failed at pick time, and the cost surfaced as
+      hand-editing at the worst moment. Pool lineup 2209
+      (Makhachev/Robertson/Brahimaj/Turner/Alvarez/Chapolin) is saved as the pick
+      for ALL THREE contests (generated 14:02, 14:07, 14:14 — the later two picks
+      should have had it excluded by taken_roster_keys). Forced to de-duplicate by
+      hand at DK, the user entered 2209 in the $12K SE (408.15 points, top 30%) and
+      hand-swapped it for the Clinch — Turner -> Orolbai and Alvarez -> Luque, a
+      -89.0-point change (128.75 + 30.78 became 50.0 + 20.52) that landed on the
+      field's two heaviest crowd pieces and turned a ~30%ile roster into 67.8%ile.
+      Mechanism: when the pick engine hands the same roster to multiple contests,
+      the de-dup burden falls back to free-hand slot-swapping, which is exactly the
+      ungated-hand-assembly failure
+      [[mma-se-2026-08-09-the-single-bullet-gets-the-least-disciplined-build]]
+      documents. Countervailing data logged honestly: the 3-Max's hand-built
+      replacement (Makhachev/Dern/Luque/D.Johnson/Njokuani/Chapolin, 482.38, top
+      11.8% — the slate's BEST entry) shows hand edits are not uniformly bad, but
+      they are ungated. Rule to test: verify taken_roster_keys fires across contests
+      in the live app (this may be a re-pick-ordering artifact), and when a pick is
+      displaced from a contest, RE-RUN the pick for that contest instead of
+      hand-swapping slots.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-08-16-sim-rankings-are-a-threshold-not-an-ordering
+    born: "2026-08-16"
+    origin: "rules/mma_se/history/2026-08-16__ufc-330-8-15-26"
+    statement: >
+      Within the Sim's pool, the pre-lock ranking metrics carried NO ordering
+      information this slate: across 3,156 lineups the correlation of each metric
+      with the real scores was 0.002 (Top1%), -0.010 (ROI), -0.018 (Win%), -0.025
+      (Cash%) — noise on all four. 8/9 read the same way on three of four metrics
+      (-0.032 to 0.067, one at 0.187), so this is two consecutive slates of ~zero
+      signal. The pool ITSELF was fine — its best lineup scored 647.24, above both
+      winning scores (623.24 / 629.11) — and picking still beat the pool average in
+      the two contests entered untouched (+26.9 and +44.2 points; the -62.1 contest
+      was the hand-modified entry). Mechanism: MMA is ~12 near-binary events, so a
+      lineup's simmed rank inside a pool of similar win-probability products is
+      noise, while pool MEMBERSHIP (six live win-paths under the cap) is the real
+      filter. Rule to test: treat sim metrics as a THRESHOLD (cut the pool's bottom,
+      never order its top), let the strategy gate + slice angles do the choosing,
+      and log rank_signal each slate — a third ~zero slate makes this a codifiable
+      tool-calibration finding. Links
+      [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]].
     status: hypothesis
     confirmations: []
     contradictions: []
