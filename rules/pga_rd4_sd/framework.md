@@ -56,6 +56,10 @@ RD4 SD winners are structurally **chalkier** than PGA Classic winners: **~19% vs
 
 Even in this chalkier format the leverage play is not optional: 97% of 146 mined slates had a sub-20%-own slate-definer, and both Rocket RD4 contest winners carried exactly one sub-10% carrier (Hideki 7.35% / 65.5; Jaeger 6.9% / 37.3). Every lineup carries ≥1 sub-10% piece; the dose is ONE dart (two on tough courses), never the Classic-grade three-plus.
 
+### The Single-Bullet Envelope (codified 2026-08-22)
+
+With one entry there is no portfolio to hold the most-likely outcome, so the single entry itself must be the most-likely shape: 19-23% average ownership per roster slot with 1-2 sub-10% golfers. The window is TWO-SIDED — a bullet built under it (7-14% own, 3-5 darts: 6/19, 8/8) and a bullet built over it (30% own, 0 darts: 8/22) both gave up the modal outcome, while every in-window bullet (8/11 22.2% → won; 8/22 20.15% → top 14%) finished in the top 15%. Pre-lock check: compute the per-slot number on EVERY bullet and fix any bullet outside 19-23% before entry. An UNDERWEIGHT call in a 1-entry contest can only be 0% or 100% — treat it as must-appear unless explicitly full-faded.
+
 ## The Build Workflow (Four Stages)
 
 Every slate runs through this sequence. No lineup gets built before Stage 1 is complete; no lineup gets submitted before Stage 3 is verified.

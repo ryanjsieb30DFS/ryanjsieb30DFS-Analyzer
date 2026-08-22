@@ -17,10 +17,7 @@ def test_load_and_format_sim_entries(tmp_path, monkeypatch):
     (tmp_path / "mma_se.json").write_text(json.dumps(payload))
     loaded = sl.load_sim_entries("mma_se")
     assert loaded["entries"][0]["win_pct"] == 0.8
-    text = sl.entries_as_grade_text(loaded)
-    assert text == "A Aa, B Bb\nC Cc, D Dd"
-    md = sl.sim_metrics_md(loaded)
-    assert "UFC $5K SE" in md and "3.2%" in md
+    assert loaded["entries"][1]["players"] == ["C Cc", "D Dd"]
     assert sl.load_sim_entries("nascar") is None
     sl.clear_sim_entries("mma_se")
     assert sl.load_sim_entries("mma_se") is None
@@ -253,17 +250,6 @@ def test_field_tendencies_reads_back_the_capture_keys(tmp_path, monkeypatch):
     assert "unique rosters" not in ft._crowd_traps_str(s2)
 
 
-def test_sim_metrics_md_survives_schema_drift():
-    """A string/None metric from a drifted Sim schema renders as an em dash
-    instead of raising TypeError inside the Grade tab."""
-    payload = {"entries": [
-        {"contest": "SE", "win_pct": "not-a-number", "top1_pct": None,
-         "cash_pct": 40.0, "roi_pct": 12.0, "players": ["A"]},
-    ]}
-    md = sl.sim_metrics_md(payload)
-    assert "—" in md and "40.0%" in md
-
-
 def test_dupe_correction_tolerates_one_bad_corpus_line(tmp_path, monkeypatch):
     """One truncated line in the Sim's append-mode corpus must skip that line,
     not silently disable the correction for every contest."""
@@ -363,3 +349,53 @@ def test_clear_sim_handoff_also_removes_pool(tmp_path, monkeypatch):
     (tmp_path / "pool" / "mma_se.json").write_text("{}")
     sl.clear_sim_handoff("mma_se")
     assert not (tmp_path / "pool" / "mma_se.json").exists()
+
+
+# ---------------------------------------------------------------------------
+# Two-opinion hand-off (8/22/26): routing the Sim's diversified entries to the
+# contest they belong to, and refusing entries from a pool we no longer hold.
+# ---------------------------------------------------------------------------
+
+def test_sim_entries_by_contest_groups_by_label():
+    payload = {"entries": [
+        {"contest": "UFC $5K SE", "players": ["A", "B"]},
+        {"contest": "UFC $2K 3-Max", "players": ["C", "D"]},
+        {"contest": "UFC $5K SE", "players": ["E", "F"]},
+        {"players": ["G", "H"]},                     # hand-edited / pre-v2 row
+    ]}
+    by = sl.sim_entries_by_contest(payload)
+    assert [e["players"] for e in by["UFC $5K SE"]] == [["A", "B"], ["E", "F"]]
+    assert len(by["UFC $2K 3-Max"]) == 1
+    # A contest-less entry is parked, never dropped.
+    assert by[""][0]["players"] == ["G", "H"]
+    assert sl.sim_entries_by_contest(None) == {}
+    assert sl.sim_entries_by_contest({}) == {}
+
+
+def test_sim_entries_stale_only_on_a_real_fingerprint_mismatch():
+    pool = {"pool_fp": "abc123"}
+    assert sl.sim_entries_stale({"pool_fp": "abc123"}, pool) is False
+    assert sl.sim_entries_stale({"pool_fp": "deadbeef"}, pool) is True
+    # Schema v1 carried no fingerprint: unknown, not stale — it still has
+    # player names, which grade fine.
+    assert sl.sim_entries_stale({"entries": []}, pool) is False
+    assert sl.sim_entries_stale(None, pool) is False
+    assert sl.sim_entries_stale({"pool_fp": "abc123"}, None) is False
+
+
+def test_sim_raw_projection_files_lists_and_degrades(tmp_path, monkeypatch):
+    """The pull-projections bridge: the Sim's raw upload copies list in name
+    order; absent repo/dir degrades to [] (panel hides, never crashes)."""
+    monkeypatch.delenv("DFS_SIM_ROOT", raising=False)
+    sim_root = tmp_path / "simrepo"
+    up = sim_root / "data" / "uploads" / "mma_se"
+    up.mkdir(parents=True)
+    (up / "etr.csv").write_text("name,salary\nA,9000\n")
+    (up / "dailyfan.csv").write_text("name,salary\nB,8000\n")
+    (up / "notes.txt").write_text("not a csv")
+    monkeypatch.setattr(sl, "_SIM_ROOT", sim_root)
+    assert [p.name for p in sl.sim_raw_projection_files("mma_se")] == [
+        "dailyfan.csv", "etr.csv"]
+    assert sl.sim_raw_projection_files("nascar") == []
+    monkeypatch.setattr(sl, "_SIM_ROOT", tmp_path / "nope")
+    assert sl.sim_raw_projection_files("mma_se") == []

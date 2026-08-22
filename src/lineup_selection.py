@@ -29,6 +29,18 @@ drops those rosters from the slice so the claude pass never sees them, and
 six players can't be re-picked at a different pool index. DK allows the reuse;
 the user does not want it.
 
+**Two opinions per contest (8/22/26).** The Sim also pushes its DIVERSIFIED
+portfolio (`data/sim_entries/<slug>.json`), and the Grade tab shows it beside
+this module's pick for the same contest, with `compare_sets` counting how many
+lineups the two chose in common. The pick above stays deliberately BLIND to
+that file — it is never read into the slice, the prompt, or the validation.
+That blindness is the whole point: two processes that never saw each other's
+answer landing on the same six players is evidence; an informed pick agreeing
+with what it was shown is just anchoring. Overlap is a fine outcome, never an
+error, and the Sim's entries are never gated away — a diversifier entry that
+breaks the slate strategy is FLAGGED in the panel and still gradeable, because
+the override is the user's to make.
+
 Crowd/trap discipline still applies: a trap is a price, not a player, and
 nothing here carries player-name quality signals across slates.
 """
@@ -236,6 +248,42 @@ def _strat_norm(name: str) -> str:
     return re.sub(r"[\-\s]+", " ", s).casefold().strip()
 
 
+def roster_key(names) -> str:
+    """Order-insensitive identity of one roster: 'a|b|c…' over sorted names.
+
+    RAW names on purpose — this key is persisted in the picks file and read
+    back by `taken_roster_keys`, so normalizing it would orphan every pick
+    already on disk. For comparing two sets that may spell a name differently,
+    use `compare_sets` (which normalizes)."""
+    return "|".join(sorted(str(n) for n in names))
+
+
+def match_key(names) -> str:
+    """Normalized roster identity, for COMPARING two sets of rosters (never
+    persisted). Folds accents/periods/suffixes via the autopsy normalizer so a
+    spelling difference can't fake a disagreement."""
+    from src.autopsy import _norm_name
+    return "|".join(sorted(_norm_name(n) for n in names))
+
+
+def compare_sets(sim_rosters: list, claude_rosters: list) -> dict:
+    """How much two independently-chosen entry sets for the SAME contest agree.
+
+    `{n_sim, n_claude, n_match, matched}` — `matched` is the set of normalized
+    roster keys present in both. The Sim's diversifier picks on sim math; the
+    Analyzer's pick runs strategy-gated and BLIND to the Sim's set, so an
+    overlap means two independent processes landed on the same six players.
+    Agreement is a signal, never a conflict."""
+    sim_keys = {match_key(r) for r in sim_rosters or [] if r}
+    cl_keys = {match_key(r) for r in claude_rosters or [] if r}
+    return {
+        "n_sim": len(sim_keys),
+        "n_claude": len(cl_keys),
+        "matched": sim_keys & cl_keys,
+        "n_match": len(sim_keys & cl_keys),
+    }
+
+
 # ---------------------------------------------------------------------------
 # Paths + persistence (schema v2: per-contest picks)
 # ---------------------------------------------------------------------------
@@ -329,7 +377,7 @@ def taken_roster_keys(slug: str, pool: dict | None,
                 i = p.get("index")
                 if i is None or i >= len(rosters):
                     continue
-                key = "|".join(sorted(str(x) for x in rosters[i]))
+                key = roster_key(rosters[i])
             taken.setdefault(key, str(label))
     return taken
 
@@ -474,8 +522,7 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP,
     # One lineup, one contest: rosters already picked elsewhere on this slate
     # never enter the slice, whatever index they sit at in the pool.
     taken_keys = set(taken or ())
-    blocked = {i for i in range(n)
-               if "|".join(sorted(str(x) for x in rosters[i])) in taken_keys} \
+    blocked = {i for i in range(n) if roster_key(rosters[i]) in taken_keys} \
         if taken_keys else set()
     # The strategy gate: anything it excluded can never be chosen by any angle.
     if allowed is not None:
@@ -570,7 +617,7 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP,
         out.append({
             "index": i,
             "roster": names,
-            "roster_key": "|".join(sorted(names)),
+            "roster_key": roster_key(names),
             "salary": (pool.get("salary") or [None] * n)[i],
             "proj": _val(proj, i),
             "avg_own": _val(avg_own, i, 1),

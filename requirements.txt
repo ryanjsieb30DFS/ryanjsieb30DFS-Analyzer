@@ -1,2 +1,7 @@
 streamlit>=1.30
 pandas>=2.0
+pyyaml>=6.0
+
+# Dev/test — the suite must be runnable from this venv (it was missing on
+# this machine until 8/22/26; 28 test files had never executed locally).
+pytest>=8.0

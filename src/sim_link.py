@@ -4,11 +4,16 @@ The Sim tool (~/Desktop/Repo/ryanjsieb30DFS) builds and simulates; this module
 lets the Analyzer READ two of its artifacts, degrading gracefully (every helper
 returns None/{} when the Sim repo or file is absent — no exceptions, no UI):
 
-1. `data/sim_entries/<slug>.json` — the selected portfolio the Sim pushes via
-   its "📨 Send entries to Analyzer Grade tab" button: player names + headline
-   sim metrics (Win%/Top1%/Cash%/ROI) per entry. The ✅ Grade tab one-click
-   loads it into the lineup box, replacing the hand-paste. (This file lives in
-   THIS repo — the Sim writes across; cleared with the slate.)
+1. `data/sim_entries/<slug>.json` — the DIVERSIFIED portfolio the Sim pushes
+   via its "📨 Send pool + these entries" button: player names + headline sim
+   metrics (Win%/Top1%/Top10%/Cash%/ROI) per entry. Schema v2 (8/22/26) also
+   carries `pool_fp` and a per-entry `index`/`roster_key`, so these entries can
+   be matched by identity against THIS repo's own per-contest picks — the Grade
+   tab shows the two side by side with an agreement count (`sim_entries_by_contest`
+   groups them; `sim_entries_stale` catches a payload from another pool). The
+   Analyzer's pick is deliberately BLIND to this file: agreement only means
+   something if the two processes chose independently. (This file lives in THIS
+   repo — the Sim writes across; cleared with the slate.)
 
 2. The Sim's field-concentration corpus (data/field_corpus/
    field_concentration.jsonl — the only fitted-data file this module reads) —
@@ -54,6 +59,25 @@ def sim_root() -> Path | None:
     return _SIM_ROOT if _SIM_ROOT.exists() else None
 
 
+def sim_raw_projection_files(slug: str) -> list[Path]:
+    """The Sim's saved RAW projection uploads for this slate (one upload per
+    slate, not one per tool — 8/22/26).
+
+    The Sim keeps each uploaded vendor CSV's original bytes at
+    data/uploads/<slug>/; the Projections tab's "📥 Pull from the Sim" button
+    re-parses them through THIS repo's vendor detection, exactly as if the
+    user had dropped them here. Raw bytes on purpose: the two repos keep
+    deliberately different canonical column maps, so only the original file
+    round-trips loss-free. [] when the bridge or dir is absent."""
+    root = sim_root()
+    if root is None:
+        return []
+    d = root / "data" / "uploads" / slug
+    if not d.is_dir():
+        return []
+    return sorted(p for p in d.glob("*.csv") if p.is_file())
+
+
 def dk_username() -> str | None:
     """The DK handle the user saved in the SIM's settings, or None.
 
@@ -92,43 +116,29 @@ def load_sim_entries(slug: str) -> dict | None:
     return payload if payload.get("entries") else None
 
 
-def entries_as_grade_text(payload: dict) -> str:
-    """The pushed entries in the Grade tab's paste format: one lineup per
-    line, players comma-separated."""
-    return "\n".join(
-        ", ".join(e.get("players") or [])
-        for e in (payload.get("entries") or [])
-        if e.get("players")
-    )
+def sim_entries_by_contest(payload: dict | None) -> dict:
+    """`{contest label: [entry, …]}` for the Sim's pushed entry set.
+
+    The Sim sends the SAME label string the pool payload uses, so these route
+    straight against the Grade tab's per-contest sections. Entries with no
+    contest land under `""` (a pre-v2 file, or a hand-edited one) rather than
+    being dropped — the caller decides what to do with them."""
+    out: dict = {}
+    for e in (payload or {}).get("entries") or []:
+        out.setdefault(str(e.get("contest") or ""), []).append(e)
+    return out
 
 
-def _fmt_pct(v, spec: str) -> str:
-    """Format a metric that SHOULD be numeric; '—' when the Sim's schema
-    drifted and sent a string/None — a bad cell must not crash the Grade tab."""
-    try:
-        return f"{float(v):{spec}}%"
-    except (TypeError, ValueError):
-        return "—"
+def sim_entries_stale(payload: dict | None, pool: dict | None) -> bool:
+    """True when the pushed entries were selected from a DIFFERENT pool than
+    the one this repo holds — their pool indexes then point at other lineups.
 
-
-def sim_metrics_md(payload: dict) -> str:
-    """Markdown table of the pushed entries' sim metrics — shown beside the
-    grade so the deterministic checks and the sim's own numbers sit together.
-    Empty string when no entry carries metrics."""
-    entries = [e for e in (payload.get("entries") or []) if e.get("win_pct") is not None]
-    if not entries:
-        return ""
-    lines = [
-        "| # | Contest | Win % | Top 1% | Cash % | Sim ROI |",
-        "| ---: | --- | ---: | ---: | ---: | ---: |",
-    ]
-    for i, e in enumerate(entries, start=1):
-        lines.append(
-            f"| {i} | {e.get('contest', '?')} | {_fmt_pct(e.get('win_pct'), '.2f')} "
-            f"| {_fmt_pct(e.get('top1_pct'), '.1f')} | {_fmt_pct(e.get('cash_pct'), '.1f')} "
-            f"| {_fmt_pct(e.get('roi_pct'), '.0f')} |"
-        )
-    return "\n".join(lines)
+    A payload with no `pool_fp` (schema v1, before 8/22/26) is *unknown*, not
+    stale: it carries player names, which still grade fine."""
+    fp = (payload or {}).get("pool_fp")
+    if not fp or not pool:
+        return False
+    return str(fp) != str(pool.get("pool_fp"))
 
 
 def clear_sim_entries(slug: str) -> None:

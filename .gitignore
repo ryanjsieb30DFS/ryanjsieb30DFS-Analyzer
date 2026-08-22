@@ -34,3 +34,7 @@ data/sim_autopsy/
 data/sim_standings/
 data/lineup_selection/
 data/grade/
+
+# Local archives of cleared slate workspaces (e.g. the unlogged 8/15/26
+# NASCAR files) — user data, never repo history.
+data/archive/

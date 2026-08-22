@@ -276,10 +276,26 @@ with st.sidebar:
     _n_src = len(cached_sources(slug))
     _n_contests = len(load_contests(slug))
     _has_strategy = bool(load_persisted(slug))
+    # The full slate pipeline, not just inputs — one glance answers "what's
+    # next?" without tab-wandering. File-existence checks only (cheap; this
+    # renders every rerun).
+    _has_contract = (REPO_ROOT / "data" / "strategy_contract" / f"{slug}.json").exists()
+    _pool_mt = sim_link.sim_pool_mtime(slug)
+    _pool_lbl = "—"
+    if _pool_mt is not None:
+        _pool_h = (_dt.now() - _dt.fromtimestamp(_pool_mt)).total_seconds() / 3600.0
+        _pool_lbl = ("✅" if _pool_h <= 72
+                     else f"⚠️ {_pool_h / 24:.0f}d old")
+    _has_picks = (REPO_ROOT / "data" / "lineup_selection" / f"{slug}.json").exists()
+    _logged = bool(st.session_state.get(f"autopsy_done_{slug}"))
     st.markdown("**Slate readiness**")
     st.caption(
-        f"Articles: {_n_articles}  ·  Projections: {_n_src}  ·  Contests: {_n_contests}\n\n"
-        f"Strategy: {'✅' if _has_strategy else '—'}"
+        f"1 Articles: {_n_articles or '—'}  ·  2 Projections: {_n_src or '—'}  ·  "
+        f"3 Contests: {_n_contests or '—'}\n\n"
+        f"4 Strategy: {'✅' if _has_strategy else '—'}  ·  "
+        f"5 Contract: {'✅' if _has_contract else '—'}\n\n"
+        f"6 Sim pool: {_pool_lbl}  ·  7 Picks: {'✅' if _has_picks else '—'}  ·  "
+        f"8 Autopsy: {'✅' if _logged else '—'}"
     )
 
     st.divider()
@@ -383,6 +399,55 @@ with tab_proj:
                         f"↳ Near-miss: looks almost like **{_vn}** but missing "
                         f"`{', '.join(_missing)}` — a renamed header? Update src/vendors.py if so."
                     )
+
+    # ---- One upload per slate (8/22/26): the Sim saves each uploaded
+    # vendor file's raw bytes; pull them through THIS repo's own vendor
+    # detection instead of uploading the same CSVs a second time.
+    _sim_proj_files = sim_link.sim_raw_projection_files(slug)
+    if _sim_proj_files:
+        _pp_labels, _pp_oldest_d = [], 0.0
+        for _pf in _sim_proj_files:
+            try:
+                _age_h = (_dt.now() - _dt.fromtimestamp(
+                    _pf.stat().st_mtime)).total_seconds() / 3600.0
+            except OSError:
+                _age_h = 0.0
+            _pp_oldest_d = max(_pp_oldest_d, _age_h / 24.0)
+            _pp_labels.append(f"`{_pf.name}` ({_age_h:.0f}h ago)")
+        st.caption("Sim has this slate's raw vendor file(s): " + ", ".join(_pp_labels))
+        if _pp_oldest_d > 3:
+            st.warning(
+                "⚠️ The Sim's saved projection files are over 3 days old — "
+                "likely LAST slate's. Upload fresh files (either tool) before "
+                "pulling."
+            )
+        if st.button(
+            f"📥 Pull {len(_sim_proj_files)} projection file(s) from the Sim",
+            key=f"pull_proj_{slug}",
+            help="Loads the Sim's saved raw uploads through this tool's own "
+                 "vendor detection — exactly as if you dropped the files "
+                 "above. One upload per slate, not one per tool.",
+        ):
+            for _pf in _sim_proj_files:
+                try:
+                    _pdf = load_projections(str(_pf), source_name=_pf.name)
+                except Exception as _pe:  # noqa: BLE001
+                    st.error(f"❌ {_pf.name}: {_pe}")
+                    continue
+                if _pdf.attrs.get("kind") is not None:
+                    st.info(f"📊 {_pf.name} is {_pdf.attrs.get('vendor')} data, "
+                            "not player projections — skipped.")
+                    continue
+                _pv = _pdf.attrs.get("vendor")
+                if _pv is None:
+                    st.error(f"❌ Couldn't detect vendor for {_pf.name}. "
+                             f"Headers seen: {list(_pdf.columns)}")
+                    continue
+                sessions.save_source(slug, _pf.name, _pdf, _pv)
+                st.success(f"✅ {_pf.name} — detected as **{_pv}** "
+                           f"({len(_pdf)} players)")
+                for _pw in warn_missing_for_sport(_pdf, sport):
+                    st.warning(f"⚠️ {_pf.name}: {_pw}")
 
     sources = cached_sources(slug)
     if sources:
@@ -585,6 +650,49 @@ with tab_strategy:
             c1.metric("Contests", csum["n_contests"])
             c2.metric("Total entries", csum["total_entries"])
 
+        # ---- Declare once (8/22/26): the Sim's pushed pool already carries
+        # every entered contest (label, type, field size, my entries) — offer
+        # the undeclared ones as one-click declarations instead of re-typing
+        # them here.
+        _dc_pool = None
+        _dc_mtime = sim_link.sim_pool_mtime(slug)
+        if _dc_mtime is not None:
+            _dc_cache = st.session_state.get(f"_sim_pool_cache_{slug}")
+            if not _dc_cache or _dc_cache.get("mtime") != _dc_mtime:
+                _dc_cache = {"mtime": _dc_mtime, "pool": sim_link.load_sim_pool(slug)}
+                st.session_state[f"_sim_pool_cache_{slug}"] = _dc_cache
+            _dc_pool = _dc_cache.get("pool")
+        if _dc_pool and (_dc_pool.get("contests") or []):
+            from src import lineup_selection as _dc_ls
+            _dc_match = _dc_ls.match_contests(
+                _dc_pool.get("contests") or [], contests_list)
+            _dc_new = [c for c in _dc_pool.get("contests") or []
+                       if not _dc_match.get(str(c.get("label")))]
+            if _dc_new:
+                _dc_names = ", ".join(f"**{c.get('label')}**" for c in _dc_new)
+                st.caption(f"The Sim pool carries {len(_dc_new)} contest(s) "
+                           f"not declared here yet: {_dc_names}")
+                if st.button(
+                    f"📥 Declare {len(_dc_new)} contest(s) from the Sim pool",
+                    key=f"declare_from_sim_{slug}",
+                    help="Adds them with the Sim's name, type, field size, and "
+                         "your entry count — no re-typing. Edit or remove them "
+                         "below like any declared contest.",
+                ):
+                    for _dc_c in _dc_new:
+                        _dc_d = _dc_ls.as_declared(_dc_c)
+                        add_contest(slug, {
+                            "name": _dc_d.get("name"),
+                            "type": _dc_d.get("type") or "SE",
+                            "field_size": int(_dc_d.get("field_size") or 1000),
+                            "max_entries": 1,
+                            "my_entries": int(_dc_d.get("my_entries") or 1),
+                            "entry_fee": _dc_d.get("entry_fee"),
+                            "prize_pool": _dc_d.get("prize_pool"),
+                            "payout_shape": None,
+                        })
+                    st.rerun()
+
         templates = load_templates(slug)
         if templates:
             st.markdown("**Add from saved**")
@@ -706,6 +814,9 @@ with tab_strategy:
     if not article_files:
         st.info("Upload articles in the **Slate Data** tab first — the strategy reads from them.")
     elif st.button("✨ Generate slate strategy + player pool", type="primary", key=f"strategy_{slug}"):
+        st.caption("⏱️ This takes ~2–6 min total (strategy + player pool). "
+                   "Good time to switch to the Sim and start your build — "
+                   "come back when it's done.")
         with st.spinner("Building the slate strategy — reading your articles, projections, and strategy docs… (~1–3 min)"):
             result = run_analysis(slug, contest_label, sport)
         if not result["ok"]:
@@ -872,6 +983,52 @@ with tab_grade:
             st.session_state[f"_sim_pool_cache_{slug}"] = _pk_cache
         _pk_pool = _pk_cache.get("pool")
 
+    # Slate-staleness banners (8/22/26). Neither the pushed pool nor the
+    # strategy contract carries a machine-checkable slate key, and on NASCAR
+    # the same ~40 driver names recur every week — so last slate's files
+    # grade/pick cleanly and silently. Surface WHEN each was written and
+    # warn on the two failure orders: an old pool, and a contract older
+    # than the pool it's supposed to gate.
+    def _age_days(raw):
+        from datetime import datetime
+        raw = str(raw or "").strip()
+        for _fmt in ("%Y-%m-%d %H:%M", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d"):
+            try:
+                return (datetime.now()
+                        - datetime.strptime(raw[:16], _fmt)).total_seconds() / 86400.0
+            except ValueError:
+                continue
+        return None
+
+    if _pk_pool:
+        _pool_when = _pk_pool.get("generated_at")
+        _pool_age = _age_days(_pool_when)
+        st.caption(f"Sim pool pushed: {_pool_when or 'unknown'}"
+                   + (f" ({_pool_age:.1f} days ago)" if _pool_age is not None else ""))
+        if _pool_age is None or _pool_age > 3:
+            st.warning(
+                "⚠️ The Sim pool is "
+                + (f"{_pool_age:.0f} days old" if _pool_age is not None
+                   else "of unknown age")
+                + " — likely LAST slate's. Re-send the pool from the Sim "
+                "before grading or picking against it."
+            )
+        try:
+            from src.strategy_contract import _path as _contract_path
+            _cpath = _contract_path(slug)
+            _c_gen = (json.loads(_cpath.read_text()).get("generated_at")
+                      if _cpath.exists() else None)
+        except Exception:  # noqa: BLE001 — banner only, never blocks the tab
+            _c_gen = None
+        _c_age = _age_days(_c_gen)
+        if (_c_age is not None and _pool_age is not None
+                and _c_age > _pool_age + 0.01):
+            st.warning(
+                f"⚠️ The strategy contract ({_c_gen}) predates this Sim pool "
+                f"({_pool_when}) — picks would be gated on the PREVIOUS "
+                "slate's strategy. Regenerate the slate strategy first."
+            )
+
     _src_g = cached_sources(slug)
     _gpool = player_pool.build_pool(_src_g) if _src_g else pd.DataFrame()
     _declared_g = load_contests(slug)
@@ -899,12 +1056,61 @@ with tab_grade:
             _sections.append({"label": _d.get("name"), "sim": None, "declared": _d,
                               "key": _ls.contest_file_key(_d.get("name"), _d)})
 
+    # Two undeclared sim contests whose labels differ only in punctuation or
+    # past the slug's 40-char truncation collide on the same key — with the
+    # key reused in every widget id below, Streamlit raises DuplicateWidgetID
+    # and the whole tab dies. Suffix the section index on the collision only,
+    # so existing per-contest draft/pick files keep their names.
+    _seen_keys: set = set()
+    for _i_sec, _sec in enumerate(_sections):
+        if _sec["key"] in _seen_keys:
+            _sec["key"] = f"{_sec['key']}__{_i_sec}"
+        _seen_keys.add(_sec["key"])
+
     # Normalized name -> the Sim pool's exact spelling (for sim-standing lookups).
     _pool_name_map = {}
     if _pk_pool:
         for _r_nm in _pk_pool.get("rosters") or []:
             for _n_nm in _r_nm:
                 _pool_name_map.setdefault(_nn_g(str(_n_nm)), str(_n_nm))
+
+    def _letters_for(rosters, cal, sim_c):
+        """A-F for each roster, on the SAME deterministic path the grade box
+        uses (parse -> grade_lineup -> letter_grade with the sim standing), so
+        a lineup never scores one way in the comparison panel and another way
+        in the box. Parsed ONE ROSTER AT A TIME: a batch parse aligns letters
+        to rosters by position, so any roster whose line drops out of the
+        parse would silently shift every later letter onto the wrong roster —
+        per-roster, a failed parse is that roster's None and nothing else
+        moves. Output is always 1:1 with the input list. No claude call."""
+        rosters = list(rosters or [])
+        if not rosters or _gpool.empty:
+            return [None] * len(rosters)
+        out = []
+        for _r in rosters:
+            if not _r:
+                out.append(None)
+                continue
+            _lus = grader.parse_lineups(
+                ", ".join(str(n) for n in _r), _gpool)
+            if len(_lus) != 1:
+                out.append(None)
+                continue
+            _lu = _lus[0]
+            _g = grader.grade_lineup(_lu, cal)
+            _std = None
+            if sim_c is not None and _pk_pool and not _lu.get("unmatched"):
+                _mapped = [_pool_name_map.get(_nn_g(p["name"]))
+                           for p in _lu.get("players") or []]
+                if _mapped and all(_mapped):
+                    _std = grader.sim_standing(_pk_pool, sim_c,
+                                               "|".join(sorted(_mapped)))
+            out.append(grader.letter_grade(_g, cal, _std))
+        return out
+
+    def _roster_line(names, own_map):
+        """'Player (own%), Player (own%)…' — the panel's one-line roster."""
+        return ", ".join(f"{n} ({own_map.get(n, '?')}%)" for n in names)
 
     if not _src_g:
         st.info("Load projections first (Projections tab) — grading needs ownership + salary.")
@@ -929,15 +1135,32 @@ with tab_grade:
         else:
             st.caption("Paste lineups above to grade them.")
     else:
-        # One-click distribution of the Sim's pushed entry set into the boxes.
+        # The Sim's DIVERSIFIED entries. Each contest's panel below shows them
+        # beside Claude's own pick for that contest (8/22/26) — this button is
+        # just the fill-every-box shortcut for when you want the Sim's set
+        # wholesale.
         _sim_entries = sim_link.load_sim_entries(slug)
-        if _sim_entries:
+        _sim_by_contest = sim_link.sim_entries_by_contest(_sim_entries)
+        _sim_stale = sim_link.sim_entries_stale(_sim_entries, _pk_pool)
+        # Stale payload → its notes describe entries the panel no longer
+        # shows; a "How the Sim chose these" caption under an empty Sim
+        # column reads as a bug.
+        _sim_notes = ({} if _sim_stale
+                      else (_sim_entries or {}).get("selection_notes") or {})
+        if _sim_stale:
+            st.warning("⚠️ The Sim's diversified entries were selected from a "
+                       "DIFFERENT pool than the one this repo holds — their "
+                       "lineups may no longer exist. Re-send from the Sim "
+                       "(Portfolio tab) to compare them against Claude's picks.")
+        if _sim_entries and not _sim_stale:
             _se_n = len(_sim_entries.get("entries") or [])
-            if st.button(f"📥 Distribute {_se_n} Sim entr"
-                         f"{'y' if _se_n == 1 else 'ies'} into the contest boxes",
+            if st.button(f"📥 Fill every contest box with the Sim's {_se_n} entr"
+                         f"{'y' if _se_n == 1 else 'ies'}",
                          key=f"load_sim_entries_{slug}",
-                         help="Routes each pushed entry to its contest's box by the "
-                              "contest name the Sim sent with it."):
+                         help="OVERWRITES each contest's working box with the Sim's "
+                              "entries for that contest. To compare them against "
+                              "Claude's own pick instead, use the panel inside each "
+                              "contest below."):
                 _routed, _unrouted = 0, []
                 _by_label = {s["label"]: s["key"] for s in _sections}
                 _box_lines: dict = {}
@@ -990,6 +1213,10 @@ with tab_grade:
                 _gk = f"grade_text_{slug}_{_key}"
                 if _gk not in st.session_state:
                     st.session_state[_gk] = grader.load_draft(f"{slug}__{_key}")
+                # One calibration per contest, shared by the comparison
+                # panel and the grade box — a lineup must never score one
+                # way in the panel and another way in the box.
+                _cal_c = grader.contest_calibration(slug, sport, _decl)
 
                 # ---- Claude pick (selection is not construction) ----------
                 if _sim_c is not None and _pk_pool:
@@ -1056,49 +1283,131 @@ with tab_grade:
                                                       _sec["declared"], _pp["picks"],
                                                       _pp["why"])
                                 st.rerun()
+                    # ---- Two opinions for this contest (8/22/26) -----------
+                    # The Sim's diversified entries and Claude's own pick, side
+                    # by side, both graded on the same calibration. Claude
+                    # picked BLIND to the Sim's set — it is never in the slice,
+                    # the prompt, or the validation — so an overlap means two
+                    # independent processes chose the same six players. Nothing
+                    # here is filtered out: a Sim entry that breaks the slate
+                    # strategy is FLAGGED and still gradeable, still loadable.
                     _stored = (((_selection_g or {}).get("contests") or {})
                                .get(_sec["label"]) if not _sel_stale else None)
-                    if _stored:
-                        _own_g = _pk_pool.get("ownership") or {}
-                        _m_g = _sim_c.get("metrics") or {}
-                        st.markdown("**Claude's pick for this contest:**")
-                        for _p in _stored.get("picked") or []:
-                            _i = _p.get("index")
-                            if _i is None or _i >= len(_pk_pool["rosters"]):
-                                continue
-                            _names_g = [str(x) for x in _pk_pool["rosters"][_i]]
-                            _bits_g = []
-                            for _mk, _ml in (("top1_pct", "chance of 1st (top1)"),
-                                             ("win_pct", "win"),
-                                             ("cash_pct", "any payout (cash)")):
-                                _arr = _m_g.get(_mk) or []
-                                if _i < len(_arr) and _arr[_i] is not None:
-                                    _bits_g.append(f"{_ml} {_arr[_i]}%")
-                            st.markdown(
-                                "- " + ", ".join(f"{n} ({_own_g.get(n, '?')}%)"
-                                                 for n in _names_g)
-                                + ("  \n  _" + " · ".join(_bits_g) + "_" if _bits_g else ""))
-                            # Picks saved before the gate (or under a relaxed
-                            # one) get audited against the strategy on sight.
-                            _brk = _ls.compliance(_names_g, _gate_c,
-                                                  tuple(_elig_c["relaxed"]))
-                            if _brk:
-                                st.warning("⚠️ This pick does NOT follow the slate "
-                                           "strategy — it " + "; ".join(_brk)
-                                           + ". Re-run the pick.")
-                        if _stored.get("why"):
-                            st.caption(f"💡 {_stored['why']}")
-                        if st.button("📋 Load pick into the grade box",
-                                     key=f"loadpick_{slug}_{_key}"):
-                            _lines_g = [
-                                ", ".join(map(str, _pk_pool["rosters"][_p["index"]]))
-                                for _p in _stored.get("picked") or []
-                                if _p.get("index") is not None
-                                and _p["index"] < len(_pk_pool["rosters"])]
-                            if _lines_g:
-                                st.session_state[_gk] = "\n".join(_lines_g)
-                                grader.save_draft(f"{slug}__{_key}", "\n".join(_lines_g))
+                    _own_g = _pk_pool.get("ownership") or {}
+                    _m_g = _sim_c.get("metrics") or {}
+                    _cl_idx = [_p["index"] for _p in (_stored or {}).get("picked") or []
+                               if _p.get("index") is not None
+                               and _p["index"] < len(_pk_pool["rosters"])]
+                    _cl_ros = [[str(x) for x in _pk_pool["rosters"][_i]]
+                               for _i in _cl_idx]
+                    _sim_ros = ([] if _sim_stale else
+                                [[str(n) for n in (_e.get("players") or [])]
+                                 for _e in _sim_by_contest.get(str(_sec["label"])) or []
+                                 if _e.get("players")])
+                    if _sim_ros or _cl_ros:
+                        _agree = _ls.compare_sets(_sim_ros, _cl_ros)
+                        _matched = _agree["matched"]
+                        _sim_lt = _letters_for(_sim_ros, _cal_c, _sim_c)
+                        _cl_lt = _letters_for(_cl_ros, _cal_c, _sim_c)
+
+                        def _lt_txt(lt):
+                            return (lt or {}).get("letter") or "?"
+
+                        _col_s, _col_c = st.columns(2)
+                        with _col_s:
+                            st.markdown(f"**🎲 Sim diversifier ({len(_sim_ros)})**")
+                            if not _sim_ros:
+                                st.caption("Build a portfolio in the Sim and send "
+                                           "it over to compare.")
+                            for _r, _lt in zip(_sim_ros, _sim_lt):
+                                st.markdown(
+                                    f"- {_roster_line(_r, _own_g)} — "
+                                    f"**{_lt_txt(_lt)}**"
+                                    + ("  ✅" if _ls.match_key(_r) in _matched else ""))
+                                _brk = _ls.compliance(_r, _gate_c,
+                                                      tuple(_elig_c["relaxed"]))
+                                if _brk:
+                                    st.caption("⚠️ Breaks the slate strategy — it "
+                                               + "; ".join(_brk)
+                                               + ". Yours to override.")
+                            if _sim_notes.get(str(_sec["label"])):
+                                st.caption("How the Sim chose these: "
+                                           + _sim_notes[str(_sec["label"])])
+                        with _col_c:
+                            st.markdown(f"**🎯 Claude's pick ({len(_cl_ros)})**")
+                            if not _cl_ros:
+                                st.caption("Run the pick above to compare.")
+                            for _r, _lt, _i_g in zip(_cl_ros, _cl_lt, _cl_idx):
+                                _bits_g = []
+                                for _mk, _ml in (("top1_pct", "chance of 1st (top1)"),
+                                                 ("win_pct", "win"),
+                                                 ("cash_pct", "any payout (cash)")):
+                                    _arr = _m_g.get(_mk) or []
+                                    if _i_g < len(_arr) and _arr[_i_g] is not None:
+                                        _bits_g.append(f"{_ml} {_arr[_i_g]}%")
+                                st.markdown(
+                                    f"- {_roster_line(_r, _own_g)} — "
+                                    f"**{_lt_txt(_lt)}**"
+                                    + ("  ✅" if _ls.match_key(_r) in _matched else "")
+                                    + ("  \n  _" + " · ".join(_bits_g) + "_"
+                                       if _bits_g else ""))
+                                _brk = _ls.compliance(_r, _gate_c,
+                                                      tuple(_elig_c["relaxed"]))
+                                if _brk:
+                                    st.warning("⚠️ This pick does NOT follow the "
+                                               "slate strategy — it "
+                                               + "; ".join(_brk) + ". Re-run it.")
+                            if (_stored or {}).get("why"):
+                                st.caption(f"💡 {_stored['why']}")
+
+                        if _sim_ros and _cl_ros:
+                            if _agree["n_match"]:
+                                st.success(
+                                    f"🤝 Agreement: {_agree['n_match']} of "
+                                    f"{max(_agree['n_sim'], _agree['n_claude'])} "
+                                    "lineup(s) match. Claude never saw the Sim's "
+                                    "set — two separate processes landed on the "
+                                    "same roster.")
+                            else:
+                                st.info("↔️ No overlap — the two processes picked "
+                                        "completely different bets. Neither is "
+                                        "wrong; read both theses and decide.")
+
+                        # Load either set (or both) into this contest's working
+                        # box. Everything below the box grades what lands here.
+                        def _load_box(rosters):
+                            _seen_k, _lines = set(), []
+                            for _r in rosters:
+                                _k = _ls.match_key(_r)
+                                if _k in _seen_k:
+                                    continue
+                                _seen_k.add(_k)
+                                _lines.append(", ".join(map(str, _r)))
+                            if _lines:
+                                st.session_state[_gk] = "\n".join(_lines)
+                                grader.save_draft(f"{slug}__{_key}", "\n".join(_lines))
                                 st.rerun()
+
+                        _b1, _b2, _b3 = st.columns(3)
+                        with _b1:
+                            if st.button("📋 Load Sim set", key=f"loadsim_{slug}_{_key}",
+                                         disabled=not _sim_ros,
+                                         use_container_width=True):
+                                _load_box(_sim_ros)
+                        with _b2:
+                            if st.button("📋 Load Claude's pick",
+                                         key=f"loadpick_{slug}_{_key}",
+                                         disabled=not _cl_ros,
+                                         use_container_width=True):
+                                _load_box(_cl_ros)
+                        with _b3:
+                            if st.button("📋 Load both", key=f"loadboth_{slug}_{_key}",
+                                         disabled=not (_sim_ros and _cl_ros),
+                                         use_container_width=True):
+                                _load_box(_sim_ros + _cl_ros)
+                        st.caption("Nothing above is entered anywhere — load a set "
+                                   "into the box below, edit it freely, and the "
+                                   "grade underneath follows what you put there.")
 
                 # ---- Grade box (A-F, calibrated to THIS contest) ----------
                 _gtext = st.text_area("Lineups for this contest (one per line)",
@@ -1107,7 +1416,6 @@ with tab_grade:
                 _glus = (grader.parse_lineups(_gtext, _gpool)
                          if _gtext.strip() and not _gpool.empty else [])
                 if _glus:
-                    _cal_c = grader.contest_calibration(slug, sport, _decl)
                     _grades_c = [grader.grade_lineup(l, _cal_c) for l in _glus]
                     _letters_c = []
                     for _g_i, _lu_i in zip(_grades_c, _glus):
@@ -1200,6 +1508,12 @@ with tab_autopsy:
             _sim_pushed = []
         if _sim_pushed:
             _pushed_names = ", ".join(r["filename"] for r in _sim_pushed)
+            # Say WHEN the Sim scored them — a leftover push from a previous
+            # slate should look old here, not identical to a fresh one.
+            _pushed_when = sorted({str(r.get("scored_at") or "")[:10]
+                                   for r in _sim_pushed if r.get("scored_at")})
+            if _pushed_when:
+                _pushed_names += f" (scored {', '.join(_pushed_when)})"
             if st.checkbox(
                 f"📥 Use the {len(_sim_pushed)} standings file(s) the Sim already "
                 f"scored — {_pushed_names}",

@@ -487,3 +487,40 @@ def test_gate_summary_is_plain_language(tmp_path, monkeypatch):
     assert "⚠️" in md and "underweight" in md      # the relaxation is announced
     # A dropped rule is not advertised as enforced.
     assert "no player the strategy called UNDERWEIGHT" not in md
+
+
+# ---------------------------------------------------------------------------
+# Two opinions per contest (8/22/26): how much the Sim's diversified set and
+# this repo's own pick agree. Agreement is a signal, never a conflict.
+# ---------------------------------------------------------------------------
+
+def test_roster_key_is_order_insensitive_and_raw():
+    assert ls.roster_key(["B", "A", "C"]) == "A|B|C"
+    # RAW on purpose — this key is persisted and read back, so it must NOT
+    # normalize (that would orphan every pick already on disk).
+    assert ls.roster_key(["José Aldo Jr."]) == "José Aldo Jr."
+
+
+def test_compare_sets_counts_the_overlap():
+    sim = [["A", "B"], ["C", "D"], ["E", "F"]]
+    claude = [["B", "A"], ["G", "H"]]           # 1 shared, order shuffled
+    r = ls.compare_sets(sim, claude)
+    assert r["n_sim"] == 3 and r["n_claude"] == 2
+    assert r["n_match"] == 1 and r["matched"] == {ls.match_key(["A", "B"])}
+
+
+def test_compare_sets_full_and_zero_overlap():
+    same = [["A", "B"], ["C", "D"]]
+    assert ls.compare_sets(same, list(reversed(same)))["n_match"] == 2
+    assert ls.compare_sets(same, [["X", "Y"]])["n_match"] == 0
+    # One side empty (nothing picked yet / nothing sent yet).
+    assert ls.compare_sets(same, [])["n_match"] == 0
+    assert ls.compare_sets([], [])["n_sim"] == 0
+
+
+def test_compare_sets_survives_a_spelling_difference():
+    """The two sides come from the same pool, but a name that reaches the
+    Analyzer differently spelled must not fake a disagreement."""
+    r = ls.compare_sets([["José Aldo Jr.", "Song Yadong"]],
+                        [["Jose Aldo", "Song Yadong"]])
+    assert r["n_match"] == 1

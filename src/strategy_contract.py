@@ -97,6 +97,15 @@ def parse_structure_rules(strategy_md: str) -> list[dict]:
     return out
 
 
+def _slate_title(md: str) -> str | None:
+    """The strategy's first markdown heading — the human-readable slate name."""
+    for line in (md or "").splitlines():
+        s = line.strip()
+        if s.startswith("#"):
+            return s.lstrip("#").strip() or None
+    return None
+
+
 def write_contract(slug: str, strategy_md: str, sources: dict) -> Path:
     """Write the contract from the just-generated strategy + loaded projections."""
     calls = parse_calls(strategy_md)
@@ -171,6 +180,11 @@ def write_contract(slug: str, strategy_md: str, sources: dict) -> Path:
     payload = {
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "slug": slug,
+        # Slate identity for the Sim's staleness banner (8/22/26): the
+        # strategy's own H1 title. Name-matching can't catch a stale NASCAR
+        # contract (same ~40 drivers every week), so the Sim shows this title
+        # + the contract's age and warns when it's plausibly last slate's.
+        "slate": _slate_title(strategy_md),
         "calls": calls,
         # Hard fades ONLY — what the Sim tool may auto-apply to Include.
         "fades": [c["name"] for c in calls if c["verdict"] == "fade"],

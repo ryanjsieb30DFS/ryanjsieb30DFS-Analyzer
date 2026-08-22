@@ -245,3 +245,19 @@ def test_contract_payload_carries_structure_rules(tmp_path, monkeypatch):
     assert "structure_rules" in payload
     assert payload["structure_rules"][0]["min"] == 2
     assert payload["structure_rules"][0]["max"] == 3
+
+
+def test_contract_carries_slate_title_from_first_heading(tmp_path, monkeypatch):
+    # The Sim's staleness banner shows WHICH slate the contract was written
+    # for — name-matching can't catch a stale NASCAR contract (same drivers
+    # every week), so the human-readable title is the guard.
+    monkeypatch.setattr("src.strategy_contract._CONTRACT_DIR", tmp_path)
+    import json
+    md = "# Watkins Glen 2026 — NASCAR SE\n" + _MD
+    p = write_contract("nascar", md, _sources())
+    c = json.loads(p.read_text())
+    assert c["slate"] == "Watkins Glen 2026 — NASCAR SE"
+    # _MD's own first heading is "## Leverage & fades" — still recorded (any
+    # heading beats none), and a headingless strategy yields None.
+    p2 = write_contract("nascar", "no headings here", _sources())
+    assert json.loads(p2.read_text())["slate"] is None

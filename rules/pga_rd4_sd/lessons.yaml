@@ -44,6 +44,14 @@ lessons:
           WITHOUT Kim won the 294-field SE outright; the entry carrying both twins
           finished 13.5 pctile in the 141 field. Splitting the pair across the two
           entries — the codified mechanism — was executed pre-lock and paid.
+      - date: "2026-08-22"
+        slate: "FedEx St. Jude Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-22__fedex-st-jude-championship-rd4-sd-2026)"
+        note: >
+          Burns ($10,400, 36.5% proj / 32.6-35.2% actual) vs Hideki ($10,100, 20.9% /
+          22.0-23.5%) were surfaced as twins. The lower-owned half again scored more
+          (Hideki 34.75 vs Burns 30.15) — both middling. The Dogleg entry carried BOTH
+          twins together (the 8/11 "13.5-pctile" shape) and finished 80.1 pctile; no
+          entry ran the split. Mechanism held; execution did not.
     contradictions: []
     codified_in: "framework.md — The Anchor-Equivalence Rule (3-slate golf confirmation); philosophy.md — On Structural Leaks; rules/shared/anchor_equivalence.md"
     retired_reason: null
@@ -135,6 +143,14 @@ lessons:
           mini-MAX top lineups and 8 of the SE top 10. He was tiered Okay/UNDERWEIGHT
           and the lone SE entry zeroed him. Underweighting real-ceiling chalk because
           the articles were silent is exactly the axis this rule warns about.
+      - date: "2026-08-22"
+        slate: "FedEx St. Jude Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-22__fedex-st-jude-championship-rd4-sd-2026)"
+        note: >
+          Alex Noren ($7,400, 25.9% proj own, venue-fit boost t-5) was called UNDERWEIGHT
+          purely because ownership ran 7 ranks ahead of projection — a popularity
+          argument. He scored 48.1 (4th-best on the slate) and sat in BOTH contest
+          winners' lineups. The ceiling case (course fit) was real; the ownership
+          argument was not a reason to own less of it. Third confirmation of the axis.
     contradictions: []
     codified_in: "philosophy.md — Foundational Rule 1 (Leverage > Floor, build around chalk sharply) and On Structural Leaks (Correct-Chalk Concentration paragraph)"
     retired_reason: null
@@ -151,6 +167,14 @@ lessons:
       - date: "2026-05-01"
         slate: "Cadillac Championship 2026"
         note: "Multiple 25%+ own players underperformed price; avoiding the coffin block kept the lineups out of the deepest part of the field."
+      - date: "2026-08-22"
+        slate: "FedEx St. Jude Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-22__fedex-st-jude-championship-rd4-sd-2026)"
+        note: >
+          Tough-course slate (winner -15ish). The Dogleg entry stacked TWO coffin-profile
+          cheap chalk plays the strategy itself lean-faded: Harman ($7,000, 46.8% actual
+          own, 12.5 pts — the #1 fish trap in both contests, 0% of winners) and Poston
+          ($6,300, 32.6%, 25.55). Both busted and the entry finished 80.1 pctile.
+          The Albatross winner carried exactly one of them (Poston) and survived it.
     contradictions:
       - date: "2026-05-11"
         slate: "Truist Championship 2026 (RD4 SD)"
@@ -498,6 +522,15 @@ lessons:
           Benjamin James (8.16% / 6.38% actual own, 84.25 fpts — the slate's top score)
           was the sub-10% carrier in BOTH contest winners. The <20%-own slate-definer
           appeared again, and the user's winning entry carried him.
+      - date: "2026-08-22"
+        slate: "FedEx St. Jude Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-22__fedex-st-jude-championship-rd4-sd-2026)"
+        note: >
+          Both winners were carried by a sub-5% piece: Bud Cauley (2.84% own, 45.7) in
+          the Dogleg winner, Xander Schauffele (3.06%, 53.65) in the Albatross winner.
+          Tough course, and winners ran 2-3 sub-10% golfers (Dogleg 3, Albatross 2).
+          The user's Dogleg entry carried ZERO sub-10% golfers and finished 80.1 pctile;
+          the Albatross entry carried 2 and finished 14.3. The mandate was codified and
+          still skipped in one bullet.
     contradictions: []
     codified_in: "framework.md — The One-Dart Mandate (codified 2026-08-08, under Historical Winning Structure)"
     retired_reason: null
@@ -576,7 +609,7 @@ lessons:
       must-appear unless explicitly full-faded. Recurring axis: shark-gap own_per_slot
       has now separated in this same direction on both graded RD4 SD slates
       (6/19 Fitzpatrick-to-zero; 8/8 delta -15.6).
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-08-11"
         slate: "Wyndham Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-11__wyndham-championship-rd4-sd-2026)"
@@ -589,8 +622,20 @@ lessons:
           user beat the lone tracked shark in-field (their 0.34 pctile vs the shark's
           77.9). Envelope-shaped single bullets captured the modal outcome exactly as
           the mechanism states. 2 of 3 slates toward promotion.
+      - date: "2026-08-22"
+        slate: "FedEx St. Jude Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-22__fedex-st-jude-championship-rd4-sd-2026)"
+        note: >
+          Third confirming slate, and it shows the envelope is TWO-SIDED. The Albatross
+          bullet sat in the envelope (20.15% per-slot own, 2 sub-10% pieces) and finished
+          28 of 196 (14.3 pctile). The Dogleg bullet sat ABOVE it (30.14% own, 0 sub-10%
+          pieces, Harman + Poston + Noren all together) and finished 113 of 141 (80.1
+          pctile) while that contest's top-20 averaged 20.5% own with 2.0 sub-10% golfers.
+          6/19 and 8/8 were the under-side miss (7-14% own, 3-5 darts); 8/22 is the
+          over-side miss. Same mechanism: the single bullet must BE the modal shape,
+          and a bullet that drifts off it in either direction gives up the modal outcome.
+          Meets the 3-confirming-slate bar — codification proposed 2026-08-22.
     contradictions: []
-    codified_in: null
+    codified_in: "rules/pga_rd4_sd/framework.md — Historical Winning Structure / The Single-Bullet Envelope (codified 2026-08-22); rules/pga_rd4_sd/philosophy.md — On Structural Leaks (Golf)"
     retired_reason: null
 
   - id: pga-rd4-sd-2026-08-11-own-outrunning-projection-trap-shape
@@ -609,9 +654,22 @@ lessons:
       leverage for free. Pre-lock implication: treat a popular name's printed own as a
       FLOOR, and prize plays whose ownership has no obvious reason to drift up.
       Consistent with the trap-is-a-price doctrine — this is a price condition, never
-      a player list.
-    status: hypothesis
-    confirmations: []
+      a player list. SCOPE (added 2026-08-22): the shape is a trap for the CHEAP,
+      ceiling-light tier; leader-tier chalk with a real ceiling case can drift up and
+      still hit (Scheffler 8/22), so drift alone is not a fade — it is drift WITHOUT
+      a ceiling case.
+    status: validated
+    confirmations:
+      - date: "2026-08-22"
+        slate: "FedEx St. Jude Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-22__fedex-st-jude-championship-rd4-sd-2026)"
+        note: >
+          The strategy pre-named the shape ("printed ownership is a floor"). Cheap tier
+          confirmed it: Harman 27.7% printed -> 46.8%/39.8% actual, 12.5 pts, 0% of
+          winners in both contests; Poston 26.6% -> 32.6%/31.1%, 25.55; Knapp 27.6% ->
+          37.6%/37.8%, 31.4; Im 49.5% -> 41.8%/43.9% (held), 22.75. Winners' carriers
+          UNDERSHOT their print: Schauffele 7.4% -> 3.1%, 53.65; Cauley 7.6% -> 2.8%,
+          45.7. Caveat: Scheffler drifted 23.7% -> 38% and scored 58.0 (7 of the Dogleg
+          top 10) — the leader with a ceiling case is outside the shape. Scope line added.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -630,6 +688,43 @@ lessons:
       sim_autopsy showing the same near-zero Win% before treating it as a
       tool-calibration rule (rank/filter by ROI/Top-1%/Cash%, use Win% only as a
       floor gate).
+      SCOPE NOTE (2026-08-22, FedEx St. Jude RD4 SD — neutral evidence, NOT a
+      confirmation): in sub-~200-entry fields the Sim's Win% and Top-1% collapse
+      to the same number ("top 1%" IS first place at that field size: 0.372/0.181
+      in both contests), so the slate can't distinguish the two metrics and says
+      nothing about the mechanism either way. ROI (0.397/0.203) and Cash%
+      (0.392/0.201) stayed the steadier rankers. Kept out of confirmations[] so
+      the promotion counter only counts slates that actually test the claim.
+    status: validated
+    confirmations:
+      - date: "2026-08-11"
+        slate: "Wyndham Championship RD4 SD 2026 (rules/pga_rd4_sd/history/2026-08-11__wyndham-championship-rd4-sd-2026/sim_autopsy.json)"
+        note: >
+          Second slate, same reading (recorded 2026-08-22 from the archived payload):
+          Win% Spearman 0.056 in the 294-field SE and 0.098 in the 141-field SE, while
+          Cash% ran 0.235/0.318 and ROI 0.171/0.246. Win% again the weakest ranker.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: pga-rd4-sd-2026-08-22-hand-override-of-gated-pick-drifts-to-chalk
+    born: "2026-08-22"   # FedEx St. Jude Championship RD4 SD 2026
+    origin: "rules/pga_rd4_sd/history/2026-08-22__fedex-st-jude-championship-rd4-sd-2026 — lineup_selection.json vs autopsy.json user_lineups (Dogleg 193812582)"
+    statement: >
+      When the user hand-overrides a strategy-gated pick, the replacement drifts
+      toward the chalk-comfort shape the gate exists to block. The Grade tab's Dogleg
+      pick (Scott / Coody / Lowry / Im / Fleetwood / Schauffele — 14.9% per-slot own,
+      Schauffele 7.4% as the carrier, one sub-$7K golfer, zero fades) was not entered;
+      the hand-built entry (Burns / Hideki / Tom Kim / Noren / Harman / Poston) ran
+      30.1% own with ZERO sub-10% pieces, both anchor-equivalence twins, two
+      LEAN-FADE calls and one UNDERWEIGHT call — it would have failed every gate rule
+      but the chalk-pair one. Mechanism: a hand override is made late, under
+      steam/leaderboard comfort, without the gate re-checking it, so it reintroduces
+      exactly the trap-shaped prices the strategy named. Pre-lock implication: an
+      override must be pasted back into the grade box and pass the same gate (no
+      fade/lean-fade, >=1 leverage candidate, inside the envelope) before entry; a
+      hand lineup that fails the gate is not "a different read", it is the field's
+      lineup.
     status: hypothesis
     confirmations: []
     contradictions: []
