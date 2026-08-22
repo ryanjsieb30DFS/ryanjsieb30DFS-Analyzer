@@ -1,0 +1,46 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 11,
+    "leverage_capture": 0.0,
+    "leverage_hit": [],
+    "leverage_missed": [
+      "Max Homa",
+      "Harry Hall",
+      "Russell Henley"
+    ],
+    "overperformer_capture": 0.0,
+    "overperformer_hit": [],
+    "underperformer_exposure": 0.4,
+    "underperformer_hit": [
+      "Brian Harman",
+      "Sam Burns"
+    ]
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 2,
+    "avg_ratio": 0.737,
+    "best_percentile": 14.3,
+    "median_percentile": 80.1,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 181.65001,
+        "proj_total": 276.55,
+        "ratio": 0.657,
+        "percentile": 80.1,
+        "avg_own": 30.14
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 221.10002,
+        "proj_total": 270.64,
+        "ratio": 0.817,
+        "percentile": 14.3,
+        "avg_own": 20.15
+      }
+    ]
+  }
+}

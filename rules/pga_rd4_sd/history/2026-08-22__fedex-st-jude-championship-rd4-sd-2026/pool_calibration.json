@@ -1,0 +1,35 @@
+{
+  "gradable": true,
+  "n_pool": 68,
+  "n_matched": 62,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 3,
+      "avg_fpts": 47.6,
+      "max_fpts": 58.0
+    },
+    {
+      "tier": "Good",
+      "n": 7,
+      "avg_fpts": 33.9,
+      "max_fpts": 47.7
+    },
+    {
+      "tier": "Okay",
+      "n": 43,
+      "avg_fpts": 32.7,
+      "max_fpts": 50.5
+    },
+    {
+      "tier": "Fade",
+      "n": 9,
+      "avg_fpts": 25.4,
+      "max_fpts": 44.5
+    }
+  ],
+  "tiers_ordered": true,
+  "leakage": [],
+  "excluded_scratches": [],
+  "summary": "Core 47.6 > Good 33.9 > Okay 32.7 > Fade 25.4  \u2713 ordered"
+}

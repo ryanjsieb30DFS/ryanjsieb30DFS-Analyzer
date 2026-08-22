@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-22",
+  "slug": "pga_rd4_sd",
+  "sport": "golf",
+  "slate_label": "FedEx St. Jude Championship RD4 SD 2026",
+  "history_dir": "rules/pga_rd4_sd/history/2026-08-22__fedex-st-jude-championship-rd4-sd-2026",
+  "contests": [
+    {
+      "name": "PGA TOUR Showdown $4K Dogleg [Single Entry] (Round 4 TOUR)",
+      "type": "SE",
+      "source_file": "contest-standings-193812582.csv",
+      "field_size": 141,
+      "my_entries": 1,
+      "entry_fee": 33.0,
+      "buy_in": 33.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 113,
+      "best_percentile": 80.1
+    },
+    {
+      "name": "PGA TOUR Showdown $2K Albatross [Single Entry] (Round 4 TOUR)",
+      "type": "SE",
+      "source_file": "contest-standings-193812583.csv",
+      "field_size": 196,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "buy_in": 12.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 28,
+      "best_percentile": 14.3
+    }
+  ],
+  "total_buy_in": 45.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 28,
+  "best_percentile": 14.3,
+  "best_rank_mme": null,
+  "best_percentile_mme": null,
+  "entries_total": 2,
+  "edge_leverage_capture": 0.0,
+  "edge_overperformer_capture": 0.0,
+  "edge_bust_exposure": 0.4,
+  "lineup_avg_ratio": 0.737,
+  "shark_gap_top": {
+    "dim": "own_per_slot",
+    "delta": -9.6
+  },
+  "adherence_fades_violated": 0,
+  "adherence_leverage_covered": "1/12",
+  "tier_summary": "Core 47.6 > Good 33.9 > Okay 32.7 > Fade 25.4  \u2713 ordered",
+  "tiers_ordered": true,
+  "grader_check": {
+    "flagged_pctiles": [
+      80.1
+    ],
+    "clean_pctiles": [
+      14.3
+    ]
+  }
+}

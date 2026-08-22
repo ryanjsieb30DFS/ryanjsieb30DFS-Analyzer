@@ -1,0 +1,1734 @@
+[
+  {
+    "timestamp": "2026-08-22 12:04",
+    "contest_type": "PGA RD4 Showdown",
+    "source_file": "contest-standings-193812582.csv",
+    "contest_id": "193812582",
+    "entries": 141,
+    "winning_score": 246.59999,
+    "cash_line_p80": 213.70001,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "pga_rd4_sd",
+    "sport": "golf",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 62,
+      "total": 62
+    },
+    "user_summary": {
+      "avg_own_mean": 30.14,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 49700.0,
+      "entry_count": 1,
+      "best_rank": 113,
+      "best_percentile": 80.1
+    },
+    "user_lineups": [
+      {
+        "rank": 113,
+        "entry_name": "RyvlesGaming30",
+        "points": 181.65001,
+        "percentile": 80.1,
+        "players": [
+          "Sam Burns",
+          "Hideki Matsuyama",
+          "Tom Kim",
+          "Alex Noren",
+          "Brian Harman",
+          "J.T. Poston"
+        ],
+        "avg_own": 30.14,
+        "low_own_count": 0,
+        "salary_used": 49700,
+        "proj_total": 276.55,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Sepp Straka",
+        "proj_points": 32.68,
+        "actual_fpts": 50.0,
+        "fpts_delta": 17.32,
+        "ownership": 1.5,
+        "actual_own": 0.71
+      },
+      {
+        "name": "Ryan Fox",
+        "proj_points": 32.21,
+        "actual_fpts": 44.55,
+        "fpts_delta": 12.34,
+        "ownership": 0.7,
+        "actual_own": 0.71
+      },
+      {
+        "name": "Harris English",
+        "proj_points": 34.0,
+        "actual_fpts": 43.1,
+        "fpts_delta": 9.1,
+        "ownership": 1.2,
+        "actual_own": 0.71
+      },
+      {
+        "name": "Xander Schauffele",
+        "proj_points": 44.69,
+        "actual_fpts": 53.65,
+        "fpts_delta": 8.96,
+        "ownership": 7.4,
+        "actual_own": 2.84
+      },
+      {
+        "name": "Bud Cauley",
+        "proj_points": 37.95,
+        "actual_fpts": 45.7,
+        "fpts_delta": 7.75,
+        "ownership": 7.6,
+        "actual_own": 2.84
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Aaron Rai",
+        "proj_points": 37.12,
+        "actual_fpts": 0.6,
+        "fpts_delta": -36.52,
+        "ownership": 4.6,
+        "actual_own": 1.42
+      },
+      {
+        "name": "Brian Harman",
+        "proj_points": 42.79,
+        "actual_fpts": 12.5,
+        "fpts_delta": -30.29,
+        "ownership": 27.7,
+        "actual_own": 46.81
+      },
+      {
+        "name": "Sungjae Im",
+        "proj_points": 50.08,
+        "actual_fpts": 22.75,
+        "fpts_delta": -27.33,
+        "ownership": 49.5,
+        "actual_own": 41.84
+      },
+      {
+        "name": "Sam Burns",
+        "proj_points": 54.72,
+        "actual_fpts": 30.15,
+        "fpts_delta": -24.57,
+        "ownership": 36.5,
+        "actual_own": 32.62
+      },
+      {
+        "name": "Chris Gotterup",
+        "proj_points": 46.18,
+        "actual_fpts": 22.2,
+        "fpts_delta": -23.98,
+        "ownership": 16.8,
+        "actual_own": 12.77
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Max Homa",
+        "salary": 6100,
+        "actual_fpts": 40.4,
+        "actual_own": 16.31,
+        "top_lineup_pct": 40.0
+      },
+      {
+        "name": "Harry Hall",
+        "salary": 6400,
+        "actual_fpts": 38.05,
+        "actual_own": 9.22,
+        "top_lineup_pct": 30.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 20.49,
+      "low_own_count_mean": 2.0,
+      "salary_used_mean": 49885.0,
+      "dup_max": 1,
+      "unique_pct": 100.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "supremexjp",
+          "points": 246.59999,
+          "percentile": 0.7,
+          "players": [
+            "Tommy Fleetwood",
+            "Si Woo Kim",
+            "Russell Henley",
+            "Ryan Gerard",
+            "Alex Noren",
+            "Bud Cauley"
+          ],
+          "avg_own": 13.48,
+          "low_own_count": 3,
+          "salary_used": 50000,
+          "proj_total": 261.29,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "Chucklesbee",
+          "points": 243.05002,
+          "percentile": 1.4,
+          "players": [
+            "Scottie Scheffler",
+            "Si Woo Kim",
+            "Tom Kim",
+            "Harry Hall",
+            "J.T. Poston",
+            "Max Homa"
+          ],
+          "avg_own": 24.94,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 265.87,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "bake86",
+          "points": 236.9,
+          "percentile": 2.1,
+          "players": [
+            "Scottie Scheffler",
+            "Tom Kim",
+            "Kurt Kitayama",
+            "Russell Henley",
+            "Harry Hall",
+            "Max Homa"
+          ],
+          "avg_own": 20.33,
+          "low_own_count": 2,
+          "salary_used": 50000,
+          "proj_total": 261.5,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "blindeque",
+          "points": 236.5,
+          "percentile": 2.8,
+          "players": [
+            "Scottie Scheffler",
+            "Russell Henley",
+            "J.J. Spaun",
+            "Alex Noren",
+            "Nicolas Echavarria",
+            "Harry Hall"
+          ],
+          "avg_own": 15.48,
+          "low_own_count": 4,
+          "salary_used": 49600,
+          "proj_total": 265.36,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "disalvo997",
+          "points": 231.35,
+          "percentile": 3.5,
+          "players": [
+            "Hideki Matsuyama",
+            "Patrick Cantlay",
+            "Si Woo Kim",
+            "Sungjae Im",
+            "Alex Noren",
+            "Max Homa"
+          ],
+          "avg_own": 24,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 269.83,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "PrabsOU",
+          "points": 231.25,
+          "percentile": 4.3,
+          "players": [
+            "Scottie Scheffler",
+            "Patrick Cantlay",
+            "Bud Cauley",
+            "Alex Fitzpatrick",
+            "Nicolai H\u00f8jgaard",
+            "Ryo Hisatsune"
+          ],
+          "avg_own": 9.58,
+          "low_own_count": 5,
+          "salary_used": 49400,
+          "proj_total": 248.74,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "Leadpipe",
+          "points": 230.15001,
+          "percentile": 5.0,
+          "players": [
+            "Scottie Scheffler",
+            "Sam Burns",
+            "Jake Knapp",
+            "Sepp Straka",
+            "Max Homa",
+            "Ricky Castillo"
+          ],
+          "avg_own": 21.63,
+          "low_own_count": 2,
+          "salary_used": 50000,
+          "proj_total": 260.33,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "jhnhng",
+          "points": 227.15,
+          "percentile": 5.7,
+          "players": [
+            "Scottie Scheffler",
+            "Jackson Koivun",
+            "Alex Noren",
+            "Bud Cauley",
+            "Brian Harman",
+            "J.T. Poston"
+          ],
+          "avg_own": 26.59,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 269.57,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "pdonnelly414",
+          "points": 224.90001,
+          "percentile": 6.4,
+          "players": [
+            "Scottie Scheffler",
+            "Jake Knapp",
+            "Kurt Kitayama",
+            "Alex Noren",
+            "Brian Harman",
+            "Harry Hall"
+          ],
+          "avg_own": 30.38,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 275.48,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "jschuh0923",
+          "points": 223.9,
+          "percentile": 7.1,
+          "players": [
+            "Scottie Scheffler",
+            "Jackson Koivun",
+            "Jacob Bridgeman",
+            "Alex Noren",
+            "Brian Harman",
+            "Max Homa"
+          ],
+          "avg_own": 24.35,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 263.32,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -9.65,
+        "low_own_count_delta": 2.0,
+        "salary_used_delta": 185.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 140,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Brian Harman",
+          "field_own": 46.8,
+          "actual_fpts": 12.5
+        },
+        {
+          "name": "Sungjae Im",
+          "field_own": 41.8,
+          "actual_fpts": 22.8
+        },
+        {
+          "name": "Scottie Scheffler",
+          "field_own": 38.3,
+          "actual_fpts": 58.0
+        },
+        {
+          "name": "Jake Knapp",
+          "field_own": 37.6,
+          "actual_fpts": 31.4
+        },
+        {
+          "name": "Sam Burns",
+          "field_own": 32.6,
+          "actual_fpts": 30.1
+        },
+        {
+          "name": "J.T. Poston",
+          "field_own": 32.6,
+          "actual_fpts": 25.6
+        },
+        {
+          "name": "Si Woo Kim",
+          "field_own": 30.5,
+          "actual_fpts": 50.5
+        },
+        {
+          "name": "Kurt Kitayama",
+          "field_own": 26.2,
+          "actual_fpts": 36.9
+        },
+        {
+          "name": "Alex Noren",
+          "field_own": 24.1,
+          "actual_fpts": 48.1
+        },
+        {
+          "name": "Tom Kim",
+          "field_own": 22.7,
+          "actual_fpts": 30.6
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "J.T. Poston",
+            "Scottie Scheffler"
+          ],
+          "field_pct": 23.7,
+          "count": 33
+        },
+        {
+          "players": [
+            "Brian Harman",
+            "Scottie Scheffler"
+          ],
+          "field_pct": 21.6,
+          "count": 30
+        },
+        {
+          "players": [
+            "Brian Harman",
+            "Jake Knapp"
+          ],
+          "field_pct": 20.9,
+          "count": 29
+        },
+        {
+          "players": [
+            "Brian Harman",
+            "Sungjae Im"
+          ],
+          "field_pct": 19.4,
+          "count": 27
+        },
+        {
+          "players": [
+            "Brian Harman",
+            "J.T. Poston"
+          ],
+          "field_pct": 18.7,
+          "count": 26
+        },
+        {
+          "players": [
+            "Brian Harman",
+            "Sam Burns"
+          ],
+          "field_pct": 18.7,
+          "count": 26
+        },
+        {
+          "players": [
+            "Jake Knapp",
+            "Sungjae Im"
+          ],
+          "field_pct": 18.0,
+          "count": 25
+        },
+        {
+          "players": [
+            "Sam Burns",
+            "Sungjae Im"
+          ],
+          "field_pct": 16.5,
+          "count": 23
+        },
+        {
+          "players": [
+            "Si Woo Kim",
+            "Sungjae Im"
+          ],
+          "field_pct": 15.1,
+          "count": 21
+        },
+        {
+          "players": [
+            "Brian Harman",
+            "Si Woo Kim"
+          ],
+          "field_pct": 15.1,
+          "count": 21
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Alex Noren",
+            "Brian Harman",
+            "J.T. Poston",
+            "Jake Knapp",
+            "Scottie Scheffler",
+            "Sungjae Im"
+          ],
+          "count": 4,
+          "field_pct": 2.9
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Brian Harman",
+            "Kurt Kitayama",
+            "Sam Burns",
+            "Si Woo Kim",
+            "Sungjae Im"
+          ],
+          "count": 2,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Brian Harman",
+            "Jake Knapp",
+            "Sam Burns",
+            "Si Woo Kim",
+            "Sungjae Im"
+          ],
+          "count": 2,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Adam Scott",
+            "Brian Harman",
+            "Jake Knapp",
+            "Sam Burns",
+            "Si Woo Kim",
+            "Sungjae Im"
+          ],
+          "count": 2,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Brian Harman",
+            "Chris Gotterup",
+            "J.T. Poston",
+            "Sam Burns",
+            "Si Woo Kim",
+            "Sungjae Im"
+          ],
+          "count": 2,
+          "field_pct": 1.4
+        }
+      ],
+      "winners_profile": {
+        "n": 1,
+        "avg_own_per_slot": 13.5,
+        "dart_pct": 100.0,
+        "unique_pct": 100.0
+      },
+      "fish_profile": {
+        "n": 70,
+        "avg_own_per_slot": 25.1,
+        "dart_pct": 45.7,
+        "unique_pct": 95.7
+      },
+      "fish_traps": [
+        {
+          "name": "Brian Harman",
+          "fish_pct": 65.7,
+          "winner_pct": 0.0,
+          "gap": 65.7,
+          "actual_fpts": 12.5,
+          "field_own": 46.8,
+          "own_rank": 1
+        },
+        {
+          "name": "Sungjae Im",
+          "fish_pct": 50.0,
+          "winner_pct": 0.0,
+          "gap": 50.0,
+          "actual_fpts": 22.8,
+          "field_own": 41.8,
+          "own_rank": 2
+        },
+        {
+          "name": "Jake Knapp",
+          "fish_pct": 48.6,
+          "winner_pct": 0.0,
+          "gap": 48.6,
+          "actual_fpts": 31.4,
+          "field_own": 37.6,
+          "own_rank": 4
+        },
+        {
+          "name": "Sam Burns",
+          "fish_pct": 45.7,
+          "winner_pct": 0.0,
+          "gap": 45.7,
+          "actual_fpts": 30.1,
+          "field_own": 32.6,
+          "own_rank": 5
+        },
+        {
+          "name": "Scottie Scheffler",
+          "fish_pct": 30.0,
+          "winner_pct": 0.0,
+          "gap": 30.0,
+          "actual_fpts": 58.0,
+          "field_own": 38.3,
+          "own_rank": 3
+        },
+        {
+          "name": "J.T. Poston",
+          "fish_pct": 28.6,
+          "winner_pct": 0.0,
+          "gap": 28.6,
+          "actual_fpts": 25.6,
+          "field_own": 32.6,
+          "own_rank": 5
+        },
+        {
+          "name": "Hideki Matsuyama",
+          "fish_pct": 22.9,
+          "winner_pct": 0.0,
+          "gap": 22.9,
+          "actual_fpts": 34.8,
+          "field_own": 22.0,
+          "own_rank": 11
+        },
+        {
+          "name": "Tom Kim",
+          "fish_pct": 21.4,
+          "winner_pct": 0.0,
+          "gap": 21.4,
+          "actual_fpts": 30.6,
+          "field_own": 22.7,
+          "own_rank": 10
+        },
+        {
+          "name": "Kurt Kitayama",
+          "fish_pct": 20.0,
+          "winner_pct": 0.0,
+          "gap": 20.0,
+          "actual_fpts": 36.9,
+          "field_own": 26.2,
+          "own_rank": 8
+        },
+        {
+          "name": "Nick Taylor",
+          "fish_pct": 18.6,
+          "winner_pct": 0.0,
+          "gap": 18.6,
+          "actual_fpts": 14.8,
+          "field_own": 12.1,
+          "own_rank": 15
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "supremexjp",
+          "best_rank": 1,
+          "percentile": 0.7
+        },
+        {
+          "handle": "Chucklesbee",
+          "best_rank": 2,
+          "percentile": 1.4
+        },
+        {
+          "handle": "bake86",
+          "best_rank": 3,
+          "percentile": 2.1
+        },
+        {
+          "handle": "blindeque",
+          "best_rank": 4,
+          "percentile": 2.9
+        },
+        {
+          "handle": "disalvo997",
+          "best_rank": 5,
+          "percentile": 3.6
+        },
+        {
+          "handle": "PrabsOU",
+          "best_rank": 6,
+          "percentile": 4.3
+        },
+        {
+          "handle": "Leadpipe",
+          "best_rank": 7,
+          "percentile": 5.0
+        },
+        {
+          "handle": "jhnhng",
+          "best_rank": 8,
+          "percentile": 5.7
+        },
+        {
+          "handle": "pdonnelly414",
+          "best_rank": 9,
+          "percentile": 6.4
+        },
+        {
+          "handle": "jschuh0923",
+          "best_rank": 10,
+          "percentile": 7.1
+        },
+        {
+          "handle": "NY44",
+          "best_rank": 11,
+          "percentile": 7.9
+        },
+        {
+          "handle": "ryanthorb",
+          "best_rank": 12,
+          "percentile": 8.6
+        },
+        {
+          "handle": "HeyNow1907",
+          "best_rank": 13,
+          "percentile": 9.3
+        },
+        {
+          "handle": "LinkSinc",
+          "best_rank": 14,
+          "percentile": 10.0
+        },
+        {
+          "handle": "jdooley99",
+          "best_rank": 15,
+          "percentile": 10.7
+        }
+      ],
+      "read": [
+        "Field crowded **Brian Harman** at 46.8% (12.5 fpts) \u2014 the chalk to consider fading.",
+        "**J.T. Poston + Scottie Scheffler** were together in 23.7% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Brian Harman** was a fish trap: 65.7% of the fish, only 0.0% of winners.",
+        "Fish ran 11.6 pts/slot more chalk than winners (25.1% vs 13.5%)."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 246.59999,
+      "winner_handle": "supremexjp",
+      "roster": [
+        {
+          "name": "Tommy Fleetwood",
+          "own": 10.64,
+          "fpts": 31.2
+        },
+        {
+          "name": "Si Woo Kim",
+          "own": 30.5,
+          "fpts": 50.5
+        },
+        {
+          "name": "Russell Henley",
+          "own": 9.22,
+          "fpts": 33.05
+        },
+        {
+          "name": "Ryan Gerard",
+          "own": 3.55,
+          "fpts": 38.05
+        },
+        {
+          "name": "Alex Noren",
+          "own": 24.11,
+          "fpts": 48.1
+        },
+        {
+          "name": "Bud Cauley",
+          "own": 2.84,
+          "fpts": 45.7
+        }
+      ],
+      "avg_own": 13.5,
+      "n_low_own": 3,
+      "carrier": {
+        "name": "Bud Cauley",
+        "own": 2.84,
+        "fpts": 45.7
+      },
+      "expected_dupes": 0.0
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "blocked_swap": {
+        "out": "Brian Harman",
+        "in": "Si Woo Kim",
+        "gain": 38.0,
+        "over_cap_by": 1800
+      },
+      "gradable": true,
+      "won": false,
+      "your_points": 181.65001,
+      "winner_points": 246.59999,
+      "gap": 64.9,
+      "your_percentile": 80.1,
+      "n_shared": 1,
+      "shared": [
+        "Alex Noren"
+      ],
+      "your_uniques": [
+        {
+          "name": "Hideki Matsuyama",
+          "fpts": 34.75,
+          "salary": 10100
+        },
+        {
+          "name": "Tom Kim",
+          "fpts": 30.6,
+          "salary": 8500
+        },
+        {
+          "name": "Sam Burns",
+          "fpts": 30.15,
+          "salary": 10400
+        },
+        {
+          "name": "J.T. Poston",
+          "fpts": 25.55,
+          "salary": 6300
+        },
+        {
+          "name": "Brian Harman",
+          "fpts": 12.5,
+          "salary": 7000
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Si Woo Kim",
+          "fpts": 50.5,
+          "salary": 9100
+        },
+        {
+          "name": "Bud Cauley",
+          "fpts": 45.7,
+          "salary": 7100
+        },
+        {
+          "name": "Ryan Gerard",
+          "fpts": 38.05,
+          "salary": 7600
+        },
+        {
+          "name": "Russell Henley",
+          "fpts": 33.05,
+          "salary": 7800
+        },
+        {
+          "name": "Tommy Fleetwood",
+          "fpts": 31.2,
+          "salary": 11000
+        }
+      ],
+      "best_swap": {
+        "out": "Brian Harman",
+        "in": "Bud Cauley",
+        "gain": 33.2,
+        "would_have_won": false
+      },
+      "swaps_needed": 3
+    }
+  },
+  {
+    "timestamp": "2026-08-22 12:04",
+    "contest_type": "PGA RD4 Showdown",
+    "source_file": "contest-standings-193812583.csv",
+    "contest_id": "193812583",
+    "entries": 196,
+    "winning_score": 257.09998,
+    "cash_line_p80": 217.35,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "pga_rd4_sd",
+    "sport": "golf",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 63,
+      "total": 63
+    },
+    "user_summary": {
+      "avg_own_mean": 20.15,
+      "low_own_count_mean": 2.0,
+      "salary_used_mean": 50000.0,
+      "entry_count": 1,
+      "best_rank": 28,
+      "best_percentile": 14.3
+    },
+    "user_lineups": [
+      {
+        "rank": 28,
+        "entry_name": "RyvlesGaming30",
+        "points": 221.10002,
+        "percentile": 14.3,
+        "players": [
+          "Scottie Scheffler",
+          "Kurt Kitayama",
+          "Adam Scott",
+          "Jacob Bridgeman",
+          "Alex Noren",
+          "Nick Taylor"
+        ],
+        "avg_own": 20.15,
+        "low_own_count": 2,
+        "salary_used": 50000,
+        "proj_total": 270.64,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Justin Rose",
+        "proj_points": 32.95,
+        "actual_fpts": 60.4,
+        "fpts_delta": 27.45,
+        "ownership": 0.6,
+        "actual_own": 1.02
+      },
+      {
+        "name": "Sepp Straka",
+        "proj_points": 32.68,
+        "actual_fpts": 50.0,
+        "fpts_delta": 17.32,
+        "ownership": 1.5,
+        "actual_own": 1.02
+      },
+      {
+        "name": "Xander Schauffele",
+        "proj_points": 44.69,
+        "actual_fpts": 53.65,
+        "fpts_delta": 8.96,
+        "ownership": 7.4,
+        "actual_own": 3.06
+      },
+      {
+        "name": "Bud Cauley",
+        "proj_points": 37.95,
+        "actual_fpts": 45.7,
+        "fpts_delta": 7.75,
+        "ownership": 7.6,
+        "actual_own": 4.08
+      },
+      {
+        "name": "Kristoffer Reitan",
+        "proj_points": 32.95,
+        "actual_fpts": 40.3,
+        "fpts_delta": 7.35,
+        "ownership": 1.2,
+        "actual_own": 1.02
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Aaron Rai",
+        "proj_points": 37.12,
+        "actual_fpts": 0.6,
+        "fpts_delta": -36.52,
+        "ownership": 4.6,
+        "actual_own": 1.53
+      },
+      {
+        "name": "Brian Harman",
+        "proj_points": 42.79,
+        "actual_fpts": 12.5,
+        "fpts_delta": -30.29,
+        "ownership": 27.7,
+        "actual_own": 39.8
+      },
+      {
+        "name": "Sungjae Im",
+        "proj_points": 50.08,
+        "actual_fpts": 22.75,
+        "fpts_delta": -27.33,
+        "ownership": 49.5,
+        "actual_own": 43.88
+      },
+      {
+        "name": "Sam Burns",
+        "proj_points": 54.72,
+        "actual_fpts": 30.15,
+        "fpts_delta": -24.57,
+        "ownership": 36.5,
+        "actual_own": 35.2
+      },
+      {
+        "name": "Chris Gotterup",
+        "proj_points": 46.18,
+        "actual_fpts": 22.2,
+        "fpts_delta": -23.98,
+        "ownership": 16.8,
+        "actual_own": 12.24
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Max Homa",
+        "salary": 6100,
+        "actual_fpts": 40.4,
+        "actual_own": 11.22,
+        "top_lineup_pct": 35.0
+      },
+      {
+        "name": "Russell Henley",
+        "salary": 7800,
+        "actual_fpts": 33.05,
+        "actual_own": 11.22,
+        "top_lineup_pct": 30.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 18.77,
+      "low_own_count_mean": 2.3,
+      "salary_used_mean": 49920.0,
+      "dup_max": 1,
+      "unique_pct": 100.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "cusetown1978",
+          "points": 257.09998,
+          "percentile": 0.5,
+          "players": [
+            "Xander Schauffele",
+            "Matt Fitzpatrick",
+            "Si Woo Kim",
+            "Russell Henley",
+            "Alex Noren",
+            "J.T. Poston"
+          ],
+          "avg_own": 17.94,
+          "low_own_count": 2,
+          "salary_used": 50000,
+          "proj_total": 263.34,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "twpick",
+          "points": 249.15,
+          "percentile": 1.0,
+          "players": [
+            "Hideki Matsuyama",
+            "Cameron Young",
+            "Wyndham Clark",
+            "Min Woo Lee",
+            "Justin Rose",
+            "Sepp Straka"
+          ],
+          "avg_own": 5.53,
+          "low_own_count": 5,
+          "salary_used": 50000,
+          "proj_total": 233.1,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "supremexjp",
+          "points": 246.59999,
+          "percentile": 1.5,
+          "players": [
+            "Tommy Fleetwood",
+            "Si Woo Kim",
+            "Russell Henley",
+            "Ryan Gerard",
+            "Alex Noren",
+            "Bud Cauley"
+          ],
+          "avg_own": 14.54,
+          "low_own_count": 3,
+          "salary_used": 50000,
+          "proj_total": 261.29,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "mgrah75",
+          "points": 244.05,
+          "percentile": 2.0,
+          "players": [
+            "Scottie Scheffler",
+            "Matt Fitzpatrick",
+            "Kurt Kitayama",
+            "Nicolai H\u00f8jgaard",
+            "Patrick Rodgers",
+            "J.T. Poston"
+          ],
+          "avg_own": 17.86,
+          "low_own_count": 3,
+          "salary_used": 50000,
+          "proj_total": 261.62,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "NYblue28",
+          "points": 241.65,
+          "percentile": 2.6,
+          "players": [
+            "Scottie Scheffler",
+            "Viktor Hovland",
+            "Jake Knapp",
+            "Nicolai H\u00f8jgaard",
+            "Pierceson Coody",
+            "Max Homa"
+          ],
+          "avg_own": 18.54,
+          "low_own_count": 2,
+          "salary_used": 49700,
+          "proj_total": 258.2,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "Rather_Dashing",
+          "points": 239.34998,
+          "percentile": 3.1,
+          "players": [
+            "Scottie Scheffler",
+            "Hideki Matsuyama",
+            "Alex Noren",
+            "Michael Brennan",
+            "Sam Stevens",
+            "Max Homa"
+          ],
+          "avg_own": 18.79,
+          "low_own_count": 2,
+          "salary_used": 50000,
+          "proj_total": 259.76,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "Derek18",
+          "points": 236.69998,
+          "percentile": 3.6,
+          "players": [
+            "Scottie Scheffler",
+            "Tom Kim",
+            "Jordan Spieth",
+            "Adam Scott",
+            "Patrick Rodgers",
+            "Max Homa"
+          ],
+          "avg_own": 15.13,
+          "low_own_count": 3,
+          "salary_used": 50000,
+          "proj_total": 257.2,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "bonacrave",
+          "points": 235.95001,
+          "percentile": 4.1,
+          "players": [
+            "Scottie Scheffler",
+            "Jake Knapp",
+            "Kurt Kitayama",
+            "Alex Noren",
+            "Nicolas Echavarria",
+            "J.T. Poston"
+          ],
+          "avg_own": 28.23,
+          "low_own_count": 1,
+          "salary_used": 49700,
+          "proj_total": 278.01,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "meyers2305",
+          "points": 235.75,
+          "percentile": 4.6,
+          "players": [
+            "Matt Fitzpatrick",
+            "Si Woo Kim",
+            "Chris Gotterup",
+            "Russell Henley",
+            "Ryan Gerard",
+            "Bud Cauley"
+          ],
+          "avg_own": 10.71,
+          "low_own_count": 3,
+          "salary_used": 49900,
+          "proj_total": 257.79,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "thecommishchl",
+          "points": 234.9,
+          "percentile": 5.1,
+          "players": [
+            "Scottie Scheffler",
+            "Si Woo Kim",
+            "Jake Knapp",
+            "Michael Brennan",
+            "Ryo Hisatsune",
+            "Max Homa"
+          ],
+          "avg_own": 20.41,
+          "low_own_count": 2,
+          "salary_used": 49700,
+          "proj_total": 260.24,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -1.38,
+        "low_own_count_delta": 0.3,
+        "salary_used_delta": -80.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 195,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Sungjae Im",
+          "field_own": 43.9,
+          "actual_fpts": 22.8
+        },
+        {
+          "name": "Brian Harman",
+          "field_own": 39.8,
+          "actual_fpts": 12.5
+        },
+        {
+          "name": "Jake Knapp",
+          "field_own": 37.8,
+          "actual_fpts": 31.4
+        },
+        {
+          "name": "Scottie Scheffler",
+          "field_own": 37.2,
+          "actual_fpts": 58.0
+        },
+        {
+          "name": "Sam Burns",
+          "field_own": 35.2,
+          "actual_fpts": 30.1
+        },
+        {
+          "name": "Alex Noren",
+          "field_own": 31.6,
+          "actual_fpts": 48.1
+        },
+        {
+          "name": "J.T. Poston",
+          "field_own": 31.1,
+          "actual_fpts": 25.6
+        },
+        {
+          "name": "Si Woo Kim",
+          "field_own": 25.0,
+          "actual_fpts": 50.5
+        },
+        {
+          "name": "Kurt Kitayama",
+          "field_own": 24.5,
+          "actual_fpts": 36.9
+        },
+        {
+          "name": "Hideki Matsuyama",
+          "field_own": 23.5,
+          "actual_fpts": 34.8
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Jake Knapp",
+            "Sungjae Im"
+          ],
+          "field_pct": 20.1,
+          "count": 39
+        },
+        {
+          "players": [
+            "Brian Harman",
+            "Sungjae Im"
+          ],
+          "field_pct": 19.6,
+          "count": 38
+        },
+        {
+          "players": [
+            "J.T. Poston",
+            "Scottie Scheffler"
+          ],
+          "field_pct": 19.1,
+          "count": 37
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Sungjae Im"
+          ],
+          "field_pct": 16.5,
+          "count": 32
+        },
+        {
+          "players": [
+            "Sam Burns",
+            "Sungjae Im"
+          ],
+          "field_pct": 16.5,
+          "count": 32
+        },
+        {
+          "players": [
+            "Brian Harman",
+            "Scottie Scheffler"
+          ],
+          "field_pct": 16.0,
+          "count": 31
+        },
+        {
+          "players": [
+            "Brian Harman",
+            "Jake Knapp"
+          ],
+          "field_pct": 16.0,
+          "count": 31
+        },
+        {
+          "players": [
+            "Brian Harman",
+            "Sam Burns"
+          ],
+          "field_pct": 15.5,
+          "count": 30
+        },
+        {
+          "players": [
+            "J.T. Poston",
+            "Sungjae Im"
+          ],
+          "field_pct": 14.9,
+          "count": 29
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Brian Harman"
+          ],
+          "field_pct": 14.9,
+          "count": 29
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Alex Noren",
+            "Brian Harman",
+            "Kurt Kitayama",
+            "Sam Burns",
+            "Si Woo Kim",
+            "Sungjae Im"
+          ],
+          "count": 4,
+          "field_pct": 2.1
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Brian Harman",
+            "J.T. Poston",
+            "Jake Knapp",
+            "Scottie Scheffler",
+            "Sungjae Im"
+          ],
+          "count": 4,
+          "field_pct": 2.1
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Brian Harman",
+            "Jake Knapp",
+            "Sam Burns",
+            "Si Woo Kim",
+            "Sungjae Im"
+          ],
+          "count": 4,
+          "field_pct": 2.1
+        },
+        {
+          "players": [
+            "Alex Noren",
+            "Brian Harman",
+            "Hideki Matsuyama",
+            "Jackson Koivun",
+            "Kurt Kitayama",
+            "Si Woo Kim"
+          ],
+          "count": 2,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Hideki Matsuyama",
+            "J.T. Poston",
+            "Kurt Kitayama",
+            "Si Woo Kim",
+            "Sungjae Im",
+            "Tom Kim"
+          ],
+          "count": 2,
+          "field_pct": 1.0
+        }
+      ],
+      "winners_profile": {
+        "n": 2,
+        "avg_own_per_slot": 11.7,
+        "dart_pct": 100.0,
+        "unique_pct": 100.0
+      },
+      "fish_profile": {
+        "n": 97,
+        "avg_own_per_slot": 24.2,
+        "dart_pct": 43.3,
+        "unique_pct": 92.8
+      },
+      "fish_traps": [
+        {
+          "name": "Brian Harman",
+          "fish_pct": 58.8,
+          "winner_pct": 0.0,
+          "gap": 58.8,
+          "actual_fpts": 12.5,
+          "field_own": 39.8,
+          "own_rank": 2
+        },
+        {
+          "name": "Sungjae Im",
+          "fish_pct": 51.5,
+          "winner_pct": 0.0,
+          "gap": 51.5,
+          "actual_fpts": 22.8,
+          "field_own": 43.9,
+          "own_rank": 1
+        },
+        {
+          "name": "Sam Burns",
+          "fish_pct": 45.4,
+          "winner_pct": 0.0,
+          "gap": 45.4,
+          "actual_fpts": 30.1,
+          "field_own": 35.2,
+          "own_rank": 5
+        },
+        {
+          "name": "Jake Knapp",
+          "fish_pct": 44.3,
+          "winner_pct": 0.0,
+          "gap": 44.3,
+          "actual_fpts": 31.4,
+          "field_own": 37.8,
+          "own_rank": 3
+        },
+        {
+          "name": "Scottie Scheffler",
+          "fish_pct": 27.8,
+          "winner_pct": 0.0,
+          "gap": 27.8,
+          "actual_fpts": 58.0,
+          "field_own": 37.2,
+          "own_rank": 4
+        },
+        {
+          "name": "Tom Kim",
+          "fish_pct": 23.7,
+          "winner_pct": 0.0,
+          "gap": 23.7,
+          "actual_fpts": 30.6,
+          "field_own": 20.9,
+          "own_rank": 11
+        },
+        {
+          "name": "Chris Gotterup",
+          "fish_pct": 18.6,
+          "winner_pct": 0.0,
+          "gap": 18.6,
+          "actual_fpts": 22.2,
+          "field_own": 12.2,
+          "own_rank": 14
+        },
+        {
+          "name": "Kurt Kitayama",
+          "fish_pct": 16.5,
+          "winner_pct": 0.0,
+          "gap": 16.5,
+          "actual_fpts": 36.9,
+          "field_own": 24.5,
+          "own_rank": 9
+        },
+        {
+          "name": "Tommy Fleetwood",
+          "fish_pct": 15.5,
+          "winner_pct": 0.0,
+          "gap": 15.5,
+          "actual_fpts": 31.2,
+          "field_own": 9.2,
+          "own_rank": 19
+        },
+        {
+          "name": "Nick Taylor",
+          "fish_pct": 13.4,
+          "winner_pct": 0.0,
+          "gap": 13.4,
+          "actual_fpts": 14.8,
+          "field_own": 10.2,
+          "own_rank": 17
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "cusetown1978",
+          "best_rank": 1,
+          "percentile": 0.5
+        },
+        {
+          "handle": "twpick",
+          "best_rank": 2,
+          "percentile": 1.0
+        },
+        {
+          "handle": "supremexjp",
+          "best_rank": 3,
+          "percentile": 1.5
+        },
+        {
+          "handle": "mgrah75",
+          "best_rank": 4,
+          "percentile": 2.1
+        },
+        {
+          "handle": "NYblue28",
+          "best_rank": 5,
+          "percentile": 2.6
+        },
+        {
+          "handle": "Rather_Dashing",
+          "best_rank": 6,
+          "percentile": 3.1
+        },
+        {
+          "handle": "Derek18",
+          "best_rank": 7,
+          "percentile": 3.6
+        },
+        {
+          "handle": "bonacrave",
+          "best_rank": 8,
+          "percentile": 4.1
+        },
+        {
+          "handle": "meyers2305",
+          "best_rank": 9,
+          "percentile": 4.6
+        },
+        {
+          "handle": "thecommishchl",
+          "best_rank": 10,
+          "percentile": 5.1
+        },
+        {
+          "handle": "dbsultan",
+          "best_rank": 11,
+          "percentile": 5.6
+        },
+        {
+          "handle": "ivymoose",
+          "best_rank": 11,
+          "percentile": 5.6
+        },
+        {
+          "handle": "bootboots6",
+          "best_rank": 13,
+          "percentile": 6.7
+        },
+        {
+          "handle": "disalvo997",
+          "best_rank": 14,
+          "percentile": 7.2
+        },
+        {
+          "handle": "Leadpipe",
+          "best_rank": 15,
+          "percentile": 7.7
+        }
+      ],
+      "read": [
+        "Field crowded **Sungjae Im** at 43.9% (22.8 fpts) \u2014 the chalk to consider fading.",
+        "**Jake Knapp + Sungjae Im** were together in 20.1% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Brian Harman** was a fish trap: 58.8% of the fish, only 0.0% of winners.",
+        "Fish ran 12.5 pts/slot more chalk than winners (24.2% vs 11.7%)."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 257.09998,
+      "winner_handle": "cusetown1978",
+      "roster": [
+        {
+          "name": "Xander Schauffele",
+          "own": 3.06,
+          "fpts": 53.65
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "own": 5.61,
+          "fpts": 46.25
+        },
+        {
+          "name": "Si Woo Kim",
+          "own": 25.0,
+          "fpts": 50.5
+        },
+        {
+          "name": "Russell Henley",
+          "own": 11.22,
+          "fpts": 33.05
+        },
+        {
+          "name": "Alex Noren",
+          "own": 31.63,
+          "fpts": 48.1
+        },
+        {
+          "name": "J.T. Poston",
+          "own": 31.12,
+          "fpts": 25.55
+        }
+      ],
+      "avg_own": 17.9,
+      "n_low_own": 2,
+      "carrier": {
+        "name": "Xander Schauffele",
+        "own": 3.06,
+        "fpts": 53.65
+      },
+      "expected_dupes": 0.0
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "blocked_swap": {
+        "out": "Nick Taylor",
+        "in": "Xander Schauffele",
+        "gain": 38.8,
+        "over_cap_by": 3700
+      },
+      "gradable": true,
+      "won": false,
+      "your_points": 221.10002,
+      "winner_points": 257.09998,
+      "gap": 36.0,
+      "your_percentile": 14.3,
+      "n_shared": 1,
+      "shared": [
+        "Alex Noren"
+      ],
+      "your_uniques": [
+        {
+          "name": "Scottie Scheffler",
+          "fpts": 57.95,
+          "salary": 13400
+        },
+        {
+          "name": "Kurt Kitayama",
+          "fpts": 36.85,
+          "salary": 7800
+        },
+        {
+          "name": "Adam Scott",
+          "fpts": 35.8,
+          "salary": 7600
+        },
+        {
+          "name": "Jacob Bridgeman",
+          "fpts": 27.6,
+          "salary": 7500
+        },
+        {
+          "name": "Nick Taylor",
+          "fpts": 14.8,
+          "salary": 6300
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Xander Schauffele",
+          "fpts": 53.65,
+          "salary": 10000
+        },
+        {
+          "name": "Si Woo Kim",
+          "fpts": 50.5,
+          "salary": 9100
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "fpts": 46.25,
+          "salary": 9400
+        },
+        {
+          "name": "Russell Henley",
+          "fpts": 33.05,
+          "salary": 7800
+        },
+        {
+          "name": "J.T. Poston",
+          "fpts": 25.55,
+          "salary": 6300
+        }
+      ],
+      "best_swap": {
+        "out": "Nick Taylor",
+        "in": "J.T. Poston",
+        "gain": 10.8,
+        "would_have_won": false
+      },
+      "swaps_needed": 3
+    }
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "slug": "pga_rd4_sd",
+  "pool_fp": "0328029df96a",
+  "pool_len": 10000,
+  "contests": {
+    "PGA TOUR Showdown $4K Dogleg [Single Entry] (Round 4 TOUR) (SE)": {
+      "picked": [
+        {
+          "index": 4682,
+          "roster_key": "Adam Scott|Pierceson Coody|Shane Lowry|Sungjae Im|Tommy Fleetwood|Xander Schauffele"
+        }
+      ],
+      "why": "This lineup wins if Scottie Scheffler wobbles and the tournament is won from just behind him \u2014 by Sungjae Im (the crowd's deserved value at half the field's rosters) or Tommy Fleetwood, while Xander Schauffele posts the low Sunday round almost nobody is holding (7.4% owned \u2014 about 1 team in 14). Its 0.47% top1 means roughly a 1-in-213 shot at first place in a 141-entry field \u2014 near the best available, and it pairs that with the slice's best any-payout chance (18.2% cash) and highest projection (257.3 points). The strategy names Schauffele the squeeze's biggest beneficiary, and Shane Lowry at 2.0% is the un-owned second dart the strategy says this top-heavy contest wants. Its 14.9% average ownership per slot is the closest any strategy-passing lineup gets to the 19-23% winning envelope \u2014 the gate removed every chalkier build because they leaned on the faded cheap chalk or the Im+Burns pair. It also fits the salary-shape rule with exactly one golfer under $7,000 (Pierceson Coody, $6,200), where the higher-sim Scheffler row carried three. Expected duplicates are 0 \u2014 if it hits, the user shares first place with no one.",
+      "generated_at": "2026-08-16 05:27",
+      "declared_contest_id": "6278b838"
+    }
+  }
+}

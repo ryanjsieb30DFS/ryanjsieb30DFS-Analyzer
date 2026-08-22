@@ -1,0 +1,77 @@
+{
+  "field": 196,
+  "anchors": [
+    "sungjae im",
+    "brian harman",
+    "jake knapp"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 29.8,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.667,
+    "anchor_exposure_by_player": {
+      "sungjae im": 0.0,
+      "brian harman": 1.0,
+      "jake knapp": 1.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 36.73,
+    "median_pctile": 36.73
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 20.2,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.0,
+    "anchor_exposure_by_player": {
+      "sungjae im": 0.0,
+      "brian harman": 0.0,
+      "jake knapp": 0.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 14.29,
+    "median_pctile": 14.29
+  },
+  "deltas": [
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 20.2,
+      "shark": 29.8,
+      "delta": -9.6
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.0,
+      "shark": 0.667,
+      "delta": -0.667
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 0.0,
+      "shark": 0.0,
+      "delta": 0.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "pga_rd4_sd",
+  "sport": "golf"
+}

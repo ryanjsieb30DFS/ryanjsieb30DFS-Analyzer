@@ -1,0 +1,207 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "n_contests": 2,
+  "calls": [
+    {
+      "name": "Nicolas Echavarria",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193812582.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193812583.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Brian Harman",
+      "verdict": "lean_fade",
+      "exposure_pct": 50.0,
+      "in_lineups": 1,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193812582.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        },
+        {
+          "contest": "contest-standings-193812583.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "over_in": [
+        "contest-standings-193812582.csv"
+      ]
+    },
+    {
+      "name": "J.T. Poston",
+      "verdict": "lean_fade",
+      "exposure_pct": 50.0,
+      "in_lineups": 1,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193812582.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        },
+        {
+          "contest": "contest-standings-193812583.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "over_in": [
+        "contest-standings-193812582.csv"
+      ]
+    },
+    {
+      "name": "Nick Taylor",
+      "verdict": "lean_fade",
+      "exposure_pct": 50.0,
+      "in_lineups": 1,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193812582.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193812583.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        }
+      ],
+      "over_in": [
+        "contest-standings-193812583.csv"
+      ]
+    },
+    {
+      "name": "Alex Noren",
+      "verdict": "underweight",
+      "exposure_pct": 100.0,
+      "in_lineups": 2,
+      "of": 2,
+      "followed": false,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193812582.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        },
+        {
+          "contest": "contest-standings-193812583.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        }
+      ]
+    },
+    {
+      "name": "Jake Knapp",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-193812582.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-193812583.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-193812582.csv",
+        "contest-standings-193812583.csv"
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 1,
+  "per_contest_flags": 4,
+  "leverage_candidates": [
+    {
+      "name": "Xander Schauffele",
+      "rostered": false
+    },
+    {
+      "name": "Matt Fitzpatrick",
+      "rostered": false
+    },
+    {
+      "name": "Ludvig Aberg",
+      "rostered": false
+    },
+    {
+      "name": "Wyndham Clark",
+      "rostered": false
+    },
+    {
+      "name": "Jackson Koivun",
+      "rostered": false
+    },
+    {
+      "name": "Maverick McNealy",
+      "rostered": false
+    },
+    {
+      "name": "Rickie Fowler",
+      "rostered": false
+    },
+    {
+      "name": "Jordan Spieth",
+      "rostered": false
+    },
+    {
+      "name": "Ryan Gerard",
+      "rostered": false
+    },
+    {
+      "name": "Jacob Bridgeman",
+      "rostered": true
+    },
+    {
+      "name": "Cameron Young",
+      "rostered": false
+    },
+    {
+      "name": "Keith Mitchell",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 1,
+  "leverage_of": 12
+}

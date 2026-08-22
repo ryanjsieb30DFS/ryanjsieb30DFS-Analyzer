@@ -1,0 +1,488 @@
+{
+  "generated_at": "2026-08-16 01:01",
+  "slug": "pga_rd4_sd",
+  "calls": [
+    {
+      "name": "Nicolas Echavarria",
+      "verdict": "fade"
+    },
+    {
+      "name": "Brian Harman",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "J.T. Poston",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Nick Taylor",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Alex Noren",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Jake Knapp",
+      "verdict": "underweight"
+    }
+  ],
+  "fades": [
+    "Nicolas Echavarria"
+  ],
+  "leverage_candidates": [
+    {
+      "name": "Xander Schauffele",
+      "own": 7.4
+    },
+    {
+      "name": "Matt Fitzpatrick",
+      "own": 7.3
+    },
+    {
+      "name": "Ludvig Aberg",
+      "own": 5.2
+    },
+    {
+      "name": "Wyndham Clark",
+      "own": 8.3
+    },
+    {
+      "name": "Jackson Koivun",
+      "own": 5.6
+    },
+    {
+      "name": "Maverick McNealy",
+      "own": 5.0
+    },
+    {
+      "name": "Rickie Fowler",
+      "own": 9.7
+    },
+    {
+      "name": "Jordan Spieth",
+      "own": 7.0
+    },
+    {
+      "name": "Ryan Gerard",
+      "own": 8.9
+    },
+    {
+      "name": "Jacob Bridgeman",
+      "own": 8.3
+    },
+    {
+      "name": "Cameron Young",
+      "own": 3.3
+    },
+    {
+      "name": "Keith Mitchell",
+      "own": 6.9
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Sungjae Im",
+        "Sam Burns"
+      ],
+      "joint_pct": 18.1
+    },
+    {
+      "players": [
+        "Sungjae Im",
+        "Brian Harman"
+      ],
+      "joint_pct": 13.7
+    },
+    {
+      "players": [
+        "Sungjae Im",
+        "Jake Knapp"
+      ],
+      "joint_pct": 13.7
+    },
+    {
+      "players": [
+        "Sungjae Im",
+        "J.T. Poston"
+      ],
+      "joint_pct": 13.2
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Brian Harman",
+        "Jake Knapp",
+        "J.T. Poston",
+        "Si Woo Kim"
+      ]
+    },
+    {
+      "players": [
+        "Hideki Matsuyama",
+        "Tom Kim",
+        "Kurt Kitayama",
+        "Chris Gotterup"
+      ]
+    },
+    {
+      "players": [
+        "Viktor Hovland",
+        "Nicolas Echavarria"
+      ]
+    }
+  ],
+  "structure_rules": [
+    {
+      "kind": "leaderboard",
+      "top_n": 10,
+      "min": 2,
+      "max": 3,
+      "quote": "| Article rule | Min 2, max 3 leaderboard golfers (T-10 and ties) per lineup \u2014 majority 2 |"
+    }
+  ],
+  "board": [
+    {
+      "name": "Scottie Scheffler",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Tommy Fleetwood",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Xander Schauffele",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Sam Burns",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Hideki Matsuyama",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Matt Fitzpatrick",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Viktor Hovland",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Sungjae Im",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Justin Thomas",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Ludvig Aberg",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Jackson Koivun",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Jordan Spieth",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Russell Henley",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Maverick McNealy",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Patrick Cantlay",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Wyndham Clark",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Cameron Young",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Collin Morikawa",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Si Woo Kim",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Chris Gotterup",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Rickie Fowler",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ryan Gerard",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Jacob Bridgeman",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "J.J. Spaun",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Keith Mitchell",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Tom Kim",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Alex Smalley",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Adam Scott",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Kurt Kitayama",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Alex Noren",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Jake Knapp",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Rory McIlroy",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Aaron Rai",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Michael Thorbjornsen",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Bud Cauley",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Gary Woodland",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Justin Rose",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Harry Hall",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Pierceson Coody",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ryo Hisatsune",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Michael Brennan",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Jordan L. Smith",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Sam Stevens",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Michael Kim",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ben Griffin",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Shane Lowry",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Min Woo Lee",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Akshay Bhatia",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Sepp Straka",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Nicolai Hojgaard",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Eric Cole",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Max Homa",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Corey Conners",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Alex Fitzpatrick",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Harris English",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Sahith Theegala",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Kristoffer Reitan",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Patrick Rodgers",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Sudarshan Yellamaraju",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Ryan Fox",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Matti Schmid",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Matthew McCarty",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Ricky Castillo",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Aldrich Potgieter",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Brian Harman",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "J.T. Poston",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Nick Taylor",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Nicolas Echavarria",
+      "tier": "Fade",
+      "leverage": false
+    }
+  ]
+}

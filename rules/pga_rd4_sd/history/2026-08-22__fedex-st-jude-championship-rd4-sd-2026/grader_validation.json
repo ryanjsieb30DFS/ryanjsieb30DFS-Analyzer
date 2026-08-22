@@ -1,0 +1,39 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "lineups": [
+    {
+      "players": [
+        "Alex Noren",
+        "Brian Harman",
+        "Hideki Matsuyama",
+        "J.T. Poston",
+        "Sam Burns",
+        "Tom Kim"
+      ],
+      "percentile": 80.1,
+      "flags": [
+        "chalk_heavy",
+        "no_leverage"
+      ]
+    },
+    {
+      "players": [
+        "Adam Scott",
+        "Alex Noren",
+        "Jacob Bridgeman",
+        "Kurt Kitayama",
+        "Nick Taylor",
+        "Scottie Scheffler"
+      ],
+      "percentile": 14.3,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [
+    80.1
+  ],
+  "clean_pctiles": [
+    14.3
+  ]
+}

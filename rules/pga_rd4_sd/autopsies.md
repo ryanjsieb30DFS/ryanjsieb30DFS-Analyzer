@@ -361,3 +361,44 @@ Concentrating 100% on one chalk-tier anchor when an equivalent-profile alternati
 | **Okay** | 50 | 38.6 | 84.2 |
 | **Fade** | 10 | 36.9 | 53.2 |
 - ✅ Tier ordering HELD — higher tiers outscored lower ones on average.
+
+
+## 2026-08-22 12:04 — PGA RD4 Showdown (contest-standings-193812582.csv)
+- Entries: 141
+- Winning score: 246.6
+- Cash line (top 20%): 213.7
+- My entries: 1 · best rank 113/141 (top 80.1%)
+- Winners (top 20): avg own 20.49% vs mine 30.14% · sub-10% plays/lineup 2.0 vs mine 0.0 · salary Δ +185
+- Overperformed proj: Sepp Straka, Ryan Fox, Harris English
+- Underperformed proj: Aaron Rai, Brian Harman, Sungjae Im
+- Slate-defining plays: Max Homa (40.4 pts @ 16.3%), Harry Hall (38.0 pts @ 9.2%)
+
+
+## 2026-08-22 12:04 — PGA RD4 Showdown (contest-standings-193812583.csv)
+- Entries: 196
+- Winning score: 257.1
+- Cash line (top 20%): 217.3
+- My entries: 1 · best rank 28/196 (top 14.3%)
+- Winners (top 20): avg own 18.77% vs mine 20.15% · sub-10% plays/lineup 2.3 vs mine 2.0 · salary Δ -80
+- Overperformed proj: Justin Rose, Sepp Straka, Xander Schauffele
+- Underperformed proj: Aaron Rai, Brian Harman, Sungjae Im
+- Slate-defining plays: Max Homa (40.4 pts @ 11.2%), Russell Henley (33.0 pts @ 11.2%)
+
+### Strategy adherence — did you follow your own strategy? (2 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ 1 under-own call(s) over-exposed: **Alex Noren** (100.0%)
+- ⚠️ LEAN_FADE call over-exposed inside contest-standings-193812582.csv: **Brian Harman** in 1 of 1 there — the pooled average hid it.
+- ⚠️ LEAN_FADE call over-exposed inside contest-standings-193812582.csv: **J.T. Poston** in 1 of 1 there — the pooled average hid it.
+- ⚠️ LEAN_FADE call over-exposed inside contest-standings-193812583.csv: **Nick Taylor** in 1 of 1 there — the pooled average hid it.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Jake Knapp** was in 0 of 1 lineups in contest-standings-193812582.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Jake Knapp** was in 0 of 1 lineups in contest-standings-193812583.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- Leverage candidates rostered somewhere: **1 of 12**.
+
+### Player-pool tier calibration (62 of 68 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 3 | 47.6 | 58.0 |
+| **Good** | 7 | 33.9 | 47.7 |
+| **Okay** | 43 | 32.7 | 50.5 |
+| **Fade** | 9 | 25.4 | 44.5 |
+- ✅ Tier ordering HELD — higher tiers outscored lower ones on average.

@@ -1,0 +1,23 @@
+{
+  "slug": "pga_rd4_sd",
+  "sport": "golf",
+  "contest_label": "PGA RD4 Showdown",
+  "date": "2026-08-22",
+  "slate_label": "FedEx St. Jude Championship RD4 SD 2026",
+  "archived_at": "2026-08-22 12:04",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json",
+    "lineup_selection.json"
+  ],
+  "missing": [
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/pga_rd4_sd/2026-08-16__PGA RD4 SD 8.16.2026.pdf"
+  ],
+  "proj_source": null
+}

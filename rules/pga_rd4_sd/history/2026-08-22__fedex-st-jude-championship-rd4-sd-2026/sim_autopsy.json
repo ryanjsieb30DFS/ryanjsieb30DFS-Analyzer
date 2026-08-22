@@ -1,0 +1,150 @@
+[
+  {
+    "slug": "pga_rd4_sd",
+    "slate_name": "PGA RD4 Showdown contest-standings-193812582 2026-08-22",
+    "contest_id": "193812582",
+    "field_size": 141,
+    "schema_version": 1,
+    "generated_at": "2026-08-22 11:51",
+    "user": {
+      "n_entries": 1,
+      "best_points": 181.65001,
+      "avg_points": 181.65,
+      "best_rank": 113
+    },
+    "pool": {
+      "n": 10000,
+      "avg_actual": 177.89,
+      "median_actual": 179.55,
+      "max_actual": 284.5,
+      "n_beating_best_entry": 4747,
+      "pct_beating_best_entry": 47.47,
+      "picking_edge_points": 3.76
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 10000,
+        "spearman_vs_actual": 0.372,
+        "top100_avg_actual": 196.78,
+        "pool_avg_actual": 177.89
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 10000,
+        "spearman_vs_actual": 0.397,
+        "top100_avg_actual": 191.82,
+        "pool_avg_actual": 177.89
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 10000,
+        "spearman_vs_actual": 0.372,
+        "top100_avg_actual": 196.78,
+        "pool_avg_actual": 177.89
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 10000,
+        "spearman_vs_actual": 0.392,
+        "top100_avg_actual": 188.84,
+        "pool_avg_actual": 177.89
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 113,
+        "Points": 181.65,
+        "Lineup": "G Sam Burns G Hideki Matsuyama G Tom Kim G Alex Noren G Brian Harman G J.T. Poston",
+        "matched": true,
+        "pre_sim_roi_pct": 130.7,
+        "pre_sim_top1_pct": 5.09,
+        "pre_sim_win_pct": 5.095,
+        "pre_sim_cash_pct": 44.3,
+        "post_roi_pct": 67.01,
+        "post_top1_pct": 1.21,
+        "post_win_pct": 1.213,
+        "post_cash_pct": 37.84
+      }
+    ]
+  },
+  {
+    "slug": "pga_rd4_sd",
+    "slate_name": "PGA RD4 Showdown contest-standings-193812583 2026-08-22",
+    "contest_id": "193812583",
+    "field_size": 196,
+    "schema_version": 1,
+    "generated_at": "2026-08-22 11:51",
+    "user": {
+      "n_entries": 1,
+      "best_points": 221.10002,
+      "avg_points": 221.1,
+      "best_rank": 28
+    },
+    "pool": {
+      "n": 10000,
+      "avg_actual": 181.81,
+      "median_actual": 182.85,
+      "max_actual": 292.6,
+      "n_beating_best_entry": 972,
+      "pct_beating_best_entry": 9.72,
+      "picking_edge_points": 39.29
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 10000,
+        "spearman_vs_actual": 0.181,
+        "top100_avg_actual": 195.6,
+        "pool_avg_actual": 181.81
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 10000,
+        "spearman_vs_actual": 0.203,
+        "top100_avg_actual": 190.37,
+        "pool_avg_actual": 181.81
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 10000,
+        "spearman_vs_actual": 0.181,
+        "top100_avg_actual": 195.6,
+        "pool_avg_actual": 181.81
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 10000,
+        "spearman_vs_actual": 0.201,
+        "top100_avg_actual": 187.68,
+        "pool_avg_actual": 181.81
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 28,
+        "Points": 221.1,
+        "Lineup": "G Scottie Scheffler G Kurt Kitayama G Adam Scott G Jacob Bridgeman G Alex Noren G Nick Taylor",
+        "matched": true,
+        "pre_sim_roi_pct": 60.4,
+        "pre_sim_top1_pct": 2.5,
+        "pre_sim_win_pct": 1.445,
+        "pre_sim_cash_pct": 32.6,
+        "post_roi_pct": 33.8,
+        "post_top1_pct": 0.27,
+        "post_win_pct": 0.273,
+        "post_cash_pct": 35.25
+      }
+    ]
+  }
+]
