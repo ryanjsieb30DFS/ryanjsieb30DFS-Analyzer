@@ -1,0 +1,77 @@
+{
+  "field": 1426,
+  "anchors": [
+    "anthony hernandez",
+    "chris padilla",
+    "kennedy nzechukwu"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 34.1,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.667,
+    "anchor_exposure_by_player": {
+      "anthony hernandez": 1.0,
+      "chris padilla": 1.0,
+      "kennedy nzechukwu": 0.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 29.03,
+    "median_pctile": 29.03
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 21.2,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.0,
+    "anchor_exposure_by_player": {
+      "anthony hernandez": 0.0,
+      "chris padilla": 0.0,
+      "kennedy nzechukwu": 0.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 0.21,
+    "median_pctile": 0.21
+  },
+  "deltas": [
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 21.2,
+      "shark": 34.1,
+      "delta": -12.9
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.0,
+      "shark": 0.667,
+      "delta": -0.667
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 0.0,
+      "shark": 0.0,
+      "delta": 0.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "mma_se",
+  "sport": "mma"
+}

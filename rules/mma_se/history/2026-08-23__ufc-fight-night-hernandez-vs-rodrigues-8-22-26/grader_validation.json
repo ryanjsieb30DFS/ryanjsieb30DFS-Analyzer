@@ -1,0 +1,74 @@
+{
+  "gradable": true,
+  "n_lineups": 5,
+  "lineups": [
+    {
+      "players": [
+        "Gauge Young",
+        "Gregory Rodrigues",
+        "Jackson McVey",
+        "MarQuel Mederos",
+        "Shamil Gaziev",
+        "Shanelle Dyer"
+      ],
+      "percentile": 1.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Carli Judice",
+        "Gauge Young",
+        "Jamall Emmers",
+        "MarQuel Mederos",
+        "Shamil Gaziev",
+        "Shanelle Dyer"
+      ],
+      "percentile": 4.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Gauge Young",
+        "Gregory Rodrigues",
+        "Jamall Emmers",
+        "Marcio Barbosa",
+        "Serghei Spivac",
+        "Shanelle Dyer"
+      ],
+      "percentile": 14.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Gauge Young",
+        "Gregory Rodrigues",
+        "Jackson McVey",
+        "Jamall Emmers",
+        "Shamil Gaziev",
+        "Shanelle Dyer"
+      ],
+      "percentile": 1.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Gregory Rodrigues",
+        "Jackson McVey",
+        "Jamall Emmers",
+        "Reinier de Ridder",
+        "Shanelle Dyer",
+        "Stan Dorsainvil"
+      ],
+      "percentile": 0.2,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    1.9,
+    4.4,
+    14.0,
+    1.3,
+    0.2
+  ]
+}

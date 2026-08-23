@@ -1,0 +1,237 @@
+{
+  "generated_at": "2026-08-22 13:58",
+  "slug": "mma_se",
+  "calls": [
+    {
+      "name": "Chris Padilla",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Wes Schultz",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Kennedy Nzechukwu",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Mason Jones",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Vitor Petrino",
+      "verdict": "underweight"
+    }
+  ],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "Terrance Chatman",
+      "own": 5.0
+    },
+    {
+      "name": "Shanelle Dyer",
+      "own": 9.0
+    },
+    {
+      "name": "Ryan Kuse",
+      "own": 5.0
+    },
+    {
+      "name": "Jeisla Chaves",
+      "own": 7.0
+    },
+    {
+      "name": "Elise Reed",
+      "own": 6.0
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Anthony Hernandez",
+        "Lerryan Douglas"
+      ],
+      "joint_pct": 21.3
+    },
+    {
+      "players": [
+        "Anthony Hernandez",
+        "Gregory Rodrigues"
+      ],
+      "joint_pct": 20.7
+    },
+    {
+      "players": [
+        "Anthony Hernandez",
+        "Chris Padilla"
+      ],
+      "joint_pct": 19.0
+    },
+    {
+      "players": [
+        "Anthony Hernandez",
+        "Reinier de Ridder"
+      ],
+      "joint_pct": 16.8
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Lerryan Douglas",
+        "Gregory Rodrigues",
+        "Chris Padilla"
+      ]
+    },
+    {
+      "players": [
+        "Reinier de Ridder",
+        "Stan Dorsainvil",
+        "Mason Jones",
+        "Kennedy Nzechukwu"
+      ]
+    },
+    {
+      "players": [
+        "Vitor Petrino",
+        "Anthony Wint",
+        "Serghei Spivac",
+        "Nasrat Haqparast"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "board": [
+    {
+      "name": "Anthony Hernandez",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Lerryan Douglas",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Gregory Rodrigues",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Shanelle Dyer",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Anthony Wint",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Reinier de Ridder",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Jackson McVey",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Jamall Emmers",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Shamil Gaziev",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Marcio Barbosa",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Gauge Young",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Carli Judice",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Nasrat Haqparast",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "MarQuel Mederos",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Stan Dorsainvil",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Mason Jones",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Terrance Chatman",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Vitor Petrino",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Chris Padilla",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Kennedy Nzechukwu",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Serghei Spivac",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Roman Dolidze",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Ryan Kuse",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Wes Schultz",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Jeisla Chaves",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Elise Reed",
+      "tier": "Fade",
+      "leverage": false
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "slug": "mma_se",
+  "pool_fp": "c23a89ca3648",
+  "pool_len": 6500,
+  "contests": {
+    "UFC $8K Flying Knee [$2K to 1st, Single Entry] (SE)": {
+      "picked": [
+        {
+          "index": 6025,
+          "roster_key": "Gauge Young|Gregory Rodrigues|Jackson McVey|Jamall Emmers|Shamil Gaziev|Shanelle Dyer"
+        }
+      ],
+      "why": "This wins if Shanelle Dyer beats Elise Reed and finishes her, because Dyer is on only 9% of teams \u2014 about 1 team in 11 \u2014 while having an 85% chance to win (DailyFan). The sim gives this lineup a 1.14% chance to win the contest, which is about a 1-in-88 shot at first place, the best win chance of any clean row here. It also needs Gregory Rodrigues to hurt Anthony Hernandez early, which is the article's own main-event pick and the cheaper, less-picked side of the fight (37% versus 56%). The middle of the team is four fighters who are favored or close to it \u2014 Shamil Gaziev, Gauge Young, Jackson McVey and Dyer \u2014 so it does not need a miracle to be alive late. The cheapest slot is Jamall Emmers at $6,900, who averages 109 points when he wins and whom the article says \"you need exposure here,\" instead of a fighter whose points only come in a loss. Average ownership is 23% per fighter, under the 29.8% the tracked pro (moklovin) runs, so it is different from the crowd without being a dart throw.",
+      "generated_at": "2026-08-22 15:12",
+      "declared_contest_id": "c5e939c7"
+    },
+    "UFC $2K Sprawl [3 Entry Max] (3-Max)": {
+      "picked": [
+        {
+          "index": 3009,
+          "roster_key": "Gauge Young|Gregory Rodrigues|Jamall Emmers|Marcio Barbosa|Serghei Spivac|Shanelle Dyer"
+        },
+        {
+          "index": 4482,
+          "roster_key": "Gauge Young|Gregory Rodrigues|Jackson McVey|MarQuel Mederos|Shamil Gaziev|Shanelle Dyer"
+        },
+        {
+          "index": 1771,
+          "roster_key": "Carli Judice|Gauge Young|Jamall Emmers|MarQuel Mederos|Shamil Gaziev|Shanelle Dyer"
+        }
+      ],
+      "why": "All three need Shanelle Dyer to beat Elise Reed \u2014 she is picked by only about 1 team in 11 (low-owned) and DailyFan gives her an 85% win chance, which the strategy calls the only sub-10%-owned fighter who actually wins. Picks 1 and 2 also need Gregory Rodrigues to beat Anthony Hernandez in the main event; Rodrigues is Brett's pick to win by round-2 stoppage and sits at 37% ownership against Hernandez's 56%, so beating the crowd's team means being on the other side. Pick 1 is the strongest lineup on the board: 3.65% top1 means about a 1-in-27 shot at first place in this 594-entry field, and 30.0% cash means it pays about 3 times in 10. Pick 2 wins a different way \u2014 no $9,800 finisher, just five favorites in the 52-85% win range plus Dyer, so it scores well even if nobody gets an early knockout. Pick 3 is the hedge the ledger demands: it carries no main-event fighter at all, so if Hernandez wins, one entry is still alive instead of all three dying together. Every pick avoids the $6,800 and cheaper fighters the strategy says have no real win path, so no team has a dead slot.",
+      "generated_at": "2026-08-22 15:21",
+      "declared_contest_id": "8788fa5e"
+    },
+    "UFC $6K Clinch [Single Entry] (SE)": {
+      "picked": [
+        {
+          "index": 2778,
+          "roster_key": "Gregory Rodrigues|Jackson McVey|Jamall Emmers|Reinier de Ridder|Shanelle Dyer|Stan Dorsainvil"
+        }
+      ],
+      "why": "This wins if Shanelle Dyer beats Elise Reed, because only about 1 team in 11 has her (low-owned) while DailyFan gives her an 85% chance to win. It also needs Gregory Rodrigues to hurt Anthony Hernandez early \u2014 the cheaper, less-picked side of the main event at 37% against Hernandez's 56%. The sim gives this team a 2.90% top1, which is about a 1-in-34 shot at the very top of a 1,426-entry field, plus the best win chance (0.61%) and best return (105.8% ROI) of any team here that carries none of the six prices the strategy flagged as picked ahead of their projected points. It is also the only entry in your five that takes Stan Dorsainvil over Gauge Young, so one team stays alive if that fight flips. I skipped the top-heavy dart the strategy mentions (Terrance Chatman or Ryan Kuse) because your own ledger has punished no-win-path fighters in fields this size seven slates running, and the pre-lock check below asks every slot to have a way to win.",
+      "generated_at": "2026-08-22 15:28",
+      "declared_contest_id": "fa00681b"
+    }
+  }
+}

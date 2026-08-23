@@ -438,3 +438,63 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 | **Okay** | 15 | 63.6 | 128.8 |
 | **Fade** | 3 | 26.3 | 64.5 |
 - ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+
+
+## 2026-08-23 18:26 — MMA (contest-standings-193950614.csv)
+- Entries: 594
+- Winning score: 718.7
+- Cash line (top 20%): 517.1
+- My entries: 3 · best rank 11/594 (top 1.9%)
+- Winners (top 20): avg own 26.07% vs mine 22.5% · sub-10% plays/lineup 0.0 vs mine 0.0 · salary Δ -103
+- Overperformed proj: Gregory Rodrigues, Jamall Emmers, MarQuel Mederos
+- Underperformed proj: Lerryan Douglas, Kennedy Nzechukwu, Mason Jones
+- Slate-defining plays: MarQuel Mederos (117.6 pts @ 18.0%), Jamall Emmers (106.9 pts @ 15.7%), Shamil Gaziev (100.8 pts @ 19.7%)
+
+
+## 2026-08-23 18:26 — MMA (contest-standings-193950621.csv)
+- Entries: 784
+- Winning score: 702.2
+- Cash line (top 20%): 515.8
+- My entries: 1 · best rank 10/784 (top 1.3%)
+- Winners (top 20): avg own 28.03% vs mine 21.96% · sub-10% plays/lineup 0.1 vs mine 1.0 · salary Δ +315
+- Overperformed proj: Gregory Rodrigues, Jamall Emmers, MarQuel Mederos
+- Underperformed proj: Lerryan Douglas, Kennedy Nzechukwu, Mason Jones
+- Slate-defining plays: MarQuel Mederos (117.6 pts @ 17.7%), Jamall Emmers (106.9 pts @ 16.6%), Shamil Gaziev (100.8 pts @ 16.8%), Vitor Petrino (99.0 pts @ 19.4%)
+
+
+## 2026-08-23 18:26 — MMA (contest-standings-193950623.csv)
+- Entries: 1,426
+- Winning score: 720.9
+- Cash line (top 20%): 518.9
+- My entries: 1 · best rank 3/1,426 (top 0.2%)
+- Winners (top 20): avg own 26.41% vs mine 21.21% · sub-10% plays/lineup 0.0 vs mine 0.0 · salary Δ -200
+- Overperformed proj: Gregory Rodrigues, Jamall Emmers, MarQuel Mederos
+- Underperformed proj: Lerryan Douglas, Kennedy Nzechukwu, Mason Jones
+- Slate-defining plays: Jamall Emmers (106.9 pts @ 16.5%), Carli Judice (106.5 pts @ 12.6%), Shamil Gaziev (100.8 pts @ 15.6%), Stan Dorsainvil (93.9 pts @ 19.4%)
+
+### Strategy adherence — did you follow your own strategy? (5 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Chris Padilla** was in 0 of 3 lineups in contest-standings-193950614.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Chris Padilla** was in 0 of 1 lineups in contest-standings-193950621.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Chris Padilla** was in 0 of 1 lineups in contest-standings-193950623.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Kennedy Nzechukwu** was in 0 of 3 lineups in contest-standings-193950614.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Kennedy Nzechukwu** was in 0 of 1 lineups in contest-standings-193950621.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Kennedy Nzechukwu** was in 0 of 1 lineups in contest-standings-193950623.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Mason Jones** was in 0 of 3 lineups in contest-standings-193950614.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Mason Jones** was in 0 of 1 lineups in contest-standings-193950621.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Mason Jones** was in 0 of 1 lineups in contest-standings-193950623.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Vitor Petrino** was in 0 of 3 lineups in contest-standings-193950614.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Vitor Petrino** was in 0 of 1 lineups in contest-standings-193950621.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Vitor Petrino** was in 0 of 1 lineups in contest-standings-193950623.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- Leverage candidates rostered somewhere: **1 of 5**.
+
+### Player-pool tier calibration (26 of 26 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 2 | 40.0 | 74.4 |
+| **Good** | 6 | 120.1 | 148.2 |
+| **Okay** | 9 | 74.3 | 117.6 |
+| **Fade** | 9 | 30.5 | 111.3 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+- 🕳️ Buried: **Vitor Petrino** (Fade) scored 99.0 — above the top tier's average.
+- 🕳️ Buried: **Chris Padilla** (Fade) scored 111.3 — above the top tier's average.

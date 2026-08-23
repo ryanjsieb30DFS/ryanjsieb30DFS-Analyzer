@@ -1,0 +1,2619 @@
+[
+  {
+    "timestamp": "2026-08-23 18:26",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-193950614.csv",
+    "contest_id": "193950614",
+    "entries": 594,
+    "winning_score": 718.68994,
+    "cash_line_p80": 517.1080000000001,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 26,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 22.5,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 49933.0,
+      "entry_count": 3,
+      "best_rank": 11,
+      "best_percentile": 1.9
+    },
+    "user_lineups": [
+      {
+        "rank": 11,
+        "entry_name": "RyvlesGaming30 (2/3)",
+        "points": 667.93,
+        "percentile": 1.9,
+        "players": [
+          "Gregory Rodrigues",
+          "Shamil Gaziev",
+          "Jackson McVey",
+          "Shanelle Dyer",
+          "MarQuel Mederos",
+          "Gauge Young"
+        ],
+        "avg_own": 24.1,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 397.23,
+        "dup_count": 1
+      },
+      {
+        "rank": 26,
+        "entry_name": "RyvlesGaming30 (3/3)",
+        "points": 617.03,
+        "percentile": 4.4,
+        "players": [
+          "Shamil Gaziev",
+          "Carli Judice",
+          "Shanelle Dyer",
+          "MarQuel Mederos",
+          "Jamall Emmers",
+          "Gauge Young"
+        ],
+        "avg_own": 18.6,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 391.55,
+        "dup_count": 1
+      },
+      {
+        "rank": 83,
+        "entry_name": "RyvlesGaming30 (1/3)",
+        "points": 561.97003,
+        "percentile": 14.0,
+        "players": [
+          "Gregory Rodrigues",
+          "Serghei Spivac",
+          "Shanelle Dyer",
+          "Jamall Emmers",
+          "Marcio Barbosa",
+          "Gauge Young"
+        ],
+        "avg_own": 24.8,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 398.47,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Gregory Rodrigues",
+        "proj_points": 58.39,
+        "actual_fpts": 148.2,
+        "fpts_delta": 89.81,
+        "ownership": 37.0,
+        "actual_own": 34.68
+      },
+      {
+        "name": "Jamall Emmers",
+        "proj_points": 38.23,
+        "actual_fpts": 106.86,
+        "fpts_delta": 68.63,
+        "ownership": 15.0,
+        "actual_own": 15.66
+      },
+      {
+        "name": "MarQuel Mederos",
+        "proj_points": 49.9,
+        "actual_fpts": 117.62,
+        "fpts_delta": 67.72,
+        "ownership": 18.0,
+        "actual_own": 18.01
+      },
+      {
+        "name": "Reinier de Ridder",
+        "proj_points": 81.7,
+        "actual_fpts": 132.03,
+        "fpts_delta": 50.33,
+        "ownership": 30.0,
+        "actual_own": 21.89
+      },
+      {
+        "name": "Chris Padilla",
+        "proj_points": 62.01,
+        "actual_fpts": 111.35,
+        "fpts_delta": 49.34,
+        "ownership": 34.0,
+        "actual_own": 44.61
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Lerryan Douglas",
+        "proj_points": 83.92,
+        "actual_fpts": 5.6,
+        "fpts_delta": -78.32,
+        "ownership": 38.0,
+        "actual_own": 33.5
+      },
+      {
+        "name": "Kennedy Nzechukwu",
+        "proj_points": 52.53,
+        "actual_fpts": 1.2,
+        "fpts_delta": -51.33,
+        "ownership": 28.0,
+        "actual_own": 38.22
+      },
+      {
+        "name": "Mason Jones",
+        "proj_points": 80.27,
+        "actual_fpts": 38.1,
+        "fpts_delta": -42.16,
+        "ownership": 28.0,
+        "actual_own": 31.14
+      },
+      {
+        "name": "Roman Dolidze",
+        "proj_points": 41.4,
+        "actual_fpts": 1.0,
+        "fpts_delta": -40.4,
+        "ownership": 13.0,
+        "actual_own": 9.93
+      },
+      {
+        "name": "Jeisla Chaves",
+        "proj_points": 43.26,
+        "actual_fpts": 4.0,
+        "fpts_delta": -39.26,
+        "ownership": 7.0,
+        "actual_own": 16.67
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "MarQuel Mederos",
+        "salary": 7200,
+        "actual_fpts": 117.62,
+        "actual_own": 18.01,
+        "top_lineup_pct": 50.0
+      },
+      {
+        "name": "Jamall Emmers",
+        "salary": 6900,
+        "actual_fpts": 106.86,
+        "actual_own": 15.66,
+        "top_lineup_pct": 65.0
+      },
+      {
+        "name": "Shamil Gaziev",
+        "salary": 8400,
+        "actual_fpts": 100.8,
+        "actual_own": 19.7,
+        "top_lineup_pct": 45.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 26.07,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 49830.0,
+      "dup_max": 2,
+      "unique_pct": 90.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "bstowe4 (3/3)",
+          "points": 718.68994,
+          "percentile": 0.2,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Carli Judice",
+            "Shanelle Dyer",
+            "MarQuel Mederos",
+            "Jamall Emmers"
+          ],
+          "avg_own": 19.39,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 400.26,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "clam_smacker",
+          "points": 700.98,
+          "percentile": 0.3,
+          "players": [
+            "Gregory Rodrigues",
+            "Jackson McVey",
+            "Shanelle Dyer",
+            "MarQuel Mederos",
+            "Jamall Emmers",
+            "Marcio Barbosa"
+          ],
+          "avg_own": 22,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 396.78,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "TimLeeCopeland (3/3)",
+          "points": 691.81995,
+          "percentile": 0.5,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Shamil Gaziev",
+            "Anthony Wint",
+            "Jamall Emmers",
+            "Stan Dorsainvil"
+          ],
+          "avg_own": 22.76,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 393.8,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "aswaim3 (2/3)",
+          "points": 687.56,
+          "percentile": 0.7,
+          "players": [
+            "Gregory Rodrigues",
+            "Carli Judice",
+            "MarQuel Mederos",
+            "Anthony Wint",
+            "Chris Padilla",
+            "Stan Dorsainvil"
+          ],
+          "avg_own": 26.15,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 406.73,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "Mikeofdenver (2/3)",
+          "points": 687.24,
+          "percentile": 0.8,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "MarQuel Mederos",
+            "Jamall Emmers",
+            "Marcio Barbosa",
+            "Gauge Young"
+          ],
+          "avg_own": 24.33,
+          "low_own_count": 0,
+          "salary_used": 49000,
+          "proj_total": 390.53,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "mmcnally14 (1/3)",
+          "points": 686.51996,
+          "percentile": 1.0,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Shamil Gaziev",
+            "Jamall Emmers",
+            "Marcio Barbosa",
+            "Stan Dorsainvil"
+          ],
+          "avg_own": 22.59,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 391.09,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "shoeless2469 (3/3)",
+          "points": 678.41,
+          "percentile": 1.2,
+          "players": [
+            "Gregory Rodrigues",
+            "Vitor Petrino",
+            "Shamil Gaziev",
+            "Jackson McVey",
+            "Shanelle Dyer",
+            "Jamall Emmers"
+          ],
+          "avg_own": 22,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 377.07,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "shoeless2469 (2/3)",
+          "points": 672.35,
+          "percentile": 1.3,
+          "players": [
+            "Anthony Hernandez",
+            "Gregory Rodrigues",
+            "Jackson McVey",
+            "MarQuel Mederos",
+            "Chris Padilla",
+            "Marcio Barbosa"
+          ],
+          "avg_own": 33.98,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 413.94,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "Djk21",
+          "points": 669.16,
+          "percentile": 1.5,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Vitor Petrino",
+            "Shamil Gaziev",
+            "Chris Padilla",
+            "Gauge Young"
+          ],
+          "avg_own": 29.15,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 394.6,
+          "dup_count": 2
+        },
+        {
+          "rank": 9,
+          "entry_name": "KY_MEDTCH",
+          "points": 669.16,
+          "percentile": 1.5,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Vitor Petrino",
+            "Shamil Gaziev",
+            "Chris Padilla",
+            "Gauge Young"
+          ],
+          "avg_own": 29.15,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 394.6,
+          "dup_count": 2
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 3.57,
+        "low_own_count_delta": 0.0,
+        "salary_used_delta": -103.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 594,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Anthony Hernandez",
+          "field_own": 54.0,
+          "actual_fpts": 74.4
+        },
+        {
+          "name": "Chris Padilla",
+          "field_own": 44.6,
+          "actual_fpts": 111.3
+        },
+        {
+          "name": "Kennedy Nzechukwu",
+          "field_own": 38.2,
+          "actual_fpts": 1.2
+        },
+        {
+          "name": "Gregory Rodrigues",
+          "field_own": 34.7,
+          "actual_fpts": 148.2
+        },
+        {
+          "name": "Lerryan Douglas",
+          "field_own": 33.5,
+          "actual_fpts": 5.6
+        },
+        {
+          "name": "Gauge Young",
+          "field_own": 32.1,
+          "actual_fpts": 77.8
+        },
+        {
+          "name": "Serghei Spivac",
+          "field_own": 31.6,
+          "actual_fpts": 16.9
+        },
+        {
+          "name": "Mason Jones",
+          "field_own": 31.1,
+          "actual_fpts": 38.1
+        },
+        {
+          "name": "Jackson McVey",
+          "field_own": 29.0,
+          "actual_fpts": 116.0
+        },
+        {
+          "name": "Wes Schultz",
+          "field_own": 27.4,
+          "actual_fpts": 17.4
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla"
+          ],
+          "field_pct": 25.7,
+          "count": 152
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Kennedy Nzechukwu"
+          ],
+          "field_pct": 21.2,
+          "count": 125
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Mason Jones"
+          ],
+          "field_pct": 19.3,
+          "count": 114
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Gauge Young"
+          ],
+          "field_pct": 18.4,
+          "count": 109
+        },
+        {
+          "players": [
+            "Chris Padilla",
+            "Kennedy Nzechukwu"
+          ],
+          "field_pct": 18.4,
+          "count": 109
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Jackson McVey"
+          ],
+          "field_pct": 17.4,
+          "count": 103
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Serghei Spivac"
+          ],
+          "field_pct": 16.9,
+          "count": 100
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Lerryan Douglas"
+          ],
+          "field_pct": 16.2,
+          "count": 96
+        },
+        {
+          "players": [
+            "Chris Padilla",
+            "Lerryan Douglas"
+          ],
+          "field_pct": 15.1,
+          "count": 89
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Wes Schultz"
+          ],
+          "field_pct": 15.1,
+          "count": 89
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Chris Padilla",
+            "Gregory Rodrigues",
+            "Jackson McVey",
+            "Kennedy Nzechukwu",
+            "Lerryan Douglas",
+            "Vitor Petrino"
+          ],
+          "count": 8,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla",
+            "Jackson McVey",
+            "Kennedy Nzechukwu",
+            "Reinier de Ridder",
+            "Serghei Spivac"
+          ],
+          "count": 8,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla",
+            "Jackson McVey",
+            "Kennedy Nzechukwu",
+            "Mason Jones",
+            "Stan Dorsainvil"
+          ],
+          "count": 7,
+          "field_pct": 1.2
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Gauge Young",
+            "Kennedy Nzechukwu",
+            "Lerryan Douglas",
+            "Vitor Petrino",
+            "Wes Schultz"
+          ],
+          "count": 6,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Chris Padilla",
+            "Gauge Young",
+            "Gregory Rodrigues",
+            "Jackson McVey",
+            "Mason Jones",
+            "Shamil Gaziev"
+          ],
+          "count": 5,
+          "field_pct": 0.8
+        }
+      ],
+      "winners_profile": {
+        "n": 6,
+        "avg_own_per_slot": 22.9,
+        "dart_pct": 0.0,
+        "unique_pct": 100.0
+      },
+      "fish_profile": {
+        "n": 296,
+        "avg_own_per_slot": 30.4,
+        "dart_pct": 10.5,
+        "unique_pct": 75.0
+      },
+      "fish_traps": [
+        {
+          "name": "Anthony Hernandez",
+          "fish_pct": 67.2,
+          "winner_pct": 0.0,
+          "gap": 67.2,
+          "actual_fpts": 74.4,
+          "field_own": 54.0,
+          "own_rank": 1
+        },
+        {
+          "name": "Kennedy Nzechukwu",
+          "fish_pct": 49.0,
+          "winner_pct": 0.0,
+          "gap": 49.0,
+          "actual_fpts": 1.2,
+          "field_own": 38.2,
+          "own_rank": 3
+        },
+        {
+          "name": "Lerryan Douglas",
+          "fish_pct": 47.6,
+          "winner_pct": 0.0,
+          "gap": 47.6,
+          "actual_fpts": 5.6,
+          "field_own": 33.5,
+          "own_rank": 5
+        },
+        {
+          "name": "Mason Jones",
+          "fish_pct": 45.6,
+          "winner_pct": 0.0,
+          "gap": 45.6,
+          "actual_fpts": 38.1,
+          "field_own": 31.1,
+          "own_rank": 8
+        },
+        {
+          "name": "Serghei Spivac",
+          "fish_pct": 37.8,
+          "winner_pct": 0.0,
+          "gap": 37.8,
+          "actual_fpts": 16.9,
+          "field_own": 31.6,
+          "own_rank": 7
+        },
+        {
+          "name": "Wes Schultz",
+          "fish_pct": 36.5,
+          "winner_pct": 0.0,
+          "gap": 36.5,
+          "actual_fpts": 17.4,
+          "field_own": 27.4,
+          "own_rank": 10
+        },
+        {
+          "name": "Jeisla Chaves",
+          "fish_pct": 23.3,
+          "winner_pct": 0.0,
+          "gap": 23.3,
+          "actual_fpts": 4.0,
+          "field_own": 16.7,
+          "own_rank": 18
+        },
+        {
+          "name": "Gauge Young",
+          "fish_pct": 36.8,
+          "winner_pct": 16.7,
+          "gap": 20.2,
+          "actual_fpts": 77.8,
+          "field_own": 32.1,
+          "own_rank": 6
+        },
+        {
+          "name": "Chris Padilla",
+          "fish_pct": 35.1,
+          "winner_pct": 16.7,
+          "gap": 18.5,
+          "actual_fpts": 111.3,
+          "field_own": 44.6,
+          "own_rank": 2
+        },
+        {
+          "name": "Nasrat Haqparast",
+          "fish_pct": 16.6,
+          "winner_pct": 0.0,
+          "gap": 16.6,
+          "actual_fpts": 28.8,
+          "field_own": 13.0,
+          "own_rank": 21
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "bstowe4",
+          "best_rank": 1,
+          "percentile": 0.2
+        },
+        {
+          "handle": "clam_smacker",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "TimLeeCopeland",
+          "best_rank": 3,
+          "percentile": 0.5
+        },
+        {
+          "handle": "aswaim3",
+          "best_rank": 4,
+          "percentile": 0.7
+        },
+        {
+          "handle": "Mikeofdenver",
+          "best_rank": 5,
+          "percentile": 0.8
+        },
+        {
+          "handle": "mmcnally14",
+          "best_rank": 6,
+          "percentile": 1.0
+        },
+        {
+          "handle": "shoeless2469",
+          "best_rank": 7,
+          "percentile": 1.2
+        },
+        {
+          "handle": "Djk21",
+          "best_rank": 9,
+          "percentile": 1.5
+        },
+        {
+          "handle": "KY_MEDTCH",
+          "best_rank": 9,
+          "percentile": 1.5
+        },
+        {
+          "handle": "jik18",
+          "best_rank": 12,
+          "percentile": 2.0
+        },
+        {
+          "handle": "Tbradymoney12",
+          "best_rank": 13,
+          "percentile": 2.2
+        },
+        {
+          "handle": "fcorona210",
+          "best_rank": 14,
+          "percentile": 2.4
+        },
+        {
+          "handle": "rpjr10",
+          "best_rank": 16,
+          "percentile": 2.7
+        },
+        {
+          "handle": "Carlos015",
+          "best_rank": 17,
+          "percentile": 2.9
+        },
+        {
+          "handle": "JTcapSNAKE",
+          "best_rank": 18,
+          "percentile": 3.0
+        }
+      ],
+      "read": [
+        "Field crowded **Anthony Hernandez** at 54.0% (74.4 fpts) \u2014 the chalk to consider fading.",
+        "**Anthony Hernandez + Chris Padilla** were together in 25.7% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Anthony Hernandez** was a fish trap: 67.2% of the fish, only 0.0% of winners.",
+        "Fish ran 7.5 pts/slot more chalk than winners (30.4% vs 22.9%)."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 718.68994,
+      "winner_handle": "bstowe4",
+      "roster": [
+        {
+          "name": "Gregory Rodrigues",
+          "own": 34.68,
+          "fpts": 148.2
+        },
+        {
+          "name": "Reinier de Ridder",
+          "own": 21.89,
+          "fpts": 132.03
+        },
+        {
+          "name": "Carli Judice",
+          "own": 14.98,
+          "fpts": 106.46
+        },
+        {
+          "name": "Shanelle Dyer",
+          "own": 11.11,
+          "fpts": 107.52
+        },
+        {
+          "name": "MarQuel Mederos",
+          "own": 18.01,
+          "fpts": 117.62
+        },
+        {
+          "name": "Jamall Emmers",
+          "own": 15.66,
+          "fpts": 106.86
+        }
+      ],
+      "avg_own": 19.4,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Shanelle Dyer",
+        "own": 11.11,
+        "fpts": 107.52
+      },
+      "expected_dupes": 0.02
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "blocked_swap": {
+        "out": "Gauge Young",
+        "in": "Reinier de Ridder",
+        "gain": 54.3,
+        "over_cap_by": 800
+      },
+      "gradable": true,
+      "won": false,
+      "your_points": 667.93,
+      "winner_points": 718.68994,
+      "gap": 50.8,
+      "your_percentile": 1.9,
+      "n_shared": 3,
+      "shared": [
+        "Gregory Rodrigues",
+        "MarQuel Mederos",
+        "Shanelle Dyer"
+      ],
+      "your_uniques": [
+        {
+          "name": "Jackson McVey",
+          "fpts": 116.02,
+          "salary": 8700
+        },
+        {
+          "name": "Shamil Gaziev",
+          "fpts": 100.8,
+          "salary": 8400
+        },
+        {
+          "name": "Gauge Young",
+          "fpts": 77.77,
+          "salary": 8300
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Reinier de Ridder",
+          "fpts": 132.03,
+          "salary": 9200
+        },
+        {
+          "name": "Jamall Emmers",
+          "fpts": 106.86,
+          "salary": 6900
+        },
+        {
+          "name": "Carli Judice",
+          "fpts": 106.46,
+          "salary": 9400
+        }
+      ],
+      "best_swap": {
+        "out": "Gauge Young",
+        "in": "Jamall Emmers",
+        "gain": 29.1,
+        "would_have_won": false
+      },
+      "swaps_needed": 2
+    }
+  },
+  {
+    "timestamp": "2026-08-23 18:26",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-193950621.csv",
+    "contest_id": "193950621",
+    "entries": 784,
+    "winning_score": 702.20996,
+    "cash_line_p80": 515.7659880000001,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 26,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 21.96,
+      "low_own_count_mean": 1.0,
+      "salary_used_mean": 49600.0,
+      "entry_count": 1,
+      "best_rank": 10,
+      "best_percentile": 1.3
+    },
+    "user_lineups": [
+      {
+        "rank": 10,
+        "entry_name": "RyvlesGaming30",
+        "points": 657.17,
+        "percentile": 1.3,
+        "players": [
+          "Gregory Rodrigues",
+          "Shamil Gaziev",
+          "Jackson McVey",
+          "Shanelle Dyer",
+          "Jamall Emmers",
+          "Gauge Young"
+        ],
+        "avg_own": 21.96,
+        "low_own_count": 1,
+        "salary_used": 49600,
+        "proj_total": 385.56,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Gregory Rodrigues",
+        "proj_points": 58.39,
+        "actual_fpts": 148.2,
+        "fpts_delta": 89.81,
+        "ownership": 37.0,
+        "actual_own": 33.16
+      },
+      {
+        "name": "Jamall Emmers",
+        "proj_points": 38.23,
+        "actual_fpts": 106.86,
+        "fpts_delta": 68.63,
+        "ownership": 15.0,
+        "actual_own": 16.58
+      },
+      {
+        "name": "MarQuel Mederos",
+        "proj_points": 49.9,
+        "actual_fpts": 117.62,
+        "fpts_delta": 67.72,
+        "ownership": 18.0,
+        "actual_own": 17.73
+      },
+      {
+        "name": "Reinier de Ridder",
+        "proj_points": 81.7,
+        "actual_fpts": 132.03,
+        "fpts_delta": 50.33,
+        "ownership": 30.0,
+        "actual_own": 23.72
+      },
+      {
+        "name": "Chris Padilla",
+        "proj_points": 62.01,
+        "actual_fpts": 111.35,
+        "fpts_delta": 49.34,
+        "ownership": 34.0,
+        "actual_own": 47.07
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Lerryan Douglas",
+        "proj_points": 83.92,
+        "actual_fpts": 5.6,
+        "fpts_delta": -78.32,
+        "ownership": 38.0,
+        "actual_own": 36.73
+      },
+      {
+        "name": "Kennedy Nzechukwu",
+        "proj_points": 52.53,
+        "actual_fpts": 1.2,
+        "fpts_delta": -51.33,
+        "ownership": 28.0,
+        "actual_own": 40.18
+      },
+      {
+        "name": "Mason Jones",
+        "proj_points": 80.27,
+        "actual_fpts": 38.1,
+        "fpts_delta": -42.16,
+        "ownership": 28.0,
+        "actual_own": 31.25
+      },
+      {
+        "name": "Roman Dolidze",
+        "proj_points": 41.4,
+        "actual_fpts": 1.0,
+        "fpts_delta": -40.4,
+        "ownership": 13.0,
+        "actual_own": 10.33
+      },
+      {
+        "name": "Jeisla Chaves",
+        "proj_points": 43.26,
+        "actual_fpts": 4.0,
+        "fpts_delta": -39.26,
+        "ownership": 7.0,
+        "actual_own": 16.45
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "MarQuel Mederos",
+        "salary": 7200,
+        "actual_fpts": 117.62,
+        "actual_own": 17.73,
+        "top_lineup_pct": 55.0
+      },
+      {
+        "name": "Jamall Emmers",
+        "salary": 6900,
+        "actual_fpts": 106.86,
+        "actual_own": 16.58,
+        "top_lineup_pct": 40.0
+      },
+      {
+        "name": "Shamil Gaziev",
+        "salary": 8400,
+        "actual_fpts": 100.8,
+        "actual_own": 16.84,
+        "top_lineup_pct": 45.0
+      },
+      {
+        "name": "Vitor Petrino",
+        "salary": 8500,
+        "actual_fpts": 99.01,
+        "actual_own": 19.39,
+        "top_lineup_pct": 30.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 28.03,
+      "low_own_count_mean": 0.1,
+      "salary_used_mean": 49915.0,
+      "dup_max": 4,
+      "unique_pct": 60.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "mbhall3",
+          "points": 702.20996,
+          "percentile": 0.1,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Vitor Petrino",
+            "Jamall Emmers",
+            "Chris Padilla",
+            "Marcio Barbosa"
+          ],
+          "avg_own": 26.87,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 394.15,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "clam_smacker",
+          "points": 700.98,
+          "percentile": 0.3,
+          "players": [
+            "Gregory Rodrigues",
+            "Jackson McVey",
+            "Shanelle Dyer",
+            "MarQuel Mederos",
+            "Jamall Emmers",
+            "Marcio Barbosa"
+          ],
+          "avg_own": 20.62,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 396.78,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "williamcarter",
+          "points": 687.56,
+          "percentile": 0.4,
+          "players": [
+            "Gregory Rodrigues",
+            "Carli Judice",
+            "MarQuel Mederos",
+            "Anthony Wint",
+            "Chris Padilla",
+            "Stan Dorsainvil"
+          ],
+          "avg_own": 26.17,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 406.73,
+          "dup_count": 2
+        },
+        {
+          "rank": 3,
+          "entry_name": "aswaim3",
+          "points": 687.56,
+          "percentile": 0.4,
+          "players": [
+            "Gregory Rodrigues",
+            "Carli Judice",
+            "MarQuel Mederos",
+            "Anthony Wint",
+            "Chris Padilla",
+            "Stan Dorsainvil"
+          ],
+          "avg_own": 26.17,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 406.73,
+          "dup_count": 2
+        },
+        {
+          "rank": 5,
+          "entry_name": "mmcnally14",
+          "points": 686.51996,
+          "percentile": 0.6,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Shamil Gaziev",
+            "Jamall Emmers",
+            "Marcio Barbosa",
+            "Stan Dorsainvil"
+          ],
+          "avg_own": 22.21,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 391.09,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "sportsfanatic89",
+          "points": 676.69995,
+          "percentile": 0.8,
+          "players": [
+            "Gregory Rodrigues",
+            "Shamil Gaziev",
+            "Carli Judice",
+            "Jackson McVey",
+            "Chris Padilla",
+            "Stan Dorsainvil"
+          ],
+          "avg_own": 25.87,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 391.43,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "davidsharkey1971",
+          "points": 669.16,
+          "percentile": 0.9,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Vitor Petrino",
+            "Shamil Gaziev",
+            "Chris Padilla",
+            "Gauge Young"
+          ],
+          "avg_own": 28.4,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 394.6,
+          "dup_count": 2
+        },
+        {
+          "rank": 7,
+          "entry_name": "FSUdrunkboy",
+          "points": 669.16,
+          "percentile": 0.9,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Vitor Petrino",
+            "Shamil Gaziev",
+            "Chris Padilla",
+            "Gauge Young"
+          ],
+          "avg_own": 28.4,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 394.6,
+          "dup_count": 2
+        },
+        {
+          "rank": 9,
+          "entry_name": "Godfathershiz",
+          "points": 661.08,
+          "percentile": 1.1,
+          "players": [
+            "Reinier de Ridder",
+            "Vitor Petrino",
+            "Shamil Gaziev",
+            "MarQuel Mederos",
+            "Jamall Emmers",
+            "Marcio Barbosa"
+          ],
+          "avg_own": 19.26,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 385.42,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "RyvlesGaming30",
+          "points": 657.17,
+          "percentile": 1.3,
+          "players": [
+            "Gregory Rodrigues",
+            "Shamil Gaziev",
+            "Jackson McVey",
+            "Shanelle Dyer",
+            "Jamall Emmers",
+            "Gauge Young"
+          ],
+          "avg_own": 21.96,
+          "low_own_count": 1,
+          "salary_used": 49600,
+          "proj_total": 385.56,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 6.07,
+        "low_own_count_delta": -0.9,
+        "salary_used_delta": 315.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 783,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Anthony Hernandez",
+          "field_own": 57.4,
+          "actual_fpts": 74.4
+        },
+        {
+          "name": "Chris Padilla",
+          "field_own": 47.1,
+          "actual_fpts": 111.3
+        },
+        {
+          "name": "Kennedy Nzechukwu",
+          "field_own": 40.2,
+          "actual_fpts": 1.2
+        },
+        {
+          "name": "Serghei Spivac",
+          "field_own": 36.9,
+          "actual_fpts": 16.9
+        },
+        {
+          "name": "Lerryan Douglas",
+          "field_own": 36.7,
+          "actual_fpts": 5.6
+        },
+        {
+          "name": "Gregory Rodrigues",
+          "field_own": 33.2,
+          "actual_fpts": 148.2
+        },
+        {
+          "name": "Mason Jones",
+          "field_own": 31.2,
+          "actual_fpts": 38.1
+        },
+        {
+          "name": "Wes Schultz",
+          "field_own": 30.2,
+          "actual_fpts": 17.4
+        },
+        {
+          "name": "Gauge Young",
+          "field_own": 30.2,
+          "actual_fpts": 77.8
+        },
+        {
+          "name": "Anthony Wint",
+          "field_own": 26.3,
+          "actual_fpts": 110.1
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla"
+          ],
+          "field_pct": 27.2,
+          "count": 213
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Kennedy Nzechukwu"
+          ],
+          "field_pct": 22.6,
+          "count": 177
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Serghei Spivac"
+          ],
+          "field_pct": 20.6,
+          "count": 161
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Lerryan Douglas"
+          ],
+          "field_pct": 19.3,
+          "count": 151
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Wes Schultz"
+          ],
+          "field_pct": 19.1,
+          "count": 149
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Mason Jones"
+          ],
+          "field_pct": 18.2,
+          "count": 142
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Gauge Young"
+          ],
+          "field_pct": 18.0,
+          "count": 141
+        },
+        {
+          "players": [
+            "Chris Padilla",
+            "Kennedy Nzechukwu"
+          ],
+          "field_pct": 17.8,
+          "count": 139
+        },
+        {
+          "players": [
+            "Chris Padilla",
+            "Serghei Spivac"
+          ],
+          "field_pct": 17.8,
+          "count": 139
+        },
+        {
+          "players": [
+            "Chris Padilla",
+            "Lerryan Douglas"
+          ],
+          "field_pct": 17.3,
+          "count": 135
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla",
+            "Gauge Young",
+            "Jeisla Chaves",
+            "Lerryan Douglas",
+            "Mason Jones"
+          ],
+          "count": 11,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Chris Padilla",
+            "Gauge Young",
+            "Gregory Rodrigues",
+            "Lerryan Douglas",
+            "Mason Jones",
+            "Serghei Spivac"
+          ],
+          "count": 9,
+          "field_pct": 1.2
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla",
+            "Gauge Young",
+            "Jackson McVey",
+            "Kennedy Nzechukwu",
+            "Vitor Petrino"
+          ],
+          "count": 8,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla",
+            "Jackson McVey",
+            "Kennedy Nzechukwu",
+            "Reinier de Ridder",
+            "Serghei Spivac"
+          ],
+          "count": 8,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla",
+            "Jackson McVey",
+            "Kennedy Nzechukwu",
+            "Mason Jones",
+            "Stan Dorsainvil"
+          ],
+          "count": 8,
+          "field_pct": 1.0
+        }
+      ],
+      "winners_profile": {
+        "n": 8,
+        "avg_own_per_slot": 25.6,
+        "dart_pct": 0.0,
+        "unique_pct": 75.0
+      },
+      "fish_profile": {
+        "n": 391,
+        "avg_own_per_slot": 32.3,
+        "dart_pct": 9.7,
+        "unique_pct": 63.4
+      },
+      "fish_traps": [
+        {
+          "name": "Anthony Hernandez",
+          "fish_pct": 67.8,
+          "winner_pct": 0.0,
+          "gap": 67.8,
+          "actual_fpts": 74.4,
+          "field_own": 57.4,
+          "own_rank": 1
+        },
+        {
+          "name": "Lerryan Douglas",
+          "fish_pct": 55.2,
+          "winner_pct": 0.0,
+          "gap": 55.2,
+          "actual_fpts": 5.6,
+          "field_own": 36.7,
+          "own_rank": 5
+        },
+        {
+          "name": "Kennedy Nzechukwu",
+          "fish_pct": 49.4,
+          "winner_pct": 0.0,
+          "gap": 49.4,
+          "actual_fpts": 1.2,
+          "field_own": 40.2,
+          "own_rank": 3
+        },
+        {
+          "name": "Serghei Spivac",
+          "fish_pct": 46.3,
+          "winner_pct": 0.0,
+          "gap": 46.3,
+          "actual_fpts": 16.9,
+          "field_own": 36.9,
+          "own_rank": 4
+        },
+        {
+          "name": "Wes Schultz",
+          "fish_pct": 43.2,
+          "winner_pct": 0.0,
+          "gap": 43.2,
+          "actual_fpts": 17.4,
+          "field_own": 30.2,
+          "own_rank": 8
+        },
+        {
+          "name": "Mason Jones",
+          "fish_pct": 39.1,
+          "winner_pct": 0.0,
+          "gap": 39.1,
+          "actual_fpts": 38.1,
+          "field_own": 31.2,
+          "own_rank": 7
+        },
+        {
+          "name": "Jeisla Chaves",
+          "fish_pct": 23.8,
+          "winner_pct": 0.0,
+          "gap": 23.8,
+          "actual_fpts": 4.0,
+          "field_own": 16.4,
+          "own_rank": 19
+        },
+        {
+          "name": "Roman Dolidze",
+          "fish_pct": 14.6,
+          "winner_pct": 0.0,
+          "gap": 14.6,
+          "actual_fpts": 1.0,
+          "field_own": 10.3,
+          "own_rank": 22
+        },
+        {
+          "name": "Nasrat Haqparast",
+          "fish_pct": 14.1,
+          "winner_pct": 0.0,
+          "gap": 14.1,
+          "actual_fpts": 28.8,
+          "field_own": 12.1,
+          "own_rank": 20
+        },
+        {
+          "name": "Gauge Young",
+          "fish_pct": 33.2,
+          "winner_pct": 25.0,
+          "gap": 8.2,
+          "actual_fpts": 77.8,
+          "field_own": 30.2,
+          "own_rank": 8
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "mbhall3",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "clam_smacker",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "williamcarter",
+          "best_rank": 3,
+          "percentile": 0.4
+        },
+        {
+          "handle": "aswaim3",
+          "best_rank": 3,
+          "percentile": 0.4
+        },
+        {
+          "handle": "mmcnally14",
+          "best_rank": 5,
+          "percentile": 0.6
+        },
+        {
+          "handle": "sportsfanatic89",
+          "best_rank": 6,
+          "percentile": 0.8
+        },
+        {
+          "handle": "davidsharkey1971",
+          "best_rank": 7,
+          "percentile": 0.9
+        },
+        {
+          "handle": "FSUdrunkboy",
+          "best_rank": 7,
+          "percentile": 0.9
+        },
+        {
+          "handle": "Godfathershiz",
+          "best_rank": 9,
+          "percentile": 1.1
+        },
+        {
+          "handle": "cyclonestein",
+          "best_rank": 11,
+          "percentile": 1.4
+        },
+        {
+          "handle": "fcorona210",
+          "best_rank": 12,
+          "percentile": 1.5
+        },
+        {
+          "handle": "ZaneCubs28",
+          "best_rank": 13,
+          "percentile": 1.7
+        },
+        {
+          "handle": "jsalvatori21",
+          "best_rank": 14,
+          "percentile": 1.8
+        },
+        {
+          "handle": "jonban",
+          "best_rank": 15,
+          "percentile": 1.9
+        },
+        {
+          "handle": "structo",
+          "best_rank": 16,
+          "percentile": 2.0
+        }
+      ],
+      "read": [
+        "Field crowded **Anthony Hernandez** at 57.4% (74.4 fpts) \u2014 the chalk to consider fading.",
+        "**Anthony Hernandez + Chris Padilla** were together in 27.2% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Anthony Hernandez** was a fish trap: 67.8% of the fish, only 0.0% of winners.",
+        "Fish ran 6.7 pts/slot more chalk than winners (32.3% vs 25.6%)."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 702.20996,
+      "winner_handle": "mbhall3",
+      "roster": [
+        {
+          "name": "Gregory Rodrigues",
+          "own": 33.16,
+          "fpts": 148.2
+        },
+        {
+          "name": "Reinier de Ridder",
+          "own": 23.72,
+          "fpts": 132.03
+        },
+        {
+          "name": "Vitor Petrino",
+          "own": 19.39,
+          "fpts": 99.01
+        },
+        {
+          "name": "Jamall Emmers",
+          "own": 16.58,
+          "fpts": 106.86
+        },
+        {
+          "name": "Chris Padilla",
+          "own": 47.07,
+          "fpts": 111.35
+        },
+        {
+          "name": "Marcio Barbosa",
+          "own": 21.3,
+          "fpts": 104.76
+        }
+      ],
+      "avg_own": 26.9,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Jamall Emmers",
+        "own": 16.58,
+        "fpts": 106.86
+      },
+      "expected_dupes": 0.2
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "blocked_swap": {
+        "out": "Gauge Young",
+        "in": "Reinier de Ridder",
+        "gain": 54.3,
+        "over_cap_by": 500
+      },
+      "gradable": true,
+      "won": false,
+      "your_points": 657.17,
+      "winner_points": 702.20996,
+      "gap": 45.0,
+      "your_percentile": 1.3,
+      "n_shared": 2,
+      "shared": [
+        "Gregory Rodrigues",
+        "Jamall Emmers"
+      ],
+      "your_uniques": [
+        {
+          "name": "Jackson McVey",
+          "fpts": 116.02,
+          "salary": 8700
+        },
+        {
+          "name": "Shanelle Dyer",
+          "fpts": 107.52,
+          "salary": 9700
+        },
+        {
+          "name": "Shamil Gaziev",
+          "fpts": 100.8,
+          "salary": 8400
+        },
+        {
+          "name": "Gauge Young",
+          "fpts": 77.77,
+          "salary": 8300
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Reinier de Ridder",
+          "fpts": 132.03,
+          "salary": 9200
+        },
+        {
+          "name": "Chris Padilla",
+          "fpts": 111.35,
+          "salary": 8000
+        },
+        {
+          "name": "Marcio Barbosa",
+          "fpts": 104.76,
+          "salary": 9800
+        },
+        {
+          "name": "Vitor Petrino",
+          "fpts": 99.01,
+          "salary": 8500
+        }
+      ],
+      "best_swap": {
+        "out": "Gauge Young",
+        "in": "Chris Padilla",
+        "gain": 33.6,
+        "would_have_won": false
+      },
+      "swaps_needed": 2
+    }
+  },
+  {
+    "timestamp": "2026-08-23 18:26",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-193950623.csv",
+    "contest_id": "193950623",
+    "entries": 1426,
+    "winning_score": 720.9199,
+    "cash_line_p80": 518.93,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 26,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 21.21,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 50000.0,
+      "entry_count": 1,
+      "best_rank": 3,
+      "best_percentile": 0.2
+    },
+    "user_lineups": [
+      {
+        "rank": 3,
+        "entry_name": "RyvlesGaming30",
+        "points": 704.49994,
+        "percentile": 0.2,
+        "players": [
+          "Gregory Rodrigues",
+          "Reinier de Ridder",
+          "Jackson McVey",
+          "Shanelle Dyer",
+          "Jamall Emmers",
+          "Stan Dorsainvil"
+        ],
+        "avg_own": 21.21,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 394.18,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Gregory Rodrigues",
+        "proj_points": 58.39,
+        "actual_fpts": 148.2,
+        "fpts_delta": 89.81,
+        "ownership": 37.0,
+        "actual_own": 33.73
+      },
+      {
+        "name": "Jamall Emmers",
+        "proj_points": 38.23,
+        "actual_fpts": 106.86,
+        "fpts_delta": 68.63,
+        "ownership": 15.0,
+        "actual_own": 16.48
+      },
+      {
+        "name": "MarQuel Mederos",
+        "proj_points": 49.9,
+        "actual_fpts": 117.62,
+        "fpts_delta": 67.72,
+        "ownership": 18.0,
+        "actual_own": 16.55
+      },
+      {
+        "name": "Reinier de Ridder",
+        "proj_points": 81.7,
+        "actual_fpts": 132.03,
+        "fpts_delta": 50.33,
+        "ownership": 30.0,
+        "actual_own": 23.98
+      },
+      {
+        "name": "Chris Padilla",
+        "proj_points": 62.01,
+        "actual_fpts": 111.35,
+        "fpts_delta": 49.34,
+        "ownership": 34.0,
+        "actual_own": 49.65
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Lerryan Douglas",
+        "proj_points": 83.92,
+        "actual_fpts": 5.6,
+        "fpts_delta": -78.32,
+        "ownership": 38.0,
+        "actual_own": 33.45
+      },
+      {
+        "name": "Kennedy Nzechukwu",
+        "proj_points": 52.53,
+        "actual_fpts": 1.2,
+        "fpts_delta": -51.33,
+        "ownership": 28.0,
+        "actual_own": 39.76
+      },
+      {
+        "name": "Mason Jones",
+        "proj_points": 80.27,
+        "actual_fpts": 38.1,
+        "fpts_delta": -42.16,
+        "ownership": 28.0,
+        "actual_own": 32.96
+      },
+      {
+        "name": "Roman Dolidze",
+        "proj_points": 41.4,
+        "actual_fpts": 1.0,
+        "fpts_delta": -40.4,
+        "ownership": 13.0,
+        "actual_own": 10.38
+      },
+      {
+        "name": "Jeisla Chaves",
+        "proj_points": 43.26,
+        "actual_fpts": 4.0,
+        "fpts_delta": -39.26,
+        "ownership": 7.0,
+        "actual_own": 20.27
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Jamall Emmers",
+        "salary": 6900,
+        "actual_fpts": 106.86,
+        "actual_own": 16.48,
+        "top_lineup_pct": 65.0
+      },
+      {
+        "name": "Carli Judice",
+        "salary": 9400,
+        "actual_fpts": 106.46,
+        "actual_own": 12.55,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Shamil Gaziev",
+        "salary": 8400,
+        "actual_fpts": 100.8,
+        "actual_own": 15.64,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Stan Dorsainvil",
+        "salary": 7900,
+        "actual_fpts": 93.87,
+        "actual_own": 19.42,
+        "top_lineup_pct": 45.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 26.41,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 49800.0,
+      "dup_max": 2,
+      "unique_pct": 80.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "kpro790",
+          "points": 720.9199,
+          "percentile": 0.1,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Carli Judice",
+            "Jackson McVey",
+            "Jamall Emmers",
+            "Chris Padilla"
+          ],
+          "avg_own": 26.46,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 391.29,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "fred8120",
+          "points": 709.2999,
+          "percentile": 0.1,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Shamil Gaziev",
+            "Anthony Wint",
+            "Jamall Emmers",
+            "Chris Padilla"
+          ],
+          "avg_own": 27.29,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 397.51,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "RyvlesGaming30",
+          "points": 704.49994,
+          "percentile": 0.2,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Jackson McVey",
+            "Shanelle Dyer",
+            "Jamall Emmers",
+            "Stan Dorsainvil"
+          ],
+          "avg_own": 21.21,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 394.18,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "SauceBreaker69",
+          "points": 702.25995,
+          "percentile": 0.3,
+          "players": [
+            "Gregory Rodrigues",
+            "Vitor Petrino",
+            "Jackson McVey",
+            "MarQuel Mederos",
+            "Anthony Wint",
+            "Chris Padilla"
+          ],
+          "avg_own": 27.85,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 395.07,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "dmiller6405",
+          "points": 702.20996,
+          "percentile": 0.4,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Vitor Petrino",
+            "Jamall Emmers",
+            "Chris Padilla",
+            "Marcio Barbosa"
+          ],
+          "avg_own": 28.17,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 394.15,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "bwoosley713",
+          "points": 699.82996,
+          "percentile": 0.4,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Shanelle Dyer",
+            "Jamall Emmers",
+            "Chris Padilla",
+            "Stan Dorsainvil"
+          ],
+          "avg_own": 25.76,
+          "low_own_count": 0,
+          "salary_used": 49300,
+          "proj_total": 387.95,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "TimLeeCopeland",
+          "points": 691.81995,
+          "percentile": 0.5,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Shamil Gaziev",
+            "Anthony Wint",
+            "Jamall Emmers",
+            "Stan Dorsainvil"
+          ],
+          "avg_own": 22.25,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 393.8,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "E-Drillz",
+          "points": 687.56,
+          "percentile": 0.6,
+          "players": [
+            "Gregory Rodrigues",
+            "Carli Judice",
+            "MarQuel Mederos",
+            "Anthony Wint",
+            "Chris Padilla",
+            "Stan Dorsainvil"
+          ],
+          "avg_own": 26.03,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 406.73,
+          "dup_count": 2
+        },
+        {
+          "rank": 8,
+          "entry_name": "DeezNutz_4u",
+          "points": 687.56,
+          "percentile": 0.6,
+          "players": [
+            "Gregory Rodrigues",
+            "Carli Judice",
+            "MarQuel Mederos",
+            "Anthony Wint",
+            "Chris Padilla",
+            "Stan Dorsainvil"
+          ],
+          "avg_own": 26.03,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 406.73,
+          "dup_count": 2
+        },
+        {
+          "rank": 10,
+          "entry_name": "bobbyingram38",
+          "points": 686.43,
+          "percentile": 0.7,
+          "players": [
+            "Gregory Rodrigues",
+            "Reinier de Ridder",
+            "Vitor Petrino",
+            "Carli Judice",
+            "Jamall Emmers",
+            "Stan Dorsainvil"
+          ],
+          "avg_own": 21.12,
+          "low_own_count": 0,
+          "salary_used": 49500,
+          "proj_total": 380.46,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 5.2,
+        "low_own_count_delta": 0.0,
+        "salary_used_delta": -200.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 1422,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Anthony Hernandez",
+          "field_own": 56.9,
+          "actual_fpts": 74.4
+        },
+        {
+          "name": "Chris Padilla",
+          "field_own": 49.6,
+          "actual_fpts": 111.3
+        },
+        {
+          "name": "Kennedy Nzechukwu",
+          "field_own": 39.8,
+          "actual_fpts": 1.2
+        },
+        {
+          "name": "Serghei Spivac",
+          "field_own": 33.7,
+          "actual_fpts": 16.9
+        },
+        {
+          "name": "Gregory Rodrigues",
+          "field_own": 33.7,
+          "actual_fpts": 148.2
+        },
+        {
+          "name": "Lerryan Douglas",
+          "field_own": 33.5,
+          "actual_fpts": 5.6
+        },
+        {
+          "name": "Mason Jones",
+          "field_own": 33.0,
+          "actual_fpts": 38.1
+        },
+        {
+          "name": "Gauge Young",
+          "field_own": 32.5,
+          "actual_fpts": 77.8
+        },
+        {
+          "name": "Wes Schultz",
+          "field_own": 27.6,
+          "actual_fpts": 17.4
+        },
+        {
+          "name": "Marcio Barbosa",
+          "field_own": 24.6,
+          "actual_fpts": 104.8
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla"
+          ],
+          "field_pct": 30.2,
+          "count": 429
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Kennedy Nzechukwu"
+          ],
+          "field_pct": 21.3,
+          "count": 302
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Gauge Young"
+          ],
+          "field_pct": 20.5,
+          "count": 291
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Mason Jones"
+          ],
+          "field_pct": 20.3,
+          "count": 289
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Serghei Spivac"
+          ],
+          "field_pct": 19.3,
+          "count": 274
+        },
+        {
+          "players": [
+            "Chris Padilla",
+            "Gauge Young"
+          ],
+          "field_pct": 18.6,
+          "count": 265
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Lerryan Douglas"
+          ],
+          "field_pct": 18.5,
+          "count": 263
+        },
+        {
+          "players": [
+            "Chris Padilla",
+            "Kennedy Nzechukwu"
+          ],
+          "field_pct": 18.1,
+          "count": 257
+        },
+        {
+          "players": [
+            "Chris Padilla",
+            "Mason Jones"
+          ],
+          "field_pct": 17.1,
+          "count": 243
+        },
+        {
+          "players": [
+            "Chris Padilla",
+            "Lerryan Douglas"
+          ],
+          "field_pct": 16.8,
+          "count": 239
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla",
+            "Gauge Young",
+            "Jeisla Chaves",
+            "Lerryan Douglas",
+            "Mason Jones"
+          ],
+          "count": 37,
+          "field_pct": 2.6
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla",
+            "Jackson McVey",
+            "Kennedy Nzechukwu",
+            "Reinier de Ridder",
+            "Serghei Spivac"
+          ],
+          "count": 14,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla",
+            "Gauge Young",
+            "Kennedy Nzechukwu",
+            "Lerryan Douglas",
+            "Serghei Spivac"
+          ],
+          "count": 14,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla",
+            "Gauge Young",
+            "Jackson McVey",
+            "Kennedy Nzechukwu",
+            "Vitor Petrino"
+          ],
+          "count": 13,
+          "field_pct": 0.9
+        },
+        {
+          "players": [
+            "Anthony Hernandez",
+            "Chris Padilla",
+            "Gauge Young",
+            "Kennedy Nzechukwu",
+            "Marcio Barbosa",
+            "Wes Schultz"
+          ],
+          "count": 11,
+          "field_pct": 0.8
+        }
+      ],
+      "winners_profile": {
+        "n": 14,
+        "avg_own_per_slot": 26.5,
+        "dart_pct": 0.0,
+        "unique_pct": 92.9
+      },
+      "fish_profile": {
+        "n": 710,
+        "avg_own_per_slot": 31.9,
+        "dart_pct": 12.5,
+        "unique_pct": 55.6
+      },
+      "fish_traps": [
+        {
+          "name": "Anthony Hernandez",
+          "fish_pct": 67.0,
+          "winner_pct": 7.1,
+          "gap": 59.9,
+          "actual_fpts": 74.4,
+          "field_own": 56.9,
+          "own_rank": 1
+        },
+        {
+          "name": "Lerryan Douglas",
+          "fish_pct": 53.2,
+          "winner_pct": 0.0,
+          "gap": 53.2,
+          "actual_fpts": 5.6,
+          "field_own": 33.5,
+          "own_rank": 6
+        },
+        {
+          "name": "Kennedy Nzechukwu",
+          "fish_pct": 50.6,
+          "winner_pct": 0.0,
+          "gap": 50.6,
+          "actual_fpts": 1.2,
+          "field_own": 39.8,
+          "own_rank": 3
+        },
+        {
+          "name": "Serghei Spivac",
+          "fish_pct": 42.1,
+          "winner_pct": 0.0,
+          "gap": 42.1,
+          "actual_fpts": 16.9,
+          "field_own": 33.7,
+          "own_rank": 4
+        },
+        {
+          "name": "Mason Jones",
+          "fish_pct": 41.1,
+          "winner_pct": 0.0,
+          "gap": 41.1,
+          "actual_fpts": 38.1,
+          "field_own": 33.0,
+          "own_rank": 7
+        },
+        {
+          "name": "Wes Schultz",
+          "fish_pct": 38.0,
+          "winner_pct": 0.0,
+          "gap": 38.0,
+          "actual_fpts": 17.4,
+          "field_own": 27.6,
+          "own_rank": 9
+        },
+        {
+          "name": "Gauge Young",
+          "fish_pct": 36.9,
+          "winner_pct": 7.1,
+          "gap": 29.8,
+          "actual_fpts": 77.8,
+          "field_own": 32.5,
+          "own_rank": 8
+        },
+        {
+          "name": "Jeisla Chaves",
+          "fish_pct": 25.2,
+          "winner_pct": 0.0,
+          "gap": 25.2,
+          "actual_fpts": 4.0,
+          "field_own": 20.3,
+          "own_rank": 15
+        },
+        {
+          "name": "Roman Dolidze",
+          "fish_pct": 15.8,
+          "winner_pct": 0.0,
+          "gap": 15.8,
+          "actual_fpts": 1.0,
+          "field_own": 10.4,
+          "own_rank": 22
+        },
+        {
+          "name": "Nasrat Haqparast",
+          "fish_pct": 12.8,
+          "winner_pct": 0.0,
+          "gap": 12.8,
+          "actual_fpts": 28.8,
+          "field_own": 10.0,
+          "own_rank": 23
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "kpro790",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "fred8120",
+          "best_rank": 2,
+          "percentile": 0.1
+        },
+        {
+          "handle": "SauceBreaker69",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "dmiller6405",
+          "best_rank": 5,
+          "percentile": 0.4
+        },
+        {
+          "handle": "bwoosley713",
+          "best_rank": 6,
+          "percentile": 0.4
+        },
+        {
+          "handle": "TimLeeCopeland",
+          "best_rank": 7,
+          "percentile": 0.5
+        },
+        {
+          "handle": "E-Drillz",
+          "best_rank": 8,
+          "percentile": 0.6
+        },
+        {
+          "handle": "DeezNutz_4u",
+          "best_rank": 8,
+          "percentile": 0.6
+        },
+        {
+          "handle": "bobbyingram38",
+          "best_rank": 10,
+          "percentile": 0.7
+        },
+        {
+          "handle": "Buckyc20",
+          "best_rank": 11,
+          "percentile": 0.8
+        },
+        {
+          "handle": "shanewik",
+          "best_rank": 12,
+          "percentile": 0.8
+        },
+        {
+          "handle": "RandyScores",
+          "best_rank": 13,
+          "percentile": 0.9
+        },
+        {
+          "handle": "mookymooks",
+          "best_rank": 14,
+          "percentile": 1.0
+        },
+        {
+          "handle": "Maxlove5868",
+          "best_rank": 15,
+          "percentile": 1.1
+        },
+        {
+          "handle": "lmcgittigan",
+          "best_rank": 16,
+          "percentile": 1.1
+        }
+      ],
+      "read": [
+        "Field crowded **Anthony Hernandez** at 56.9% (74.4 fpts) \u2014 the chalk to consider fading.",
+        "**Anthony Hernandez + Chris Padilla** were together in 30.2% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Anthony Hernandez** was a fish trap: 67.0% of the fish, only 7.1% of winners.",
+        "Fish ran 5.4 pts/slot more chalk than winners (31.9% vs 26.5%)."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 720.9199,
+      "winner_handle": "kpro790",
+      "roster": [
+        {
+          "name": "Gregory Rodrigues",
+          "own": 33.73,
+          "fpts": 148.2
+        },
+        {
+          "name": "Reinier de Ridder",
+          "own": 23.98,
+          "fpts": 132.03
+        },
+        {
+          "name": "Carli Judice",
+          "own": 12.55,
+          "fpts": 106.46
+        },
+        {
+          "name": "Jackson McVey",
+          "own": 22.37,
+          "fpts": 116.02
+        },
+        {
+          "name": "Jamall Emmers",
+          "own": 16.48,
+          "fpts": 106.86
+        },
+        {
+          "name": "Chris Padilla",
+          "own": 49.65,
+          "fpts": 111.35
+        }
+      ],
+      "avg_own": 26.5,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Carli Judice",
+        "own": 12.55,
+        "fpts": 106.46
+      },
+      "expected_dupes": 0.26
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "blocked_swap": {
+        "out": "Stan Dorsainvil",
+        "in": "Chris Padilla",
+        "gain": 17.5,
+        "over_cap_by": 100
+      },
+      "gradable": true,
+      "won": false,
+      "your_points": 704.49994,
+      "winner_points": 720.9199,
+      "gap": 16.4,
+      "your_percentile": 0.2,
+      "n_shared": 4,
+      "shared": [
+        "Gregory Rodrigues",
+        "Jackson McVey",
+        "Jamall Emmers",
+        "Reinier de Ridder"
+      ],
+      "your_uniques": [
+        {
+          "name": "Shanelle Dyer",
+          "fpts": 107.52,
+          "salary": 9700
+        },
+        {
+          "name": "Stan Dorsainvil",
+          "fpts": 93.87,
+          "salary": 7900
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Chris Padilla",
+          "fpts": 111.35,
+          "salary": 8000
+        },
+        {
+          "name": "Carli Judice",
+          "fpts": 106.46,
+          "salary": 9400
+        }
+      ],
+      "best_swap": {
+        "out": "Shanelle Dyer",
+        "in": "Chris Padilla",
+        "gain": 3.8,
+        "would_have_won": false
+      },
+      "swaps_needed": 2
+    }
+  }
+]

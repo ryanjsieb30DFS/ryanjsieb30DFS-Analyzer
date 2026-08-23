@@ -1,0 +1,46 @@
+{
+  "gradable": true,
+  "n_pool": 26,
+  "n_matched": 26,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 2,
+      "avg_fpts": 40.0,
+      "max_fpts": 74.4
+    },
+    {
+      "tier": "Good",
+      "n": 6,
+      "avg_fpts": 120.1,
+      "max_fpts": 148.2
+    },
+    {
+      "tier": "Okay",
+      "n": 9,
+      "avg_fpts": 74.3,
+      "max_fpts": 117.6
+    },
+    {
+      "tier": "Fade",
+      "n": 9,
+      "avg_fpts": 30.5,
+      "max_fpts": 111.3
+    }
+  ],
+  "tiers_ordered": false,
+  "leakage": [
+    {
+      "name": "Vitor Petrino",
+      "tier": "Fade",
+      "fpts": 99.0
+    },
+    {
+      "name": "Chris Padilla",
+      "tier": "Fade",
+      "fpts": 111.3
+    }
+  ],
+  "excluded_scratches": [],
+  "summary": "Core 40.0 > Good 120.1 > Okay 74.3 > Fade 30.5  \u2717 OUT OF ORDER"
+}
