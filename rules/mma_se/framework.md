@@ -238,6 +238,48 @@ DK MMA scoring pays heavily for significant strikes, control time and takedowns,
 
 **Rule:** before capping any fighter's ceiling because his fight is likely to go the distance, check projected **pace, volume and control**. A high-output fighter favored to dominate carries a real 100+ ceiling with no finish. A distance projection caps the ceiling ONLY when it is also low-volume and low-control — a true point-fighting stalemate.
 
+### Salary Buys Floor, Not Ceiling (8/23/26 — 19-card validated, EX ANTE)
+
+**This rule is provable from the vendor sheet before lock. No result is required.** Across **19 MMA cards and 474 fighters**, using only projections and win probability:
+
+| Salary band | Win-case pts / $1K | Expected pts / $1K |
+|---|---:|---:|
+| $9,000+ | 10.58 | **8.76** |
+| $7,500–8,999 | 11.55 | 7.32 |
+| under $7,500 | **13.63** | 5.47 |
+
+Monotonic in both directions on **19 of 19 cards — no exceptions.** This is a property of how DailyFan prices MMA, not a slate quirk.
+
+**Salary buys expected points and sells win-case points.** Expected points is the *cash* measure: it averages in the worlds where the fighter loses, and you are never paid in those. Win-case per dollar is the *GPP* measure.
+
+The mechanism is the scoring system. MMA points are **finish-driven, not quality-driven**, so a fighter's win-case score barely rises with his price — while his price rises with his win *probability*.
+
+**Realized results confirm it** (15 cards, 192 winners, winners only):
+
+| Salary band | Avg pts | Pts per $1K |
+|---|---:|---:|
+| $9,000+ | 103.7 | 11.09 |
+| $7,500–8,999 | 101.6 | 12.26 |
+| under $7,500 | 94.1 | 13.22 |
+
+A winner's points move barely at all across a $3,000+ price range, so **value per dollar falls as price rises** — 11.09 / 12.26 / 13.22, tracking the ex-ante win-case column almost exactly. *Survivorship caveat: expensive fighters win more often, so this is points GIVEN a win, never expected value.*
+
+1. **Every $9,000+ slot needs a stated FINISH path, not just a win path.** Finish equity is the only thing price can buy that the cheap tier cannot.
+2. **Source the lineup's win-probability from the $7,500–8,999 tier.** Best balance of the two columns.
+3. **Carry 1–2 fighters at $9,000+, rarely more.** The tables are the mechanism; the calibration comes from realized top-100 lineups on five captured cards, which carried 1.0–1.9 — *and carried more than the average legal lineup*, so this is not "never pay up."
+4. **Never run the same expensive favorite in 100% of a multi-entry set.** At least one entry holds the ceiling swing instead.
+5. **Cheap is not automatically right.** Sub-$7,500 has the best ceiling per dollar and the worst expected value (5.47), and its winners scored the fewest absolute points (94.1). It is where the ceiling lives *and* where the dead slots live; the cheap-slot rule still governs it — a win path in one sentence, or it does not go in.
+
+**The trap, in one case (8/23 Shanelle Dyer).** Of the seven fighters actually rostered, Dyer ranked **first on expected points per dollar (9.15) and last on win-case per dollar (10.04)** — the exact inversion, on that day's sheet, visible before lock. She cost $9,700 with a 97.4 win case; Rodrigues cost $7,600 with a **106.8** win case. In the world where both win, the cheaper fighter pays more. Dyer's only edge was winning more often. She was in **100%** of five entries.
+
+The Anchor-Equivalence call that took Dyer over Wint and Barbosa — same win probability, half the ownership — was **correct within that tier**. The error was shopping in the tier at all, then putting one $9,700 floor-buy in every entry.
+
+*Hindsight guard: exposure is judged against what the SHEET showed, never against how often a fighter turned up in the realized top-100. Rodrigues was a 34% dog — in the two-thirds of worlds where he loses he is in none of them. "He was in 100% of the top 100" describes what happened; it was never a pre-lock target.*
+
+*Re-run with `python scripts/mma_salary_bands.py` in the Sim repo as cards accumulate. It reads the vendor-sheet and standings archive in `~/Downloads`, not the capture sidecars — measuring off sidecars alone covers only 7/25/26 onward and produced a false result on first pass (5 cards said the mid tier outscored the expensive tier; 15 cards reversed it).*
+
+*This also explains a result the 8/23 review flagged but could not account for — the entries carried **zero** Core-tier fighters and produced the best slate on record. The board's `Core` tier prices probability; the tournament pays ceiling. See [[mma-se-2026-08-23-core-tier-mirrors-the-field-chalk]].*
+
 ### The Okay Tier Is a Verdict, Not a Shrug (8/16/26 — 3-slate validated)
 
 Cap `Okay` at ~1/3 of the board; every other fighter gets `Good` or `Fade` with a one-line reason; check the tier-order flag each autopsy.

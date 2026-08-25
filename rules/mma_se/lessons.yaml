@@ -579,7 +579,26 @@ lessons:
           to [[mma-se-2026-05-30-asymmetric-anchor-equivalence-weighting]], and one
           event should not buy two promotions. Stays at 2 of 3; needs an independent
           third slate where an over-exposed favorite sinks a portfolio block.
-    contradictions: []
+      - date: "2026-08-23"
+        slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+        note: >
+          BOUNDARY NOTE, deliberately NOT counted as a confirmation — the cap was
+          broken and cost nothing, which sharpens the rule's OBJECT. Two favorites ran
+          at 100% exposure across the three 3-Max entries, far above the ~60% cap:
+          Shanelle Dyer (85% win chance) and Gauge Young (60%). Both won; the block
+          finished 1.9 / 4.4 / 14.0 percentile with no correlated failure. The
+          difference from Topuria (6/14) and Cepo (8/2) is not the exposure number, it
+          is the WIN PATH: Cepo needed an early knockout and had no decision floor, so
+          his failure resolved to ~zero in every entry that held him, while Dyer wins on
+          volume over 15 minutes and scores in a decision. The main-event hedge the rule
+          actually asks for WAS carried — the pick engine's note says entry 3 "carries
+          no main-event fighter at all, so if Hernandez wins, one entry is still alive
+          instead of all three dying together," and Rodrigues then won anyway. Refinement
+          to fold into any future codification: cap exposure to a BINARY favorite (one
+          whose only scoring path is a finish), not to any favorite — an 85%-win
+          fighter with a decision floor at 100% exposure is a conviction anchor, not a
+          correlated bet. Still 2 of 3.
     codified_in: null
     retired_reason: null
 
@@ -790,6 +809,22 @@ lessons:
           UNDERWEIGHT on ownership-vs-win-equity, 12.2 points; Klein UNDERWEIGHT on
           salary inefficiency, 18.6 points). Links
           [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]].
+      - date: "2026-08-23"
+        slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 594 3-Max + 784/1,426 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+        note: >
+          The 8/2 NARROWING was right, and this slate is its first live test — logged as
+          a confirmation of the narrowed rule, not a fresh contradiction. Five fade calls
+          were written. The three resting on a measurable non-finish mechanism all paid:
+          Wes Schultz LEAN FADE on a 39% win chance and 45.6 projection (17.4 points),
+          Kennedy Nzechukwu UNDERWEIGHT on ownership-vs-win-equity, 28% owned at a 48%
+          win chance against a favored Gaziev (1.2 points), Mason Jones UNDERWEIGHT on a
+          71-point zero-takedown last win (38.1 points). The two that rested on
+          finish-probability price — the exact form the carve-out bans — both failed and
+          both landed in the 784-field winner: Chris Padilla ("-190 to go the distance,"
+          111.35) and Vitor Petrino ("only -160 to end early," 99.01). Three-for-three on
+          structural, zero-for-two on inside-the-distance price, in one slate. The
+          carve-out predicted which fades would break before the card ran.
     codified_in: >
       framework.md — Structural Fades Only (7/19/26 — 3-slate validated), NARROWED
       2026-08-02 with the appended "What does NOT count as structural" carve-out:
@@ -943,6 +978,22 @@ lessons:
           the SCREEN half of this rule worked exactly as codified. The failure was
           downstream in the build (0% Urbina exposure across 4 entries) and is carried
           by [[mma-se-2026-07-26-field-value-side-vs-your-named-converter]].
+      - date: "2026-08-23"
+        slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 594 3-Max + 784/1,426 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+        note: >
+          Fifth confirming slate, and the first where the screen ran AND the build
+          followed it. The screen found one sub-10% CONVERTER — Shanelle Dyer, $9,700,
+          9% projected / 11.11% actual, an 85% win chance and a 72% career finish rate
+          — surfaced as `Good · Leverage` on the board, given her own `## Leverage`
+          line, and named in `## Edges & tensions` as an anchor-equivalence twin of the
+          24-38%-owned knockout favorites. She scored 107.52, carried the 594-field
+          winner (bstowe4, 718.69), and sat in all five user entries. The named binary
+          DOGS the screen deliberately did not promote all died: Jeisla Chaves 4.0,
+          Roman Dolidze 1.0, and Terrance Chatman / Ryan Kuse (both 5% projected) were
+          skipped outright — the pick engine's own note says "I skipped the top-heavy
+          dart ... because your own ledger has punished no-win-path fighters in fields
+          this size seven slates running." Converter over named dog, fifth time.
     contradictions: []
     codified_in: "framework.md — The Leverage Screen: Converters, Not Named Dogs (7/19/26 — 3-slate validated)"
     retired_reason: null
@@ -1071,6 +1122,25 @@ lessons:
           fighter who out-scored the entire `Okay` tier and dragged the tier ordering
           out of sequence. Also logged as the second ITD-cap failure under
           [[mma-se-2026-06-20-fade-on-structure-not-narrative]].
+      - date: "2026-08-23"
+        slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 594 3-Max + 784/1,426 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+        note: >
+          FOURTH confirming slate, and the most expensive one yet — the mis-capped
+          fighter was in TWO of the three contest winners. The strategy called Chris
+          Padilla UNDERWEIGHT with the distance clause stated outright: "$8,000 at 34%
+          ownership for a 62.0 projection and 52% win chance ... the fight is -190 to go
+          the distance." Padilla scored 111.35, the slate's #5 overperformer (+49.3 vs
+          projection), and sat in the 784-field winner (mbhall3, 702.21) and the
+          1,426-field winner (kpro790, 720.92). Same shape one slot down: Vitor Petrino
+          was UNDERWEIGHT because his "fight [is] only -160 to end early; both fighters'
+          last wins scored under 75" — a pure finish-probability cap — and he scored
+          99.01 inside that same 784 winner. Both were tiered `Fade` on the board and
+          both are the pool_calibration leakage entries (Padilla 111.3, Petrino 99.0
+          out-scoring the whole `Okay` tier). The ceiling cap inferred from low finish
+          probability has now been wrong on a winner-defining scorer four times
+          (7/12 Bautista 137.43, 7/19 Kline 109.40, 8/2 Stirling 106.1, 8/23 Padilla
+          111.35). Same honest caveat: standings do not record method.
     contradictions: []
     codified_in: "framework.md — Distance ≠ Low Ceiling (8/2/26 — 3-slate validated)"
     retired_reason: null
@@ -1166,6 +1236,22 @@ lessons:
           20.52 (2), Orolbai 50.0 — while the crowd's own traps confirmed the shape
           (Fernandes 46.6% own, 0.8 points). Win-side selection in the mid-tier was,
           for the fifth slate, the whole edge.
+      - date: "2026-08-23"
+        slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 594 3-Max + 784/1,426 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+        note: >
+          Sixth confirming slate, and the FIRST one graded from the winning side. All
+          three contest winners were six fighters who won, at 19.4 / 26.9 / 26.5% own
+          per slot with zero sub-10 pieces, each differentiated by mid-owned converters
+          the field under-trusted: Carli Judice 12.55% (106.46), Jamall Emmers 16.48%
+          (106.86), MarQuel Mederos 18.01% (117.62), Vitor Petrino 19.39% (99.01),
+          Marcio Barbosa 21.3% (104.76). The user's five entries ran the identical
+          shape — 18.6-24.8% own per slot, zero darts, differentiation from Emmers
+          (15.66%), Mederos (18.01%), Gaziev (19.7%) and Dyer (11.11%) — and this time
+          the win-side selection came out right: bust exposure 0.0, overperformer
+          capture 4 of 5, points-to-projection ratio 1.63, finishes 0.2 / 1.3 / 1.9 /
+          4.4 / 14.0 percentile. The mechanism reads the same from the winning side as
+          it did through five slates of losing: the whole edge is WHICH mid-owns win.
     contradictions: []
     codified_in: "framework.md — The Winning MMA SE Shape (8/2/26 — 3-slate validated)"
     retired_reason: null
@@ -1272,6 +1358,32 @@ lessons:
           narrowing proposal: this was the first slate where the consensus name was an
           UNDERDOG (45% win probability) — the field may converge above projection only
           on consensus FAVORITES and hedge away from consensus dogs.
+      - date: "2026-08-23"
+        slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 594 3-Max + 784/1,426 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+        note: >
+          SECOND mechanism contradiction of the SHARPENED form (the demotion threshold —
+          a NARROWING proposal, not a retirement, goes to `## Proposed codifications`).
+          The rule as codified says: find the consensus name by narrative agreement,
+          then adjust its ownership UP. Anthony Hernandez was that name without
+          ambiguity — main event, 56% projected (the board's #1), a 66% win chance, and
+          the strategy applied the adjustment in writing: "Hernandez likely arrives near
+          70% (7 of 10 teams)." He drew 54.0-56.9% ACTUAL — flat to projection, and ~14
+          points below the adjusted assumption. The 8/9 boundary ("the field converges
+          above projection only on consensus FAVORITES") is disconfirmed by the same
+          event: Hernandez WAS a favorite and still did not run hot. The core claim is
+          untouched — the field did converge above projection, just not on him: Chris
+          Padilla 34% -> 44.6/49.7% (+11 to +16), Kennedy Nzechukwu 28% -> 38.2/39.8%
+          (+10 to +12), Jeisla Chaves 7% -> 16.7% (+10), Serghei Spivac 24% -> 33.7%.
+          Note the shape those four share and the top-priced consensus name does not:
+          they are the CHEAP side. Padilla $8,000, Nzechukwu $7,800, Chaves $6,800,
+          Spivac $7,700 — the salary savers a six-man build needs after paying up. Same
+          shape at 8/16 (C. Johnson, the salary-saver, +10 to +15 while the projected #1
+          Makhachev moved only +4-5) and at 8/9 (Thainara $7,300, +25, while the
+          consensus #1 Gamrot came in 12-14 BELOW). Three consecutive slates point at
+          the same narrower rule: apply the upward adjustment to the CHEAP consensus
+          names that fit every build's salary shape, not to the top-priced narrative
+          favorite.
     codified_in: "framework.md — Convergence Adjustment on the Consensus Favorite (8/2/26 — 3-slate validated)"
     retired_reason: null
 
@@ -1357,6 +1469,24 @@ lessons:
           Note also the strategy cited moklovin's 27.8% own-per-slot as the coaching
           target while the live in-field shark ran 37.8% — the envelope number
           transfers poorly even when a pro IS present.
+      - date: "2026-08-23"
+        slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 1,426-entry Clinch SE"
+        origin_dir: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+        note: >
+          Fifth confirming slate for the axis-is-noise corollary, and the first with a
+          MATERIAL delta — which is the point. Four straight slates measured gaps of
+          <=1.3 ownership points and taught nothing. Here one tracked pro was in the
+          Clinch field and the gap was finally large: average ownership per roster spot
+          21.2 (user) vs 34.1 (pro), a 12.9-point delta, with chalk-anchor exposure 0.0
+          vs 0.667. `shark_gap.json` labels that dimension "under-owning these is the
+          recurring leak" — and it was inverted. The user finished 0.21%ile (rank 3 of
+          1,426); the pro finished 29.03%ile. The reason is in the same file's anchor
+          list: the chalk anchors were Anthony Hernandez (56.9% own, 74.4 points, 67%
+          of the bottom half and 7.1% of the winners) and Chris Padilla, and zero
+          exposure to the first was the whole edge. Sharpens the corollary: a material
+          own-per-slot gap is still not a leak by itself — it only reads as one when
+          the chalk anchors CONVERT, and whether they convert is unknowable pre-lock.
+          The axis remains descriptive; it never becomes a target.
     contradictions: []
     codified_in: "framework.md — Envelope Targets Are Rates (8/16/26); philosophy.md — Envelope Targets Are Rates (8/16/26)"
     retired_reason: null
@@ -1470,6 +1600,24 @@ lessons:
           sub-10% flier (Prepolec, 7% projected, 2.6 points) which the user DID roster.
           Urbina at 15% projected never entered the graded set. Two slates, same
           mechanism, same blind spot in the metric.
+      - date: "2026-08-23"
+        slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 594 3-Max + 784/1,426 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+        note: >
+          THIRD confirming slate — promotion candidate — this time in the POSITIVE
+          direction, twice on one card. Instance 1: the strategy named Shanelle Dyer
+          (9% projected own, 85% win chance, $9,700) the leverage side of Dyer/Reed;
+          the user carried her in 5 of 5 entries, she scored 107.52 at 11.11% actual
+          own, and she carried the 594-field winner. Instance 2 is the clean
+          field-value test. The strategy named Shamil Gaziev (22% projected, 52% win,
+          61.8 projection) the favored-but-cheaper side of Gaziev/Nzechukwu and called
+          the opposite side — Kennedy Nzechukwu, 28% projected, 48% win, 52.5
+          projection — an UNDERWEIGHT. The field bought the value side hard: Nzechukwu
+          drew 38.2-39.8% ACTUAL own and scored 1.2, while Gaziev scored 100.8. The
+          user took the named converter in 3 entries and the field's side in zero. The
+          double-loss mechanism is confirmed by its inverse — taking the named side
+          captured the winning half of the fight AND the ownership gap in one decision.
+          Origin (7/26) + 8/2 + 8/23 = three confirming slates -> propose codifying.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1529,6 +1677,23 @@ lessons:
           OUT OF ORDER for the FOURTH consecutive graded slate, this time at
           Good-vs-Okay. A tier spanning 0.8 to 128.8 points carries no information,
           and it once again held the fighters who decided the slate.
+      - date: "2026-08-23"
+        slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 26-fighter board"
+        origin_dir: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+        note: >
+          FOURTH confirming slate, and the first that tests the PRESCRIBED FIX rather
+          than the failure — the fix worked. The board held `Okay` to 9 of 26 fighters
+          (35%, against the rule's ~one-third target and the 52-63% of the three prior
+          slates), and for the first time `Okay` sorted correctly: Good 120.1 > Okay
+          74.3 > Fade 30.5. Cap the middle and the middle carries information. The
+          ordering flag still returned OUT OF ORDER, but at a different seam entirely —
+          `Core` (n=2) averaged 40.0 against `Good`'s 120.1, because both Core fighters
+          were the field's chalk anchors and both failed (Anthony Hernandez 74.4,
+          Lerryan Douglas 5.6). Two residual leaks worth naming: MarQuel Mederos sat in
+          `Okay` at 117.62 (a slate-definer, 18.01% own, in the 594-field winner), and
+          both `Fade` leakage entries (Chris Padilla 111.35, Vitor Petrino 99.01)
+          out-scored the entire `Okay` tier. The new failure seam is carried by
+          [[mma-se-2026-08-23-core-tier-mirrors-the-field-chalk]].
     contradictions: []
     codified_in: "framework.md — The Okay Tier Is a Verdict, Not a Shrug (8/16/26 — 3-slate validated)"
     retired_reason: null
@@ -1616,6 +1781,24 @@ lessons:
           carried four sub-51-point slots (Orolbai 50.0, Chapolin 39.96, Brahimaj
           26.95, Luque 20.52) and graded clean at 67.8%ile. The proposed no-win-path
           gate and convergence-adjusted ownership inputs remain the fix.
+      - date: "2026-08-23"
+        slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 5 entries, 3 contests"
+        origin_dir: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+        note: >
+          Third confirmation, and the one that settles WHY the gates say nothing.
+          `retro_grade` returned ZERO flags on all 5 entered lineups — now ~120
+          consecutive clean MMA lineups across four slates with no flag ever fired.
+          What is new is the outcome attached to the clean grade: those 5 finished
+          0.2 / 1.3 / 1.9 / 4.4 / 14.0 percentile, the best slate on record. Three
+          slates ago the same all-clean grade sat on 92.1%ile. A check that reads
+          identical on the worst and the best slate in the ledger is measuring
+          nothing — that is the definition in the statement, now demonstrated from
+          both ends of the range rather than inferred. The proposed no-win-path gate
+          would at last have had discriminating power here: every one of the 30
+          entered roster slots belonged to a fighter with a live win path and bust
+          exposure came back 0.0, which is exactly the property the winning entries
+          shared and the field's fish did not (Hernandez 67% of the fish, 7.1% of the
+          winners). Build the gate on win paths, not ownership.
     contradictions: []
     codified_in: "framework.md — A Clean MMA Grade Carries No Information (8/16/26)"
     retired_reason: null
@@ -1649,8 +1832,29 @@ lessons:
       [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]],
       [[mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-08-23"
+        slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 594 3-Max + 784/1,426 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+        note: >
+          FIRST confirmation -> promoted to validated, and it confirms the FIX half of
+          the rule rather than the failure half. The prescribed remedy was "prefer
+          picking the bullet from the Sim pool's contest slice over free-hand
+          assembly." This is the first slate where every entry was a pick and none was
+          hand-touched: all five rosters in `lineup_selection.json` (pool indexes 6025,
+          3009, 4482, 1771, 2778) match the five entered lineups in `autopsy.json`
+          fighter-for-fighter — five distinct rosters across three contests, zero
+          hand-swaps. The result is the best in the ledger: 0.2 / 1.3 / 1.9 / 4.4 /
+          14.0 percentile, four of five inside the top 10%, against 92.1%ile for the
+          hand-assembled 8/9 SE bullet and 67.8%ile for the hand-swapped 8/16 Clinch
+          entry. The Sim hand-off quantifies it the same way it quantified the failure:
+          picking beat the 6,500-lineup pool average by +183.3 points (Sprawl), +224.9
+          (Flying Knee) and +272.2 (Clinch), and only 15 of 6,500 pool lineups (0.23%)
+          out-scored the Clinch entry. The single-entry bullets were no longer the
+          least disciplined builds — they were the two best finishes on the slate.
+          Mechanism confirmed by its inverse: the gap was never judgment, it was
+          hand-assembly happening outside every systematic screen.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1708,8 +1912,25 @@ lessons:
       in the live app (this may be a re-pick-ordering artifact), and when a pick is
       displaced from a contest, RE-RUN the pick for that contest instead of
       hand-swapping slots.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-08-23"
+        slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 594 3-Max + 784/1,426 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+        note: >
+          FIRST confirmation -> promoted to validated, from the clean side: the
+          one-lineup-one-contest rule held, so no hand-editing was ever forced, and the
+          cost the 8/16 event measured did not recur. `lineup_selection.json` records
+          five picks across three contests (pool indexes 6025 for the 784 Flying Knee;
+          3009, 4482 and 1771 for the 594 Sprawl; 2778 for the 1,426 Clinch) — five
+          DISTINCT rosters, generated in sequence at 15:12, 15:21 and 15:28, with no
+          index repeated. That is `taken_roster_keys` doing exactly what the 8/16 note
+          asked to be verified in the live app, which also resolves that entry's open
+          question: 8/16 looks like a re-pick-ordering artifact, not a broken exclusion.
+          All five picks were then entered unmodified, and the two contests that had
+          been hand-repaired on 8/16 (Clinch, Flying Knee) finished 0.2%ile and 1.3%ile
+          here. Second confirming slate should be another multi-contest card where a
+          displaced pick is RE-RUN rather than slot-swapped.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -1736,6 +1957,198 @@ lessons:
       [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]].
     status: hypothesis
     confirmations: []
+    contradictions:
+      - date: "2026-08-23"
+        slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 6,500-lineup pool, 3 contests"
+        origin_dir: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+        note: >
+          FIRST mechanism contradiction — the awaited third slate came back with real
+          signal, not zero. Across the 6,500-lineup pool every metric correlated
+          POSITIVELY with the real scores: ROI 0.322, Top1% 0.305, Cash% 0.304, Win%
+          0.271 — an order of magnitude above 8/16's 0.002 / -0.010 / -0.018 / -0.025.
+          The ordering was economically meaningful, not just non-zero: the top 100
+          lineups by Win% averaged 526.84 actual points against a pool average of
+          432.31 (+94.5), by ROI 503.79 (+71.5), by Top1% 502.59 (+70.3), by Cash%
+          465.90 (+33.6). So the metrics DID order the top of the pool this slate, and
+          the ranking-is-noise claim fails here. Boundary that keeps the hypothesis
+          alive rather than retired: this card had 13 fights with wide finish equity
+          and produced huge score dispersion (pool 432 average, 720.92 max), while
+          8/9 and 8/16 were tighter title-card boards. The condition to test next is
+          whether the ordering signal tracks the board's outcome DISPERSION rather
+          than being noise everywhere. Practical note: the threshold-not-gospel
+          instruction cost nothing this slate either way — picking beat the pool
+          average by +183 to +272 points in all three contests.
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-08-23 — UFC Fight Night: Hernandez vs. Rodrigues ----
+
+  - id: mma-se-2026-08-23-core-tier-mirrors-the-field-chalk
+    born: "2026-08-23"
+    origin: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+    statement: >
+      The player pool's `Core` tier is being assigned from projection plus narrative
+      consensus — the same two signals that set public ownership — so on MMA cards it
+      converges on the field's chalk anchors instead of on the fighters most likely to
+      out-score their price, and a tier that mirrors ownership carries no independent
+      information. On 8/23 the board named exactly two Core fighters and they were the
+      slate's two most-owned expensive names: Anthony Hernandez ($8,600, 56% projected
+      / 56.9% actual, proj 82.7) and Lerryan Douglas ($9,300, 38% / 33.5%, proj 83.9).
+      Both failed — Hernandez 74.4 in a loss, Douglas 5.6 — and `Core` averaged 40.0
+      points against `Good`'s 120.1, dragging tier ordering OUT OF ORDER for the fifth
+      straight graded slate, this time at the Core-vs-Good seam. The field's own data
+      says the same thing louder: `field_analysis` scored Hernandez the slate's #1 fish
+      trap, in 67.0% of the bottom-half lineups and 7.1% of the winners. The user's five
+      entries carried ZERO Core fighters and finished 0.2 / 1.3 / 1.9 / 4.4 / 14.0
+      percentile. Mechanism: `Core` is meant to answer "build around this," but the
+      evidence it is built from — highest projection, most article ink, main-event
+      billing — is the evidence the crowd uses, so Core reproduces the chalk it should
+      be pricing against. `Good` and `Okay`, where the board must argue a case, are
+      where the converters land. Rule to test: a fighter may only be tiered `Core` when
+      his case survives a projected-ownership check — if his projected own is already
+      top-3 on the board, he needs an edge the crowd is NOT paying for (a price
+      dislocation, an unowned twin, a scoring path that pays without a finish), or he
+      belongs in `Good`. Watch the Core-vs-Good seam in `pool_calibration.json` as the
+      read-out. Links [[mma-se-2026-08-02-okay-tier-is-a-dumping-ground]],
+      [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
+      [[mma-se-2026-05-30-anchor-equivalence-fifth-validation]].
+    status: hypothesis
+    confirmations: []
     contradictions: []
     codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-08-23-underweight-gate-deletes-a-whole-pool-branch
+    born: "2026-08-23"
+    origin: "rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26"
+    statement: >
+      The strategy gate implements an UNDERWEIGHT verdict as an absolute exclusion, so
+      on a one- or two-bullet contest a single soft, probabilistic call silently deletes
+      every pool lineup containing that fighter — and one wrong soft call can delete the
+      winning branch. Evidence: the strategy called Chris Padilla UNDERWEIGHT ($8,000,
+      34% projected own, 62.0 projection, "the fight is -190 to go the distance").
+      `strategy_gate` therefore removed every Padilla lineup from all three contests'
+      candidate slices, and the Clinch pick's own note says so plainly — it chose the
+      best row "that carries none of the six prices the strategy flagged as picked ahead
+      of their projected points." Padilla drew 44.6-49.7% ACTUAL own and scored 111.35,
+      and he was in the winning lineup of TWO of the three contests (mbhall3 702.21 in
+      the 784 Flying Knee; kpro790 720.92 in the 1,426 Clinch). The Sim's 6,500-lineup
+      pool held a lineup scoring 720.92 — exactly the Clinch winning score — and the
+      gate could never have picked it. The near-miss confirms the shape: the user
+      finished rank 3 by 16.4 points, and BOTH proposed repairs were Padilla (best swap
+      Dyer -> Padilla +3.8; the points-best swap Dorsainvil -> Padilla +17.5 was blocked
+      $100 over the cap). Mechanism: FADE and LEAN FADE are absolute claims and belong
+      as hard exclusions, but UNDERWEIGHT means "less than the crowd, never zero" — the
+      strategy's own definition — and collapsing it to zero on a single-entry slate
+      converts a 60/40 read into a 100/0 ban. The cost is asymmetric: the call being
+      right saves a few points of ownership, the call being wrong removes the winner.
+      Rule to test: the gate should treat `underweight` as a soft rule that is dropped
+      FIRST when it excludes a high-sim-rank branch of the pool, and the digest should
+      report how many lineups each verdict removes so the price of a soft call is
+      visible before the pick. Note the ledger tension logged honestly — the gate is
+      also what kept the entries off Hernandez, the slate's #1 fish trap, so the fix is
+      to grade FADE and UNDERWEIGHT differently, not to weaken the gate. Links
+      [[mma-se-2026-06-20-fade-on-structure-not-narrative]],
+      [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]],
+      [[mma-se-2026-08-16-abbreviated-names-drop-contract-calls]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+  - id: mma-se-2026-08-23-salary-buys-floor-not-ceiling
+    born: 2026-08-23
+    origin: rules/mma_se/history/2026-08-23__ufc-fight-night-hernandez-vs-rodrigues-8-22-26
+    statement: >
+      DK MMA salary buys EXPECTED points and sells WIN-CASE points, and the trade is
+      visible on the vendor sheet BEFORE lock — no result needed. Measured across 19
+      MMA cards and 474 fighters using only projections and win probability, the bands
+      are monotonic in both directions on 19 OF 19 CARDS, no exceptions: $9,000+
+      averaged 10.58 win-case points per $1K and 8.76 EXPECTED points per $1K;
+      $7,500-8,999 averaged 11.55 and 7.32; under $7,500 averaged 13.63 and 5.47. That
+      consistency makes it a property of how DailyFan prices MMA, not a slate quirk.
+      Expected points is the CASH measure — it averages in the worlds where the fighter
+      loses, and the user is never paid in those. Win-case per dollar is the GPP
+      measure. Mechanism: MMA scoring is finish-driven, not quality-driven, so a
+      fighter's win-case score barely rises with price while his price rises with his
+      win PROBABILITY. REALIZED results confirm it across 15 cards and 192 winners
+      (winners only): average points move barely at all across a $3,000+ price range —
+      103.7 ($9,000+, n=71), 101.6 ($7,500-8,999, n=96), 94.1 (under $7,500, n=25) — so
+      points PER DOLLAR falls monotonically as price rises: 11.09, 12.26, 13.22,
+      tracking the ex-ante win-case column almost exactly. Survivorship caveat stated
+      honestly: expensive fighters win more often, so the realized rows measure points
+      GIVEN a win, never expected value. The 8/23 case makes the inversion concrete and
+      is entirely ex ante: of the seven fighters the user rostered, Shanelle Dyer ranked
+      FIRST on expected points per dollar (9.15) and LAST on win-case per dollar
+      (10.04). She cost $9,700 with a 97.4 win case; Gregory Rodrigues cost $7,600 with
+      a 106.8 win case — in the world where both win the cheaper fighter pays more, and
+      Dyer's only edge was winning more often. She was in 100% of five entries. Realized
+      numbers agree without being needed: 107.52 points (11.08 per $1K), NOT in the
+      optimal lineup (732.1 = Padilla/Rodrigues/McVey/Emmers/Mederos/de Ridder), and in
+      only 21 of the top 100 possible lineups. The Anchor-Equivalence call that took
+      Dyer over Wint and Barbosa at the same win probability and half the ownership was
+      CORRECT WITHIN THAT TIER — the error was shopping in the tier at all, then putting
+      one $9,700 floor-buy in every entry. Rule to test: require a stated FINISH path
+      (not merely a win path) for every $9,000+ slot; source win-probability from the
+      $7,500-8,999 tier; carry 1-2 fighters at $9,000+ and rarely more; never run the
+      same expensive favorite in 100% of a multi-entry set. The sub-$7,500 tier is NOT
+      the automatic answer: best ceiling per dollar, worst expected value (5.47), and
+      the fewest absolute points among winners (94.1) — it is where the ceiling lives
+      and where the dead slots live, so the cheap-slot rule still governs it.
+      TWO METHOD CORRECTIONS, both from the user's challenges and both load-bearing.
+      (1) HINDSIGHT GUARD: exposure is judged against what the SHEET showed, never
+      against how often a fighter turned up in the realized top 100. Rodrigues was a 34%
+      dog — in the two-thirds of worlds where he loses he is in none of the top lineups
+      — so "he was in 100% of the top 100" describes what happened and was never a
+      pre-lock target. A first draft claimed the user was UNDER-exposed to Rodrigues
+      (80%) and Mederos (40%) on exactly that reasoning; withdrawn as pure hindsight. A
+      second withdrawn claim: Gauge Young was called an error for sitting in 80% of
+      entries while appearing in 2% of the top 100 — ex ante he was ordinary-to-good
+      ($8,300, 60% win, 8.53 expected and 11.57 win-case per $1K, second and fourth of
+      the seven), so his only real fault was losing. (2) SAMPLE SOURCE: the first
+      measurement read `rules/mma_se/slate_data/` sidecars, which only exist from
+      7/25/26 onward — 5 cards instead of 19 — and produced a FALSE realized finding
+      (that $7,500-8,999 winners OUTSCORE $9,000+ winners, 107.6 vs 103.3). At 15 cards
+      that reverses to 103.7 vs 101.6, and the correct statement is not "the mid tier
+      scores more" but "a winner scores about the same at any price, so value per dollar
+      falls as price rises." Measure from the vendor-sheet and standings archive in
+      ~/Downloads via `scripts/mma_salary_bands.py` (Sim repo), never from sidecars
+      alone. Also explains a result the 8/23 review flagged but could not account for:
+      the entries carried ZERO Core-tier fighters and produced the best slate on record,
+      because the board's Core tier prices probability while the tournament pays
+      ceiling. Links [[mma-se-2026-08-23-core-tier-mirrors-the-field-chalk]],
+      [[mma-se-2026-08-02-the-cheap-slot-decides-the-lineup]],
+      [[mma-se-2026-05-30-win-case-ceiling-under-rates-low-own-finishers]],
+      [[mma-se-2026-06-14-showdown-cap-single-favorite-exposure]],
+      [[mma-se-2026-08-02-shared-coin-flip-slots-not-shared-players-kill-a-portfolio]].
+    status: validated
+    confirmations:
+      - date: 2026-08-23
+        slate: "EX ANTE across 19 MMA cards (474 fighters, vendor sheets only, 3/28-8/22)"
+        note: >
+          The core finding needs no results and no capture sidecars. Win-case points per
+          $1K falls monotonically with salary (13.63 / 11.55 / 10.58) while expected
+          points per $1K rises monotonically (5.47 / 7.32 / 8.76), and the ordering
+          holds on 19 of 19 individual cards. The $9,000+ band sat in a 10.2-11.2 range
+          on every card measured. Reproduce: `python scripts/mma_salary_bands.py`.
+      - date: 2026-08-23
+        slate: "REALIZED across 15 cards matched to DK standings (192 winners)"
+        note: >
+          Winners' absolute points are nearly flat across price — 103.7 / 101.6 / 94.1 —
+          so points per $1K falls monotonically: 11.09 / 12.26 / 13.22, closely tracking
+          the ex-ante win-case column. This SUPERSEDES the 4-card version of this row,
+          which reported 103.3 vs 107.6 and wrongly had the mid tier outscoring the
+          expensive tier.
+      - date: 2026-08-23
+        slate: UFC Fight Night Hernandez vs Rodrigues 8/22/26
+        note: >
+          The originating case. Realized tiers dead level — $9,000+ 112.2 (n=5),
+          $7,500-8,999 111.5 (n=6), sub-$7,500 112.2 (n=2): $2,500 more per slot bought
+          nothing. The $9,400-9,900 tier landed inside a 6-point band (Wint 110.06, Dyer
+          107.52, Judice 106.46, Barbosa 104.76) while cheap winners spread 106.9-148.2
+          (Emmers $6,900 106.86, Mederos $7,200 117.62, Rodrigues $7,600 148.20). Only
+          12 of 77,079 legal lineups beat the Clinch winning score; the optimal carried
+          one $9,000+ fighter, de Ridder $9,200, a finisher.
+    contradictions: []
+    codified_in: rules/mma_se/framework.md#salary-buys-floor-not-ceiling
     retired_reason: null
