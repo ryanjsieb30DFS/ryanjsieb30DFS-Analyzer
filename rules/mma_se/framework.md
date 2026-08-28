@@ -2,7 +2,7 @@
 
 **Contest Type:** Single Entry (SE)
 **Document Type:** Operational Process & Manual Build Playbook
-**Last Updated:** August 16, 2026
+**Last Updated:** August 28, 2026
 **Companion Files:** SE_mma_philosophy_2026-05-17.md, SE_mma_autopsies_2026-05-17.md
 
 ---
@@ -223,10 +223,15 @@ Vendor projected ownership systematically understates how hard the live field pi
 
 In all three the projected #1 came in **at or below** projection. The error is concentration on the storyline's fighter, not a uniform shift.
 
-1. **Identify the consensus name from narrative agreement across the articles, not from the projected-own ranking.** Ask: which fighter does every source treat as the obvious best play?
-2. **Adjust that fighter's ownership upward by roughly 15 points** before any duplication math.
-3. **Recompute the top shared pairs from the adjusted number.** On 8/2 all four printed pairs were Medić-anchored while all four of the field's real top pairs were Cepo-anchored, and the true #1 pair (Nikolić + Cepo, 151 teams) was never named.
-4. **Same adjustment applies to Anchor-Equivalence.** "Similar ownership" read off projections is not similar ownership in the live field.
+**Sharpened 8/23/26, measured on 15 cards.** The core claim above is CONFIRMED: the field does pile onto one consensus name, and it is usually not the projected #1 (the projected #1-owned fighter finished BELOW projection on 8 of 15 cards, averaging just +0.4). What changed is HOW you find that name. *(A proposal to shift the adjustment to the CHEAP consensus tier was withdrawn — 15 cards say it points the wrong way. Ownership miss, actual minus projected, by salary band: `$9,000+ +0.3` · `$7,500-8,999 +0.2` · `under $7,500` **-1.1**. There is no tier-wide convergence at all, and the cheap tier comes in BELOW projection.)*
+
+**Exactly one fighter per card runs hot, and he is findable.** On 15 of 15 measured cards one fighter beat his projected ownership by an average of **+14.9 points** — every card had one, the smallest was +6.5. He came from the **$7,500-8,999** band on **12 of 15** cards ($9,000+ twice, under $7,500 once), and he was already projected at **25-45%** own: a fighter the crowd likes, that the crowd then likes more. Recent examples: Bukauskas $8,300 45→65.3, Reyes $8,500 29→53.7, Pimblett $7,700 29→53.3, Thainara $8,800 32→56.8, Padilla $8,000 34→44.6.
+
+**Adjust that ONE name, never a tier.** Band averages are flat (+0.3 / +0.2 / -1.1) because everyone else absorbs the offset — a tier-wide adjustment moves 20 fighters to model an effect that lands on one. Identify the single mid-priced name with the strongest narrative agreement, add roughly +15 to his projected ownership, and leave every other projection alone. Note the cost of getting it wrong is asymmetric in the direction 8/23 showed: Padilla's real own was 44.6-49.7% against a 34% projection, and the UNDERWEIGHT call built on the low number removed the winning branch of the pool.
+
+Downstream, the adjusted number is what feeds the duplication math and Anchor-Equivalence. On 8/2 all four printed pairs were Medić-anchored while all four of the field's real top pairs were Cepo-anchored, and the true #1 pair (Nikolić + Cepo, 151 teams) was never named. "Similar ownership" read off raw projections is not similar ownership in the live field.
+
+*Re-run the measurement any time with `python scripts/mma_salary_bands.py` in the Sim repo.*
 
 ### Distance ≠ Low Ceiling (8/2/26 — 3-slate validated)
 
@@ -279,6 +284,12 @@ The Anchor-Equivalence call that took Dyer over Wint and Barbosa — same win pr
 *Re-run with `python scripts/mma_salary_bands.py` in the Sim repo as cards accumulate. It reads the vendor-sheet and standings archive in `~/Downloads`, not the capture sidecars — measuring off sidecars alone covers only 7/25/26 onward and produced a false result on first pass (5 cards said the mid tier outscored the expensive tier; 15 cards reversed it).*
 
 *This also explains a result the 8/23 review flagged but could not account for — the entries carried **zero** Core-tier fighters and produced the best slate on record. The board's `Core` tier prices probability; the tournament pays ceiling. See [[mma-se-2026-08-23-core-tier-mirrors-the-field-chalk]].*
+
+### Never Buy the Other Side of Your Own Leverage Fight (8/23/26 — consistency rule)
+
+When the strategy names a fighter as the leverage side of a specific fight, putting his OPPONENT in the same lineup is a double loss — you take the side you argued against and you hand back the leverage. This rests on **consistency, not on results**: if you reasoned your way to a side, holding the other one means one of your two positions is wrong. That argument needs no outcome data, which matters because the three cited cases all happen to be ones where the leverage call was RIGHT (7/26 Zaynukov 78.22 vs Rzepecki 23.66; 8/2 Urbina 113.86 vs Cepo 2.8; 8/23 Gaziev 100.8 vs Nzechukwu 1.2) — a sample selected on the outcome cannot measure how often the call is right, so do not read the rule as evidence that it usually is.
+
+**Scope: the LINEUP, never the PORTFOLIO.** Pre-lock check: no single lineup holds both sides of a fight the strategy called. Across a multi-entry set, deliberately splitting a fight between entries is CORRECT and is required elsewhere in this framework — see `shared-coin-flip-slots-not-shared-players-kill-a-portfolio`. The 8/23 3-Max did exactly that (one entry carried no main-event fighter) and it is why the both-dogs-lose branch still finished top 12-16% instead of dying as a block. A portfolio-level version of this rule would forbid that hedge, so it is deliberately not written.
 
 ### The Okay Tier Is a Verdict, Not a Shrug (8/16/26 — 3-slate validated)
 

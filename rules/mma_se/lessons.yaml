@@ -537,7 +537,7 @@ lessons:
       both also carried the upset dog. The portfolio was saved by two fades that were
       accidents of salary relief, not a deliberate hedge. Rule to test: cap any single
       favorite's flex share (~<=60% of lineups) and ALWAYS carry >=2 lineups that fade
-      the chalkiest favorite / the main-event chalk. Links [[mma-se-2026-06-14-showdown-flex-spine-diversity]];
+      the chalkiest favorite / the main-event chalk. Links [[mma-se-2026-06-14-showdown-captain-the-ceiling-pair-the-smash]];
       generalizes the red team's "Bo in 9/10 with zero hedge" finding (Bo won, so the
       realized evidence is Topuria, but the mechanism is identical).
     status: validated
@@ -617,11 +617,17 @@ lessons:
       "fading chalk" by overall own often fades something the field barely rosters, and
       a low-actual-own converting favorite is the real edge. (Calibration weight is a
       note, not a rule yet — small sample; see vendor_calibration.jsonl.)
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: >
+      merged into mma-se-2026-06-14-showdown-captain-the-ceiling-pair-the-smash
+      (2026-08-23 ledger hygiene, user-approved 2026-08-28). Both entries are about
+      reading a captain-mode card, both had sat dormant for ten slates, and one entry
+      is easier to apply when a showdown card next appears. The content survives
+      verbatim as clause (c) READ SHOWDOWN OWNERSHIP OFF THE CAPTAIN COLUMN, NOT
+      PROJECTED OVERALL OWN of the surviving lesson.
 
   - id: mma-se-2026-06-14-showdown-cheap-slot-prefer-floor-or-live-dog
     born: "2026-06-14"
@@ -682,9 +688,12 @@ lessons:
     origin: "rules/mma_se/history/2026-06-20__ufc-250-freedom-6-14-26"
     statement: >
       MERGED 2026-08-02 — absorbs mma-se-2026-06-14-showdown-flex-spine-diversity.
+      MERGED 2026-08-28 — also absorbs
+      mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own as clause (c).
       In captain-mode showdown the winning lineup is an assembled COMBINATION, not a set
       of correct individual reads — so both portfolio uniqueness and captain assignment
-      must be judged on the combination, not on the hat.
+      must be judged on the combination, not on the hat, and the ownership numbers all
+      three clauses rest on must be read off the CAPTAIN column.
       (a) UNIQUENESS IS JUDGED ON THE FLEX SPINE, NOT THE CAPTAIN. Lineups with different
       captains but the same five flex fighters are a single bet; one bust craters the
       cluster together. Cap shared flex at <=4 of 6 across any pair. Evidence: L1/L9/L10
@@ -700,9 +709,22 @@ lessons:
       moklovin's winning lineup (CPT Gaethje + Ruffy + Hokit/Nickal/Gane/Zahabi). The
       winning combination existed across the pool but was never assembled in one lineup.
       This is the volume-independent half of the coverage gap — the captain fix needs no
-      extra bullets. Links
-      [[mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own]]; the
-      cross-sport analog is the golf [[feedback_cpt_anchor_equivalence]] /
+      extra bullets.
+      (c) READ SHOWDOWN OWNERSHIP OFF THE CAPTAIN COLUMN, NOT PROJECTED OVERALL OWN.
+      In 150-Max captain-mode showdown the field fragments across captains, so projected
+      OVERALL own% (the DailyFan number that sums to ~600 over 6 slots) massively
+      overstates real exposure: the consensus top fighter Hokit projected ~75 overall but
+      drew only ~12.6% actual captain own, and the entire "chalk" sat in single digits to
+      low-teens actual. DailyFan's CAPTAIN-own column, by contrast, was well calibrated
+      (Hokit 16->12.6, Bo 7->6.1, Ruffy 3->4.0, Gane 10->7.8). The upset finisher that
+      won (Gaethje) hid behind 44% projected overall / 7.9% actual. Implication: make
+      leverage/fade calls off CPT-own, not projected overall own — "fading chalk" by
+      overall own often fades something the field barely rosters, and a low-actual-own
+      converting favorite is the real edge. (Calibration weight is a note, not a rule yet
+      — small sample; see vendor_calibration.jsonl.) This clause also supplies the
+      ownership basis clauses (a) and (b) depend on: a flex-spine or captain-slot
+      uniqueness read computed from overall own% is computed from the wrong number.
+      The cross-sport analog is the golf [[feedback_cpt_anchor_equivalence]] /
       never-zero-top3-anchor coverage point. Per [[feedback_play_like_sharks]], moklovin
       landed the exact combination on 150 bullets; on 10 the captain discipline is the
       recoverable edge.
@@ -1272,7 +1294,7 @@ lessons:
       "similar ownership" anchor-equivalence reads at the top of the board need an
       actual-convergence adjustment (the projected-own gap between the top two
       anchors is less trustworthy than the consensus signal itself). Classic-format
-      cousin of [[mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own]].
+      cousin of [[mma-se-2026-06-14-showdown-captain-the-ceiling-pair-the-smash]].
       COROLLARY added 2026-07-26 (third-pass review) — where the correction must come
       from, given MMA's roster turnover: the forward-fed `## Field tendencies` block is
       NAME-keyed, and MMA rosters turn over ~100% between slates, so the historical
@@ -1384,7 +1406,34 @@ lessons:
           the same narrower rule: apply the upward adjustment to the CHEAP consensus
           names that fit every build's salary shape, not to the top-priced narrative
           favorite.
-    codified_in: "framework.md — Convergence Adjustment on the Consensus Favorite (8/2/26 — 3-slate validated)"
+      - date: "2026-08-28"
+        slate: "Re-measurement over all 15 MMA cards with a vendor sheet + standings"
+        note: >
+          RESOLUTION of the two contradictions above — NOT a third contradiction, and
+          deliberately not counted as one. The lesson was NARROWED, not retired
+          (user-approved 2026-08-28), and the 8/23 note's proposed direction is
+          REVERSED. The three-slate "adjust the CHEAP consensus tier"
+          reading was checked against 15 cards instead of 3 and does not survive.
+          Ownership miss (actual minus projected) by salary band: $9,000+ +0.3,
+          $7,500-8,999 +0.2, under $7,500 -1.1. There is no tier-wide convergence in
+          ANY band, and the cheap tier is the one that comes in BELOW projection —
+          shifting it up would have been the largest error available. The lesson's
+          core claim survives intact and is now measured: the projected #1-owned
+          fighter finished BELOW projection on 8 of 15 cards (average +0.4), so the
+          field's hot name is usually not the projected #1. The narrowed, codified
+          form: exactly ONE fighter per card runs hot (15 of 15 cards, average +14.9
+          points, smallest +6.5); he comes from the $7,500-8,999 band on 12 of 15
+          cards and is already projected at 25-45% own. Adjust that ONE name by
+          roughly +15 and leave every other projection alone — a tier-wide adjustment
+          moves 20 fighters to model an effect that lands on one. Re-run with
+          `python scripts/mma_salary_bands.py` in the Sim repo.
+    codified_in: >
+      framework.md — Convergence Adjustment on the Consensus Favorite (8/2/26 —
+      3-slate validated), NARROWED 2026-08-28 on a 15-card measurement: the section
+      is kept and its adjustment instruction replaced. Adjust the single mid-priced
+      ($7,500-8,999, 25-45% projected) narrative-consensus name upward by ~15 points;
+      never adjust a tier. The withdrawn "adjust the cheap tier" proposal is recorded
+      inside the section so it is not re-proposed.
     retired_reason: null
 
   - id: mma-se-2026-07-19-sharp-envelope-is-a-rate-not-a-per-bullet-quota
@@ -1576,7 +1625,7 @@ lessons:
       candidates are graded. Links
       [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]].
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-08-02"
         slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
@@ -1619,7 +1668,16 @@ lessons:
           captured the winning half of the fight AND the ownership gap in one decision.
           Origin (7/26) + 8/2 + 8/23 = three confirming slates -> propose codifying.
     contradictions: []
-    codified_in: null
+    codified_in: >
+      framework.md — Never Buy the Other Side of Your Own Leverage Fight
+      (8/23/26 — consistency rule). Codified 2026-08-28, user-approved, SCOPED TO
+      THE LINEUP: no single lineup holds both sides of a fight the strategy called.
+      A portfolio-level version is deliberately NOT written — splitting a called
+      fight across entries is a correct hedge, per
+      [[mma-se-2026-08-02-shared-coin-flip-slots-not-shared-players-kill-a-portfolio]].
+      The codified section also carries the selection caveat: all three confirming
+      cases are ones where the leverage call was RIGHT, so the rule rests on
+      consistency, not on outcome evidence.
     retired_reason: null
 
   # ---- 2026-08-02 — UFC Fight Night 283, Belgrade (Medić vs. Rodriguez) ----

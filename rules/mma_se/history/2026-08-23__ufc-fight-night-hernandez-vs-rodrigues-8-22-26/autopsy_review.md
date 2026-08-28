@@ -71,11 +71,31 @@ This section is housekeeping on your book of lessons.
 
 These are changes to your permanent rulebook. Nothing here is applied until you approve it.
 
-**1. Promote `field-value-side-vs-your-named-converter` (3 confirming slates: 7/26, 8/2, 8/23).** Add to `framework.md`, new section **Never Buy the Other Side of Your Own Leverage Fight (8/23/26 — 3-slate validated)**: "When the strategy names a fighter as the leverage side of a specific fight, rostering his OPPONENT is a double loss — you take the side you argued against and you hand back the leverage. Evidence: 7/26 Zaynukov 78.22 vs Rzepecki 23.66; 8/2 Urbina 113.86 vs Cepo 2.8; 8/23 Gaziev 100.8 vs Nzechukwu 1.2. Pre-lock check: for every fight where the strategy named a side, confirm you are on that side or have no one from that fight."
+*Revised 2026-08-28 after checking each proposal against all 15 MMA cards with a
+vendor sheet and a standings file in `~/Downloads`, rather than the 3 slates the
+review was written from. Proposal 2 reversed direction under the wider sample and
+proposal 1 gained a scope limit. Re-run the measurement any time with
+`python scripts/mma_salary_bands.py` in the Sim repo.*
 
-**2. Narrow `projected-own-understates-consensus-chalk-convergence` (2 mechanism failures: 8/9 Gamrot, 8/23 Hernandez).** Amend the `framework.md` section **Convergence Adjustment on the Consensus Favorite** — replace "identify the consensus name from narrative agreement and adjust that name's ownership up" with: "The field does converge above projection, but not on the top-priced narrative favorite. Three slates running, the extra ownership landed on the CHEAP consensus names every six-man build needs after paying up — 8/9 Thainara $7,300 (+25), 8/16 C. Johnson (+10 to +15), 8/23 Padilla $8,000 (+15.6), Nzechukwu $7,800 (+11.8). Apply the upward adjustment to the cheap consensus tier; leave the projected #1 at projection unless the crowd has a second reason to pile on."
+**1. Promote `field-value-side-vs-your-named-converter`, scoped to the LINEUP (3 confirming slates: 7/26, 8/2, 8/23).** Add to `framework.md`, new section **Never Buy the Other Side of Your Own Leverage Fight (8/23/26 — consistency rule)**:
 
-**3. Merge (ledger hygiene).** Retire `mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own` with reason "merged into mma-se-2026-06-14-showdown-captain-the-ceiling-pair-the-smash (2026-08-23 ledger hygiene)", and append its content verbatim to the survivor as clause **(c) READ SHOWDOWN OWNERSHIP OFF THE CAPTAIN COLUMN, NOT PROJECTED OVERALL OWN** — the field fragments across captains, so overall own% massively overstates real exposure (Hokit ~75 projected overall, 12.6% actual captain own).
+"When the strategy names a fighter as the leverage side of a specific fight, putting his OPPONENT in the same lineup is a double loss — you take the side you argued against and you hand back the leverage. This rests on **consistency, not on results**: if you reasoned your way to a side, holding the other one means one of your two positions is wrong. That argument needs no outcome data, which matters because the three cited cases all happen to be ones where the leverage call was RIGHT (7/26 Zaynukov 78.22 vs Rzepecki 23.66; 8/2 Urbina 113.86 vs Cepo 2.8; 8/23 Gaziev 100.8 vs Nzechukwu 1.2) — a sample selected on the outcome cannot measure how often the call is right, so do not read the rule as evidence that it usually is.
+
+**Scope: the LINEUP, never the PORTFOLIO.** Pre-lock check: no single lineup holds both sides of a fight the strategy called. Across a multi-entry set, deliberately splitting a fight between entries is CORRECT and is required elsewhere in this framework — see `shared-coin-flip-slots-not-shared-players-kill-a-portfolio`. The 8/23 3-Max did exactly that (one entry carried no main-event fighter) and it is why the both-dogs-lose branch still finished top 12-16% instead of dying as a block. A portfolio-level version of this rule would forbid that hedge, so it is deliberately not written."
+
+**2. Sharpen — do NOT replace — `Convergence Adjustment on the Consensus Favorite`, and narrow the lesson `projected-own-understates-consensus-chalk-convergence` (measured on 15 cards).**
+
+The review originally proposed replacing this section with "apply the upward adjustment to the CHEAP consensus tier." **That proposal is withdrawn — 15 cards say it points the wrong way.** Ownership miss (actual minus projected) by salary band: `$9,000+ +0.3` · `$7,500-8,999 +0.2` · `under $7,500 **-1.1**`. There is no tier-wide convergence at all, and the cheap tier is the one that comes in BELOW projection. Shifting a whole tier up would be an error, and shifting the cheapest tier up would be the largest error available.
+
+The existing section's core claim is CORRECT and confirmed: the field does pile onto one consensus name, and it is usually not the projected #1 (the projected #1-owned fighter finished BELOW projection on 8 of 15 cards, averaging just +0.4). Keep the section and replace its adjustment instruction with:
+
+"**Exactly one fighter per card runs hot, and he is findable.** On 15 of 15 measured cards one fighter beat his projected ownership by an average of **+14.9 points** — every card had one, the smallest was +6.5. He came from the **$7,500-8,999** band on **12 of 15** cards ($9,000+ twice, under $7,500 once), and he was already projected at **25-45%** own: a fighter the crowd likes, that the crowd then likes more. Recent examples: Bukauskas $8,300 45→65.3, Reyes $8,500 29→53.7, Pimblett $7,700 29→53.3, Thainara $8,800 32→56.8, Padilla $8,000 34→44.6.
+
+**Adjust that ONE name, never a tier.** Band averages are flat (+0.3 / +0.2 / -1.1) because everyone else absorbs the offset — a tier-wide adjustment moves 20 fighters to model an effect that lands on one. Identify the single mid-priced name with the strongest narrative agreement, add roughly +15 to his projected ownership, and leave every other projection alone. Note the cost of getting it wrong is asymmetric in the direction 8/23 showed: Padilla's real own was 44.6-49.7% against a 34% projection, and the UNDERWEIGHT call built on the low number removed the winning branch of the pool."
+
+**3. Merge (ledger hygiene).** Unchanged from the original review. Retire `mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own` with reason "merged into mma-se-2026-06-14-showdown-captain-the-ceiling-pair-the-smash (2026-08-23 ledger hygiene)", and append its content verbatim to the survivor as clause **(c) READ SHOWDOWN OWNERSHIP OFF THE CAPTAIN COLUMN, NOT PROJECTED OVERALL OWN** — the field fragments across captains, so overall own% massively overstates real exposure (Hokit ~75 projected overall, 12.6% actual captain own).
+
+**Note for the apply step:** `framework.md` already gained a **Salary Buys Floor, Not Ceiling** section on 8/23 (committed `db0a8f2`), and lesson `mma-se-2026-08-23-salary-buys-floor-not-ceiling` is already `validated` with `codified_in` set. Do not re-add or duplicate either. The three proposals above are the only outstanding changes.
 
 ## What this means for next slate
 
@@ -83,4 +103,26 @@ These are changes to your permanent rulebook. Nothing here is applied until you 
 2. Stop treating "this fight will go the distance" as a reason to fade anyone; it has now cost you four times.
 3. Ask the gate to ban only hard FADES — an UNDERWEIGHT call banned the lineup that won the Clinch.
 4. A fighter the crowd already loves does not belong in your top tier unless he has an edge the crowd is not paying for.
-5. Expect the extra crowd ownership on the CHEAP popular names, not on the expensive main-event favorite.
+5. Expect ONE fighter to run about +15 owned past his projection — every one of 15 measured cards had exactly one. Look for him in the **$7,500-8,999** band at 25-45% projected own (12 of 15 came from there), not on the expensive main-event favorite and not on the cheap tier, which actually runs slightly UNDER projection (-1.1). Adjust that one name; leave the rest alone. *(Corrected 8/28 — the original line said "the CHEAP popular names," which 15 cards reverse.)*
+6. Salary buys FLOOR, not ceiling — a win scores about the same at any price, so every $9,000+ slot needs a stated FINISH path and you carry 1-2 of them, not more. Codified 8/23 in framework.md.
+
+## Applied
+
+Applied 2026-08-28, user-approved. This section records what actually changed on disk.
+
+**`rules/mma_se/framework.md`**
+
+1. **New section — Never Buy the Other Side of Your Own Leverage Fight (8/23/26 — consistency rule)**, added after *Salary Buys Floor, Not Ceiling*. Written exactly as proposed, including the selection caveat (all three cited cases are ones where the leverage call was right, so the rule rests on consistency, not on outcome evidence) and the **scope limit: the LINEUP, never the PORTFOLIO** — splitting a called fight across entries stays a correct hedge.
+2. **Convergence Adjustment on the Consensus Favorite — sharpened, not replaced.** The header, opening claim and the 7/19 / 7/26 / 8/2 table are untouched. Its old numbered adjustment instruction (items 1-4) is replaced by the 15-card form: exactly ONE fighter per card runs hot (15 of 15, average +14.9, smallest +6.5), he comes from the **$7,500-8,999** band on 12 of 15 cards at 25-45% projected own, and you adjust **that one name by ~15 points, never a tier**. The withdrawn "adjust the CHEAP tier" proposal is recorded inside the section with the band misses (+0.3 / +0.2 / **-1.1**) so it is not re-proposed. The duplication-math and Anchor-Equivalence downstream notes are kept as prose. Doc date bumped to August 28, 2026.
+
+No edits were made to `rules/mma_se/philosophy.md` — neither proposal touched it.
+
+**`rules/mma_se/lessons.yaml`**
+
+3. `mma-se-2026-07-26-field-value-side-vs-your-named-converter` — `validated` → **`codified`**, `codified_in` naming *framework.md — Never Buy the Other Side of Your Own Leverage Fight (8/23/26 — consistency rule)* and carrying the lineup-only scope plus the selection caveat.
+4. `mma-se-2026-07-19-projected-own-understates-consensus-chalk-convergence` — stays **`codified`**, narrowed. `codified_in` now says the section was NARROWED 2026-08-28 on a 15-card measurement (adjust the single mid-priced consensus name, never a tier). A dated 2026-08-28 note was added beside the two existing contradictions, labeled explicitly as their **RESOLUTION and not a third contradiction**, so the retirement count is not inflated.
+5. **Merge applied.** `mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own` → **`retired`**, reason "merged into mma-se-2026-06-14-showdown-captain-the-ceiling-pair-the-smash (2026-08-23 ledger hygiene, user-approved 2026-08-28)". Its content survives verbatim in the survivor as clause **(c) READ SHOWDOWN OWNERSHIP OFF THE CAPTAIN COLUMN, NOT PROJECTED OVERALL OWN**; the survivor's opening line now states it absorbs the second entry, and its dangling `[[...trust-cpt-own...]]` link was removed since the target is now inside it.
+
+**Left untouched, as decided:** every KEEP (`confirmed-vs-speculative-news`, `showdown-captain-the-ceiling-pair-the-smash` as merge survivor, `shared-coin-flip-slots-not-shared-players-kill-a-portfolio`), the NOT-OVERDUE `showdown-cap-single-favorite-exposure` (still 2 of 3), and all 35 KEEP-SEPARATE merge pairs. The already-codified `Salary Buys Floor, Not Ceiling` section and its lesson were not re-added or duplicated.
+
+*Not verified: the shell was unavailable this session, so `lessons.yaml` was checked by reading the edited regions rather than by running a YAML parse.*
