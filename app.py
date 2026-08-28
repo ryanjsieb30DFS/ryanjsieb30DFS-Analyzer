@@ -1246,7 +1246,8 @@ with tab_grade:
                                + ", ".join(_elig_c["relaxed"]) + "."
                                if _elig_c["relaxed"] else ""))
                         with st.expander("What the gate is enforcing"):
-                            st.markdown(_md_safe(_ls.gate_summary(_gate_c, _elig_c)))
+                            st.markdown(_md_safe(_ls.gate_summary(_gate_c, _elig_c,
+                                                                  pool=_pk_pool)))
                     if st.button(
                         f"🎯 Have Claude pick this contest's {_my_c} entr"
                         f"{'y' if _my_c == 1 else 'ies'}",
@@ -1279,6 +1280,8 @@ with tab_grade:
                                 for _e in _pp["errors"]:
                                     st.error(f"Pick rejected — {_e}")
                             else:
+                                for _w in _pp.get("warnings") or []:
+                                    st.warning(f"⚠️ {_w}")
                                 _ls.save_contest_pick(slug, _pk_pool, _sec["label"],
                                                       _sec["declared"], _pp["picks"],
                                                       _pp["why"])
@@ -1330,6 +1333,10 @@ with tab_grade:
                                     st.caption("⚠️ Breaks the slate strategy — it "
                                                + "; ".join(_brk)
                                                + ". Yours to override.")
+                                _sn = _ls.soft_notes(_r, _gate_c)
+                                if _sn:
+                                    st.caption("⚠ Soft cost — it "
+                                               + "; ".join(_sn) + ".")
                             if _sim_notes.get(str(_sec["label"])):
                                 st.caption("How the Sim chose these: "
                                            + _sim_notes[str(_sec["label"])])
@@ -1357,6 +1364,10 @@ with tab_grade:
                                     st.warning("⚠️ This pick does NOT follow the "
                                                "slate strategy — it "
                                                + "; ".join(_brk) + ". Re-run it.")
+                                _sn = _ls.soft_notes(_r, _gate_c)
+                                if _sn:
+                                    st.caption("⚠ Soft cost — it "
+                                               + "; ".join(_sn) + ".")
                             if (_stored or {}).get("why"):
                                 st.caption(f"💡 {_stored['why']}")
 

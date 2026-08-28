@@ -520,7 +520,7 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
     if not rows:
         return {"ok": False, "error": "The pool has no rows for this contest.",
                 "duration_s": 0.0, "cost_usd": None}
-    gate_md = ls.gate_summary(gate, elig)
+    gate_md = ls.gate_summary(gate, elig, pool=pool)
     slice_p = ls.slice_path(slug, key)
     slice_p.parent.mkdir(parents=True, exist_ok=True)
     slice_p.write_text(ls.slice_digest_md(slug, str(sim_label), sim_contest,
@@ -579,10 +579,12 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
         f"- Picking {my} lineup(s) means each pick must earn its own reason. If that is more "
         f"than 1, the picks should win in DIFFERENT ways, not be near-copies.\n"
         f"- A trap is a price, not a player: judge every lineup on THIS slate's numbers.\n"
-        f"- The `strategy` column names the slate strategy's leverage candidates (and "
-        f"UNDERWEIGHT-call players, marked (UW)) a lineup carries. Those rows are in the "
-        f"table for their thesis, not just their sim numbers — weigh the strategy case "
-        f"alongside the metrics.\n\n"
+        f"- The `strategy` column names the slate strategy's leverage candidates a lineup "
+        f"carries — those rows are in the table for their thesis, not just their sim "
+        f"numbers. A ⚠ (UNDERWEIGHT) entry is the opposite, a COST: the strategy says use "
+        f"that player LESS than the crowd, never zero. Pick a ⚠ row only when its sim edge "
+        f"over the clean rows is real, and never put the same underweight player in every "
+        f"entry of a multi-entry contest — the app rejects that pick.\n\n"
         f"Write `{out_path}` in EXACTLY this format:\n\n"
         f"## Picks — {sim_label}\n\n"
         f"| pick | id | players | why |\n"

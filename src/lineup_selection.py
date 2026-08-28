@@ -93,9 +93,12 @@ def strategy_gate(slug: str) -> dict:
 
     * `fade` / `lean_fade` calls  — the strategy said play him nowhere / mostly
       avoid. A lineup carrying one is out. This rule NEVER relaxes.
-    * `underweight` calls — "less than the crowd, never zero". On a 1-2 entry
-      slate any lineup carrying one puts you AT or ABOVE the crowd, so they are
-      out by default (relaxable only if the pool can't fill a slice without).
+    * `underweight` calls — "less than the crowd, never zero". A SOFT rule
+      (8/28/26): carriers stay pickable, flagged ⚠ as a cost and priced in
+      `gate_summary`; the only hard stop is the same underweight player in
+      EVERY entry of a multi-entry contest (`parse_pick`). The old hard
+      exclusion collapsed the verdict to zero and deleted the 8/23 Clinch
+      winner from the pool.
     * `leverage_candidates` — every lineup must carry at least one. This is the
       recurring miss the strategy names on its own leverage screen.
     * `Core` tier from the board — at least two, the strategy's own anchors.
@@ -135,14 +138,28 @@ def strategy_gate(slug: str) -> dict:
 
 # Rules are dropped in THIS order when the pool can't fill a slice under the
 # full gate. `fade` is absent on purpose — "play him nowhere" never relaxes.
-_RELAX_ORDER = ("underweight", "core", "chalk_pair", "leverage")
+# `underweight` is absent for the OPPOSITE reason (8/28/26, codified from
+# mma-se-2026-08-23-underweight-gate-deletes-a-whole-pool-branch): it is not a
+# hard rule at all. UNDERWEIGHT means "less than the crowd, never zero" — the
+# strategy's own definition — and excluding every carrier collapsed a 60/40
+# read into a 100/0 ban: the 8/23 Clinch pool held a lineup scoring exactly
+# the winning 720.92, and the gate removed it over one UNDERWEIGHT call
+# (Padilla, 111.35, in two of the three winning lineups). The cost was
+# asymmetric: the call being right saves a few ownership points, the call
+# being wrong deletes the winner. Underweight is now a SOFT rule — carriers
+# stay pickable, flagged ⚠ as a cost (`soft_notes`), priced in the gate
+# summary, and capped at pick time (`parse_pick`: never the same underweight
+# player in EVERY entry of a multi-entry contest).
+_RELAX_ORDER = ("core", "chalk_pair", "leverage")
 _GATE_MIN_ROWS = 25   # below this the slice stops being a real choice
 
 
 def compliance(roster: list, gate: dict, relaxed: tuple = ()) -> list[str]:
-    """The strategy rules THIS roster breaks, in plain words. Empty list = the
-    lineup follows the slate strategy. `relaxed` names rules to skip (see
-    `_RELAX_ORDER`)."""
+    """The HARD strategy rules THIS roster breaks, in plain words. Empty list =
+    the lineup may be picked. `relaxed` names rules to skip (see
+    `_RELAX_ORDER`). UNDERWEIGHT is deliberately NOT here — it is a soft cost
+    (`soft_notes`), never a break (8/28/26; a compliance entry rejects picks
+    and deletes pool branches, which is the exact bug the change removes)."""
     if not gate.get("has_contract"):
         return []
     names = {_strat_norm(str(p)) for p in roster}
@@ -151,11 +168,6 @@ def compliance(roster: list, gate: dict, relaxed: tuple = ()) -> list[str]:
     for nm, verdict in hit_fade:
         out.append(f"carries {nm} — the strategy calls him "
                    f"{'LEAN FADE' if verdict == 'lean_fade' else 'FADE'}")
-    if "underweight" not in relaxed:
-        for n in sorted(names & set(gate.get("underweight") or {})):
-            out.append(f"carries {gate['underweight'][n]} — an UNDERWEIGHT call "
-                       "(use him less than the crowd; one of your few entries is "
-                       "more than the crowd)")
     if "leverage" not in relaxed and gate.get("leverage"):
         if not (names & set(gate["leverage"])):
             out.append("carries no driver/player from the strategy's leverage "
@@ -173,6 +185,19 @@ def compliance(roster: list, gate: dict, relaxed: tuple = ()) -> list[str]:
             out.append(f"carries both {pair[0]} and {pair[1]} — the most "
                        "duplicated pair, the one a sharp refuses")
     return out
+
+
+def soft_notes(roster: list, gate: dict) -> list[str]:
+    """The SOFT strategy costs this roster carries — underweight calls. These
+    never reject a pick or remove a pool row; they are shown as ⚠ so the cost
+    of a soft call is visible wherever the lineup appears."""
+    if not gate.get("has_contract"):
+        return []
+    names = {_strat_norm(str(p)) for p in roster}
+    return [f"carries {gate['underweight'][n]} — an UNDERWEIGHT call (less "
+            "than the crowd, never zero; a carrier must earn its seat on "
+            "sim numbers)"
+            for n in sorted(names & set(gate.get("underweight") or {}))]
 
 
 def eligible_indexes(pool: dict, gate: dict,
@@ -203,34 +228,65 @@ def eligible_indexes(pool: dict, gate: dict,
             "total": len(rosters)}
 
 
-def gate_summary(gate: dict, elig: dict) -> str:
+def gate_summary(gate: dict, elig: dict, pool: dict | None = None) -> str:
     """One plain-language block naming the rules every slice row satisfies —
-    rendered into the digest Claude reads and into the app."""
+    rendered into the digest Claude reads and into the app. When `pool` is
+    given, each rule is PRICED: how many pooled lineups it alone removes, and
+    how many carry each underweight name — so the cost of every call is
+    visible before the pick (the 8/23 lesson: an unpriced soft call silently
+    deleted the branch holding the Clinch winner)."""
     if not gate.get("has_contract"):
         return ("No slate strategy contract was found, so no strategy rules "
                 "could be enforced on this table.")
+
+    rosters = (pool or {}).get("rosters") or []
+    norms = [{_strat_norm(str(p)) for p in r} for r in rosters]
+
+    def _price(rule: str) -> str:
+        """' — removes N of the M pooled lineups' for one hard rule alone."""
+        if not rosters:
+            return ""
+        others = tuple(r for r in ("leverage", "core", "chalk_pair")
+                       if r != rule) + (("fade",) if rule != "fade" else ())
+        n = sum(1 for r in rosters if compliance(r, gate, relaxed=others))
+        return f" — removes {n:,} of the {len(rosters):,} pooled lineups"
+
     rules = []
     if gate.get("fade"):
         rules.append("no player the strategy called FADE or LEAN FADE ("
                      + ", ".join(sorted(nm for nm, _v in gate["fade"].values()))
-                     + ")")
-    if gate.get("underweight") and "underweight" not in elig.get("relaxed", []):
-        rules.append("no player the strategy called UNDERWEIGHT ("
-                     + ", ".join(sorted(gate["underweight"].values())) + ")")
+                     + ")" + _price("fade"))
     if gate.get("leverage") and "leverage" not in elig.get("relaxed", []):
-        rules.append("at least one player off the strategy's leverage list")
+        rules.append("at least one player off the strategy's leverage list"
+                     + _price("leverage"))
     if gate.get("core") and "core" not in elig.get("relaxed", []):
         rules.append(f"at least {min(2, len(gate['core']))} Core-tier players "
-                     "(the strategy's anchors)")
+                     "(the strategy's anchors)" + _price("core"))
     if len(gate.get("chalk_pair") or []) == 2 \
             and "chalk_pair" not in elig.get("relaxed", []):
         rules.append(f"never both {gate['chalk_pair'][0]} and "
-                     f"{gate['chalk_pair'][1]} (the most duplicated pair)")
+                     f"{gate['chalk_pair'][1]} (the most duplicated pair)"
+                     + _price("chalk_pair"))
     lines = ["Every lineup in the table below ALREADY follows the slate "
-             "strategy. The app removed the ones that did not:"]
+             "strategy's hard rules. The app removed the ones that did not:"]
     lines += [f"- {r}" for r in rules]
     lines.append(f"\n{elig.get('full', 0):,} of {elig.get('total', 0):,} pooled "
                  "lineups pass the full strategy gate.")
+    if gate.get("underweight"):
+        uw_lines = []
+        for key in sorted(gate["underweight"]):
+            nm = gate["underweight"][key]
+            cnt = (f" ({sum(1 for ns in norms if key in ns):,} pooled "
+                   "lineups carry them)") if rosters else ""
+            uw_lines.append(f"{nm}{cnt}")
+        lines.append(
+            "⚠️ SOFT RULE — UNDERWEIGHT means less than the crowd, NEVER "
+            "zero, so these players stay pickable and their lineups are in "
+            "the table, marked ⚠ in the `strategy` column: "
+            + "; ".join(uw_lines) + ". A ⚠ row is carrying a cost — pick it "
+            "only when its sim edge over the clean rows is real, and NEVER "
+            "put the same underweight player in every entry of a "
+            "multi-entry contest (the app rejects that).")
     if elig.get("relaxed"):
         lines.append("⚠️ Too few lineups passed, so these rules had to be "
                      "dropped to fill the table: "
@@ -669,8 +725,11 @@ def slice_digest_md(slug: str, label: str, contest: dict, declared: dict | None,
                  "lineup carries — the strategy asked for those, so those rows "
                  "are here for their thesis, not just their sim numbers. A ⚠ "
                  "entry is the opposite: a player the strategy called "
-                 "UNDERWEIGHT, only present because too few lineups passed the "
-                 "full gate. Prefer a row without one.")
+                 "UNDERWEIGHT (less than the crowd, never zero). Those rows "
+                 "are allowed, but the ⚠ is a COST — pick one only when its "
+                 "sim edge over the clean rows is real, and never put the "
+                 "same underweight player in every entry of a multi-entry "
+                 "contest.")
     return "\n".join(lines)
 
 
@@ -777,10 +836,40 @@ def parse_pick(md: str, slice_rows: list[dict], my_entries: int,
         errors.append(f"{len(picks)} valid pick(s) but this contest takes "
                       f"exactly {my_entries} — nothing was saved.")
 
+    # UNDERWEIGHT soft cap (8/28/26): "less than the crowd, never zero." A
+    # single carrier among several entries is exactly what the verdict asks
+    # for; the same underweight player in EVERY entry of a multi-entry
+    # contest cannot be "less" and is rejected. Carriage otherwise only
+    # WARNS — the old hard rejection here is the bug that deleted the 8/23
+    # Clinch winner from all three contests.
+    warnings: list[str] = []
+    if gate and gate.get("has_contract") and picks and not errors:
+        uw = gate.get("underweight") or {}
+        if uw:
+            rosters_n = [{_strat_norm(str(p)) for p in by_index[pk["index"]]["roster"]}
+                         for pk in picks]
+            for key in sorted(uw):
+                n_carry = sum(1 for ns in rosters_n if key in ns)
+                if n_carry == 0:
+                    continue
+                if int(my_entries) >= 2 and n_carry == len(picks):
+                    errors.append(
+                        f"every entry carries {uw[key]} — the strategy calls "
+                        "them UNDERWEIGHT (less than the crowd, never zero), "
+                        "and holding them in ALL your entries is not less. "
+                        "Swap at least one lineup off them.")
+                else:
+                    warnings.append(
+                        f"{n_carry} of {len(picks)} entr"
+                        f"{'y carries' if n_carry == 1 else 'ies carry'} "
+                        f"{uw[key]} — an UNDERWEIGHT call; allowed, priced "
+                        "as a cost.")
+
     why = None
     m = re.search(r"^\*\*Why[^\n]*\*\*:?\s*(.*?)(?=\n\s*\n|\Z)",
                   md or "", re.M | re.S)
     if m:
         why = " ".join(m.group(1).split()) or None
 
-    return {"picks": picks if not errors else [], "why": why, "errors": errors}
+    return {"picks": picks if not errors else [], "why": why,
+            "errors": errors, "warnings": warnings if not errors else []}

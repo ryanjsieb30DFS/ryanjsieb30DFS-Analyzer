@@ -391,9 +391,14 @@ def test_compliance_names_each_broken_rule(tmp_path, monkeypatch):
     # A lean fade reads as LEAN FADE, not FADE.
     assert any("LEAN FADE" in v for v in ls.compliance(
         ["CoreA", "CoreB", "LevGuy", "LeanGuy", "X1", "X2"], gate))
-    # An underweight call.
-    assert any("UNDERWEIGHT" in v for v in ls.compliance(
-        ["CoreA", "CoreB", "LevGuy", "UwGuy", "X1", "X2"], gate))
+    # An underweight call is NOT a break (8/28/26 — soft rule): it lands in
+    # soft_notes, never in compliance, so it can no longer reject a pick or
+    # delete a pool branch (the 8/23 Clinch-winner bug).
+    uw_roster = ["CoreA", "CoreB", "LevGuy", "UwGuy", "X1", "X2"]
+    assert ls.compliance(uw_roster, gate) == []
+    assert any("UNDERWEIGHT" in v for v in ls.soft_notes(uw_roster, gate))
+    assert ls.soft_notes(["CoreA", "CoreB", "LevGuy", "X1", "X2", "X3"],
+                         gate) == []
     # No leverage piece.
     assert any("leverage list" in v for v in ls.compliance(
         ["CoreA", "CoreB", "MidGuy", "X1", "X2", "X3"], gate))
@@ -407,12 +412,15 @@ def test_compliance_names_each_broken_rule(tmp_path, monkeypatch):
 
 def test_compliance_respects_relaxations(tmp_path, monkeypatch):
     gate = _contract(tmp_path, monkeypatch)
-    uw = ["CoreA", "CoreB", "LevGuy", "UwGuy", "X1", "X2"]
-    assert ls.compliance(uw, gate) != []
-    assert ls.compliance(uw, gate, relaxed=("underweight",)) == []
+    # No leverage piece — relaxing "leverage" forgives it.
+    no_lev = ["CoreA", "CoreB", "MidGuy", "X1", "X2", "X3"]
+    assert ls.compliance(no_lev, gate) != []
+    assert ls.compliance(no_lev, gate, relaxed=("leverage",)) == []
     # A FADE never relaxes, whatever is passed.
     fade = ["CoreA", "CoreB", "LevGuy", "FadeGuy", "X1", "X2"]
     assert ls.compliance(fade, gate, relaxed=ls._RELAX_ORDER) != []
+    # "underweight" is not in the relax order at all — it is not a hard rule.
+    assert "underweight" not in ls._RELAX_ORDER
 
 
 def test_eligible_indexes_filters_and_relaxes_in_order(tmp_path, monkeypatch):
@@ -420,17 +428,23 @@ def test_eligible_indexes_filters_and_relaxes_in_order(tmp_path, monkeypatch):
     good = ["CoreA", "CoreB", "LevGuy", "MidGuy", "X1", "X2"]
     uw = ["CoreA", "CoreB", "LevGuy", "UwGuy", "X1", "X2"]
     bad = ["MidGuy", "FadeGuy", "X1", "X2", "X3", "X4"]
+    # UNDERWEIGHT rows pass the gate from the start (8/28/26 soft rule) — the
+    # 8/23 bug was exactly this pool shape: the winner sat in the uw branch.
     pool = {"rosters": [good] * 30 + [uw] * 30 + [bad] * 30}
     elig = ls.eligible_indexes(pool, gate)
-    assert elig["relaxed"] == [] and elig["full"] == 30
-    assert elig["allowed"] == set(range(30))
-    # Too few clean rows -> underweight is dropped FIRST, and reported.
+    assert elig["relaxed"] == [] and elig["full"] == 60
+    assert elig["allowed"] == set(range(60))
+    # Even a pool that is nearly ALL underweight carriers never needs a relax.
     pool2 = {"rosters": [good] * 3 + [uw] * 40 + [bad] * 10}
     elig2 = ls.eligible_indexes(pool2, gate)
-    assert elig2["relaxed"] == ["underweight"]
+    assert elig2["relaxed"] == []
     assert len(elig2["allowed"]) == 43
-    # The fade rows stay out even then.
+    # The fade rows stay out always.
     assert not (elig2["allowed"] & set(range(43, 53)))
+    # Hard rules still relax in order when the pool is thin: core first.
+    thin = {"rosters": [["CoreA", "MidGuy", "LevGuy", "X1", "X2", "X3"]] * 30}
+    elig3 = ls.eligible_indexes(thin, gate)
+    assert elig3["relaxed"] == ["core"] and len(elig3["allowed"]) == 30
 
 
 def test_no_contract_gates_nothing(tmp_path, monkeypatch):
@@ -462,31 +476,97 @@ def test_candidate_slice_only_offers_compliant_rows(tmp_path, monkeypatch):
 
 
 def test_parse_pick_rejects_a_pick_that_breaks_the_strategy(tmp_path, monkeypatch):
-    """Defense in depth: even handed a slice row, a non-compliant pick saves
-    nothing and the broken rule is named."""
+    """Defense in depth: even handed a slice row, a pick breaking a HARD rule
+    saves nothing and the broken rule is named."""
     gate = _contract(tmp_path, monkeypatch)
-    row = {"index": 42, "roster": ["CoreA", "MidGuy", "UwGuy", "X1", "X2", "X3"],
-           "roster_key": "|".join(sorted(["CoreA", "MidGuy", "UwGuy",
+    row = {"index": 42, "roster": ["CoreA", "MidGuy", "FadeGuy", "X1", "X2", "X3"],
+           "roster_key": "|".join(sorted(["CoreA", "MidGuy", "FadeGuy",
                                           "X1", "X2", "X3"]))}
     md = "\n".join(["| pick | id | players | why |", "|---|---|---|---|",
                     "| 1 | 42 | " + ", ".join(row["roster"]) + " | best sim row |"])
     out = ls.parse_pick(md, [row], my_entries=1, gate=gate)
     assert out["picks"] == []
     assert any("does not follow the slate strategy" in e for e in out["errors"])
-    assert any("UNDERWEIGHT" in e and "Core-tier" in e for e in out["errors"])
+    assert any("FADE" in e and "Core-tier" in e for e in out["errors"])
+
+
+def _uw_rows():
+    """Slice rows for the underweight soft-cap tests: two carriers, one clean."""
+    rows = []
+    for i, roster in ((1, ["CoreA", "CoreB", "LevGuy", "UwGuy", "X1", "X2"]),
+                      (2, ["CoreA", "CoreB", "LevGuy", "UwGuy", "X3", "X4"]),
+                      (3, ["CoreA", "CoreB", "LevGuy", "X1", "X2", "X3"])):
+        rows.append({"index": i, "roster": roster,
+                     "roster_key": "|".join(sorted(roster))})
+    return rows
+
+
+def _pick_md(rows, ids):
+    lines = ["| pick | id | players | why |", "|---|---|---|---|"]
+    by = {r["index"]: r for r in rows}
+    for n, i in enumerate(ids, 1):
+        lines.append(f"| {n} | {i} | " + ", ".join(by[i]["roster"]) + " | w |")
+    return "\n".join(lines)
+
+
+def test_parse_pick_allows_an_underweight_carrier_with_a_warning(tmp_path,
+                                                                 monkeypatch):
+    """The 8/23 Clinch bug, fixed: an UNDERWEIGHT carrier is pickable. Single
+    entry — the exact case the old gate banned — saves, with the cost named."""
+    gate = _contract(tmp_path, monkeypatch)
+    rows = _uw_rows()
+    out = ls.parse_pick(_pick_md(rows, [1]), rows, my_entries=1, gate=gate)
+    assert out["errors"] == []
+    assert [p["index"] for p in out["picks"]] == [1]
+    assert any("UNDERWEIGHT" in w for w in out["warnings"])
+
+
+def test_parse_pick_rejects_same_underweight_player_in_every_entry(tmp_path,
+                                                                   monkeypatch):
+    """"Less than the crowd, never zero" — the same underweight player in ALL
+    entries of a multi-entry contest is not less, and is the one hard stop."""
+    gate = _contract(tmp_path, monkeypatch)
+    rows = _uw_rows()
+    out = ls.parse_pick(_pick_md(rows, [1, 2]), rows, my_entries=2, gate=gate)
+    assert out["picks"] == []
+    assert any("every entry carries UwGuy" in e for e in out["errors"])
+    # A minority carrier is the verdict working as intended: allowed + warned.
+    out2 = ls.parse_pick(_pick_md(rows, [1, 3]), rows, my_entries=2, gate=gate)
+    assert out2["errors"] == []
+    assert len(out2["picks"]) == 2
+    assert any("1 of 2" in w and "UwGuy" in w for w in out2["warnings"])
 
 
 def test_gate_summary_is_plain_language(tmp_path, monkeypatch):
     gate = _contract(tmp_path, monkeypatch)
-    elig = {"allowed": set(range(5)), "relaxed": ["underweight"],
+    elig = {"allowed": set(range(5)), "relaxed": ["core"],
             "full": 3, "total": 100}
     md = ls.gate_summary(gate, elig)
     assert "FADE or LEAN FADE" in md and "FadeGuy" in md
-    assert "Core-tier" in md and "ChalkA" in md
+    assert "ChalkA" in md
     assert "3 of 100" in md
-    assert "⚠️" in md and "underweight" in md      # the relaxation is announced
+    assert "⚠️" in md and "core" in md             # the relaxation is announced
     # A dropped rule is not advertised as enforced.
+    assert "Core-tier" not in md.split("SOFT RULE")[0].split("dropped")[0] \
+        or "at least" not in md.split("\n")[2]
+    # UNDERWEIGHT is described as a SOFT rule, never as an exclusion.
+    assert "SOFT RULE" in md and "UwGuy" in md
     assert "no player the strategy called UNDERWEIGHT" not in md
+
+
+def test_gate_summary_prices_every_rule_against_the_pool(tmp_path, monkeypatch):
+    """The 8/23 lesson: the digest reports how many lineups each verdict
+    removes (hard) or flags (soft), so a call's price is visible pre-pick."""
+    gate = _contract(tmp_path, monkeypatch)
+    good = ["CoreA", "CoreB", "LevGuy", "MidGuy", "X1", "X2"]
+    uw = ["CoreA", "CoreB", "LevGuy", "UwGuy", "X1", "X2"]
+    fade = ["CoreA", "CoreB", "LevGuy", "FadeGuy", "X1", "X2"]
+    pool = {"rosters": [good] * 50 + [uw] * 30 + [fade] * 20}
+    elig = ls.eligible_indexes(pool, gate)
+    md = ls.gate_summary(gate, elig, pool=pool)
+    assert "removes 20 of the 100 pooled lineups" in md      # the fade price
+    assert "UwGuy (30 pooled lineups carry them)" in md      # the soft price
+    assert "put the same underweight player in every entry" in md
 
 
 # ---------------------------------------------------------------------------

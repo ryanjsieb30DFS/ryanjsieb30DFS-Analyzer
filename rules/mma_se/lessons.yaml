@@ -2109,10 +2109,20 @@ lessons:
       [[mma-se-2026-06-20-fade-on-structure-not-narrative]],
       [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]],
       [[mma-se-2026-08-16-abbreviated-names-drop-contract-calls]].
-    status: hypothesis
+    status: codified
     confirmations: []
     contradictions: []
-    codified_in: null
+    codified_in: >
+      src/lineup_selection.py (8/28/26, shipped exactly as the rule-to-test asked):
+      UNDERWEIGHT is a SOFT rule — removed from compliance() and _RELAX_ORDER, so it
+      never rejects a pick or deletes a pool branch; soft_notes() flags carriers with a
+      plain-language cost everywhere a roster renders; gate_summary(pool=...) prices
+      EVERY rule (hard rules report "removes N of M pooled lineups", each underweight
+      name reports its carrier count) so the price of a call is visible before the
+      pick; parse_pick() keeps one hard stop — the same underweight player in EVERY
+      entry of a multi-entry contest ("less than the crowd, never zero" cannot mean
+      all entries) — and warns, never rejects, on minority carriage. FADE / LEAN FADE
+      unchanged: hard, never relax — the gate still keeps entries off the fish trap.
     retired_reason: null
   - id: mma-se-2026-08-23-salary-buys-floor-not-ceiling
     born: 2026-08-23
