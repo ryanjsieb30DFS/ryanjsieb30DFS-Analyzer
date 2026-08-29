@@ -61,13 +61,21 @@ def test_fade_violation_flags():
     assert any("FADE" in w for w in _warns(g))
 
 
-def test_chalk_heavy_flags_above_calibrated_target():
-    # Alpha+Beta avg own 37.5 > 21.6 flag line (golf calibration) → flag.
+def test_chalk_heavy_is_info_never_a_letter_cost():
+    """8/29/26: the ownership envelope is a shark average + the median of past
+    winners — statistics, not calls this slate's strategy made. The read still
+    renders; it just cannot lower a grade. Chalk is often simply right."""
+    # Alpha+Beta avg own 37.5 > the 21.6 line → the note fires...
     g = _grade_text("Alpha Guy, Beta Guy", _cal())[0]
-    assert any("Chalk-heavy" in w for w in _warns(g))
-    # Echo+Foxtrot avg 6 → no chalk flag.
+    ch = [f for f in g["flags"] if f["code"] == "chalk_heavy"]
+    assert ch and ch[0]["level"] == "info"
+    assert "does not lower the grade" in ch[0]["msg"]
+    # ...as a warning it does NOT, so a purely chalky lineup can still be an A.
+    assert _warns(g) == []
+    assert grader.letter_grade(g, _cal())["letter"] == "A"
+    # Echo+Foxtrot avg 6 → no note at all.
     g2 = _grade_text("Echo Guy, Foxtrot Guy", _cal())[0]
-    assert not any("Chalk-heavy" in w for w in _warns(g2))
+    assert not any(f["code"] == "chalk_heavy" for f in g2["flags"])
 
 
 def test_no_leverage_is_never_a_warning_in_any_sport():
@@ -108,16 +116,58 @@ def test_recurring_pair_warns():
     cal = _cal(pairs=[{"players": ["Alpha Guy", "Beta Guy"],
                        "norm": ["alpha guy", "beta guy"], "in_n": 2, "of": 3}])
     g = _grade_text("Alpha Guy, Beta Guy, Foxtrot Guy", cal)[0]
-    assert any("recurring pair" in w for w in _warns(g))
+    cp = [f for f in g["flags"] if f["code"] == "crowded_pair"]
+    assert cp and cp[0]["level"] == "info"
+    assert _warns(g) == []
     g2 = _grade_text("Alpha Guy, Gamma Guy, Foxtrot Guy", cal)[0]
-    assert not any("recurring pair" in w for w in _warns(g2))
+    assert not any(f["code"] == "crowded_pair" for f in g2["flags"])
+
+
+def test_many_historical_pairs_can_no_longer_force_an_F():
+    """The old loop warned once PER matched pair with no cap, and 4 warnings is
+    a hard F — so history alone could fail a lineup outright with zero input
+    from this slate's strategy (and a cross-slate NAME count is not evidence
+    at all under the trap rule)."""
+    from src.autopsy import _norm_name
+    def _pair(a, b):
+        return {"players": [a, b], "norm": [_norm_name(a), _norm_name(b)],
+                "in_n": 2, "of": 3}
+    cal = _cal(pairs=[_pair("Alpha Guy", "Beta Guy"), _pair("Alpha Guy", "Gamma Guy"),
+                      _pair("Beta Guy", "Gamma Guy"), _pair("Alpha Guy", "Delta Guy")])
+    g = _grade_text("Alpha Guy, Beta Guy, Gamma Guy, Delta Guy", cal)[0]
+    assert len([f for f in g["flags"] if f["code"] == "crowded_pair"]) == 4
+    assert _warns(g) == []
+    assert grader.letter_grade(g, cal)["letter"] == "A"
 
 
 def test_bottom_tier_flags():
+    """A board Fade tier IS this slate's own call, so it still costs a letter."""
     from src.autopsy import _norm_name
     cal = _cal(tiers={_norm_name("Delta Guy"): "Fade"}, bottom_tier="Fade")
     g = _grade_text("Delta Guy, Echo Guy", cal)[0]
-    assert any("bottom tier" in w for w in _warns(g))
+    assert any("the tier you said to avoid" in w for w in _warns(g))
+
+
+def test_bottom_tier_is_matched_by_name_not_position(tmp_path, monkeypatch):
+    """Live bug fixed 8/29/26: the bottom tier was whichever tier appeared LAST
+    on the board, so a board that tagged nobody `Fade` made `Okay` the bottom
+    tier and every Okay-tier player silently cost a letter grade."""
+    import src.grader as G
+    monkeypatch.setattr(G, "_BASELINE_PATH", tmp_path / "none.json")
+    monkeypatch.setattr(G, "_CONTRACT_DIR", tmp_path / "nocontract")
+    board = ("| Rank | Player | Tier |\n|---|---|---|\n"
+             "| 1 | Alpha Guy | Core |\n| 2 | Beta Guy | Good |\n"
+             "| 3 | Gamma Guy | Okay |\n")
+    monkeypatch.setattr(G, "_norm_name", G._norm_name)
+    import src.player_pool as pp, src.pool_calibration as pc
+    monkeypatch.setattr(pp, "load_pool", lambda slug: {"markdown": board})
+    cal = G.calibration("pga_classic", "golf", [])
+    # Three tiers, none of them Fade -> no bottom tier at all.
+    assert cal["bottom_tier"] is None
+    # And with a real Fade row present it resolves to Fade, not the last tier.
+    monkeypatch.setattr(pp, "load_pool",
+                        lambda slug: {"markdown": board + "| 4 | Delta Guy | Fade |\n"})
+    assert G.calibration("pga_classic", "golf", [])["bottom_tier"] == "Fade"
 
 
 def test_portfolio_identical_and_competing():

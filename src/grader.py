@@ -7,20 +7,32 @@ the user decides. (The Grade tab's separate Entry-options section — see
 src/lineup_selection.py — displays candidate sets selected from the Sim's
 pool; this module itself still only grades.)
 
-EVERY threshold is data-derived — never a hardcoded universal number (the retro
--audit proved universal thresholds false-positive on winning chalky MMA builds):
+WHAT MAY COST A LETTER (user directive, 8/28-29/26): only a call THIS slate's
+strategy actually made, plus the DK salary cap. A statistic — an ownership
+screen, a cross-sport shark average, a count of player names from past
+standings — is reported as INFO and never lowers a grade. Every slate is
+different; the grade measures whether a lineup follows the slate's own
+strategy, not whether it matches a population average.
 
-  - ownership target   ← the sport's observed shark envelope (shark_baseline)
-                         and/or the WINNERS of your own logged contests
-                         (field_tendencies winners_avg_own)
-  - leverage           ← INFO ONLY, never a warning, never a letter cost
-                         (8/28/26). "Carry a sub-10% player" is not a call
-                         this slate's strategy made — it is a cross-sport
-                         shark RATE, and the pros are under it most of the
-                         time. The note reports that rate and nothing more
-  - fades / tiers      ← your own strategy contract + player-pool board
-  - dupe risk          ← ownership product × declared field size, plus the
-                         recurring crowded PAIRS from your logged contests
+  Letter-costing:
+  - fade violation     ← your strategy contract said zero on that player.
+                         Hard F. This is the model the others follow
+  - salary over cap    ← a DK rule (in practice, a wrong-name match). Hard F
+  - board bottom tier  ← your player-pool board tagged them `Fade` this slate.
+                         Matched by NAME, never positionally (see calibration)
+
+  Info only, never a letter:
+  - leverage           ← 8/28/26. "Carry a sub-10% player" is a cross-sport
+                         shark RATE the pros are under most of the time, not
+                         a call this strategy made
+  - ownership vs the   ← 8/29/26. A shark envelope + the median of past
+    observed envelope     winners. Ownership is an OUTCOME of picking players,
+                         not an input; chalk is often simply right
+  - recurring pairs    ← 8/29/26. A cross-slate count of player NAMES, which
+                         the trap rule (a trap is a price, not a player)
+                         already rules out as evidence. It also warned once
+                         per pair uncapped, so four made an automatic F
+  - dupe risk          ← ownership product × declared field size
 
 Per-lineup checks + portfolio checks (all-unique, competing-lineup overlap —
 each bullet must answer a DIFFERENT what-if). Pure/deterministic; the optional
@@ -39,7 +51,7 @@ _BASELINE_PATH = _REPO_ROOT / "rules" / "shared" / "shark_baseline.json"
 _CONTRACT_DIR = _REPO_ROOT / "data" / "strategy_contract"
 _DRAFT_DIR = _REPO_ROOT / "data" / "grade_drafts"
 
-_OWN_MARGIN = 1.2    # flag chalk-heavy only ABOVE target × margin (lenient on purpose)
+_OWN_MARGIN = 1.2    # chalk-heavy INFO note fires only above target × margin
 _LOW_OWN = 10.0
 _DART_OWN = 5.0
 _SALARY_CAP = 50000  # DK classic cap, all five slates
@@ -155,7 +167,14 @@ def calibration(slug: str, sport: str | None, contests: list[dict] | None) -> di
                     tier_order.append(r["tier"])
     except Exception:  # noqa: BLE001
         pass
-    cal["tiers"], cal["bottom_tier"] = tiers, (tier_order[-1] if len(tier_order) >= 2 else None)
+    # The bottom tier is the board's explicit FADE tier, matched by name — not
+    # whichever tier happened to appear last (fixed 8/29/26). Positional
+    # detection was a live bug: the board's vocabulary is Core / Good / Okay /
+    # Fade, so on any slate whose board tagged nobody Fade, `Okay` became the
+    # "bottom tier" and every Okay-tier player silently cost a letter grade.
+    # No Fade rows => no bottom-tier check, which is the honest answer.
+    _fade_tiers = [t for t in tier_order if "fade" in str(t).strip().lower()]
+    cal["tiers"], cal["bottom_tier"] = tiers, (_fade_tiers[-1] if _fade_tiers else None)
 
     # Recurring crowded players + PAIRS from your logged contests.
     crowded, pairs = set(), []
@@ -426,17 +445,27 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
                   if cal["tiers"].get(_norm_name(p["name"])) == cal["bottom_tier"]]
         if bottom:
             g["flags"].append({"level": "warn", "code": "bottom_tier",
-                               "msg": f"Board tiers **{', '.join(bottom)}** as "
-                                      f"`{cal['bottom_tier']}` (its bottom tier)"})
+                               "msg": f"Your own player-pool board for THIS slate tiers "
+                                      f"**{', '.join(bottom)}** as `{cal['bottom_tier']}` — "
+                                      f"the tier you said to avoid"})
 
-    # 3) Ownership vs the calibrated target (shark envelope / your winners).
+    # 3) Ownership vs the observed envelope — INFO ONLY (8/29/26, user
+    # directive). This compares a lineup to a cross-sport shark average and the
+    # median of past winners: both are statistics, not calls THIS slate's
+    # strategy made, so neither may cost a letter. Ownership is an OUTCOME of
+    # which players you picked, never an input to build toward (the same
+    # reasoning applied to the framework files the same day). A slate where the
+    # chalk is simply correct must be gradeable as an A.
     if g["avg_own"] is not None and cal.get("own_flag_above") is not None:
         if g["avg_own"] > cal["own_flag_above"]:
             tgt = " / ".join(f"{v}" for v in (cal.get("shark_own"), cal.get("winners_own"))
                              if v is not None)
-            g["flags"].append({"level": "warn", "code": "chalk_heavy",
-                               "msg": f"Chalk-heavy: **{g['avg_own']}% avg own** vs your "
-                                      f"contests' winning envelope ({tgt}%/slot)"})
+            g["flags"].append({"level": "info", "code": "chalk_heavy",
+                               "msg": f"Runs chalkier than usual: **{g['avg_own']}% avg own** "
+                                      f"vs the {tgt}%/slot your past winners and the tracked "
+                                      f"pros averaged. Worth a look — more of the field will "
+                                      f"hold these players — but this does not lower the "
+                                      f"grade, and chalk is often simply right."})
 
     # 4) Leverage — INFO ONLY, always. Never costs a letter (8/28/26, user
     # directive: the grade must measure THIS slate's strategy, and "carry a
@@ -455,14 +484,21 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
                            "msg": f"No sub-10%-owned player (just so you know: "
                                   f"{rate}). This does not lower the grade."})
 
-    # 5) Recurring crowded pairs — the dupe-magnet stacks of YOUR contests.
+    # 5) Recurring crowded pairs — INFO ONLY (8/29/26, user directive). This is
+    # a cross-slate count of PLAYER NAMES from past standings, which the trap
+    # rule (8/9/26) already says is never evidence: a trap is a price, not a
+    # player, and those prices reset every slate. It also warned once PER
+    # matched pair with no cap, so four historical pairs produced an automatic
+    # F with zero input from the current strategy. Kept as a read — knowing
+    # where your opponents reliably go is useful — but it costs no letter.
     for pr in cal.get("pairs") or []:
         if set(pr["norm"]) <= norms:
-            g["flags"].append({"level": "warn", "code": "crowded_pair",
-                               "msg": f"Contains the field's recurring pair "
+            g["flags"].append({"level": "info", "code": "crowded_pair",
+                               "msg": f"Your past fields liked pairing "
                                       f"**{pr['players'][0]} + {pr['players'][1]}** "
-                                      f"(together in {pr['in_n']} of {pr['of']} of your logs "
-                                      f"— a dupe magnet)"})
+                                      f"({pr['in_n']} of {pr['of']} logged contests). That is "
+                                      f"opponent behaviour from other slates, not a verdict on "
+                                      f"these two today — expect company if both play well."})
     crowded_hits = [p["name"] for p in players if _norm_name(p["name"]) in cal.get("crowded", set())]
     if crowded_hits:
         g["flags"].append({"level": "info", "code": "crowded_info",
@@ -564,20 +600,17 @@ def retro_grade(records, cal: dict) -> dict:
 
     # no_leverage is NOT graded here (8/28/26) — it is info-only in the live
     # grader, and the self-validation has to measure the same thing the
-    # grader actually costs a lineup for.
-    pair_norms = [set(p["norm"]) for p in (cal.get("pairs") or [])]
+    # grader actually costs a lineup for. chalk_heavy and crowded_pair joined
+    # no_leverage as info-only on 8/29/26, so they are not graded here either —
+    # otherwise this loop would report "flagged lineups finish worse" about
+    # flags that cost nothing, and the process trend would keep arguing for
+    # rules the grader no longer applies.
     graded = []
     for ln in lineups:
         roster = {_norm_name(p) for p in (ln.get("players") or [])}
         flags = []
-        avg_own = ln.get("avg_own")
-        if (avg_own is not None and cal.get("own_flag_above") is not None
-                and avg_own > cal["own_flag_above"]):
-            flags.append("chalk_heavy")
         if roster & cal.get("fades", set()):
             flags.append("fade_violation")
-        if any(pn <= roster for pn in pair_norms):
-            flags.append("crowded_pair")
         graded.append({"players": sorted(ln.get("players") or []),
                        "percentile": ln.get("percentile"),
                        "flags": flags})
