@@ -2,7 +2,7 @@
 
 **Contest Type:** Single Entry (SE)
 **Document Type:** Operational Process & Manual Build Playbook
-**Last Updated:** August 28, 2026
+**Last Updated:** August 29, 2026
 **Companion Files:** SE_mma_philosophy_2026-05-17.md, SE_mma_autopsies_2026-05-17.md
 
 ---
@@ -300,6 +300,8 @@ The Anchor-Equivalence call that took Dyer over Wint and Barbosa — same win pr
 
 *This also explains a result the 8/23 review flagged but could not account for — the entries carried **zero** Core-tier fighters and produced the best slate on record. The board's `Core` tier prices probability; the tournament pays ceiling. See [[mma-se-2026-08-23-core-tier-mirrors-the-field-chalk]].*
 
+**Codified 8/29/26 (5 confirming slates).** Every $9,000+ slot needs a stated FINISH path, not just a win path. Buy win probability from the $7,500–8,999 band. The most expensive fighter with the highest projection is the crowd's probability buy, not your ceiling buy.
+
 ### Never Buy the Other Side of Your Own Leverage Fight (8/23/26 — consistency rule)
 
 When the strategy names a fighter as the leverage side of a specific fight, putting his OPPONENT in the same lineup is a double loss — you take the side you argued against and you hand back the leverage. This rests on **consistency, not on results**: if you reasoned your way to a side, holding the other one means one of your two positions is wrong. That argument needs no outcome data, which matters because the three cited cases all happen to be ones where the leverage call was RIGHT (7/26 Zaynukov 78.22 vs Rzepecki 23.66; 8/2 Urbina 113.86 vs Cepo 2.8; 8/23 Gaziev 100.8 vs Nzechukwu 1.2) — a sample selected on the outcome cannot measure how often the call is right, so do not read the rule as evidence that it usually is.
@@ -321,6 +323,60 @@ Before locking a top-heavy SE, multiply the roster's ownership product × field 
 ### Envelope Targets Are Rates (8/16/26)
 
 State pro targets as "in N of 10 lineups"; on 1–3 bullets the dart is optional; treat shark-gap axis deltas ≤2 ownership points as noise — the gap is selection.
+
+### Pick the Single-Entry Bullet, Never Hand-Build It (8/29/26 — 3-slate validated)
+
+Pick the single-entry bullet from the Sim pool's contest slice; never hand-assemble it and never hand-swap a slot after the pick. Two slates of picked-and-unmodified bullets produced the best and the cleanest builds in the ledger; the hand-built 8/9 bullet was the worst.
+
+### One Lineup, One Contest — Re-Run, Never Repair (8/29/26 — 3-slate validated)
+
+One lineup, one contest. If a pick is displaced from a contest, RE-RUN the pick for that contest — never repair it by swapping slots by hand.
+
+### Winners Decide the Card, Ownership Barely Moves It (8/29/26 — 13 contests / 5 cards, EX POST)
+
+Counting how many of a lineup's six fighters actually **won their fight**, across every DK contest-standings file in the archive:
+
+| Winners in the six | Best finish anyone reached, as a share of the field |
+|---|---|
+| 6 | 1st, on 8 of the 13 contests |
+| 5 | 1st on 4 more |
+| 4 | 1st on 1 (the 47,351-entry Milly) |
+| 3 | **never 1st — median ceiling top 14%** |
+
+**No MMA contest in this archive has ever been won with fewer than four winners.** The 1st-place winner-counts are 6,6,6,6,6,6,6,6,5,5,5,5,4 — thirteen for thirteen.
+
+Now the same 13 contests, comparing the **top 10% of finishers' average lineup ownership** against the whole field's:
+
+    +4.9  +4.8  +3.7  +3.2  +1.6  -3.5  -2.4  -2.5  -2.4  -2.5  -2.8  -1.0  -2.6
+
+Range −3.5 to +4.9 points on a ~30% base. Mean **−0.1**. On **5 of 13 the winning cohort was MORE chalk than the field it beat.**
+
+**The finishing cohort is not distinguishable from the field by ownership. It is distinguishable by being right.** MMA scoring puts roughly 90% of a fighter's range on one binary — did he win — so the fight call carries the card and ownership carries the tiebreak. This does not retire the leverage screen; it sets its altitude. **Leverage chooses between fights you have already called; it never substitutes for calling them.** A low-owned fighter you do not believe wins is not leverage, it is a dead slot at a discount.
+
+*Honest bound on the ceiling: three winners has never won, but it is not a hard cap. The best finish with three ranged from top 2% to top 53% across the 13 (median top 14%) — because a losing fighter still scores when he goes the distance (8/29: Alex Perez 45.6, Jack Jenkins 36.6 in defeat). On a card of decisions, three winners still reaches the money; on a card of finishes it dies at mid-pack. Read three winners as "you need the losses to be competitive ones," not as "you are out."*
+
+### Win-Probability Equivalence, Not Ownership Equivalence (8/29/26 — 1 card, EX ANTE gap in an existing rule)
+
+**This is a hole in the Anchor-Equivalence Rule, found by the case it could not see.**
+
+That rule pairs anchors on **similar projected ownership** and asks you to run the alternative. On 8/29 the pair that decided the card was matched on **win probability** and sat **20 ownership points apart** — so the ownership-matched check looked straight past it. From the vendor sheet, before lock:
+
+| Fighter | Win chance | Projected own | Result |
+|---|---:|---:|---|
+| Umar Nurmagomedov | 82% | **45%** | LOST — 15.7 pts |
+| Rei Tsuruya | 85% | 25% | won — 129.1 pts |
+| Bilal Hasan | 86% | 29% | won — 108.7 pts |
+
+Same wager. Roughly half the crowd. Nothing in the pre-lock read named it, and Umar went into 100% of the entries.
+
+**The check.** Alongside the ownership-matched pass, screen for fighters in **different fights** whose win probabilities are within ~6 points of each other where one is owned **1.6× the other or more**. Floor the screen at a **55% win chance** — below that, cheap ownership is cheap for a reason and the screen fills with longshots. The Sim's ⚖️ **Odds vs Own** tab (Projections → Slate Diagnostics) computes both this pair list and a per-fighter `own_gap` against the slate's own price line; it appears on MMA slates only.
+
+**Surface the pair. Do not auto-take the cheap side.** Two independent reasons, and both matter:
+
+1. The same scope caution the parent rule already carries — equivalence needs profile equivalence, not just a matching number. Two fighters at 85% win probability are not the same bet if one wins by decision and the other is knockout-or-nothing.
+2. **The claim that the cheap side actually SCORES more is unproven and is being tracked, not applied.** Over 3 nights it read +48.6 points, p=0.022 — which looks shippable. Over 5 nights it reads **+23.7 points, p=0.106**. The effect halved and lost significance on two extra nights of the same data. Run `.venv/bin/python scripts/report_favorite_own_edge.py` in the Sim repo after each logged card; it flips its own verdict at 8 distinct nights, and until it does, nothing here rests on it.
+
+**What IS provable today, with no result data at all:** the crowd pays different prices for identical win probability, and that gap is visible on the sheet before lock. That is the same ex-ante footing as *Salary Buys Floor, Not Ceiling* — the mispricing is a fact about how the sheet and the field interact, independent of how any one night resolves. Which side of a mispriced pair you take is still your fight read.
 
 ## Post-SE Review
 
