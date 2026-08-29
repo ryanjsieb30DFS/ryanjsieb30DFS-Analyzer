@@ -30,16 +30,27 @@ Write these down before building. Do not add or subtract mid-build.
 - A coin-flip decision play (50% win, no finish equity)
 - A play you're including just because they fit salary
 
-### Step 2 — Contrarian Swing Identification
+### Step 2 — Contrarian Swing Identification (a SCREEN, not a slot)
 
-Identify one leverage swing play that:
-- Is sub-20% owned (preferably sub-15%)
-- Has a realistic path to a big score (100+ points)
-- Contradicts chalk or fills a gap in chalk
+**Identify** the leverage swing candidates on this card — the fighters who are:
+- Sub-20% owned (preferably sub-15%)
+- Have a realistic path to a big score (100+ points)
+- Contradict chalk or fill a gap in chalk
 
-This is your edge. One play per SE. Not more.
+**Naming them is the mandatory part. Rostering one is not.** This screen exists so a
+slate-deciding low-owned fighter is never invisible to you — that is where good leverage
+plays get found. Whether one reaches your lineup is a judgment about THIS card: take the
+swing when the fighter is genuinely the better play, and take none when the card doesn't
+offer one. The MMA sharks carry a sub-5% piece in 15% of their lineups and the modal
+shark MMA lineup carries NONE; both 7/19 contest winners carried zero sub-10% fighters.
+So on 1–3 bullets the swing is OPTIONAL — see *Envelope Targets Are Rates* below.
 
-**Audit your "leverage" play:** if it's owned 20%+, it's not leverage, it's just a secondary play. Swap it for something that actually contradicts chalk.
+**If you do take one, cap it at one per SE.** That cap is a ceiling on risk, not a floor
+you must reach.
+
+**Judging a swing you took:** at 20%+ own it isn't leverage, it's a secondary play — which
+is fine if he's the right fighter. Re-price the thesis; never swap a fighter you believe in
+for a lower-owned one you don't.
 
 ### Step 3 — Field-Size Calibration
 
@@ -90,7 +101,9 @@ This is uncomfortable — it means one SE underweights something you believe in.
 Before locking each lineup:
 
 1. ✓ **2-3 conviction anchors are present and defensible** (written reasoning exists)
-2. ✓ **1 leverage swing is present, sub-20% owned, has ceiling case**
+2. ✓ **The leverage screen was RUN** — the card's sub-20%-owned ceiling candidates are named and
+   considered. (Carrying one is optional. A lineup with zero low-owned fighters passes this check;
+   never add one to tick this box.)
 3. ✓ **No opponent stacks** across all 6 fighters
 4. ✓ **Salary $48,500-$50,000**
 5. ✓ **If playing multiple SEs, at least one conviction anchor differs**
@@ -142,6 +155,8 @@ A better leverage piece for the same salary slot would have been a fighter with 
 ### Secondary Plays Are Not Leverage
 
 If your "leverage" play is owned 20%+, it's not leverage — it's a secondary chalk play. True leverage in SE context means sub-15% owned, ideally sub-12%. Petroski at 23% own in the $5 SE was not actually contrarian; he was just less-chalky chalk.
+
+**This is a labelling rule, not a build rule.** It tells you what to CALL a play, so you don't credit yourself with differentiation you don't have. It never means "go find someone under 15%" — the ownership number describes a fighter, it doesn't qualify or disqualify him. A 23%-owned fighter who wins beats a 12%-owned fighter who loses, every time.
 
 ### Finish-Capable Favorites Are Not Secondary Chalk (7/12/26 — 3-slate validated)
 

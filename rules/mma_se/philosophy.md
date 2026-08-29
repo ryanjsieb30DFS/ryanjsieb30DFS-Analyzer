@@ -23,7 +23,7 @@ A 150-lineup MME can afford to have 30 lineups that are "all-in on Veretennikov 
 
 **Conviction plays in SE are non-negotiable.** You lock at least 2-3 fighters you believe will hit the slate. These are your anchors — the plays where your analysis (qualitative or projection-based) is aligned with the field or ahead of the field.
 
-**Contrarian plays in SE are leverage, not the core bet.** You include exactly one contrarian swing play. This is your edge — the play where the field is wrong and you're right. But it's supporting a conviction core, not carrying the whole lineup.
+**Contrarian plays in SE are leverage, not the core bet.** When you take one, take at most one — it supports a conviction core, it never carries the lineup. But taking one is a CHOICE this slate has to earn, not a slot the lineup owes. "The field is wrong and I'm right" is a belief you either have about a specific fighter or you don't; it cannot be manufactured to fill a quota. Zero contrarian swings is a complete, valid SE — the MMA sharks carry a sub-5% piece in only 15% of their lineups, and contest winners regularly carry none.
 
 The difference from MME: In MME, you can have lineups that are 60% conviction, 40% contrarian (or vice versa). In SE, the ratio is roughly 70% conviction, 30% contrarian. You're making one shot and you need it to work — conviction plays are the load-bearing walls.
 
@@ -33,7 +33,7 @@ A 490-entrant SE is a fundamentally different game from a 1,189-entrant SE, whic
 
 - **Under 500 entries:** The field is small enough that a single high-leverage lineup can place top-5. Differentiation matters, but a well-constructed conviction core can still hit hard.
 - **500-1,500 entries:** The "sweet spot" for SE. Large enough that you need differentiation; small enough that differentiation pays.
-- **1,500+ entries:** You need significant differentiation to cash. The chalk is more locked in. Leverage is mandatory, not optional.
+- **1,500+ entries:** You need real differentiation to win. The chalk is more locked in, so the SEARCH for leverage matters most here — but differentiation comes from being right about a fight the field reads wrong, which is often a mid-owned converter, not a low-owned dart. Bigger field = look harder, not roster-a-dog-regardless.
 
 A $12 SE (490 entries) and $5 SE (1,189 entries) require different lineups. The $12 can afford to be slightly more chalk-leaning with a single good swing. The $5 needs genuine differentiation across 2-3 axes.
 

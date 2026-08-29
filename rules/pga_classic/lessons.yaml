@@ -660,7 +660,7 @@ lessons:
           user's entries (13.85 / 14.16 avg own) were ON the envelope — the miss
           was selection inside it, not structure.
     contradictions: []
-    codified_in: "framework.md — Section 3 Ownership Tier Framework (empirical winning-structure baseline)"
+    codified_in: "framework.md — Section 3 Ownership Tier Framework (empirical winning-structure baseline, now labelled DESCRIPTIVE not a build target) — AMENDED 8/29/26 (user directive, all sports): the per-lineup ownership requirement was removed from that section and restated as a RATE + a mandatory SCREEN. The screen that NAMES low-owned candidates is what this lesson's evidence supports and it stands; 'every lineup must carry one' does not, and must not be restored — see mma-se-2026-07-19-sharp-envelope-is-a-rate-not-a-per-bullet-quota"
     retired_reason: null
 
   - id: pga-classic-2026-06-13-leverage-play-mandatory
@@ -756,7 +756,7 @@ lessons:
           reasonably surface, so this is noted as the floor of the mechanism, not as
           a coverage failure.
     contradictions: []
-    codified_in: "framework.md — Section 2 Slate Diagnostics (mandatory low-owned-smash scan)"
+    codified_in: "framework.md — Section 2 Slate Diagnostics (mandatory low-owned-smash SCAN; rostering its output is optional) — AMENDED 8/29/26 (user directive, all sports): the per-lineup ownership requirement was removed from that section and restated as a RATE + a mandatory SCREEN. The screen that NAMES low-owned candidates is what this lesson's evidence supports and it stands; 'every lineup must carry one' does not, and must not be restored — see mma-se-2026-07-19-sharp-envelope-is-a-rate-not-a-per-bullet-quota"
     retired_reason: null
 
   - id: pga-classic-2026-06-13-dose-darts-to-course-variance

@@ -50,15 +50,17 @@ This is the foundational decision infrastructure for every R4 SD build. Every li
 
 ### Cross-format note vs PGA Classic
 
-RD4 SD winners are structurally **chalkier** than PGA Classic winners: **~19% vs ~13% per-player ownership, ~1.7 vs ~2.5 sub-10% darts** (won-with-≥2-darts 64% vs 78%). A single final round (no cut), smaller fields, and lower scoring variance shrink the contrarian payoff relative to the 2-day Classic. **Do not import Classic's contrarian dosage into RD4 SD** — leverage is mandatory in both formats (≥1 sub-10% play in 93% of RD4 SD winners), but the correct DOSE is format-specific. (168 Classic / 146 RD4 SD slates, 2023-2026; the gap is stable every year.)
+RD4 SD winners are structurally **chalkier** than PGA Classic winners: **~19% vs ~13% per-player ownership, ~1.7 vs ~2.5 sub-10% darts** (won-with-≥2-darts 64% vs 78%). A single final round (no cut), smaller fields, and lower scoring variance shrink the contrarian payoff relative to the 2-day Classic. **Do not import Classic's contrarian dosage into RD4 SD** — low-owned golfers show up in winners of both formats (≥1 sub-10% play in 93% of RD4 SD winners), but the typical DOSE is format-specific, and in neither format is it a requirement. (168 Classic / 146 RD4 SD slates, 2023-2026; the gap is stable every year.)
 
-### The One-Dart Mandate (codified 2026-08-08)
+### Dart Dosage — one is the usual number, zero is allowed (codified 2026-08-08, rewritten 8/29/26)
 
-Even in this chalkier format the leverage play is not optional: 97% of 146 mined slates had a sub-20%-own slate-definer, and both Rocket RD4 contest winners carried exactly one sub-10% carrier (Hideki 7.35% / 65.5; Jaeger 6.9% / 37.3). Every lineup carries ≥1 sub-10% piece; the dose is ONE dart (two on tough courses), never the Classic-grade three-plus.
+Even in this chalkier format the low-owned definer is worth hunting every week: 97% of 146 mined slates had a sub-20%-own slate-definer, and both Rocket RD4 contest winners carried exactly one sub-10% carrier (Hideki 7.35% / 65.5; Jaeger 6.9% / 37.3). **Read that as dosage, not obligation:** when you take a dart here the right number is ONE (two on tough courses), never the Classic-grade three-plus — and when the leaderboard offers no live low-owned golfer, the right number is zero. The 93%/97% figures describe winning lineups after the fact; they say a low-owned golfer often WINS, not that adding one makes you a winner. Rostering a dart to reach a count is the one way to guarantee it's a dead slot.
+
+*(Renamed 8/29/26 on user directive — this section was "The One-Dart Mandate" and read "Every lineup carries ≥1 sub-10% piece." That was a winner RATE restated as a per-lineup quota, the error codified in `mma-se-2026-07-19-sharp-envelope-is-a-rate-not-a-per-bullet-quota`.)*
 
 ### The Single-Bullet Envelope (codified 2026-08-22)
 
-With one entry there is no portfolio to hold the most-likely outcome, so the single entry itself must be the most-likely shape: 19-23% average ownership per roster slot with 1-2 sub-10% golfers. The window is TWO-SIDED — a bullet built under it (7-14% own, 3-5 darts: 6/19, 8/8) and a bullet built over it (30% own, 0 darts: 8/22) both gave up the modal outcome, while every in-window bullet (8/11 22.2% → won; 8/22 20.15% → top 14%) finished in the top 15%. Pre-lock check: compute the per-slot number on EVERY bullet and fix any bullet outside 19-23% before entry. An UNDERWEIGHT call in a 1-entry contest can only be 0% or 100% — treat it as must-appear unless explicitly full-faded.
+With one entry there is no portfolio to hold the most-likely outcome, so the single entry itself must be the most-likely shape: 19-23% average ownership per roster slot with 1-2 sub-10% golfers. The window is TWO-SIDED — a bullet built under it (7-14% own, 3-5 darts: 6/19, 8/8) and a bullet built over it (30% own, 0 darts: 8/22) both gave up the modal outcome, while every in-window bullet (8/11 22.2% → won; 8/22 20.15% → top 14%) finished in the top 15%. Pre-lock check: compute the per-slot number on EVERY bullet, and when one lands far outside 19-23% treat it as a PROMPT to re-examine the picks — a 7% bullet usually means you talked yourself into darts, a 30% bullet usually means you took every favourite without a thought. Re-check the golfers; change one only if the re-read says he's wrong. Never swap a golfer you believe in to move the average into a band. An UNDERWEIGHT call in a 1-entry contest can only be 0% or 100% — treat it as must-appear unless explicitly full-faded.
 
 ## The Build Workflow (Four Stages)
 
@@ -142,8 +144,8 @@ The rules below are calibrated to **handbuilt** play — every lineup is individ
 **Construction rules:**
 - **Field-weight the modal anchor** — do not fade. If CY is at 45%+ in the field, you have CY. The exception is when there are two co-leaders both above 35% (coin-flip case) — pick one.
 - **Cum own target: 105-115%.** Slightly above field average is correct in single-entry.
-- **Hit every historical winning structure target** — non-negotiable: 2-3 T-10 starters (or 3-4 birdie-fest), 1+ sub-25 starter, 1 sub-10% play, 1 ceiling player (60+ realistic upside).
-- **Exactly one calculated leverage bet** — placed in the cheapest 1-2 salary slots. Six leverage bets in one lineup is six ways to lose.
+- **Check the build against the historical winning structure** — 2-3 T-10 starters (or 3-4 birdie-fest), 1+ sub-25 starter, 1 ceiling player (60+ realistic upside). These are leaderboard-position and upside targets, and they hold. The old list also demanded "1 sub-10% play"; that item is removed (8/29/26) — it is the only one keyed to ownership rather than to a golfer's actual case, and it forced a dart into every lineup.
+- **At most one calculated leverage bet** — placed in the cheapest 1-2 salary slots, and none at all when the board doesn't offer one worth taking. Six leverage bets in one lineup is six ways to lose; one you don't believe in is one way.
 - **No coffin-block players.** Zero. Coffin players are field-weight without leverage benefit — wrong on both axes for single-entry.
 - **Rule-set commitment required.** Cannot split with one lineup. If genuinely 50/50, lean tough-course.
 - **Top 3 salary slots are not leverage slots.** $9,500+ slots get the modal anchor, a second T-10 starter, and a structural value sub-25 anchor.
@@ -238,13 +240,14 @@ Workflow:
 
 Regardless of Mode A or B, EVERY lineup entered must independently hit:
 - 1+ realistic 60+ ceiling player
-- 1+ sub-5% spike play if the slate could play birdie-fest (cheap-spike-of-the-week profile)
+- On a possible birdie-fest, the cheap-spike-of-the-week candidates are identified and judged (carrying
+  one is a call, not a floor — see the sub-5% spike sub-clause)
 - Max 2 plays at 10-20% ownership (Mid-Tier Ownership Trap)
 - Rule-set discipline (T-10 starter count, cum own target for the rule-set the lineup is built for)
 - No coffin block stacking (rule-set conditional)
 - Articulable thesis
 
-**Failure mode (PGA Championship 2026):** Three diversified lineups (Mode B), zero structural floor hits on the sub-5% spike slot. Kitayama at 3.40% own / 72.25 pts was the birdie-fest cheap-spike-of-the-week and zero lineups had him. The diversification was valid; the structural rule miss was not. Mode B is a hedge against uncertain reads, not a license to skip rules on individual lineups.
+**Failure mode (PGA Championship 2026):** Three diversified lineups (Mode B), zero structural floor hits on the sub-5% spike slot. Kitayama at 3.40% own / 72.25 pts was the birdie-fest cheap-spike-of-the-week and zero lineups had him. The diversification was valid; the structural rule miss was not. Mode B is a hedge against uncertain reads, not a license to skip the SCAN. Note the real failure here: Kitayama was never evaluated. Had he been judged and declined, zero lineups holding him would have been a defensible outcome.
 
 ### Contest Size Calibration
 
@@ -304,7 +307,7 @@ For every analyst-named "structural value" anchor, identify the 1-2 equivalent-p
 2. Verify ≥1 lineup rosters 3-4 members of that core *together*, not as scattered single legs.
 3. Do not over-diversify: with a clear birdie-fest read, fewer distinct cores rostered deeply beats max breadth. A portfolio clustered just under the cash line is the symptom of dilution.
 
-**Interaction with other rules:** This does not override the Mid-Tier Ownership Trap (≤2 plays at 10-20% own per lineup) — the trap targets *unconnected* mid-tier filler with no ceiling. A *justified, course-supported* moderate-own core that all profiles as ceiling plays is the opposite of trap filler. The distinction is ceiling and correlation, not ownership band. Still pair the core with the mandatory sub-5%/sub-10% spike for differentiation.
+**Interaction with other rules:** This does not override the Mid-Tier Ownership Trap (≤2 plays at 10-20% own per lineup) — the trap targets *unconnected* mid-tier filler with no ceiling. A *justified, course-supported* moderate-own core that all profiles as ceiling plays is the opposite of trap filler. The distinction is ceiling and correlation, not ownership band. Where a live sub-5%/sub-10% spike exists, that core pairs well with it — a fit worth checking, not a required pairing.
 
 ## Post-Slate Equity Metric
 
@@ -329,8 +332,8 @@ If a lineup has zero realistic 60+ ceiling players, it is structurally incapable
 
 **When evaluating any ceiling player's realism, explicitly name the rule-set the math is assuming.** If the rule-set call is uncertain (which is the default per the splitting rule above), keep the ceiling exposure rather than rationalizing it out. Removing a sub-5% ceiling shot based on tough-course math when the slate plays birdie-fest is the exact pattern that cost us Truist.
 
-**Sub-5% spike sub-clause (from PGA Championship 2026):** On major championship / birdie-fest slates, the portfolio must contain at least one sub-5% cheap-spike-of-the-week play across the build. The slate's three contest winners at PGA Championship 2026 all included the sub-5% spike (Kitayama at 3.40%). Each individual lineup needs a 60+ ceiling player; the portfolio needs at least one sub-5% spike across all lineups when birdie-fest is in play.
+**Sub-5% spike sub-clause (from PGA Championship 2026; softened 8/29/26):** On major championship / birdie-fest slates, the cheap-spike-of-the-week is the profile most likely to decide the day, so name the candidates and make a deliberate call on each across the build. Where one is live, having him somewhere in the portfolio is usually right — but this is a PORTFOLIO read on a conditional slate type, never a per-lineup slot, and never a reason to roster a spike nobody can make a case for. The slate's three contest winners at PGA Championship 2026 all included the sub-5% spike (Kitayama at 3.40%). Each individual lineup needs a 60+ ceiling player (an upside test, not an ownership one).
 
 ### The Sub-15% Mid-Tier Score Source (codified 2026-08-08)
 
-On identified birdie-fest slates, the winning score comes disproportionately from mid-tier golfers under ~15% ownership: pricing lags moderate-own mid-tier ceiling on easy scoring days, so those profiles outscore both the popular chalk and the punts. Skipping that tier for "safer" mid-tier names is a structural floor violation on this slate type. Evidence: CJ Cup 5/24 (Suber 79.5 / Keefer 74.0 / Higgo 71.0 sub-15%), 5/31 (the 13–26% tier formed the winning core), Rocket RD4 8/8 (mini-MAX winner built on Wallace 52.8 @15.2%, Ventura 44.45 @14.9%, Gerard 47.2 @14.5%, Hideki 65.5 @10.5%).
+On identified birdie-fest slates, the winning score comes disproportionately from mid-tier golfers under ~15% ownership: pricing lags moderate-own mid-tier ceiling on easy scoring days, so those profiles outscore both the popular chalk and the punts. Skipping that tier for "safer" names is the miss to watch for on this slate type. Evidence: CJ Cup 5/24 (Suber 79.5 / Keefer 74.0 / Higgo 71.0 sub-15%), 5/31 (the 13–26% tier formed the winning core), Rocket RD4 8/8 (mini-MAX winner built on Wallace 52.8 @15.2%, Ventura 44.45 @14.9%, Gerard 47.2 @14.5%, Hideki 65.5 @10.5%).

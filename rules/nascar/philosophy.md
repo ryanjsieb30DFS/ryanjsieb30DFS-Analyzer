@@ -34,7 +34,7 @@ Strategic principles that govern every decision. These are timeless beliefs — 
 
 **2. PD sweet spot is the 21st-30th starting range** at most NextGen tracks. Worse-than-30th is a smaller piece of optimal lineups than the field assumes (~13-17%). Don't over-allocate to the back row.
 
-**3. One primary contrarian play per lineup, not three.** Three leverage spots compounds bust risk multiplicatively. If the lineup needs three sub-15% plays to all hit, the math doesn't work.
+**3. At most one primary contrarian play per lineup — and zero is fine.** Three leverage spots compounds bust risk multiplicatively: if the lineup needs three sub-15% plays to all hit, the math doesn't work. This is a CEILING on risk, never a floor to reach. A lineup of six drivers you believe in, none of them low-owned, breaks no rule here.
 
 **4. Salary discipline.** Don't punt to bottom-of-board unless Tier 5 has multiple viable options. A $5,000 driver who scores 25 points is better than a $4,500 driver who scores 11.
 

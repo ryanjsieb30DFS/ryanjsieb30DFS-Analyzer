@@ -14,9 +14,9 @@ Each rule held across **both** PGA and NFL, with the numbers:
 
 1. **Every lineup is unique.** Duplicate ratio ≈ **1.0** in both sports even at **120–150 entries/slate** — no two bets the same. *(PGA dup ~1.00–1.04; NFL ~1.00–1.15.)* → For your hand-built few: never run two lineups that answer the same question.
 
-2. **Always carry a leverage piece.** A sub-5%-owned player appears in the **majority** of their lineups — **PGA 60–80%, NFL 64–86%**. → Default to **≥1 sub-5%-owned player per lineup.**
+2. **Low-owned pieces are a RATE, not a slot.** A sub-5%-owned player appears in **PGA 60–80%, NFL 64–86%** of their lineups — and in **MMA just 15%** (see the per-sport table below). Those are frequencies measured across a pro's 120–150 entries, describing how they budget variance over a whole portfolio. → Read it as **"in roughly N of 10 lineups,"** per sport, and **never as a slot every lineup must fill.** On 1–5 bullets the low-owned piece is OPTIONAL: take it when THIS slate makes that player the better play, not to satisfy a count. Restating this rate as a per-lineup quota is a measured ~7x inflation of real pro behavior and the single most repeated mistake in this repo (codified: `mma-se-2026-07-19-sharp-envelope-is-a-rate-not-a-per-bullet-quota`; contest winners regularly carry ZERO sub-10% players).
 
-3. **Moderate ownership — neither chalk nor punt.** Average ownership **per roster slot ~12–16%** in both sports (PGA Classic ~12–14%, NFL ~14–16%). They don't chalk-stack and they don't punt the whole card. → Target a **balanced, slightly-contrarian** build, not extremes.
+3. **Moderate ownership — neither chalk nor punt.** Average ownership **per roster slot ~12–16%** in PGA/NFL (PGA Classic ~12–14%, NFL ~14–16%). They don't chalk-stack and they don't punt the whole card. → **This is a description of two sports, not a target for all of them.** It does NOT transfer: NASCAR pros sit at ~28–35% per slot and there is no measured MMA envelope at all (`shark_baseline.json` has no `mma` key). Use the observed number for the SPORT AND FIELD SIZE you are playing, and never fail a lineup for sitting outside a band — ownership is an outcome of picking the right players, not a constraint to build toward.
 
 4. **Build for the tail; ignore the median.** Their **median entry finishes ~40–52%** — mid-pack — in *both* sports, even for players with multiple wins. The edge is entirely in the top-1% / win tail. → Judge each lineup on **ceiling**, never on "will it cash." *(= `feedback_sim_rank_not_gospel`.)*
 
@@ -74,7 +74,7 @@ R4 SD (chalkier): sullybrochill 85 slates / 3 wins, moklovin 142, JBCJBCJBC 34, 
 ---
 
 ## How to apply (you hand-build a few lineups)
-Copy the **structure**, not the entry count: each lineup a distinct angle, **~12–16% average ownership per slot**, **≥1 sub-5% leverage piece**, an elite anchor with differentiation below it, and judged on ceiling not median. These six universal rules are validated across two very different games — the strongest evidence we can get short of tracking your own results.
+Copy the **structure**, not the entry count: each lineup a distinct angle, an elite anchor with differentiation below it, and judged on ceiling not median. The ownership numbers above are DESCRIPTIVE — carry low-owned pieces at something like the observed rate for your sport across your entries, and let each individual lineup be whatever this slate says it should be. Never add a low-owned player to a lineup to satisfy a rule; a bad play at 4% own is still a bad play. These six universal rules are validated across two very different games — the strongest evidence we can get short of tracking your own results.
 
 _Caveats: descriptive correlation, not causation; copying the structure at low volume is a sound hypothesis to track, not a guarantee. NFL is out of the user's play scope — used only to prove which tendencies are universal. Salary/team absent from standings. MMA notes are small-sample._
 
@@ -92,8 +92,8 @@ _From the user's own entries in `~/Downloads` contest-standings (their played co
 **The headline:** you already build like a shark in **PGA** — on-envelope ownership, a leverage piece in most lineups, all-unique, elite anchors, and your best results. The discipline **breaks down in NASCAR**: you carry a sub-5% leverage driver in only **19%** of lineups (vs **59%** in your own PGA), run chalkier, and it's your **only below-average sport** (55.9% median). MMA chalk is format-appropriate but near-zero leverage.
 
 **Top 3 fixes (ranked):**
-1. **NASCAR — add leverage.** Put a sub-5%-owned sleeper driver in most lineups (this is literally the existing `sleeper-spike-floor` / `sub-10-punts-over-15-20` lessons) and pull cumulative ownership down. Your NASCAR leverage rate (19%) should look more like your PGA rate (59%). Highest-impact change — it's your weakest sport by every measure.
-2. **MMA — sprinkle a dog.** Keep anchoring favorites (right for MMA), but add the occasional sub-5% live underdog for ceiling; 4.2% is too rarely.
+1. **NASCAR — look harder for leverage.** Your NASCAR low-owned rate (19%) runs well under your PGA rate (59%). Widen the SCREEN — make sure a genuinely live sub-5% sleeper is identified and considered every race — rather than forcing one into a set quota of lineups. The gap to close is candidates CONSIDERED, not boxes ticked.
+2. **MMA — keep anchoring favorites.** That is correct for MMA and the data supports it: the MMA sharks themselves carry a sub-5% piece in only 15% of lineups, and the modal shark MMA lineup carries NONE. Consider a live sub-5% underdog when the fight genuinely offers one; do not manufacture one.
 3. **PGA — keep doing exactly this**, and nudge PGA's leverage rate from 59% toward the sharks' 70%+.
 
 _Caveats: NASCAR (8) is a smallish sample; MMA chalk is format-correct, not a flaw; descriptive vs the sharks' correlated success, not proof. Re-run as more of your standings accumulate. (MLB rows removed 2026-07-18 — sport dropped.)_

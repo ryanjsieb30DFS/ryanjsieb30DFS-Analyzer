@@ -30,7 +30,7 @@ Before constructing any lineup, answer these:
 - **Are the analyst projections converging or diverging?** Convergence = the field will see the same plays. Divergence = look for the model edge.
 - **Does the coffin list have ≥2 high-conviction overweight plays at sub-15% projected ownership?** If yes, this is the "leverage spine" opportunity.
 - **Gated cheap-leverage scan (required):** cross the course-history/pedigree boost list against sub-5% projected ownership, then GATE on a minimum skill/current-form floor — bottom-decile ball-strikers and cold pedigree names are lottery-slot-only regardless of course stickiness. Treat the form/value engine (hot approach numbers, value-report flags) as a CO-EQUAL source of sub-5% leverage; the slate-defining cheap play has come from the form side in every logged test (Poston, Suber, Clark). Pedigree WITHOUT form = bust (Koepka, Shinnecock); pedigree WITH form = the play (Clark; Young, Birkdale).
-- **Name the slate's low-owned smash (mandatory scan).** Across 168 slates (2023-2026), **96% had ≥1 golfer rostered in ≥30% of winning lineups while drawing <20% field ownership** (median ~12% own). There is essentially always a sub-radar golfer who smashes and defines the winners — the scan must surface the candidate leverage tier, and a build with zero sub-10% plays fails the structure check.
+- **Name the slate's low-owned smash (mandatory scan).** Across 168 slates (2023-2026), **96% had ≥1 golfer rostered in ≥30% of winning lineups while drawing <20% field ownership** (median ~12% own). There is essentially always a sub-radar golfer who smashes and defines the winners — the scan must surface the candidate leverage tier so the golfer who defines the slate is never invisible to you. **The SCAN is mandatory; rostering its output is not.** A build with zero sub-10% plays fails nothing — 9% of winning lineups carried none, and a dart you don't believe in is a dead slot.
 - **The 10-16% mid-owned band is where Classic slates are decided, not the sub-5% tier alone.** Guarantee explicit PLAY/PASS coverage of *every* mid-priced play projecting a 100+ ceiling in the ~7-20% own band before adding deep darts. Caveat (necessary-not-sufficient): owning the band is required but does not itself win — four straight slates we sat in the band and missed the actual hitters, so this rule must be paired with the vendor-independent ceiling scan (the primary pre-slate identification discipline) that governs *which* members of the band get rostered.
 
 **Vendor-independent ceiling board (codified 2026-07-26).** Before writing Top plays, independently list the ~12-15 highest-ceiling players for the week from the projections + form (best ball-strikers, hottest approach numbers, elite anchors) REGARDLESS of whether the vendor's coffin list or a panel flagged them, and reconcile every elite/mid ceiling against that board so no stud is silently omitted (the Hovland/Morikawa/Burns failure class). The board MUST include recent tournament/major champions and proven closers gated on a current-form floor: any that survive the gate at sub-15% projected own are leverage; pedigree without form stays lottery-only (Koepka).
@@ -45,13 +45,13 @@ Before constructing any lineup, answer these:
 | Mid-chalk | 12–20% | Most builds will hold 1–2 of these; rotate which ones |
 | Soft chalk | 8–12% | Best risk/reward bracket; often where coffin-list overweights live |
 | Sub-projected | 4–8% | Targeted leverage plays; the difference between cashing and winning |
-| Deep contrarian | <4% | High-volatility ceiling chase; required in tournament-winning builds |
+| Deep contrarian | <4% | High-volatility ceiling chase; common in tournament-winning builds, never required |
 
 **Avoid playing more than one player from the "trap chalk" tier per lineup.** Trap chalk = a player ETR or your projection source flags as overowned (coffin list negative side).
 
-**Empirical winning-structure baseline (168 slates, 2023-2026 — `mining_2023_2026.md`):** winning lineups average **~13% per-player ownership** (~78% cumulative across the 6 golfers — this is a per-player mean, NOT a lineup total), carry **2-3 sub-10%-owned golfers** (median 2.5; 78% of winners ≥2, 91% ≥1), and are **91% unique**. Target this shape; an all-chalk lineup is a structural non-starter. Stable every year 2023-2026.
+**Empirical winning-structure baseline (168 slates, 2023-2026 — `mining_2023_2026.md`):** winning lineups average **~13% per-player ownership** (~78% cumulative across the 6 golfers — this is a per-player mean, NOT a lineup total), carry **2-3 sub-10%-owned golfers** (median 2.5; 78% of winners ≥2, 91% ≥1), and are **91% unique**. Stable every year 2023-2026. **This describes what winners looked like AFTER the fact — it is not a build target.** Ownership is an outcome of which golfers you picked, not an input you tune: the 2-3 sub-10% golfers in those winning lineups were players who PLAYED WELL and happened to be low-owned, and picking three low-owned golfers who miss the cut produces the same shape with none of the result. Read it as the rate to expect across your entries over a season, not a quota per lineup.
 
-**Dart-count calibration:** hold ~13% average per-player ownership, and set the per-lineup sub-10% dart count by course archetype: birdie-fest ~2; no-cut birdie-fest ~2.5; tough non-cut ~3; tough or birdie-fest WITH a 36-hole cut, cap at ~2–2.5 (each added cut-coinflip multiplies binary cut-out risk). Verified: mining n=168 plus RBC (~2), Shinnecock (2.1–2.7), Travelers (2.5), Birkdale (2.25).
+**Dart-count calibration (a guide to typical DOSE, not a required count):** where the board genuinely offers live low-owned golfers, the sensible number varies by course archetype — and where it doesn't, the right number is fewer, including zero. Expect roughly: birdie-fest ~2; no-cut birdie-fest ~2.5; tough non-cut ~3; tough or birdie-fest WITH a 36-hole cut, cap at ~2–2.5 (each added cut-coinflip multiplies binary cut-out risk). Verified: mining n=168 plus RBC (~2), Shinnecock (2.1–2.7), Travelers (2.5), Birkdale (2.25).
 
 **Portfolio-level low-owned RATE (codified 2026-08-03).** The per-lineup dart count above governs a single lineup; this governs the SET. In small-field 5-Max, hold the share of your lineups carrying a sub-5%-owned piece near the observed in-field pro rate — roughly "one sub-5% piece in most lineups," not one in nearly every lineup plus extras. Mechanism: at 5 bullets in a ~2-3K field your lineups are already 100% unique, so a marginal sub-5% piece buys no uniqueness and only adds bust risk, while the slate-definers keep landing in the 10-20% own band (5 of 6 at the Rocket Classic; 4 of 5 at the 3M; 4 of 4 at Birkdale). Verified across four slates as the top structural shark gap, always in the same direction: +53.3 (Shinnecock), +60.0 (Birkdale), +20.0 (3M), +16.4 (Rocket). Push freed slots UP into the 10-20% definer band, not down. **Corollary (Rocket Classic):** once the rate is near the pro envelope, the residual gap moves to average ownership per slot — target the winners' ~12-13%, and trim it from the crowded anchor, not from the cheap pieces.
 
@@ -140,7 +140,7 @@ For multi-lineup portfolios, the exposure ceiling scales with portfolio size:
 
 The portfolio cap protects against the reverse failure mode — when a high-conviction play bombs in all lineups simultaneously.
 
-**Soft guideline: every lineup should have at least 1 player at sub-8% projected ownership.** If a lineup has zero sub-8% pieces, it is structurally identical to thousands of field lineups; no path to the top 0.1%.
+**On sub-8% pieces:** a lineup built entirely from the field's favourites is structurally similar to thousands of other entries, which is a real problem in a big field. But the fix is a golfer the field is WRONG about — and he may be owned 8%, 18%, or 28%. Differentiation that wins comes from a correct unpopular opinion, not from a low ownership number. Never add a sub-8% golfer you don't believe in to escape this; that trades one weakness for a worse one.
 
 **Per-contest UNDERWEIGHT floor (codified 2026-08-11).** An UNDERWEIGHT call on top-skill contested chalk means at least one bullet IN EACH entered contest (in a 1–5 entry contest: exactly one). Check the floor per contest, never on the pooled entry set — 0-of-N in the focus contest is a full fade the analysis never argued.
 
@@ -164,7 +164,8 @@ Leaving more than $300 in unused salary is a sign of either over-conservative pr
 
 - [ ] At least one player from the coffin-list overweight side
 - [ ] No more than one player from the coffin-list underweight side
-- [ ] At least one sub-8% ownership piece
+- [ ] The low-owned smash scan was run and each candidate judged (carrying one is optional — zero is a
+      valid answer when none earned a seat)
 - [ ] No more than $300 unused salary
 - [ ] No more than 2 high-conviction sub-10% leverage plays in the same lineup (correlated bust risk)
 - [ ] Gated cheap-leverage scan run: at least one candidate considered that passes the skill/current-form gate (CH/pedigree boost × sub-5% own × form floor, or a form/value-engine flag)
@@ -177,7 +178,9 @@ Leaving more than $300 in unused salary is a sign of either over-conservative pr
 - [ ] Each lineup expresses a distinct slate-outcome thesis (no near-duplicates)
 - [ ] Portfolio exposure cap respected (3-max: 2/3 max per player; 5-max: 3/5 max)
 - [ ] At least one lineup carries the model's #1 anchor (anti-Truist blind spot rule)
-- [ ] At least one lineup is positioned for the "chaos slate" outcome (sub-65% cumulative ownership)
+- [ ] The "chaos slate" outcome was considered — is there a build that wins if the favourites all fail?
+      (Often it comes out low-owned, ~sub-65% cumulative. That is a symptom of the thesis, not a target
+      to hit; skip it when no such build has a real case.)
 - [ ] The leverage spine (when present) appears in 60-80% of lineups, not 100%
 - [ ] No player appears in every lineup (forces internal differentiation)
 - [ ] Gated cheap-leverage scan (CH/pedigree × sub-5% own × skill/form floor; form/value engine co-equal) completed
@@ -187,7 +190,8 @@ Leaving more than $300 in unused salary is a sign of either over-conservative pr
 
 - [ ] Portfolio distribution matches Section 4D template percentages
 - [ ] Maximum single-player exposure ≤35%
-- [ ] At least one lineup with cumulative ownership <65% (deep contrarian coverage)
+- [ ] Deep-contrarian coverage considered (a build that wins on chaos — usually ~sub-65% cumulative own).
+      Judged, not required: include it when the golfers justify it.
 - [ ] All four major slate-outcome categories represented (chalk wins / leverage spine wins / chaos / model-default)
 - [ ] Gated cheap-leverage scan candidates (skill/form-gated) considered for at least 2-3 lineups
 
