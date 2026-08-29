@@ -99,8 +99,16 @@ def strategy_gate(slug: str) -> dict:
       EVERY entry of a multi-entry contest (`parse_pick`). The old hard
       exclusion collapsed the verdict to zero and deleted the 8/23 Clinch
       winner from the pool.
-    * `leverage_candidates` — every lineup must carry at least one. This is the
-      recurring miss the strategy names on its own leverage screen.
+    * `leverage_candidates` — NOT A RULE AT ALL (8/28/26, user directive:
+      "the point of the grade tab is to ensure lineups are following the
+      CURRENT SLATE STRATEGY"). This list is not a strategy decision — it is
+      a mechanical screen (`landscape.leverage_candidates`, ownership < 10%).
+      The strategy must ADDRESS each candidate in prose; addressing one is
+      not playing one. So carrying none costs a lineup NOTHING here: no
+      exclusion, no flag, no warning. The names still ride the `strategy`
+      column as INFORMATION (this lineup carries a play the strategy
+      surfaced) and still earn slice seats, so leverage builds stay
+      available to pick — they are never required.
     * `Core` tier from the board — at least two, the strategy's own anchors.
     * `chalk_pairs[0]` — the top duplicated pair, "what a sharp refuses".
 
@@ -150,16 +158,31 @@ def strategy_gate(slug: str) -> dict:
 # stay pickable, flagged ⚠ as a cost (`soft_notes`), priced in the gate
 # summary, and capped at pick time (`parse_pick`: never the same underweight
 # player in EVERY entry of a multi-entry contest).
-_RELAX_ORDER = ("core", "chalk_pair", "leverage")
+# `leverage` left this tuple 8/28/26 and is not a rule of any strength —
+# not hard, not soft, not a warning (user directive: "i really dont think
+# that should be a hard and fast rule… the point of the grade tab is to
+# ensure lineups are following the CURRENT SLATE STRATEGY"). Two reasons,
+# and the second is the deciding one:
+#   1. The ledger: `mma-se-2026-07-19-sharp-envelope-is-a-rate-not-a-per-
+#      bullet-quota` — the sharks carry a low-owned piece at a ~15% RATE,
+#      so a per-lineup version inflates their real behavior ~7x, and both
+#      7/19 contest winners carried ZERO sub-10% pieces.
+#   2. It was never a strategy call. `leverage_candidates` is a mechanical
+#      ownership screen (`landscape.py`, own < 10%). The strategy has to
+#      ADDRESS each name in prose; addressing is not playing. Enforcing it
+#      here made the gate impose a universal ownership rule while claiming
+#      to enforce THIS slate's strategy — the thing the gate exists to do.
+_RELAX_ORDER = ("core", "chalk_pair")
 _GATE_MIN_ROWS = 25   # below this the slice stops being a real choice
 
 
 def compliance(roster: list, gate: dict, relaxed: tuple = ()) -> list[str]:
     """The HARD strategy rules THIS roster breaks, in plain words. Empty list =
     the lineup may be picked. `relaxed` names rules to skip (see
-    `_RELAX_ORDER`). UNDERWEIGHT is deliberately NOT here — it is a soft cost
-    (`soft_notes`), never a break (8/28/26; a compliance entry rejects picks
-    and deletes pool branches, which is the exact bug the change removes)."""
+    `_RELAX_ORDER`). UNDERWEIGHT and LEVERAGE are deliberately NOT here —
+    both are soft costs (`soft_notes`), never a break (8/28/26; a compliance
+    entry rejects picks and deletes pool branches, which is the exact bug
+    both demotions remove)."""
     if not gate.get("has_contract"):
         return []
     names = {_strat_norm(str(p)) for p in roster}
@@ -168,10 +191,6 @@ def compliance(roster: list, gate: dict, relaxed: tuple = ()) -> list[str]:
     for nm, verdict in hit_fade:
         out.append(f"carries {nm} — the strategy calls him "
                    f"{'LEAN FADE' if verdict == 'lean_fade' else 'FADE'}")
-    if "leverage" not in relaxed and gate.get("leverage"):
-        if not (names & set(gate["leverage"])):
-            out.append("carries no driver/player from the strategy's leverage "
-                       "list (every lineup needs one)")
     core = gate.get("core") or {}
     if "core" not in relaxed and core:
         need = min(2, len(core))
@@ -188,9 +207,13 @@ def compliance(roster: list, gate: dict, relaxed: tuple = ()) -> list[str]:
 
 
 def soft_notes(roster: list, gate: dict) -> list[str]:
-    """The SOFT strategy costs this roster carries — underweight calls. These
-    never reject a pick or remove a pool row; they are shown as ⚠ so the cost
-    of a soft call is visible wherever the lineup appears."""
+    """The SOFT strategy costs this roster carries — UNDERWEIGHT calls only.
+    These never reject a pick or remove a pool row; they are shown as ⚠ so
+    the cost of a soft call is visible wherever the lineup appears.
+
+    Carrying no leverage-list player is deliberately NOT here (8/28/26): the
+    list is an ownership screen, not a strategy call, so its absence is not a
+    cost of any size (see `_RELAX_ORDER`)."""
     if not gate.get("has_contract"):
         return []
     names = {_strat_norm(str(p)) for p in roster}
@@ -246,7 +269,7 @@ def gate_summary(gate: dict, elig: dict, pool: dict | None = None) -> str:
         """' — removes N of the M pooled lineups' for one hard rule alone."""
         if not rosters:
             return ""
-        others = tuple(r for r in ("leverage", "core", "chalk_pair")
+        others = tuple(r for r in ("core", "chalk_pair")
                        if r != rule) + (("fade",) if rule != "fade" else ())
         n = sum(1 for r in rosters if compliance(r, gate, relaxed=others))
         return f" — removes {n:,} of the {len(rosters):,} pooled lineups"
@@ -256,9 +279,6 @@ def gate_summary(gate: dict, elig: dict, pool: dict | None = None) -> str:
         rules.append("no player the strategy called FADE or LEAN FADE ("
                      + ", ".join(sorted(nm for nm, _v in gate["fade"].values()))
                      + ")" + _price("fade"))
-    if gate.get("leverage") and "leverage" not in elig.get("relaxed", []):
-        rules.append("at least one player off the strategy's leverage list"
-                     + _price("leverage"))
     if gate.get("core") and "core" not in elig.get("relaxed", []):
         rules.append(f"at least {min(2, len(gate['core']))} Core-tier players "
                      "(the strategy's anchors)" + _price("core"))
@@ -287,6 +307,15 @@ def gate_summary(gate: dict, elig: dict, pool: dict | None = None) -> str:
             "only when its sim edge over the clean rows is real, and NEVER "
             "put the same underweight player in every entry of a "
             "multi-entry contest (the app rejects that).")
+    if gate.get("leverage"):
+        lines.append(
+            "ℹ️ LEVERAGE IS NOT A RULE HERE. These low-owned players ("
+            + ", ".join(sorted(gate["leverage"].values()))
+            + ") are a screen the app runs on ownership, not a call the "
+            "strategy made — the strategy has to TALK about each one, which "
+            "is not the same as playing one. So a lineup carrying none of "
+            "them breaks nothing and costs nothing. Where a lineup does "
+            "carry one, the `strategy` column says so, as information.")
     if elig.get("relaxed"):
         lines.append("⚠️ Too few lineups passed, so these rules had to be "
                      "dropped to fill the table: "
@@ -670,6 +699,9 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP,
     out = []
     for i in chosen:
         names = [str(x) for x in rosters[i]]
+        # No marker for rows without a leverage name (8/28/26): the column
+        # reports what a lineup HAS, never scolds it for what it lacks.
+        hits = list(strat_hits.get(i) or [])
         out.append({
             "index": i,
             "roster": names,
@@ -683,7 +715,7 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP,
             "cash_pct": _val(cash, i, 1),
             "roi_pct": _val(roi, i, 1),
             "exp_dupes": _val(dupes or [], i),
-            "strategy": ", ".join(strat_hits[i]) if strat_hits.get(i) else None,
+            "strategy": ", ".join(hits) if hits else None,
         })
     return out
 
@@ -729,7 +761,11 @@ def slice_digest_md(slug: str, label: str, contest: dict, declared: dict | None,
                  "are allowed, but the ⚠ is a COST — pick one only when its "
                  "sim edge over the clean rows is real, and never put the "
                  "same underweight player in every entry of a multi-entry "
-                 "contest.")
+                 "contest. An EMPTY `strategy` cell means nothing is wrong "
+                 "with the lineup — carrying no low-owned (leverage) name "
+                 "is not a flaw, a cost, or a tiebreaker. Never prefer a row "
+                 "because it holds a leverage name or reject one because it "
+                 "doesn't.")
     return "\n".join(lines)
 
 
@@ -844,10 +880,10 @@ def parse_pick(md: str, slice_rows: list[dict], my_entries: int,
     # Clinch winner from all three contests.
     warnings: list[str] = []
     if gate and gate.get("has_contract") and picks and not errors:
+        rosters_n = [{_strat_norm(str(p)) for p in by_index[pk["index"]]["roster"]}
+                     for pk in picks]
         uw = gate.get("underweight") or {}
         if uw:
-            rosters_n = [{_strat_norm(str(p)) for p in by_index[pk["index"]]["roster"]}
-                         for pk in picks]
             for key in sorted(uw):
                 n_carry = sum(1 for ns in rosters_n if key in ns)
                 if n_carry == 0:
@@ -864,6 +900,9 @@ def parse_pick(md: str, slice_rows: list[dict], my_entries: int,
                         f"{'y carries' if n_carry == 1 else 'ies carry'} "
                         f"{uw[key]} — an UNDERWEIGHT call; allowed, priced "
                         "as a cost.")
+        # NO leverage check of any kind (8/28/26). A pick set carrying zero
+        # low-owned players is a complete, valid answer — the 7/19 winners
+        # were exactly that — so it earns no error and no warning.
 
     why = None
     m = re.search(r"^\*\*Why[^\n]*\*\*:?\s*(.*?)(?=\n\s*\n|\Z)",

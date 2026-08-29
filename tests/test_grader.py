@@ -1,9 +1,10 @@
 """Unit tests for the sport-calibrated lineup grader (✅ Grade tab).
 
-Includes the calibration requirement from the retro-audit: in a sport whose
-observed sharks DON'T carry leverage (MMA-style), a no-sub-10% lineup must NOT
-hard-flag (the UFC 250 winning builds); where sharks DO carry it (golf-style),
-it must flag.
+Includes the calibration requirement from the retro-audit: a no-sub-10%
+lineup must NEVER hard-flag in ANY sport (8/28/26, user directive) — the
+grade measures whether a lineup follows THIS slate's strategy, and "carry a
+low-owned player" is a cross-sport shark average, not a strategy call. The
+UFC 250 winning builds carried none; so do contest winners regularly.
 """
 import sys
 from pathlib import Path
@@ -69,16 +70,38 @@ def test_chalk_heavy_flags_above_calibrated_target():
     assert not any("Chalk-heavy" in w for w in _warns(g2))
 
 
-def test_no_leverage_flag_is_sport_gated():
-    # Golf-style (sharks carry leverage): no sub-10 piece → WARN.
+def test_no_leverage_is_never_a_warning_in_any_sport():
+    """8/28/26, user directive: the grade measures THIS slate's strategy, and
+    "carry a sub-10% player" is not a strategy call — it is a cross-sport
+    shark average. It can never cost a letter, in any sport, at any rate."""
+    # Golf-style, where the sharks DO carry leverage often (49%): still info.
     golf = _grade_text("Alpha Guy, Beta Guy, Gamma Guy", _cal())[0]
-    assert any("No sub-10%" in w for w in _warns(golf))
-    # MMA-style (no envelope / chalk sharks): same lineup → info only, no warn.
+    assert not any("sub-10%" in w for w in _warns(golf))
+    lev = [f for f in golf["flags"] if f["code"] == "no_leverage"]
+    assert lev and lev[0]["level"] == "info"
+    assert "does not lower the grade" in lev[0]["msg"]
+    # Showdown-style, where they carry one in ~89% of lineups: STILL info.
+    sd = _grade_text("Alpha Guy, Beta Guy, Gamma Guy",
+                     _cal(sport="showdown", shark_leverage_pct=88.7))[0]
+    assert not any("sub-10%" in w for w in _warns(sd))
+    # MMA-style (no envelope at all): info, and it says the pros run chalk.
     mma = _grade_text("Alpha Guy, Beta Guy, Gamma Guy",
                       _cal(sport="mma", shark_leverage_pct=None,
                            own_flag_above=None))[0]
-    assert not any("No sub-10%" in w for w in _warns(mma))
-    assert any("not auto-flagged" in f["msg"] for f in mma["flags"] if f["level"] == "info")
+    assert not any("sub-10%" in w for w in _warns(mma))
+    assert any("chalk-heavy" in f["msg"] for f in mma["flags"]
+               if f["code"] == "no_leverage")
+
+
+def test_a_no_leverage_lineup_can_still_grade_A():
+    """The letter is what the user actually reads — an otherwise clean lineup
+    carrying zero low-owned players must not lose a step for it."""
+    # Gamma 20% + Delta 12%: nothing under 10, and avg own 16 is under the
+    # 21.6 chalk line, so no_leverage is the only thing the grader can see.
+    g = _grade_text("Gamma Guy, Delta Guy", _cal())[0]
+    assert g["n_sub10"] == 0
+    assert _warns(g) == []
+    assert grader.letter_grade(g, _cal())["letter"] == "A"
 
 
 def test_recurring_pair_warns():
@@ -144,21 +167,22 @@ def test_retro_grade_flags_vs_clean():
         # clean: modest own, has a low-own piece
         {"players": ["C", "D"], "avg_own": 15.0, "low_own_count": 1,
          "percentile": 5.0},
-        # flagged: no leverage (gated ON since shark_leverage_pct=49)
+        # CLEAN as of 8/28/26: no low-owned piece is not a flag at any shark
+        # rate — the self-validation must measure what the grader charges for.
         {"players": ["E", "F"], "avg_own": 20.0, "low_own_count": 0,
          "percentile": 45.0},
     ]}]
     rg = grader.retro_grade(records, cal)
     assert rg["gradable"] and rg["n_lineups"] == 3
-    assert sorted(rg["flagged_pctiles"]) == [45.0, 60.0]
-    assert rg["clean_pctiles"] == [5.0]
+    assert rg["flagged_pctiles"] == [60.0]
+    assert sorted(rg["clean_pctiles"]) == [5.0, 45.0]
     flags = {tuple(l["players"]): l["flags"] for l in rg["lineups"]}
     assert "fade_violation" in flags[("B", "Bad Fade")]
-    assert "no_leverage" in flags[("E", "F")]
+    assert flags[("E", "F")] == []
 
 
-def test_retro_grade_leverage_gate_respected():
-    # MMA-style: no envelope leverage → no_leverage never flags retroactively.
+def test_retro_grade_never_flags_no_leverage():
+    # 8/28/26: no_leverage is not a retro flag in ANY sport, at any rate.
     cal = _cal(shark_leverage_pct=None, own_flag_above=None)
     records = [{"user_lineups": [
         {"players": ["A", "B"], "avg_own": 45.0, "low_own_count": 0, "percentile": 1.0},

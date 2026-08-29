@@ -13,10 +13,11 @@ EVERY threshold is data-derived — never a hardcoded universal number (the retr
   - ownership target   ← the sport's observed shark envelope (shark_baseline)
                          and/or the WINNERS of your own logged contests
                          (field_tendencies winners_avg_own)
-  - leverage flag      ← fires ONLY when the sport's sharks actually carry
-                         sub-5% pieces (envelope leverage_pct >= _LEV_GATE);
-                         in sports where the pros run pure chalk it stays
-                         informational
+  - leverage           ← INFO ONLY, never a warning, never a letter cost
+                         (8/28/26). "Carry a sub-10% player" is not a call
+                         this slate's strategy made — it is a cross-sport
+                         shark RATE, and the pros are under it most of the
+                         time. The note reports that rate and nothing more
   - fades / tiers      ← your own strategy contract + player-pool board
   - dupe risk          ← ownership product × declared field size, plus the
                          recurring crowded PAIRS from your logged contests
@@ -38,7 +39,6 @@ _BASELINE_PATH = _REPO_ROOT / "rules" / "shared" / "shark_baseline.json"
 _CONTRACT_DIR = _REPO_ROOT / "data" / "strategy_contract"
 _DRAFT_DIR = _REPO_ROOT / "data" / "grade_drafts"
 
-_LEV_GATE = 30.0     # shark leverage_pct below this → no-leverage stays info-only
 _OWN_MARGIN = 1.2    # flag chalk-heavy only ABOVE target × margin (lenient on purpose)
 _LOW_OWN = 10.0
 _DART_OWN = 5.0
@@ -438,17 +438,22 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
                                "msg": f"Chalk-heavy: **{g['avg_own']}% avg own** vs your "
                                       f"contests' winning envelope ({tgt}%/slot)"})
 
-    # 4) Leverage — flag ONLY where the sport's sharks actually carry it.
+    # 4) Leverage — INFO ONLY, always. Never costs a letter (8/28/26, user
+    # directive: the grade must measure THIS slate's strategy, and "carry a
+    # sub-10% player" is not a strategy call — it is a cross-sport shark
+    # average. Docking a letter for it turned a RATE (the pros carry one in
+    # ~15-47% of lineups, sport-depending) into a per-lineup requirement,
+    # the same rate-not-quota bug the pick gate had. A lineup with no
+    # low-owned piece is a normal lineup; contest winners regularly are one.
     lev = cal.get("shark_leverage_pct")
     if g["n_sub10"] == 0 and owns:
-        if lev is not None and lev >= _LEV_GATE:
-            g["flags"].append({"level": "warn", "code": "no_leverage",
-                               "msg": f"No sub-10% piece — the {cal.get('sport')} sharks carry "
-                                      f"leverage in {lev:.0f}% of lineups"})
-        else:
-            g["flags"].append({"level": "info", "code": "no_leverage",
-                               "msg": "No sub-10% piece (info: this sport's observed pros run "
-                                      "chalk-heavy, so not auto-flagged)"})
+        rate = (f"the {cal.get('sport')} sharks carry one in about "
+                f"{lev:.0f}% of their lineups — so most of the time they "
+                "don't either") if lev is not None else \
+               "this sport's observed pros run chalk-heavy"
+        g["flags"].append({"level": "info", "code": "no_leverage",
+                           "msg": f"No sub-10%-owned player (just so you know: "
+                                  f"{rate}). This does not lower the grade."})
 
     # 5) Recurring crowded pairs — the dupe-magnet stacks of YOUR contests.
     for pr in cal.get("pairs") or []:
@@ -557,8 +562,9 @@ def retro_grade(records, cal: dict) -> dict:
     if not lineups:
         return {"gradable": False}
 
-    lev_gated = (cal.get("shark_leverage_pct") is not None
-                 and cal["shark_leverage_pct"] >= _LEV_GATE)
+    # no_leverage is NOT graded here (8/28/26) — it is info-only in the live
+    # grader, and the self-validation has to measure the same thing the
+    # grader actually costs a lineup for.
     pair_norms = [set(p["norm"]) for p in (cal.get("pairs") or [])]
     graded = []
     for ln in lineups:
@@ -568,8 +574,6 @@ def retro_grade(records, cal: dict) -> dict:
         if (avg_own is not None and cal.get("own_flag_above") is not None
                 and avg_own > cal["own_flag_above"]):
             flags.append("chalk_heavy")
-        if lev_gated and (ln.get("low_own_count") or 0) == 0:
-            flags.append("no_leverage")
         if roster & cal.get("fades", set()):
             flags.append("fade_violation")
         if any(pn <= roster for pn in pair_norms):

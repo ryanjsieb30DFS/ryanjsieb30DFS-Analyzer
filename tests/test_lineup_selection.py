@@ -399,9 +399,12 @@ def test_compliance_names_each_broken_rule(tmp_path, monkeypatch):
     assert any("UNDERWEIGHT" in v for v in ls.soft_notes(uw_roster, gate))
     assert ls.soft_notes(["CoreA", "CoreB", "LevGuy", "X1", "X2", "X3"],
                          gate) == []
-    # No leverage piece.
-    assert any("leverage list" in v for v in ls.compliance(
-        ["CoreA", "CoreB", "MidGuy", "X1", "X2", "X3"], gate))
+    # Carrying no leverage-list player is NOTHING — not a break, and not
+    # even a soft cost (8/28/26, user directive). The list is an ownership
+    # screen, not a call the strategy made, so the gate must be silent.
+    no_lev = ["CoreA", "CoreB", "MidGuy", "X1", "X2", "X3"]
+    assert ls.compliance(no_lev, gate) == []
+    assert ls.soft_notes(no_lev, gate) == []
     # Only one Core anchor — the exact miss in the 8/15 Rainbow Warrior pick.
     assert any("Core-tier" in v for v in ls.compliance(
         ["CoreA", "MidGuy", "LevGuy", "X1", "X2", "X3"], gate))
@@ -412,15 +415,13 @@ def test_compliance_names_each_broken_rule(tmp_path, monkeypatch):
 
 def test_compliance_respects_relaxations(tmp_path, monkeypatch):
     gate = _contract(tmp_path, monkeypatch)
-    # No leverage piece — relaxing "leverage" forgives it.
-    no_lev = ["CoreA", "CoreB", "MidGuy", "X1", "X2", "X3"]
-    assert ls.compliance(no_lev, gate) != []
-    assert ls.compliance(no_lev, gate, relaxed=("leverage",)) == []
     # A FADE never relaxes, whatever is passed.
     fade = ["CoreA", "CoreB", "LevGuy", "FadeGuy", "X1", "X2"]
     assert ls.compliance(fade, gate, relaxed=ls._RELAX_ORDER) != []
-    # "underweight" is not in the relax order at all — it is not a hard rule.
+    # "underweight" and "leverage" are not in the relax order at all — they
+    # are not hard rules (both demoted to soft, 8/28/26).
     assert "underweight" not in ls._RELAX_ORDER
+    assert "leverage" not in ls._RELAX_ORDER
 
 
 def test_eligible_indexes_filters_and_relaxes_in_order(tmp_path, monkeypatch):
@@ -537,6 +538,57 @@ def test_parse_pick_rejects_same_underweight_player_in_every_entry(tmp_path,
     assert any("1 of 2" in w and "UwGuy" in w for w in out2["warnings"])
 
 
+def test_no_leverage_pool_is_completely_unpenalized(tmp_path, monkeypatch):
+    """8/28/26 (user directive): a pool where NO lineup carries a low-owned
+    player is fully pickable and completely unmarked — nothing deleted, no
+    relax needed, and no ⚠ anywhere. The gate enforces THIS slate's strategy;
+    an ownership screen is not that."""
+    gate = _contract(tmp_path, monkeypatch)
+    no_lev = ["CoreA", "CoreB", "MidGuy", "X1", "X2", "X3"]
+    pool = {"rosters": [no_lev] * 40}
+    elig = ls.eligible_indexes(pool, gate)
+    assert elig["relaxed"] == [] and elig["full"] == 40
+    assert elig["allowed"] == set(range(40))
+    # In the slice, no-leverage rows carry NO marker of any kind.
+    sim_pool = _pool()
+    c = sim_pool["contests"][0]
+    for i in range(len(sim_pool["rosters"])):
+        sim_pool["rosters"][i] = ["CoreA", "CoreB", f"M{i}", "X1", "X2", "X3"]
+    rows = ls.candidate_slice(sim_pool, c,
+                              strategy={"leverage": ["LevGuy"],
+                                        "underweight": []})
+    assert rows
+    assert all(r["strategy"] is None for r in rows)
+    md = ls.slice_digest_md("mma_se", c["label"], c, None, rows,
+                            sim_pool["ownership"])
+    assert "no leverage name" not in md
+    # ...and the gate summary says plainly that it is not a rule.
+    gmd = ls.gate_summary(gate, elig, pool=pool)
+    assert "LEVERAGE IS NOT A RULE HERE" in gmd
+    assert "breaks nothing and costs nothing" in gmd
+
+
+def test_parse_pick_never_mentions_leverage(tmp_path, monkeypatch):
+    """A pick set carrying ZERO low-owned players is a complete, valid answer
+    (the 7/19 contest winners were exactly that) — no error, no warning, no
+    nudge. 8/28/26 user directive."""
+    gate = _contract(tmp_path, monkeypatch)
+    rows = []
+    for i, roster in ((1, ["CoreA", "CoreB", "MidGuy", "X1", "X2", "X3"]),
+                      (2, ["CoreA", "CoreB", "MidGuy", "X4", "X5", "X6"]),
+                      (3, ["CoreA", "CoreB", "LevGuy", "X1", "X2", "X3"])):
+        rows.append({"index": i, "roster": roster,
+                     "roster_key": "|".join(sorted(roster))})
+    out = ls.parse_pick(_pick_md(rows, [1, 2]), rows, my_entries=2, gate=gate)
+    assert out["errors"] == []
+    assert len(out["picks"]) == 2
+    assert not any("leverage" in w.lower() for w in out["warnings"])
+    # Carrying one is equally unremarked — it is information, not a score.
+    out2 = ls.parse_pick(_pick_md(rows, [1, 3]), rows, my_entries=2, gate=gate)
+    assert out2["errors"] == []
+    assert not any("leverage" in w.lower() for w in out2["warnings"])
+
+
 def test_gate_summary_is_plain_language(tmp_path, monkeypatch):
     gate = _contract(tmp_path, monkeypatch)
     elig = {"allowed": set(range(5)), "relaxed": ["core"],
@@ -552,6 +604,12 @@ def test_gate_summary_is_plain_language(tmp_path, monkeypatch):
     # UNDERWEIGHT is described as a SOFT rule, never as an exclusion.
     assert "SOFT RULE" in md and "UwGuy" in md
     assert "no player the strategy called UNDERWEIGHT" not in md
+    # LEVERAGE is described as NOT A RULE (8/28/26) — never as a requirement
+    # of any strength, hard or soft.
+    assert "LEVERAGE IS NOT A RULE HERE" in md and "LevGuy" in md
+    assert "every lineup needs one" not in md
+    assert "at least one player off the strategy's leverage list" not in md
+    assert "SOFT RULE — LEVERAGE" not in md
 
 
 def test_gate_summary_prices_every_rule_against_the_pool(tmp_path, monkeypatch):
@@ -561,12 +619,17 @@ def test_gate_summary_prices_every_rule_against_the_pool(tmp_path, monkeypatch):
     good = ["CoreA", "CoreB", "LevGuy", "MidGuy", "X1", "X2"]
     uw = ["CoreA", "CoreB", "LevGuy", "UwGuy", "X1", "X2"]
     fade = ["CoreA", "CoreB", "LevGuy", "FadeGuy", "X1", "X2"]
-    pool = {"rosters": [good] * 50 + [uw] * 30 + [fade] * 20}
+    no_lev = ["CoreA", "CoreB", "MidGuy", "X1", "X2", "X3"]
+    pool = {"rosters": [good] * 40 + [uw] * 30 + [fade] * 20 + [no_lev] * 10}
     elig = ls.eligible_indexes(pool, gate)
     md = ls.gate_summary(gate, elig, pool=pool)
     assert "removes 20 of the 100 pooled lineups" in md      # the fade price
     assert "UwGuy (30 pooled lineups carry them)" in md      # the soft price
     assert "put the same underweight player in every entry" in md
+    # Leverage is NOT priced, because it costs nothing — the 10 no-leverage
+    # lineups in this pool are charged for exactly nothing.
+    assert "carry no leverage name" not in md
+    assert "LEVERAGE IS NOT A RULE HERE" in md
 
 
 # ---------------------------------------------------------------------------

@@ -1537,7 +1537,7 @@ lessons:
           the chalk anchors CONVERT, and whether they convert is unknowable pre-lock.
           The axis remains descriptive; it never becomes a target.
     contradictions: []
-    codified_in: "framework.md — Envelope Targets Are Rates (8/16/26); philosophy.md — Envelope Targets Are Rates (8/16/26)"
+    codified_in: "framework.md — Envelope Targets Are Rates (8/16/26); philosophy.md — Envelope Targets Are Rates (8/16/26); 8/28/26 extended into the tooling, then hardened same day on user directive ('i really dont think that should be a hard and fast rule... the point of the grade tab is to ensure lineups are following the CURRENT SLATE STRATEGY'): per-lineup leverage is now NOT A RULE OF ANY STRENGTH in either repo. Analyzer — out of compliance()/_RELAX_ORDER/soft_notes/parse_pick and unmarked in the slice (src/lineup_selection.py); grader no_leverage is info-only in every sport and never costs a letter, retro_grade dropped it too (src/grader.py). Sim — contract_rule_groups no longer BUILDS a leverage_rule, no pack selects one, 🎯 button deleted (src/analyzer_link.py, app.py). Rationale beyond the rate: leverage_candidates is a mechanical ownership screen (own<10%), never a strategy call, so enforcing it made the gate impose a universal rule while claiming to enforce the slate strategy. Coverage = Min-Exp seeding (a pool RATE) only"
     retired_reason: null
 
   - id: mma-se-2026-07-19-exact-roster-duplication-is-superlinear-in-consensus
