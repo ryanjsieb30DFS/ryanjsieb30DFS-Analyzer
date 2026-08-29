@@ -1,0 +1,223 @@
+{
+  "generated_at": "2026-08-28 20:42",
+  "slug": "mma_se",
+  "slate": "UFC Shanghai \u2014 Nurmagomedov vs. Song (8/29/26) \u2014 Slate Strategy",
+  "calls": [
+    {
+      "name": "Sean Woodson",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Su Sumudaerji",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Jack Jenkins",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Francesco Nuzzi",
+      "verdict": "underweight"
+    }
+  ],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "Nilson Rojas",
+      "own": 7.0
+    },
+    {
+      "name": "Kevin Borjas",
+      "own": 7.0
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Umar Nurmagomedov",
+        "Liu Ce"
+      ],
+      "joint_pct": 17.1
+    },
+    {
+      "players": [
+        "Umar Nurmagomedov",
+        "Lawrence Lui"
+      ],
+      "joint_pct": 14.4
+    },
+    {
+      "players": [
+        "Umar Nurmagomedov",
+        "Cam Nelson"
+      ],
+      "joint_pct": 14.0
+    },
+    {
+      "players": [
+        "Umar Nurmagomedov",
+        "Denise Gomes"
+      ],
+      "joint_pct": 14.0
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Lawrence Lui",
+        "Cam Nelson",
+        "Denise Gomes",
+        "Bilal Hasan"
+      ]
+    },
+    {
+      "players": [
+        "Sean Woodson",
+        "Levi Rodrigues Jr.",
+        "Rei Tsuruya",
+        "Francesco Nuzzi"
+      ]
+    },
+    {
+      "players": [
+        "Julia Polastri",
+        "Namsrai Batbayar",
+        "Yadong Song",
+        "Yan Xiaonan"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "board": [
+    {
+      "name": "Umar Nurmagomedov",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Liu Ce",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Bilal Hasan",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Kai Asakura",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Rei Tsuruya",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Levi Rodrigues Jr.",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Andre Lima",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Alex Perez",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Hector Santiago",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Ding Meng",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Cam Nelson",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Denise Gomes",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Xiao Long",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Yan Xiaonan",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Lawrence Lui",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Julia Polastri",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Namsrai Batbayar",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Jack Jenkins",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Yadong Song",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Su Sumudaerji",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Francesco Nuzzi",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Sean Woodson",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Xiong Jingnan",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Aori Aoriqileng",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Nilson Rojas",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Kevin Borjas",
+      "tier": "Fade",
+      "leverage": false
+    }
+  ]
+}

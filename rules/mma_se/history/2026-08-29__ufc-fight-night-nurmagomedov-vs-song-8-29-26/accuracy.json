@@ -1,0 +1,52 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 10,
+    "leverage_capture": 0.667,
+    "leverage_hit": [
+      "Hector Santiago",
+      "Andre Lima"
+    ],
+    "leverage_missed": [
+      "Bilal Hasan"
+    ],
+    "overperformer_capture": 0.6,
+    "overperformer_hit": [
+      "Francesco Nuzzi",
+      "Hector Santiago",
+      "Denise Gomes"
+    ],
+    "underperformer_exposure": 0.6,
+    "underperformer_hit": [
+      "Umar Nurmagomedov",
+      "Xiao Long",
+      "Yan Xiaonan"
+    ]
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 2,
+    "avg_ratio": 0.928,
+    "best_percentile": 35.3,
+    "median_percentile": 58.9,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 339.1,
+        "proj_total": 385.62,
+        "ratio": 0.879,
+        "percentile": 58.9,
+        "avg_own": 25.93
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 392.29,
+        "proj_total": 400.98,
+        "ratio": 0.978,
+        "percentile": 35.3,
+        "avg_own": 28.38
+      }
+    ]
+  }
+}

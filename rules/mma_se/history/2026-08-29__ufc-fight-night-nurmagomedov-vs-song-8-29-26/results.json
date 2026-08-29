@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-29",
+  "slug": "mma_se",
+  "sport": "mma",
+  "slate_label": "UFC Fight Night: Nurmagomedov vs. Song 8.29.26",
+  "history_dir": "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26",
+  "contests": [
+    {
+      "name": "UFC $4K Flying Knee [Single Entry]",
+      "type": "SE",
+      "source_file": "contest-standings-194357539.csv",
+      "field_size": 392,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "buy_in": 12.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 231,
+      "best_percentile": 58.9
+    },
+    {
+      "name": "UFC $3K Clinch [Single Entry]",
+      "type": "SE",
+      "source_file": "contest-standings-194357540.csv",
+      "field_size": 713,
+      "my_entries": 1,
+      "entry_fee": 5.0,
+      "buy_in": 5.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 252,
+      "best_percentile": 35.3
+    }
+  ],
+  "total_buy_in": 17.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 231,
+  "best_percentile": 35.3,
+  "best_rank_mme": null,
+  "best_percentile_mme": null,
+  "entries_total": 2,
+  "edge_leverage_capture": 0.667,
+  "edge_overperformer_capture": 0.6,
+  "edge_bust_exposure": 0.6,
+  "lineup_avg_ratio": 0.928,
+  "shark_gap_top": null,
+  "adherence_fades_violated": 0,
+  "adherence_leverage_covered": "0/2",
+  "tier_summary": "Core 74.8 > Good 78.6 > Okay 55.8 > Fade 19.4  \u2717 OUT OF ORDER",
+  "tiers_ordered": false,
+  "grader_check": {
+    "flagged_pctiles": [],
+    "clean_pctiles": [
+      58.9,
+      35.3
+    ]
+  }
+}

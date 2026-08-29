@@ -1,0 +1,32 @@
+{
+  "field": 713,
+  "anchors": [
+    "umar nurmagomedov",
+    "denise gomes",
+    "lawrence lui"
+  ],
+  "sharks": {
+    "gradable": false,
+    "n_entries": 0
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 28.4,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.667,
+    "anchor_exposure_by_player": {
+      "umar nurmagomedov": 1.0,
+      "denise gomes": 1.0,
+      "lawrence lui": 0.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 35.34,
+    "median_pctile": 35.34
+  },
+  "deltas": [],
+  "sharks_in_field": false,
+  "slug": "mma_se",
+  "sport": "mma"
+}

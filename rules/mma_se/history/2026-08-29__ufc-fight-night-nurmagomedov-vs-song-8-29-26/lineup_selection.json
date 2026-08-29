@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "slug": "mma_se",
+  "pool_fp": "e196bbae8fa6",
+  "pool_len": 7500,
+  "contests": {
+    "UFC $3K Clinch [Single Entry] (SE)": {
+      "picked": [
+        {
+          "index": 1704,
+          "roster_key": "Alex Perez|Denise Gomes|Hector Santiago|Rei Tsuruya|Umar Nurmagomedov|Xiao Long"
+        }
+      ],
+      "why": "This wins if the two wrestlers run their fights \u2014 Umar piles up takedowns on Yadong Song for five rounds, Tsuruya takes Kevin Borjas down over and over \u2014 and the three under-picked converters cash their paths: Alex Perez takes down Su Sumudaerji, Hector Santiago cracks Lawrence Lui's square guard, and Xiao Long drowns the debuting Francesco Nuzzi. Its 3.28% top1 means about a 1-in-30 shot at first place, which is what matters here because the money is nearly all at the top (top-heavy payout). The strategy says the real separation on this card lives in the 16\u201322% converters \u2014 Yan, Santiago, Xiong, Long, Perez \u2014 and this row carries three of the five it names. It also carries zero of the players the strategy called use-less-than-the-crowd (underweight): no Nuzzi, no Jack Jenkins, no Su Sumudaerji, and no Sean Woodson. The two rows with a slightly better first-place number (3.87% and 3.70%) both buy that number with Nuzzi, the exact debut-kicker the strategy says wins low-scoring decisions that pay almost nothing \u2014 a 0.59-point top1 gap is not worth a cost the strategy named out loud. It skips Liu Ce, so it is not among the ~122 of 713 entries stacking him with Umar, and its expected copies are 0.0, so a big night is ours alone. Against the other contest's entry it shares only two names and swaps the second big-money anchor (Tsuruya here, Kai Asakura there), which is the framework's rule that two single-entry lineups must differ on at least one conviction anchor.",
+      "generated_at": "2026-08-29 00:13",
+      "declared_contest_id": "802d3167"
+    },
+    "UFC $4K Flying Knee [Single Entry] (SE)": {
+      "picked": [
+        {
+          "index": 1006,
+          "roster_key": "Andre Lima|Ding Meng|Francesco Nuzzi|Hector Santiago|Umar Nurmagomedov|Yan Xiaonan"
+        }
+      ],
+      "why": "This wins if Umar Nurmagomedov wrestles Yadong Song for five rounds and the three quiet favorites cash: Yan Xiaonan out-boxes Denise Gomes, Andre Lima finishes Namsrai Batbayar, and Ding Meng ends the opener early. Its 3.34% top1 means about a 1-in-30 shot at first place, which is the number that matters here because nearly all the money sits at the top (top-heavy payout). The strategy says the real separation on this card lives in the 16\u201322% converters \u2014 Yan, Santiago, Xiong, Long, Perez \u2014 and this row carries three of them, including the Yan-over-Gomes mispricing the strategy calls out (Yan is DailyFan's 57% favorite at 16% picked, while the crowd takes her underdog at 31%). Every one of the six is a real favorite or a live striker; not one is a knockout-or-nothing dart, which your codified rule says gets punished in fields under 500 and which sank three of your past entries (Goff 17.0, McGregor 1.0, Prepolec 2.6). The two rows with a slightly better first-place number (3.42% and 3.56%) buy it with Yadong Song, an 18%-to-win lottery ticket against the card's best wrestler \u2014 an 0.08-point top1 gap is not worth the exact slot shape your ledger benches. It carries one player the strategy said to use less than the crowd (Francesco Nuzzi, underweight), and that is the price for a first-place number a full 8% better than any clean row, plus zero expected copies, so a big night is ours alone. Against the other contest's entry it shares only two of six names and swaps the second big-money anchor (Andre Lima here, Rei Tsuruya there), which is the framework's rule that two single-entry lineups must differ on at least one conviction anchor.",
+      "generated_at": "2026-08-29 00:20",
+      "declared_contest_id": "564cad5b"
+    }
+  }
+}

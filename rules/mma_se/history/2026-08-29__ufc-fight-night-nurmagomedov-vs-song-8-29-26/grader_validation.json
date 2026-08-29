@@ -1,0 +1,35 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "lineups": [
+    {
+      "players": [
+        "Andre Lima",
+        "Ding Meng",
+        "Francesco Nuzzi",
+        "Hector Santiago",
+        "Umar Nurmagomedov",
+        "Yan Xiaonan"
+      ],
+      "percentile": 58.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alex Perez",
+        "Denise Gomes",
+        "Hector Santiago",
+        "Rei Tsuruya",
+        "Umar Nurmagomedov",
+        "Xiao Long"
+      ],
+      "percentile": 35.3,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    58.9,
+    35.3
+  ]
+}

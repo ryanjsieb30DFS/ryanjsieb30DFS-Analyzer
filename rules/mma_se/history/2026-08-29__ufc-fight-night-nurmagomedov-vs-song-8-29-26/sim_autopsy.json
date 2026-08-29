@@ -1,0 +1,150 @@
+[
+  {
+    "slug": "mma_se",
+    "slate_name": "MMA contest-standings-194357539 2026-08-29",
+    "contest_id": "194357539",
+    "field_size": 392,
+    "schema_version": 1,
+    "generated_at": "2026-08-29 12:52",
+    "user": {
+      "n_entries": 1,
+      "best_points": 339.1,
+      "avg_points": 339.1,
+      "best_rank": 231
+    },
+    "pool": {
+      "n": 7500,
+      "avg_actual": 357.69,
+      "median_actual": 356.49,
+      "max_actual": 699.33,
+      "n_beating_best_entry": 4212,
+      "pct_beating_best_entry": 56.16,
+      "picking_edge_points": -18.59
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 7500,
+        "spearman_vs_actual": 0.169,
+        "top100_avg_actual": 437.05,
+        "pool_avg_actual": 357.69
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 7500,
+        "spearman_vs_actual": 0.23,
+        "top100_avg_actual": 444.58,
+        "pool_avg_actual": 357.69
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 7500,
+        "spearman_vs_actual": 0.067,
+        "top100_avg_actual": 391.06,
+        "pool_avg_actual": 357.69
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 7500,
+        "spearman_vs_actual": 0.24,
+        "top100_avg_actual": 404.75,
+        "pool_avg_actual": 357.69
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 231,
+        "Points": 339.1,
+        "Lineup": "F Umar Nurmagomedov F Yan Xiaonan F Andre Lima F Hector Santiago F Ding Meng F Francesco Nuzzi",
+        "matched": true,
+        "pre_sim_roi_pct": 84.8,
+        "pre_sim_top1_pct": 3.1,
+        "pre_sim_win_pct": 1.39,
+        "pre_sim_cash_pct": 30.2,
+        "post_roi_pct": 28.76,
+        "post_top1_pct": 1.57,
+        "post_win_pct": 0.33,
+        "post_cash_pct": 28.32
+      }
+    ]
+  },
+  {
+    "slug": "mma_se",
+    "slate_name": "MMA contest-standings-194357540 2026-08-29",
+    "contest_id": "194357540",
+    "field_size": 713,
+    "schema_version": 1,
+    "generated_at": "2026-08-29 12:53",
+    "user": {
+      "n_entries": 1,
+      "best_points": 392.29,
+      "avg_points": 392.29,
+      "best_rank": 252
+    },
+    "pool": {
+      "n": 7500,
+      "avg_actual": 357.69,
+      "median_actual": 356.49,
+      "max_actual": 699.33,
+      "n_beating_best_entry": 2823,
+      "pct_beating_best_entry": 37.64,
+      "picking_edge_points": 34.6
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 7500,
+        "spearman_vs_actual": 0.169,
+        "top100_avg_actual": 437.05,
+        "pool_avg_actual": 357.69
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 7500,
+        "spearman_vs_actual": 0.23,
+        "top100_avg_actual": 444.58,
+        "pool_avg_actual": 357.69
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 7500,
+        "spearman_vs_actual": 0.067,
+        "top100_avg_actual": 391.06,
+        "pool_avg_actual": 357.69
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 7500,
+        "spearman_vs_actual": 0.24,
+        "top100_avg_actual": 404.75,
+        "pool_avg_actual": 357.69
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 252,
+        "Points": 392.29,
+        "Lineup": "F Umar Nurmagomedov F Denise Gomes F Alex Perez F Rei Tsuruya F Hector Santiago F Xiao Long",
+        "matched": true,
+        "pre_sim_roi_pct": 107.8,
+        "pre_sim_top1_pct": 3.11,
+        "pre_sim_win_pct": 0.93,
+        "pre_sim_cash_pct": 34.88,
+        "post_roi_pct": 72.72,
+        "post_top1_pct": 2.98,
+        "post_win_pct": 0.363,
+        "post_cash_pct": 34.71
+      }
+    ]
+  }
+]

@@ -498,3 +498,44 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 - ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
 - 🕳️ Buried: **Vitor Petrino** (Fade) scored 99.0 — above the top tier's average.
 - 🕳️ Buried: **Chris Padilla** (Fade) scored 111.3 — above the top tier's average.
+
+
+## 2026-08-29 13:02 — MMA (contest-standings-194357539.csv)
+- Entries: 392
+- Winning score: 649.5
+- Cash line (top 20%): 451.6
+- My entries: 1 · best rank 231/392 (top 58.9%)
+- Winners (top 20): avg own 28.02% vs mine 25.93% · sub-10% plays/lineup 0.2 vs mine 0.0 · salary Δ -125
+- Overperformed proj: Francesco Nuzzi, Liu Ce, Hector Santiago
+- Underperformed proj: Umar Nurmagomedov, Xiao Long, Lawrence Lui
+- Slate-defining plays: Bilal Hasan (108.7 pts @ 16.3%), Hector Santiago (92.6 pts @ 11.7%)
+
+
+## 2026-08-29 13:02 — MMA (contest-standings-194357540.csv)
+- Entries: 713
+- Winning score: 631.9
+- Cash line (top 20%): 439.9
+- My entries: 1 · best rank 252/713 (top 35.3%)
+- Winners (top 20): avg own 27.77% vs mine 28.38% · sub-10% plays/lineup 0.35 vs mine 1.0 · salary Δ -115
+- Overperformed proj: Francesco Nuzzi, Liu Ce, Hector Santiago
+- Underperformed proj: Umar Nurmagomedov, Xiao Long, Lawrence Lui
+- Slate-defining plays: Bilal Hasan (108.7 pts @ 19.8%), Andre Lima (69.2 pts @ 16.7%)
+
+### Strategy adherence — did you follow your own strategy? (2 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Su Sumudaerji** was in 0 of 1 lineups in contest-standings-194357539.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Su Sumudaerji** was in 0 of 1 lineups in contest-standings-194357540.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Jack Jenkins** was in 0 of 1 lineups in contest-standings-194357539.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Jack Jenkins** was in 0 of 1 lineups in contest-standings-194357540.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Francesco Nuzzi** was in 0 of 1 lineups in contest-standings-194357540.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call over-exposed inside contest-standings-194357539.csv: **Francesco Nuzzi** in 1 of 1 there — the pooled average hid it.
+- Leverage candidates rostered somewhere: **0 of 2**.
+
+### Player-pool tier calibration (26 of 26 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 2 | 74.8 | 133.9 |
+| **Good** | 7 | 78.6 | 129.1 |
+| **Okay** | 12 | 55.8 | 129.7 |
+| **Fade** | 5 | 19.4 | 69.7 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.

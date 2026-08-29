@@ -1,0 +1,1720 @@
+[
+  {
+    "timestamp": "2026-08-29 13:02",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-194357539.csv",
+    "contest_id": "194357539",
+    "entries": 392,
+    "winning_score": 649.47003,
+    "cash_line_p80": 451.58398400000004,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 26,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 25.93,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 50000.0,
+      "entry_count": 1,
+      "best_rank": 231,
+      "best_percentile": 58.9
+    },
+    "user_lineups": [
+      {
+        "rank": 231,
+        "entry_name": "RyvlesGaming30",
+        "points": 339.1,
+        "percentile": 58.9,
+        "players": [
+          "Umar Nurmagomedov",
+          "Yan Xiaonan",
+          "Andre Lima",
+          "Hector Santiago",
+          "Ding Meng",
+          "Francesco Nuzzi"
+        ],
+        "avg_own": 25.93,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 385.62,
+        "dup_count": 2
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Francesco Nuzzi",
+        "proj_points": 49.49,
+        "actual_fpts": 129.66,
+        "fpts_delta": 80.17,
+        "ownership": 24.0,
+        "actual_own": 24.74
+      },
+      {
+        "name": "Liu Ce",
+        "proj_points": 66.21,
+        "actual_fpts": 133.92,
+        "fpts_delta": 67.71,
+        "ownership": 38.0,
+        "actual_own": 39.29
+      },
+      {
+        "name": "Hector Santiago",
+        "proj_points": 41.81,
+        "actual_fpts": 92.61,
+        "fpts_delta": 50.8,
+        "ownership": 16.0,
+        "actual_own": 11.73
+      },
+      {
+        "name": "Denise Gomes",
+        "proj_points": 57.3,
+        "actual_fpts": 107.6,
+        "fpts_delta": 50.3,
+        "ownership": 31.0,
+        "actual_own": 47.19
+      },
+      {
+        "name": "Yadong Song",
+        "proj_points": 41.99,
+        "actual_fpts": 87.06,
+        "fpts_delta": 45.07,
+        "ownership": 18.0,
+        "actual_own": 24.49
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Umar Nurmagomedov",
+        "proj_points": 99.38,
+        "actual_fpts": 15.74,
+        "fpts_delta": -83.64,
+        "ownership": 45.0,
+        "actual_own": 55.87
+      },
+      {
+        "name": "Xiao Long",
+        "proj_points": 67.47,
+        "actual_fpts": 1.6,
+        "fpts_delta": -65.87,
+        "ownership": 22.0,
+        "actual_own": 16.07
+      },
+      {
+        "name": "Lawrence Lui",
+        "proj_points": 76.09,
+        "actual_fpts": 12.83,
+        "fpts_delta": -63.26,
+        "ownership": 32.0,
+        "actual_own": 40.05
+      },
+      {
+        "name": "Yan Xiaonan",
+        "proj_points": 60.88,
+        "actual_fpts": 7.6,
+        "fpts_delta": -53.28,
+        "ownership": 16.0,
+        "actual_own": 12.5
+      },
+      {
+        "name": "Xiong Jingnan",
+        "proj_points": 46.75,
+        "actual_fpts": 6.4,
+        "fpts_delta": -40.35,
+        "ownership": 16.0,
+        "actual_own": 24.23
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Bilal Hasan",
+        "salary": 9600,
+        "actual_fpts": 108.69,
+        "actual_own": 16.33,
+        "top_lineup_pct": 40.0
+      },
+      {
+        "name": "Hector Santiago",
+        "salary": 7100,
+        "actual_fpts": 92.61,
+        "actual_own": 11.73,
+        "top_lineup_pct": 30.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 28.02,
+      "low_own_count_mean": 0.2,
+      "salary_used_mean": 49875.0,
+      "dup_max": 1,
+      "unique_pct": 100.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "homanga",
+          "points": 649.47003,
+          "percentile": 0.3,
+          "players": [
+            "Denise Gomes",
+            "Rei Tsuruya",
+            "Sean Woodson",
+            "Cam Nelson",
+            "Francesco Nuzzi",
+            "Liu Ce"
+          ],
+          "avg_own": 30.31,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 381.9,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "UFCMatt",
+          "points": 587.05,
+          "percentile": 0.5,
+          "players": [
+            "Yadong Song",
+            "Denise Gomes",
+            "Rei Tsuruya",
+            "Namsrai Batbayar",
+            "Bilal Hasan",
+            "Liu Ce"
+          ],
+          "avg_own": 28.53,
+          "low_own_count": 0,
+          "salary_used": 49600,
+          "proj_total": 387.55,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "Steveywriz92",
+          "points": 584.49,
+          "percentile": 0.8,
+          "players": [
+            "Yadong Song",
+            "Denise Gomes",
+            "Alex Perez",
+            "Rei Tsuruya",
+            "Julia Polastri",
+            "Bilal Hasan"
+          ],
+          "avg_own": 22.36,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 393.95,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "mjletendrejr",
+          "points": 573.91003,
+          "percentile": 1.0,
+          "players": [
+            "Su Sumudaerji",
+            "Kai Asakura",
+            "Sean Woodson",
+            "Hector Santiago",
+            "Francesco Nuzzi",
+            "Liu Ce"
+          ],
+          "avg_own": 24.28,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 367.36,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "lunaman77",
+          "points": 571.9,
+          "percentile": 1.3,
+          "players": [
+            "Umar Nurmagomedov",
+            "Denise Gomes",
+            "Kai Asakura",
+            "Hector Santiago",
+            "Francesco Nuzzi",
+            "Liu Ce"
+          ],
+          "avg_own": 34.69,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 394.24,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "Coldshot",
+          "points": 562.62,
+          "percentile": 1.5,
+          "players": [
+            "Yadong Song",
+            "Denise Gomes",
+            "Su Sumudaerji",
+            "Sean Woodson",
+            "Bilal Hasan",
+            "Liu Ce"
+          ],
+          "avg_own": 27.98,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 385.49,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "dlhoagland",
+          "points": 559.39996,
+          "percentile": 1.8,
+          "players": [
+            "Yadong Song",
+            "Rei Tsuruya",
+            "Kai Asakura",
+            "Hector Santiago",
+            "Ding Meng",
+            "Liu Ce"
+          ],
+          "avg_own": 26.02,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 384.9,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "Savagebliss",
+          "points": 557.5,
+          "percentile": 2.0,
+          "players": [
+            "Denise Gomes",
+            "Su Sumudaerji",
+            "Julia Polastri",
+            "Ding Meng",
+            "Francesco Nuzzi",
+            "Liu Ce"
+          ],
+          "avg_own": 28.1,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 370.5,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "Pepper66",
+          "points": 555.78,
+          "percentile": 2.3,
+          "players": [
+            "Denise Gomes",
+            "Su Sumudaerji",
+            "Kai Asakura",
+            "Jack Jenkins",
+            "Francesco Nuzzi",
+            "Liu Ce"
+          ],
+          "avg_own": 32.06,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 371.28,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "FORREALL04",
+          "points": 555.23,
+          "percentile": 2.6,
+          "players": [
+            "Denise Gomes",
+            "Kai Asakura",
+            "Bilal Hasan",
+            "Hector Santiago",
+            "Ding Meng",
+            "Francesco Nuzzi"
+          ],
+          "avg_own": 26.74,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 382.04,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 2.09,
+        "low_own_count_delta": 0.2,
+        "salary_used_delta": -125.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 390,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Umar Nurmagomedov",
+          "field_own": 55.9,
+          "actual_fpts": 15.7
+        },
+        {
+          "name": "Denise Gomes",
+          "field_own": 47.2,
+          "actual_fpts": 107.6
+        },
+        {
+          "name": "Lawrence Lui",
+          "field_own": 40.0,
+          "actual_fpts": 12.8
+        },
+        {
+          "name": "Liu Ce",
+          "field_own": 39.3,
+          "actual_fpts": 133.9
+        },
+        {
+          "name": "Jack Jenkins",
+          "field_own": 33.2,
+          "actual_fpts": 36.6
+        },
+        {
+          "name": "Ding Meng",
+          "field_own": 31.1,
+          "actual_fpts": 24.3
+        },
+        {
+          "name": "Kai Asakura",
+          "field_own": 29.3,
+          "actual_fpts": 92.4
+        },
+        {
+          "name": "Cam Nelson",
+          "field_own": 28.6,
+          "actual_fpts": 79.4
+        },
+        {
+          "name": "Francesco Nuzzi",
+          "field_own": 24.7,
+          "actual_fpts": 129.7
+        },
+        {
+          "name": "Yadong Song",
+          "field_own": 24.5,
+          "actual_fpts": 87.1
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Denise Gomes",
+            "Umar Nurmagomedov"
+          ],
+          "field_pct": 29.0,
+          "count": 113
+        },
+        {
+          "players": [
+            "Liu Ce",
+            "Umar Nurmagomedov"
+          ],
+          "field_pct": 20.3,
+          "count": 79
+        },
+        {
+          "players": [
+            "Denise Gomes",
+            "Lawrence Lui"
+          ],
+          "field_pct": 20.3,
+          "count": 79
+        },
+        {
+          "players": [
+            "Jack Jenkins",
+            "Umar Nurmagomedov"
+          ],
+          "field_pct": 19.8,
+          "count": 77
+        },
+        {
+          "players": [
+            "Lawrence Lui",
+            "Umar Nurmagomedov"
+          ],
+          "field_pct": 19.8,
+          "count": 77
+        },
+        {
+          "players": [
+            "Denise Gomes",
+            "Liu Ce"
+          ],
+          "field_pct": 17.7,
+          "count": 69
+        },
+        {
+          "players": [
+            "Francesco Nuzzi",
+            "Umar Nurmagomedov"
+          ],
+          "field_pct": 16.7,
+          "count": 65
+        },
+        {
+          "players": [
+            "Lawrence Lui",
+            "Liu Ce"
+          ],
+          "field_pct": 16.2,
+          "count": 63
+        },
+        {
+          "players": [
+            "Umar Nurmagomedov",
+            "Xiong Jingnan"
+          ],
+          "field_pct": 15.9,
+          "count": 62
+        },
+        {
+          "players": [
+            "Ding Meng",
+            "Liu Ce"
+          ],
+          "field_pct": 15.7,
+          "count": 61
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Francesco Nuzzi",
+            "Jack Jenkins",
+            "Lawrence Lui",
+            "Liu Ce",
+            "Umar Nurmagomedov",
+            "Xiong Jingnan"
+          ],
+          "count": 5,
+          "field_pct": 1.3
+        },
+        {
+          "players": [
+            "Alex Perez",
+            "Andre Lima",
+            "Denise Gomes",
+            "Lawrence Lui",
+            "Umar Nurmagomedov",
+            "Xiong Jingnan"
+          ],
+          "count": 5,
+          "field_pct": 1.3
+        },
+        {
+          "players": [
+            "Denise Gomes",
+            "Ding Meng",
+            "Jack Jenkins",
+            "Julia Polastri",
+            "Liu Ce",
+            "Xiao Long"
+          ],
+          "count": 4,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Denise Gomes",
+            "Jack Jenkins",
+            "Lawrence Lui",
+            "Liu Ce",
+            "Namsrai Batbayar",
+            "Umar Nurmagomedov"
+          ],
+          "count": 4,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Alex Perez",
+            "Denise Gomes",
+            "Francesco Nuzzi",
+            "Lawrence Lui",
+            "Liu Ce",
+            "Umar Nurmagomedov"
+          ],
+          "count": 3,
+          "field_pct": 0.8
+        }
+      ],
+      "winners_profile": {
+        "n": 4,
+        "avg_own_per_slot": 26.4,
+        "dart_pct": 0.0,
+        "unique_pct": 100.0
+      },
+      "fish_profile": {
+        "n": 194,
+        "avg_own_per_slot": 30.5,
+        "dart_pct": 7.7,
+        "unique_pct": 83.0
+      },
+      "fish_traps": [
+        {
+          "name": "Umar Nurmagomedov",
+          "fish_pct": 72.7,
+          "winner_pct": 0.0,
+          "gap": 72.7,
+          "actual_fpts": 15.7,
+          "field_own": 55.9,
+          "own_rank": 1
+        },
+        {
+          "name": "Lawrence Lui",
+          "fish_pct": 51.5,
+          "winner_pct": 0.0,
+          "gap": 51.5,
+          "actual_fpts": 12.8,
+          "field_own": 40.0,
+          "own_rank": 3
+        },
+        {
+          "name": "Jack Jenkins",
+          "fish_pct": 39.7,
+          "winner_pct": 0.0,
+          "gap": 39.7,
+          "actual_fpts": 36.6,
+          "field_own": 33.2,
+          "own_rank": 5
+        },
+        {
+          "name": "Xiong Jingnan",
+          "fish_pct": 35.6,
+          "winner_pct": 0.0,
+          "gap": 35.6,
+          "actual_fpts": 6.4,
+          "field_own": 24.2,
+          "own_rank": 11
+        },
+        {
+          "name": "Ding Meng",
+          "fish_pct": 35.1,
+          "winner_pct": 0.0,
+          "gap": 35.1,
+          "actual_fpts": 24.3,
+          "field_own": 31.1,
+          "own_rank": 6
+        },
+        {
+          "name": "Levi Rodrigues Jr.",
+          "fish_pct": 30.4,
+          "winner_pct": 0.0,
+          "gap": 30.4,
+          "actual_fpts": 12.5,
+          "field_own": 21.2,
+          "own_rank": 14
+        },
+        {
+          "name": "Xiao Long",
+          "fish_pct": 22.7,
+          "winner_pct": 0.0,
+          "gap": 22.7,
+          "actual_fpts": 1.6,
+          "field_own": 16.1,
+          "own_rank": 20
+        },
+        {
+          "name": "Yan Xiaonan",
+          "fish_pct": 19.1,
+          "winner_pct": 0.0,
+          "gap": 19.1,
+          "actual_fpts": 7.6,
+          "field_own": 12.5,
+          "own_rank": 21
+        },
+        {
+          "name": "Andre Lima",
+          "fish_pct": 18.6,
+          "winner_pct": 0.0,
+          "gap": 18.6,
+          "actual_fpts": 69.2,
+          "field_own": 19.6,
+          "own_rank": 16
+        },
+        {
+          "name": "Nilson Rojas",
+          "fish_pct": 6.7,
+          "winner_pct": 0.0,
+          "gap": 6.7,
+          "actual_fpts": 14.1,
+          "field_own": 5.9,
+          "own_rank": 24
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "homanga",
+          "best_rank": 1,
+          "percentile": 0.3
+        },
+        {
+          "handle": "UFCMatt",
+          "best_rank": 2,
+          "percentile": 0.5
+        },
+        {
+          "handle": "Steveywriz92",
+          "best_rank": 3,
+          "percentile": 0.8
+        },
+        {
+          "handle": "mjletendrejr",
+          "best_rank": 4,
+          "percentile": 1.0
+        },
+        {
+          "handle": "lunaman77",
+          "best_rank": 5,
+          "percentile": 1.3
+        },
+        {
+          "handle": "Coldshot",
+          "best_rank": 6,
+          "percentile": 1.5
+        },
+        {
+          "handle": "dlhoagland",
+          "best_rank": 7,
+          "percentile": 1.8
+        },
+        {
+          "handle": "Savagebliss",
+          "best_rank": 8,
+          "percentile": 2.1
+        },
+        {
+          "handle": "Pepper66",
+          "best_rank": 9,
+          "percentile": 2.3
+        },
+        {
+          "handle": "FORREALL04",
+          "best_rank": 10,
+          "percentile": 2.6
+        },
+        {
+          "handle": "Rudemiester",
+          "best_rank": 11,
+          "percentile": 2.8
+        },
+        {
+          "handle": "SonsofKaos",
+          "best_rank": 12,
+          "percentile": 3.1
+        },
+        {
+          "handle": "FlowersForAlgernon",
+          "best_rank": 13,
+          "percentile": 3.3
+        },
+        {
+          "handle": "wskmbball07",
+          "best_rank": 14,
+          "percentile": 3.6
+        },
+        {
+          "handle": "teslablue",
+          "best_rank": 15,
+          "percentile": 3.8
+        }
+      ],
+      "read": [
+        "Field crowded **Umar Nurmagomedov** at 55.9% (15.7 fpts) \u2014 the chalk to consider fading.",
+        "**Denise Gomes + Umar Nurmagomedov** were together in 29.0% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Umar Nurmagomedov** was a fish trap: 72.7% of the fish, only 0.0% of winners.",
+        "Fish ran 4.1 pts/slot more chalk than winners (30.5% vs 26.4%)."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 649.47003,
+      "winner_handle": "homanga",
+      "roster": [
+        {
+          "name": "Denise Gomes",
+          "own": 47.19,
+          "fpts": 107.6
+        },
+        {
+          "name": "Rei Tsuruya",
+          "own": 20.15,
+          "fpts": 129.14
+        },
+        {
+          "name": "Sean Woodson",
+          "own": 21.94,
+          "fpts": 69.73
+        },
+        {
+          "name": "Cam Nelson",
+          "own": 28.57,
+          "fpts": 79.42
+        },
+        {
+          "name": "Francesco Nuzzi",
+          "own": 24.74,
+          "fpts": 129.66
+        },
+        {
+          "name": "Liu Ce",
+          "own": 39.29,
+          "fpts": 133.92
+        }
+      ],
+      "avg_own": 30.3,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Rei Tsuruya",
+        "own": 20.15,
+        "fpts": 129.14
+      },
+      "expected_dupes": 0.23
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "blocked_swap": {
+        "out": "Yan Xiaonan",
+        "in": "Liu Ce",
+        "gain": 126.3,
+        "over_cap_by": 200
+      },
+      "gradable": true,
+      "won": false,
+      "your_points": 339.1,
+      "winner_points": 649.47003,
+      "gap": 310.4,
+      "your_percentile": 58.9,
+      "n_shared": 1,
+      "shared": [
+        "Francesco Nuzzi"
+      ],
+      "your_uniques": [
+        {
+          "name": "Hector Santiago",
+          "fpts": 92.61,
+          "salary": 7100
+        },
+        {
+          "name": "Andre Lima",
+          "fpts": 69.19,
+          "salary": 9000
+        },
+        {
+          "name": "Ding Meng",
+          "fpts": 24.3,
+          "salary": 8300
+        },
+        {
+          "name": "Umar Nurmagomedov",
+          "fpts": 15.74,
+          "salary": 9500
+        },
+        {
+          "name": "Yan Xiaonan",
+          "fpts": 7.6,
+          "salary": 8500
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Liu Ce",
+          "fpts": 133.92,
+          "salary": 8700
+        },
+        {
+          "name": "Rei Tsuruya",
+          "fpts": 129.14,
+          "salary": 9700
+        },
+        {
+          "name": "Denise Gomes",
+          "fpts": 107.6,
+          "salary": 7700
+        },
+        {
+          "name": "Cam Nelson",
+          "fpts": 79.42,
+          "salary": 7900
+        },
+        {
+          "name": "Sean Woodson",
+          "fpts": 69.73,
+          "salary": 8400
+        }
+      ],
+      "best_swap": {
+        "out": "Umar Nurmagomedov",
+        "in": "Liu Ce",
+        "gain": 118.2,
+        "would_have_won": false
+      },
+      "swaps_needed": 3
+    }
+  },
+  {
+    "timestamp": "2026-08-29 13:02",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-194357540.csv",
+    "contest_id": "194357540",
+    "entries": 713,
+    "winning_score": 631.88,
+    "cash_line_p80": 439.910018,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 26,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 28.38,
+      "low_own_count_mean": 1.0,
+      "salary_used_mean": 50000.0,
+      "entry_count": 1,
+      "best_rank": 252,
+      "best_percentile": 35.3
+    },
+    "user_lineups": [
+      {
+        "rank": 252,
+        "entry_name": "RyvlesGaming30",
+        "points": 392.29,
+        "percentile": 35.3,
+        "players": [
+          "Umar Nurmagomedov",
+          "Denise Gomes",
+          "Alex Perez",
+          "Rei Tsuruya",
+          "Hector Santiago",
+          "Xiao Long"
+        ],
+        "avg_own": 28.38,
+        "low_own_count": 1,
+        "salary_used": 50000,
+        "proj_total": 400.98,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Francesco Nuzzi",
+        "proj_points": 49.49,
+        "actual_fpts": 129.66,
+        "fpts_delta": 80.17,
+        "ownership": 24.0,
+        "actual_own": 21.18
+      },
+      {
+        "name": "Liu Ce",
+        "proj_points": 66.21,
+        "actual_fpts": 133.92,
+        "fpts_delta": 67.71,
+        "ownership": 38.0,
+        "actual_own": 37.73
+      },
+      {
+        "name": "Hector Santiago",
+        "proj_points": 41.81,
+        "actual_fpts": 92.61,
+        "fpts_delta": 50.8,
+        "ownership": 16.0,
+        "actual_own": 9.12
+      },
+      {
+        "name": "Denise Gomes",
+        "proj_points": 57.3,
+        "actual_fpts": 107.6,
+        "fpts_delta": 50.3,
+        "ownership": 31.0,
+        "actual_own": 46.56
+      },
+      {
+        "name": "Yadong Song",
+        "proj_points": 41.99,
+        "actual_fpts": 87.06,
+        "fpts_delta": 45.07,
+        "ownership": 18.0,
+        "actual_own": 23.28
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Umar Nurmagomedov",
+        "proj_points": 99.38,
+        "actual_fpts": 15.74,
+        "fpts_delta": -83.64,
+        "ownership": 45.0,
+        "actual_own": 57.22
+      },
+      {
+        "name": "Xiao Long",
+        "proj_points": 67.47,
+        "actual_fpts": 1.6,
+        "fpts_delta": -65.87,
+        "ownership": 22.0,
+        "actual_own": 15.99
+      },
+      {
+        "name": "Lawrence Lui",
+        "proj_points": 76.09,
+        "actual_fpts": 12.83,
+        "fpts_delta": -63.26,
+        "ownership": 32.0,
+        "actual_own": 41.51
+      },
+      {
+        "name": "Yan Xiaonan",
+        "proj_points": 60.88,
+        "actual_fpts": 7.6,
+        "fpts_delta": -53.28,
+        "ownership": 16.0,
+        "actual_own": 11.92
+      },
+      {
+        "name": "Xiong Jingnan",
+        "proj_points": 46.75,
+        "actual_fpts": 6.4,
+        "fpts_delta": -40.35,
+        "ownership": 16.0,
+        "actual_own": 26.09
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Bilal Hasan",
+        "salary": 9600,
+        "actual_fpts": 108.69,
+        "actual_own": 19.78,
+        "top_lineup_pct": 45.0
+      },
+      {
+        "name": "Andre Lima",
+        "salary": 9000,
+        "actual_fpts": 69.19,
+        "actual_own": 16.69,
+        "top_lineup_pct": 30.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 27.77,
+      "low_own_count_mean": 0.35,
+      "salary_used_mean": 49885.0,
+      "dup_max": 2,
+      "unique_pct": 65.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "fitzhitz",
+          "points": 631.88,
+          "percentile": 0.1,
+          "players": [
+            "Yadong Song",
+            "Denise Gomes",
+            "Rei Tsuruya",
+            "Sean Woodson",
+            "Bilal Hasan",
+            "Francesco Nuzzi"
+          ],
+          "avg_own": 25.53,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 395.57,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "tampadog70",
+          "points": 600.11,
+          "percentile": 0.3,
+          "players": [
+            "Denise Gomes",
+            "Alex Perez",
+            "Rei Tsuruya",
+            "Bilal Hasan",
+            "Cam Nelson",
+            "Francesco Nuzzi"
+          ],
+          "avg_own": 25.43,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 384.3,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "pickens81",
+          "points": 594.66003,
+          "percentile": 0.4,
+          "players": [
+            "Denise Gomes",
+            "Alex Perez",
+            "Andre Lima",
+            "Bilal Hasan",
+            "Francesco Nuzzi",
+            "Liu Ce"
+          ],
+          "avg_own": 27.07,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 377.43,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "Elusivee",
+          "points": 584.49,
+          "percentile": 0.6,
+          "players": [
+            "Yadong Song",
+            "Denise Gomes",
+            "Alex Perez",
+            "Rei Tsuruya",
+            "Julia Polastri",
+            "Bilal Hasan"
+          ],
+          "avg_own": 23,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 393.95,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "Dmoney361",
+          "points": 581.64,
+          "percentile": 0.7,
+          "players": [
+            "Yadong Song",
+            "Denise Gomes",
+            "Rei Tsuruya",
+            "Sean Woodson",
+            "Bilal Hasan",
+            "Cam Nelson"
+          ],
+          "avg_own": 25.95,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 398.38,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "lunaman77",
+          "points": 571.9,
+          "percentile": 0.8,
+          "players": [
+            "Umar Nurmagomedov",
+            "Denise Gomes",
+            "Kai Asakura",
+            "Hector Santiago",
+            "Francesco Nuzzi",
+            "Liu Ce"
+          ],
+          "avg_own": 33.52,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 394.24,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "CKatsonis",
+          "points": 569.83,
+          "percentile": 1.0,
+          "players": [
+            "Denise Gomes",
+            "Julia Polastri",
+            "Lawrence Lui",
+            "Cam Nelson",
+            "Francesco Nuzzi",
+            "Liu Ce"
+          ],
+          "avg_own": 29.61,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 370.84,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "solomex49",
+          "points": 567.03,
+          "percentile": 1.1,
+          "players": [
+            "Denise Gomes",
+            "Rei Tsuruya",
+            "Bilal Hasan",
+            "Cam Nelson",
+            "Francesco Nuzzi",
+            "Levi Rodrigues Jr."
+          ],
+          "avg_own": 25.29,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 380.12,
+          "dup_count": 2
+        },
+        {
+          "rank": 8,
+          "entry_name": "broadwaypro23",
+          "points": 567.03,
+          "percentile": 1.1,
+          "players": [
+            "Denise Gomes",
+            "Rei Tsuruya",
+            "Bilal Hasan",
+            "Cam Nelson",
+            "Francesco Nuzzi",
+            "Levi Rodrigues Jr."
+          ],
+          "avg_own": 25.29,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 380.12,
+          "dup_count": 2
+        },
+        {
+          "rank": 10,
+          "entry_name": "jonsims66",
+          "points": 566.25,
+          "percentile": 1.4,
+          "players": [
+            "Yadong Song",
+            "Denise Gomes",
+            "Kai Asakura",
+            "Jack Jenkins",
+            "Bilal Hasan",
+            "Liu Ce"
+          ],
+          "avg_own": 31.37,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 389.13,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -0.61,
+        "low_own_count_delta": -0.65,
+        "salary_used_delta": -115.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 697,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Umar Nurmagomedov",
+          "field_own": 57.2,
+          "actual_fpts": 15.7
+        },
+        {
+          "name": "Denise Gomes",
+          "field_own": 46.6,
+          "actual_fpts": 107.6
+        },
+        {
+          "name": "Lawrence Lui",
+          "field_own": 41.5,
+          "actual_fpts": 12.8
+        },
+        {
+          "name": "Liu Ce",
+          "field_own": 37.7,
+          "actual_fpts": 133.9
+        },
+        {
+          "name": "Jack Jenkins",
+          "field_own": 31.6,
+          "actual_fpts": 36.6
+        },
+        {
+          "name": "Kai Asakura",
+          "field_own": 29.3,
+          "actual_fpts": 92.4
+        },
+        {
+          "name": "Ding Meng",
+          "field_own": 26.5,
+          "actual_fpts": 24.3
+        },
+        {
+          "name": "Xiong Jingnan",
+          "field_own": 26.1,
+          "actual_fpts": 6.4
+        },
+        {
+          "name": "Cam Nelson",
+          "field_own": 23.7,
+          "actual_fpts": 79.4
+        },
+        {
+          "name": "Yadong Song",
+          "field_own": 23.3,
+          "actual_fpts": 87.1
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Denise Gomes",
+            "Umar Nurmagomedov"
+          ],
+          "field_pct": 31.3,
+          "count": 218
+        },
+        {
+          "players": [
+            "Lawrence Lui",
+            "Umar Nurmagomedov"
+          ],
+          "field_pct": 22.4,
+          "count": 156
+        },
+        {
+          "players": [
+            "Denise Gomes",
+            "Lawrence Lui"
+          ],
+          "field_pct": 20.7,
+          "count": 144
+        },
+        {
+          "players": [
+            "Liu Ce",
+            "Umar Nurmagomedov"
+          ],
+          "field_pct": 20.0,
+          "count": 139
+        },
+        {
+          "players": [
+            "Jack Jenkins",
+            "Umar Nurmagomedov"
+          ],
+          "field_pct": 19.3,
+          "count": 134
+        },
+        {
+          "players": [
+            "Umar Nurmagomedov",
+            "Xiong Jingnan"
+          ],
+          "field_pct": 16.5,
+          "count": 115
+        },
+        {
+          "players": [
+            "Denise Gomes",
+            "Liu Ce"
+          ],
+          "field_pct": 16.1,
+          "count": 112
+        },
+        {
+          "players": [
+            "Francesco Nuzzi",
+            "Umar Nurmagomedov"
+          ],
+          "field_pct": 15.8,
+          "count": 110
+        },
+        {
+          "players": [
+            "Lawrence Lui",
+            "Liu Ce"
+          ],
+          "field_pct": 15.8,
+          "count": 110
+        },
+        {
+          "players": [
+            "Denise Gomes",
+            "Jack Jenkins"
+          ],
+          "field_pct": 15.7,
+          "count": 109
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Alex Perez",
+            "Denise Gomes",
+            "Francesco Nuzzi",
+            "Jack Jenkins",
+            "Rei Tsuruya",
+            "Umar Nurmagomedov"
+          ],
+          "count": 9,
+          "field_pct": 1.3
+        },
+        {
+          "players": [
+            "Alex Perez",
+            "Denise Gomes",
+            "Ding Meng",
+            "Liu Ce",
+            "Sean Woodson",
+            "Umar Nurmagomedov"
+          ],
+          "count": 8,
+          "field_pct": 1.1
+        },
+        {
+          "players": [
+            "Denise Gomes",
+            "Jack Jenkins",
+            "Lawrence Lui",
+            "Liu Ce",
+            "Namsrai Batbayar",
+            "Umar Nurmagomedov"
+          ],
+          "count": 6,
+          "field_pct": 0.9
+        },
+        {
+          "players": [
+            "Alex Perez",
+            "Denise Gomes",
+            "Francesco Nuzzi",
+            "Lawrence Lui",
+            "Liu Ce",
+            "Umar Nurmagomedov"
+          ],
+          "count": 5,
+          "field_pct": 0.7
+        },
+        {
+          "players": [
+            "Alex Perez",
+            "Denise Gomes",
+            "Kai Asakura",
+            "Liu Ce",
+            "Umar Nurmagomedov",
+            "Xiong Jingnan"
+          ],
+          "count": 5,
+          "field_pct": 0.7
+        }
+      ],
+      "winners_profile": {
+        "n": 7,
+        "avg_own_per_slot": 27.2,
+        "dart_pct": 0.0,
+        "unique_pct": 100.0
+      },
+      "fish_profile": {
+        "n": 348,
+        "avg_own_per_slot": 29.7,
+        "dart_pct": 7.8,
+        "unique_pct": 83.3
+      },
+      "fish_traps": [
+        {
+          "name": "Umar Nurmagomedov",
+          "fish_pct": 71.6,
+          "winner_pct": 14.3,
+          "gap": 57.3,
+          "actual_fpts": 15.7,
+          "field_own": 57.2,
+          "own_rank": 1
+        },
+        {
+          "name": "Lawrence Lui",
+          "fish_pct": 56.0,
+          "winner_pct": 14.3,
+          "gap": 41.7,
+          "actual_fpts": 12.8,
+          "field_own": 41.5,
+          "own_rank": 3
+        },
+        {
+          "name": "Jack Jenkins",
+          "fish_pct": 36.8,
+          "winner_pct": 0.0,
+          "gap": 36.8,
+          "actual_fpts": 36.6,
+          "field_own": 31.6,
+          "own_rank": 5
+        },
+        {
+          "name": "Xiong Jingnan",
+          "fish_pct": 34.2,
+          "winner_pct": 0.0,
+          "gap": 34.2,
+          "actual_fpts": 6.4,
+          "field_own": 26.1,
+          "own_rank": 8
+        },
+        {
+          "name": "Ding Meng",
+          "fish_pct": 33.9,
+          "winner_pct": 0.0,
+          "gap": 33.9,
+          "actual_fpts": 24.3,
+          "field_own": 26.5,
+          "own_rank": 7
+        },
+        {
+          "name": "Namsrai Batbayar",
+          "fish_pct": 29.3,
+          "winner_pct": 0.0,
+          "gap": 29.3,
+          "actual_fpts": 20.6,
+          "field_own": 23.3,
+          "own_rank": 10
+        },
+        {
+          "name": "Levi Rodrigues Jr.",
+          "fish_pct": 27.0,
+          "winner_pct": 0.0,
+          "gap": 27.0,
+          "actual_fpts": 12.5,
+          "field_own": 19.6,
+          "own_rank": 17
+        },
+        {
+          "name": "Xiao Long",
+          "fish_pct": 25.3,
+          "winner_pct": 0.0,
+          "gap": 25.3,
+          "actual_fpts": 1.6,
+          "field_own": 16.0,
+          "own_rank": 20
+        },
+        {
+          "name": "Su Sumudaerji",
+          "fish_pct": 21.3,
+          "winner_pct": 0.0,
+          "gap": 21.3,
+          "actual_fpts": 55.6,
+          "field_own": 17.1,
+          "own_rank": 18
+        },
+        {
+          "name": "Yan Xiaonan",
+          "fish_pct": 18.1,
+          "winner_pct": 0.0,
+          "gap": 18.1,
+          "actual_fpts": 7.6,
+          "field_own": 11.9,
+          "own_rank": 21
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "fitzhitz",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "tampadog70",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "pickens81",
+          "best_rank": 3,
+          "percentile": 0.4
+        },
+        {
+          "handle": "Elusivee",
+          "best_rank": 4,
+          "percentile": 0.6
+        },
+        {
+          "handle": "Dmoney361",
+          "best_rank": 5,
+          "percentile": 0.7
+        },
+        {
+          "handle": "lunaman77",
+          "best_rank": 6,
+          "percentile": 0.9
+        },
+        {
+          "handle": "CKatsonis",
+          "best_rank": 7,
+          "percentile": 1.0
+        },
+        {
+          "handle": "solomex49",
+          "best_rank": 8,
+          "percentile": 1.1
+        },
+        {
+          "handle": "broadwaypro23",
+          "best_rank": 8,
+          "percentile": 1.1
+        },
+        {
+          "handle": "jonsims66",
+          "best_rank": 10,
+          "percentile": 1.4
+        },
+        {
+          "handle": "slickerquickeraz",
+          "best_rank": 11,
+          "percentile": 1.6
+        },
+        {
+          "handle": "klow43",
+          "best_rank": 12,
+          "percentile": 1.7
+        },
+        {
+          "handle": "GrindemUp27",
+          "best_rank": 13,
+          "percentile": 1.9
+        },
+        {
+          "handle": "Steviepjr",
+          "best_rank": 14,
+          "percentile": 2.0
+        },
+        {
+          "handle": "LBo1231",
+          "best_rank": 14,
+          "percentile": 2.0
+        }
+      ],
+      "read": [
+        "Field crowded **Umar Nurmagomedov** at 57.2% (15.7 fpts) \u2014 the chalk to consider fading.",
+        "**Denise Gomes + Umar Nurmagomedov** were together in 31.3% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Umar Nurmagomedov** was a fish trap: 71.6% of the fish, only 14.3% of winners.",
+        "Fish ran 2.5 pts/slot more chalk than winners (29.7% vs 27.2%)."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 631.88,
+      "winner_handle": "fitzhitz",
+      "roster": [
+        {
+          "name": "Yadong Song",
+          "own": 23.28,
+          "fpts": 87.06
+        },
+        {
+          "name": "Denise Gomes",
+          "own": 46.56,
+          "fpts": 107.6
+        },
+        {
+          "name": "Rei Tsuruya",
+          "own": 20.9,
+          "fpts": 129.14
+        },
+        {
+          "name": "Sean Woodson",
+          "own": 21.46,
+          "fpts": 69.73
+        },
+        {
+          "name": "Bilal Hasan",
+          "own": 19.78,
+          "fpts": 108.69
+        },
+        {
+          "name": "Francesco Nuzzi",
+          "own": 21.18,
+          "fpts": 129.66
+        }
+      ],
+      "avg_own": 25.5,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Bilal Hasan",
+        "own": 19.78,
+        "fpts": 108.69
+      },
+      "expected_dupes": 0.15
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "blocked_swap": null,
+      "gradable": true,
+      "won": false,
+      "your_points": 392.29,
+      "winner_points": 631.88,
+      "gap": 239.6,
+      "your_percentile": 35.3,
+      "n_shared": 2,
+      "shared": [
+        "Denise Gomes",
+        "Rei Tsuruya"
+      ],
+      "your_uniques": [
+        {
+          "name": "Hector Santiago",
+          "fpts": 92.61,
+          "salary": 7100
+        },
+        {
+          "name": "Alex Perez",
+          "fpts": 45.6,
+          "salary": 7400
+        },
+        {
+          "name": "Umar Nurmagomedov",
+          "fpts": 15.74,
+          "salary": 9500
+        },
+        {
+          "name": "Xiao Long",
+          "fpts": 1.6,
+          "salary": 8600
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Francesco Nuzzi",
+          "fpts": 129.66,
+          "salary": 7600
+        },
+        {
+          "name": "Bilal Hasan",
+          "fpts": 108.69,
+          "salary": 9600
+        },
+        {
+          "name": "Yadong Song",
+          "fpts": 87.06,
+          "salary": 6700
+        },
+        {
+          "name": "Sean Woodson",
+          "fpts": 69.73,
+          "salary": 8400
+        }
+      ],
+      "best_swap": {
+        "out": "Xiao Long",
+        "in": "Francesco Nuzzi",
+        "gain": 128.1,
+        "would_have_won": false
+      },
+      "swaps_needed": 3
+    }
+  }
+]

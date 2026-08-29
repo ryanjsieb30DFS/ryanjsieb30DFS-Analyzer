@@ -1,0 +1,124 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "n_contests": 2,
+  "calls": [
+    {
+      "name": "Sean Woodson",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194357539.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194357540.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Su Sumudaerji",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194357539.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194357540.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-194357539.csv",
+        "contest-standings-194357540.csv"
+      ]
+    },
+    {
+      "name": "Jack Jenkins",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194357539.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194357540.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-194357539.csv",
+        "contest-standings-194357540.csv"
+      ]
+    },
+    {
+      "name": "Francesco Nuzzi",
+      "verdict": "underweight",
+      "exposure_pct": 50.0,
+      "in_lineups": 1,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194357539.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        },
+        {
+          "contest": "contest-standings-194357540.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-194357540.csv"
+      ],
+      "over_in": [
+        "contest-standings-194357539.csv"
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 3,
+  "leverage_candidates": [
+    {
+      "name": "Nilson Rojas",
+      "rostered": false
+    },
+    {
+      "name": "Kevin Borjas",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 0,
+  "leverage_of": 2
+}

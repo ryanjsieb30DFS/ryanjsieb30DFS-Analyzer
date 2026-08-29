@@ -1,0 +1,24 @@
+{
+  "slug": "mma_se",
+  "sport": "mma",
+  "contest_label": "MMA",
+  "date": "2026-08-29",
+  "slate_label": "UFC Fight Night: Nurmagomedov vs. Song 8.29.26",
+  "archived_at": "2026-08-29 13:02",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json",
+    "lineup_selection.json"
+  ],
+  "missing": [
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/mma_se/2026-08-28__MMA Matchups 8.29.26.pdf",
+    "articles/mma_se/2026-08-28__MMA Top Plays 8.29.26.pdf"
+  ],
+  "proj_source": null
+}
