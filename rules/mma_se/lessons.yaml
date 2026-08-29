@@ -804,6 +804,29 @@ lessons:
           an ITD-price ceiling cap is STRUCTURAL only when paired with low projected
           volume/control — otherwise it is a narrative fade wearing structural
           clothes.
+      - date: "2026-08-29"
+        slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 392 + 713 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+        note: >
+          Second live test of the 8/2 narrowing, logged as a PARTIAL confirmation with
+          the boundary stated rather than hidden. Four calls were written. The two
+          resting on a measurable non-finish mechanism both paid: Sean Woodson LEAN FADE
+          on ownership running 13 ranks ahead of projection plus a stated 70-72 decision
+          band (he scored 69.73, inside the band the call itself predicted), and Jack
+          Jenkins UNDERWEIGHT on a 45% dog priced -160 to reach the judges (36.6 points,
+          a fish trap in 36.8-39.7% of the bottom half and 0% of the winners). The call
+          resting purely on finish price failed exactly as the carve-out predicts:
+          Francesco Nuzzi, "+325-to-finish debutant ... points to a low-scoring
+          decision," scored 129.66 and was in BOTH contest winners. BOUNDARY that keeps
+          the rule from over-claiming: Su Sumudaerji's UNDERWEIGHT also rested on finish
+          price ("his ceiling needs a round-1 KO") and was RIGHT at 55.6 points. So the
+          carve-out does not predict that every inside-the-distance call breaks — it
+          predicts such a call carries no structural guarantee, which is weaker than the
+          8/23 three-for-three reading suggests. Separate note belonging to the rule's
+          core: the strategy's `## Trap-shaped prices` screen (owned ahead of projection)
+          named six fighters and THREE of them — Woodson, Denise Gomes, Nuzzi — filled
+          half of both winning rosters. See
+          [[mma-se-2026-08-29-owned-ahead-of-projection-is-not-a-trap-signal]].
     contradictions:
       - date: "2026-08-02"
         slate: "UFC Fight Night 283, Belgrade 8.1.26 — 588 SE + 594 3-Max"
@@ -1016,6 +1039,23 @@ lessons:
           skipped outright — the pick engine's own note says "I skipped the top-heavy
           dart ... because your own ledger has punished no-win-path fighters in fields
           this size seven slates running." Converter over named dog, fifth time.
+      - date: "2026-08-29"
+        slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 392 + 713 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+        note: >
+          Sixth confirming slate. The screen ran across the full pool and found the
+          converters: Hector Santiago ($7,100, 16% projected / 11.73% and 9.12% actual)
+          was given his own `## Leverage` line as "Brett's favourite sneaky target," and
+          he scored 92.61 and is listed in `slate_defining_plays` for the 392 field (in
+          30% of its top-20 lineups). Yadong Song ($6,700, 18% projected) got a line too
+          and scored 87.06 inside the 713-field WINNER. The user carried Santiago in
+          both bullets — the screen's read was taken and it paid. The two article-shaped
+          binary DOGS the screen surfaced but the board tiered `Fade` both died as
+          predicted: Nilson Rojas (7%, "needs a knockout of a -800 favourite") scored
+          14.1, Kevin Borjas (7%) went unrostered by everyone who mattered. Converter
+          over named dog, sixth time — and the strategy said so in writing ("the
+          realistic differentiation tier on a card like this moves up into the 15-25%
+          converters").
     contradictions: []
     codified_in: "framework.md — The Leverage Screen: Converters, Not Named Dogs (7/19/26 — 3-slate validated)"
     retired_reason: null
@@ -1163,6 +1203,24 @@ lessons:
           probability has now been wrong on a winner-defining scorer four times
           (7/12 Bautista 137.43, 7/19 Kline 109.40, 8/2 Stirling 106.1, 8/23 Padilla
           111.35). Same honest caveat: standings do not record method.
+      - date: "2026-08-29"
+        slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 392 + 713 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+        note: >
+          FIFTH confirming slate, and the mis-capped fighter was in BOTH contest
+          winners. The strategy called Francesco Nuzzi UNDERWEIGHT with the cap stated
+          as pure finish price: "$7,600, 24% own, 8 ranks ahead; a +325-to-finish
+          debutant against a durable opponent points to a low-scoring decision." Nuzzi
+          scored 129.66 — the slate's #1 overperformer at +80.17 versus a 49.49
+          projection — and sat in homanga's 649.47 (392 field) and fitzhitz's 631.88
+          (713 field). The board also buried him in `Okay`. Boundary logged honestly so
+          the rule does not over-claim: a SECOND finish-price cap on the same card was
+          CORRECT — Su Sumudaerji ("his ceiling needs a round-1 KO") scored 55.6 and was
+          a documented fish trap. So low finish probability is not always a wrong read;
+          what keeps failing is treating it as sufficient on its own without the
+          volume/control check this rule requires. Fifth wrong cap on a winner-defining
+          scorer (7/12 Bautista 137.43, 7/19 Kline 109.40, 8/2 Stirling 106.1, 8/23
+          Padilla 111.35, 8/29 Nuzzi 129.66).
     contradictions: []
     codified_in: "framework.md — Distance ≠ Low Ceiling (8/2/26 — 3-slate validated)"
     retired_reason: null
@@ -1274,6 +1332,25 @@ lessons:
           capture 4 of 5, points-to-projection ratio 1.63, finishes 0.2 / 1.3 / 1.9 /
           4.4 / 14.0 percentile. The mechanism reads the same from the winning side as
           it did through five slates of losing: the whole edge is WHICH mid-owns win.
+      - date: "2026-08-29"
+        slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 392 + 713 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+        note: >
+          Seventh confirming slate, back on the losing side, and the structural read is
+          the cleanest yet. Both winners were six fighters who all won, chalk-anchored,
+          zero sub-10 pieces: homanga 649.47 at 30.31% own per slot (Gomes 47.2 /
+          Liu Ce 39.3 / Nelson 28.6 / Nuzzi 24.7 / Woodson 21.9 / Tsuruya 20.2) and
+          fitzhitz 631.88 at 25.53% (Gomes / Song 23.3 / Woodson 21.5 / Nuzzi 21.2 /
+          Tsuruya 20.9 / Hasan 19.8). Differentiation in both came from 19-25%-owned
+          converters — Nuzzi 129.66, Tsuruya 129.14, Hasan 108.69, Song 87.06. The
+          user's structure sat INSIDE that envelope on both bullets (25.93% and 28.38%
+          own per slot against the winners' 30.31 and 25.53; `winners_structure.vs_user`
+          avg_own_delta +2.09 in the 392 field, i.e. the winner was CHALKIER than the
+          user) and both entries died purely on which fighters: Umar Nurmagomedov 15.74,
+          Xiao Long 1.60, Yan Xiaonan 7.60, Ding Meng 24.30. Bust exposure 0.6 (three of
+          the slate's five biggest under-performers were rostered) against 0.0 the week
+          before, on identical structure. Seventh slate where the whole edge is win-side
+          selection in the mid-tier and nothing structural.
     contradictions: []
     codified_in: "framework.md — The Winning MMA SE Shape (8/2/26 — 3-slate validated)"
     retired_reason: null
@@ -1361,6 +1438,25 @@ lessons:
           the wrong name ("expect Makhachev near 60%"); the concentration landed on
           both articles' #1 lock (Orolbai) and the salary-saver every build needs
           (C. Johnson).
+      - date: "2026-08-29"
+        slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 392 + 713 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+        note: >
+          FIRST test of the 8/28 NARROWED form, and the narrowed form is confirmed on
+          every measurable clause while the strategy still named the wrong fighter.
+          Narrowed claim: exactly ONE fighter per card runs hot, by roughly +15, from
+          the $7,500-8,999 band, already projected at 25-45% own. Realised: Denise Gomes
+          ($7,700, 31% projected) drew 47.19% and 46.56% ACTUAL — +16.2 and +15.6, the
+          single largest miss on the board, from the right salary band and inside the
+          right projected-own window. Sixteenth card, sixteen for sixteen. The core
+          claim held too — the projected #1, Umar Nurmagomedov at 45%, was not the
+          board's hottest name in relative terms (+10.9 / +12.2 versus Gomes's +16),
+          though he did also run above projection. WHERE THE STRATEGY STILL MISSED: it
+          applied the adjustment by name to Liu Ce ($8,700, 38% projected — "plan as if
+          he's ~50% owned"), who came in flat at 39.29% and 37.73%. Fourth consecutive
+          slate where the shape was right and the named fighter was wrong. The open
+          problem is unchanged and should not be papered over: the rule reliably says
+          that one mid-priced name will run +15, and nothing in it identifies WHICH.
     contradictions:
       - date: "2026-08-09"
         slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26 — 784 SE + 47,562 mini-MAX"
@@ -1536,6 +1632,26 @@ lessons:
           own-per-slot gap is still not a leak by itself — it only reads as one when
           the chalk anchors CONVERT, and whether they convert is unknowable pre-lock.
           The axis remains descriptive; it never becomes a target.
+      - date: "2026-08-29"
+        slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 392 + 713 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+        note: >
+          Sixth confirming slate for the axis-is-noise corollary, and the plainest form
+          of it. `shark_gap.json` returns `sharks_in_field: false`, `sharks.gradable:
+          false`, `n_entries: 0` and `deltas: []` — no tracked pro was in either field,
+          the fourth such slate in seven. The strategy nonetheless closed with
+          moklovin's "~29.8% ownership per slot, all-unique, a leverage piece in roughly
+          1 of 4 entries" as this slate's coaching target, citing a pro who did not play
+          it. The substitute measurement says there was no axis to close: the user ran
+          25.93% and 28.38% own per slot against winners at 30.31% and 25.53%, i.e.
+          straddling them, with 100% uniqueness and zero exact-roster copies in the 713
+          field. RATE half also held. The two named sub-10% candidates (Nilson Rojas 7%,
+          Kevin Borjas 7%) went unrostered — `adherence_leverage_covered` "0/2" — and
+          both were knockout-or-nothing darts the board tiered `Fade`; Rojas scored
+          14.1. Neither winner carried a sub-10 piece (the lowest-owned winning slot was
+          Bilal Hasan at 19.78%). The 0/2 metric has now read 0-for-N on four of the
+          last seven slates with no relationship to the finish, which is what a
+          non-rule looks like when it is still being counted.
     contradictions: []
     codified_in: "framework.md — Envelope Targets Are Rates (8/16/26); philosophy.md — Envelope Targets Are Rates (8/16/26); 8/28/26 extended into the tooling, then hardened same day on user directive ('i really dont think that should be a hard and fast rule... the point of the grade tab is to ensure lineups are following the CURRENT SLATE STRATEGY'): per-lineup leverage is now NOT A RULE OF ANY STRENGTH in either repo. Analyzer — out of compliance()/_RELAX_ORDER/soft_notes/parse_pick and unmarked in the slice (src/lineup_selection.py); grader no_leverage is info-only in every sport and never costs a letter, retro_grade dropped it too (src/grader.py). Sim — contract_rule_groups no longer BUILDS a leverage_rule, no pack selects one, 🎯 button deleted (src/analyzer_link.py, app.py). Rationale beyond the rate: leverage_candidates is a mechanical ownership screen (own<10%), never a strategy call, so enforcing it made the gate impose a universal rule while claiming to enforce the slate strategy. Coverage = Min-Exp seeding (a pool RATE) only"
     retired_reason: null
@@ -1752,6 +1868,22 @@ lessons:
           both `Fade` leakage entries (Chris Padilla 111.35, Vitor Petrino 99.01)
           out-scored the entire `Okay` tier. The new failure seam is carried by
           [[mma-se-2026-08-23-core-tier-mirrors-the-field-chalk]].
+      - date: "2026-08-29"
+        slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 26-fighter board"
+        origin_dir: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+        note: >
+          FIFTH confirming slate, and the middle regressed after the 8/23 fix held. The
+          board put 12 of 26 fighters (46%) into `Okay` — back above the ~one-third
+          target after 8/23's 35% — and the bucket again held the fighters who decided
+          the card: Francesco Nuzzi 129.66 (the #1 overperformer, in BOTH winners),
+          Denise Gomes 107.60 (in BOTH winners), Yadong Song 87.06 (in the 713 winner).
+          `Okay` averaged 55.8. Count the winning slots by tier and the board's own
+          verdicts invert: across the two winning rosters' twelve slots, ONE was `Core`,
+          three `Good`, SIX `Okay` and TWO `Fade` (Sean Woodson 69.73, in both). The
+          board's bottom two tiers supplied two thirds of the winning slots. Ordering
+          came back OUT OF ORDER for the sixth graded slate running, this time at the
+          Core-vs-Good seam rather than inside `Okay` — see
+          [[mma-se-2026-08-23-core-tier-mirrors-the-field-chalk]].
     contradictions: []
     codified_in: "framework.md — The Okay Tier Is a Verdict, Not a Shrug (8/16/26 — 3-slate validated)"
     retired_reason: null
@@ -1857,6 +1989,24 @@ lessons:
           exposure came back 0.0, which is exactly the property the winning entries
           shared and the field's fish did not (Hernandez 67% of the fish, 7.1% of the
           winners). Build the gate on win paths, not ownership.
+      - date: "2026-08-29"
+        slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 2 entries, 2 contests"
+        origin_dir: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+        note: >
+          Fourth confirmation — now ~122 consecutive clean MMA lineups across five
+          slates with no flag ever fired. `retro_grade` returned ZERO flags on both
+          entered lineups, which finished 58.9%ile and 35.3%ile. IMPORTANT CORRECTION to
+          the 8/23 note's proposed fix: the no-win-path gate would NOT have fired here
+          either, and this slate bounds it. All three dead slots belonged to fighters
+          with live, stated win paths pre-lock — Umar Nurmagomedov was an 85% favourite
+          carrying the board's highest projection (99.4) and scored 15.74, Xiao Long was
+          a 60% favourite and scored 1.60, Yan Xiaonan was DailyFan's 57% favourite and
+          scored 7.60. A gate keyed to "can he win?" passes all three. The failure class
+          this slate is a heavy FAVOURITE losing, which no pre-lock check can see, so
+          the honest conclusion is narrower than "build a better gate": on MMA cards a
+          clean pre-lock grade will keep carrying no information, because the variable
+          that decides the slate resolves after lock. Treat the grade as a rules check,
+          never as a quality score.
     contradictions: []
     codified_in: "framework.md — A Clean MMA Grade Carries No Information (8/16/26)"
     retired_reason: null
@@ -1890,7 +2040,7 @@ lessons:
       [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]],
       [[mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma]].
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-08-23"
         slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 594 3-Max + 784/1,426 SEs"
@@ -1913,8 +2063,30 @@ lessons:
           least disciplined builds — they were the two best finishes on the slate.
           Mechanism confirmed by its inverse: the gap was never judgment, it was
           hand-assembly happening outside every systematic screen.
+      - date: "2026-08-29"
+        slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 392 + 713 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+        note: >
+          SECOND confirmation (origin + 2 = three slates) -> promotion candidate. The
+          fix held again and the discipline claim is what is being graded, not the
+          finish. Both bullets were picks entered unmodified: `lineup_selection.json`
+          pool index 1006 (Lima/Ding/Nuzzi/Santiago/Umar/Yan) and index 1704
+          (Perez/Gomes/Santiago/Tsuruya/Umar/Long) match the two rosters in
+          `autopsy.json` fighter-for-fighter, zero hand-swaps across two contests. No
+          rule-breaking slot entered either bullet: no small-field knockout-or-nothing
+          dart, no math-relief punt with no win path, every one of the twelve slots a
+          favourite or a live striker. `retro_grade` returned zero flags and
+          `adherence.json` returned zero fade violations. GPP GUARD APPLIED EXPLICITLY:
+          the finishes were poor (58.9%ile, 35.3%ile) and one pick came in 18.59 points
+          under the pool average, but this lesson's mechanism is that ungated
+          hand-assembly is where dead slots enter, and there was no hand-assembly and no
+          rule-broken slot — the entries died on a favourite losing. A bad result under
+          a followed process is not a contradiction of the process.
     contradictions: []
-    codified_in: null
+    codified_in: >
+      rules/mma_se/framework.md — "Pick the Single-Entry Bullet, Never Hand-Build It
+      (8/29/26 — 3-slate validated)" (codified 2026-08-29 on user approval; 3 slates:
+      8/9 origin, 8/23, 8/29).
     retired_reason: null
 
   # ---- 2026-08-16 — UFC 330 (Makhachev vs. Machado Garry) ----
@@ -1970,7 +2142,7 @@ lessons:
       in the live app (this may be a re-pick-ordering artifact), and when a pick is
       displaced from a contest, RE-RUN the pick for that contest instead of
       hand-swapping slots.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-08-23"
         slate: "UFC Fight Night: Hernandez vs. Rodrigues 8.22.26 — 594 3-Max + 784/1,426 SEs"
@@ -1989,8 +2161,26 @@ lessons:
           been hand-repaired on 8/16 (Clinch, Flying Knee) finished 0.2%ile and 1.3%ile
           here. Second confirming slate should be another multi-contest card where a
           displaced pick is RE-RUN rather than slot-swapped.
+      - date: "2026-08-29"
+        slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 392 + 713 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+        note: >
+          SECOND confirmation (origin + 2 = three slates) -> promotion candidate. The
+          one-lineup-one-contest exclusion held on a second consecutive multi-contest
+          card, so no hand-editing was forced and the 8/16 cost did not recur.
+          `lineup_selection.json` records two picks generated in sequence (00:13 for the
+          713 Clinch, 00:20 for the 392 Flying Knee) at DISTINCT pool indexes 1704 and
+          1006, sharing only two of six fighters (Umar Nurmagomedov, Hector Santiago)
+          and differing on the second big-money anchor exactly as the diversification
+          rule asks — Rei Tsuruya in one, Andre Lima in the other. Both were entered
+          unmodified. That is `taken_roster_keys` doing its job for the second slate
+          running, and it further supports the 8/23 reading that 8/16 was a
+          re-pick-ordering artefact rather than a broken exclusion.
     contradictions: []
-    codified_in: null
+    codified_in: >
+      rules/mma_se/framework.md — "One Lineup, One Contest — Re-Run, Never Repair
+      (8/29/26 — 3-slate validated)" (codified 2026-08-29 on user approval; 3 slates:
+      8/16 origin, 8/23, 8/29).
     retired_reason: null
 
   - id: mma-se-2026-08-16-sim-rankings-are-a-threshold-not-an-ordering
@@ -2013,7 +2203,7 @@ lessons:
       and log rank_signal each slate — a third ~zero slate makes this a codifiable
       tool-calibration finding. Links
       [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]].
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions:
       - date: "2026-08-23"
@@ -2036,8 +2226,36 @@ lessons:
           than being noise everywhere. Practical note: the threshold-not-gospel
           instruction cost nothing this slate either way — picking beat the pool
           average by +183 to +272 points in all three contests.
+      - date: "2026-08-29"
+        slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 7,500-lineup pool, 2 contests"
+        origin_dir: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+        note: >
+          SECOND mechanism contradiction — the demotion threshold. A RETIREMENT proposal
+          (with the surviving half restated) goes to `## Proposed codifications`. Across
+          the 7,500-lineup pool every metric again correlated POSITIVELY with the real
+          scores: Cash% 0.240, ROI 0.230, Top1% 0.169, Win% 0.067. Modest, but the top
+          of the ordering paid in points — the top 100 lineups by ROI averaged 444.58
+          actual against a pool average of 357.69 (+86.9), by Top1% 437.05 (+79.4), by
+          Cash% 404.75 (+47.1), by Win% 391.06 (+33.4). Two consecutive slates of real
+          positive ordering (8/23: 0.271-0.322) against the two zero slates the
+          hypothesis was born from (8/9, 8/16), so "the metrics carry NO ordering
+          information" is no longer supportable as written. The 8/23 dispersion boundary
+          SURVIVES and is now the interesting claim: this was another wide-dispersion
+          13-fight card (pool average 357.69, maximum 699.33) and the signal was real
+          but about HALF of 8/23's, so the ordering looks like it scales with dispersion
+          rather than switching on and off. Honest counter-note from the same file: the
+          392 Flying Knee pick was justified partly on a 3.34% Top1 rank and finished
+          18.59 points BELOW the pool average (`picking_edge_points` -18.59), so a weak
+          positive correlation across 7,500 lineups still says very little about any one
+          row — which is the practical half of the original instruction and the part
+          worth keeping.
     codified_in: null
-    retired_reason: null
+    retired_reason: >
+      Retired 2026-08-29 on user approval, after 2 mechanism contradictions (8/23,
+      8/29): "the metrics carry no ordering information" is contradicted twice —
+      signal was 0.271-0.322 on 8/23 and 0.067-0.240 on 8/29. The surviving half is
+      carried forward as a new hypothesis,
+      [[mma-se-2026-08-29-sim-ordering-scales-with-score-dispersion]].
 
   # ---- 2026-08-23 — UFC Fight Night: Hernandez vs. Rodrigues ----
 
@@ -2070,8 +2288,30 @@ lessons:
       read-out. Links [[mma-se-2026-08-02-okay-tier-is-a-dumping-ground]],
       [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-05-30-anchor-equivalence-fifth-validation]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-08-29"
+        slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 26-fighter board"
+        origin_dir: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+        note: >
+          FIRST confirmation -> promoted to validated. An exact replication one week
+          later. The board named exactly two `Core` fighters and they were the board's
+          #1 and #3 most-owned names: Umar Nurmagomedov ($9,500, 45% projected / 55.9%
+          and 57.2% ACTUAL, the card's highest projection at 99.4) and Liu Ce ($8,700,
+          38% projected / 39.3% and 37.7% actual). Both were selected on projection plus
+          narrative — Umar was both articles' #1 play, Liu Ce both rankers' #2 — which is
+          the exact evidence the crowd used. Umar scored 15.74 and `field_analysis`
+          scored him the slate's #1 fish trap, in 71.6-72.7% of the bottom-half lineups
+          against 0% and 14.3% of the winners. `Core` averaged 74.8 against `Good`'s
+          78.6, so tier ordering came back OUT OF ORDER at the Core-vs-Good seam for the
+          second straight slate and the sixth graded slate running. The proposed fix
+          would have caught it cleanly: Umar's projected own was #1 on the board, so
+          under the rule-to-test he needed an edge the crowd was not already paying for,
+          and the strategy's own stated edge for him — "the crowd's 45% is at least
+          pointed at the right guy" — is a statement that the crowd is RIGHT, which is
+          the opposite of a price dislocation. Note the honest half: Liu Ce, the other
+          Core name, scored 133.92 and was the slate's top fighter, so Core was not
+          uniformly wrong — it was uninformative, averaging below the tier beneath it.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -2189,7 +2429,7 @@ lessons:
       [[mma-se-2026-05-30-win-case-ceiling-under-rates-low-own-finishers]],
       [[mma-se-2026-06-14-showdown-cap-single-favorite-exposure]],
       [[mma-se-2026-08-02-shared-coin-flip-slots-not-shared-players-kill-a-portfolio]].
-    status: validated
+    status: codified
     confirmations:
       - date: 2026-08-23
         slate: "EX ANTE across 19 MMA cards (474 fighters, vendor sheets only, 3/28-8/22)"
@@ -2217,6 +2457,168 @@ lessons:
           (Emmers $6,900 106.86, Mederos $7,200 117.62, Rodrigues $7,600 148.20). Only
           12 of 77,079 legal lineups beat the Clinch winning score; the optimal carried
           one $9,000+ fighter, de Ridder $9,200, a finisher.
+      - date: "2026-08-29"
+        slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 392 + 713 SEs"
+        origin_dir: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+        note: >
+          FIFTH confirming slate, realised, on a card where the most expensive slot was
+          also the most owned. Points per $1,000 among the day's real scorers falls
+          monotonically with price, exactly as the ex-ante win-case column predicts:
+          Francesco Nuzzi $7,600 -> 129.66 (17.06 per $1K), Liu Ce $8,700 -> 133.92
+          (15.39), Denise Gomes $7,700 -> 107.60 (13.97), Rei Tsuruya $9,700 -> 129.14
+          (13.31), Bilal Hasan $9,600 -> 108.69 (11.32). The card's single most
+          expensive-for-what-it-bought slot was the board's highest projection: Umar
+          Nurmagomedov at $9,500 with a 99.4 projection and an 85% win chance — maximum
+          expected points, and he returned 15.74. Both contest winners bought their win
+          probability the way the rule prescribes, carrying at most two $9,000+ fighters
+          and sourcing the rest from $7,500-8,999 (fitzhitz: Tsuruya $9,700 + Hasan
+          $9,600, then Woodson $8,400, Gomes $7,700, Nuzzi $7,600, Song $6,700). The
+          user's bullets each carried two $9,000+ slots, inside the rule, so the failure
+          was not the count — it was that one of the two was the crowd's probability buy.
     contradictions: []
-    codified_in: rules/mma_se/framework.md#salary-buys-floor-not-ceiling
+    codified_in: >
+      rules/mma_se/framework.md — "Salary Buys Floor, Not Ceiling (8/23/26 — 19-card
+      validated, EX ANTE)", closing "Codified 8/29/26" paragraph (codified 2026-08-29
+      on user approval; 5 confirming slates).
+    retired_reason: null
+
+  # ---- 2026-08-29 — UFC Fight Night: Nurmagomedov vs. Song (Shanghai) ----
+
+  - id: mma-se-2026-08-29-break-a-chalk-pair-by-dropping-the-chalkier-half
+    born: "2026-08-29"
+    origin: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+    statement: >
+      When the strategy flags a duplicated chalk PAIR and says not to carry both halves,
+      it does not say WHICH half to keep — and the build keeps defaulting to the CHALKIER
+      one, which surrenders the whole point of breaking the pair. Splitting a pair only
+      buys separation if you keep the less-owned half; keeping the more-owned half leaves
+      you sharing the heavier name with more of the field than the pair itself was worth.
+      Evidence (8/29 Shanghai): `## Edges & tensions` named Umar Nurmagomedov + Liu Ce as
+      the field's top pair ("~17.1% of lineups, about 122 of the 713 Clinch entries") and
+      `## Build it like a sharp` step 3 said a sharp refuses to carry both. The user DID
+      break the pair — Liu Ce appears in neither bullet — but broke it by keeping the
+      chalkier half. Actual ownership: Umar 55.87% and 57.22%, Liu Ce 39.29% and 37.73%.
+      Dropping the 38%-owned half to keep the 56%-owned half left the entries sharing
+      their anchor with roughly 4 of every 7 opponents instead of 2 of every 5, and the
+      realised pair rate was 20.0-20.3% anyway. Mechanism, stated so it does not depend
+      on the outcome: the duplication cost of a pair is carried mostly by its heavier
+      half, so removing the lighter half removes the smaller share of the co-ownership
+      while also removing whatever differentiation the lighter half provided — the split
+      is done at the worst of the two available prices, before any fight happens. Note
+      the same shape at 7/19 (the user kept Bashi at 47.3% actual over RJ Harris at
+      29.1%) and 8/2 (kept Cepo at 52% actual over Urbina at 9.9%), so the default may
+      be a standing habit rather than a one-slate slip. Rule to test: when a pair is
+      flagged, state in the strategy WHICH half to drop — the higher-owned one unless a
+      named price dislocation says otherwise — and have the pick digest show both halves'
+      convergence-adjusted ownership side by side so the choice is made on a number.
+      Links [[mma-se-2026-07-19-exact-roster-duplication-is-superlinear-in-consensus]],
+      [[mma-se-2026-05-30-anchor-equivalence-fifth-validation]],
+      [[mma-se-2026-08-23-core-tier-mirrors-the-field-chalk]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-08-29-underweight-has-no-meaning-in-a-single-entry-contest
+    born: "2026-08-29"
+    origin: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+    statement: >
+      UNDERWEIGHT is defined in the strategy as "less than the crowd, never zero," which
+      needs at least two entries to express — in a ONE-BULLET contest the only available
+      exposures are 0% and 100%, so the verdict cannot be honoured and the discipline
+      grader can only record a zero or a violation. Evidence (8/29, two single-entry
+      contests): `adherence.json` graded three UNDERWEIGHT calls, all "followed: true"
+      on the pooled number, while `per_contest_flags` returned 3 — Su Sumudaerji and
+      Jack Jenkins each `zeroed_in` BOTH contests (0 of 1 is the banned zero), and
+      Francesco Nuzzi `over_in` the 392 Flying Knee at 1 of 1 (100%, over the 50% cap).
+      Every one of the three flags is an artefact of arithmetic, not of discipline: on a
+      one-bullet slate there is no exposure that satisfies the verdict. The cost is not
+      cosmetic — the single flagged carriage was the best decision in the lineup (Nuzzi
+      129.66, in BOTH contest winners), so the metric fired on the right call and stayed
+      silent on the two zeroes. Mechanism: a portfolio-RATE verdict evaluated against a
+      one-lineup portfolio has no admissible value, so the grader reports noise in both
+      directions and the review cannot tell discipline from arithmetic. This is the
+      adherence-side twin of the pick-engine problem already fixed at
+      [[mma-se-2026-08-23-underweight-gate-deletes-a-whole-pool-branch]], where
+      UNDERWEIGHT was demoted to a soft rule for exactly this reason. Rule to test: when
+      a contest has `my_entries` of 1, `adherence.py` should record UNDERWEIGHT calls as
+      NOT APPLICABLE rather than followed/violated, and the slate strategy should write a
+      one-bullet slate's soft calls as LEAN FADE or PLAY, never UNDERWEIGHT, so every
+      written verdict is one the user can actually execute. Links
+      [[mma-se-2026-07-19-sharp-envelope-is-a-rate-not-a-per-bullet-quota]],
+      [[mma-se-2026-08-16-abbreviated-names-drop-contract-calls]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-08-29-owned-ahead-of-projection-is-not-a-trap-signal
+    born: "2026-08-29"
+    origin: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+    statement: >
+      The bundle's `## Trap-shaped prices` screen — fighters whose ownership rank sits
+      ahead of their projection rank — does not identify traps in MMA, because in a sport
+      scored on finishes a fighter can be correctly owned ahead of his projection. The
+      projection is a probability-weighted AVERAGE that includes the worlds where he
+      loses; ownership is the crowd betting on the world where he wins. A gap between
+      them therefore measures the crowd preferring win-case points to expected points,
+      which is the same trade [[mma-se-2026-08-23-salary-buys-floor-not-ceiling]] says
+      the GPP player SHOULD be making. Evidence (8/29 Shanghai): the screen named six
+      fighters — Sean Woodson (+13 ownership ranks), Jack Jenkins (+12), Su Sumudaerji
+      (+9), Denise Gomes (+8), Francesco Nuzzi (+8), Julia Polastri (+5) — and THREE of
+      the six filled half of both winning rosters. Nuzzi scored 129.66 (49.49 projected),
+      Gomes 107.60 (57.30 projected) and Woodson 69.73, and homanga's 649.47 and
+      fitzhitz's 631.88 each carried all three. The screen's hits were Jenkins (36.6, a
+      fish trap in 36.8-39.7% of the bottom half) and Su (55.6, also a fish trap), so it
+      went two for six while handing the winners three slots. Mechanism: the screen is
+      computed from projected points, so it systematically flags exactly the cheap
+      finish-dependent fighters whose projections understate their win case — the
+      population the ledger has repeatedly found on the winning side. What DOES identify
+      a trap on the ledger's own evidence is a fighter whose ownership is high AND whose
+      win path is thin (Umar aside, the field's actual traps were Lawrence Lui at 40-42%
+      own scoring 12.83, and Jenkins on a 45% dog). Rule to test: replace the
+      ownership-rank-versus-projection-rank screen with ownership versus WIN-CASE points
+      per dollar, or drop the section from the bundle; and never let a `## Trap-shaped
+      prices` listing on its own justify a fade or underweight verdict in the strategy —
+      three of this slate's four soft calls were sourced from that list. Links
+      [[mma-se-2026-06-20-fade-on-structure-not-narrative]],
+      [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]],
+      [[mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-08-29-sim-ordering-scales-with-score-dispersion
+    born: "2026-08-29"
+    origin: "rules/mma_se/history/2026-08-29__ufc-fight-night-nurmagomedov-vs-song-8-29-26"
+    statement: >
+      The surviving half of the retired
+      [[mma-se-2026-08-16-sim-rankings-are-a-threshold-not-an-ordering]], carried
+      forward as a new idea to test after that lesson was retired on 2026-08-29 with
+      user approval. The retired claim — that the Sim's pre-lock metrics carry NO
+      ordering information — is dead: two consecutive slates came back positive (8/23
+      ROI 0.322 / Top1% 0.305 / Cash% 0.304 / Win% 0.271; 8/29 Cash% 0.240 / ROI 0.230
+      / Top1% 0.169 / Win% 0.067) against the two zero slates it was born from (8/9,
+      8/16). Two claims survive and are what this hypothesis tests. (1) DISPERSION: the
+      ordering signal appears to SCALE with how widely the card's scores spread out
+      rather than switching on and off — both positive slates were wide-dispersion
+      13-fight cards, and 8/29's dispersion (pool average 357.69, maximum 699.33) and
+      its signal were each about half of 8/23's, while the two zero slates were tighter
+      title-card boards. (2) SINGLE-ROW WEAKNESS: a weak positive correlation across
+      thousands of lineups still says very little about any ONE row — the 8/29 392
+      Flying Knee pick was justified partly on a 3.34% Top1 rank and finished 18.59
+      points BELOW the pool average (`picking_edge_points` -18.59). Rule to test: log
+      rank_signal alongside the pool's score dispersion each slate, and keep treating a
+      single lineup's sim rank as a tie-breaker among strategy-compliant lineups rather
+      than as evidence about that lineup. Links
+      [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
+      [[mma-se-2026-08-09-the-single-bullet-gets-the-least-disciplined-build]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
     retired_reason: null
