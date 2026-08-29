@@ -1238,16 +1238,26 @@ with tab_grade:
                                    "follow it, so picking is off. Generate the slate "
                                    "strategy first.")
                     else:
+                        # A self-cancelling contract is an ERROR banner, not a
+                        # caption: on 8/29/26 the Core tier and the forbidden
+                        # chalk pair named the same two players, the full gate
+                        # returned 0 of 7,500, and the only signal was the word
+                        # "relaxed" (8/29/26 — `contract_conflicts`).
+                        _conf_c = _elig_c.get("conflicts") or []
+                        for _c in _conf_c:
+                            st.error("🛑 The slate strategy contradicts itself: " + _c)
                         st.caption(
                             f"📋 Strategy gate: {len(_elig_c['allowed']):,} of "
                             f"{_elig_c['total']:,} pooled lineups follow this slate's "
                             "strategy — only those can be picked."
-                            + (" ⚠️ Too few passed, so these rules had to be dropped: "
-                               + ", ".join(_elig_c["relaxed"]) + "."
+                            + ((" ⚠️ These rules had to be dropped because "
+                                + ("the contradiction above made them impossible"
+                                   if _conf_c else "too few lineups passed")
+                                + ": " + ", ".join(_elig_c["relaxed"]) + ".")
                                if _elig_c["relaxed"] else ""))
                         with st.expander("What the gate is enforcing"):
-                            st.markdown(_md_safe(_ls.gate_summary(_gate_c, _elig_c,
-                                                                  pool=_pk_pool)))
+                            st.markdown(_md_safe(_ls.gate_summary(
+                                _gate_c, _elig_c, pool=_pk_pool, contest=_sim_c)))
                     if st.button(
                         f"🎯 Have Claude pick this contest's {_my_c} entr"
                         f"{'y' if _my_c == 1 else 'ies'}",
@@ -1270,7 +1280,8 @@ with tab_grade:
                             _rows_v = _ls.candidate_slice(
                                 _pk_pool, _sim_c,
                                 strategy=_ls.strategy_slice_names(slug),
-                                taken=_taken_c, allowed=_elig_c["allowed"])
+                                taken=_taken_c, allowed=_elig_c["allowed"],
+                                gate=_gate_c)
                             _pick_p = _ls.pick_path(slug, _key)
                             _pick_md = _pick_p.read_text() if _pick_p.exists() else ""
                             _pp = _ls.parse_pick(_pick_md, _rows_v, _my_c,
@@ -1282,6 +1293,22 @@ with tab_grade:
                             else:
                                 for _w in _pp.get("warnings") or []:
                                     st.warning(f"⚠️ {_w}")
+                                # An explained strategy override is legal
+                                # (8/29/26) but never silent: log it so the
+                                # autopsy can score overridden picks against
+                                # clean ones over the coming slates.
+                                for _pk in _pp["picks"]:
+                                    if _pk.get("override"):
+                                        _ls.log_override(
+                                            slug, _gate_c.get("slate") or "",
+                                            _sec["label"], _pk["index"],
+                                            (next((r["roster"] for r in _rows_v
+                                                   if r["index"] == _pk["index"]), [])),
+                                            _pk["override"], _pp["why"] or "")
+                                        st.info(
+                                            "📝 Logged a strategy override for "
+                                            f"lineup {_pk['index']}: "
+                                            + "; ".join(_pk["override"]))
                                 _ls.save_contest_pick(slug, _pk_pool, _sec["label"],
                                                       _sec["declared"], _pp["picks"],
                                                       _pp["why"])

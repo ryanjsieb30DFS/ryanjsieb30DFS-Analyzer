@@ -45,16 +45,18 @@ def test_candidate_slice_deterministic_and_capped():
     a = ls.candidate_slice(pool, pool["contests"][0])
     b = ls.candidate_slice(pool, pool["contests"][0])
     assert a == b
-    assert 0 < len(a) <= 100
+    assert 0 < len(a) <= ls._SLICE_CAP == 500
     for r in a:
         assert set(r) >= {"index", "roster", "roster_key", "salary", "proj",
                           "avg_own", "win_pct", "top1_pct", "cash_pct"}
 
 
 def test_candidate_slice_uses_this_contests_metrics():
+    # Explicit k: the 200-row fixture is smaller than _SLICE_CAP (500), so an
+    # uncapped slice is the whole pool and the two contests cannot differ.
     pool = _pool()
-    s1 = {r["index"] for r in ls.candidate_slice(pool, pool["contests"][0])}
-    s2 = {r["index"] for r in ls.candidate_slice(pool, pool["contests"][1])}
+    s1 = {r["index"] for r in ls.candidate_slice(pool, pool["contests"][0], k=50)}
+    s2 = {r["index"] for r in ls.candidate_slice(pool, pool["contests"][1], k=50)}
     assert s1 != s2                      # opposite orderings -> different slices
     # Contest 2's metrics all FALL with index -> its slice lives at low indexes.
     assert min(s2) == 0
@@ -247,10 +249,12 @@ def test_strategy_angle_seats_leverage_but_never_underweight():
     # lineup 61. Both are mid-pack, so only the strategy angle can seat them.
     pool["rosters"][60] = ["LevGuy", "UwGuy", "P0", "P1", "P2", "P3"]
     pool["rosters"][61] = ["UwGuy", "P4", "P5", "P6", "P7", "P8"]
-    baseline = {r["index"] for r in ls.candidate_slice(pool, c)}
+    # Explicit k so the cap binds — otherwise every row is seated anyway and
+    # the strategy angle proves nothing.
+    baseline = {r["index"] for r in ls.candidate_slice(pool, c, k=40)}
     assert 60 not in baseline and 61 not in baseline
     strat = {"leverage": ["LevGuy"], "underweight": ["UwGuy"]}
-    rows = ls.candidate_slice(pool, c, strategy=strat)
+    rows = ls.candidate_slice(pool, c, k=40, strategy=strat)
     by_id = {r["index"]: r for r in rows}
     assert 60 in by_id                      # seated for its leverage name
     assert 61 not in by_id                  # underweight alone earns nothing
@@ -305,12 +309,13 @@ def test_candidate_slice_drops_taken_lineups_by_roster():
     every pool index holding those SAME players, not just the picked one."""
     pool = _pool()
     c = pool["contests"][0]
-    base = ls.candidate_slice(pool, c)
+    base = ls.candidate_slice(pool, c, k=100)
     victim = base[0]
     twins = {i for i, r in enumerate(pool["rosters"])
              if "|".join(sorted(map(str, r))) == victim["roster_key"]}
     assert len(twins) > 1                      # the synthetic pool repeats rosters
-    cut = ls.candidate_slice(pool, c, taken={victim["roster_key"]: "Other SE"})
+    cut = ls.candidate_slice(pool, c, k=100,
+                             taken={victim["roster_key"]: "Other SE"})
     idxs = {r["index"] for r in cut}
     assert not (idxs & twins)
     # Still a full, usable slice — the freed seats backfill from the next-best
@@ -424,7 +429,7 @@ def test_compliance_respects_relaxations(tmp_path, monkeypatch):
     assert "leverage" not in ls._RELAX_ORDER
 
 
-def test_eligible_indexes_filters_and_relaxes_in_order(tmp_path, monkeypatch):
+def test_eligible_indexes_prices_instead_of_filtering(tmp_path, monkeypatch):
     gate = _contract(tmp_path, monkeypatch)
     good = ["CoreA", "CoreB", "LevGuy", "MidGuy", "X1", "X2"]
     uw = ["CoreA", "CoreB", "LevGuy", "UwGuy", "X1", "X2"]
@@ -433,19 +438,23 @@ def test_eligible_indexes_filters_and_relaxes_in_order(tmp_path, monkeypatch):
     # 8/23 bug was exactly this pool shape: the winner sat in the uw branch.
     pool = {"rosters": [good] * 30 + [uw] * 30 + [bad] * 30}
     elig = ls.eligible_indexes(pool, gate)
-    assert elig["relaxed"] == [] and elig["full"] == 60
-    assert elig["allowed"] == set(range(60))
-    # Even a pool that is nearly ALL underweight carriers never needs a relax.
-    pool2 = {"rosters": [good] * 3 + [uw] * 40 + [bad] * 10}
-    elig2 = ls.eligible_indexes(pool2, gate)
-    assert elig2["relaxed"] == []
-    assert len(elig2["allowed"]) == 43
-    # The fade rows stay out always.
-    assert not (elig2["allowed"] & set(range(43, 53)))
-    # Hard rules still relax in order when the pool is thin: core first.
+    # 8/29/26 — THE STRATEGY IS A GUIDE, NOT A GATE. Nothing is filtered out.
+    assert elig["allowed"] == set(range(90))
+    assert elig["relaxed"] == []
+    # `full`/`clean` still report who breaks NO rule — the honest headline and
+    # the denominator the override log is read against.
+    assert elig["full"] == 60 and elig["clean"] == set(range(60))
+    # The fade rows are PRESENT and PRICED, not deleted.
+    assert set(range(60, 90)) <= elig["allowed"]
+    assert "\u203c" in ls.cost_tag(bad, gate)
+    assert ls.cost_tag(good, gate) is None
+    assert ls.cost_tag(uw, gate).startswith("\u26a0")
+    # A pool where every row breaks a rule is fully pickable — the old code
+    # relaxed rules here, which read as "thin pool" and hid the real cost.
     thin = {"rosters": [["CoreA", "MidGuy", "LevGuy", "X1", "X2", "X3"]] * 30}
     elig3 = ls.eligible_indexes(thin, gate)
-    assert elig3["relaxed"] == ["core"] and len(elig3["allowed"]) == 30
+    assert elig3["relaxed"] == [] and len(elig3["allowed"]) == 30
+    assert elig3["full"] == 0
 
 
 def test_no_contract_gates_nothing(tmp_path, monkeypatch):
@@ -457,38 +466,66 @@ def test_no_contract_gates_nothing(tmp_path, monkeypatch):
     assert elig["allowed"] == {0, 1} and elig["relaxed"] == []
 
 
-def test_candidate_slice_only_offers_compliant_rows(tmp_path, monkeypatch):
-    """The gate is upstream of every angle: no sim score can promote a lineup
-    the strategy ruled out, and the slice still fills up."""
+def test_candidate_slice_offers_rule_breakers_with_a_price(tmp_path, monkeypatch):
+    """8/29/26 reversal: a lineup that breaks the strategy REACHES the table
+    carrying its cost. The old hard gate deleted both 8/29 MMA contest winners
+    over one LEAN FADE call before anyone could look at them."""
     gate = _contract(tmp_path, monkeypatch)
     pool = _pool()
     c = pool["contests"][0]
-    # Make the pool's very BEST sim rows strategy-illegal, the rest legal.
     for i in range(len(pool["rosters"])):
         if i >= 180:                      # top of contest 1's rising metrics
             pool["rosters"][i] = ["CoreA", "CoreB", "LevGuy", "FadeGuy", "X1", "X2"]
         else:
             pool["rosters"][i] = ["CoreA", "CoreB", "LevGuy", f"M{i}", "X1", "X2"]
     elig = ls.eligible_indexes(pool, gate)
-    rows = ls.candidate_slice(pool, c, allowed=elig["allowed"])
-    assert rows and all(r["index"] < 180 for r in rows)
-    assert all(ls.compliance(r["roster"], gate) == [] for r in rows)
-    assert len(rows) > 50                 # a real choice, not a rump table
+    rows = ls.candidate_slice(pool, c, allowed=elig["allowed"], gate=gate)
+    idxs = {r["index"] for r in rows}
+    assert any(i >= 180 for i in idxs)            # faded rows are ON the table
+    assert any(i < 180 for i in idxs)             # so are the clean ones
+    costed = [r for r in rows if r["index"] >= 180]
+    assert costed and all("FadeGuy" in (r["cost"] or "") for r in costed)
+    assert all(r["cost"] is None for r in rows if r["index"] < 180)
 
 
-def test_parse_pick_rejects_a_pick_that_breaks_the_strategy(tmp_path, monkeypatch):
-    """Defense in depth: even handed a slice row, a pick breaking a HARD rule
-    saves nothing and the broken rule is named."""
+def _override_md(row, why):
+    return "\n".join([
+        "| pick | id | players |", "|---|---|---|",
+        "| 1 | %d | %s |" % (row["index"], ", ".join(row["roster"])),
+        "", "**Why**: " + why])
+
+
+def _fade_row():
+    roster = ["CoreA", "MidGuy", "FadeGuy", "X1", "X2", "X3"]
+    return {"index": 42, "roster": roster, "roster_key": "|".join(sorted(roster))}
+
+
+def test_parse_pick_allows_an_EXPLAINED_strategy_override(tmp_path, monkeypatch):
+    """8/29/26: breaking a rule is an OVERRIDE, not an error — provided the
+    why names the player and the rule. The strategy is a guide; the written
+    reasoning is the price of departing from it."""
     gate = _contract(tmp_path, monkeypatch)
-    row = {"index": 42, "roster": ["CoreA", "MidGuy", "FadeGuy", "X1", "X2", "X3"],
-           "roster_key": "|".join(sorted(["CoreA", "MidGuy", "FadeGuy",
-                                          "X1", "X2", "X3"]))}
-    md = "\n".join(["| pick | id | players | why |", "|---|---|---|---|",
-                    "| 1 | 42 | " + ", ".join(row["roster"]) + " | best sim row |"])
-    out = ls.parse_pick(md, [row], my_entries=1, gate=gate)
+    row = _fade_row()
+    out = ls.parse_pick(
+        _override_md(row, "Taking FadeGuy against the strategy's fade — he is "
+                          "the only path to a winning score here, and the "
+                          "lineup runs one Core anchor on purpose."),
+        [row], my_entries=1, gate=gate)
+    assert out["errors"] == []
+    assert out["picks"][0]["index"] == 42
+    assert out["picks"][0]["override"]          # recorded, never hidden
+
+
+def test_parse_pick_rejects_a_SILENT_strategy_override(tmp_path, monkeypatch):
+    """An unexplained break is still rejected — an override nobody wrote down
+    produces no evidence, and evidence is the whole reason overrides exist."""
+    gate = _contract(tmp_path, monkeypatch)
+    row = _fade_row()
+    out = ls.parse_pick(_override_md(row, "best sim row"), [row],
+                        my_entries=1, gate=gate)
     assert out["picks"] == []
-    assert any("does not follow the slate strategy" in e for e in out["errors"])
-    assert any("FADE" in e and "Core-tier" in e for e in out["errors"])
+    assert any("has to SAY SO" in e for e in out["errors"])
+    assert any("FadeGuy" in e for e in out["errors"])
 
 
 def _uw_rows():
@@ -667,3 +704,304 @@ def test_compare_sets_survives_a_spelling_difference():
     r = ls.compare_sets([["José Aldo Jr.", "Song Yadong"]],
                         [["Jose Aldo", "Song Yadong"]])
     assert r["n_match"] == 1
+
+
+# ---------------------------------------------------------------------------
+# 8/29/26 fixes — the three that let both MMA winners through unconsidered
+# ---------------------------------------------------------------------------
+
+def test_contract_conflict_core_equals_forbidden_pair(tmp_path, monkeypatch):
+    """The 8/29 contract verbatim: Core tier is exactly the forbidden chalk
+    pair, so "hold 2 Core" and "never hold both" cannot both be met. The full
+    gate returned 0 of 7,500 and the only signal was the word "relaxed"."""
+    gate = _contract(
+        tmp_path, monkeypatch,
+        board=[{"name": "Umar", "tier": "Core"}, {"name": "LiuCe", "tier": "Core"},
+               {"name": "MidGuy", "tier": "Good"}],
+        chalk_pairs=[{"players": ["Umar", "LiuCe"], "joint_pct": 17.1}])
+    conflicts = ls.contract_conflicts(gate)
+    assert len(conflicts) == 1
+    assert "no lineup on earth can" in conflicts[0]
+    assert "Umar" in conflicts[0] and "LiuCe" in conflicts[0]
+
+    # The real consequence: zero pass the full gate, and `core` gets relaxed.
+    pool = {"rosters": [["Umar", "LiuCe", "MidGuy", "X1", "X2", "X3"],
+                        ["Umar", "MidGuy", "X1", "X2", "X3", "X4"],
+                        ["LiuCe", "MidGuy", "X1", "X2", "X3", "X4"]] * 15}
+    elig = ls.eligible_indexes(pool, gate)
+    # Nothing can satisfy the contract, so NOTHING is clean — and since
+    # 8/29/26 every row is still pickable, priced.
+    assert elig["full"] == 0
+    assert elig["allowed"] == set(range(len(pool["rosters"])))
+    assert elig["conflicts"] == conflicts
+
+    # The summary still leads with the contradiction: a zero-clean pool caused
+    # by a broken contract must never read like a thin pool.
+    md = ls.gate_summary(gate, elig, pool=pool)
+    assert md.startswith("\U0001f6d1 THIS SLATE'S STRATEGY CONTRADICTS ITSELF")
+    assert "NOT a thin pool" in md
+    assert "break NO strategy rule" in md
+
+
+def test_contract_conflict_absent_on_a_coherent_contract(tmp_path, monkeypatch):
+    """Three Core names and a chalk pair inside them is NOT a contradiction —
+    a legal pair still exists. No false alarm."""
+    gate = _contract(tmp_path, monkeypatch,
+                     chalk_pairs=[{"players": ["CoreA", "CoreB"]}])
+    assert ls.contract_conflicts(gate) == []
+    pool = {"rosters": [["CoreA", "CoreC", "MidGuy", "X1", "X2", "X3"]] * 30}
+    elig = ls.eligible_indexes(pool, gate)
+    assert elig["conflicts"] == []
+    assert not ls.gate_summary(gate, elig, pool=pool).startswith("🛑")
+
+
+def test_contract_conflict_core_player_also_faded(tmp_path, monkeypatch):
+    gate = _contract(tmp_path, monkeypatch,
+                     board=[{"name": "FadeGuy", "tier": "Core"},
+                            {"name": "CoreB", "tier": "Core"},
+                            {"name": "CoreC", "tier": "Core"}])
+    conflicts = ls.contract_conflicts(gate)
+    assert any("FadeGuy" in c and "must-have" in c and "never play" in c
+               for c in conflicts)
+
+
+def test_contract_conflict_fade_beats_underweight(tmp_path, monkeypatch):
+    """A player called both FADE and UNDERWEIGHT: the gate enforces the fade,
+    so the softer call is dead. Say which one is actually running."""
+    gate = _contract(tmp_path, monkeypatch,
+                     calls=[{"name": "UwGuy", "verdict": "underweight"},
+                            {"name": "UwGuy", "verdict": "fade"}])
+    assert any("doing nothing" in c for c in ls.contract_conflicts(gate))
+
+
+def test_rule_price_reports_sim_quality_not_just_a_count(tmp_path, monkeypatch):
+    """8/29: the LEAN FADE on Sean Woodson removed a quarter of the pool and
+    the count alone was already shown. What was missing is that the deleted
+    branch held some of the pool's strongest simmed rows."""
+    gate = _contract(tmp_path, monkeypatch)
+    # 20 rows carry the faded player and hold the 20 BEST top1 values.
+    rosters, top1, roi = [], [], []
+    for i in range(60):
+        faded = i < 20
+        rosters.append((["LeanGuy"] if faded else ["MidGuy"])
+                       + ["CoreA", "CoreB", f"X{i}", "Y", "Z"])
+        top1.append(5.0 - i * 0.05)
+        roi.append(90.0 - i)
+    pool = {"rosters": rosters}
+    contest = {"metrics": {"top1_pct": top1, "roi_pct": roi}}
+
+    bare = ls.rule_price(gate, pool, "fade")
+    assert bare["n"] == 20 and bare["pct"] == 33.3
+    assert bare["top50_top1"] is None          # no metrics -> no quality claim
+
+    priced = ls.rule_price(gate, pool, "fade", contest)
+    assert priced["n"] == 20
+    assert priced["top50_top1"] == 20          # it deletes the whole top end
+    assert priced["top50_roi"] == 20
+    assert priced["best_top1"] == 5.0
+
+    md = ls.gate_summary(gate, ls.eligible_indexes(pool, gate),
+                         pool=pool, contest=contest)
+    assert "20 of the pool's 50 best rows by Top-1%" in md
+    assert "best lineup it removes had a 5.0% chance of finishing first" in md
+
+
+def test_metric_resolution_band_and_ties():
+    """A gap smaller than the sampling band is a tie, not a ranking."""
+    rows = [{"index": 0, "top1_pct": 3.56}, {"index": 1, "top1_pct": 3.34},
+            {"index": 2, "top1_pct": 3.25}, {"index": 3, "top1_pct": 2.96},
+            {"index": 4, "top1_pct": 1.67}]
+    res = ls.metric_resolution(rows, sims=10_000)
+    assert res["known"] and res["best"] == 3.56
+    assert 0.3 < res["band"] < 0.45          # ~2 SE of a 3.56% rate on 10k sims
+    # The 0.08 and 0.22 gaps the 8/29 picker treated as decisive are ties.
+    assert 0 in res["tied_ids"] and 1 in res["tied_ids"] and 2 in res["tied_ids"]
+    assert 4 not in res["tied_ids"]          # a 1.89-point gap is real
+    md = ls.resolution_md(res)
+    assert "is a TIE, not a ranking" in md
+    assert "Look DOWN the table" in md
+
+
+def test_metric_resolution_invents_nothing_without_a_sim_count():
+    rows = [{"index": 0, "top1_pct": 3.5}, {"index": 1, "top1_pct": 2.0}]
+    res = ls.metric_resolution(rows, sims=None)
+    assert res["known"] is False
+    assert res["band"] is None and res["tied_ids"] == []
+    assert "resolution: unknown" in ls.resolution_md(res)
+
+
+def test_digest_marks_tied_rows_when_sims_are_known(tmp_path, monkeypatch):
+    pool = _pool()
+    c = pool["contests"][0]
+    # The shared fixture's synthetic metrics run past 100; a real top1_pct is
+    # a percentage, and the tie band is only meaningful on one.
+    n = len(pool["rosters"])
+    c = dict(c, metrics=dict(c["metrics"],
+                             top1_pct=[round(3.6 - i * 0.02, 2) for i in range(n)]))
+    rows = ls.candidate_slice(pool, c)
+    md_no = ls.slice_digest_md("mma_se", c["label"], c, None, rows,
+                               pool["ownership"])
+    md_yes = ls.slice_digest_md("mma_se", c["label"], c, None, rows,
+                                pool["ownership"], sims=10_000)
+    assert "resolution: unknown" in md_no
+    assert "is a TIE, not a ranking" in md_yes
+    # The tie column exists in both, and the header stays aligned.
+    assert "| id | tie | salary |" in md_yes
+    # Read the CANDIDATE table only — the family summary above it is also
+    # pipe-delimited and has its own column count.
+    start = md_yes.index("| id | tie | salary |")
+    body = [l for l in md_yes[start:].splitlines()
+            if l.startswith("| ") and "id |" not in l and not set(l) <= set("|- ")]
+    assert body and all(l.count("|") == 14 for l in body)
+    # A 3.6% rate on 10k sims bands at ~0.37, so the top ~19 rows tie.
+    assert sum(1 for l in body if "| = |" in l) > 5
+
+
+# ---------------------------------------------------------------------------
+# 8/29/26 picker rebuild — bigger slice, evidence-weighted blend, families
+# ---------------------------------------------------------------------------
+
+def test_top1_leads_the_blend_and_projection_does_not(tmp_path):
+    """User directive 8/29/26: "the picker's number 1 item to choose from
+    should NOT be projected points." Winners project 94 on a 100-scale and so
+    does the median entry — projection qualifies a lineup, it never separates
+    one. A lineup that is best on the chance of WINNING must outrank a lineup
+    that is best on projection."""
+    n = 2
+    pool = {"rosters": [["A"] * 6, ["B"] * 6],
+            "proj": [0.0, 100.0],        # row 1 owns projection outright
+            "avg_own": [0.0, 100.0]}     # ...and ownership too
+    contest = {"field_size": 5000,
+               "metrics": {"top1_pct": [100.0, 0.0],   # row 0 owns top1
+                           "cash_pct": [100.0, 0.0]}}  # ...and cash
+    b = ls.blend_scores(pool, contest)
+    assert b[0] > b[1]
+    # Concretely: top1 must outweigh projection on its own.
+    solo = ls.blend_scores(
+        {"rosters": [["A"] * 6, ["B"] * 6], "proj": [0.0, 100.0],
+         "avg_own": [0.0, 0.0]},
+        {"field_size": 5000,
+         "metrics": {"top1_pct": [100.0, 0.0], "cash_pct": [0.0, 0.0]}})
+    assert solo[0] > solo[1]
+
+
+def test_blend_still_uses_projection_and_ownership_as_real_terms():
+    """Demoted is not deleted — pure top1% with nothing behind it measured
+    WORSE (42% winner capture) than the blend (58%)."""
+    flat = [1.0, 1.0]
+    base = {"rosters": [["A"] * 6, ["B"] * 6], "avg_own": [0.0, 0.0]}
+    contest = {"field_size": 5000,
+               "metrics": {"top1_pct": flat, "cash_pct": flat}}
+    b = ls.blend_scores(dict(base, proj=[0.0, 100.0]), contest)
+    assert b[1] > b[0]                       # projection still breaks a tie
+    o = ls.blend_scores(dict(base, proj=[0.0, 0.0],
+                             avg_own=[0.0, 100.0]), contest)
+    assert o[1] > o[0]                       # so does ownership
+
+
+def test_blend_is_one_curve_for_every_field_size():
+    """The small-field branch is gone: the tail leads everywhere now, so a
+    separate 'small fields pay the tail' weighting had nothing left to do."""
+    pool = {"rosters": [["A"] * 6, ["B"] * 6], "proj": [10.0, 20.0],
+            "avg_own": [5.0, 9.0]}
+    met = {"top1_pct": [3.0, 1.0], "cash_pct": [30.0, 20.0]}
+    assert (ls.blend_scores(pool, {"field_size": 300, "metrics": met})
+            == ls.blend_scores(pool, {"field_size": 60000, "metrics": met}))
+
+
+def test_blend_never_rewards_points_per_ownership():
+    """Unchanged by the 8/29 re-weighting. proj/ownership correlates -0.084 with the real finish. A cheap-ownership
+    lineup must not outrank a better one on that ratio alone."""
+    pool = {"rosters": [["A"] * 6, ["B"] * 6],
+            "proj": [100.0, 100.0], "avg_own": [5.0, 40.0]}
+    flat = [1.0, 1.0]
+    b = ls.blend_scores(pool, {"field_size": 5000,
+                               "metrics": {"top1_pct": flat, "cash_pct": flat}})
+    # Equal projection, higher ownership -> higher blend (ownership is POSITIVE).
+    assert b[1] > b[0]
+
+
+def test_slice_fills_to_the_cap_with_different_ideas():
+    """The angles alone stall at ~200 near-identical rows however wide they are
+    set — the fill-to-cap branch is what makes a 500-row slice mean anything.
+    Regression for the first cut of this rework, which returned 217 rows and
+    was LESS diverse than the 100-row slice it replaced.
+
+    Fixture shape is the real one: the top of the blend is a chalk block that
+    all shares a core, and the variety lives just below it. A pure rank cut
+    never leaves the block; the coverage fill has to."""
+    n = 3000
+    chalk = ["C1", "C2", "C3", "C4"]
+    rosters, proj = [], []
+    for i in range(n):
+        if i < 700:                     # highest projection, one shared core
+            rosters.append(chalk + [f"X{i}", f"Y{i}"])
+            proj.append(500.0 - i * 0.01)
+        else:                           # everything else, genuinely varied
+            rosters.append([f"A{i}", f"B{i}", f"D{i}", f"E{i}", f"F{i}", f"G{i}"])
+            proj.append(400.0 - i * 0.01)
+    names = sorted({p for r in rosters for p in r})
+    pool = {"rosters": rosters, "salary": [49000] * n, "proj": proj,
+            "avg_own": [20.0] * n, "ownership": {p: 15.0 for p in names}}
+    flat = [1.0] * n
+    contest = {"label": "Big SE", "field_size": 5000,
+               "metrics": {"top1_pct": flat, "win_pct": flat,
+                           "cash_pct": flat, "roi_pct": flat}}
+    rows = ls.candidate_slice(pool, contest)
+    assert len(rows) == ls._SLICE_CAP == 500
+    # Deterministic: same inputs, same slice.
+    assert [r["index"] for r in rows] == \
+        [r["index"] for r in ls.candidate_slice(pool, contest)]
+    # A pure rank cut would be 500 rows off the same 4-man core. The coverage
+    # fill has to escape the block, so it touches far more distinct players.
+    blend = ls.blend_scores(pool, contest)
+    rank_cut = sorted(range(n), key=lambda i: (-blend[i], i))[:500]
+    distinct = lambda idxs: len({p for i in idxs for p in rosters[i]})
+    assert distinct([r["index"] for r in rows]) > distinct(rank_cut)
+    assert any(r["index"] >= 700 for r in rows)     # it left the chalk block
+
+
+def test_lineup_families_group_the_slice_by_core():
+    """500 rows are not 500 ideas. Families let the picker choose a THESIS
+    first and a row second."""
+    rows = []
+    for i in range(12):          # thesis A: everyone shares 4 core players
+        rows.append({"index": i, "top1_pct": 3.0, "cash_pct": 30.0, "proj": 400.0,
+                     "avg_own": 25.0,
+                     "roster": ["CoreA", "CoreB", "CoreC", "CoreD", f"X{i}", f"Y{i}"]})
+    for i in range(12, 20):      # thesis B: a completely different core
+        rows.append({"index": i, "top1_pct": 2.0, "cash_pct": 25.0, "proj": 380.0,
+                     "avg_own": 20.0,
+                     "roster": ["AltA", "AltB", "AltC", "AltD", f"X{i}", f"Y{i}"]})
+    fams = ls.lineup_families(rows)
+    assert len(fams) == 2
+    assert fams[0]["n"] == 12 and fams[1]["n"] == 8
+    assert set(fams[0]["core"]) == {"CoreA", "CoreB", "CoreC", "CoreD"}
+    assert set(fams[1]["core"]) == {"AltA", "AltB", "AltC", "AltD"}
+    assert fams[0]["best_cash"] == 30.0
+    md = ls.families_md(fams)
+    assert "The theses on this slate" in md and "CoreA" in md and "AltA" in md
+    # Deterministic.
+    assert ls.lineup_families(rows) == fams
+
+
+def test_override_log_round_trips(tmp_path):
+    """The whole reason the gate was softened: overrides must be recorded so
+    they can be scored against real finishes later."""
+    ls.log_override("mma_se", "UFC Shanghai", "UFC $4K SE", 42,
+                    ["A", "B", "C", "D", "E", "F"],
+                    ["carries Sean Woodson — the strategy calls him LEAN FADE"],
+                    "he is the only path to a winning score", rules_dir=tmp_path)
+    ls.log_override("mma_se", "UFC Shanghai", "UFC $3K SE", 77,
+                    ["G", "H", "I", "J", "K", "L"],
+                    ["carries Sean Woodson — the strategy calls him LEAN FADE"],
+                    "same read, different core", rules_dir=tmp_path)
+    rep = ls.override_report("mma_se", rules_dir=tmp_path)
+    assert rep["n"] == 2
+    assert rep["slates"] == ["UFC Shanghai"]
+    assert rep["by_rule"]["carries Sean Woodson"] == 2
+    assert rep["rows"][0]["reason"].startswith("he is the only path")
+
+
+def test_override_report_is_empty_before_any_override(tmp_path):
+    assert ls.override_report("nascar", rules_dir=tmp_path)["n"] == 0

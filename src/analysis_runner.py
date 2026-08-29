@@ -251,13 +251,19 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"words too: 'Brett's article says his points come almost entirely from a finish'.\n"
         f"- **Readable:** use short tables where they compress; consistent, skimmable structure. "
         f"ONE idea per bullet — expressed fully, not abbreviated.\n\n"
-        f"LENGTH BUDGET (updated 8/11/26 — specificity beats brevity; the user: 'I don't want "
-        f"the strategy and autopsy findings to become too vague'): the WHOLE document is **at "
-        f"most 2,200 words** — aim for 1,500–2,000. Plan the spend before writing: Short version "
-        f"~120 · Slate at a glance ~60 · Edges & tensions ~200 · Field vs Sharp ~200 · Top plays "
-        f"~400 · Leverage ~250 · Fades ~150 · Build it like a sharp ~300, with the remaining "
+        f"LENGTH BUDGET (raised 8/29/26 by the user to **5,000 words** for the whole "
+        f"document; previously 2,200): aim for 3,000–4,500. The extra room exists to make "
+        f"things CLEARER, never longer. Spend it on: explaining what a number MEANS, walking "
+        f"through the reasoning step by step, and saying what the field is likely to do and how "
+        f"this slate beats it. Suggested spend — Short version ~250 · Slate at a glance ~150 · "
+        f"Edges & tensions ~500 · What the field will do ~500 · Field vs Sharp ~400 · Top plays "
+        f"~900 · Leverage ~500 · Fades ~350 · Build it like a sharp ~600, with the remaining "
         f"headroom going to whichever section this slate genuinely needs. Trim by SELECTION — "
-        f"delete whole repeated ideas, never blur a claim to save words.\n\n"
+        f"delete whole repeated ideas, never blur a claim to save words.\n"
+        f"**MORE ROOM IS NOT PERMISSION TO GET COMPLICATED.** The 5th-grader rule above still "
+        f"governs every single sentence at 5,000 words exactly as it did at 2,200. If a longer "
+        f"document is harder to read than a shorter one would have been, it is WORSE and you "
+        f"have misused the budget. Use the space for more short sentences, not longer ones.\n\n"
         f"NEVER VAGUE (user directive 8/11/26): every claim names its subject AND its numbers. "
         f"Never 'the top scorer' without the player's name; never 'a cheap golfer spiked' "
         f"without who, salary, and score; never 'the screen missed him' without the number it "
@@ -515,25 +521,31 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
                 "Strategy tab), then pick.", "duration_s": 0.0, "cost_usd": None}
     elig = ls.eligible_indexes(pool, gate)
     if not elig["allowed"]:
-        return {"ok": False, "error": "No lineup in the Sim's pool follows this "
-                "slate's strategy — rebuild the pool in the Sim with the "
-                "strategy's rules applied.", "duration_s": 0.0, "cost_usd": None}
+        # Since 8/29/26 `allowed` is the whole pool, so this only fires on an
+        # EMPTY pool. The old message ("no lineup follows the strategy") would
+        # now be actively wrong — strategy breaks no longer remove rows.
+        return {"ok": False, "error": "The Sim's pool is empty for this slate — "
+                "build and send a pool first.", "duration_s": 0.0,
+                "cost_usd": None}
     # One lineup, one contest (8/15/26): lineups already picked for another
     # contest on this slate are cut from the slice, so Claude never sees them.
     taken = ls.taken_roster_keys(slug, pool, exclude_label=str(sim_label))
     rows = ls.candidate_slice(pool, sim_contest,
                               strategy=ls.strategy_slice_names(slug),
-                              taken=taken, allowed=elig["allowed"])
+                              taken=taken, allowed=elig["allowed"], gate=gate)
     if not rows:
         return {"ok": False, "error": "The pool has no rows for this contest.",
                 "duration_s": 0.0, "cost_usd": None}
-    gate_md = ls.gate_summary(gate, elig, pool=pool)
+    # `contest` prices each hard rule by the SIM QUALITY it deletes, not just
+    # the count; `num_simulations` sizes the Top-1% tie band (both 8/29/26).
+    gate_md = ls.gate_summary(gate, elig, pool=pool, contest=sim_contest)
     slice_p = ls.slice_path(slug, key)
     slice_p.parent.mkdir(parents=True, exist_ok=True)
     slice_p.write_text(ls.slice_digest_md(slug, str(sim_label), sim_contest,
                                           declared, rows,
                                           pool.get("ownership") or {},
-                                          gate_md=gate_md))
+                                          gate_md=gate_md,
+                                          sims=pool.get("num_simulations")))
     out_path = ls.pick_path(slug, key)
     bundle_path = build_bundle(slug, contest_label, sport)
     my = int(sim_contest.get("my_entries") or 1)
@@ -553,19 +565,29 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
            f"picked for this slate's other contests and have been REMOVED from the table "
            f"below. Every contest gets its own lineups; nothing is entered twice.\n\n"
            if taken else "")
-        + f"HARD RULE — THE PICK MUST FOLLOW THE SLATE STRATEGY. This is the whole "
-          f"point of the pick; sim numbers decide only BETWEEN lineups the strategy "
-          f"already allows. The table has been filtered for you:\n\n{gate_md}\n\n"
-          f"Because of that filter you cannot pick a lineup that breaks those rules — "
-          f"but the strategy also has rules no filter can check. Read "
+        + f"THE SLATE STRATEGY IS A GUIDE, NOT A GATE (user directive 8/29/26). Nothing "
+          f"has been filtered out of the table: every lineup in the pool is available to "
+          f"you, and each one carries its strategy PRICE in the `cost` column. Here is "
+          f"what the strategy asked for and what each rule costs:\n\n{gate_md}\n\n"
+          f"So you MAY pick a lineup that breaks a rule — DFS is a game of using data "
+          f"against the field, and a strategy written before lock is a strong opinion, not "
+          f"a law. But an override is a DECISION you have to defend: if your pick carries "
+          f"a `cost`, your **Why** must NAME the player and the rule and say plainly what "
+          f"makes the lineup worth that price. A break the why does not mention is "
+          f"REJECTED by the app and nothing is saved — not because breaking the rule is "
+          f"wrong, but because an unexplained override teaches us nothing, and every "
+          f"override is logged and scored against your real finish over the coming "
+          f"slates. Default to the strategy; depart from it on purpose, in writing.\n\n"
+          f"The strategy also has rules no column can check. Read "
           f"`data/slate_analysis/{slug}.md` IN FULL before you choose, and obey its "
           f"`## Build it like a sharp` steps — the anchor decision, what a sharp "
           f"refuses, the salary shape, and especially its numbered "
           f"**pre-lock check**. (Its leverage step NAMES low-owned candidates; that is "
           f"a menu of plays available to you, never a slot you have to fill.) "
-          f"Run that pre-lock check against your pick and change "
-          f"the pick if any answer is wrong. A row with better sim numbers that fails a "
-          f"pre-lock question LOSES to a row that passes it. **ONE EXCEPTION, and it is "
+          f"Run that pre-lock check against your pick. A row with better sim numbers that "
+          f"fails a pre-lock question normally LOSES to a row that passes it — but this is "
+          f"a guide too: if you are convinced the failing row is the better tournament "
+          f"play, take it and say why in the Why. **ONE EXCEPTION, and it is "
           f"absolute: ignore any pre-lock question that requires a player for being "
           f"LOW-OWNED** — 'at least one sub-10% player', 'carries a leverage piece', "
           f"'inside the own-per-slot band', or any similar ownership threshold, however "
@@ -594,6 +616,21 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
         f"column matters more there.\n"
         f"- Duplication: the dupes column (when present) estimates how many opponents hold "
         f"the same lineup. Being alone on a winner beats sharing it.\n"
+        f"- **Sim ROI** is what the simulation thinks the entry is worth against THIS "
+        f"contest's payout ladder — it already folds the field and the prize structure in, "
+        f"so it is the closest single number to 'is this entry a good buy'. Use it, but "
+        f"never alone: on a top-heavy slate a lineup can carry solid ROI by cashing often "
+        f"and still have almost no path to first.\n"
+        f"- **PROJECTED POINTS IS A QUALIFIER, NOT THE HEADLINE** (user directive "
+        f"8/29/26: the number one thing you choose on must NOT be projected points). "
+        f"Scale each slate so its best possible lineup = 100: across 14 slates the "
+        f"typical contest WINNER projected 94 and the typical ENTRY projected 94 too. "
+        f"Winners are not further up the projection scale than the field — they sit in "
+        f"the same place. So projection tells you a lineup is strong enough to belong; "
+        f"it does not tell you it can win. Lead with the chance of finishing first "
+        f"(top1%%), and use projection to check the lineup is not carrying dead weight. "
+        f"Still name both in the Why — a reader needs to see you checked — but never "
+        f"argue 'this is the pick because it projects highest'.\n"
         f"- Picking {my} lineup(s) means each pick must earn its own reason. If that is more "
         f"than 1, the picks should win in DIFFERENT ways, not be near-copies.\n"
         f"- A trap is a price, not a player: judge every lineup on THIS slate's numbers.\n"
@@ -616,10 +653,32 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
         f"|---|---|---|---|\n"
         f"| 1 | <id from the table> | <players copied from that row> | <one short sentence> |\n\n"
         f"(exactly {my} data row(s) — never more, never fewer)\n\n"
-        f"**Why these picks:** <3-6 short sentences. Say what has to happen on the slate for "
-        f"the pick(s) to win, citing one sim number and one strategy read. Plain meaning "
-        f"first, DFS word in parentheses after — 'picked by few teams (low-owned)'. Explain "
-        f"each number — '1.9% top1 means about a 1-in-50 shot at first place'.>\n\n"
+        f"**Why these picks:** <THE MAIN OUTPUT. A cohesive argument, not a list of "
+        f"numbers (user directive 8/29/26). It must pull FIVE things together into one "
+        f"read, and it must show how they connect — a paragraph that mentions all five "
+        f"separately has not done the job:\n"
+        f"  1. **Top 1%** — its shot at actually WINNING. This leads the argument; a "
+        f"tournament pays the top, not the average.\n"
+        f"  2. **Sim ROI** — what the simulation says the entry is worth.\n"
+        f"  3. **Ownership** — how many other teams will look like this?\n"
+        f"  4. **Projected points** — a check that the lineup is strong enough to "
+        f"belong, NOT the reason to pick it (see above).\n"
+        f"  5. **Slate dynamics** — WHAT YOU THINK THE FIELD IS DOING, and HOW THIS LINEUP "
+        f"BEATS IT. This one is the spine of the argument, not a footnote. Say who the "
+        f"crowd is piling onto and why, then say where this lineup steps away from that "
+        f"crowd and what has to happen for that step to pay.\n"
+        f"Where two of them DISAGREE, say so and say which one you trusted — "
+        f"'his projection is the third best on the board but only 8% of teams will have "
+        f"him, and that gap is the whole reason to take him'. A pick whose numbers all "
+        f"point the same way is a fine pick; say that plainly too.\n"
+        f"Length: 6-12 short sentences. Every number gets its plain meaning in the SAME "
+        f"sentence — '1.9% top1 means about a 1-in-50 shot at first place', '38% owned "
+        f"means about 4 of every 10 teams have him', 'ROI of +45% means the sim expects "
+        f"this entry to return about $1.45 for every $1'. Plain meaning FIRST, the DFS "
+        f"word in parentheses after — 'picked by few teams (low-owned)'. Write it so a "
+        f"5th grader follows the whole argument start to finish: short sentences, one idea "
+        f"each, no clause chains. If the pick carries a `cost`, this is also where you "
+        f"name the player and the rule and defend the override.>\n\n"
         f"**Strategy check:** <one line per question in the slate strategy's numbered "
         f"pre-lock check, each answered YES or NO for the pick, quoting the question. "
         f"Every answer must be YES — if one is NO, go back and pick a different row. "

@@ -8,16 +8,23 @@ Per-contest flow (8/9/26 evening rework — the user's contests are all small
 single-entry GPPs but NOT interchangeable: different field sizes, payout
 shapes, and histories, so every contest gets its own pick and its own grade):
 
-1. `candidate_slice` deterministically cuts THAT contest's top ~100 pool rows
-   (by that contest's own sim metrics — top1/win/cash/roi — plus projection,
-   low-ownership and low-dupe standouts).
+1. `candidate_slice` deterministically cuts THAT contest's top ~500 pool rows
+   in two stages (8/29/26): a blend-ranked prefilter over the whole pool, then
+   a coverage-greedy fill so the table holds different IDEAS rather than 500
+   variations of one. The blend is weighted by measured predictive power —
+   projection and cash% lead, ownership is a real positive term, win% is out
+   (see `blend_scores`). `lineup_families` groups the result into a dozen
+   theses so the table is readable at that size.
 2. `slice_digest_md` renders the slice as one id-keyed markdown table; the
    `run_contest_selection` claude pass reads it (plus the strategy, board,
    and open lessons) and PICKS exactly `my_entries` rows BY ID.
 3. `parse_pick` validates the pick hard: every id must be a slice row, the
    listed players must match that row exactly, the count must equal
    `my_entries`. Any violation → errors, nothing saved. A selection can
-   choose; it can never invent.
+   choose; it can never invent. Breaking a STRATEGY rule is no longer a
+   violation — it is an OVERRIDE, legal when the why names it, and written to
+   `rules/<slug>/strategy_overrides.jsonl` so the autopsy can eventually score
+   overridden picks against clean ones (`log_override` / `override_report`).
 4. `save_contest_pick` persists picks per contest (schema v2) so the Grade
    tab can one-click them into that contest's grade box.
 
@@ -62,7 +69,15 @@ _SMALL_FIELD_TYPES = {"se", "3max", "5max"}
 # (docs/mme_plan.md: "Under ~2,500 entries plays like SE").
 _PLAYS_LIKE_SE_FIELD = 2_500
 
-_SLICE_CAP = 100  # user directive 8/15/26: expanded from 50, all sports
+_SLICE_CAP = 500  # user directive 8/29/26: 50 -> 100 (8/15) -> 500, all sports
+# Measured on 27 archived pools / 25 contests with a known winning score: a
+# lineup that would have WON the contest reached the old ~100-row slice in
+# 2 of 25 (8%). At ~500 coverage-selected rows it reaches 8 of 25 (32%); the
+# full pool holds one in 18 of 25 (72%). Size is the dominant term — the same
+# 72 rows chosen for coverage instead of sim rank scored WORSE (1 of 25), so
+# diversity only pays once there is room for it.
+_SLICE_PREFILTER = 2_000   # stage 1: quality cut over the WHOLE pool
+
 
 _CONTRACT_DIR = Path(__file__).parent.parent / "data" / "strategy_contract"
 
@@ -119,7 +134,7 @@ def strategy_gate(slug: str) -> dict:
         d = json.loads(p.read_text())
     except Exception:  # noqa: BLE001 — no contract → no gate
         return {"has_contract": False, "fade": {}, "underweight": {},
-                "leverage": {}, "core": {}, "chalk_pair": []}
+                "leverage": {}, "core": {}, "chalk_pair": [], "slate": ""}
     fade, uw = {}, {}
     for c in d.get("calls") or []:
         nm, v = c.get("name"), c.get("verdict")
@@ -141,7 +156,73 @@ def strategy_gate(slug: str) -> dict:
             pair = names
             break
     return {"has_contract": True, "fade": fade, "underweight": uw,
-            "leverage": lev, "core": core, "chalk_pair": pair}
+            "leverage": lev, "core": core, "chalk_pair": pair,
+            # The card this contract was written for — the override log keys
+            # on it so overrides can be joined to results.jsonl by slate.
+            "slate": str(d.get("slate") or "")}
+
+
+def contract_conflicts(gate: dict) -> list[str]:
+    """Rules in the contract that CANNOT be satisfied together, in plain words.
+
+    Found 8/29/26. That card's contract said, at the same time:
+
+        Core tier (hold at least 2 of): Umar Nurmagomedov, Liu Ce
+        chalk_pair (never hold both) : Umar Nurmagomedov, Liu Ce
+
+    The Core tier had exactly two names and the forbidden pair was the SAME
+    two names, so "hold both" and "never hold both" were asked at once. The
+    full gate returned **0 of 7,500** lineups. `eligible_indexes` then did its
+    job and relaxed `core` — the safety valve worked — but it reported only
+    "relaxed: core", which reads as "the pool was thin". It was not thin. The
+    contract was self-cancelling, and nothing said so.
+
+    A relaxation caused by a CONTRADICTION and one caused by a THIN POOL need
+    opposite responses: thin means trust the remaining rows, contradictory
+    means go fix the strategy. So they must never render the same way.
+
+    Returns [] when the contract is coherent (the normal case)."""
+    if not gate.get("has_contract"):
+        return []
+    out: list[str] = []
+    core = gate.get("core") or {}
+    pair = gate.get("chalk_pair") or []
+    fade = gate.get("fade") or {}
+    uw = gate.get("underweight") or {}
+
+    # Core needs min(2, len(core)) names. When Core holds 2 or fewer, meeting
+    # it means holding ALL of them — so a forbidden pair inside Core is a
+    # straight contradiction. (With 3+ Core names another legal pair exists.)
+    if len(pair) == 2 and core and len(core) <= 2:
+        pair_norm = {_strat_norm(pair[0]), _strat_norm(pair[1])}
+        if pair_norm <= set(core):
+            out.append(
+                f"the strategy names only two must-have players "
+                f"({', '.join(sorted(core.values()))}) and asks every lineup to "
+                f"hold {min(2, len(core))} of them. It ALSO says never hold "
+                f"{pair[0]} and {pair[1]} together, because too many other teams "
+                "will. Those are the same two players. So the strategy asks for "
+                "both and bans both at the same time, and no lineup on earth can "
+                "do it. Fix it by naming a third must-have player, or by taking "
+                "one of these two off the must-have list.")
+
+    # A player the strategy both anchors on and tells you to avoid.
+    both = set(core) & set(fade)
+    for k in sorted(both):
+        out.append(f"the strategy lists {core[k]} as a must-have player AND tells "
+                   f"you to {'mostly avoid' if fade[k][1] == 'lean_fade' else 'never play'} "
+                   "him. Both cannot be true. One of the two calls has to go.")
+
+    # FADE beats UNDERWEIGHT — "nowhere" and "less than the crowd, never zero"
+    # cannot both hold. The gate honors the FADE, which silently voids the
+    # softer call, so say which one is actually running.
+    for k in sorted(set(uw) & set(fade)):
+        out.append(f"the strategy says to use {uw[k]} LESS than the crowd, and "
+                   "also says to "
+                   f"{'mostly avoid' if fade[k][1] == 'lean_fade' else 'never play'} "
+                   "him. The stronger call wins, so the 'less than the crowd' "
+                   "note is doing nothing here.")
+    return out
 
 
 # Rules are dropped in THIS order when the pool can't fill a slice under the
@@ -177,12 +258,25 @@ _GATE_MIN_ROWS = 25   # below this the slice stops being a real choice
 
 
 def compliance(roster: list, gate: dict, relaxed: tuple = ()) -> list[str]:
-    """The HARD strategy rules THIS roster breaks, in plain words. Empty list =
-    the lineup may be picked. `relaxed` names rules to skip (see
-    `_RELAX_ORDER`). UNDERWEIGHT and LEVERAGE are deliberately NOT here —
-    both are soft costs (`soft_notes`), never a break (8/28/26; a compliance
-    entry rejects picks and deletes pool branches, which is the exact bug
-    both demotions remove)."""
+    """The strategy rules THIS roster breaks, in plain words.
+
+    **THE STRATEGY IS A GUIDE, NOT A GATE (user directive 8/29/26).** This
+    function still NAMES every rule a roster breaks — that has not changed and
+    is what the cost column and the override log are built on. What changed is
+    that a non-empty result no longer DELETES the lineup: `eligible_indexes`
+    keeps every row and prices the breaks instead (see `strategy_costs`).
+
+    Why the reversal, and it IS a reversal of the emphatic 8/15/26 directive:
+    across 14 archived cards the hard gate kept 96.9% of pool ceiling (median),
+    so it was never the main leak — but it allowed ZERO lineups on 3 of those
+    14 cards, cost 87 points of ceiling on 8/09 MMA, and on 8/29 it deleted
+    BOTH contest winners over one LEAN FADE call. And the deciding argument:
+    while the strategy could never be violated, there was no way to measure
+    whether following it wins. Overrides are now logged (`log_override`) so
+    that question gets an answer instead of an assumption.
+
+    UNDERWEIGHT and LEVERAGE remain outside this list — they were demoted
+    8/28/26 for the same reason, one step earlier."""
     if not gate.get("has_contract"):
         return []
     names = {_strat_norm(str(p)) for p in roster}
@@ -225,39 +319,163 @@ def soft_notes(roster: list, gate: dict) -> list[str]:
 
 def eligible_indexes(pool: dict, gate: dict,
                      min_rows: int = _GATE_MIN_ROWS) -> dict:
-    """Which pool rows the slate strategy actually allows.
+    """Which pool rows the picker may see — since 8/29/26, ALL of them.
 
-    Returns `{"allowed": set[int], "relaxed": [rule], "full": int, "total": int}`.
-    If the full gate leaves fewer than `min_rows` lineups, rules are dropped one
-    at a time in `_RELAX_ORDER` and every drop is REPORTED — the picker and the
-    app both say so out loud rather than quietly loosening the strategy."""
+    The strategy is a guide, not a gate (user directive). `allowed` is now the
+    whole pool and `relaxed` is always empty; what the rules produce instead is
+    a per-row COST (`strategy_costs`) that rides the table, has to be argued
+    against in writing, and is logged when overridden.
+
+    `full` is retained and still means "rows that break NO strategy rule" —
+    it is the honest headline number ("N of M follow the strategy outright")
+    and the denominator the override log is read against. `_RELAX_ORDER` and
+    `min_rows` are dead as filters and kept only so old callers don't break.
+
+    Returns `{"allowed", "relaxed", "full", "total", "conflicts", "clean"}`."""
     rosters = pool.get("rosters") or []
+    everything = set(range(len(rosters)))
     if not gate.get("has_contract"):
-        return {"allowed": set(range(len(rosters))), "relaxed": [],
-                "full": len(rosters), "total": len(rosters)}
-
-    def _pass(relaxed):
-        return {i for i, r in enumerate(rosters) if not compliance(r, gate, relaxed)}
-
-    allowed = _pass(())
-    full = len(allowed)
-    relaxed: list = []
-    for rule in _RELAX_ORDER:
-        if len(allowed) >= min_rows:
-            break
-        relaxed.append(rule)
-        allowed = _pass(tuple(relaxed))
-    return {"allowed": allowed, "relaxed": relaxed, "full": full,
-            "total": len(rosters)}
+        return {"allowed": everything, "relaxed": [], "full": len(rosters),
+                "total": len(rosters), "conflicts": [], "clean": everything}
+    clean = {i for i, r in enumerate(rosters) if not compliance(r, gate)}
+    return {"allowed": everything, "relaxed": [], "full": len(clean),
+            "total": len(rosters), "conflicts": contract_conflicts(gate),
+            "clean": clean}
 
 
-def gate_summary(gate: dict, elig: dict, pool: dict | None = None) -> str:
+def strategy_costs(roster: list, gate: dict) -> list[str]:
+    """Every strategy cost this roster carries — hard-rule breaks AND soft
+    ones — in one list, because since 8/29/26 they are the same KIND of thing:
+    a price the pick has to be worth, not a reason the row cannot exist."""
+    return compliance(roster, gate) + soft_notes(roster, gate)
+
+
+def cost_tag(roster: list, gate: dict) -> str | None:
+    """The short `strategy cost` cell for the slice table. None = no cost."""
+    hard = compliance(roster, gate)
+    soft = soft_notes(roster, gate)
+    bits = ["‼ " + _cost_head(h) for h in hard] + ["⚠ " + _cost_head(x) for x in soft]
+    return "; ".join(bits) if bits else None
+
+
+def _cost_head(text: str) -> str:
+    """First clause of a rule description — the table needs a label, not prose."""
+    return str(text).split(" — ")[0].split(" (")[0].strip()
+
+
+_OVERRIDE_FILE = "strategy_overrides.jsonl"
+
+
+def log_override(slug: str, slate: str, contest: str, index: int,
+                 roster: list, costs: list, reason: str,
+                 rules_dir: Path | None = None) -> Path:
+    """Record that a pick knowingly broke the slate strategy, and why.
+
+    This is the whole point of softening the gate. A rule that can never be
+    broken generates no evidence about whether it was worth following; one
+    logged override per pick turns "does the strategy win?" into a question
+    the autopsy can answer. Scored later against the entry's real finish —
+    the record deliberately carries no result field, because the result is
+    already in results.jsonl keyed by the same slate.
+
+    Append-only, one JSON object per line, next to the other learning logs."""
+    base = rules_dir or (Path(__file__).parent.parent / "rules")
+    path = base / slug / _OVERRIDE_FILE
+    path.parent.mkdir(parents=True, exist_ok=True)
+    rec = {"slate": slate, "contest": contest, "index": int(index),
+           "roster": list(roster), "costs": list(costs),
+           "reason": str(reason or "").strip()}
+    with open(path, "a") as f:
+        f.write(json.dumps(rec) + "\n")
+    return path
+
+
+def override_report(slug: str, rules_dir: Path | None = None) -> dict:
+    """How often the strategy has been overridden, and on which rules.
+
+    Read this beside results.jsonl in the autopsy: if overridden picks finish
+    better than clean ones over enough slates, the strategy is costing upside;
+    if worse, the gate was earning its keep. Neither answer is available while
+    the rule is absolute, which is why it no longer is."""
+    base = rules_dir or (Path(__file__).parent.parent / "rules")
+    path = base / slug / _OVERRIDE_FILE
+    if not path.exists():
+        return {"n": 0, "slates": [], "by_rule": {}, "rows": []}
+    rows = []
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if line:
+            try:
+                rows.append(json.loads(line))
+            except json.JSONDecodeError:
+                continue
+    by_rule: dict = {}
+    for r in rows:
+        for c in r.get("costs") or []:
+            head = _cost_head(c)
+            by_rule[head] = by_rule.get(head, 0) + 1
+    return {"n": len(rows),
+            "slates": sorted({r.get("slate") for r in rows if r.get("slate")}),
+            "by_rule": by_rule, "rows": rows}
+
+
+def rule_price(gate: dict, pool: dict, rule: str,
+               contest: dict | None = None) -> dict:
+    """What one hard rule costs, in lineups AND in sim quality.
+
+    Counting alone is not a price. On 8/29/26 the LEAN FADE call on Sean
+    Woodson removed **1,899 of 7,500** lineups — a quarter of the pool — and
+    both contest winners were inside the removed quarter. The count was
+    already shown. What was not shown is that the deleted branch held some of
+    the pool's strongest simmed rows, which is the part that would have made
+    the call worth a second look BEFORE lock.
+
+    So when `contest` carries metrics, this also reports how many of the
+    pool's top 50 by Top-1% and by ROI the rule deletes, and the best simmed
+    row it takes with it. All of it is available pre-lock — no result data.
+
+    Returns {"n", "total", "pct", "top50_top1", "top50_roi",
+    "best_top1", "best_roi"}; the sim-quality keys are None without metrics."""
+    rosters = (pool or {}).get("rosters") or []
+    out = {"n": 0, "total": len(rosters), "pct": 0.0, "top50_top1": None,
+           "top50_roi": None, "best_top1": None, "best_roi": None}
+    if not rosters:
+        return out
+    # Isolate ONE rule by relaxing the others — the same trick `_price` used.
+    others = tuple(r for r in ("core", "chalk_pair")
+                   if r != rule) + (("fade",) if rule != "fade" else ())
+    removed = [i for i, r in enumerate(rosters)
+               if compliance(r, gate, relaxed=others)]
+    out["n"] = len(removed)
+    out["pct"] = round(100 * len(removed) / len(rosters), 1)
+    m = (contest or {}).get("metrics") or {}
+    if not removed or not m:
+        return out
+    rem = set(removed)
+    for key, top_k, best_k in (("top1_pct", "top50_top1", "best_top1"),
+                               ("roi_pct", "top50_roi", "best_roi")):
+        vals = m.get(key)
+        if not vals or len(vals) < len(rosters):
+            continue
+        order = sorted(range(len(rosters)), key=lambda i: -(vals[i] or 0))
+        out[top_k] = sum(1 for i in order[:50] if i in rem)
+        out[best_k] = round(float(max((vals[i] or 0) for i in removed)), 2)
+    return out
+
+
+def gate_summary(gate: dict, elig: dict, pool: dict | None = None,
+                 contest: dict | None = None) -> str:
     """One plain-language block naming the rules every slice row satisfies —
     rendered into the digest Claude reads and into the app. When `pool` is
     given, each rule is PRICED: how many pooled lineups it alone removes, and
     how many carry each underweight name — so the cost of every call is
     visible before the pick (the 8/23 lesson: an unpriced soft call silently
-    deleted the branch holding the Clinch winner)."""
+    deleted the branch holding the Clinch winner). With `contest` the price
+    also names the SIM QUALITY the rule deletes (8/29/26 — see `rule_price`).
+
+    A self-cancelling contract (`contract_conflicts`) leads the block, because
+    it means the relaxation below was forced by a contradiction rather than by
+    a thin pool, and those two need opposite responses from the reader."""
     if not gate.get("has_contract"):
         return ("No slate strategy contract was found, so no strategy rules "
                 "could be enforced on this table.")
@@ -266,13 +484,25 @@ def gate_summary(gate: dict, elig: dict, pool: dict | None = None) -> str:
     norms = [{_strat_norm(str(p)) for p in r} for r in rosters]
 
     def _price(rule: str) -> str:
-        """' — removes N of the M pooled lineups' for one hard rule alone."""
+        """' — removes N of the M pooled lineups' for one hard rule alone,
+        plus the sim quality it takes with them when metrics are available."""
         if not rosters:
             return ""
-        others = tuple(r for r in ("core", "chalk_pair")
-                       if r != rule) + (("fade",) if rule != "fade" else ())
-        n = sum(1 for r in rosters if compliance(r, gate, relaxed=others))
-        return f" — removes {n:,} of the {len(rosters):,} pooled lineups"
+        pr = rule_price(gate, pool or {}, rule, contest)
+        txt = (f" — removes {pr['n']:,} of the {pr['total']:,} pooled lineups "
+               f"({pr['pct']}%)")
+        bits = []
+        if pr["top50_top1"]:
+            bits.append(f"{pr['top50_top1']} of the pool's 50 best rows by Top-1%")
+        if pr["top50_roi"]:
+            bits.append(f"{pr['top50_roi']} of the 50 best by ROI")
+        if bits:
+            txt += ", including " + " and ".join(bits)
+        if pr["best_top1"] is not None:
+            txt += (f"; the best lineup it removes had a {pr['best_top1']}% chance "
+                    "of finishing first — about 1 in "
+                    f"{max(1, round(100 / max(pr['best_top1'], 0.01)))}")
+        return txt
 
     rules = []
     if gate.get("fade"):
@@ -287,11 +517,31 @@ def gate_summary(gate: dict, elig: dict, pool: dict | None = None) -> str:
         rules.append(f"never both {gate['chalk_pair'][0]} and "
                      f"{gate['chalk_pair'][1]} (the most duplicated pair)"
                      + _price("chalk_pair"))
-    lines = ["Every lineup in the table below ALREADY follows the slate "
-             "strategy's hard rules. The app removed the ones that did not:"]
+    lines = []
+    conflicts = elig.get("conflicts") or contract_conflicts(gate)
+    if conflicts:
+        lines += [
+            "🛑 THIS SLATE'S STRATEGY CONTRADICTS ITSELF. The rules below "
+            "cannot all be true at once, so the app had to drop one to leave "
+            "anything pickable. This is NOT a thin pool — it is a contract "
+            "that needs fixing before the next slate:",
+        ]
+        lines += [f"  - {c}" for c in conflicts]
+        lines += ["Read every rule below knowing one of them was never "
+                  "enforceable.", ""]
+    lines += ["THE SLATE STRATEGY IS A GUIDE, NOT A GATE (8/29/26). Every "
+              "lineup in the pool is on the table below — nothing was deleted "
+              "for breaking a rule. What each rule costs, instead:"]
     lines += [f"- {r}" for r in rules]
-    lines.append(f"\n{elig.get('full', 0):,} of {elig.get('total', 0):,} pooled "
-                 "lineups pass the full strategy gate.")
+    lines.append(
+        f"\n{elig.get('full', 0):,} of {elig.get('total', 0):,} pooled lineups "
+        "break NO strategy rule. The rest are still pickable and carry their "
+        "price in the `cost` column: `‼` is a rule the strategy stated "
+        "outright, `⚠` is a softer call. **You may pick a row with a cost — "
+        "but the why must NAME the player and the rule and say what makes the "
+        "lineup worth it.** An unexplained break is rejected, because the "
+        "point of allowing overrides is to learn from them: every one is "
+        "logged and scored against your real finish over the coming slates.")
     if gate.get("underweight"):
         uw_lines = []
         for key in sorted(gate["underweight"]):
@@ -317,10 +567,11 @@ def gate_summary(gate: dict, elig: dict, pool: dict | None = None) -> str:
             "them breaks nothing and costs nothing. Where a lineup does "
             "carry one, the `strategy` column says so, as information.")
     if elig.get("relaxed"):
-        lines.append("⚠️ Too few lineups passed, so these rules had to be "
-                     "dropped to fill the table: "
-                     + ", ".join(elig["relaxed"])
-                     + ". Prefer rows that still honor them.")
+        why = ("the contradiction above made them impossible to satisfy"
+               if conflicts else "too few lineups passed to fill the table")
+        tail = ("" if conflicts else " Prefer rows that still honor them.")
+        lines.append(f"⚠️ These rules had to be dropped because {why}: "
+                     + ", ".join(elig["relaxed"]) + "." + tail)
     return "\n".join(lines)
 
 
@@ -569,10 +820,117 @@ def _top_idx(vals: list, n: int, reverse: bool = True,
     return order[:n]
 
 
+def blend_scores(pool: dict, contest: dict) -> list:
+    """The ranking score. **Top-1% leads. Projection does NOT** (user directive
+    8/29/26: "the picker's number 1 item to choose from should NOT be projected
+    points").
+
+        top 1 %            0.45   <- the chance this lineup WINS
+        cash %             0.28
+        projected points   0.17
+        average ownership  0.10
+
+    **Why projection was demoted, in one measurement.** Scale every slate so
+    its best possible salary-capped lineup = 100 points. Across 14 slates:
+
+        the typical contest WINNER projected   94
+        the typical contest ENTRY  projected   94
+
+    Winners are not further up the projection scale than the field. They sit
+    in the same place. Projection is a QUALIFIER — it tells you a lineup is
+    strong enough to be legal company — and it is not a DIFFERENTIATOR. What
+    separates the winner is which specific plays it was right about, and the
+    metric that prices that is the chance of finishing first.
+
+    That is also why an earlier version of this function had it backwards.
+    Projection has the best correlation with a lineup's FINAL SCORE (+0.179,
+    ahead of cash% +0.177 and top1% +0.108) and those weights were set from
+    exactly that table. But correlation-with-score is a MEAN metric, and a
+    top-heavy tournament does not pay the mean. On the metric that matters —
+    does a lineup that would have WON reach the picker's table at all —
+    measured over 19 contests:
+
+        top1/cash/proj/own
+        0.20/0.30/0.30/0.20   47%   the old weights, projection first
+        0.30/0.30/0.20/0.20   47%
+        0.45/0.28/0.17/0.10   58%   <- live
+        0.60/0.20/0.12/0.08   58%
+        0.85/0.08/0.05/0.02   58%
+        1.00/0.00/0.00/0.00   42%   top1 alone, with nothing behind it
+
+    A broad plateau from 0.45 to 0.85, and a real fall-off at 1.00 — so top1%
+    must LEAD but must not be alone. The live weights are the conservative end
+    of that plateau, deliberately not its argmax. Raising ownership above 0.10
+    costs a contest (0.45/0.25/0.15/0.15 → 53%), which is why it sits low
+    despite being a real signal in isolation.
+
+    **Do not re-tune this on correlation-with-score.** It is the wrong metric
+    and it argues for the wrong answer: pure projection scores BEST on
+    correlation (+0.160) and WORST on winner capture (27%). Optimise the tail.
+
+    One blend for every field size (the old small-field branch existed to add
+    tail weight where the payout is top-heavy; the tail now leads everywhere,
+    so the branch had nothing left to do). Returns one score per pool index.
+    """
+    rosters = pool.get("rosters") or []
+    n = len(rosters)
+    m = contest.get("metrics") or {}
+    t1 = _norm((m.get("top1_pct") or [None] * n)[:n])
+    ca = _norm((m.get("cash_pct") or [None] * n)[:n])
+    pj = _norm((pool.get("proj") or [None] * n)[:n])
+    ow = _norm((pool.get("avg_own") or [None] * n)[:n])
+    return [0.45 * t1[i] + 0.28 * ca[i] + 0.17 * pj[i] + 0.10 * ow[i]
+            for i in range(n)]
+
+
+def _coverage_fill(rosters: list, candidates: list, blend: list,
+                   seats: int) -> list:
+    """Fill `seats` from `candidates` for PLAYER COVERAGE, not rank order.
+
+    Greedy: repeatedly take the highest-blend row whose players are least
+    represented in what has already been chosen. Deterministic — ties break on
+    blend then index, and the input order is fixed by the caller.
+
+    Why coverage and not simply "the next 400 by blend": every angle feeding
+    the slice ranks on correlated sim metrics, so rank order returns near
+    duplicates of one idea. Coverage buys DIFFERENT ideas, which is the thing
+    a tournament pick actually needs — and measurably: at ~500 rows, coverage
+    selection reached a winning lineup in 8 of 25 contests against 6 of 25 for
+    a same-sized rank cut.
+
+    Note the ORDER of operations matters. Coverage at the old ~72-row size did
+    WORSE than rank order (1 of 25 vs 2 of 25) — too few seats to cover
+    anything, and spending them on spread costs quality for nothing. Coverage
+    is a large-slice technique; do not apply it to a small one."""
+    if seats <= 0 or not candidates:
+        return []
+    ranked = sorted(candidates, key=lambda i: (-blend[i], i))
+    if len(ranked) <= seats:
+        return ranked
+    sets = {i: set(rosters[i]) for i in ranked}
+    chosen = [ranked[0]]
+    used = {p: 1 for p in sets[ranked[0]]}
+    remaining = ranked[1:]
+    # A single pass over a shrinking list; the cost term is recomputed per
+    # pick because it depends on everything already chosen.
+    while len(chosen) < seats and remaining:
+        best_at, best_key = 0, None
+        for pos, i in enumerate(remaining):
+            key = (sum(used.get(p, 0) for p in sets[i]), -blend[i], i)
+            if best_key is None or key < best_key:
+                best_at, best_key = pos, key
+        pick = remaining.pop(best_at)
+        chosen.append(pick)
+        for p in sets[pick]:
+            used[p] = used.get(p, 0) + 1
+    return chosen
+
+
 def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP,
                     strategy: dict | None = None,
                     taken: dict | set | None = None,
-                    allowed: set | None = None) -> list[dict]:
+                    allowed: set | None = None,
+                    gate: dict | None = None) -> list[dict]:
     """THIS contest's top pool rows, deterministically: the union of the best
     lineups by each of the contest's own sim metrics, plus projection,
     low-ownership / low-duplication standouts, and (8/15/26) a STRATEGY-AWARE
@@ -587,10 +945,15 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP,
     lineups already picked for another contest on this slate, so one lineup is
     only ever entered once (user directive 8/15/26).
 
-    `allowed` (from `eligible_indexes`) is the STRATEGY GATE: only lineups that
-    already follow the slate strategy may enter the slice. Rows outside it are
-    invisible to every angle below, so no sim score can promote a lineup the
-    strategy ruled out."""
+    `allowed` (from `eligible_indexes`) is the pickable universe. Since
+    8/29/26 that is the WHOLE pool — the strategy is a guide, not a gate, so a
+    rule-breaking lineup reaches the table carrying its price in the `cost`
+    column rather than being deleted before anyone sees it. The parameter is
+    kept because "one lineup, one contest" and any future hard exclusion still
+    flow through it.
+
+    `gate` (from `strategy_gate`) prices each row. Pass it whenever there is a
+    contract; without it the `cost` column is empty and a break is invisible."""
     rosters = pool.get("rosters") or []
     n = len(rosters)
     if n == 0:
@@ -629,11 +992,27 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP,
         return []
     u = len(universe)
 
-    _add(_top_idx(top1, 30, universe=universe))
-    _add(_top_idx(win, 30, universe=universe))
-    _add(_top_idx(cash, 20, universe=universe))
-    _add(_top_idx(roi, 20, universe=universe))
-    _add(_top_idx(proj, 20, universe=universe))
+    # Angle sizes scale with the cap so a 500-row slice is not 120 ranked rows
+    # plus 380 coverage picks. **Seat order matches `blend_scores`: the chance
+    # of WINNING leads, projection does not** (user directive 8/29/26). The
+    # first-listed angle claims its seats first, so this order is not cosmetic
+    # — an earlier version seated projection first and handed the top of the
+    # table to lineups that project like the field median, which is where the
+    # field median already is.
+    _a = max(1, k // 10)
+    _add(_top_idx(top1, _a, universe=universe))
+    _add(_top_idx(cash, _a, universe=universe))
+    _add(_top_idx(roi, _a, universe=universe))
+    # Projection still earns seats — a lineup has to be strong enough to be
+    # legal company, and projection is what says so — but it qualifies rather
+    # than leads, so it gets a half seat like win%.
+    _add(_top_idx(proj, max(1, _a // 2), universe=universe))
+    _add(_top_idx(win, max(1, _a // 2), universe=universe))
+    # Ownership: BOTH ends get seats. The most-owned rows are not a mistake to
+    # be screened out and the least-owned are not a bonus — it is a real but
+    # minor signal (NASCAR's best at +0.121, worth nothing in PGA Classic).
+    _add(_top_idx(avg_own, max(1, _a // 4), universe=universe))
+    _add(_top_idx(avg_own, max(1, _a // 4), universe=universe, reverse=False))
     # Standouts within the top quartile by this contest's top1: the
     # lowest-owned (leverage) and, when dupe data exists, least-duplicated.
     # These carry reserved seats through the cap below — they were added for
@@ -677,19 +1056,32 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP,
             _add(cov[:20])
             standouts.update(cov[:20])
 
-    # Cap by blend score (small fields lean on win% — plays like SE), with the
-    # leverage/low-dupe standouts guaranteed to survive the cut.
-    t1n, wn, cn = _norm(top1), _norm(win), _norm(cash)
-    field = int(contest.get("field_size") or 0)
-    if field and field < _PLAYS_LIKE_SE_FIELD:
-        blend = [0.4 * t1n[i] + 0.4 * wn[i] + 0.2 * cn[i] for i in range(n)]
-    else:
-        blend = [0.5 * t1n[i] + 0.3 * wn[i] + 0.2 * cn[i] for i in range(n)]
+    blend = blend_scores(pool, contest)
     if len(chosen) > k:
+        # Over the cap: reserved seats survive, the rest are coverage-filled.
         keep = [i for i in chosen if i in standouts]
         rest = [i for i in chosen if i not in standouts]
         rest.sort(key=lambda i: (-blend[i], i))
-        chosen = keep + rest[:max(0, k - len(keep))]
+        chosen = keep + _coverage_fill(rosters, rest[:_SLICE_PREFILTER], blend,
+                                       max(0, k - len(keep)))
+    elif len(chosen) < k:
+        # UNDER the cap — the normal case, and the one the first cut of this
+        # rework got wrong. However wide the angles are set they produce only
+        # ~200 unique rows, because they all rank correlated metrics and
+        # overlap heavily. Left there, raising the cap buys nothing: the slice
+        # stalls at ~200 near-identical rows (measured: diversity got WORSE
+        # than the old 100-row slice, 1.74 shared players per pair vs 1.59).
+        #
+        # Stage 1 of the two-stage design: rank the whole pickable universe by
+        # blend, keep the top `_SLICE_PREFILTER`, then coverage-fill the empty
+        # seats from it. That is what buys DIFFERENT ideas instead of more of
+        # the same one — and the prefilter is also what keeps the O(seats x
+        # candidates) coverage pass fast on a 20,000-row pool.
+        already = set(chosen)
+        pre = [i for i in universe if i not in already]
+        pre.sort(key=lambda i: (-blend[i], i))
+        chosen = chosen + _coverage_fill(rosters, pre[:_SLICE_PREFILTER],
+                                         blend, k - len(chosen))
     chosen.sort(key=lambda i: (-blend[i], i))
 
     def _val(arr, i, nd=2):
@@ -716,14 +1108,211 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP,
             "roi_pct": _val(roi, i, 1),
             "exp_dupes": _val(dupes or [], i),
             "strategy": ", ".join(hits) if hits else None,
+            # The strategy is a guide now, so every row is pickable and each
+            # carries its PRICE instead of being deleted (8/29/26).
+            "cost": cost_tag(names, gate) if gate else None,
         })
     return out
 
 
+def lineup_families(rows: list[dict], max_families: int = 12) -> list[dict]:
+    """Group the slice into FAMILIES — sets of rows built on the same core.
+
+    500 rows is past what anyone reads row by row, and the rows are not 500
+    ideas: they are a dozen theses with variations. A family is defined by its
+    CORE — the players most of its members share — so the picker chooses a
+    thesis first and a row second, instead of scanning a table and taking
+    whatever sits at the top of one column.
+
+    Deterministic: seeded by the highest-blend unassigned row, grown by roster
+    overlap, ties broken by index. Same slice in, same families out.
+
+    Returns one dict per family: {core, n, ids, best_*, avg_own, example}."""
+    if not rows:
+        return []
+    sets = [set(r.get("roster") or []) for r in rows]
+    size = max((len(x) for x in sets), default=6)
+    # Two rows are the same thesis when they share most of a lineup.
+    need = max(2, round(size * 0.5))
+    unassigned = list(range(len(rows)))
+    families = []
+    while unassigned and len(families) < max_families:
+        seed = unassigned[0]
+        members = [i for i in unassigned if len(sets[i] & sets[seed]) >= need]
+        if not members:
+            members = [seed]
+        counts: dict = {}
+        for i in members:
+            for pl in sets[i]:
+                counts[pl] = counts.get(pl, 0) + 1
+        core = sorted((pl for pl, c in counts.items() if c >= len(members) * 0.6),
+                      key=lambda pl: (-counts[pl], pl))[:4]
+        families.append({
+            "core": core or sorted(sets[seed])[:3],
+            "n": len(members),
+            "ids": [rows[i]["index"] for i in members],
+            "best_top1": _fam_best(rows, members, "top1_pct"),
+            "best_cash": _fam_best(rows, members, "cash_pct"),
+            "best_proj": _fam_best(rows, members, "proj"),
+            "avg_own": _fam_avg(rows, members, "avg_own"),
+            "example": rows[members[0]]["index"],
+        })
+        drop = set(members)
+        unassigned = [i for i in unassigned if i not in drop]
+    if unassigned:   # everything past the family cap, kept honest
+        families.append({"core": ["(other)"], "n": len(unassigned),
+                         "ids": [rows[i]["index"] for i in unassigned],
+                         "best_top1": _fam_best(rows, unassigned, "top1_pct"),
+                         "best_cash": _fam_best(rows, unassigned, "cash_pct"),
+                         "best_proj": _fam_best(rows, unassigned, "proj"),
+                         "avg_own": _fam_avg(rows, unassigned, "avg_own"),
+                         "example": rows[unassigned[0]]["index"]})
+    return families
+
+
+def _fam_best(rows, members, key):
+    vals = [rows[i].get(key) for i in members if rows[i].get(key) is not None]
+    return round(max(vals), 2) if vals else None
+
+
+def _fam_avg(rows, members, key):
+    vals = [rows[i].get(key) for i in members if rows[i].get(key) is not None]
+    return round(sum(vals) / len(vals), 1) if vals else None
+
+
+def families_md(families: list[dict]) -> str:
+    """The family summary the picker reads BEFORE the row table."""
+    if not families:
+        return ""
+    lines = [
+        "## The theses on this slate",
+        "",
+        "The rows below are not independent lineups — they are a handful of "
+        "theses with variations. Choose a THESIS first, then the row inside it "
+        "that best fits the contest. Do not scan the table and take whatever "
+        "sits at the top of one column.",
+        "",
+        "| # | core players | rows | best top1% | best cash% | best proj | avg own% | example id |",
+        "|---|---|---:|---:|---:|---:|---:|---|",
+    ]
+    for j, f in enumerate(families, 1):
+        lines.append(
+            f"| {j} | {', '.join(f['core'])} | {f['n']} | {f['best_top1']} | "
+            f"{f['best_cash']} | {f['best_proj']} | {f['avg_own']} | {f['example']} |")
+    lines.append("")
+    return "\n".join(lines)
+
+
+# How far below the best row a lineup can sit and still be a statistical tie.
+# Two standard errors of an independently-sampled rate — see `metric_resolution`.
+_TIE_BAND_SE = 2.0
+
+
+def metric_resolution(rows: list[dict], sims: int | None,
+                      metric: str = "top1_pct") -> dict:
+    """How big a Top-1% gap has to be before it means anything — and which
+    slice rows are inside a statistical tie with the best one.
+
+    **Why this exists (8/29/26).** The picker read the slice as an ORDERED
+    LIST and only ever argued against rows ABOVE its choice on Top-1%. Both
+    written rationales that night rejected a rival on a Top-1% gap of 0.08
+    and 0.59 points. Meanwhile a row sitting 0.38 points BELOW the pick —
+    Hasan/Gomes/Nuzzi/Liu Ce/Tsuruya/Song, 10th of 7,500 by Cash% and 13th by
+    ROI — scored **696.1**, forty-seven points more than the score that won
+    the contest. It was in the slice. It was never mentioned, because it
+    ranked lower on the one metric the picker sorted by.
+
+    A rate estimated from `sims` Monte Carlo runs has a standard error of
+    `sqrt(p(1-p)/sims)`. At 3% on 10,000 sims that is 0.17 points, so a
+    two-SE band is ±0.34 — wider than both gaps the 8/29 picker treated as
+    decisive. Rows inside that band are not ranked; they are TIED, and a tie
+    has to be broken on what the lineups actually are.
+
+    *Honest caveat, stated in the output too:* every row is simmed against
+    the same draws, so a PAIRED difference is measured more precisely than
+    two independent standard errors imply. The band is therefore a
+    conservative width, not an exact test. It is still the right instrument
+    for the failure it addresses — a gap this small is never a reason to
+    dismiss a roster shape you would otherwise want.
+
+    Returns {"sims", "band", "best", "tied_ids", "spread", "known"}.
+    `known` is False when the payload carried no sim count; nothing is
+    invented in that case."""
+    vals = [(r.get("index"), r.get(metric)) for r in rows or []
+            if r.get(metric) is not None]
+    if not vals:
+        return {"sims": sims, "band": None, "best": None, "tied_ids": [],
+                "spread": None, "known": False}
+    best = max(v for _i, v in vals)
+    lo = min(v for _i, v in vals)
+    out = {"sims": sims, "best": round(float(best), 2),
+           "spread": round(float(best - lo), 2), "known": bool(sims)}
+    if not sims or sims <= 0:
+        out["band"] = None
+        out["tied_ids"] = []
+        return out
+    # Clamp into [0, 1] before the variance term: a rate outside it makes
+    # p(1-p) negative and `** 0.5` returns a COMPLEX number, which then blows
+    # up on round(). Rates arrive as percentages from the sim and are normally
+    # well inside range, but a hand-edited or mis-scaled column must degrade
+    # to a usable band rather than crash the digest.
+    p = min(max(float(best) / 100.0, 0.0), 1.0)
+    se = (p * (1 - p) / float(sims)) ** 0.5 * 100.0
+    # A degenerate rate (0% or 100%) has zero sampling variance, which would
+    # claim infinite precision. Floor the band at the metric's own printed
+    # resolution instead — two rows that round to the same value are tied.
+    band = max(round(_TIE_BAND_SE * se, 2), 0.01)
+    out["band"] = band
+    out["tied_ids"] = [i for i, v in vals if v >= best - band]
+    return out
+
+
+def resolution_md(res: dict, metric_label: str = "Top-1%") -> str:
+    """The resolution note the picker reads, in plain words."""
+    if not res.get("known"):
+        return (f"**{metric_label} resolution: unknown.** This pool was sent "
+                "without its simulation count, so there is no way to say how "
+                f"big a {metric_label} gap has to be to mean anything. Treat "
+                "small gaps as ties and decide on the lineups themselves.")
+    n = len(res.get("tied_ids") or [])
+    return (
+        f"**A {metric_label} gap under {res['band']} points is a TIE, not a "
+        f"ranking.** These rates come from {res['sims']:,} simulations, so a "
+        f"rate near {res['best']}% carries about ±{res['band']} points of "
+        f"sampling noise. Across this whole table {metric_label} spans only "
+        f"{res['spread']} points, so most of the table is within a few bands "
+        "of everything else.\n\n"
+        f"**{n} row(s) are tied with the best one** (ids: "
+        + ", ".join(str(i) for i in sorted(res.get("tied_ids") or [])) + "). "
+        "Choose among them on what the lineups ARE — which fights they take, "
+        "which shapes they give you — never on the decimal.\n\n"
+        "Two rules follow, and the second is the one that was broken on "
+        "8/29/26:\n"
+        f"1. Never reject a lineup because another row is {res['band']} points "
+        f"higher on {metric_label}. That is noise. Say something about the "
+        "lineup instead.\n"
+        "2. **Look DOWN the table, not just up.** The band applies to ANY two "
+        f"rows, not only to the best one: a row within {res['band']} points of "
+        "the one you are leaning toward is tied with it, whether it sits above "
+        "or below. Before you commit, read the rows just under your choice and "
+        "say why their shape is worse. On 8/29 the row that would have won the "
+        "contest by 47 points sat 0.38 points below the pick — about one band — "
+        "and was never mentioned in the rationale.\n\n"
+        "*Caveat: all rows share the same simulated draws, so a paired "
+        "difference is measured a little more precisely than this band "
+        "implies. The band is deliberately conservative.*")
+
+
 def slice_digest_md(slug: str, label: str, contest: dict, declared: dict | None,
                     rows: list[dict], ownership: dict,
-                    gate_md: str | None = None) -> str:
-    """The candidate table the claude pass reads and picks ids from."""
+                    gate_md: str | None = None,
+                    sims: int | None = None) -> str:
+    """The candidate table the claude pass reads and picks ids from.
+
+    `sims` (8/29/26) is the pool payload's `num_simulations`. With it the
+    digest carries a RESOLUTION BAND and marks every row tied with the best
+    on Top-1%, so the table reads as a set of near-equal candidates rather
+    than a strict ranking — see `metric_resolution`."""
     shape = (declared or {}).get("payout_shape") or "not declared"
     my = contest.get("my_entries")
     lines = [
@@ -737,21 +1326,43 @@ def slice_digest_md(slug: str, label: str, contest: dict, declared: dict | None,
     ]
     if gate_md:
         lines += ["## The strategy gate", "", gate_md, ""]
+    res = metric_resolution(rows, sims)
+    tied = set(res.get("tied_ids") or [])
+    fam = families_md(lineup_families(rows))
+    if fam:
+        lines += [fam, ""]
+    lines += ["## How much a Top-1% gap is worth", "", resolution_md(res), ""]
     lines += [
-        "| id | salary | proj | avg own% | win% | top1% | cash% | roi% | dupes | strategy | players |",
-        "|---|---|---|---|---|---|---|---|---|---|---|",
+        "## Every candidate", "",
+        "| id | tie | salary | proj | avg own% | win% | top1% | cash% | roi% | dupes | cost | strategy | players |",
+        "|---|---|---|---|---|---|---|---|---|---|---|---|---|",
     ]
     for r in rows:
         players = ", ".join(
             f"{nm} ({ownership.get(nm)}%)" if ownership.get(nm) is not None else nm
             for nm in r["roster"])
         lines.append(
-            f"| {r['index']} | {r.get('salary')} | {r.get('proj')} | "
+            f"| {r['index']} | {'=' if r['index'] in tied else ''} | "
+            f"{r.get('salary')} | {r.get('proj')} | "
             f"{r.get('avg_own')} | {r.get('win_pct')} | {r.get('top1_pct')} | "
             f"{r.get('cash_pct')} | {r.get('roi_pct')} | "
             f"{r.get('exp_dupes') if r.get('exp_dupes') is not None else '—'} | "
+            f"{r.get('cost') or '—'} | "
             f"{r.get('strategy') or '—'} | "
             f"{players} |")
+    lines.append("")
+    lines.append("The `cost` column is what this lineup costs against the "
+                 "slate strategy — `‼` a stated rule, `⚠` a softer call, `—` "
+                 "nothing. A cost is a PRICE, not a ban: pick a costed row "
+                 "whenever it is worth the price, and name the player and the "
+                 "rule in your why when you do. Picking one without saying so "
+                 "is rejected.")
+    lines.append("")
+    lines.append("A `=` in the `tie` column means this row is statistically "
+                 "TIED with the best row on Top-1% — its number is not worse, "
+                 "it is the same number inside sampling noise. Pick among the "
+                 "`=` rows on lineup shape, and never write a rationale that "
+                 "rejects one for a decimal.")
     lines.append("")
     lines.append("The `strategy` column names the leverage-list players this "
                  "lineup carries — the strategy asked for those, so those rows "
@@ -779,6 +1390,40 @@ def _strip_own(cell: str) -> list[str]:
             for p in str(cell).split(",") if p.strip()]
 
 
+def _extract_why(md: str) -> str | None:
+    """The pick file's **Why** block, whitespace-collapsed."""
+    m = re.search(r"^\*\*Why[^\n]*\*\*:?\s*(.*?)(?=\n\s*\n|\Z)",
+                  md or "", re.M | re.S)
+    return (" ".join(m.group(1).split()) or None) if m else None
+
+
+def _reason_covers(why: str | None, roster: list, broken: list[str]) -> bool:
+    """Does the written reason actually ADDRESS the rule this pick breaks?
+
+    Deliberately shallow: it checks that the named player (or, for the rules
+    that name no player, a recognizable phrase) appears in the why. It is not
+    trying to judge whether the argument is GOOD — that is the user's job when
+    they read it. It only stops the failure mode this whole change would
+    otherwise create, which is a pick quietly breaking the strategy and
+    nobody, including the autopsy, ever knowing it happened."""
+    if not why:
+        return False
+    low = why.lower()
+    for rule in broken:
+        rl = rule.lower()
+        named = [p for p in roster if str(p).lower() in rl]
+        if named:
+            if not any(str(p).lower() in low for p in named):
+                return False
+        elif "core" in rl:
+            if "core" not in low and "anchor" not in low:
+                return False
+        elif "duplicated pair" in rl:
+            if "pair" not in low and "duplicat" not in low:
+                return False
+    return True
+
+
 def parse_pick(md: str, slice_rows: list[dict], my_entries: int,
                taken: dict | None = None, gate: dict | None = None,
                relaxed: tuple = ()) -> dict:
@@ -801,6 +1446,9 @@ def parse_pick(md: str, slice_rows: list[dict], my_entries: int,
     from src.autopsy import _norm_name
 
     by_index = {int(r["index"]): r for r in slice_rows}
+    # Parsed BEFORE the pick loop: since 8/29/26 an override is legal only if
+    # the why explains it, so the loop has to be able to read it.
+    why = _extract_why(md)
     picks: list[dict] = []
     errors: list[str] = []
     seen_ids: set = set()
@@ -860,13 +1508,24 @@ def parse_pick(md: str, slice_rows: list[dict], my_entries: int,
             errors.append(f"id {rid} has the same players as id "
                           f"{seen_rosters[rkey]} — a lineup can only be picked once.")
             continue
+        # THE STRATEGY IS A GUIDE, NOT A GATE (8/29/26). A pick that breaks a
+        # rule is no longer rejected — it is an OVERRIDE, and the only thing
+        # required of it is that the pick file say why in writing. Silent
+        # overrides ARE still rejected: an unexplained break generates no
+        # evidence, which is the one thing this change exists to produce.
         broken = compliance(srow["roster"], gate or {}, relaxed) if gate else []
+        pick = {"index": rid, "roster_key": rkey}
         if broken:
-            errors.append(f"id {rid} does not follow the slate strategy — it "
-                          + "; ".join(broken) + ".")
-            continue
+            if not _reason_covers(why, srow["roster"], broken):
+                errors.append(
+                    f"id {rid} breaks the slate strategy — it "
+                    + "; ".join(broken) + ". That is allowed, but the pick has "
+                    "to SAY SO: name the player and the rule in the why, and "
+                    "give the reason the lineup is worth the cost.")
+                continue
+            pick["override"] = broken
         seen_rosters[rkey] = rid
-        picks.append({"index": rid, "roster_key": rkey})
+        picks.append(pick)
 
     if len(picks) != int(my_entries):
         errors.append(f"{len(picks)} valid pick(s) but this contest takes "
@@ -903,12 +1562,6 @@ def parse_pick(md: str, slice_rows: list[dict], my_entries: int,
         # NO leverage check of any kind (8/28/26). A pick set carrying zero
         # low-owned players is a complete, valid answer — the 7/19 winners
         # were exactly that — so it earns no error and no warning.
-
-    why = None
-    m = re.search(r"^\*\*Why[^\n]*\*\*:?\s*(.*?)(?=\n\s*\n|\Z)",
-                  md or "", re.M | re.S)
-    if m:
-        why = " ".join(m.group(1).split()) or None
 
     return {"picks": picks if not errors else [], "why": why,
             "errors": errors, "warnings": warnings if not errors else []}
