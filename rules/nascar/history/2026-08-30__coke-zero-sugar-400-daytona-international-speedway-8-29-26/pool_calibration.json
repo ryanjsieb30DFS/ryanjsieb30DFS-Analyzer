@@ -1,0 +1,41 @@
+{
+  "gradable": true,
+  "n_pool": 39,
+  "n_matched": 39,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 6,
+      "avg_fpts": 39.8,
+      "max_fpts": 64.3
+    },
+    {
+      "tier": "Good",
+      "n": 8,
+      "avg_fpts": 30.5,
+      "max_fpts": 50.7
+    },
+    {
+      "tier": "Okay",
+      "n": 19,
+      "avg_fpts": 24.6,
+      "max_fpts": 70.3
+    },
+    {
+      "tier": "Fade",
+      "n": 6,
+      "avg_fpts": 1.8,
+      "max_fpts": 50.6
+    }
+  ],
+  "tiers_ordered": true,
+  "leakage": [
+    {
+      "name": "Ryan Preece",
+      "tier": "Fade",
+      "fpts": 50.6
+    }
+  ],
+  "excluded_scratches": [],
+  "summary": "Core 39.8 > Good 30.5 > Okay 24.6 > Fade 1.8  \u2713 ordered"
+}

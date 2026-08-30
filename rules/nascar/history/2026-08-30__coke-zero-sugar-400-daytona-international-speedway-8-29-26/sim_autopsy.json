@@ -1,0 +1,150 @@
+[
+  {
+    "slug": "nascar",
+    "slate_name": "NASCAR contest-standings-194477273 3 2026-08-30",
+    "contest_id": "194477273",
+    "field_size": 392,
+    "schema_version": 1,
+    "generated_at": "2026-08-30 12:44",
+    "user": {
+      "n_entries": 1,
+      "best_points": 182.05,
+      "avg_points": 182.05,
+      "best_rank": 266
+    },
+    "pool": {
+      "n": 10000,
+      "avg_actual": 152.94,
+      "median_actual": 153.53,
+      "max_actual": 336.2,
+      "n_beating_best_entry": 3127,
+      "pct_beating_best_entry": 31.27,
+      "picking_edge_points": 29.11
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 10000,
+        "spearman_vs_actual": 0.27,
+        "top100_avg_actual": 186.04,
+        "pool_avg_actual": 152.94
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 10000,
+        "spearman_vs_actual": 0.319,
+        "top100_avg_actual": 185.31,
+        "pool_avg_actual": 152.94
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 10000,
+        "spearman_vs_actual": 0.18,
+        "top100_avg_actual": 184.06,
+        "pool_avg_actual": 152.94
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 10000,
+        "spearman_vs_actual": 0.32,
+        "top100_avg_actual": 191.11,
+        "pool_avg_actual": 152.94
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 266,
+        "Points": 182.05,
+        "Lineup": "D Ryan Blaney D Chase Elliott D Brad Keselowski D Ricky Stenhouse Jr D Zane Smith D Noah Gragson",
+        "matched": true,
+        "pre_sim_roi_pct": 282.3,
+        "pre_sim_top1_pct": 4.72,
+        "pre_sim_win_pct": 1.87,
+        "pre_sim_cash_pct": 53.1,
+        "post_roi_pct": 197.35,
+        "post_top1_pct": 3.74,
+        "post_win_pct": 0.965,
+        "post_cash_pct": 48.91
+      }
+    ]
+  },
+  {
+    "slug": "nascar",
+    "slate_name": "NASCAR contest-standings-194477283 3 2026-08-30",
+    "contest_id": "194477283",
+    "field_size": 1176,
+    "schema_version": 1,
+    "generated_at": "2026-08-30 12:45",
+    "user": {
+      "n_entries": 1,
+      "best_points": 189.05,
+      "avg_points": 189.05,
+      "best_rank": 625
+    },
+    "pool": {
+      "n": 10000,
+      "avg_actual": 152.94,
+      "median_actual": 153.53,
+      "max_actual": 336.2,
+      "n_beating_best_entry": 2734,
+      "pct_beating_best_entry": 27.34,
+      "picking_edge_points": 36.11
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 10000,
+        "spearman_vs_actual": 0.27,
+        "top100_avg_actual": 186.04,
+        "pool_avg_actual": 152.94
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 10000,
+        "spearman_vs_actual": 0.319,
+        "top100_avg_actual": 185.31,
+        "pool_avg_actual": 152.94
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 10000,
+        "spearman_vs_actual": 0.18,
+        "top100_avg_actual": 184.06,
+        "pool_avg_actual": 152.94
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 10000,
+        "spearman_vs_actual": 0.32,
+        "top100_avg_actual": 191.11,
+        "pool_avg_actual": 152.94
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 625,
+        "Points": 189.05,
+        "Lineup": "D Ryan Blaney D Christopher Bell D Bubba Wallace D Brad Keselowski D Todd Gilliland D Noah Gragson",
+        "matched": true,
+        "pre_sim_roi_pct": 242.5,
+        "pre_sim_top1_pct": 5.58,
+        "pre_sim_win_pct": 0.9,
+        "pre_sim_cash_pct": 55.84,
+        "post_roi_pct": 187.59,
+        "post_top1_pct": 5.04,
+        "post_win_pct": 0.392,
+        "post_cash_pct": 50.98
+      }
+    ]
+  }
+]

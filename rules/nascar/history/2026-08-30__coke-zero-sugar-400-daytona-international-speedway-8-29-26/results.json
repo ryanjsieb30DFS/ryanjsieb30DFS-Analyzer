@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-30",
+  "slug": "nascar",
+  "sport": "nascar",
+  "slate_label": "Coke Zero Sugar 400 Daytona International Speedway 8.29.26",
+  "history_dir": "rules/nascar/history/2026-08-30__coke-zero-sugar-400-daytona-international-speedway-8-29-26",
+  "contests": [
+    {
+      "name": "NAS $4K Engine Block [Single Entry]",
+      "type": "SE",
+      "source_file": "contest-standings-194477273 3.csv",
+      "field_size": 392,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "buy_in": 12.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 266,
+      "best_percentile": 67.9
+    },
+    {
+      "name": "NAS $12K Engine Block [Single Entry] (Cup)",
+      "type": "SE",
+      "source_file": "contest-standings-194477283 3.csv",
+      "field_size": 1176,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "buy_in": 12.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 625,
+      "best_percentile": 53.1
+    }
+  ],
+  "total_buy_in": 24.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 266,
+  "best_percentile": 53.1,
+  "best_rank_mme": null,
+  "best_percentile_mme": null,
+  "entries_total": 2,
+  "edge_leverage_capture": 0.0,
+  "edge_overperformer_capture": 0.2,
+  "edge_bust_exposure": 0.2,
+  "lineup_avg_ratio": 0.635,
+  "shark_gap_top": {
+    "dim": "own_per_slot",
+    "delta": 0.3
+  },
+  "adherence_fades_violated": 0,
+  "adherence_leverage_covered": "0/12",
+  "tier_summary": "Core 39.8 > Good 30.5 > Okay 24.6 > Fade 1.8  \u2713 ordered",
+  "tiers_ordered": true,
+  "grader_check": {
+    "flagged_pctiles": [],
+    "clean_pctiles": [
+      67.9,
+      53.1
+    ]
+  }
+}

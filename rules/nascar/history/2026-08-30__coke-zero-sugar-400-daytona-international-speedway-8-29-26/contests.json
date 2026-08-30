@@ -1,0 +1,26 @@
+{
+  "contests": [
+    {
+      "name": "NAS $12K Engine Block [Single Entry] (Cup)",
+      "type": "SE",
+      "field_size": 1176,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "prize_pool": 12000,
+      "payout_shape": "Top-heavy",
+      "id": "e4e73156"
+    },
+    {
+      "name": "NAS $4K Engine Block [Single Entry]",
+      "type": "SE",
+      "field_size": 392,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "prize_pool": 4000,
+      "payout_shape": "Top-heavy",
+      "id": "05f889fc"
+    }
+  ]
+}

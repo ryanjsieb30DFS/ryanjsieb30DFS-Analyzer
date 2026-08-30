@@ -555,3 +555,51 @@ A 5-check pre-lock validator was prototyped and then removed across all sports. 
 | **Okay** | 26 | 26.5 | 66.7 |
 | **Fade** | 2 | 12.5 | 14.0 |
 - ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+
+
+## 2026-08-30 12:47 — NASCAR (contest-standings-194477273 3.csv)
+- Entries: 392
+- Winning score: 335.3
+- Cash line (top 20%): 248.7
+- My entries: 1 · best rank 266/392 (top 67.9%)
+- Winners (top 20): avg own 34.44% vs mine 32.36% · sub-10% plays/lineup 0.35 vs mine 0.0 · salary Δ -35
+- Overperformed proj: Michael McDowell, Daniel Suárez, Ryan Preece
+- Underperformed proj: Chris Buescher, Ryan Blaney, Carson Hocevar
+- Slate-defining plays: Daniel Suárez (64.3 pts @ 10.2%), Austin Dillon (62.1 pts @ 16.8%), Josh Berry (50.7 pts @ 11.7%)
+
+
+## 2026-08-30 12:47 — NASCAR (contest-standings-194477283 3.csv)
+- Entries: 1,176
+- Winning score: 324.2
+- Cash line (top 20%): 239.8
+- My entries: 1 · best rank 625/1,176 (top 53.1%)
+- Winners (top 20): avg own 33.94% vs mine 34.52% · sub-10% plays/lineup 0.4 vs mine 0.0 · salary Δ -880
+- Overperformed proj: Michael McDowell, Daniel Suárez, Ryan Preece
+- Underperformed proj: Chris Buescher, Ryan Blaney, Carson Hocevar
+- Slate-defining plays: Daniel Suárez (64.3 pts @ 10.6%), Austin Dillon (62.1 pts @ 16.9%)
+
+### Strategy adherence — did you follow your own strategy? (2 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Denny Hamlin** was in 0 of 1 lineups in contest-standings-194477273 3.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Denny Hamlin** was in 0 of 1 lineups in contest-standings-194477283 3.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **AJ Allmendinger** was in 0 of 1 lineups in contest-standings-194477273 3.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **AJ Allmendinger** was in 0 of 1 lineups in contest-standings-194477283 3.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Ricky Stenhouse Jr** was in 0 of 1 lineups in contest-standings-194477283 3.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call over-exposed inside contest-standings-194477273 3.csv: **Ricky Stenhouse Jr** in 1 of 1 there — the pooled average hid it.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Zane Smith** was in 0 of 1 lineups in contest-standings-194477283 3.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call over-exposed inside contest-standings-194477273 3.csv: **Zane Smith** in 1 of 1 there — the pooled average hid it.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Austin Dillon** was in 0 of 1 lineups in contest-standings-194477273 3.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Austin Dillon** was in 0 of 1 lineups in contest-standings-194477283 3.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Carson Hocevar** was in 0 of 1 lineups in contest-standings-194477273 3.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Carson Hocevar** was in 0 of 1 lineups in contest-standings-194477283 3.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- Leverage candidates rostered somewhere: **0 of 12**.
+
+### Player-pool tier calibration (39 of 39 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 6 | 39.8 | 64.3 |
+| **Good** | 8 | 30.5 | 50.7 |
+| **Okay** | 19 | 24.6 | 70.3 |
+| **Fade** | 6 | 1.8 | 50.6 |
+- ✅ Tier ordering HELD — higher tiers outscored lower ones on average.
+- 🕳️ Buried: **Ryan Preece** (Fade) scored 50.6 — above the top tier's average.

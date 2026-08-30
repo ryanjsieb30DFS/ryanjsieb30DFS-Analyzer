@@ -1,0 +1,353 @@
+{
+  "generated_at": "2026-08-29 17:45",
+  "slug": "nascar",
+  "slate": "NASCAR \u2014 Coke Zero Sugar 400, Daytona International Speedway (Saturday night, 8/29/26)",
+  "calls": [
+    {
+      "name": "Denny Hamlin",
+      "verdict": "underweight"
+    },
+    {
+      "name": "AJ Allmendinger",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Zane Smith",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Austin Dillon",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Carson Hocevar",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Tyler Reddick",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Austin Hill",
+      "verdict": "fade"
+    },
+    {
+      "name": "Shane Van Gisbergen",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Connor Zilisch",
+      "verdict": "lean_fade"
+    }
+  ],
+  "fades": [
+    "Austin Hill"
+  ],
+  "leverage_candidates": [
+    {
+      "name": "Daniel Suarez",
+      "own": 9.0
+    },
+    {
+      "name": "Ty Gibbs",
+      "own": 5.0
+    },
+    {
+      "name": "Joey Gase",
+      "own": 3.0
+    },
+    {
+      "name": "Daniel Dye",
+      "own": 3.0
+    },
+    {
+      "name": "Casey Mears",
+      "own": 2.0
+    },
+    {
+      "name": "Kyle Larson",
+      "own": 6.0
+    },
+    {
+      "name": "Corey Heim",
+      "own": 3.0
+    },
+    {
+      "name": "Michael McDowell",
+      "own": 4.0
+    },
+    {
+      "name": "Ryan Preece",
+      "own": 5.0
+    },
+    {
+      "name": "Erik Jones",
+      "own": 4.0
+    },
+    {
+      "name": "Chris Buescher",
+      "own": 6.0
+    },
+    {
+      "name": "Chase Briscoe",
+      "own": 7.0
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Christopher Bell",
+        "Denny Hamlin"
+      ],
+      "joint_pct": 18.2
+    },
+    {
+      "players": [
+        "Christopher Bell",
+        "AJ Allmendinger"
+      ],
+      "joint_pct": 17.8
+    },
+    {
+      "players": [
+        "Christopher Bell",
+        "Ricky Stenhouse Jr"
+      ],
+      "joint_pct": 17.8
+    },
+    {
+      "players": [
+        "Christopher Bell",
+        "Ryan Blaney"
+      ],
+      "joint_pct": 17.3
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Denny Hamlin",
+        "AJ Allmendinger",
+        "Ricky Stenhouse Jr",
+        "Ryan Blaney"
+      ]
+    },
+    {
+      "players": [
+        "Brad Keselowski",
+        "Zane Smith",
+        "Chase Elliott"
+      ]
+    },
+    {
+      "players": [
+        "Bubba Wallace",
+        "Carson Hocevar",
+        "Austin Dillon",
+        "Todd Gilliland"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "board": [
+    {
+      "name": "Brad Keselowski",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Christopher Bell",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Bubba Wallace",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Chase Elliott",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Daniel Suarez",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Noah Gragson",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Zane Smith",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Ryan Blaney",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Ty Dillon",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Josh Berry",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "John H. Nemechek",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Alex Bowman",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "William Byron",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Todd Gilliland",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Denny Hamlin",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "AJ Allmendinger",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Carson Hocevar",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Austin Dillon",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Cody Ware",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Michael McDowell",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Erik Jones",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Cole Custer",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Kyle Larson",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Ty Gibbs",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Daniel Dye",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Joey Gase",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Casey Mears",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Tyler Reddick",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Chase Briscoe",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Corey Heim",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Austin Cindric",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Joey Logano",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Chris Buescher",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Ryan Preece",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Ross Chastain",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Connor Zilisch",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Shane Van Gisbergen",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Austin Hill",
+      "tier": "Fade",
+      "leverage": false
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "n_contests": 2,
+  "calls": [
+    {
+      "name": "Denny Hamlin",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194477273 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194477283 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-194477273 3.csv",
+        "contest-standings-194477283 3.csv"
+      ]
+    },
+    {
+      "name": "AJ Allmendinger",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194477273 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194477283 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-194477273 3.csv",
+        "contest-standings-194477283 3.csv"
+      ]
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "verdict": "underweight",
+      "exposure_pct": 50.0,
+      "in_lineups": 1,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194477273 3.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        },
+        {
+          "contest": "contest-standings-194477283 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-194477283 3.csv"
+      ],
+      "over_in": [
+        "contest-standings-194477273 3.csv"
+      ]
+    },
+    {
+      "name": "Zane Smith",
+      "verdict": "underweight",
+      "exposure_pct": 50.0,
+      "in_lineups": 1,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194477273 3.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        },
+        {
+          "contest": "contest-standings-194477283 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-194477283 3.csv"
+      ],
+      "over_in": [
+        "contest-standings-194477273 3.csv"
+      ]
+    },
+    {
+      "name": "Austin Dillon",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194477273 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194477283 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-194477273 3.csv",
+        "contest-standings-194477283 3.csv"
+      ]
+    },
+    {
+      "name": "Carson Hocevar",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194477273 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194477283 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-194477273 3.csv",
+        "contest-standings-194477283 3.csv"
+      ]
+    },
+    {
+      "name": "Tyler Reddick",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194477273 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194477283 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Austin Hill",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194477273 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194477283 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Shane Van Gisbergen",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194477273 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194477283 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Connor Zilisch",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194477273 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194477283 3.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 6,
+  "leverage_candidates": [
+    {
+      "name": "Daniel Suarez",
+      "rostered": false
+    },
+    {
+      "name": "Ty Gibbs",
+      "rostered": false
+    },
+    {
+      "name": "Joey Gase",
+      "rostered": false
+    },
+    {
+      "name": "Daniel Dye",
+      "rostered": false
+    },
+    {
+      "name": "Casey Mears",
+      "rostered": false
+    },
+    {
+      "name": "Kyle Larson",
+      "rostered": false
+    },
+    {
+      "name": "Corey Heim",
+      "rostered": false
+    },
+    {
+      "name": "Michael McDowell",
+      "rostered": false
+    },
+    {
+      "name": "Ryan Preece",
+      "rostered": false
+    },
+    {
+      "name": "Erik Jones",
+      "rostered": false
+    },
+    {
+      "name": "Chris Buescher",
+      "rostered": false
+    },
+    {
+      "name": "Chase Briscoe",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 0,
+  "leverage_of": 12
+}

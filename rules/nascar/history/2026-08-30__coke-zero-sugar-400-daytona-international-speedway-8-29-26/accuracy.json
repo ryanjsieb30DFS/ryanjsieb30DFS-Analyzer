@@ -1,0 +1,47 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 9,
+    "leverage_capture": 0.0,
+    "leverage_hit": [],
+    "leverage_missed": [
+      "Daniel Su\u00e1rez",
+      "Austin Dillon",
+      "Josh Berry"
+    ],
+    "overperformer_capture": 0.2,
+    "overperformer_hit": [
+      "Ricky Stenhouse Jr"
+    ],
+    "underperformer_exposure": 0.2,
+    "underperformer_hit": [
+      "Ryan Blaney"
+    ]
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 2,
+    "avg_ratio": 0.635,
+    "best_percentile": 53.1,
+    "median_percentile": 67.9,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 182.05,
+        "proj_total": 291.7,
+        "ratio": 0.624,
+        "percentile": 67.9,
+        "avg_own": 32.36
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 189.05,
+        "proj_total": 292.7,
+        "ratio": 0.646,
+        "percentile": 53.1,
+        "avg_own": 34.52
+      }
+    ]
+  }
+}

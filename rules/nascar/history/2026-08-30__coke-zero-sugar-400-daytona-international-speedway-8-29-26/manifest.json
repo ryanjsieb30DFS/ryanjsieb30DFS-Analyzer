@@ -1,0 +1,25 @@
+{
+  "slug": "nascar",
+  "sport": "nascar",
+  "contest_label": "NASCAR",
+  "date": "2026-08-30",
+  "slate_label": "Coke Zero Sugar 400 Daytona International Speedway 8.29.26",
+  "archived_at": "2026-08-30 12:47",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json",
+    "lineup_selection.json"
+  ],
+  "missing": [
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/nascar/2026-08-29__DDD 8.29.26.pdf",
+    "articles/nascar/2026-08-29__DFR 1 8.29.26.pdf",
+    "articles/nascar/2026-08-29__DFR 2 8.29.26.pdf"
+  ],
+  "proj_source": null
+}

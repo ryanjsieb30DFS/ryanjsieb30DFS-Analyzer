@@ -1,0 +1,1712 @@
+[
+  {
+    "timestamp": "2026-08-30 12:47",
+    "contest_type": "NASCAR",
+    "source_file": "contest-standings-194477273 3.csv",
+    "contest_id": "194477273",
+    "entries": 392,
+    "winning_score": 335.25003,
+    "cash_line_p80": 248.669994,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nascar",
+    "sport": "nascar",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 39,
+      "total": 41
+    },
+    "user_summary": {
+      "avg_own_mean": 32.36,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 48100.0,
+      "entry_count": 1,
+      "best_rank": 266,
+      "best_percentile": 67.9
+    },
+    "user_lineups": [
+      {
+        "rank": 266,
+        "entry_name": "RyvlesGaming30",
+        "points": 182.05,
+        "percentile": 67.9,
+        "players": [
+          "Ryan Blaney",
+          "Chase Elliott",
+          "Brad Keselowski",
+          "Ricky Stenhouse Jr",
+          "Zane Smith",
+          "Noah Gragson"
+        ],
+        "avg_own": 32.36,
+        "low_own_count": 0,
+        "salary_used": 48100,
+        "proj_total": 291.7,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Michael McDowell",
+        "proj_points": 27.9,
+        "actual_fpts": 56.7,
+        "fpts_delta": 28.8,
+        "ownership": 4.0,
+        "actual_own": 4.34
+      },
+      {
+        "name": "Daniel Su\u00e1rez",
+        "proj_points": 37.35,
+        "actual_fpts": 64.35,
+        "fpts_delta": 27.0,
+        "ownership": 9.0,
+        "actual_own": 10.2
+      },
+      {
+        "name": "Ryan Preece",
+        "proj_points": 27.65,
+        "actual_fpts": 50.6,
+        "fpts_delta": 22.95,
+        "ownership": 5.0,
+        "actual_own": 3.06
+      },
+      {
+        "name": "Austin Dillon",
+        "proj_points": 39.35,
+        "actual_fpts": 62.15,
+        "fpts_delta": 22.8,
+        "ownership": 22.0,
+        "actual_own": 16.84
+      },
+      {
+        "name": "Ricky Stenhouse Jr",
+        "proj_points": 47.9,
+        "actual_fpts": 70.3,
+        "fpts_delta": 22.4,
+        "ownership": 37.0,
+        "actual_own": 46.43
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Chris Buescher",
+        "proj_points": 26.9,
+        "actual_fpts": -35.05,
+        "fpts_delta": -61.95,
+        "ownership": 6.0,
+        "actual_own": 4.34
+      },
+      {
+        "name": "Ryan Blaney",
+        "proj_points": 53.3,
+        "actual_fpts": -3.85,
+        "fpts_delta": -57.15,
+        "ownership": 36.0,
+        "actual_own": 30.1
+      },
+      {
+        "name": "Carson Hocevar",
+        "proj_points": 46.8,
+        "actual_fpts": -4.05,
+        "fpts_delta": -50.85,
+        "ownership": 23.0,
+        "actual_own": 31.38
+      },
+      {
+        "name": "Erik Jones",
+        "proj_points": 27.35,
+        "actual_fpts": -21.55,
+        "fpts_delta": -48.9,
+        "ownership": 4.0,
+        "actual_own": 3.32
+      },
+      {
+        "name": "Ty Gibbs",
+        "proj_points": 33.25,
+        "actual_fpts": -11.85,
+        "fpts_delta": -45.1,
+        "ownership": 5.0,
+        "actual_own": 5.1
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Daniel Su\u00e1rez",
+        "salary": 6700,
+        "actual_fpts": 64.35,
+        "actual_own": 10.2,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Austin Dillon",
+        "salary": 7300,
+        "actual_fpts": 62.15,
+        "actual_own": 16.84,
+        "top_lineup_pct": 75.0
+      },
+      {
+        "name": "Josh Berry",
+        "salary": 7100,
+        "actual_fpts": 50.7,
+        "actual_own": 11.73,
+        "top_lineup_pct": 35.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 34.44,
+      "low_own_count_mean": 0.35,
+      "salary_used_mean": 48065.0,
+      "dup_max": 3,
+      "unique_pct": 75.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "edd0h",
+          "points": 335.25003,
+          "percentile": 0.3,
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Brad Keselowski",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Daniel Su\u00e1rez"
+          ],
+          "avg_own": 34.02,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 278.4,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "Barrett2245",
+          "points": 320.05,
+          "percentile": 0.5,
+          "players": [
+            "Denny Hamlin",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Josh Berry",
+            "Todd Gilliland",
+            "John H. Nemechek"
+          ],
+          "avg_own": 27.94,
+          "low_own_count": 0,
+          "salary_used": 43200,
+          "proj_total": 256,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "bootboots6",
+          "points": 317.65002,
+          "percentile": 0.8,
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Bubba Wallace",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Michael McDowell"
+          ],
+          "avg_own": 38.1,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 265.2,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "jtcj498",
+          "points": 313.40002,
+          "percentile": 1.0,
+          "players": [
+            "Austin Cindric",
+            "Brad Keselowski",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Josh Berry",
+            "Alex Bowman"
+          ],
+          "avg_own": 17.22,
+          "low_own_count": 2,
+          "salary_used": 47000,
+          "proj_total": 254.4,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "az350z",
+          "points": 309.35,
+          "percentile": 1.3,
+          "players": [
+            "Christopher Bell",
+            "Tyler Reddick",
+            "Brad Keselowski",
+            "Austin Dillon",
+            "Daniel Su\u00e1rez",
+            "John H. Nemechek"
+          ],
+          "avg_own": 21.85,
+          "low_own_count": 0,
+          "salary_used": 47400,
+          "proj_total": 260.2,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "coreycampbell56",
+          "points": 303.35004,
+          "percentile": 1.5,
+          "players": [
+            "Christopher Bell",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Daniel Su\u00e1rez",
+            "AJ Allmendinger",
+            "John H. Nemechek"
+          ],
+          "avg_own": 29.68,
+          "low_own_count": 0,
+          "salary_used": 43000,
+          "proj_total": 263.9,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "thenicker4",
+          "points": 300.20004,
+          "percentile": 1.8,
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Alex Bowman",
+            "AJ Allmendinger"
+          ],
+          "avg_own": 35.8,
+          "low_own_count": 1,
+          "salary_used": 47100,
+          "proj_total": 266.55,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "rmfeel",
+          "points": 296.95,
+          "percentile": 2.0,
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Bubba Wallace",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Noah Gragson"
+          ],
+          "avg_own": 43.84,
+          "low_own_count": 0,
+          "salary_used": 49100,
+          "proj_total": 283.55,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "robng1980",
+          "points": 296.2,
+          "percentile": 2.3,
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Ricky Stenhouse Jr",
+            "Corey Heim",
+            "Austin Dillon",
+            "Todd Gilliland"
+          ],
+          "avg_own": 35.04,
+          "low_own_count": 1,
+          "salary_used": 48800,
+          "proj_total": 257.65,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "Grassman6921",
+          "points": 295.65,
+          "percentile": 2.6,
+          "players": [
+            "Tyler Reddick",
+            "Denny Hamlin",
+            "Bubba Wallace",
+            "Brad Keselowski",
+            "Josh Berry",
+            "Daniel Su\u00e1rez"
+          ],
+          "avg_own": 24.66,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 263.85,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 2.08,
+        "low_own_count_delta": 0.35,
+        "salary_used_delta": -35.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 392,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Christopher Bell",
+          "field_own": 63.5,
+          "actual_fpts": 44.9
+        },
+        {
+          "name": "Denny Hamlin",
+          "field_own": 50.8,
+          "actual_fpts": 53.7
+        },
+        {
+          "name": "Bubba Wallace",
+          "field_own": 46.7,
+          "actual_fpts": 29.9
+        },
+        {
+          "name": "Ricky Stenhouse Jr",
+          "field_own": 46.4,
+          "actual_fpts": 70.3
+        },
+        {
+          "name": "Zane Smith",
+          "field_own": 43.9,
+          "actual_fpts": 16.1
+        },
+        {
+          "name": "Noah Gragson",
+          "field_own": 38.8,
+          "actual_fpts": 36.0
+        },
+        {
+          "name": "Carson Hocevar",
+          "field_own": 31.4,
+          "actual_fpts": -4.0
+        },
+        {
+          "name": "Ryan Blaney",
+          "field_own": 30.1,
+          "actual_fpts": -3.9
+        },
+        {
+          "name": "Todd Gilliland",
+          "field_own": 29.9,
+          "actual_fpts": 42.2
+        },
+        {
+          "name": "AJ Allmendinger",
+          "field_own": 29.1,
+          "actual_fpts": 20.7
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin"
+          ],
+          "field_pct": 37.1,
+          "count": 145
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Ricky Stenhouse Jr"
+          ],
+          "field_pct": 33.2,
+          "count": 130
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Zane Smith"
+          ],
+          "field_pct": 32.0,
+          "count": 125
+        },
+        {
+          "players": [
+            "Bubba Wallace",
+            "Christopher Bell"
+          ],
+          "field_pct": 29.9,
+          "count": 117
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Noah Gragson"
+          ],
+          "field_pct": 28.4,
+          "count": 111
+        },
+        {
+          "players": [
+            "Bubba Wallace",
+            "Denny Hamlin"
+          ],
+          "field_pct": 26.3,
+          "count": 103
+        },
+        {
+          "players": [
+            "Ricky Stenhouse Jr",
+            "Zane Smith"
+          ],
+          "field_pct": 22.8,
+          "count": 89
+        },
+        {
+          "players": [
+            "Denny Hamlin",
+            "Ricky Stenhouse Jr"
+          ],
+          "field_pct": 22.3,
+          "count": 87
+        },
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Christopher Bell"
+          ],
+          "field_pct": 21.7,
+          "count": 85
+        },
+        {
+          "players": [
+            "Noah Gragson",
+            "Ricky Stenhouse Jr"
+          ],
+          "field_pct": 21.5,
+          "count": 84
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Christopher Bell",
+            "Noah Gragson",
+            "Ricky Stenhouse Jr",
+            "Todd Gilliland",
+            "Zane Smith"
+          ],
+          "count": 11,
+          "field_pct": 2.8
+        },
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Noah Gragson",
+            "Ricky Stenhouse Jr",
+            "Zane Smith"
+          ],
+          "count": 6,
+          "field_pct": 1.5
+        },
+        {
+          "players": [
+            "Bubba Wallace",
+            "Carson Hocevar",
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Todd Gilliland",
+            "Zane Smith"
+          ],
+          "count": 4,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Bubba Wallace",
+            "Christopher Bell",
+            "Denny Hamlin",
+            "John H. Nemechek",
+            "Ryan Blaney",
+            "Zane Smith"
+          ],
+          "count": 4,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Bubba Wallace",
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Noah Gragson",
+            "Ryan Blaney"
+          ],
+          "count": 4,
+          "field_pct": 1.0
+        }
+      ],
+      "winners_profile": {
+        "n": 4,
+        "avg_own_per_slot": 29.3,
+        "dart_pct": 50.0,
+        "unique_pct": 100.0
+      },
+      "fish_profile": {
+        "n": 196,
+        "avg_own_per_slot": 30.5,
+        "dart_pct": 39.8,
+        "unique_pct": 89.3
+      },
+      "fish_traps": [
+        {
+          "name": "Zane Smith",
+          "fish_pct": 47.4,
+          "winner_pct": 0.0,
+          "gap": 47.4,
+          "actual_fpts": 16.1,
+          "field_own": 43.9,
+          "own_rank": 5
+        },
+        {
+          "name": "Ryan Blaney",
+          "fish_pct": 45.9,
+          "winner_pct": 0.0,
+          "gap": 45.9,
+          "actual_fpts": -3.9,
+          "field_own": 30.1,
+          "own_rank": 8
+        },
+        {
+          "name": "Carson Hocevar",
+          "fish_pct": 42.9,
+          "winner_pct": 0.0,
+          "gap": 42.9,
+          "actual_fpts": -4.0,
+          "field_own": 31.4,
+          "own_rank": 7
+        },
+        {
+          "name": "AJ Allmendinger",
+          "fish_pct": 32.1,
+          "winner_pct": 0.0,
+          "gap": 32.1,
+          "actual_fpts": 20.7,
+          "field_own": 29.1,
+          "own_rank": 10
+        },
+        {
+          "name": "Noah Gragson",
+          "fish_pct": 29.6,
+          "winner_pct": 0.0,
+          "gap": 29.6,
+          "actual_fpts": 36.0,
+          "field_own": 38.8,
+          "own_rank": 6
+        },
+        {
+          "name": "Bubba Wallace",
+          "fish_pct": 50.0,
+          "winner_pct": 25.0,
+          "gap": 25.0,
+          "actual_fpts": 29.9,
+          "field_own": 46.7,
+          "own_rank": 3
+        },
+        {
+          "name": "Chase Elliott",
+          "fish_pct": 24.0,
+          "winner_pct": 0.0,
+          "gap": 24.0,
+          "actual_fpts": 23.6,
+          "field_own": 18.6,
+          "own_rank": 11
+        },
+        {
+          "name": "Ty Dillon",
+          "fish_pct": 14.3,
+          "winner_pct": 0.0,
+          "gap": 14.3,
+          "actual_fpts": 33.2,
+          "field_own": 14.5,
+          "own_rank": 14
+        },
+        {
+          "name": "Joey Logano",
+          "fish_pct": 13.3,
+          "winner_pct": 0.0,
+          "gap": 13.3,
+          "actual_fpts": 16.5,
+          "field_own": 7.7,
+          "own_rank": 20
+        },
+        {
+          "name": "William Byron",
+          "fish_pct": 10.7,
+          "winner_pct": 0.0,
+          "gap": 10.7,
+          "actual_fpts": 16.3,
+          "field_own": 7.1,
+          "own_rank": 21
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "edd0h",
+          "best_rank": 1,
+          "percentile": 0.3
+        },
+        {
+          "handle": "Barrett2245",
+          "best_rank": 2,
+          "percentile": 0.5
+        },
+        {
+          "handle": "bootboots6",
+          "best_rank": 3,
+          "percentile": 0.8
+        },
+        {
+          "handle": "jtcj498",
+          "best_rank": 4,
+          "percentile": 1.0
+        },
+        {
+          "handle": "az350z",
+          "best_rank": 5,
+          "percentile": 1.3
+        },
+        {
+          "handle": "coreycampbell56",
+          "best_rank": 6,
+          "percentile": 1.5
+        },
+        {
+          "handle": "thenicker4",
+          "best_rank": 7,
+          "percentile": 1.8
+        },
+        {
+          "handle": "rmfeel",
+          "best_rank": 8,
+          "percentile": 2.0
+        },
+        {
+          "handle": "robng1980",
+          "best_rank": 9,
+          "percentile": 2.3
+        },
+        {
+          "handle": "Grassman6921",
+          "best_rank": 10,
+          "percentile": 2.6
+        },
+        {
+          "handle": "Hunter4ever89",
+          "best_rank": 11,
+          "percentile": 2.8
+        },
+        {
+          "handle": "Miamidolphins79",
+          "best_rank": 12,
+          "percentile": 3.1
+        },
+        {
+          "handle": "brokenarrow124",
+          "best_rank": 13,
+          "percentile": 3.3
+        },
+        {
+          "handle": "scroggs811",
+          "best_rank": 14,
+          "percentile": 3.6
+        },
+        {
+          "handle": "Matt_42",
+          "best_rank": 15,
+          "percentile": 3.8
+        }
+      ],
+      "read": [
+        "Field crowded **Christopher Bell** at 63.5% (44.9 fpts) \u2014 the chalk to consider fading.",
+        "**Christopher Bell + Denny Hamlin** were together in 37.1% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Zane Smith** was a fish trap: 47.4% of the fish, only 0.0% of winners.",
+        "Fish ran 1.2 pts/slot more chalk than winners (30.5% vs 29.3%)."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 335.25003,
+      "winner_handle": "edd0h",
+      "roster": [
+        {
+          "name": "Christopher Bell",
+          "own": 63.52,
+          "fpts": 44.9
+        },
+        {
+          "name": "Denny Hamlin",
+          "own": 50.77,
+          "fpts": 53.7
+        },
+        {
+          "name": "Brad Keselowski",
+          "own": 16.33,
+          "fpts": 39.85
+        },
+        {
+          "name": "Ricky Stenhouse Jr",
+          "own": 46.43,
+          "fpts": 70.3
+        },
+        {
+          "name": "Austin Dillon",
+          "own": 16.84,
+          "fpts": 62.15
+        },
+        {
+          "name": "Daniel Su\u00e1rez",
+          "own": 10.2,
+          "fpts": 64.35
+        }
+      ],
+      "avg_own": 34.0,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Daniel Su\u00e1rez",
+        "own": 10.2,
+        "fpts": 64.35
+      },
+      "expected_dupes": 0.16
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "blocked_swap": null,
+      "gradable": true,
+      "won": false,
+      "your_points": 182.05,
+      "winner_points": 335.25003,
+      "gap": 153.2,
+      "your_percentile": 67.9,
+      "n_shared": 2,
+      "shared": [
+        "Brad Keselowski",
+        "Ricky Stenhouse Jr"
+      ],
+      "your_uniques": [
+        {
+          "name": "Noah Gragson",
+          "fpts": 36.0,
+          "salary": 5400
+        },
+        {
+          "name": "Chase Elliott",
+          "fpts": 23.65,
+          "salary": 9900
+        },
+        {
+          "name": "Zane Smith",
+          "fpts": 16.1,
+          "salary": 5900
+        },
+        {
+          "name": "Ryan Blaney",
+          "fpts": -3.85,
+          "salary": 10500
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Daniel Su\u00e1rez",
+          "fpts": 64.35,
+          "salary": 6700
+        },
+        {
+          "name": "Austin Dillon",
+          "fpts": 62.15,
+          "salary": 7300
+        },
+        {
+          "name": "Denny Hamlin",
+          "fpts": 53.7,
+          "salary": 9100
+        },
+        {
+          "name": "Christopher Bell",
+          "fpts": 44.9,
+          "salary": 10200
+        }
+      ],
+      "best_swap": {
+        "out": "Ryan Blaney",
+        "in": "Daniel Su\u00e1rez",
+        "gain": 68.2,
+        "would_have_won": false
+      },
+      "swaps_needed": null
+    }
+  },
+  {
+    "timestamp": "2026-08-30 12:47",
+    "contest_type": "NASCAR",
+    "source_file": "contest-standings-194477283 3.csv",
+    "contest_id": "194477283",
+    "entries": 1176,
+    "winning_score": 324.2,
+    "cash_line_p80": 239.8,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nascar",
+    "sport": "nascar",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 39,
+      "total": 40
+    },
+    "user_summary": {
+      "avg_own_mean": 34.52,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 49800.0,
+      "entry_count": 1,
+      "best_rank": 625,
+      "best_percentile": 53.1
+    },
+    "user_lineups": [
+      {
+        "rank": 625,
+        "entry_name": "RyvlesGaming30",
+        "points": 189.05,
+        "percentile": 53.1,
+        "players": [
+          "Ryan Blaney",
+          "Christopher Bell",
+          "Bubba Wallace",
+          "Brad Keselowski",
+          "Todd Gilliland",
+          "Noah Gragson"
+        ],
+        "avg_own": 34.52,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 292.7,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Michael McDowell",
+        "proj_points": 27.9,
+        "actual_fpts": 56.7,
+        "fpts_delta": 28.8,
+        "ownership": 4.0,
+        "actual_own": 8.42
+      },
+      {
+        "name": "Daniel Su\u00e1rez",
+        "proj_points": 37.35,
+        "actual_fpts": 64.35,
+        "fpts_delta": 27.0,
+        "ownership": 9.0,
+        "actual_own": 10.63
+      },
+      {
+        "name": "Ryan Preece",
+        "proj_points": 27.65,
+        "actual_fpts": 50.6,
+        "fpts_delta": 22.95,
+        "ownership": 5.0,
+        "actual_own": 6.72
+      },
+      {
+        "name": "Austin Dillon",
+        "proj_points": 39.35,
+        "actual_fpts": 62.15,
+        "fpts_delta": 22.8,
+        "ownership": 22.0,
+        "actual_own": 16.92
+      },
+      {
+        "name": "Ricky Stenhouse Jr",
+        "proj_points": 47.9,
+        "actual_fpts": 70.3,
+        "fpts_delta": 22.4,
+        "ownership": 37.0,
+        "actual_own": 37.07
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Chris Buescher",
+        "proj_points": 26.9,
+        "actual_fpts": -35.05,
+        "fpts_delta": -61.95,
+        "ownership": 6.0,
+        "actual_own": 8.67
+      },
+      {
+        "name": "Ryan Blaney",
+        "proj_points": 53.3,
+        "actual_fpts": -3.85,
+        "fpts_delta": -57.15,
+        "ownership": 36.0,
+        "actual_own": 31.8
+      },
+      {
+        "name": "Carson Hocevar",
+        "proj_points": 46.8,
+        "actual_fpts": -4.05,
+        "fpts_delta": -50.85,
+        "ownership": 23.0,
+        "actual_own": 31.97
+      },
+      {
+        "name": "Erik Jones",
+        "proj_points": 27.35,
+        "actual_fpts": -21.55,
+        "fpts_delta": -48.9,
+        "ownership": 4.0,
+        "actual_own": 4.85
+      },
+      {
+        "name": "Ty Gibbs",
+        "proj_points": 33.25,
+        "actual_fpts": -11.85,
+        "fpts_delta": -45.1,
+        "ownership": 5.0,
+        "actual_own": 10.29
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Daniel Su\u00e1rez",
+        "salary": 6700,
+        "actual_fpts": 64.35,
+        "actual_own": 10.63,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Austin Dillon",
+        "salary": 7300,
+        "actual_fpts": 62.15,
+        "actual_own": 16.92,
+        "top_lineup_pct": 85.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 33.94,
+      "low_own_count_mean": 0.4,
+      "salary_used_mean": 48920.0,
+      "dup_max": 4,
+      "unique_pct": 40.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "ElGuapo386",
+          "points": 324.2,
+          "percentile": 0.1,
+          "players": [
+            "Christopher Bell",
+            "Tyler Reddick",
+            "Denny Hamlin",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Noah Gragson"
+          ],
+          "avg_own": 35.13,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 272.55,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "18_kyle_busch_fan",
+          "points": 319.35004,
+          "percentile": 0.2,
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Brad Keselowski",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Alex Bowman"
+          ],
+          "avg_own": 31.67,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 273.4,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "jdsanika",
+          "points": 317.65002,
+          "percentile": 0.3,
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Bubba Wallace",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Michael McDowell"
+          ],
+          "avg_own": 36.35,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 265.2,
+          "dup_count": 3
+        },
+        {
+          "rank": 3,
+          "entry_name": "bts29412",
+          "points": 317.65002,
+          "percentile": 0.3,
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Bubba Wallace",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Michael McDowell"
+          ],
+          "avg_own": 36.35,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 265.2,
+          "dup_count": 3
+        },
+        {
+          "rank": 3,
+          "entry_name": "Scramblers",
+          "points": 317.65002,
+          "percentile": 0.3,
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Bubba Wallace",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Michael McDowell"
+          ],
+          "avg_own": 36.35,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 265.2,
+          "dup_count": 3
+        },
+        {
+          "rank": 6,
+          "entry_name": "bigmac84",
+          "points": 312.7,
+          "percentile": 0.5,
+          "players": [
+            "Denny Hamlin",
+            "Brad Keselowski",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Josh Berry",
+            "Noah Gragson"
+          ],
+          "avg_own": 27.12,
+          "low_own_count": 0,
+          "salary_used": 45300,
+          "proj_total": 274.3,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "plywood88",
+          "points": 311.6,
+          "percentile": 0.6,
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Bubba Wallace",
+            "Ricky Stenhouse Jr",
+            "Alex Bowman",
+            "Daniel Su\u00e1rez"
+          ],
+          "avg_own": 35.34,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 267.65,
+          "dup_count": 2
+        },
+        {
+          "rank": 7,
+          "entry_name": "kudolph",
+          "points": 311.6,
+          "percentile": 0.6,
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Bubba Wallace",
+            "Ricky Stenhouse Jr",
+            "Alex Bowman",
+            "Daniel Su\u00e1rez"
+          ],
+          "avg_own": 35.34,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 267.65,
+          "dup_count": 2
+        },
+        {
+          "rank": 9,
+          "entry_name": "MatBuchanan",
+          "points": 308.7,
+          "percentile": 0.8,
+          "players": [
+            "Tyler Reddick",
+            "Denny Hamlin",
+            "Chase Briscoe",
+            "Brad Keselowski",
+            "Austin Dillon",
+            "Daniel Su\u00e1rez"
+          ],
+          "avg_own": 18.81,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 240.4,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "JimmyWagner",
+          "points": 296.95,
+          "percentile": 0.9,
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Bubba Wallace",
+            "Ricky Stenhouse Jr",
+            "Austin Dillon",
+            "Noah Gragson"
+          ],
+          "avg_own": 40.16,
+          "low_own_count": 0,
+          "salary_used": 49100,
+          "proj_total": 283.55,
+          "dup_count": 4
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -0.58,
+        "low_own_count_delta": 0.4,
+        "salary_used_delta": -880.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 1172,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Christopher Bell",
+          "field_own": 61.3,
+          "actual_fpts": 44.9
+        },
+        {
+          "name": "Denny Hamlin",
+          "field_own": 50.7,
+          "actual_fpts": 53.7
+        },
+        {
+          "name": "Bubba Wallace",
+          "field_own": 43.7,
+          "actual_fpts": 29.9
+        },
+        {
+          "name": "Zane Smith",
+          "field_own": 41.0,
+          "actual_fpts": 16.1
+        },
+        {
+          "name": "Ricky Stenhouse Jr",
+          "field_own": 37.1,
+          "actual_fpts": 70.3
+        },
+        {
+          "name": "Carson Hocevar",
+          "field_own": 32.0,
+          "actual_fpts": -4.0
+        },
+        {
+          "name": "Ryan Blaney",
+          "field_own": 31.8,
+          "actual_fpts": -3.9
+        },
+        {
+          "name": "Noah Gragson",
+          "field_own": 31.3,
+          "actual_fpts": 36.0
+        },
+        {
+          "name": "AJ Allmendinger",
+          "field_own": 26.1,
+          "actual_fpts": 20.7
+        },
+        {
+          "name": "Todd Gilliland",
+          "field_own": 23.6,
+          "actual_fpts": 42.2
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Christopher Bell",
+            "Denny Hamlin"
+          ],
+          "field_pct": 36.9,
+          "count": 432
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Zane Smith"
+          ],
+          "field_pct": 29.0,
+          "count": 340
+        },
+        {
+          "players": [
+            "Bubba Wallace",
+            "Christopher Bell"
+          ],
+          "field_pct": 27.9,
+          "count": 327
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Ricky Stenhouse Jr"
+          ],
+          "field_pct": 25.5,
+          "count": 299
+        },
+        {
+          "players": [
+            "Christopher Bell",
+            "Noah Gragson"
+          ],
+          "field_pct": 23.8,
+          "count": 279
+        },
+        {
+          "players": [
+            "Bubba Wallace",
+            "Denny Hamlin"
+          ],
+          "field_pct": 23.7,
+          "count": 277
+        },
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Christopher Bell"
+          ],
+          "field_pct": 20.3,
+          "count": 238
+        },
+        {
+          "players": [
+            "Denny Hamlin",
+            "Zane Smith"
+          ],
+          "field_pct": 19.9,
+          "count": 233
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Christopher Bell"
+          ],
+          "field_pct": 19.4,
+          "count": 227
+        },
+        {
+          "players": [
+            "Denny Hamlin",
+            "Ricky Stenhouse Jr"
+          ],
+          "field_pct": 19.0,
+          "count": 223
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Noah Gragson",
+            "Ricky Stenhouse Jr",
+            "Zane Smith"
+          ],
+          "count": 14,
+          "field_pct": 1.2
+        },
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Christopher Bell",
+            "Noah Gragson",
+            "Ricky Stenhouse Jr",
+            "Todd Gilliland",
+            "Zane Smith"
+          ],
+          "count": 14,
+          "field_pct": 1.2
+        },
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Austin Dillon",
+            "Bubba Wallace",
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Ricky Stenhouse Jr"
+          ],
+          "count": 12,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Bubba Wallace",
+            "Carson Hocevar",
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Todd Gilliland",
+            "Zane Smith"
+          ],
+          "count": 11,
+          "field_pct": 0.9
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Christopher Bell",
+            "Denny Hamlin",
+            "Noah Gragson",
+            "Ryan Blaney",
+            "Zane Smith"
+          ],
+          "count": 9,
+          "field_pct": 0.8
+        }
+      ],
+      "winners_profile": {
+        "n": 12,
+        "avg_own_per_slot": 34.4,
+        "dart_pct": 0.0,
+        "unique_pct": 58.3
+      },
+      "fish_profile": {
+        "n": 586,
+        "avg_own_per_slot": 26.9,
+        "dart_pct": 39.1,
+        "unique_pct": 82.4
+      },
+      "fish_traps": [
+        {
+          "name": "Ryan Blaney",
+          "fish_pct": 46.2,
+          "winner_pct": 0.0,
+          "gap": 46.2,
+          "actual_fpts": -3.9,
+          "field_own": 31.8,
+          "own_rank": 7
+        },
+        {
+          "name": "Zane Smith",
+          "fish_pct": 42.5,
+          "winner_pct": 0.0,
+          "gap": 42.5,
+          "actual_fpts": 16.1,
+          "field_own": 41.0,
+          "own_rank": 4
+        },
+        {
+          "name": "Carson Hocevar",
+          "fish_pct": 42.3,
+          "winner_pct": 0.0,
+          "gap": 42.3,
+          "actual_fpts": -4.0,
+          "field_own": 32.0,
+          "own_rank": 6
+        },
+        {
+          "name": "AJ Allmendinger",
+          "fish_pct": 25.1,
+          "winner_pct": 0.0,
+          "gap": 25.1,
+          "actual_fpts": 20.7,
+          "field_own": 26.1,
+          "own_rank": 9
+        },
+        {
+          "name": "Chase Elliott",
+          "fish_pct": 22.4,
+          "winner_pct": 0.0,
+          "gap": 22.4,
+          "actual_fpts": 23.6,
+          "field_own": 20.2,
+          "own_rank": 11
+        },
+        {
+          "name": "Chris Buescher",
+          "fish_pct": 17.1,
+          "winner_pct": 0.0,
+          "gap": 17.1,
+          "actual_fpts": -35.0,
+          "field_own": 8.7,
+          "own_rank": 21
+        },
+        {
+          "name": "Ty Gibbs",
+          "fish_pct": 16.9,
+          "winner_pct": 0.0,
+          "gap": 16.9,
+          "actual_fpts": -11.8,
+          "field_own": 10.3,
+          "own_rank": 19
+        },
+        {
+          "name": "Todd Gilliland",
+          "fish_pct": 15.7,
+          "winner_pct": 0.0,
+          "gap": 15.7,
+          "actual_fpts": 42.2,
+          "field_own": 23.6,
+          "own_rank": 10
+        },
+        {
+          "name": "Joey Logano",
+          "fish_pct": 15.5,
+          "winner_pct": 0.0,
+          "gap": 15.5,
+          "actual_fpts": 16.5,
+          "field_own": 10.4,
+          "own_rank": 18
+        },
+        {
+          "name": "William Byron",
+          "fish_pct": 11.6,
+          "winner_pct": 0.0,
+          "gap": 11.6,
+          "actual_fpts": 16.3,
+          "field_own": 8.6,
+          "own_rank": 23
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "ElGuapo386",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "18_kyle_busch_fan",
+          "best_rank": 2,
+          "percentile": 0.2
+        },
+        {
+          "handle": "jdsanika",
+          "best_rank": 3,
+          "percentile": 0.3
+        },
+        {
+          "handle": "bts29412",
+          "best_rank": 3,
+          "percentile": 0.3
+        },
+        {
+          "handle": "Scramblers",
+          "best_rank": 3,
+          "percentile": 0.3
+        },
+        {
+          "handle": "bigmac84",
+          "best_rank": 6,
+          "percentile": 0.5
+        },
+        {
+          "handle": "plywood88",
+          "best_rank": 7,
+          "percentile": 0.6
+        },
+        {
+          "handle": "kudolph",
+          "best_rank": 7,
+          "percentile": 0.6
+        },
+        {
+          "handle": "MatBuchanan",
+          "best_rank": 9,
+          "percentile": 0.8
+        },
+        {
+          "handle": "Winnerman123",
+          "best_rank": 10,
+          "percentile": 0.9
+        },
+        {
+          "handle": "AngerTornado",
+          "best_rank": 10,
+          "percentile": 0.9
+        },
+        {
+          "handle": "JimmyWagner",
+          "best_rank": 10,
+          "percentile": 0.9
+        },
+        {
+          "handle": "d1ck_trickle",
+          "best_rank": 10,
+          "percentile": 0.9
+        },
+        {
+          "handle": "zacsauce",
+          "best_rank": 14,
+          "percentile": 1.2
+        },
+        {
+          "handle": "bhoffman33",
+          "best_rank": 15,
+          "percentile": 1.3
+        }
+      ],
+      "read": [
+        "Field crowded **Christopher Bell** at 61.3% (44.9 fpts) \u2014 the chalk to consider fading.",
+        "**Christopher Bell + Denny Hamlin** were together in 36.9% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Ryan Blaney** was a fish trap: 46.2% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 324.2,
+      "winner_handle": "ElGuapo386",
+      "roster": [
+        {
+          "name": "Christopher Bell",
+          "own": 61.31,
+          "fpts": 44.9
+        },
+        {
+          "name": "Tyler Reddick",
+          "own": 13.52,
+          "fpts": 57.15
+        },
+        {
+          "name": "Denny Hamlin",
+          "own": 50.68,
+          "fpts": 53.7
+        },
+        {
+          "name": "Ricky Stenhouse Jr",
+          "own": 37.07,
+          "fpts": 70.3
+        },
+        {
+          "name": "Austin Dillon",
+          "own": 16.92,
+          "fpts": 62.15
+        },
+        {
+          "name": "Noah Gragson",
+          "own": 31.29,
+          "fpts": 36.0
+        }
+      ],
+      "avg_own": 35.1,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Tyler Reddick",
+        "own": 13.52,
+        "fpts": 57.15
+      },
+      "expected_dupes": 0.97
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "blocked_swap": null,
+      "gradable": true,
+      "won": false,
+      "your_points": 189.05,
+      "winner_points": 324.2,
+      "gap": 135.1,
+      "your_percentile": 53.1,
+      "n_shared": 2,
+      "shared": [
+        "Christopher Bell",
+        "Noah Gragson"
+      ],
+      "your_uniques": [
+        {
+          "name": "Todd Gilliland",
+          "fpts": 42.25,
+          "salary": 6400
+        },
+        {
+          "name": "Brad Keselowski",
+          "fpts": 39.85,
+          "salary": 8300
+        },
+        {
+          "name": "Bubba Wallace",
+          "fpts": 29.9,
+          "salary": 9000
+        },
+        {
+          "name": "Ryan Blaney",
+          "fpts": -3.85,
+          "salary": 10500
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Ricky Stenhouse Jr",
+          "fpts": 70.3,
+          "salary": 8100
+        },
+        {
+          "name": "Austin Dillon",
+          "fpts": 62.15,
+          "salary": 7300
+        },
+        {
+          "name": "Tyler Reddick",
+          "fpts": 57.15,
+          "salary": 9700
+        },
+        {
+          "name": "Denny Hamlin",
+          "fpts": 53.7,
+          "salary": 9100
+        }
+      ],
+      "best_swap": {
+        "out": "Ryan Blaney",
+        "in": "Ricky Stenhouse Jr",
+        "gain": 74.1,
+        "would_have_won": false
+      },
+      "swaps_needed": 4
+    }
+  }
+]
