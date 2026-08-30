@@ -285,6 +285,16 @@ def archive_slate(
     else:
         missing.append("lineup_grade.md")
 
+    # Per-contest slice + pick digests (8/30/26). The picks file above says
+    # WHAT was chosen; these say what Claude was SHOWN and what it wrote. They
+    # are what makes "the winner was on the table and the pick missed it"
+    # measurable after the fact (scripts/picker_report.py) — before this, the
+    # slate clear deleted them and the question could never be answered.
+    for md in sorted((_REPO_ROOT / "data" / "lineup_selection")
+                     .glob(f"{slug}__*.md")):
+        shutil.copy2(md, hist_dir / md.name)
+        archived.append(md.name)
+
     articles_dir = _REPO_ROOT / "articles" / slug
     article_files = (
         sorted(str(f.relative_to(_REPO_ROOT)) for f in articles_dir.glob("*") if f.is_file())

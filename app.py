@@ -793,6 +793,21 @@ with tab_strategy:
                 remove_contest(slug, c["id"])
                 st.rerun()
 
+    # ----- Contest screener (8/30/26): your record in contests shaped like
+    # these. Contest selection is edge that costs nothing at lock — the
+    # ledger (66+ logged contests) knows which shapes have paid you.
+    # Information only, never a command; thin samples say so.
+    if contests_list:
+        from src import contest_selection as _csel
+        with st.expander("📊 Your record in contests shaped like these",
+                         expanded=False):
+            try:
+                _cs_rows = _csel.load_contest_rows()
+                _cs_recs = _csel.screen_declared(contests_list, _cs_rows)
+                st.markdown(_md_safe(_csel.screen_md(_cs_recs)))
+            except Exception as _cse:  # noqa: BLE001 — a bad ledger row never
+                st.caption(f"Screener unavailable: {_cse}")   # blocks declaring
+
     # ----- (b) Generate the slate strategy + player pool (one click) -----
     st.markdown("---")
     st.markdown("### Generate slate strategy + player pool")
@@ -2227,6 +2242,24 @@ with tab_autopsy:
                         f"log again cleanly. Error: {_arch_err}"
                     )
                     st.stop()
+                # Picker check (8/30/26, user directive: part of the post-slate
+                # analysis): POOL / SLICE / PICK for each contest just archived
+                # — was the miss in the build, the shown table, or the pick?
+                # Written beside the other archive files and read by the
+                # post-autopsy review. Best-effort, never blocks the log.
+                _picker_md = None
+                try:
+                    from src import picker_check as _pchk
+                    _pc_data = _pchk.check_history_dir(hist_dir, slug)
+                    (hist_dir / "picker_check.json").write_text(
+                        json.dumps(_pc_data, indent=2))
+                    _picker_md = _pchk.check_md(_pc_data)
+                    if not _pc_data.get("contests"):
+                        _log_warnings.append(
+                            "Picker check not measurable: "
+                            + str(_pc_data.get("note") or ""))
+                except Exception as _pce:  # noqa: BLE001
+                    _log_warnings.append(f"Picker check NOT computed: {_pce}")
                 # Logging + archive are done. Do NOT auto-clear — set a PERSISTENT
                 # completion flag and let the user clear the slate deliberately
                 # (so they get a lasting confirmation and can run the review first).
@@ -2260,6 +2293,7 @@ with tab_autopsy:
                                      if _adh and _adh.get("gradable") else None),
                     "calibration_md": (_cal_md_fn(_cal)
                                        if _cal and _cal.get("gradable") else None),
+                    "picker_md": _picker_md,
                 }
                 st.rerun()
 
@@ -2313,6 +2347,12 @@ with tab_autopsy:
                         st.warning(f"⚠️ {_res['detail']}")
                     st.rerun()
 
+        if _done.get("picker_md"):
+            with st.container(border=True):
+                st.markdown(_md_safe(_done["picker_md"]))
+                st.caption("Archived to picker_check.json and read by the "
+                           "post-autopsy review. The cross-slate trend: "
+                           "`.venv/bin/python scripts/picker_report.py`.")
         if _done.get("adherence_md"):
             with st.container(border=True):
                 st.markdown(_md_safe(_done["adherence_md"]))
@@ -2369,6 +2409,31 @@ with tab_autopsy:
             _pick = _archives[_labels.index(_sel)]
         with st.container(border=True):
             st.markdown(_md_safe(_sb.breakdown_md(_pick)))
+
+    # ----- Strategy overrides vs results (the 8/29 learning loop) ----- #
+    # The gate was softened so overrides would GENERATE evidence; this is the
+    # readout. Cross-slate, read from the archive on disk — it renders whenever
+    # any archived contest has both a saved pick and a logged finish.
+    from src.lineup_selection import override_outcomes, override_outcomes_md
+    try:
+        _ovr = override_outcomes(slug)
+    except Exception:  # noqa: BLE001 — a bad archive file never blocks the tab
+        _ovr = {"rows": []}
+    if _ovr.get("rows"):
+        st.divider()
+        st.markdown("### 🔓 Strategy overrides — is following the strategy winning?")
+        with st.container(border=True):
+            st.markdown(_md_safe(override_outcomes_md(_ovr)))
+            _ovr_ov = [r for r in _ovr["rows"] if r["overridden"]]
+            if _ovr_ov:
+                with st.expander(f"The {len(_ovr_ov)} override(s), with their "
+                                 "written whys"):
+                    for _r in _ovr_ov:
+                        st.markdown(
+                            f"- **{_r['date']} · {_r['contest']}** — finished at "
+                            f"the {_r['pctile']:g} percentile (lower is better). "
+                            f"Broke: {', '.join(_r['rules']) or '?'}."
+                            + (f" Why: {_r['why']}" if _r.get("why") else ""))
 
     # ----- Post-autopsy review (the learning loop) ----- #
     latest_hist = history.latest_history_dir(slug)

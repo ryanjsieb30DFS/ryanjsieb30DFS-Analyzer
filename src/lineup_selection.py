@@ -425,6 +425,150 @@ def override_report(slug: str, rules_dir: Path | None = None) -> dict:
             "by_rule": by_rule, "rows": rows}
 
 
+def _contest_join_key(name: str) -> str:
+    """Join key between a Sim contest label and a results-ledger contest name.
+    The Sim label carries a trailing type tag the ledger drops —
+    'UFC $3K Clinch [Single Entry] (SE)' vs 'UFC $3K Clinch [Single Entry]'."""
+    s = re.sub(r"\s*\((se|3-?max|5-?max|20-?max|150-?max|mme)\)\s*$", "",
+               str(name or ""), flags=re.I)
+    return re.sub(r"\s+", " ", s).casefold().strip()
+
+
+def override_outcomes(slug: str, rules_dir: Path | None = None) -> dict:
+    """Overridden picks vs clean picks, joined to REAL finishes — the readout
+    the 8/29/26 gate-softening exists to feed.
+
+    `log_override` records that a pick knowingly broke the strategy;
+    `override_report` counts those records. Neither answers the question that
+    justified the whole change: DO overridden picks finish better or worse
+    than clean ones? This walks every archived slate in `rules/<slug>/history/`
+    and joins, per contest:
+
+        lineup_selection.json  — the picks; each carries `override` (the rules
+                                 it broke) when it was an override, nothing
+                                 when it was clean
+        results.json           — the same contest's real finish
+                                 (`best_percentile`, LOWER is better)
+
+    enriched with the written whys from strategy_overrides.jsonl where the
+    slate matches. A contest counts as OVERRIDDEN when any of its picks broke
+    a rule.
+
+    Returns {"rows", "clean", "override", "by_rule", "n_slates"} where `clean`
+    and `override` are {"n", "median_pctile", "mean_pctile"} (None until data
+    exists) and `by_rule` maps each broken rule to its finish percentiles.
+    Read it with the sample size showing — a handful of overrides proves
+    nothing yet, and the panel that renders this says so."""
+    base = rules_dir or (Path(__file__).parent.parent / "rules")
+    hist_root = base / slug / "history"
+    reasons: dict = {}
+    for r in override_report(slug, rules_dir=rules_dir)["rows"]:
+        key = (str(r.get("slate") or ""), _contest_join_key(r.get("contest")))
+        if r.get("reason"):
+            reasons[key] = r["reason"]
+    rows: list[dict] = []
+    if hist_root.exists():
+        for hist in sorted(hist_root.iterdir()):
+            try:
+                sel = json.loads((hist / "lineup_selection.json").read_text())
+                res = json.loads((hist / "results.json").read_text())
+            except (OSError, json.JSONDecodeError):
+                continue
+            if not isinstance(sel, dict) or sel.get("schema_version") != 2:
+                continue
+            finishes = {_contest_join_key(c.get("name")): c
+                        for c in res.get("contests") or [] if c.get("name")}
+            slate = str(res.get("slate_label") or "")
+            for label, rec in (sel.get("contests") or {}).items():
+                fin = finishes.get(_contest_join_key(label))
+                if not fin or fin.get("best_percentile") is None:
+                    continue   # never entered / never logged — nothing to score
+                picks = (rec or {}).get("picked") or []
+                broken = sorted({_cost_head(rule) for p in picks
+                                 for rule in (p.get("override") or [])})
+                rows.append({
+                    "date": str(res.get("date") or ""),
+                    "slate": slate,
+                    "contest": str(label),
+                    "n_picks": len(picks),
+                    "n_override": sum(1 for p in picks if p.get("override")),
+                    "overridden": bool(broken),
+                    "rules": broken,
+                    "why": reasons.get((slate, _contest_join_key(label))),
+                    "pctile": float(fin["best_percentile"]),
+                    "field_size": fin.get("field_size"),
+                })
+
+    def _agg(sub: list[dict]) -> dict:
+        p = sorted(r["pctile"] for r in sub)
+        if not p:
+            return {"n": 0, "median_pctile": None, "mean_pctile": None}
+        mid = len(p) // 2
+        med = p[mid] if len(p) % 2 else (p[mid - 1] + p[mid]) / 2
+        return {"n": len(p), "median_pctile": round(med, 1),
+                "mean_pctile": round(sum(p) / len(p), 1)}
+
+    by_rule: dict = {}
+    for r in rows:
+        for rule in r["rules"]:
+            by_rule.setdefault(rule, []).append(r["pctile"])
+    return {"rows": rows,
+            "clean": _agg([r for r in rows if not r["overridden"]]),
+            "override": _agg([r for r in rows if r["overridden"]]),
+            "by_rule": {k: sorted(v) for k, v in sorted(by_rule.items())},
+            "n_slates": len({r["slate"] for r in rows})}
+
+
+def override_outcomes_md(data: dict) -> str:
+    """The override-outcome panel, in plain words. Percentile: LOWER is
+    better — 5 means the entry beat 95% of the field."""
+    cl, ov = data.get("clean") or {}, data.get("override") or {}
+    if not data.get("rows"):
+        return ("No archived contest has both a saved pick and a logged "
+                "result yet. Picks made from the Grade tab and logged in the "
+                "Autopsy start filling this in automatically.")
+    lines = [
+        "Every archived contest, split by whether the pick knowingly broke "
+        "the slate strategy. Finish is a percentile of the field — **lower "
+        "is better** (5 means the entry beat 95% of the field).",
+        "",
+        "| picks | contests | median finish | average finish |",
+        "|---|---:|---:|---:|",
+        f"| followed the strategy | {cl.get('n', 0)} | "
+        f"{cl.get('median_pctile') if cl.get('n') else '—'} | "
+        f"{cl.get('mean_pctile') if cl.get('n') else '—'} |",
+        f"| overrode a rule | {ov.get('n', 0)} | "
+        f"{ov.get('median_pctile') if ov.get('n') else '—'} | "
+        f"{ov.get('mean_pctile') if ov.get('n') else '—'} |",
+        "",
+    ]
+    if data.get("by_rule"):
+        lines.append("Finishes when each rule was the one overridden:")
+        for rule, pcts in data["by_rule"].items():
+            shown = ", ".join(f"{p:g}" for p in pcts[:8])
+            lines.append(f"- **{rule}** — {len(pcts)} contest(s), "
+                         f"finish percentile(s): {shown}")
+        lines.append("")
+    n_ov = ov.get("n", 0)
+    if n_ov < 8:
+        lines.append(
+            f"**UNDECIDED — only {n_ov} override(s) so far.** The house rule "
+            "applies here too: no verdict before ~8 samples. Keep overriding "
+            "when the argument is real; this table is how we find out whether "
+            "those arguments win.")
+    elif ov.get("median_pctile") is not None and cl.get("median_pctile") is not None:
+        better = ov["median_pctile"] < cl["median_pctile"]
+        lines.append(
+            "**Read:** overridden picks have finished "
+            + ("BETTER" if better else "WORSE")
+            + " than clean ones so far. "
+            + ("The strategy may be costing upside — worth a framework "
+               "review." if better else
+               "The strategy has been earning its keep — overrides need a "
+               "higher bar."))
+    return "\n".join(lines)
+
+
 def rule_price(gate: dict, pool: dict, rule: str,
                contest: dict | None = None) -> dict:
     """What one hard rule costs, in lineups AND in sim quality.

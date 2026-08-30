@@ -1077,3 +1077,70 @@ def test_sim_mode_slice_unchanged_by_no_sim_support():
     md = ls.slice_digest_md("nascar", contest["label"], contest, None, rows,
                             pool["ownership"], sims=10_000)
     assert "built and simmed" in md and "statistically TIED" in md
+
+
+# ---------------------------------------------------------------------------
+# Override outcomes — the join that makes overrides mean something
+# ---------------------------------------------------------------------------
+
+def _hist_slate(root, slug, dirname, slate, date, contests, picks):
+    """Write one archived slate: results.json + lineup_selection.json.
+    `contests` = [(name, best_percentile)], `picks` = {label: [pick dicts]}."""
+    import json as _json
+    d = root / slug / "history" / dirname
+    d.mkdir(parents=True)
+    (d / "results.json").write_text(_json.dumps({
+        "date": date, "slate_label": slate,
+        "contests": [{"name": n, "best_percentile": p, "field_size": 500,
+                      "my_entries": 1} for n, p in contests]}))
+    (d / "lineup_selection.json").write_text(_json.dumps({
+        "schema_version": 2, "slug": slug,
+        "contests": {lb: {"picked": pk} for lb, pk in picks.items()}}))
+
+
+def test_override_outcomes_joins_picks_to_finishes(tmp_path):
+    """A clean pick and an overridden pick, each joined to its real finish —
+    the Sim label's trailing '(SE)' tag must not break the join, and the
+    override's written why must ride along from the override log."""
+    _hist_slate(tmp_path, "mma_se", "2026-08-29__ufc", "UFC Shanghai",
+                "2026-08-29",
+                [("UFC $4K Flying Knee [Single Entry]", 58.9),
+                 ("UFC $3K Clinch [Single Entry]", 5.0)],
+                {"UFC $4K Flying Knee [Single Entry] (SE)":
+                     [{"index": 1, "roster_key": "a|b|c"}],
+                 "UFC $3K Clinch [Single Entry] (SE)":
+                     [{"index": 2, "roster_key": "d|e|f",
+                       "override": ["carries Woodson — the strategy calls him "
+                                    "LEAN FADE"]}]})
+    ls.log_override("mma_se", "UFC Shanghai",
+                    "UFC $3K Clinch [Single Entry] (SE)", 2,
+                    ["d", "e", "f"], ["carries Woodson — LEAN FADE"],
+                    "only path to the winning score", rules_dir=tmp_path)
+    out = ls.override_outcomes("mma_se", rules_dir=tmp_path)
+    assert len(out["rows"]) == 2
+    assert out["clean"] == {"n": 1, "median_pctile": 58.9, "mean_pctile": 58.9}
+    assert out["override"] == {"n": 1, "median_pctile": 5.0, "mean_pctile": 5.0}
+    ov = [r for r in out["rows"] if r["overridden"]][0]
+    assert ov["rules"] == ["carries Woodson"]
+    assert ov["why"] == "only path to the winning score"
+    assert out["by_rule"] == {"carries Woodson": [5.0]}
+    md = ls.override_outcomes_md(out)
+    assert "lower is better" in md.lower() and "UNDECIDED" in md
+
+
+def test_override_outcomes_skips_unlogged_contests(tmp_path):
+    """A pick whose contest never reached results.json is silently absent —
+    an unfinished slate must not read as a data point."""
+    _hist_slate(tmp_path, "mma_se", "2026-08-30__ufc", "UFC 331", "2026-08-30",
+                [("UFC $4K SE", 40.0)],
+                {"UFC $4K SE (SE)": [{"index": 1, "roster_key": "a|b"}],
+                 "UFC $9K Uppercut (SE)": [{"index": 2, "roster_key": "c|d"}]})
+    out = ls.override_outcomes("mma_se", rules_dir=tmp_path)
+    assert len(out["rows"]) == 1
+    assert out["rows"][0]["contest"].startswith("UFC $4K SE")
+
+
+def test_override_outcomes_empty_without_history(tmp_path):
+    out = ls.override_outcomes("nascar", rules_dir=tmp_path)
+    assert out["rows"] == [] and out["clean"]["n"] == 0
+    assert "No archived contest" in ls.override_outcomes_md(out)

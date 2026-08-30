@@ -206,6 +206,14 @@ def breakdown_md(hist_dir) -> str:
         except Exception:  # noqa: BLE001
             pass
 
+    pchk = _load(hist_dir, "picker_check.json")
+    if pchk and pchk.get("contests"):
+        try:
+            from src.picker_check import check_md
+            sections.append(check_md(pchk))
+        except Exception:  # noqa: BLE001
+            pass
+
     sections.append(retro_grade_md(_load(hist_dir, "grader_validation.json")))
 
     body = [s for s in sections if s]
