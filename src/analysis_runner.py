@@ -256,7 +256,7 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"things CLEARER, never longer. Spend it on: explaining what a number MEANS, walking "
         f"through the reasoning step by step, and saying what the field is likely to do and how "
         f"this slate beats it. Suggested spend — Short version ~250 · Slate at a glance ~150 · "
-        f"Edges & tensions ~500 · What the field will do ~500 · Field vs Sharp ~400 · Top plays "
+        f"Edges & tensions ~500 · Field vs Sharp ~700 (this is the home of 'what the field will do') · Top plays "
         f"~900 · Leverage ~500 · Fades ~350 · Build it like a sharp ~600, with the remaining "
         f"headroom going to whichever section this slate genuinely needs. Trim by SELECTION — "
         f"delete whole repeated ideas, never blur a claim to save words.\n"

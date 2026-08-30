@@ -1229,14 +1229,15 @@ with tab_grade:
                         st.caption(f"🔒 {len(_taken_c)} lineup(s) are already picked "
                                    "for your other contests — they are off this "
                                    "contest's table. A lineup is only entered once.")
-                    # The strategy gate: Claude only ever sees lineups that
-                    # already follow the slate strategy (8/15/26).
+                    # The strategy guide (8/29/26, was a hard gate 8/15-8/29):
+                    # every lineup is pickable; rule breaks are priced costs the
+                    # pick must argue for, and overrides are logged.
                     _gate_c = _ls.strategy_gate(slug)
                     _elig_c = _ls.eligible_indexes(_pk_pool, _gate_c)
                     if not _gate_c.get("has_contract"):
-                        st.warning("No slate strategy for this slate yet — picks must "
-                                   "follow it, so picking is off. Generate the slate "
-                                   "strategy first.")
+                        st.warning("No slate strategy for this slate yet — the pick "
+                                   "weighs every lineup against it, so picking is "
+                                   "off. Generate the slate strategy first.")
                     else:
                         # A self-cancelling contract is an ERROR banner, not a
                         # caption: on 8/29/26 the Core tier and the forbidden
@@ -1247,15 +1248,12 @@ with tab_grade:
                         for _c in _conf_c:
                             st.error("🛑 The slate strategy contradicts itself: " + _c)
                         st.caption(
-                            f"📋 Strategy gate: {len(_elig_c['allowed']):,} of "
+                            f"📋 Strategy guide: {_elig_c['full']:,} of "
                             f"{_elig_c['total']:,} pooled lineups follow this slate's "
-                            "strategy — only those can be picked."
-                            + ((" ⚠️ These rules had to be dropped because "
-                                + ("the contradiction above made them impossible"
-                                   if _conf_c else "too few lineups passed")
-                                + ": " + ", ".join(_elig_c["relaxed"]) + ".")
-                               if _elig_c["relaxed"] else ""))
-                        with st.expander("What the gate is enforcing"):
+                            "strategy outright. Any lineup can still be picked — "
+                            "breaking a rule is a cost the pick must argue for in "
+                            "writing, and every such override is logged.")
+                        with st.expander("What the strategy rules check (each break is priced, not banned)"):
                             st.markdown(_md_safe(_ls.gate_summary(
                                 _gate_c, _elig_c, pool=_pk_pool, contest=_sim_c)))
                     if st.button(
@@ -1263,9 +1261,10 @@ with tab_grade:
                         f"{'y' if _my_c == 1 else 'ies'}",
                         key=f"pick_{slug}_{_key}",
                         disabled=not _gate_c.get("has_contract"),
-                        help="Claude reads this contest's top ~100 Sim lineups (with "
-                             "THIS contest's sim numbers), the slate strategy, and "
-                             "the open lessons, then picks by lineup id. Every pick "
+                        help="Claude reads a 500-lineup slice of the Sim pool, chosen "
+                             "to cover many different builds (with THIS contest's "
+                             "sim numbers), the slate strategy, and the open "
+                             "lessons, then picks by lineup id. Every pick "
                              "is validated against the Sim's table — a made-up or "
                              "modified lineup is rejected and nothing saves.",
                     ):
