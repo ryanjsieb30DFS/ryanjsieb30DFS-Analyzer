@@ -1005,3 +1005,75 @@ def test_override_log_round_trips(tmp_path):
 
 def test_override_report_is_empty_before_any_override(tmp_path):
     assert ls.override_report("nascar", rules_dir=tmp_path)["n"] == 0
+
+
+# ---------------------------------------------------------------------------
+# The no-sim pool (8/29/26): metrics arrive as None — projection + ownership
+# only. The picker must still slice, rank, and speak plainly about what it
+# does NOT know, and must invent nothing.
+# ---------------------------------------------------------------------------
+
+def _no_sim_pool(n=120):
+    pool = _pool(n)
+    for c in pool["contests"]:
+        c["metrics"] = None
+        c["exp_dupes"] = None
+    pool["num_simulations"] = None
+    return pool
+
+
+def test_blend_scores_no_sim_falls_back_to_proj_and_own():
+    pool = _no_sim_pool()
+    contest = pool["contests"][0]
+    b = ls.blend_scores(pool, contest)
+    assert len(b) == 120
+    # proj rises with index, so with own's small tiebreak the top row must be
+    # near the end of the pool — projection leads the fallback blend.
+    assert max(range(120), key=lambda i: b[i]) > 100
+    # And the fallback is exactly the two surviving signals: no NaN, all finite.
+    assert all(0.0 <= v <= 1.0 for v in b)
+
+
+def test_candidate_slice_no_sim_ranks_and_reports_empty_metrics():
+    pool = _no_sim_pool()
+    rows = ls.candidate_slice(pool, pool["contests"][0], k=30)
+    assert rows
+    assert all(r["top1_pct"] is None and r["roi_pct"] is None for r in rows)
+    # Projection leads the no-sim blend, so the table's top row must be a
+    # high-projection row, not pool index 0 seated by an all-None angle.
+    assert rows[0]["proj"] >= 250.0
+
+
+def test_metric_resolution_no_sim_says_no_metric():
+    pool = _no_sim_pool()
+    rows = ls.candidate_slice(pool, pool["contests"][0], k=20)
+    res = ls.metric_resolution(rows, None)
+    assert res.get("no_metric") is True and res["band"] is None
+    md = ls.resolution_md(res)
+    assert "no simulation was run" in md.lower()
+    # The "sent without its simulation count" wording is the OTHER state and
+    # must not appear — the two messages must never blur together.
+    assert "simulation count" not in md.lower()
+
+
+def test_slice_digest_no_sim_states_it_and_prints_no_none_cells():
+    pool = _no_sim_pool()
+    contest = pool["contests"][0]
+    rows = ls.candidate_slice(pool, contest, k=20)
+    md = ls.slice_digest_md("nascar", contest["label"], contest, None, rows,
+                            pool["ownership"], sims=None)
+    assert "NO simulation was run" in md
+    table = md.split("## Every candidate")[1]
+    assert "None" not in table
+    # No tie talk without a metric to tie on.
+    assert "statistically TIED" not in md
+
+
+def test_sim_mode_slice_unchanged_by_no_sim_support():
+    pool = _pool(120)
+    contest = pool["contests"][0]
+    rows = ls.candidate_slice(pool, contest, k=30)
+    assert rows and rows[0]["top1_pct"] is not None
+    md = ls.slice_digest_md("nascar", contest["label"], contest, None, rows,
+                            pool["ownership"], sims=10_000)
+    assert "built and simmed" in md and "statistically TIED" in md

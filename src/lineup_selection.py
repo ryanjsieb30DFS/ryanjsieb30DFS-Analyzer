@@ -871,14 +871,27 @@ def blend_scores(pool: dict, contest: dict) -> list:
     One blend for every field size (the old small-field branch existed to add
     tail weight where the payout is top-heavy; the tail now leads everywhere,
     so the branch had nothing left to do). Returns one score per pool index.
+
+    **No-sim pool (8/29/26).** A pool can now arrive with `metrics: None` —
+    built from projections and ownership, never simmed. There is no Top-1%
+    or Cash% to lead with, so the two surviving signals keep their same
+    RELATIVE importance: projection 0.63, ownership 0.37 (the live 0.17:0.10
+    renormalized — and the same ~63:37 ratio their measured correlations
+    with lineup score carry, proj +0.179 vs own +0.103). This is a weaker
+    ranking, on purpose: nothing is invented to stand in for the sim.
     """
     rosters = pool.get("rosters") or []
     n = len(rosters)
     m = contest.get("metrics") or {}
-    t1 = _norm((m.get("top1_pct") or [None] * n)[:n])
-    ca = _norm((m.get("cash_pct") or [None] * n)[:n])
     pj = _norm((pool.get("proj") or [None] * n)[:n])
     ow = _norm((pool.get("avg_own") or [None] * n)[:n])
+    t1_raw = (m.get("top1_pct") or [None] * n)[:n]
+    ca_raw = (m.get("cash_pct") or [None] * n)[:n]
+    if not any(v is not None for v in t1_raw) \
+            and not any(v is not None for v in ca_raw):
+        return [0.63 * pj[i] + 0.37 * ow[i] for i in range(n)]
+    t1 = _norm(t1_raw)
+    ca = _norm(ca_raw)
     return [0.45 * t1[i] + 0.28 * ca[i] + 0.17 * pj[i] + 0.10 * ow[i]
             for i in range(n)]
 
@@ -1000,25 +1013,44 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP,
     # table to lineups that project like the field median, which is where the
     # field median already is.
     _a = max(1, k // 10)
-    _add(_top_idx(top1, _a, universe=universe))
-    _add(_top_idx(cash, _a, universe=universe))
-    _add(_top_idx(roi, _a, universe=universe))
+
+    def _has(arr) -> bool:
+        return any(v is not None for v in arr)
+
+    # A no-sim pool (metrics: None, 8/29/26) has no sim angles to seat — an
+    # angle over an all-None column would just seat rows by pool index.
+    has_sim = _has(top1) or _has(cash) or _has(roi) or _has(win)
+    if _has(top1):
+        _add(_top_idx(top1, _a, universe=universe))
+    if _has(cash):
+        _add(_top_idx(cash, _a, universe=universe))
+    if _has(roi):
+        _add(_top_idx(roi, _a, universe=universe))
     # Projection still earns seats — a lineup has to be strong enough to be
     # legal company, and projection is what says so — but it qualifies rather
-    # than leads, so it gets a half seat like win%.
-    _add(_top_idx(proj, max(1, _a // 2), universe=universe))
-    _add(_top_idx(win, max(1, _a // 2), universe=universe))
+    # than leads, so it gets a half seat like win%. With NO sim numbers it is
+    # the strongest signal left and takes the full seat instead.
+    _add(_top_idx(proj, _a if not has_sim else max(1, _a // 2),
+                  universe=universe))
+    if _has(win):
+        _add(_top_idx(win, max(1, _a // 2), universe=universe))
     # Ownership: BOTH ends get seats. The most-owned rows are not a mistake to
     # be screened out and the least-owned are not a bonus — it is a real but
     # minor signal (NASCAR's best at +0.121, worth nothing in PGA Classic).
-    _add(_top_idx(avg_own, max(1, _a // 4), universe=universe))
-    _add(_top_idx(avg_own, max(1, _a // 4), universe=universe, reverse=False))
+    # With no sim it is the only other signal, so both ends widen a step.
+    _own_seats = max(1, (_a // 2) if not has_sim else (_a // 4))
+    _add(_top_idx(avg_own, _own_seats, universe=universe))
+    _add(_top_idx(avg_own, _own_seats, universe=universe, reverse=False))
     # Standouts within the top quartile by this contest's top1: the
     # lowest-owned (leverage) and, when dupe data exists, least-duplicated.
     # These carry reserved seats through the cap below — they were added for
     # their angle, not their blend score, and the blend must not evict them.
     standouts: set = set()
-    q_list = sorted(_top_idx(top1, max(1, u // 4), universe=universe))
+    # The quartile that anchors the standouts ranks on this contest's top1;
+    # a no-sim pool ranks it on the blend (projection + ownership) instead.
+    blend = blend_scores(pool, contest)
+    basis = top1 if _has(top1) else blend
+    q_list = sorted(_top_idx(basis, max(1, u // 4), universe=universe))
     lev = [q_list[j] for j in _top_idx([avg_own[i] for i in q_list], 20,
                                        reverse=False)]
     _add(lev)
@@ -1038,7 +1070,7 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP,
     strat_hits: dict[int, list] = {}
     if lev_norm or uw_norm:
         roster_norms = [{_strat_norm(p) for p in r} for r in rosters]
-        top_half = set(_top_idx(top1, max(1, u // 2), universe=universe))
+        top_half = set(_top_idx(basis, max(1, u // 2), universe=universe))
         for i in top_half:
             # Leverage names are what the strategy ASKED for; an underweight
             # name is a COST, flagged ⚠ so the table can never read as an
@@ -1052,11 +1084,10 @@ def candidate_slice(pool: dict, contest: dict, k: int = _SLICE_CAP,
         if lev_norm:
             cov = sorted((i for i in strat_hits
                           if any(not h.startswith("⚠") for h in strat_hits[i])),
-                         key=lambda i: (-len(strat_hits[i]), -(top1[i] or 0), i))
+                         key=lambda i: (-len(strat_hits[i]), -(basis[i] or 0), i))
             _add(cov[:20])
             standouts.update(cov[:20])
 
-    blend = blend_scores(pool, contest)
     if len(chosen) > k:
         # Over the cap: reserved seats survive, the rest are coverage-filled.
         keep = [i for i in chosen if i in standouts]
@@ -1241,8 +1272,11 @@ def metric_resolution(rows: list[dict], sims: int | None,
     vals = [(r.get("index"), r.get(metric)) for r in rows or []
             if r.get(metric) is not None]
     if not vals:
+        # `no_metric` (8/29/26): the pool was never simmed, so the metric
+        # itself is absent — a different statement from "simmed, but the sim
+        # count didn't ride along", and the reader note says which it is.
         return {"sims": sims, "band": None, "best": None, "tied_ids": [],
-                "spread": None, "known": False}
+                "spread": None, "known": False, "no_metric": True}
     best = max(v for _i, v in vals)
     lo = min(v for _i, v in vals)
     out = {"sims": sims, "best": round(float(best), 2),
@@ -1269,6 +1303,14 @@ def metric_resolution(rows: list[dict], sims: int | None,
 
 def resolution_md(res: dict, metric_label: str = "Top-1%") -> str:
     """The resolution note the picker reads, in plain words."""
+    if res.get("no_metric"):
+        return (f"**There are no {metric_label} numbers on this table.** This "
+                "pool was built from projections and ownership only — no "
+                "simulation was run. The table is ranked on projected points "
+                "and ownership, which say a lineup is strong and different, "
+                "not that it wins. Decide on the lineups themselves: which "
+                "plays they take, how the crowd is likely to line up against "
+                "them, and what has to happen for each to pay.")
     if not res.get("known"):
         return (f"**{metric_label} resolution: unknown.** This pool was sent "
                 "without its simulation count, so there is no way to say how "
@@ -1315,13 +1357,18 @@ def slice_digest_md(slug: str, label: str, contest: dict, declared: dict | None,
     than a strict ranking — see `metric_resolution`."""
     shape = (declared or {}).get("payout_shape") or "not declared"
     my = contest.get("my_entries")
+    no_sim = all(r.get("top1_pct") is None for r in rows) if rows else False
     lines = [
         f"# Candidate lineups — {label}",
         f"Contest: field {int(contest.get('field_size') or 0):,} entries · "
         f"${contest.get('entry_fee')} entry · payout shape {shape} · "
         f"you are entering {my} lineup(s).",
-        "Every lineup below was built and simmed by the Sim tool. "
-        "Pick ONLY from this table, by id.",
+        ("Every lineup below was built by the Sim tool from projections and "
+         "ownership — NO simulation was run, so the win/top1/cash/roi "
+         "columns are empty. "
+         if no_sim else
+         "Every lineup below was built and simmed by the Sim tool. ")
+        + "Pick ONLY from this table, by id.",
         "",
     ]
     if gate_md:
@@ -1331,22 +1378,28 @@ def slice_digest_md(slug: str, label: str, contest: dict, declared: dict | None,
     fam = families_md(lineup_families(rows))
     if fam:
         lines += [fam, ""]
-    lines += ["## How much a Top-1% gap is worth", "", resolution_md(res), ""]
+    lines += [("## What the table is ranked on" if no_sim
+               else "## How much a Top-1% gap is worth"),
+              "", resolution_md(res), ""]
     lines += [
         "## Every candidate", "",
         "| id | tie | salary | proj | avg own% | win% | top1% | cash% | roi% | dupes | cost | strategy | players |",
         "|---|---|---|---|---|---|---|---|---|---|---|---|---|",
     ]
+    def _cell(v):
+        return v if v is not None else "—"
+
     for r in rows:
         players = ", ".join(
             f"{nm} ({ownership.get(nm)}%)" if ownership.get(nm) is not None else nm
             for nm in r["roster"])
         lines.append(
             f"| {r['index']} | {'=' if r['index'] in tied else ''} | "
-            f"{r.get('salary')} | {r.get('proj')} | "
-            f"{r.get('avg_own')} | {r.get('win_pct')} | {r.get('top1_pct')} | "
-            f"{r.get('cash_pct')} | {r.get('roi_pct')} | "
-            f"{r.get('exp_dupes') if r.get('exp_dupes') is not None else '—'} | "
+            f"{_cell(r.get('salary'))} | {_cell(r.get('proj'))} | "
+            f"{_cell(r.get('avg_own'))} | {_cell(r.get('win_pct'))} | "
+            f"{_cell(r.get('top1_pct'))} | "
+            f"{_cell(r.get('cash_pct'))} | {_cell(r.get('roi_pct'))} | "
+            f"{_cell(r.get('exp_dupes'))} | "
             f"{r.get('cost') or '—'} | "
             f"{r.get('strategy') or '—'} | "
             f"{players} |")
@@ -1358,11 +1411,14 @@ def slice_digest_md(slug: str, label: str, contest: dict, declared: dict | None,
                  "rule in your why when you do. Picking one without saying so "
                  "is rejected.")
     lines.append("")
-    lines.append("A `=` in the `tie` column means this row is statistically "
-                 "TIED with the best row on Top-1% — its number is not worse, "
-                 "it is the same number inside sampling noise. Pick among the "
-                 "`=` rows on lineup shape, and never write a rationale that "
-                 "rejects one for a decimal.")
+    if not no_sim:
+        lines.append("A `=` in the `tie` column means this row is "
+                     "statistically TIED with the best row on Top-1% — its "
+                     "number is not worse, it is the same number inside "
+                     "sampling noise. Pick among the `=` rows on lineup "
+                     "shape, and never write a rationale that rejects one "
+                     "for a decimal.")
+        lines.append("")
     lines.append("")
     lines.append("The `strategy` column names the leverage-list players this "
                  "lineup carries — the strategy asked for those, so those rows "
