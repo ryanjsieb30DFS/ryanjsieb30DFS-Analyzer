@@ -24,6 +24,10 @@ PGA (similarly-priced top-tier golfers), MMA (chalk favorites at similar own%), 
 
 **Equivalence requires profile equivalence, not just price and ownership proximity.** Rocket RD4 8/8: Kirk/Wallace were true twins and the cheap side paid (52.8 vs 37.5); Xander/Si Woo sat $400 apart at similar ownership and were NOT the same bet (59.2 vs 16.2 — Si Woo was the slate's biggest fish trap). Surface the pair always; auto-taking the cheaper side is not the rule.
 
+## Scope carve-out — drafting tracks (2026-08-30)
+
+**At drafting tracks (Daytona, Talladega, Atlanta) chalk anchors are a correlated stack, not substitutes — the at-most-one cap does not apply.** The lead draft stays bunched, so the top chalk dominators finish together (all-hit-or-all-wreck) instead of trading outcomes; capping yourself at one of them blocks exactly the multi-dominator stack that wins. Confirmed on 2 slates: Atlanta 7/12/26 (both SE winners ran Reddick + Bell from the "at most 1" group, plus Blaney) and Daytona 8/29/26 (both SE winners stacked all three of Bell + Hamlin + Stenhouse, the field's top three). Approved 2026-08-30 at 2 confirming slates by user directive. Everywhere else the rule stands as written. See NASCAR ledger lesson `nascar-2026-07-14-superspeedway-doms-correlate-not-substitute`.
+
 ## Pairing key caution — MMA (2026-08-29)
 
 **Ownership proximity is one pairing key, not the only one.** This rule pairs anchors that sit at *similar ownership*. On MMA 8/29 the decisive pair was matched on **win probability** and sat 20 ownership points apart, so an ownership-matched pass could not see it: Umar Nurmagomedov 82% win / 45% own (lost, 15.7) against Rei Tsuruya 85% / 25% (won, 129.1) and Bilal Hasan 86% / 29% (won, 108.7).

@@ -657,10 +657,20 @@ lessons:
       the winning shape is 3-4 dominators that finish together plus cheap PD
       differentiation, NOT a contrarian fade off the chalk. Scope: drafting/pack tracks
       ONLY; at non-pack tracks the codified Anchor-Equivalence substitution logic still
-      holds (validated Chicagoland 2026-07-12). Scopes [[nascar-2026-05-24-anchor-equivalence]]
+      holds (validated Chicagoland 2026-07-12). MERGED-IN (2026-08-30, from
+      [[nascar-2026-07-14-multiyear-lapsled-weak-perrace-signal]]): pick WHICH doms to
+      stack by the day's speed (practice/qualifying pace, current form, the site's
+      proven fast cars), not multi-year average laps led — at pack tracks laps led are
+      sporadic and draft-driven, so a career-average LL number does not forecast which
+      car leads THIS race (Atlanta: the avg-LL leaders Cindric/Logano under-delivered
+      while the day's fast cars Blaney 91.35 / Bell 74.6 / Reddick 71.8 anchored the
+      winners; Daytona 8/29: neither the strategy nor the winners used laps-led at
+      all). One pack-track dominator rule: stack the chalk doms because they finish
+      together, and pick them by the day's speed. Scopes [[nascar-2026-05-24-anchor-equivalence]]
       and complements [[nascar-2026-05-17-mechanism-check-before-reapplying-patterns]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - {date: "2026-08-30", slate: "Coke Zero Sugar 400, Daytona (8/29/26)", history_dir: "rules/nascar/history/2026-08-30__coke-zero-sugar-400-daytona-international-speedway-8-29-26", note: "First mechanism confirmation, on the purest pack track. The field's top three (Bell 63.5% actual, Hamlin 50.8%, Stenhouse 46.4%) finished TOGETHER (44.9 / 53.7 / 70.3) and BOTH SE winners stacked all three: edd0h 335.25 ($4K, 392) and ElGuapo386 324.2 ($12K, 1,176). The Bell+Hamlin pair the strategy told a sharp to refuse (37% of the field) was in the $4K winner and #3/#7/#8/#9, and in the $12K winner, #2, #3 (x3), #7 (x2), #10. The strategy DID apply this lesson in Build step 1 ('a sharp does not cap himself at one of them') — the read was right; the entries did not follow it (held Bell+Bubba and Blaney+Elliott, never Hamlin/Stenhouse). Atlanta origin + Daytona = 2 slates; promoted to validated. Merge target for [[nascar-2026-07-14-multiyear-lapsled-weak-perrace-signal]] (proposed 2026-08-30)."}
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -683,11 +693,11 @@ lessons:
       speed / practice / qualifying pace and the site's proven fast cars over
       multi-year avg-LL when choosing dominators; use avg-LL as a tiebreaker, not a
       thesis. Complements [[nascar-2026-07-14-superspeedway-doms-correlate-not-substitute]].
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: "merged into nascar-2026-07-14-superspeedway-doms-correlate-not-substitute (2026-08-30, user-approved)"
 
   # ---------------------------------------------------------------
   # North Wilkesboro — 2026-07-19 (Slate #8 autopsy, logged 2026-07-21)
@@ -719,6 +729,7 @@ lessons:
     confirmations:
       - {date: "2026-07-26", slate: "Brickyard 400, Indianapolis", history_dir: "rules/nascar/history/2026-07-26__brickyard-400-at-indianapolis-motor-speedway-7-26-26", note: "First mechanism confirmation — fourth slate of the hand-off pattern (0%, 50%, 0/12, now 0/12 again). The Indy screen named 12 sub-10% definers including Heim (9% proj) and Keselowski (8% proj); the winning lineup of BOTH contests carried a screen name (Heim 70.45 in both winners; Keselowski 49.8 also in the $5K winner, which held THREE sub-10% pieces), while both entered lineups locked with ZERO sub-10% pieces (low_own_count 0; leverage capture 0/12 for the second straight slate). The screen produces the definers; the hand-off transfers none of the equity — mechanism verbatim. Promoted to validated."}
       - {date: "2026-08-09", slate: "Iowa Corn 350, Iowa Speedway", history_dir: "rules/nascar/history/2026-08-09__iowa-corn-350-iowa-speedway-2026", note: "Second mechanism confirmation — FIFTH slate of the hand-off pattern (0%, 50%, 0/12, 0/12, now 0/12 again), and the strategy even wrote the warning into the Leverage section itself ('Your last two slates entered zero names from this list; this list only matters if one reaches the entry'). The 12-name screen again produced winners' pieces: John H. Nemechek (5% proj) was in the 588-field WINNING lineup (31.4 @ 14.1% actual, 30% of the top-20) and Ricky Stenhouse Jr (2% proj) was in the 392-field WINNING lineup (23.45 @ 3.1%). Both entered lineups again carried 0 of 12 (adherence leverage_covered 0/12); the Engine Block entry was six chalk names with no definer and was duplicated 4x. Screen produces, hand-off transfers nothing — mechanism verbatim. Origin NW + Indy + Iowa = 3 confirming slates -> meets promotion criteria; codification proposal in autopsy_review Proposed codifications."}
+      - {date: "2026-08-30", slate: "Coke Zero Sugar 400, Daytona (8/29/26)", history_dir: "rules/nascar/history/2026-08-30__coke-zero-sugar-400-daytona-international-speedway-8-29-26", note: "Post-codification evidence — SIXTH slate of the hand-off pattern (0%, 50%, 0/12, 0/12, 0/12, now 0/12 again). The screen produced the winners' pieces yet again: Suarez (9% proj, tiered Core · Leverage on the board) was the $4K winner's carrier at 64.35 / 10.2% actual; Berry (10% proj) scored 50.7 in #2/#4/#10; McDowell (4% proj) scored 56.7 in the #3 lineup of BOTH contests. Both entries locked with zero sub-10% pieces. NEW WRINKLE: both entries were the per-contest PICKER's rows (indexes 2172 and 815), so the hand-off leak now runs through the tool, not the hand — see [[nascar-2026-08-30-picker-reproduces-the-handoff-leak]]. Codified rule holds; codification alone has not changed the entered roster in three slates since."}
     contradictions: []
     codified_in: "rules/nascar/framework.md — Step 6 Mandatory enforced checks, #11 Definer hand-off gate; rules/nascar/philosophy.md — On Process Discipline, 'A list is not a lineup'"
     retired_reason: null
@@ -751,6 +762,7 @@ lessons:
     confirmations:
       - {date: "2026-07-26", slate: "Brickyard 400, Indianapolis", history_dir: "rules/nascar/history/2026-07-26__brickyard-400-at-indianapolis-motor-speedway-7-26-26", note: "First mechanism confirmation (DailyFan projected -> actual lock, $15K/$5K). Consensus side jammed: Bell 38% -> 50.2/51.2, Cindric 40% -> 46.8/49.8, Larson 27% -> 37.5/38.6, and the loudest cheap value Gilliland 15% -> 45.1/47.1 (+30pts, the biggest jam on the board). Co-anchors DEFLATED: Elliott 36% -> 25.9/27.6, Byron 35% -> 32.5/31.4, Hamlin 34% -> 29.7/30.2. The projected Bell/Elliott/Byron near-tie (38/36/35) resolved to a 50/26/32 landslide at lock — the asymmetric resolution the mechanism predicts, in a different SE field size. The strategy applied the lesson correctly pre-lock ('treat Preece's 44% and Bell's 38% as floors, not estimates') and lock own proved it. Promoted to validated."}
       - {date: "2026-08-09", slate: "Iowa Corn 350, Iowa Speedway", history_dir: "rules/nascar/history/2026-08-09__iowa-corn-350-iowa-speedway-2026", note: "Second mechanism confirmation (DailyFan projected -> actual lock, 392/588 SE fields). Consensus anchor jammed massively: Blaney 52% -> 82.4/74.3 (+30pts, exactly the 'floor, not estimate' read — the strategy wrote '52% at lock could be 60%' and it went 82). The loud values jammed too: Ty Gibbs 20% -> 44.1/41.2, Preece 34% -> 44.6/38.6, Gilliland 22% -> 34.4/31.1. The Bell/Byron/Hamlin near-tie (35/33/32 projected) resolved asymmetrically: Bell held 37-38% while Byron deflated to 23.5-25.8 and Hamlin to 18. The equivalence alternatives deflated as the mechanism predicts (Larson 22% -> 12.5/13.3, Reddick 16% -> 9.9). Origin NW + Indy + Iowa = 3 confirming slates across three field sizes -> meets promotion criteria; codification proposal in autopsy_review Proposed codifications."}
+      - {date: "2026-08-30", slate: "Coke Zero Sugar 400, Daytona (8/29/26)", history_dir: "rules/nascar/history/2026-08-30__coke-zero-sugar-400-daytona-international-speedway-8-29-26", note: "Post-codification: held a fourth time (DailyFan projected -> actual, 392/1,176 SE). Consensus jammed: Bell 48% -> 63.5/61.3, Hamlin 38% -> 50.8/50.7, Zane Smith 30% -> 43.9/41.0, Stenhouse 37% -> 46.4 (392). Co-anchors deflated: Blaney 36% -> 30.1/31.8, Allmendinger 37% -> 29.1/26.1, Elliott 29% -> 18.6/20.2. The Allmendinger/Gragson equivalence pair (37/33 projected) resolved 29/39 at lock — asymmetric, as the rule predicts."}
     contradictions: []
     codified_in: "rules/nascar/framework.md — Quick-Reference Decision Heuristics, 'SE lock-ownership floor rule (codified 2026-08-09)'"
     retired_reason: null
@@ -786,11 +798,12 @@ lessons:
       slots. Complements [[nascar-2026-05-01-sound-chalk-toward-field-rate]]
       and [[nascar-2026-05-24-anchor-equivalence]]; the leverage-slot half is
       [[nascar-2026-07-21-definer-screen-must-reach-entries]].
-    status: validated
+    status: codified
     confirmations:
       - {date: "2026-08-09", slate: "Iowa Corn 350, Iowa Speedway", history_dir: "rules/nascar/history/2026-08-09__iowa-corn-350-iowa-speedway-2026", note: "First mechanism confirmation — and BOTH halves fired, one per contest. (a) Fish-shape half, 392 field: the entry dropped consensus anchors Bell (37.8% own, 115.1 — the slate's top score) and Gibbs (44.1%, 66.7) with no stated fade case and spent the slots on mid-owned mush — Byron (25.8%, the #2 fish trap, 0% of winners) and Reddick (9.9%, -26.0) — finishing 64.8 percentile while all four top-4 lineups carried Bell+Blaney+Gibbs. (b) Differentiation-slot half, 588 field: the entry HELD the anchors but put ZERO differentiation anywhere (six 30%+ names, 38.4%/slot, dup_count 4 — four entrants had the identical roster), while the winner held the same anchor core plus Chastain 14.6/Nemechek 14.1/Buescher 17.4 as unique-making pieces. Chalk-without-a-definer is the modal duplicated lineup; anchors held is necessary but the sixth slot must differentiate. Shark gap flipped positive for the first time (own_per_slot +3.3 — MORE chalky than the pros) — the leak is oscillating around the pros' shape (anchors + one definer) instead of copying it. Promoted to validated."}
+      - {date: "2026-08-30", slate: "Coke Zero Sugar 400, Daytona (8/29/26)", history_dir: "rules/nascar/history/2026-08-30__coke-zero-sugar-400-daytona-international-speedway-8-29-26", note: "Second mechanism confirmation — THIRD confirming slate (Indy + Iowa + Daytona). Both halves fired again. (a) Anchors dropped: consensus anchors at lock were Bell 63.5% / Hamlin 50.8% / Stenhouse 46.4% ($4K); the $4K entry held Stenhouse only and spent the anchor slots on Blaney (30%, -3.85, the #2 fish trap), Elliott (18.6%, 23.65, a fish trap) and Zane Smith (43.9%, 16.1, the #1 fish trap); the $12K entry held Bell only and spent them on Blaney, Bubba (43.7%, 29.9) and Keselowski. The drop case for Hamlin/Stenhouse was an UNDERWEIGHT built on an ownership-vs-projection rank gap, not a ceiling case — both winners held both. (b) Sixth slot empty: lowest-owned pieces were Gilliland 24% and Keselowski 16%; zero sub-10% names, 0 of 12 definers, while the winners' sixth slots were Suarez 10.2% (64.35) and Reddick 13.5% (57.15). Shark gap own/slot was FLAT (+0.3 vs the pros' 34.2) — the shape now matches the pros; the leak is anchor selection plus the empty definer slot, exactly this lesson. Meets promotion criteria -> codification proposal in autopsy_review Proposed codifications (framework.md Step 6 check #12)."}
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Step 6 mandatory check #12 (Anchors held, sixth slot differentiates; added 2026-08-30, user-approved)"
     retired_reason: null
 
   - id: nascar-2026-07-26-fade-tier-buries-ceiling-tagged-definers
@@ -815,8 +828,9 @@ lessons:
       `· Leverage` instead. Links
       [[nascar-2026-05-17-mme-or-fade-means-fade-in-se]] and
       [[nascar-2026-07-21-definer-screen-must-reach-entries]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - {date: "2026-08-30", slate: "Coke Zero Sugar 400, Daytona (8/29/26)", history_dir: "rules/nascar/history/2026-08-30__coke-zero-sugar-400-daytona-international-speedway-8-29-26", note: "Mechanism confirmed by the FIX working (the inverse test). The board held its ceiling-tagged sub-10% plays in Core/Okay · Leverage instead of Fade — Suarez rank 5 Core · Leverage (64.35, the $4K winner's carrier), McDowell rank 21 Okay · Leverage (56.7, #3 lineup both contests), Berry Good · Leverage (50.7) — and for the first time in four slates the tiers ORDERED (Core 39.8 > Good 30.5 > Okay 24.6 > Fade 1.8; NW/Indy/Iowa were all out of order). The single Fade-tier leak was Ryan Preece (50.6 from P4 at 3-7% own), tiered Fade on START POSITION, not on article floor-language — a different reason, so not a contradiction of this mechanism, but a note that a front-row car at a fast team can survive a pack race. Promoted to validated."}
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -849,6 +863,97 @@ lessons:
       [[nascar-2026-07-21-definer-screen-must-reach-entries]]; complements
       [[nascar-2026-07-26-anchors-held-differentiate-in-sixth-slot]] and
       [[nascar-2026-05-24-sleeper-spike-floor]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---------------------------------------------------------------
+  # Coke Zero Sugar 400, Daytona — 2026-08-29 (Slate #11 autopsy, logged 2026-08-30)
+  # ---------------------------------------------------------------
+
+  - id: nascar-2026-08-30-rank-gap-is-not-a-trap-at-pack-tracks
+    born: "2026-08-30"
+    origin: "rules/nascar/history/2026-08-30__coke-zero-sugar-400-daytona-international-speedway-8-29-26/autopsy_review.md"
+    statement: >
+      At drafting/pack tracks the "picked more than his projection rank earns"
+      trap-shape screen carries no information about a deep starter's CEILING,
+      because the vendor projection is a median under a ~50% crash rate while
+      the ownership is the field pricing the deep-start band the median
+      under-weights. Daytona 8/29: the strategy's seven UNDERWEIGHT calls
+      split 3 held / 4 failed, and the three built on the rank gap alone
+      failed hardest — Hamlin ($9,100, 38% proj, 53.7, in 8 of the top 10 in
+      both contests), Stenhouse ($8,100, 37%, 70.3 — the slate high, in both
+      winners) and Austin Dillon ($7,300, 22%, 62.15, in 75-85% of the top-20);
+      Reddick (LEAN FADE on points-per-dollar, 57.15) was the $12K winner's
+      carrier. The calls that held (Zane Smith 16.1, Allmendinger 20.7,
+      Hocevar -4.05) had nothing in common with the failures on the rank
+      screen. Mechanism: a rank mismatch between two noisy medians is a coin
+      flip at pack tracks; an underweight there must cite a reason the
+      driver's ceiling is capped (no proven pack-race top-5 path, start band
+      with <10% of optimal spots, equipment), never the ownership-vs-projection
+      gap. Scope: drafting tracks only — the trap-shape rule was born and
+      validated at intermediates/short tracks and stands there. Complements
+      [[nascar-2026-07-14-superspeedway-doms-correlate-not-substitute]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nascar-2026-08-30-dead-band-chalk-needs-a-verdict
+    born: "2026-08-30"
+    origin: "rules/nascar/history/2026-08-30__coke-zero-sugar-400-daytona-international-speedway-8-29-26 (slate_analysis.md vs autopsy.json fish_traps)"
+    statement: >
+      When an Edge names a dead start band from the venue chart, the
+      highest-projected chalk sitting IN that band must receive a written
+      verdict in Fades — an edge without a verdict on its own chalk is a read
+      the entries cannot act on. Daytona 8/29: Edge #3 said 11th-20th is the
+      dead zone (14.8% of optimal spots), Field-vs-Sharp said the field runs
+      36% on Blaney "in the thinnest scoring band", and Top plays then tiered
+      Blaney ($10,500, starts 19th, crashed in 4 of his last 6 here) Good
+      with no fade verdict; the contract carried no call on him. Both entries
+      held Blaney (-3.85); he was the #1/#2 losing-half trap in both contests
+      (46% of the bottom half, 0% of the top) and the single best swap-out in
+      both near-miss reads (+68 / +74 points). Mechanism: the fade section is
+      the only part of the strategy the contract, the picker gate and the
+      grader can see; an edge that stops at the band level leaves the
+      band's most expensive chalk invisible to every downstream check.
+      Pre-lock: every dead-band edge names the chalk inside it with a
+      verdict. Complements [[nascar-2026-08-30-rank-gap-is-not-a-trap-at-pack-tracks]]
+      (the opposite failure — verdicts on the wrong drivers).
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nascar-2026-08-30-picker-reproduces-the-handoff-leak
+    born: "2026-08-30"
+    origin: "rules/nascar/history/2026-08-30__coke-zero-sugar-400-daytona-international-speedway-8-29-26 (lineup_selection.json + sim_autopsy.json + adherence.json)"
+    statement: >
+      The per-contest picker inherits the six-slate definer hand-off leak: it
+      ranks rows by top1/cash/proj with ownership entering POSITIVELY, so the
+      top of the 500-row slice is chalk-plus-chalk and a strategy-named
+      definer never reaches an entered roster even when the board tiers him
+      Core · Leverage. Daytona 8/29: both entries were the picker's rows
+      (2172 and 815), each six drivers at 16-63% actual ownership, 0 of 12
+      definers (Suarez, Core · Leverage, was the $4K winner's carrier at
+      64.35); both rationales argued Bell vs Keselowski at length and never
+      argued Blaney, the driver the strategy's own edge had placed in the
+      dead band. The sim pool held a 336.2 (above both winning scores) so
+      generation was fine, and the sim metrics carried real signal for the
+      first time on NASCAR (rank agreement 0.27-0.32) — but the top-100 rows
+      by every metric averaged 186, exactly where the picks landed (182/189).
+      Mechanism: sim metrics are a threshold that finds the ~186 rows; the
+      ~335 rows are chalk-core-plus-definer, which no single metric column
+      ranks at the top, so a picker that reads only the columns reproduces
+      the hand's leak. Pre-lock rule to test: the digest reserves slice seats
+      for rows carrying a strategy definer, and the pick's why must argue
+      every 30%+ driver it carries, not only the anchor swap. Extends
+      [[nascar-2026-07-21-definer-screen-must-reach-entries]] from the hand
+      to the tool.
     status: hypothesis
     confirmations: []
     contradictions: []
