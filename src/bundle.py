@@ -285,6 +285,9 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
     sharp_path = _REPO_ROOT / "rules" / "shared" / "sharp_playbook.md"
     if sharp_path.exists():
         L.append(f"- `{sharp_path}` — sharp-player tendencies reverse-engineered from contest standings")
+    set_div_path = _REPO_ROOT / "rules" / "shared" / "set_diversity.md"
+    if set_div_path.exists():
+        L.append(f"- `{set_div_path}` — set-level diversity + dupe-avoidance doctrine (build loose, pick strict)")
     lessons_path = rules_dir / "lessons.yaml"
     if lessons_path.exists():
         L.append(f"- `{lessons_path}` — **mandatory pre-flight read: open lessons (hypothesis/validated)**")
