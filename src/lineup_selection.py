@@ -281,10 +281,16 @@ def compliance(roster: list, gate: dict, relaxed: tuple = ()) -> list[str]:
         return []
     names = {_strat_norm(str(p)) for p in roster}
     out = []
-    hit_fade = [gate["fade"][n] for n in names & set(gate.get("fade") or {})]
-    for nm, verdict in hit_fade:
-        out.append(f"carries {nm} — the strategy calls him "
-                   f"{'LEAN FADE' if verdict == 'lean_fade' else 'FADE'}")
+    # "fade" in `relaxed` is honored ONLY so `rule_price` can isolate one rule
+    # at a time — the gate itself never relaxes fade (`_RELAX_ORDER` omits it,
+    # and no gate path passes it here). Before this, pricing the Core or
+    # chalk-pair rule also counted every fade-carrying lineup, so their
+    # "removes N of M" numbers were inflated whenever a fade call existed.
+    if "fade" not in relaxed:
+        hit_fade = [gate["fade"][n] for n in names & set(gate.get("fade") or {})]
+        for nm, verdict in hit_fade:
+            out.append(f"carries {nm} — the strategy calls him "
+                       f"{'LEAN FADE' if verdict == 'lean_fade' else 'FADE'}")
     core = gate.get("core") or {}
     if "core" not in relaxed and core:
         need = min(2, len(core))
