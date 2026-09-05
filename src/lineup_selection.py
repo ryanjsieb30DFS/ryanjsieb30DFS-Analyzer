@@ -934,7 +934,9 @@ def as_declared(sim_contest: dict) -> dict:
         "my_entries": sim_contest.get("my_entries"),
         "entry_fee": sim_contest.get("entry_fee"),
         "prize_pool": sim_contest.get("prize_pool"),
-        "payout_shape": None,
+        # The Sim derives this from the contest's real payout ladder
+        # (8/30/26); older payloads without the key stay None.
+        "payout_shape": sim_contest.get("payout_shape"),
     }
 
 
@@ -1044,6 +1046,88 @@ def blend_scores(pool: dict, contest: dict) -> list:
     ca = _norm(ca_raw)
     return [0.45 * t1[i] + 0.28 * ca[i] + 0.17 * pj[i] + 0.10 * ow[i]
             for i in range(n)]
+
+
+def contest_divergence(pool: dict) -> list[dict]:
+    """How differently this slate's contests rank the SAME pool (8/30/26).
+
+    The user's worry: "is the picker treating a 700-entry contest and a
+    300-entry contest as the same thing?" This answers it with numbers, per
+    contest pair: rank agreement of the live blend, overlap of the two
+    contests' 50 best lineups, and whether the single best-ranked lineup is
+    the same lineup in both. Measured on the real 8/29 MMA slate (390-SE vs
+    697-SE, same 3,000-lineup pool): blend rank agreement 0.99, top-20
+    overlap 75%, and a DIFFERENT #1 lineup per contest — so real divergence
+    exists and is worth showing before picks are made.
+
+    Returns one dict per pair of simmed contests: {a, b, rho, top_k,
+    overlap_pct, same_number_one}. Empty list when fewer than two contests
+    carry sim metrics."""
+    contests = [c for c in (pool.get("contests") or []) if c.get("metrics")]
+    if len(contests) < 2:
+        return []
+    import pandas as pd
+    blends = {str(c.get("label")): blend_scores(pool, c) for c in contests}
+    out: list[dict] = []
+    for i in range(len(contests)):
+        for j in range(i + 1, len(contests)):
+            la = str(contests[i].get("label"))
+            lb = str(contests[j].get("label"))
+            ba, bb = blends[la], blends[lb]
+            n = min(len(ba), len(bb))
+            if n < 2:
+                continue
+            ra = pd.Series(ba[:n]).rank()
+            rb = pd.Series(bb[:n]).rank()
+            rho = float(ra.corr(rb))
+            k = min(50, n)
+            ta = set(sorted(range(n), key=lambda x: (-ba[x], x))[:k])
+            tb = set(sorted(range(n), key=lambda x: (-bb[x], x))[:k])
+            out.append({
+                "a": la, "b": lb,
+                "rho": round(rho, 3) if rho == rho else None,
+                "top_k": k,
+                "overlap_pct": round(len(ta & tb) / k * 100),
+                "same_number_one":
+                    min(range(n), key=lambda x: (-ba[x], x))
+                    == min(range(n), key=lambda x: (-bb[x], x)),
+            })
+    return out
+
+
+def contest_divergence_md(pairs: list[dict]) -> str:
+    """Plain-language render of `contest_divergence` for the Grade tab."""
+    if not pairs:
+        return ""
+    lines = ["The Sim ranked this same pool separately for each contest — "
+             "each with its real field size and payout ladder. Here is how "
+             "much those rankings disagree:", ""]
+    for p in pairs:
+        one = ("the SAME lineup" if p["same_number_one"]
+               else "a DIFFERENT lineup")
+        lines.append(
+            f"- **{p['a']}** vs **{p['b']}**: of each contest's {p['top_k']} "
+            f"best lineups, {p['overlap_pct']}% appear on both lists, and the "
+            f"single best-ranked lineup is {one} in each contest."
+        )
+    diverging = [p for p in pairs
+                 if p["overlap_pct"] < 80 or not p["same_number_one"]]
+    lines.append("")
+    if diverging:
+        lines.append(
+            "**What this means:** these contests genuinely want different "
+            "lineups — the field size or payout changes which builds rank "
+            "best. Run the pick separately per contest (never copy one "
+            "contest's answer to another) and expect the picks to differ."
+        )
+    else:
+        lines.append(
+            "**What this means:** these contests mostly agree on what a good "
+            "lineup is. Differences between your entries should come from "
+            "the set-diversity rules (different answers to the slate), not "
+            "from the contests themselves."
+        )
+    return "\n".join(lines)
 
 
 def _coverage_fill(rosters: list, candidates: list, blend: list,
@@ -1505,7 +1589,10 @@ def slice_digest_md(slug: str, label: str, contest: dict, declared: dict | None,
     digest carries a RESOLUTION BAND and marks every row tied with the best
     on Top-1%, so the table reads as a set of near-equal candidates rather
     than a strict ranking — see `metric_resolution`."""
-    shape = (declared or {}).get("payout_shape") or "not declared"
+    # Declared shape wins; else the shape the Sim derived from the contest's
+    # real payout ladder (8/30/26) — "not declared" only when neither exists.
+    shape = ((declared or {}).get("payout_shape")
+             or contest.get("payout_shape") or "not declared")
     my = contest.get("my_entries")
     no_sim = all(r.get("top1_pct") is None for r in rows) if rows else False
     lines = [

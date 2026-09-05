@@ -1071,6 +1071,23 @@ with tab_grade:
             _sections.append({"label": _d.get("name"), "sim": None, "declared": _d,
                               "key": _ls.contest_file_key(_d.get("name"), _d)})
 
+    # How differently do this slate's contests rank the same pool? (8/30/26,
+    # user directive — "a 700 player single entry is different from a 300
+    # person single entry".) Rendered once, above the per-contest sections,
+    # whenever two or more contests carry sim numbers.
+    if _pk_pool:
+        _div_pairs = _ls.contest_divergence(_pk_pool)
+        if _div_pairs:
+            _div_hot = any(p["overlap_pct"] < 80 or not p["same_number_one"]
+                           for p in _div_pairs)
+            with st.expander(
+                    "🔀 Do your contests want different lineups?"
+                    + (" — yes, they disagree" if _div_hot
+                       else " — they mostly agree"),
+                    expanded=_div_hot):
+                st.markdown(_ls.contest_divergence_md(_div_pairs)
+                            .replace("$", chr(92) + "$"))
+
     # Two undeclared sim contests whose labels differ only in punctuation or
     # past the slug's 40-char truncation collide on the same key — with the
     # key reused in every widget id below, Streamlit raises DuplicateWidgetID
@@ -1209,7 +1226,12 @@ with tab_grade:
             _decl = _sec["declared"] or (_ls.as_declared(_sim_c) if _sim_c else {})
             _fs_c = int(_decl.get("field_size") or (_sim_c or {}).get("field_size") or 0)
             _my_c = int(_decl.get("my_entries") or (_sim_c or {}).get("my_entries") or 1)
-            _shape_c = (_sec["declared"] or {}).get("payout_shape")
+            # Declared shape wins; else the shape the Sim derived from the
+            # contest's real payout ladder (8/30/26).
+            _shape_c = ((_sec["declared"] or {}).get("payout_shape")
+                        or (_sim_c or {}).get("payout_shape"))
+            if not _decl.get("payout_shape") and _shape_c:
+                _decl = {**_decl, "payout_shape": _shape_c}
             with st.container(border=True):
                 st.markdown(
                     f"#### {str(_sec['label']).replace('$', chr(92) + '$')}")
