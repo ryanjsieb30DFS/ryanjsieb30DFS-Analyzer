@@ -45,12 +45,29 @@ def clear_pool(slug: str) -> None:
         p.unlink()
 
 
+def _abbreviates(short: list[str], full: list[str]) -> bool:
+    """True when `short`'s first token reads as an abbreviation of `full` —
+    a bare initial like 's scheffler' (periods already stripped by _norm_name)
+    or stacked initials like 'tj dillashaw'. A short REAL first name ('Ty')
+    is not an abbreviation of a different first name ('Austin'), so brothers
+    sharing a last name don't get flagged as one player misspelled."""
+    tok = short[0]
+    if len(tok) > 2:
+        return False
+    if full[0].startswith(tok):
+        return True
+    # 'tj' matching the initials of 'tyler joseph'
+    return tok == "".join(t[0] for t in full[:len(tok)])
+
+
 def suspect_duplicates(pool: pd.DataFrame) -> list[tuple[str, str]]:
     """Likely the SAME player twice under different spellings — the silent
     cross-vendor failure ('S. Scheffler' vs 'Scottie Scheffler') that makes the
     board carry a player twice at different owns/salaries. Heuristic: same last
-    token (len ≥ 4), different norm keys, and either one first token is an
-    initial (≤ 2 chars) or one name's tokens are a subset of the other's.
+    token (len ≥ 4), different norm keys, and either one first token
+    abbreviates the other's ('s' → 'scottie') or one name's tokens are a
+    subset of the other's. Distinct short first names ('Ty' vs 'Austin'
+    Dillon) are NOT flagged — different drivers, not a misspelling.
     Returns up to 8 pairs for an upload-time warning."""
     if pool is None or pool.empty or "name" not in pool.columns:
         return []
@@ -72,7 +89,7 @@ def suspect_duplicates(pool: pd.DataFrame) -> list[tuple[str, str]]:
                 if ta == tb:
                     continue  # identical norm — build_pool already merges these
                 initial_style = (len(ta) > 1 and len(tb) > 1
-                                 and (len(ta[0]) <= 2 or len(tb[0]) <= 2))
+                                 and (_abbreviates(ta, tb) or _abbreviates(tb, ta)))
                 subset = set(ta) <= set(tb) or set(tb) <= set(ta)
                 if initial_style or subset:
                     out.append((na, nb))
