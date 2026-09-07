@@ -679,8 +679,19 @@ with tab_strategy:
                          "your entry count — no re-typing. Edit or remove them "
                          "below like any declared contest.",
                 ):
+                    # 9/6/26 contest-tab parity: the Sim's saved record for the
+                    # same contest carries the REAL payout ladder — attach it
+                    # (and the shape derived from it) at declare time.
+                    from src.contests import (canonical_contest_name,
+                                              payout_shape_from_ladder)
+                    _dc_saved = {canonical_contest_name(slug, s["name"]): s
+                                 for s in sim_link.sim_saved_contests(slug)}
                     for _dc_c in _dc_new:
                         _dc_d = _dc_ls.as_declared(_dc_c)
+                        _dc_nm = canonical_contest_name(
+                            slug, str(_dc_d.get("name") or ""))
+                        _dc_rec = _dc_saved.get(_dc_nm) or {}
+                        _dc_lad = _dc_rec.get("payout_ladder") or []
                         add_contest(slug, {
                             "name": _dc_d.get("name"),
                             "type": _dc_d.get("type") or "SE",
@@ -689,7 +700,9 @@ with tab_strategy:
                             "my_entries": int(_dc_d.get("my_entries") or 1),
                             "entry_fee": _dc_d.get("entry_fee"),
                             "prize_pool": _dc_d.get("prize_pool"),
-                            "payout_shape": None,
+                            "payout_ladder": [list(x) for x in _dc_lad],
+                            "payout_shape": (_dc_d.get("payout_shape")
+                                             or payout_shape_from_ladder(_dc_lad)),
                         })
                     st.rerun()
 
@@ -734,64 +747,187 @@ with tab_strategy:
                         st.rerun()
             st.caption("— or add a new contest —")
 
-        with st.form(key=f"add_contest_{slug}", clear_on_submit=True):
-            name = st.text_input("Contest name", placeholder="e.g., UFC $100K MEGA mini-MAX")
-            type_label = st.selectbox("Contest type", list(CONTEST_ENTRY_TYPES.keys()))
-            type_meta = CONTEST_ENTRY_TYPES.get(type_label, {})
-            col_a, col_b = st.columns(2)
-            with col_a:
-                field_size = st.number_input("Field size (entries)", min_value=1, value=1000, step=100)
-                my_entries = st.number_input("My entries", min_value=1, value=1, step=1)
-            with col_b:
-                max_entries = st.number_input(
-                    "Max entries allowed", min_value=1,
-                    value=type_meta.get("default_max_entries", 1), step=1,
-                )
-            col_c, col_d = st.columns(2)
-            with col_c:
-                entry_fee = st.number_input("Entry fee ($, optional)", min_value=0.0, value=0.0, step=0.25)
-            with col_d:
-                prize_pool = st.number_input("Prize pool ($, optional)", min_value=0, value=0, step=100)
-            payout_shape = st.selectbox(
-                "Payout shape (optional — frames how contrarian to be)",
-                ["(unknown)", "Top-heavy", "Balanced", "Flat"],
-                help="Top-heavy (1st takes a big share) demands max-ceiling contrarian "
-                     "builds; Flat (min-cashes pay similar) rewards tighter theses. "
-                     "Check the contest's payout table on DK.",
-            )
-            submitted = st.form_submit_button("Add contest", type="primary")
-            if submitted and name.strip():
-                add_contest(slug, {
-                    "name": name.strip(),
-                    "type": type_label,
-                    "field_size": int(field_size),
-                    "max_entries": int(max_entries),
-                    "my_entries": int(my_entries),
-                    "entry_fee": float(entry_fee) if entry_fee else None,
-                    "prize_pool": int(prize_pool) if prize_pool else None,
-                    "payout_shape": None if payout_shape == "(unknown)" else payout_shape,
-                })
-                st.rerun()
+        # ---- Add a new contest (9/6/26 contest-tab parity: same look and
+        # behavior as the Sim's Contests tab — inline widgets so the payout
+        # preview re-runs as the user pastes, live parse diagnostics, and the
+        # payout structure stored with the contest).
+        st.markdown("### Add a new contest")
+        _nc_keys = {
+            "name":   f"new_contest_name_{slug}",
+            "type":   f"new_contest_type_{slug}",
+            "fee":    f"new_contest_fee_{slug}",
+            "field":  f"new_contest_field_{slug}",
+            "pool":   f"new_contest_pool_{slug}",
+            "mine":   f"new_contest_mine_{slug}",
+            "payout": f"new_contest_payout_{slug}",
+        }
+        from src.contests import (parse_dk_payout_text_with_diagnostics,
+                                  payout_shape_from_ladder, update_contest)
+        col_a, col_b = st.columns(2)
+        with col_a:
+            _nc_name = st.text_input(
+                "Contest name", placeholder="e.g. UFC $4K Clinch [Single Entry]",
+                key=_nc_keys["name"],
+                help="Type it exactly as DK shows it. If the Sim already knows "
+                     "this contest, the saved name snaps to the Sim's spelling "
+                     "so both tools always use one name.")
+            _nc_type = st.radio(
+                "Contest type", list(CONTEST_ENTRY_TYPES.keys()), horizontal=True,
+                help="SE = Single Entry; 3/5/20-Max = entry caps per user; "
+                     "150-Max = large-field MME (separate track).",
+                key=_nc_keys["type"])
+            _nc_fee = st.number_input("Entry fee ($)", min_value=0.0, value=5.0,
+                                      step=0.5, key=_nc_keys["fee"])
+        with col_b:
+            _nc_field = st.number_input("Field size", min_value=1, value=1000,
+                                        step=100, key=_nc_keys["field"])
+            _nc_pool = st.number_input("Total prize pool ($)", min_value=0.0,
+                                       value=0.0, step=100.0, key=_nc_keys["pool"])
+            _nc_mine = st.number_input(
+                "My entries", min_value=1, value=1, step=1, key=_nc_keys["mine"],
+                help="How many entries you're putting into this contest this slate.")
+        _nc_paytext = st.text_area(
+            "Payout structure (paste from DK)",
+            height=180,
+            placeholder=("1st: $1,000\n2nd: $500\n3rd: $300\n4th-5th: $150\n"
+                         "6th-10th: $75\n11th-25th: $40\n26th-100th: $20"),
+            key=_nc_keys["payout"],
+            help="Copy the payout table from the contest's DK page. The payout "
+                 "shape (Top-heavy / Balanced / Flat) is worked out from it "
+                 "automatically and frames how contrarian the strategy gets.")
 
+        # Live parse preview — identical diagnostics to the Sim tab.
+        _nc_ladder, _nc_failed = parse_dk_payout_text_with_diagnostics(_nc_paytext or "")
+        _nc_total = sum((e - s + 1) * p for s, e, p in _nc_ladder)
+        _nc_shape = payout_shape_from_ladder(_nc_ladder)
+        if not (_nc_paytext or "").strip():
+            st.caption("_Preview will appear once you paste a payout structure. "
+                       "A contest can be added without one — the payout shape "
+                       "just stays unknown._")
+        elif not _nc_ladder:
+            st.error("❌ 0 rows parsed — check the format. Expected lines like "
+                     "`1st: $5,000` or `4th-5th: $500`.")
+        else:
+            if float(_nc_pool or 0) > 0:
+                _nc_gap = _nc_total - float(_nc_pool)
+                _nc_gap_pct = abs(_nc_gap) / float(_nc_pool)
+                if _nc_gap_pct <= 0.05:
+                    _nc_note = (f"sum **${_nc_total:,.0f}** ≈ prize pool "
+                                f"${float(_nc_pool):,.0f} ✓")
+                elif _nc_gap < 0:
+                    _nc_note = (f"sum **${_nc_total:,.0f}** vs prize pool "
+                                f"${float(_nc_pool):,.0f} — **short by ${abs(_nc_gap):,.0f}**")
+                else:
+                    _nc_note = (f"sum **${_nc_total:,.0f}** vs prize pool "
+                                f"${float(_nc_pool):,.0f} — **over by ${_nc_gap:,.0f}**")
+            else:
+                _nc_note = f"sum **${_nc_total:,.0f}**"
+            _nc_note += f" · shape: **{_nc_shape or 'unknown'}**"
+            if _nc_failed:
+                st.warning(f"⚠ {len(_nc_ladder)} rows parsed, "
+                           f"**{len(_nc_failed)} line(s) failed**: {_nc_note}")
+                for _nc_ln, _nc_raw in _nc_failed:
+                    st.markdown(f"- Line {_nc_ln}: `{_nc_raw}`")
+            else:
+                st.success(f"✅ {len(_nc_ladder)} rows parsed — {_nc_note}")
+
+        _nc_type_meta = CONTEST_ENTRY_TYPES.get(_nc_type, {})
+        if st.button("Add contest", type="primary",
+                     disabled=not (_nc_name or "").strip(),
+                     key=f"add_contest_btn_{slug}"):
+            add_contest(slug, {
+                "name": _nc_name.strip(),
+                "type": _nc_type,
+                "field_size": int(_nc_field),
+                "max_entries": int(_nc_type_meta.get("default_max_entries", 1)),
+                "my_entries": int(_nc_mine),
+                "entry_fee": float(_nc_fee) if _nc_fee else None,
+                "prize_pool": (int(_nc_pool) if _nc_pool
+                               else (int(_nc_total) if _nc_total else None)),
+                "payout_ladder": [list(x) for x in _nc_ladder],
+                "payout_shape": _nc_shape,
+            })
+            for _nc_k in _nc_keys.values():
+                st.session_state.pop(_nc_k, None)
+            st.rerun()
+
+        # ---- Declared contests as Sim-style cards --------------------------
+        if contests_list:
+            st.markdown("**Declared for this slate:**")
         for c in contests_list:
-            cols = st.columns([5, 3, 1, 1])
-            cols[0].markdown(f"**{c['name']}** — *{c['type']}*")
-            cols[1].caption(f"Field {c['field_size']:,} · entries {c['my_entries']}/{c['max_entries']}")
-            if cols[2].button("★", key=f"save_tmpl_{c['id']}", help="Save as reusable template"):
-                save_template(slug, {
-                    "name": c["name"],
-                    "type": c["type"],
-                    "max_entries": c.get("max_entries", 1),
-                    "entry_fee": c.get("entry_fee"),
-                    "prize_pool": c.get("prize_pool"),
-                    "default_field_size": c.get("field_size", 1000),
-                    "default_my_entries": c.get("my_entries", 1),
-                })
-                st.toast(f"Saved '{c['name']}' to your template library")
-                st.rerun()
-            if cols[3].button("✕", key=f"del_contest_{c['id']}"):
-                remove_contest(slug, c["id"])
-                st.rerun()
+            _c_ladder = c.get("payout_ladder") or []
+            _c_shape = c.get("payout_shape") or payout_shape_from_ladder(_c_ladder)
+            with st.container(border=True):
+                col1, col_e, col2 = st.columns([3.4, 1, 1])
+                with col1:
+                    st.markdown(f"**{c['name']}** ({c['type']})")
+                    _c_bits = []
+                    if c.get("entry_fee"):
+                        _c_bits.append(f"Entry: ${float(c['entry_fee']):,.2f}")
+                    _c_bits.append(f"Field: {int(c.get('field_size') or 0):,}")
+                    if c.get("prize_pool"):
+                        _c_bits.append(f"Prize pool: ${float(c['prize_pool']):,.0f}")
+                    if _c_ladder:
+                        _c_bits.append(f"Ladder rows: {len(_c_ladder)}")
+                    _c_bits.append(f"Payout: {_c_shape or 'unknown'}")
+                    st.caption(" | ".join(_c_bits))
+                    if _c_ladder:
+                        with st.expander("Payout structure", expanded=False):
+                            for _cl_s, _cl_e, _cl_p in _c_ladder:
+                                _cl_rng = (f"{int(_cl_s):,}" if _cl_s == _cl_e
+                                           else f"{int(_cl_s):,}-{int(_cl_e):,}")
+                                st.caption(f"{_cl_rng}: ${float(_cl_p):,.2f}")
+                with col_e:
+                    _c_n = st.number_input(
+                        "My Entries", min_value=1, max_value=150,
+                        value=int(c.get("my_entries") or 1), step=1,
+                        key=f"myentries_{slug}_{c['id']}",
+                        help="Entries you're putting into this contest this slate.")
+                    if int(_c_n) != int(c.get("my_entries") or 1):
+                        update_contest(slug, c["id"], {"my_entries": int(_c_n)})
+                        st.rerun()
+                with col2:
+                    if st.button("★ Template", key=f"save_tmpl_{c['id']}",
+                                 help="Save as reusable template",
+                                 use_container_width=True):
+                        save_template(slug, {
+                            "name": c["name"],
+                            "type": c["type"],
+                            "max_entries": c.get("max_entries", 1),
+                            "entry_fee": c.get("entry_fee"),
+                            "prize_pool": c.get("prize_pool"),
+                            "payout_ladder": [list(x) for x in _c_ladder],
+                            "payout_shape": _c_shape,
+                            "default_field_size": c.get("field_size", 1000),
+                            "default_my_entries": c.get("my_entries", 1),
+                        })
+                        st.toast(f"Saved '{c['name']}' to your template library")
+                        st.rerun()
+                    # Two-step confirm, same as the Sim tab: one stray click
+                    # here used to silently drop a declared contest.
+                    _c_del_key = f"_pending_contest_del_{c['id']}"
+                    if st.session_state.get(_c_del_key):
+                        if st.button("Confirm delete", type="primary",
+                                     key=f"confirm_del_{c['id']}",
+                                     use_container_width=True):
+                            remove_contest(slug, c["id"])
+                            st.session_state.pop(_c_del_key, None)
+                            st.rerun()
+                        if st.button("Cancel", key=f"cancel_del_{c['id']}",
+                                     use_container_width=True):
+                            st.session_state.pop(_c_del_key, None)
+                            st.rerun()
+                    else:
+                        if st.button("Delete", key=f"del_contest_{c['id']}",
+                                     use_container_width=True):
+                            st.session_state[_c_del_key] = True
+                            st.rerun()
+        if contests_list:
+            _c_tot = sum(int(c.get("my_entries") or 0) for c in contests_list)
+            _c_fees = sum(int(c.get("my_entries") or 0) * float(c.get("entry_fee") or 0)
+                          for c in contests_list)
+            if _c_tot:
+                st.markdown(f"**Total of my entries:** {_c_tot} · **${_c_fees:,.2f}**")
 
     # ----- Contest screener (8/30/26): your record in contests shaped like
     # these. Contest selection is edge that costs nothing at lock — the

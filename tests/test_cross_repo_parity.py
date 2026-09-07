@@ -128,12 +128,8 @@ def test_size_bands_match():
     sim_bands = _extract_literal("src/rules.py", "SIZE_BANDS")
     cuts = sorted(hi for hi, _label in sim_bands)
 
-    from src.lineup_selection import _PLAYS_LIKE_SE_FIELD
-    assert _PLAYS_LIKE_SE_FIELD == cuts[0], (
-        f"lineup_selection._PLAYS_LIKE_SE_FIELD={_PLAYS_LIKE_SE_FIELD} no "
-        f"longer matches the Sim's small-band cut {cuts[0]} "
-        "(Sim src/rules.py SIZE_BANDS). Port the change."
-    )
+    # (_PLAYS_LIKE_SE_FIELD was removed 9/6/26 — dead after the small-field
+    # blend branch was folded into one blend for every field size.)
 
     # sim_link.dupe_correction hardcodes the same cut points inline; they must
     # track the Sim's SIZE_BANDS or a fitted band gets applied to a size it
@@ -188,3 +184,59 @@ def test_slug_maps_cover_same_slugs():
         f"Analyzer sim_link._SLUG_SPORT names slugs the Sim doesn't have: "
         f"{sorted(missing)} (Sim src/rules.py CONTEST_TYPES). Align the maps."
     )
+
+
+# ---------------------------------------------------------------------------
+# Payout-ladder parsing + shape classification (9/6/26 contest-tab parity)
+# ---------------------------------------------------------------------------
+
+def test_payout_parser_behaves_like_sim():
+    """The Analyzer's parser is a verbatim port of the Sim's — lock them
+    together BEHAVIORALLY over the paste shapes DK actually produces."""
+    from src.contests import parse_dk_payout_text_with_diagnostics as ours
+    sim_text, _ = _module_tree("src/contests_db.py")
+    # Extract and exec just the Sim's regex + parser in a scratch namespace.
+    ns = {"re": re}
+    tree = ast.parse(sim_text)
+    keep = []
+    for node in tree.body:
+        if (isinstance(node, ast.Assign)
+                and any(getattr(t, "id", "") == "_LADDER_LINE"
+                        for t in node.targets)):
+            keep.append(node)
+        if (isinstance(node, ast.FunctionDef)
+                and node.name == "parse_dk_payout_text_with_diagnostics"):
+            keep.append(node)
+    exec(compile(ast.Module(body=keep, type_ignores=[]), "<sim>", "exec"), ns)
+    theirs = ns["parse_dk_payout_text_with_diagnostics"]
+
+    fixtures = [
+        "1st: $5,000\n2nd: $2,000\n4th-5th: $500\n11th-25th: $100",
+        "1 $100\n2-5 $50\nbroken line\n6 to 10: $20",
+        "501st-2,000th: $10\n\n1st: $1,234.56",
+        "",
+    ]
+    for text in fixtures:
+        assert ours(text) == theirs(text), (
+            f"payout parser drift on {text!r} — port the change to the other "
+            "repo (Analyzer src/contests.py <-> Sim src/contests_db.py)")
+
+
+def test_payout_shape_thresholds_match_sim():
+    from src.contests import payout_shape_from_ladder as ours
+    sim_text, _ = _module_tree("src/analyzer_link.py")
+    ns = {}
+    tree = ast.parse(sim_text)
+    fn = next(n for n in tree.body if isinstance(n, ast.FunctionDef)
+              and n.name == "payout_shape_from_ladder")
+    exec(compile(ast.Module(body=[fn], type_ignores=[]), "<sim>", "exec"), ns)
+    theirs = ns["payout_shape_from_ladder"]
+    fixtures = [
+        [(1, 1, 1000), (2, 10, 100)],                      # top-heavy
+        [(1, 1, 22), (2, 100, 20)],                        # flat double-up-ish
+        [(1, 1, 60), (2, 50, 20)],                         # balanced
+        [], None, [(1, 1, 0)],
+    ]
+    for lad in fixtures:
+        assert ours(lad) == theirs(lad), (
+            f"payout shape drift on {lad!r} — port the change to the other repo")

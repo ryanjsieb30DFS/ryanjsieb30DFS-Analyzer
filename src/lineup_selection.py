@@ -65,9 +65,11 @@ _TYPE_MAP = {"se": "SE", "3max": "3-Max", "5max": "5-Max",
              "20max": "20-Max", "mme": "150-Max", "150max": "150-Max"}
 _SMALL_FIELD_TYPES = {"se", "3max", "5max"}
 
-# Fields under this many entries play like SE — a validated finding
-# (docs/mme_plan.md: "Under ~2,500 entries plays like SE").
-_PLAYS_LIKE_SE_FIELD = 2_500
+# _PLAYS_LIKE_SE_FIELD was removed 9/6/26: its only consumer (the small-field
+# blend branch) was folded into one blend for every field size, leaving the
+# constant dead. The "under ~2,500 plays like SE" finding lives in
+# docs/mme_plan.md; the cross-repo band-sync guard lives in
+# tests/test_cross_repo_parity.py against the Sim's SIZE_BANDS directly.
 
 _SLICE_CAP = 500  # user directive 8/29/26: 50 -> 100 (8/15) -> 500, all sports
 # Measured on 27 archived pools / 25 contests with a known winning score: a

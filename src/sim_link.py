@@ -104,6 +104,42 @@ def dk_username() -> str | None:
 # Entry-set hand-off (Sim Portfolio → Grade tab)
 # ---------------------------------------------------------------------------
 
+def sim_contest_names(slug: str) -> list[str]:
+    """Every contest name the Sim has saved for this slug (contests/<slug>/
+    *.json `name` fields). The Sim is the naming authority (9/6/26 user
+    directive: contest names sync across both tools), and this works even
+    before a pool has been pushed."""
+    return [str(c.get("name")) for c in sim_saved_contests(slug)]
+
+
+def sim_saved_contests(slug: str) -> list[dict]:
+    """The Sim's saved contest records for this slug — name, entry fee, field
+    size, prize pool, and the REAL payout ladder (9/6/26 contest-tab parity:
+    declaring from the Sim carries the ladder, not just the shape)."""
+    root = sim_root()
+    if root is None:
+        return []
+    out: list[dict] = []
+    for f in sorted((root / "contests" / slug).glob("*.json")):
+        if f.name.endswith("__projections.csv"):
+            continue
+        try:
+            data = json.loads(f.read_text()) or {}
+        except (OSError, json.JSONDecodeError):
+            continue
+        if data.get("name"):
+            out.append({
+                "name": str(data["name"]),
+                "contest_type": data.get("contest_type"),
+                "entry_fee": data.get("entry_fee"),
+                "field_size": data.get("field_size"),
+                "prize_pool": data.get("prize_pool"),
+                "payout_ladder": [tuple(x) for x in data.get("payout_ladder") or []],
+                "default_entries": data.get("default_entries"),
+            })
+    return out
+
+
 def load_sim_entries(slug: str) -> dict | None:
     """The Sim-pushed entry set for this slug, or None (absent/unreadable)."""
     path = _SIM_ENTRIES_DIR / f"{slug}.json"

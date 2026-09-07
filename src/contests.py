@@ -123,10 +123,129 @@ def _save(slug: str, contests: list[dict]) -> None:
     _path(slug).write_text(json.dumps({"contests": contests}, indent=2))
 
 
+def canonical_contest_name(slug: str, name: str) -> str:
+    """Snap a declared-contest name to the Sim's name for the same contest.
+
+    9/6/26 user directive (contest names sync across both tools): the Sim is
+    the naming authority. On the 9/5 MMA slate the user typed "UFC $4k
+    Clinch" while the Sim knew "UFC $4K Clinch [Single Entry]"; every
+    name-keyed join downstream (picker check, override outcomes) went empty.
+    If a Sim contest or pushed-pool label matches this name on the shared
+    join key, the stored name becomes the Sim's (type tags like "(SE)"
+    stripped — they are pool-label decoration, not part of the DK name).
+    No match (or no Sim repo) keeps the typed name unchanged."""
+    from src.lineup_selection import _contest_join_key
+    from src import sim_link
+
+    key = _contest_join_key(name)
+    if not key:
+        return name
+    labels: list[str] = []
+    try:
+        labels += sim_link.sim_contest_names(slug)
+    except Exception:  # noqa: BLE001 — canonicalizing must never block a save
+        pass
+    try:
+        pool = sim_link.load_sim_pool(slug) or {}
+        labels += [str(c.get("label") or "") for c in pool.get("contests") or []]
+    except Exception:  # noqa: BLE001
+        pass
+    for lab in labels:
+        if lab and _contest_join_key(lab) == key:
+            canon = re.sub(
+                r"\s*\((se|3-?max|5-?max|20-?max|150-?max|mme)\)\s*$",
+                "", lab, flags=re.I).strip()
+            return canon or name
+    return name
+
+
+# ---------------------------------------------------------------------------
+# Payout ladders (9/6/26 contest-tab parity: the Sim tab's format is the
+# canonical one, and the user wants the payout structure in both tools).
+# Both functions are VERBATIM ports from the Sim repo — parser from
+# src/contests_db.py, classifier from src/analyzer_link.py — so a ladder
+# pastes and classifies identically in either tool.
+# ---------------------------------------------------------------------------
+
+_LADDER_LINE = re.compile(
+    r"^\s*(\d[\d,]*)\s*(?:st|nd|rd|th)?\s*"
+    r"(?:[-–to ]+(\d[\d,]*)\s*(?:st|nd|rd|th)?)?"
+    r"\s*[:\s]\s*\$?\s*([\d,]+(?:\.\d+)?)\s*$",
+    re.IGNORECASE,
+)
+
+
+def parse_dk_payout_text_with_diagnostics(
+    text: str,
+) -> tuple[list[tuple[int, int, float]], list[tuple[int, str]]]:
+    """Parse a DK payout-ladder paste into (parsed_ladder, failed_lines).
+
+    failed_lines = [(line_no_1based, raw_text), ...] for non-blank lines that
+    didn't match — the UI names exactly which lines need fixing."""
+    ladder: list[tuple[int, int, float]] = []
+    failed: list[tuple[int, str]] = []
+    for i, raw in enumerate(text.splitlines(), start=1):
+        line = raw.strip()
+        if not line:
+            continue
+        m = _LADDER_LINE.match(line)
+        if not m:
+            failed.append((i, raw))
+            continue
+        start = int(m.group(1).replace(",", ""))
+        end = int(m.group(2).replace(",", "")) if m.group(2) else start
+        payout = float(m.group(3).replace(",", ""))
+        if end < start:
+            start, end = end, start
+        ladder.append((start, end, payout))
+    return ladder, failed
+
+
+def payout_shape_from_ladder(ladder) -> str | None:
+    """Classify payout shape from the real ladder: first place's share of the
+    total prize money. ~10-15% = Top-heavy GPP; barely-above-min-cash = Flat.
+    Vocabulary matches the declaration dropdown. None without a usable
+    ladder — never guess."""
+    try:
+        rows = [(int(a), int(b), float(p)) for a, b, p in (ladder or [])
+                if float(p) > 0]
+    except (TypeError, ValueError):
+        return None
+    if not rows:
+        return None
+    total = sum((b - a + 1) * p for a, b, p in rows)
+    if total <= 0:
+        return None
+    first = max((p for a, b, p in rows if a == 1), default=None)
+    if first is None:
+        return None
+    share = first / total
+    if share >= 0.08:
+        return "Top-heavy"
+    if share <= 0.03:
+        return "Flat"
+    return "Balanced"
+
+
+def update_contest(slug: str, contest_id: str, updates: dict) -> None:
+    """Update fields on one declared contest in place (id and name are not
+    updatable — the name is the cross-tool join key, set at declare time)."""
+    contests = load_contests(slug)
+    for c in contests:
+        if c.get("id") == contest_id:
+            c.update({k: v for k, v in updates.items()
+                      if k not in ("id", "name")})
+            break
+    _save(slug, contests)
+
+
 def add_contest(slug: str, contest: dict) -> None:
-    """Append a contest. Auto-fills id."""
+    """Append a contest. Auto-fills id; snaps the name to the Sim's (see
+    canonical_contest_name)."""
     contests = load_contests(slug)
     contest = dict(contest)
+    if contest.get("name"):
+        contest["name"] = canonical_contest_name(slug, str(contest["name"]))
     contest["id"] = uuid.uuid4().hex[:8]
     contests.append(contest)
     _save(slug, contests)

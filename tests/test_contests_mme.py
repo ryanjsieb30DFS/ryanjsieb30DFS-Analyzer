@@ -44,3 +44,41 @@ def test_results_headline_sealed_from_mme(tmp_path, monkeypatch):
     assert row["best_percentile_mme"] == 1.0
     assert row["best_rank"] == 100 and row["best_rank_mme"] == 500
     assert hist.exists()
+
+
+# ---------------------------------------------------------------------------
+# Contest-name canonicalization (9/6/26: the Sim is the naming authority)
+# ---------------------------------------------------------------------------
+
+def test_canonical_contest_name_snaps_to_sim(monkeypatch, tmp_path):
+    from src import contests as c
+
+    monkeypatch.setattr("src.sim_link.sim_contest_names",
+                        lambda slug: ["UFC $4K Clinch [Single Entry]"])
+    monkeypatch.setattr("src.sim_link.load_sim_pool", lambda slug: None)
+    # the 9/5 failure shape: hand-typed short name, different case, no bracket
+    assert (c.canonical_contest_name("mma_se", "UFC $4k Clinch")
+            == "UFC $4K Clinch [Single Entry]")
+    # pool labels carry a "(SE)" tag — it is stripped from the stored name
+    monkeypatch.setattr("src.sim_link.sim_contest_names", lambda slug: [])
+    monkeypatch.setattr(
+        "src.sim_link.load_sim_pool",
+        lambda slug: {"contests": [{"label": "UFC $6K Flying Knee [Single Entry] (SE)"}]})
+    assert (c.canonical_contest_name("mma_se", "ufc $6K flying knee")
+            == "UFC $6K Flying Knee [Single Entry]")
+    # no Sim match: the typed name survives untouched
+    assert c.canonical_contest_name("mma_se", "UFC $9K Uppercut") == "UFC $9K Uppercut"
+
+
+def test_add_contest_canonicalizes_name(monkeypatch, tmp_path):
+    from src import contests as c
+
+    monkeypatch.setattr(c, "_CONTESTS_DIR", tmp_path)
+    monkeypatch.setattr("src.sim_link.sim_contest_names",
+                        lambda slug: ["NAS $5K Engine Block [Single Entry]"])
+    monkeypatch.setattr("src.sim_link.load_sim_pool", lambda slug: None)
+    c.add_contest("nascar", {"name": "NAS $5k engine block", "type": "SE",
+                             "field_size": 490, "max_entries": 1,
+                             "my_entries": 1})
+    saved = c.load_contests("nascar")
+    assert saved[0]["name"] == "NAS $5K Engine Block [Single Entry]"
