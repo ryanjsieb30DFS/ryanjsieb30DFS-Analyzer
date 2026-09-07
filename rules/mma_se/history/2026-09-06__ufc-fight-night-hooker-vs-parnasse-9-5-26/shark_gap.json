@@ -1,0 +1,77 @@
+{
+  "field": 951,
+  "anchors": [
+    "mario pinto",
+    "salahdine parnasse",
+    "luis felipe dias"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 25.5,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.0,
+    "anchor_exposure_by_player": {
+      "mario pinto": 0.0,
+      "salahdine parnasse": 0.0,
+      "luis felipe dias": 0.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 31.76,
+    "median_pctile": 31.76
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 28.3,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.333,
+    "anchor_exposure_by_player": {
+      "mario pinto": 1.0,
+      "salahdine parnasse": 0.0,
+      "luis felipe dias": 0.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 16.3,
+    "median_pctile": 16.3
+  },
+  "deltas": [
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 28.3,
+      "shark": 25.5,
+      "delta": 2.8
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.333,
+      "shark": 0.0,
+      "delta": 0.333
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 0.0,
+      "shark": 0.0,
+      "delta": 0.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "mma_se",
+  "sport": "mma"
+}

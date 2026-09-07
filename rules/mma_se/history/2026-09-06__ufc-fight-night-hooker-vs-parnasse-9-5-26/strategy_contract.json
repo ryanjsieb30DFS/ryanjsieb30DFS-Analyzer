@@ -1,0 +1,242 @@
+{
+  "generated_at": "2026-09-05 09:05",
+  "slug": "mma_se",
+  "slate": "MMA Slate Strategy \u2014 UFC Fight Night Paris (Parnasse vs. Hooker), 9/5/26",
+  "calls": [
+    {
+      "name": "Fares Ziam",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Nursulton Ruziboev",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Oumar Sy",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Delphine Benouaich",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Klaudia Sygula",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Axel Sola",
+      "verdict": "lean_fade"
+    }
+  ],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "Dan Hooker",
+      "own": 8.0
+    },
+    {
+      "name": "Trevor Peek",
+      "own": 9.0
+    },
+    {
+      "name": "Muhammad Naimov",
+      "own": 9.0
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Salahdine Parnasse",
+        "Daniil Donchenko"
+      ],
+      "joint_pct": 17.1
+    },
+    {
+      "players": [
+        "Salahdine Parnasse",
+        "Matthieu Duclos"
+      ],
+      "joint_pct": 16.2
+    },
+    {
+      "players": [
+        "Salahdine Parnasse",
+        "Luis Felipe Dias"
+      ],
+      "joint_pct": 15.8
+    },
+    {
+      "players": [
+        "Salahdine Parnasse",
+        "Mario Pinto"
+      ],
+      "joint_pct": 14.4
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Daniil Donchenko",
+        "Matthieu Duclos",
+        "Luis Felipe Dias"
+      ]
+    },
+    {
+      "players": [
+        "Mario Pinto",
+        "Kurtis Campbell"
+      ]
+    },
+    {
+      "players": [
+        "Losene Keita",
+        "Fares Ziam",
+        "Axel Sola",
+        "Nursulton Ruziboev"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "board": [
+    {
+      "name": "Kurtis Campbell",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Nathaniel Wood",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Salahdine Parnasse",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Daniil Donchenko",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Mario Pinto",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Matthieu Duclos",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Felipe Lima",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Punahele Soriano",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Losene Keita",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Luis Felipe Dias",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Morgan Charriere",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Dan Hooker",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Pavel Andrusca",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Nora Cornolle",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Sofia Montenegro",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Michael Page",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Michael Aljarouj",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Fabia Sintes",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Trevor Peek",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Muhammad Naimov",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Oumar Sy",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Ryan Spann",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Fares Ziam",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Delphine Benouaich",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Klaudia Sygula",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Axel Sola",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Modestas Bukauskas",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Nursulton Ruziboev",
+      "tier": "Fade",
+      "leverage": false
+    }
+  ]
+}

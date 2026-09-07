@@ -1,0 +1,53 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 12,
+    "leverage_capture": 0.25,
+    "leverage_hit": [
+      "Matthieu Duclos"
+    ],
+    "leverage_missed": [
+      "Delphine Benouaich",
+      "Pavel Andrusca",
+      "Modestas Bukauskas"
+    ],
+    "overperformer_capture": 0.6,
+    "overperformer_hit": [
+      "Kurtis Campbell",
+      "Mario Pinto",
+      "Matthieu Duclos"
+    ],
+    "underperformer_exposure": 0.6,
+    "underperformer_hit": [
+      "Nathaniel Wood",
+      "Luis Felipe Dias",
+      "Dan Hooker"
+    ]
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 2,
+    "avg_ratio": 1.121,
+    "best_percentile": 16.3,
+    "median_percentile": 82.8,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 339.21997,
+        "proj_total": 380.88,
+        "ratio": 0.891,
+        "percentile": 82.8,
+        "avg_own": 27.01
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 515.97,
+        "proj_total": 381.95,
+        "ratio": 1.351,
+        "percentile": 16.3,
+        "avg_own": 28.27
+      }
+    ]
+  }
+}

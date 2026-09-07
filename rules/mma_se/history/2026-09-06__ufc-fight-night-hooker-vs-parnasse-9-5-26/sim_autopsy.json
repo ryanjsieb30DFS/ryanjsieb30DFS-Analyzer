@@ -1,0 +1,150 @@
+[
+  {
+    "slug": "mma_se",
+    "slate_name": "MMA contest-standings-194798531 2026-09-06",
+    "contest_id": "194798531",
+    "field_size": 588,
+    "schema_version": 1,
+    "generated_at": "2026-09-06 22:32",
+    "user": {
+      "n_entries": 1,
+      "best_points": 339.21997,
+      "avg_points": 339.22,
+      "best_rank": 487
+    },
+    "pool": {
+      "n": 10000,
+      "avg_actual": 400.7,
+      "median_actual": 399.71,
+      "max_actual": 731.21,
+      "n_beating_best_entry": 7269,
+      "pct_beating_best_entry": 72.69,
+      "picking_edge_points": -61.48
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 10000,
+        "spearman_vs_actual": 0.135,
+        "top100_avg_actual": 453.68,
+        "pool_avg_actual": 400.7
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 10000,
+        "spearman_vs_actual": 0.181,
+        "top100_avg_actual": 466.64,
+        "pool_avg_actual": 400.7
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 10000,
+        "spearman_vs_actual": 0.082,
+        "top100_avg_actual": 423.61,
+        "pool_avg_actual": 400.7
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 10000,
+        "spearman_vs_actual": 0.251,
+        "top100_avg_actual": 499.25,
+        "pool_avg_actual": 400.7
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 487,
+        "Points": 339.22,
+        "Lineup": "F Salahdine Parnasse F Luis Felipe Dias F Nora Cornolle F Fabia Sintes F Punahele Soriano F Nathaniel Wood",
+        "matched": true,
+        "pre_sim_roi_pct": 81.3,
+        "pre_sim_top1_pct": 2.85,
+        "pre_sim_win_pct": 0.935,
+        "pre_sim_cash_pct": 30.55,
+        "post_roi_pct": 58.88,
+        "post_top1_pct": 2.38,
+        "post_win_pct": 0.42,
+        "post_cash_pct": 31.26
+      }
+    ]
+  },
+  {
+    "slug": "mma_se",
+    "slate_name": "MMA contest-standings-194798532 2026-09-06",
+    "contest_id": "194798532",
+    "field_size": 951,
+    "schema_version": 1,
+    "generated_at": "2026-09-06 22:32",
+    "user": {
+      "n_entries": 1,
+      "best_points": 515.97,
+      "avg_points": 515.97,
+      "best_rank": 155
+    },
+    "pool": {
+      "n": 10000,
+      "avg_actual": 400.7,
+      "median_actual": 399.71,
+      "max_actual": 731.21,
+      "n_beating_best_entry": 1278,
+      "pct_beating_best_entry": 12.78,
+      "picking_edge_points": 115.27
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 10000,
+        "spearman_vs_actual": 0.224,
+        "top100_avg_actual": 448.27,
+        "pool_avg_actual": 400.7
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 10000,
+        "spearman_vs_actual": 0.209,
+        "top100_avg_actual": 448.76,
+        "pool_avg_actual": 400.7
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 10000,
+        "spearman_vs_actual": 0.068,
+        "top100_avg_actual": 406.6,
+        "pool_avg_actual": 400.7
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 10000,
+        "spearman_vs_actual": 0.255,
+        "top100_avg_actual": 502.48,
+        "pool_avg_actual": 400.7
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 155,
+        "Points": 515.97,
+        "Lineup": "F Kurtis Campbell F Mario Pinto F Dan Hooker F Matthieu Duclos F Sofia Montenegro F Daniil Donchenko",
+        "matched": true,
+        "pre_sim_roi_pct": 76.3,
+        "pre_sim_top1_pct": 2.82,
+        "pre_sim_win_pct": 0.565,
+        "pre_sim_cash_pct": 30.05,
+        "post_roi_pct": 46.65,
+        "post_top1_pct": 2.45,
+        "post_win_pct": 0.178,
+        "post_cash_pct": 30.68
+      }
+    ]
+  }
+]

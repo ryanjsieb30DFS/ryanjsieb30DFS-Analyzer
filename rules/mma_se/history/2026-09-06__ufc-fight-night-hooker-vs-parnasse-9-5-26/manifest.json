@@ -1,0 +1,28 @@
+{
+  "slug": "mma_se",
+  "sport": "mma",
+  "contest_label": "MMA",
+  "date": "2026-09-06",
+  "slate_label": "UFC Fight Night: Hooker vs. Parnasse 9.5.26",
+  "archived_at": "2026-09-06 22:35",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json",
+    "lineup_selection.json",
+    "mma_se__3eecee2d_pick.md",
+    "mma_se__3eecee2d_slice.md",
+    "mma_se__6e8ad0e1_pick.md",
+    "mma_se__6e8ad0e1_slice.md"
+  ],
+  "missing": [
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/mma_se/2026-09-05__MMA Matchups 9.5.26.pdf",
+    "articles/mma_se/2026-09-05__MMA Top Plays 9.5.26.pdf"
+  ],
+  "proj_source": null
+}

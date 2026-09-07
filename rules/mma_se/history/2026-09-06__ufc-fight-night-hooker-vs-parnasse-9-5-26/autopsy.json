@@ -1,0 +1,1730 @@
+[
+  {
+    "timestamp": "2026-09-06 22:35",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-194798531.csv",
+    "contest_id": "194798531",
+    "entries": 588,
+    "winning_score": 684.39,
+    "cash_line_p80": 502.19397200000003,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 28,
+      "total": 28
+    },
+    "user_summary": {
+      "avg_own_mean": 27.01,
+      "low_own_count_mean": 1.0,
+      "salary_used_mean": 50000.0,
+      "entry_count": 1,
+      "best_rank": 487,
+      "best_percentile": 82.8
+    },
+    "user_lineups": [
+      {
+        "rank": 487,
+        "entry_name": "RyvlesGaming30",
+        "points": 339.21997,
+        "percentile": 82.8,
+        "players": [
+          "Salahdine Parnasse",
+          "Luis Felipe Dias",
+          "Nora Cornolle",
+          "Fabia Sintes",
+          "Punahele Soriano",
+          "Nathaniel Wood"
+        ],
+        "avg_own": 27.01,
+        "low_own_count": 1,
+        "salary_used": 50000,
+        "proj_total": 380.88,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Delphine Benouaich",
+        "proj_points": 59.21,
+        "actual_fpts": 143.03,
+        "fpts_delta": 83.82,
+        "ownership": 14.0,
+        "actual_own": 10.71
+      },
+      {
+        "name": "Kurtis Campbell",
+        "proj_points": 79.87,
+        "actual_fpts": 153.2,
+        "fpts_delta": 73.33,
+        "ownership": 29.0,
+        "actual_own": 37.59
+      },
+      {
+        "name": "Mario Pinto",
+        "proj_points": 74.83,
+        "actual_fpts": 138.79,
+        "fpts_delta": 63.96,
+        "ownership": 32.0,
+        "actual_own": 47.45
+      },
+      {
+        "name": "Modestas Bukauskas",
+        "proj_points": 40.62,
+        "actual_fpts": 93.05,
+        "fpts_delta": 52.43,
+        "ownership": 15.0,
+        "actual_own": 9.35
+      },
+      {
+        "name": "Matthieu Duclos",
+        "proj_points": 55.64,
+        "actual_fpts": 107.75,
+        "fpts_delta": 52.11,
+        "ownership": 36.0,
+        "actual_own": 22.11
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Fares Ziam",
+        "proj_points": 62.33,
+        "actual_fpts": 2.8,
+        "fpts_delta": -59.53,
+        "ownership": 25.0,
+        "actual_own": 12.76
+      },
+      {
+        "name": "Nathaniel Wood",
+        "proj_points": 74.6,
+        "actual_fpts": 27.27,
+        "fpts_delta": -47.33,
+        "ownership": 16.0,
+        "actual_own": 15.99
+      },
+      {
+        "name": "Luis Felipe Dias",
+        "proj_points": 54.07,
+        "actual_fpts": 9.99,
+        "fpts_delta": -44.08,
+        "ownership": 35.0,
+        "actual_own": 39.46
+      },
+      {
+        "name": "Muhammad Naimov",
+        "proj_points": 37.24,
+        "actual_fpts": 1.6,
+        "fpts_delta": -35.64,
+        "ownership": 9.0,
+        "actual_own": 6.29
+      },
+      {
+        "name": "Dan Hooker",
+        "proj_points": 40.62,
+        "actual_fpts": 5.6,
+        "fpts_delta": -35.02,
+        "ownership": 8.0,
+        "actual_own": 10.71
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Delphine Benouaich",
+        "salary": 8500,
+        "actual_fpts": 143.03,
+        "actual_own": 10.71,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Pavel Andrusca",
+        "salary": 7000,
+        "actual_fpts": 84.78,
+        "actual_own": 12.41,
+        "top_lineup_pct": 65.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 31.35,
+      "low_own_count_mean": 0.3,
+      "salary_used_mean": 49900.0,
+      "dup_max": 3,
+      "unique_pct": 55.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "mbland15",
+          "points": 684.39,
+          "percentile": 0.2,
+          "players": [
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Matthieu Duclos",
+            "Axel Sola",
+            "Delphine Benouaich",
+            "Punahele Soriano"
+          ],
+          "avg_own": 31.72,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 367.26,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "BigEd402",
+          "points": 662.0801,
+          "percentile": 0.3,
+          "players": [
+            "Salahdine Parnasse",
+            "Matthieu Duclos",
+            "Axel Sola",
+            "Losene Keita",
+            "Delphine Benouaich",
+            "Pavel Andrusca"
+          ],
+          "avg_own": 26.96,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 383.97,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "ballinrees82",
+          "points": 661.45996,
+          "percentile": 0.5,
+          "players": [
+            "Nursulton Ruziboev",
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Matthieu Duclos",
+            "Modestas Bukauskas",
+            "Delphine Benouaich"
+          ],
+          "avg_own": 25.23,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 358.48,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "Marsharks",
+          "points": 659.4,
+          "percentile": 0.7,
+          "players": [
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Matthieu Duclos",
+            "Modestas Bukauskas",
+            "Daniil Donchenko",
+            "Pavel Andrusca"
+          ],
+          "avg_own": 27.21,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 373.85,
+          "dup_count": 2
+        },
+        {
+          "rank": 4,
+          "entry_name": "jabbo123",
+          "points": 659.4,
+          "percentile": 0.7,
+          "players": [
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Matthieu Duclos",
+            "Modestas Bukauskas",
+            "Daniil Donchenko",
+            "Pavel Andrusca"
+          ],
+          "avg_own": 27.21,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 373.85,
+          "dup_count": 2
+        },
+        {
+          "rank": 6,
+          "entry_name": "HNICJEFE",
+          "points": 643.14,
+          "percentile": 1.0,
+          "players": [
+            "Mario Pinto",
+            "Salahdine Parnasse",
+            "Axel Sola",
+            "Losene Keita",
+            "Modestas Bukauskas",
+            "Pavel Andrusca"
+          ],
+          "avg_own": 30.95,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 384.57,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "dalton36233623",
+          "points": 638.49,
+          "percentile": 1.2,
+          "players": [
+            "Nursulton Ruziboev",
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Axel Sola",
+            "Delphine Benouaich",
+            "Fabia Sintes"
+          ],
+          "avg_own": 30.25,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 370.2,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "JDub210",
+          "points": 623.25,
+          "percentile": 1.4,
+          "players": [
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Salahdine Parnasse",
+            "Axel Sola",
+            "Punahele Soriano",
+            "Pavel Andrusca"
+          ],
+          "avg_own": 36.93,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 392.8,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "lordward5000",
+          "points": 617.18005,
+          "percentile": 1.5,
+          "players": [
+            "Mario Pinto",
+            "Axel Sola",
+            "Losene Keita",
+            "Delphine Benouaich",
+            "Michael Aljarouj",
+            "Pavel Andrusca"
+          ],
+          "avg_own": 26.02,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 370.41,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "jakethesnake",
+          "points": 613.62,
+          "percentile": 1.7,
+          "players": [
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Matthieu Duclos",
+            "Axel Sola",
+            "Klaudia Sygula",
+            "Fabia Sintes"
+          ],
+          "avg_own": 32.29,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 368.26,
+          "dup_count": 2
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 4.34,
+        "low_own_count_delta": -0.7,
+        "salary_used_delta": -100.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 584,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Salahdine Parnasse",
+          "field_own": 51.7,
+          "actual_fpts": 104.9
+        },
+        {
+          "name": "Mario Pinto",
+          "field_own": 47.5,
+          "actual_fpts": 138.8
+        },
+        {
+          "name": "Axel Sola",
+          "field_own": 41.7,
+          "actual_fpts": 103.7
+        },
+        {
+          "name": "Luis Felipe Dias",
+          "field_own": 39.5,
+          "actual_fpts": 10.0
+        },
+        {
+          "name": "Kurtis Campbell",
+          "field_own": 37.6,
+          "actual_fpts": 153.2
+        },
+        {
+          "name": "Daniil Donchenko",
+          "field_own": 34.4,
+          "actual_fpts": 81.8
+        },
+        {
+          "name": "Punahele Soriano",
+          "field_own": 30.8,
+          "actual_fpts": 38.0
+        },
+        {
+          "name": "Klaudia Sygula",
+          "field_own": 25.0,
+          "actual_fpts": 36.0
+        },
+        {
+          "name": "Nursulton Ruziboev",
+          "field_own": 24.1,
+          "actual_fpts": 25.6
+        },
+        {
+          "name": "Losene Keita",
+          "field_own": 23.1,
+          "actual_fpts": 118.0
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Axel Sola",
+            "Salahdine Parnasse"
+          ],
+          "field_pct": 23.3,
+          "count": 136
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Mario Pinto"
+          ],
+          "field_pct": 19.9,
+          "count": 116
+        },
+        {
+          "players": [
+            "Luis Felipe Dias",
+            "Salahdine Parnasse"
+          ],
+          "field_pct": 19.6,
+          "count": 114
+        },
+        {
+          "players": [
+            "Punahele Soriano",
+            "Salahdine Parnasse"
+          ],
+          "field_pct": 19.2,
+          "count": 112
+        },
+        {
+          "players": [
+            "Mario Pinto",
+            "Salahdine Parnasse"
+          ],
+          "field_pct": 18.9,
+          "count": 110
+        },
+        {
+          "players": [
+            "Kurtis Campbell",
+            "Salahdine Parnasse"
+          ],
+          "field_pct": 17.7,
+          "count": 103
+        },
+        {
+          "players": [
+            "Luis Felipe Dias",
+            "Mario Pinto"
+          ],
+          "field_pct": 17.7,
+          "count": 103
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Luis Felipe Dias"
+          ],
+          "field_pct": 16.5,
+          "count": 96
+        },
+        {
+          "players": [
+            "Daniil Donchenko",
+            "Mario Pinto"
+          ],
+          "field_pct": 15.8,
+          "count": 92
+        },
+        {
+          "players": [
+            "Mario Pinto",
+            "Punahele Soriano"
+          ],
+          "field_pct": 15.6,
+          "count": 91
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Axel Sola",
+            "Daniil Donchenko",
+            "Mario Pinto",
+            "Morgan Charriere",
+            "Nursulton Ruziboev",
+            "Salahdine Parnasse"
+          ],
+          "count": 5,
+          "field_pct": 0.9
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Klaudia Sygula",
+            "Kurtis Campbell",
+            "Luis Felipe Dias",
+            "Salahdine Parnasse",
+            "Sofia Montenegro"
+          ],
+          "count": 5,
+          "field_pct": 0.9
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Daniil Donchenko",
+            "Luis Felipe Dias",
+            "Mario Pinto",
+            "Nursulton Ruziboev",
+            "Oumar Sy"
+          ],
+          "count": 5,
+          "field_pct": 0.9
+        },
+        {
+          "players": [
+            "Fabia Sintes",
+            "Klaudia Sygula",
+            "Luis Felipe Dias",
+            "Mario Pinto",
+            "Salahdine Parnasse",
+            "Sofia Montenegro"
+          ],
+          "count": 5,
+          "field_pct": 0.9
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Morgan Charriere",
+            "Punahele Soriano",
+            "Salahdine Parnasse"
+          ],
+          "count": 4,
+          "field_pct": 0.7
+        }
+      ],
+      "winners_profile": {
+        "n": 6,
+        "avg_own_per_slot": 28.2,
+        "dart_pct": 0.0,
+        "unique_pct": 83.3
+      },
+      "fish_profile": {
+        "n": 292,
+        "avg_own_per_slot": 28.0,
+        "dart_pct": 4.8,
+        "unique_pct": 87.0
+      },
+      "fish_traps": [
+        {
+          "name": "Luis Felipe Dias",
+          "fish_pct": 62.3,
+          "winner_pct": 0.0,
+          "gap": 62.3,
+          "actual_fpts": 10.0,
+          "field_own": 39.5,
+          "own_rank": 4
+        },
+        {
+          "name": "Oumar Sy",
+          "fish_pct": 31.8,
+          "winner_pct": 0.0,
+          "gap": 31.8,
+          "actual_fpts": 41.6,
+          "field_own": 22.1,
+          "own_rank": 11
+        },
+        {
+          "name": "Michael Aljarouj",
+          "fish_pct": 28.8,
+          "winner_pct": 0.0,
+          "gap": 28.8,
+          "actual_fpts": 28.9,
+          "field_own": 20.8,
+          "own_rank": 13
+        },
+        {
+          "name": "Klaudia Sygula",
+          "fish_pct": 28.1,
+          "winner_pct": 0.0,
+          "gap": 28.1,
+          "actual_fpts": 36.0,
+          "field_own": 25.0,
+          "own_rank": 8
+        },
+        {
+          "name": "Nathaniel Wood",
+          "fish_pct": 27.1,
+          "winner_pct": 0.0,
+          "gap": 27.1,
+          "actual_fpts": 27.3,
+          "field_own": 16.0,
+          "own_rank": 17
+        },
+        {
+          "name": "Fares Ziam",
+          "fish_pct": 22.3,
+          "winner_pct": 0.0,
+          "gap": 22.3,
+          "actual_fpts": 2.8,
+          "field_own": 12.8,
+          "own_rank": 18
+        },
+        {
+          "name": "Morgan Charriere",
+          "fish_pct": 17.5,
+          "winner_pct": 0.0,
+          "gap": 17.5,
+          "actual_fpts": 15.7,
+          "field_own": 20.1,
+          "own_rank": 14
+        },
+        {
+          "name": "Sofia Montenegro",
+          "fish_pct": 16.8,
+          "winner_pct": 0.0,
+          "gap": 16.8,
+          "actual_fpts": 28.8,
+          "field_own": 17.5,
+          "own_rank": 16
+        },
+        {
+          "name": "Ryan Spann",
+          "fish_pct": 16.8,
+          "winner_pct": 0.0,
+          "gap": 16.8,
+          "actual_fpts": 6.4,
+          "field_own": 11.6,
+          "own_rank": 20
+        },
+        {
+          "name": "Fabia Sintes",
+          "fish_pct": 14.4,
+          "winner_pct": 0.0,
+          "gap": 14.4,
+          "actual_fpts": 74.2,
+          "field_own": 19.9,
+          "own_rank": 15
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "mbland15",
+          "best_rank": 1,
+          "percentile": 0.2
+        },
+        {
+          "handle": "BigEd402",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "ballinrees82",
+          "best_rank": 3,
+          "percentile": 0.5
+        },
+        {
+          "handle": "Marsharks",
+          "best_rank": 4,
+          "percentile": 0.7
+        },
+        {
+          "handle": "jabbo123",
+          "best_rank": 4,
+          "percentile": 0.7
+        },
+        {
+          "handle": "HNICJEFE",
+          "best_rank": 6,
+          "percentile": 1.0
+        },
+        {
+          "handle": "dalton36233623",
+          "best_rank": 7,
+          "percentile": 1.2
+        },
+        {
+          "handle": "JDub210",
+          "best_rank": 8,
+          "percentile": 1.4
+        },
+        {
+          "handle": "lordward5000",
+          "best_rank": 9,
+          "percentile": 1.5
+        },
+        {
+          "handle": "tszone72",
+          "best_rank": 10,
+          "percentile": 1.7
+        },
+        {
+          "handle": "jakethesnake",
+          "best_rank": 10,
+          "percentile": 1.7
+        },
+        {
+          "handle": "awen419",
+          "best_rank": 12,
+          "percentile": 2.1
+        },
+        {
+          "handle": "bstowe4",
+          "best_rank": 12,
+          "percentile": 2.1
+        },
+        {
+          "handle": "Benzito85",
+          "best_rank": 12,
+          "percentile": 2.1
+        },
+        {
+          "handle": "khalymtz1994",
+          "best_rank": 15,
+          "percentile": 2.6
+        }
+      ],
+      "read": [
+        "Field crowded **Salahdine Parnasse** at 51.7% (104.9 fpts) \u2014 the chalk to consider fading.",
+        "**Axel Sola + Salahdine Parnasse** were together in 23.3% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Luis Felipe Dias** was a fish trap: 62.3% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 684.39,
+      "winner_handle": "mbland15",
+      "roster": [
+        {
+          "name": "Kurtis Campbell",
+          "own": 37.59,
+          "fpts": 153.2
+        },
+        {
+          "name": "Mario Pinto",
+          "own": 47.45,
+          "fpts": 138.79
+        },
+        {
+          "name": "Matthieu Duclos",
+          "own": 22.11,
+          "fpts": 107.75
+        },
+        {
+          "name": "Axel Sola",
+          "own": 41.67,
+          "fpts": 103.66
+        },
+        {
+          "name": "Delphine Benouaich",
+          "own": 10.71,
+          "fpts": 143.03
+        },
+        {
+          "name": "Punahele Soriano",
+          "own": 30.78,
+          "fpts": 37.96
+        }
+      ],
+      "avg_own": 31.7,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Delphine Benouaich",
+        "own": 10.71,
+        "fpts": 143.03
+      },
+      "expected_dupes": 0.32
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "blocked_swap": {
+        "out": "Luis Felipe Dias",
+        "in": "Kurtis Campbell",
+        "gain": 143.2,
+        "over_cap_by": 1300
+      },
+      "gradable": true,
+      "won": false,
+      "your_points": 339.21997,
+      "winner_points": 684.39,
+      "gap": 345.2,
+      "your_percentile": 82.8,
+      "n_shared": 1,
+      "shared": [
+        "Punahele Soriano"
+      ],
+      "your_uniques": [
+        {
+          "name": "Salahdine Parnasse",
+          "fpts": 104.86,
+          "salary": 9500
+        },
+        {
+          "name": "Nora Cornolle",
+          "fpts": 84.97,
+          "salary": 8300
+        },
+        {
+          "name": "Fabia Sintes",
+          "fpts": 74.17,
+          "salary": 7800
+        },
+        {
+          "name": "Nathaniel Wood",
+          "fpts": 27.27,
+          "salary": 9200
+        },
+        {
+          "name": "Luis Felipe Dias",
+          "fpts": 9.99,
+          "salary": 8000
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Kurtis Campbell",
+          "fpts": 153.2,
+          "salary": 9300
+        },
+        {
+          "name": "Delphine Benouaich",
+          "fpts": 143.03,
+          "salary": 8500
+        },
+        {
+          "name": "Mario Pinto",
+          "fpts": 138.79,
+          "salary": 9100
+        },
+        {
+          "name": "Matthieu Duclos",
+          "fpts": 107.75,
+          "salary": 8200
+        },
+        {
+          "name": "Axel Sola",
+          "fpts": 103.66,
+          "salary": 7600
+        }
+      ],
+      "best_swap": {
+        "out": "Nathaniel Wood",
+        "in": "Delphine Benouaich",
+        "gain": 115.8,
+        "would_have_won": false
+      },
+      "swaps_needed": null
+    }
+  },
+  {
+    "timestamp": "2026-09-06 22:35",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-194798532.csv",
+    "contest_id": "194798532",
+    "entries": 951,
+    "winning_score": 678.33997,
+    "cash_line_p80": 502.94,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 28,
+      "total": 28
+    },
+    "user_summary": {
+      "avg_own_mean": 28.27,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 50000.0,
+      "entry_count": 1,
+      "best_rank": 155,
+      "best_percentile": 16.3
+    },
+    "user_lineups": [
+      {
+        "rank": 155,
+        "entry_name": "RyvlesGaming30",
+        "points": 515.97,
+        "percentile": 16.3,
+        "players": [
+          "Kurtis Campbell",
+          "Mario Pinto",
+          "Dan Hooker",
+          "Matthieu Duclos",
+          "Sofia Montenegro",
+          "Daniil Donchenko"
+        ],
+        "avg_own": 28.27,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 381.95,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Delphine Benouaich",
+        "proj_points": 59.21,
+        "actual_fpts": 143.03,
+        "fpts_delta": 83.82,
+        "ownership": 14.0,
+        "actual_own": 9.36
+      },
+      {
+        "name": "Kurtis Campbell",
+        "proj_points": 79.87,
+        "actual_fpts": 153.2,
+        "fpts_delta": 73.33,
+        "ownership": 29.0,
+        "actual_own": 34.07
+      },
+      {
+        "name": "Mario Pinto",
+        "proj_points": 74.83,
+        "actual_fpts": 138.79,
+        "fpts_delta": 63.96,
+        "ownership": 32.0,
+        "actual_own": 48.69
+      },
+      {
+        "name": "Modestas Bukauskas",
+        "proj_points": 40.62,
+        "actual_fpts": 93.05,
+        "fpts_delta": 52.43,
+        "ownership": 15.0,
+        "actual_own": 10.09
+      },
+      {
+        "name": "Matthieu Duclos",
+        "proj_points": 55.64,
+        "actual_fpts": 107.75,
+        "fpts_delta": 52.11,
+        "ownership": 36.0,
+        "actual_own": 18.61
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Fares Ziam",
+        "proj_points": 62.33,
+        "actual_fpts": 2.8,
+        "fpts_delta": -59.53,
+        "ownership": 25.0,
+        "actual_own": 12.09
+      },
+      {
+        "name": "Nathaniel Wood",
+        "proj_points": 74.6,
+        "actual_fpts": 27.27,
+        "fpts_delta": -47.33,
+        "ownership": 16.0,
+        "actual_own": 12.09
+      },
+      {
+        "name": "Luis Felipe Dias",
+        "proj_points": 54.07,
+        "actual_fpts": 9.99,
+        "fpts_delta": -44.08,
+        "ownership": 35.0,
+        "actual_own": 43.11
+      },
+      {
+        "name": "Muhammad Naimov",
+        "proj_points": 37.24,
+        "actual_fpts": 1.6,
+        "fpts_delta": -35.64,
+        "ownership": 9.0,
+        "actual_own": 5.89
+      },
+      {
+        "name": "Dan Hooker",
+        "proj_points": 40.62,
+        "actual_fpts": 5.6,
+        "fpts_delta": -35.02,
+        "ownership": 8.0,
+        "actual_own": 12.62
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Matthieu Duclos",
+        "salary": 8200,
+        "actual_fpts": 107.75,
+        "actual_own": 18.61,
+        "top_lineup_pct": 35.0
+      },
+      {
+        "name": "Modestas Bukauskas",
+        "salary": 7400,
+        "actual_fpts": 93.05,
+        "actual_own": 10.09,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Pavel Andrusca",
+        "salary": 7000,
+        "actual_fpts": 84.78,
+        "actual_own": 12.3,
+        "top_lineup_pct": 60.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 30.94,
+      "low_own_count_mean": 0.35,
+      "salary_used_mean": 49870.0,
+      "dup_max": 6,
+      "unique_pct": 50.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "zak11b",
+          "points": 678.33997,
+          "percentile": 0.1,
+          "players": [
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Salahdine Parnasse",
+            "Axel Sola",
+            "Modestas Bukauskas",
+            "Pavel Andrusca"
+          ],
+          "avg_own": 32.48,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 388.3,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "Cottage85",
+          "points": 663.7001,
+          "percentile": 0.2,
+          "players": [
+            "Kurtis Campbell",
+            "Felipe Lima",
+            "Axel Sola",
+            "Modestas Bukauskas",
+            "Nora Cornolle",
+            "Delphine Benouaich"
+          ],
+          "avg_own": 19,
+          "low_own_count": 2,
+          "salary_used": 50000,
+          "proj_total": 357.74,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "BigEd402",
+          "points": 662.0801,
+          "percentile": 0.3,
+          "players": [
+            "Salahdine Parnasse",
+            "Matthieu Duclos",
+            "Axel Sola",
+            "Losene Keita",
+            "Delphine Benouaich",
+            "Pavel Andrusca"
+          ],
+          "avg_own": 25.76,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 383.97,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "ballinrees82",
+          "points": 661.45996,
+          "percentile": 0.4,
+          "players": [
+            "Nursulton Ruziboev",
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Matthieu Duclos",
+            "Modestas Bukauskas",
+            "Delphine Benouaich"
+          ],
+          "avg_own": 24.61,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 358.48,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "rocky23",
+          "points": 636.43005,
+          "percentile": 0.5,
+          "players": [
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Axel Sola",
+            "Fabia Sintes",
+            "Daniil Donchenko",
+            "Pavel Andrusca"
+          ],
+          "avg_own": 32.21,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 385.57,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "solomex49",
+          "points": 629.81995,
+          "percentile": 0.6,
+          "players": [
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Matthieu Duclos",
+            "Axel Sola",
+            "Oumar Sy",
+            "Pavel Andrusca"
+          ],
+          "avg_own": 30.2,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 377.7,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "bcollum94",
+          "points": 623.44006,
+          "percentile": 0.7,
+          "players": [
+            "Nursulton Ruziboev",
+            "Kurtis Campbell",
+            "Salahdine Parnasse",
+            "Axel Sola",
+            "Modestas Bukauskas",
+            "Delphine Benouaich"
+          ],
+          "avg_own": 28.34,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 374.04,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "jaysu5",
+          "points": 623.25,
+          "percentile": 0.8,
+          "players": [
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Salahdine Parnasse",
+            "Axel Sola",
+            "Punahele Soriano",
+            "Pavel Andrusca"
+          ],
+          "avg_own": 35.26,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 392.8,
+          "dup_count": 6
+        },
+        {
+          "rank": 8,
+          "entry_name": "moosh20",
+          "points": 623.25,
+          "percentile": 0.8,
+          "players": [
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Salahdine Parnasse",
+            "Axel Sola",
+            "Punahele Soriano",
+            "Pavel Andrusca"
+          ],
+          "avg_own": 35.26,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 392.8,
+          "dup_count": 6
+        },
+        {
+          "rank": 8,
+          "entry_name": "JDub210",
+          "points": 623.25,
+          "percentile": 0.8,
+          "players": [
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Salahdine Parnasse",
+            "Axel Sola",
+            "Punahele Soriano",
+            "Pavel Andrusca"
+          ],
+          "avg_own": 35.26,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 392.8,
+          "dup_count": 6
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 2.67,
+        "low_own_count_delta": 0.35,
+        "salary_used_delta": -130.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 944,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Mario Pinto",
+          "field_own": 48.7,
+          "actual_fpts": 138.8
+        },
+        {
+          "name": "Salahdine Parnasse",
+          "field_own": 47.1,
+          "actual_fpts": 104.9
+        },
+        {
+          "name": "Luis Felipe Dias",
+          "field_own": 43.1,
+          "actual_fpts": 10.0
+        },
+        {
+          "name": "Axel Sola",
+          "field_own": 42.6,
+          "actual_fpts": 103.7
+        },
+        {
+          "name": "Daniil Donchenko",
+          "field_own": 39.3,
+          "actual_fpts": 81.8
+        },
+        {
+          "name": "Kurtis Campbell",
+          "field_own": 34.1,
+          "actual_fpts": 153.2
+        },
+        {
+          "name": "Nursulton Ruziboev",
+          "field_own": 26.8,
+          "actual_fpts": 25.6
+        },
+        {
+          "name": "Punahele Soriano",
+          "field_own": 26.8,
+          "actual_fpts": 38.0
+        },
+        {
+          "name": "Klaudia Sygula",
+          "field_own": 26.0,
+          "actual_fpts": 36.0
+        },
+        {
+          "name": "Oumar Sy",
+          "field_own": 24.9,
+          "actual_fpts": 41.6
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Axel Sola",
+            "Salahdine Parnasse"
+          ],
+          "field_pct": 22.5,
+          "count": 212
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Mario Pinto"
+          ],
+          "field_pct": 22.4,
+          "count": 211
+        },
+        {
+          "players": [
+            "Luis Felipe Dias",
+            "Mario Pinto"
+          ],
+          "field_pct": 22.0,
+          "count": 207
+        },
+        {
+          "players": [
+            "Luis Felipe Dias",
+            "Salahdine Parnasse"
+          ],
+          "field_pct": 18.6,
+          "count": 175
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Daniil Donchenko"
+          ],
+          "field_pct": 18.0,
+          "count": 170
+        },
+        {
+          "players": [
+            "Mario Pinto",
+            "Salahdine Parnasse"
+          ],
+          "field_pct": 17.7,
+          "count": 167
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Luis Felipe Dias"
+          ],
+          "field_pct": 17.6,
+          "count": 166
+        },
+        {
+          "players": [
+            "Daniil Donchenko",
+            "Luis Felipe Dias"
+          ],
+          "field_pct": 17.6,
+          "count": 166
+        },
+        {
+          "players": [
+            "Daniil Donchenko",
+            "Mario Pinto"
+          ],
+          "field_pct": 17.5,
+          "count": 165
+        },
+        {
+          "players": [
+            "Punahele Soriano",
+            "Salahdine Parnasse"
+          ],
+          "field_pct": 16.2,
+          "count": 153
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Axel Sola",
+            "Daniil Donchenko",
+            "Luis Felipe Dias",
+            "Mario Pinto",
+            "Nursulton Ruziboev",
+            "Oumar Sy"
+          ],
+          "count": 10,
+          "field_pct": 1.1
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Daniil Donchenko",
+            "Klaudia Sygula",
+            "Luis Felipe Dias",
+            "Mario Pinto",
+            "Michael Aljarouj"
+          ],
+          "count": 9,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Morgan Charriere",
+            "Punahele Soriano",
+            "Salahdine Parnasse"
+          ],
+          "count": 8,
+          "field_pct": 0.8
+        },
+        {
+          "players": [
+            "Dan Hooker",
+            "Daniil Donchenko",
+            "Klaudia Sygula",
+            "Kurtis Campbell",
+            "Luis Felipe Dias",
+            "Mario Pinto"
+          ],
+          "count": 8,
+          "field_pct": 0.8
+        },
+        {
+          "players": [
+            "Axel Sola",
+            "Kurtis Campbell",
+            "Mario Pinto",
+            "Pavel Andrusca",
+            "Punahele Soriano",
+            "Salahdine Parnasse"
+          ],
+          "count": 6,
+          "field_pct": 0.6
+        }
+      ],
+      "winners_profile": {
+        "n": 9,
+        "avg_own_per_slot": 29.2,
+        "dart_pct": 0.0,
+        "unique_pct": 88.9
+      },
+      "fish_profile": {
+        "n": 472,
+        "avg_own_per_slot": 28.4,
+        "dart_pct": 0.0,
+        "unique_pct": 80.7
+      },
+      "fish_traps": [
+        {
+          "name": "Luis Felipe Dias",
+          "fish_pct": 65.0,
+          "winner_pct": 0.0,
+          "gap": 65.0,
+          "actual_fpts": 10.0,
+          "field_own": 43.1,
+          "own_rank": 3
+        },
+        {
+          "name": "Michael Aljarouj",
+          "fish_pct": 32.6,
+          "winner_pct": 0.0,
+          "gap": 32.6,
+          "actual_fpts": 28.9,
+          "field_own": 23.8,
+          "own_rank": 12
+        },
+        {
+          "name": "Daniil Donchenko",
+          "fish_pct": 43.4,
+          "winner_pct": 11.1,
+          "gap": 32.3,
+          "actual_fpts": 81.8,
+          "field_own": 39.3,
+          "own_rank": 5
+        },
+        {
+          "name": "Klaudia Sygula",
+          "fish_pct": 29.4,
+          "winner_pct": 0.0,
+          "gap": 29.4,
+          "actual_fpts": 36.0,
+          "field_own": 26.0,
+          "own_rank": 9
+        },
+        {
+          "name": "Oumar Sy",
+          "fish_pct": 36.4,
+          "winner_pct": 11.1,
+          "gap": 25.3,
+          "actual_fpts": 41.6,
+          "field_own": 24.9,
+          "own_rank": 10
+        },
+        {
+          "name": "Fares Ziam",
+          "fish_pct": 22.0,
+          "winner_pct": 0.0,
+          "gap": 22.0,
+          "actual_fpts": 2.8,
+          "field_own": 12.1,
+          "own_rank": 19
+        },
+        {
+          "name": "Nathaniel Wood",
+          "fish_pct": 20.8,
+          "winner_pct": 0.0,
+          "gap": 20.8,
+          "actual_fpts": 27.3,
+          "field_own": 12.1,
+          "own_rank": 19
+        },
+        {
+          "name": "Morgan Charriere",
+          "fish_pct": 18.9,
+          "winner_pct": 0.0,
+          "gap": 18.9,
+          "actual_fpts": 15.7,
+          "field_own": 19.0,
+          "own_rank": 13
+        },
+        {
+          "name": "Sofia Montenegro",
+          "fish_pct": 17.4,
+          "winner_pct": 0.0,
+          "gap": 17.4,
+          "actual_fpts": 28.8,
+          "field_own": 16.3,
+          "own_rank": 15
+        },
+        {
+          "name": "Ryan Spann",
+          "fish_pct": 15.7,
+          "winner_pct": 0.0,
+          "gap": 15.7,
+          "actual_fpts": 6.4,
+          "field_own": 10.8,
+          "own_rank": 22
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "zak11b",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "Cottage85",
+          "best_rank": 2,
+          "percentile": 0.2
+        },
+        {
+          "handle": "BigEd402",
+          "best_rank": 3,
+          "percentile": 0.3
+        },
+        {
+          "handle": "ballinrees82",
+          "best_rank": 4,
+          "percentile": 0.4
+        },
+        {
+          "handle": "rocky23",
+          "best_rank": 5,
+          "percentile": 0.5
+        },
+        {
+          "handle": "solomex49",
+          "best_rank": 6,
+          "percentile": 0.6
+        },
+        {
+          "handle": "bcollum94",
+          "best_rank": 7,
+          "percentile": 0.7
+        },
+        {
+          "handle": "jaysu5",
+          "best_rank": 8,
+          "percentile": 0.8
+        },
+        {
+          "handle": "BumperMan119",
+          "best_rank": 8,
+          "percentile": 0.8
+        },
+        {
+          "handle": "JDub210",
+          "best_rank": 8,
+          "percentile": 0.8
+        },
+        {
+          "handle": "moosh20",
+          "best_rank": 8,
+          "percentile": 0.8
+        },
+        {
+          "handle": "rodlars633",
+          "best_rank": 8,
+          "percentile": 0.8
+        },
+        {
+          "handle": "ShowboatKing",
+          "best_rank": 8,
+          "percentile": 0.8
+        },
+        {
+          "handle": "AhriPog",
+          "best_rank": 14,
+          "percentile": 1.5
+        },
+        {
+          "handle": "bigshirlyandthem",
+          "best_rank": 15,
+          "percentile": 1.6
+        }
+      ],
+      "read": [
+        "Field crowded **Mario Pinto** at 48.7% (138.8 fpts) \u2014 the chalk to consider fading.",
+        "**Axel Sola + Salahdine Parnasse** were together in 22.5% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Luis Felipe Dias** was a fish trap: 65.0% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 678.33997,
+      "winner_handle": "zak11b",
+      "roster": [
+        {
+          "name": "Kurtis Campbell",
+          "own": 34.07,
+          "fpts": 153.2
+        },
+        {
+          "name": "Mario Pinto",
+          "own": 48.69,
+          "fpts": 138.79
+        },
+        {
+          "name": "Salahdine Parnasse",
+          "own": 47.11,
+          "fpts": 104.86
+        },
+        {
+          "name": "Axel Sola",
+          "own": 42.59,
+          "fpts": 103.66
+        },
+        {
+          "name": "Modestas Bukauskas",
+          "own": 10.09,
+          "fpts": 93.05
+        },
+        {
+          "name": "Pavel Andrusca",
+          "own": 12.3,
+          "fpts": 84.78
+        }
+      ],
+      "avg_own": 32.5,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Modestas Bukauskas",
+        "own": 10.09,
+        "fpts": 93.05
+      },
+      "expected_dupes": 0.39
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "blocked_swap": {
+        "out": "Dan Hooker",
+        "in": "Salahdine Parnasse",
+        "gain": 99.3,
+        "over_cap_by": 2800
+      },
+      "gradable": true,
+      "won": false,
+      "your_points": 515.97,
+      "winner_points": 678.33997,
+      "gap": 162.4,
+      "your_percentile": 16.3,
+      "n_shared": 2,
+      "shared": [
+        "Kurtis Campbell",
+        "Mario Pinto"
+      ],
+      "your_uniques": [
+        {
+          "name": "Matthieu Duclos",
+          "fpts": 107.75,
+          "salary": 8200
+        },
+        {
+          "name": "Daniil Donchenko",
+          "fpts": 81.83,
+          "salary": 9000
+        },
+        {
+          "name": "Sofia Montenegro",
+          "fpts": 28.8,
+          "salary": 7700
+        },
+        {
+          "name": "Dan Hooker",
+          "fpts": 5.6,
+          "salary": 6700
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Salahdine Parnasse",
+          "fpts": 104.86,
+          "salary": 9500
+        },
+        {
+          "name": "Axel Sola",
+          "fpts": 103.66,
+          "salary": 7600
+        },
+        {
+          "name": "Modestas Bukauskas",
+          "fpts": 93.05,
+          "salary": 7400
+        },
+        {
+          "name": "Pavel Andrusca",
+          "fpts": 84.78,
+          "salary": 7000
+        }
+      ],
+      "best_swap": {
+        "out": "Sofia Montenegro",
+        "in": "Axel Sola",
+        "gain": 74.9,
+        "would_have_won": false
+      },
+      "swaps_needed": 3
+    }
+  }
+]

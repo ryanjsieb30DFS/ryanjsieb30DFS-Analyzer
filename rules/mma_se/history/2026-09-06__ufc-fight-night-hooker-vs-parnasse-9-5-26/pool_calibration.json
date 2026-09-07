@@ -1,0 +1,51 @@
+{
+  "gradable": true,
+  "n_pool": 28,
+  "n_matched": 28,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 2,
+      "avg_fpts": 90.2,
+      "max_fpts": 153.2
+    },
+    {
+      "tier": "Good",
+      "n": 6,
+      "avg_fpts": 92.8,
+      "max_fpts": 138.8
+    },
+    {
+      "tier": "Okay",
+      "n": 12,
+      "avg_fpts": 41.9,
+      "max_fpts": 118.0
+    },
+    {
+      "tier": "Fade",
+      "n": 8,
+      "avg_fpts": 56.5,
+      "max_fpts": 143.0
+    }
+  ],
+  "tiers_ordered": false,
+  "leakage": [
+    {
+      "name": "Delphine Benouaich",
+      "tier": "Fade",
+      "fpts": 143.0
+    },
+    {
+      "name": "Axel Sola",
+      "tier": "Fade",
+      "fpts": 103.7
+    },
+    {
+      "name": "Modestas Bukauskas",
+      "tier": "Fade",
+      "fpts": 93.0
+    }
+  ],
+  "excluded_scratches": [],
+  "summary": "Core 90.2 > Good 92.8 > Okay 41.9 > Fade 56.5  \u2717 OUT OF ORDER"
+}

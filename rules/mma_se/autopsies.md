@@ -539,3 +539,41 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 | **Okay** | 12 | 55.8 | 129.7 |
 | **Fade** | 5 | 19.4 | 69.7 |
 - ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+
+
+## 2026-09-06 22:35 — MMA (contest-standings-194798531.csv)
+- Entries: 588
+- Winning score: 684.4
+- Cash line (top 20%): 502.2
+- My entries: 1 · best rank 487/588 (top 82.8%)
+- Winners (top 20): avg own 31.35% vs mine 27.01% · sub-10% plays/lineup 0.3 vs mine 1.0 · salary Δ -100
+- Overperformed proj: Delphine Benouaich, Kurtis Campbell, Mario Pinto
+- Underperformed proj: Fares Ziam, Nathaniel Wood, Luis Felipe Dias
+- Slate-defining plays: Delphine Benouaich (143.0 pts @ 10.7%), Pavel Andrusca (84.8 pts @ 12.4%)
+
+
+## 2026-09-06 22:35 — MMA (contest-standings-194798532.csv)
+- Entries: 951
+- Winning score: 678.3
+- Cash line (top 20%): 502.9
+- My entries: 1 · best rank 155/951 (top 16.3%)
+- Winners (top 20): avg own 30.94% vs mine 28.27% · sub-10% plays/lineup 0.35 vs mine 0.0 · salary Δ -130
+- Overperformed proj: Delphine Benouaich, Kurtis Campbell, Mario Pinto
+- Underperformed proj: Fares Ziam, Nathaniel Wood, Luis Felipe Dias
+- Slate-defining plays: Matthieu Duclos (107.8 pts @ 18.6%), Modestas Bukauskas (93.0 pts @ 10.1%), Pavel Andrusca (84.8 pts @ 12.3%)
+
+### Strategy adherence — did you follow your own strategy? (2 unique lineups)
+- ✅ Every hard FADE honored.
+- Leverage candidates rostered somewhere: **1 of 3**.
+
+### Player-pool tier calibration (28 of 28 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 2 | 90.2 | 153.2 |
+| **Good** | 6 | 92.8 | 138.8 |
+| **Okay** | 12 | 41.9 | 118.0 |
+| **Fade** | 8 | 56.5 | 143.0 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+- 🕳️ Buried: **Delphine Benouaich** (Fade) scored 143.0 — above the top tier's average.
+- 🕳️ Buried: **Axel Sola** (Fade) scored 103.7 — above the top tier's average.
+- 🕳️ Buried: **Modestas Bukauskas** (Fade) scored 93.0 — above the top tier's average.

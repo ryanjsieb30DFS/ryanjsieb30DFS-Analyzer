@@ -1,0 +1,35 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "lineups": [
+    {
+      "players": [
+        "Fabia Sintes",
+        "Luis Felipe Dias",
+        "Nathaniel Wood",
+        "Nora Cornolle",
+        "Punahele Soriano",
+        "Salahdine Parnasse"
+      ],
+      "percentile": 82.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Dan Hooker",
+        "Daniil Donchenko",
+        "Kurtis Campbell",
+        "Mario Pinto",
+        "Matthieu Duclos",
+        "Sofia Montenegro"
+      ],
+      "percentile": 16.3,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    82.8,
+    16.3
+  ]
+}
