@@ -77,6 +77,22 @@ def scored_pool(sim_root: Path, slug: str, contest_id: str) -> list | None:
     return out or None
 
 
+def scored_pool_raw(sim_root: Path, slug: str, contest_id: str) -> list | None:
+    """The Sim's scored-pool rows for one contest, UNREDUCED — players string,
+    actual_score, and the pre-lock sim metrics (pre_sim_roi_pct / top1 / cash,
+    already contest-matched by the Sim's per-contest join). Used by the blend
+    sweep, which needs the metrics, not just (roster, actual)."""
+    hits = glob.glob(str(sim_root / "rules" / slug / "scored_pools"
+                         / f"*_{contest_id}_*.json.gz"))
+    if not hits:
+        return None
+    try:
+        raw = json.loads(gzip.open(hits[0]).read())
+    except (OSError, json.JSONDecodeError):
+        return None
+    return raw if isinstance(raw, list) and raw else None
+
+
 def slice_rosters(hist_dir: Path, slug: str) -> dict:
     """{slice file stem: [roster_key, ...]} for every archived slice digest."""
     out = {}

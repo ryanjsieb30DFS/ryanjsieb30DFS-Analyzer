@@ -84,3 +84,30 @@ def test_check_history_dir_persists_and_renders(tmp_path):
     missing = check_history_dir(hist, "mma_se", sim_root=tmp_path / "nowhere")
     assert missing["contests"] == [] and "not found" in (missing["note"] or "")
     assert "not measurable" in check_md(missing).lower()
+
+
+def test_scored_pool_raw_returns_unreduced_rows(tmp_path):
+    """scored_pool_raw (blend-sweep reader) returns the sidecar rows verbatim —
+    including rows whose actual_score is None and the pre_sim metric columns —
+    while scored_pool keeps its reduced (roster, actual) contract."""
+    import gzip as _gzip
+    import json as _json
+    from src.picker_check import scored_pool, scored_pool_raw
+    pools = tmp_path / "sim" / "rules" / "mma_se" / "scored_pools"
+    pools.mkdir(parents=True)
+    rows = [
+        {"players": "A, B, C, D, E, F", "actual_score": 500.0,
+         "pre_sim_roi_pct": 12.0, "pre_sim_top1_pct": 2.0,
+         "pre_sim_cash_pct": 30.0},
+        {"players": "G, H, I, J, K, L", "actual_score": None,
+         "pre_sim_roi_pct": 3.0, "pre_sim_top1_pct": 0.5,
+         "pre_sim_cash_pct": 10.0},
+    ]
+    with _gzip.open(pools / "MMA_contest_standings_42_2026_09_06__aa.json.gz",
+                    "wt") as f:
+        f.write(_json.dumps(rows))
+    raw = scored_pool_raw(tmp_path / "sim", "mma_se", "42")
+    assert len(raw) == 2 and raw[0]["pre_sim_roi_pct"] == 12.0
+    reduced = scored_pool(tmp_path / "sim", "mma_se", "42")
+    assert len(reduced) == 1                      # None-actual row dropped
+    assert scored_pool_raw(tmp_path / "sim", "mma_se", "999") is None

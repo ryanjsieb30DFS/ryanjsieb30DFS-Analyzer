@@ -1027,6 +1027,13 @@ def blend_scores(pool: dict, contest: dict) -> list:
     and it argues for the wrong answer: pure projection scores BEST on
     correlation (+0.160) and WORST on winner capture (27%). Optimise the tail.
 
+    **Re-tunes run through `scripts/blend_sweep.py`** (committed 9/7/26): it
+    replays every archived contest that has a winning score + Sim scored pool
+    + slate capture, and gates on slice winner-capture. First run (9/7/26,
+    7 contests): no ROI-inclusive variant passed the pre-registered gate
+    (best sat on the ROI grid edge; the replace-cash variant regressed pick
+    percentile), so ROI stays OUT of this blend. Re-run as slates accrue.
+
     One blend for every field size (the old small-field branch existed to add
     tail weight where the payout is top-heavy; the tail now leads everywhere,
     so the branch had nothing left to do). Returns one score per pool index.
