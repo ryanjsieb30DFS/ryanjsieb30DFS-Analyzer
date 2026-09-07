@@ -16,7 +16,20 @@ lessons:
       Kopylov-to-Miller leverage swap was never applied — an execution failure,
       not a strategy failure, and one a 30-second verification step removes entirely.
     status: codified
-    confirmations: []
+    confirmations:
+      - date: "2026-09-06"
+        slate: "UFC Fight Night: Hooker vs. Parnasse 9.5.26 — 588 + 951 SEs"
+        origin_dir: "rules/mma_se/history/2026-09-06__ufc-fight-night-hooker-vs-parnasse-9-5-26"
+        note: >
+          Confirmed by violation — the read-back step did not run and the two saved
+          picks were entered into each other's contests. Pick 4847 (Parnasse/Wood
+          build), whose written rationale was built on the 951 Clinch's top-heavy
+          payout and its 163 Parnasse+Donchenko pairs, was entered in the 588 Flying
+          Knee (339.22, 82.8%ile); pick 3819 (Hooker build), argued for the 588 field,
+          went into the 951 Clinch (515.97, 16.3%ile). The realized cost was roughly
+          neutral this time, but each pick's contest-specific argument (payout shape,
+          field size, duplication counts) was voided at entry, and only a
+          lineup-vs-recommendation read-back — this rule — catches a cross like that.
     contradictions: []
     codified_in: "framework.md — Pre-Submission Checklist for SE (item 10: Submission verified)"
     retired_reason: null
@@ -196,6 +209,19 @@ lessons:
           top-20 carried zero sub-10 pieces (low_own_count_mean 0.0, avg own 39.5%).
           Meanwhile the same darts were correctly harmless in the big field, where the
           strategy had budgeted them.
+      - date: "2026-09-06"
+        slate: "UFC Fight Night: Hooker vs. Parnasse 9.5.26 — 588 + 951 SEs"
+        origin_dir: "rules/mma_se/history/2026-09-06__ufc-fight-night-hooker-vs-parnasse-9-5-26"
+        note: >
+          Small-field mechanism held again, this time via the pick engine's own choice.
+          The Clinch entry's swing was Dan Hooker ($6,700, 8% projected / 12.6% actual),
+          a pure KO-or-bust upset bet against the -600 main-event favorite, argued as
+          "the slate's biggest ceiling (106.7)." He scored 5.6 — the dead slot that
+          capped an otherwise-live five-winner build at 16.3%ile. Every other named
+          binary dart also lost: Peek (9%), Naimov (9%, 1.6 points), Spann (6.4). The
+          low-owned pieces that actually decided the slate were CONVERTERS who won —
+          Benouaich 143.03 at 10.7% own, Bukauskas 93.05 at 10.1%, Andrusca 84.78 at
+          12.3% — blended-EV fighters, not binary bets, exactly as the rule prices it.
     contradictions: []
     codified_in: "framework.md — Step 3 — Field-Size Calibration (binary leverage by field size)"
     retired_reason: null
@@ -1056,6 +1082,23 @@ lessons:
           over named dog, sixth time — and the strategy said so in writing ("the
           realistic differentiation tier on a card like this moves up into the 15-25%
           converters").
+      - date: "2026-09-06"
+        slate: "UFC Fight Night: Hooker vs. Parnasse 9.5.26 — 588 + 951 SEs"
+        origin_dir: "rules/mma_se/history/2026-09-06__ufc-fight-night-hooker-vs-parnasse-9-5-26"
+        note: >
+          Seventh confirming slate — and the first where the FADE LIST ate the
+          converters the screen exists to find. The definers were low-owned converters
+          again: Delphine Benouaich ($8,500, 143.03 at 9.4-10.7% actual own) carried the
+          588-field winner and sat in 30% of its top-20; Modestas Bukauskas ($7,400,
+          93.05 at 10.1%) carried the 951-field winner; Pavel Andrusca ($7,000, 84.78
+          at 12.3%) was in 60-65% of both contests' top-20s. The named binary DOGS all
+          died again (Hooker 5.6, Naimov 1.6, Peek lost). The new failure shape:
+          Benouaich was LEAN-FADED on a price-tag line ("even 100 strikes won't be
+          enough at this price tag") and Bukauskas was tiered `Fade` on the board even
+          though the strategy's own `## Leverage` section named his left-hand KO path —
+          so the screen FOUND the converters and the verdict layer took them back off
+          the table. Mechanism holds; the verdict-layer leak is carried by
+          [[mma-se-2026-09-06-price-tag-lean-fades-in-the-leverage-band-delete-the-winners-carrier]].
     contradictions: []
     codified_in: "framework.md — The Leverage Screen: Converters, Not Named Dogs (7/19/26 — 3-slate validated)"
     retired_reason: null
@@ -1351,6 +1394,21 @@ lessons:
           the slate's five biggest under-performers were rostered) against 0.0 the week
           before, on identical structure. Seventh slate where the whole edge is win-side
           selection in the mid-tier and nothing structural.
+      - date: "2026-09-06"
+        slate: "UFC Fight Night: Hooker vs. Parnasse 9.5.26 — 588 + 951 SEs"
+        origin_dir: "rules/mma_se/history/2026-09-06__ufc-fight-night-hooker-vs-parnasse-9-5-26"
+        note: >
+          Eighth confirming slate, with one boundary. Both winners were chalk-anchored
+          mid-own builds whose differentiation was a ~10%-owned CONVERTER: mbland15
+          (684.39, 588 field) at 31.72% avg own with carrier Benouaich (10.71% own,
+          143.03), and zak11b (678.34, 951 field) at 32.48% with carrier Bukauskas
+          (10.09%, 93.05). Winners again ran CHALKIER than the user (vs_user
+          avg_own_delta +4.34 and +2.67). The user's Clinch entry sat inside the shape
+          (28.27% avg own) and died on WHICH fighters — Hooker 5.6, Montenegro 28.8 —
+          for the eighth time. BOUNDARY: the 588 winner carried one LOSING slot
+          (Soriano, 37.96 in a loss) and still won by 22 points, so "six winners" reads
+          as "no ZERO slots" — five converters plus the slate's top carrier absorbed one
+          modest loser.
     contradictions: []
     codified_in: "framework.md — The Winning MMA SE Shape (8/2/26 — 3-slate validated)"
     retired_reason: null
@@ -1914,8 +1972,21 @@ lessons:
       [[mma-se-2026-05-16-no-identical-conviction-cores]]; links
       [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]],
       [[mma-se-2026-06-14-showdown-cap-single-favorite-exposure]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-06"
+        slate: "UFC Fight Night: Hooker vs. Parnasse 9.5.26 — 588 + 951 SEs"
+        origin_dir: "rules/mma_se/history/2026-09-06__ufc-fight-night-hooker-vs-parnasse-9-5-26"
+        note: >
+          FIRST confirmation, from the favorable direction — promoted to validated. The
+          rule was applied at pick time by design: the two entries shared ZERO fighters
+          and sat on OPPOSITE sides of three fights (Parnasse/Hooker, Donchenko/Soriano,
+          Duclos/Dias), the pick rationale citing this lesson by name. The outcomes
+          decorrelated exactly as the mechanism predicts: one entry died at 82.8%ile
+          while the other ran top-16.3% — no shared coin-flip slot existed that could
+          resolve to zero in both at once. Mechanism evidence in the inverse: zero
+          shared binary slots produced two genuinely independent bets, where 8/2's two
+          shared coin-flips produced one bet made twice.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -2312,6 +2383,20 @@ lessons:
           the opposite of a price dislocation. Note the honest half: Liu Ce, the other
           Core name, scored 133.92 and was the slate's top fighter, so Core was not
           uniformly wrong — it was uninformative, averaging below the tier beneath it.
+      - date: "2026-09-06"
+        slate: "UFC Fight Night: Hooker vs. Parnasse 9.5.26 — 588 + 951 SEs"
+        origin_dir: "rules/mma_se/history/2026-09-06__ufc-fight-night-hooker-vs-parnasse-9-5-26"
+        note: >
+          BOUNDARY NOTE, deliberately NOT counted — the rule-to-test was applied and
+          Core did NOT mirror the chalk this slate, so the count stays at 2 of 3. Core
+          was Campbell (29% projected own) plus Wood (16% projected — an explicit
+          anti-chalk pick), while the field's top-owned name, Parnasse (45% projected /
+          51.7% actual), sat in Good. The Core-vs-Good seam STILL read out of order
+          (Core 90.2 vs Good 92.8, seventh straight OUT OF ORDER) but for a different
+          reason: Wood's stated non-crowd edge (72% win chance at 16% own) was real and
+          he simply lost, scoring 27.27 — a win-side miss, not an ownership mirror. A
+          third confirmation must show Core again assigned to the board's top-3
+          projected-ownership names WITHOUT a stated edge the crowd is not paying for.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -2588,7 +2673,25 @@ lessons:
       [[mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma]].
     status: hypothesis
     confirmations: []
-    contradictions: []
+    contradictions:
+      - date: "2026-09-06"
+        slate: "UFC Fight Night: Hooker vs. Parnasse 9.5.26 — 588 + 951 SEs"
+        origin_dir: "rules/mma_se/history/2026-09-06__ufc-fight-night-hooker-vs-parnasse-9-5-26"
+        note: >
+          FIRST mechanism contradiction (1 of the 2 needed for a retirement proposal).
+          The screen named six fighters — Ziam, Ruziboev, Sola, Sy, Montenegro, Sygula
+          — and went FIVE-for-six as genuine misses: Ziam 2.8 (a fish trap, in 22% of
+          the bottom half and 0% of winners), Ruziboev 25.6, Sy 41.6, Montenegro 28.8,
+          Sygula 36.0. The exact opposite of 8/29's two-for-six-with-three-winners, so
+          the claim "the screen does not identify traps" met a slate where it
+          identified them well. HONEST BOUNDARY the other way: the one miss, Axel Sola
+          (103.66), sat in BOTH contest winners, and his LEAN FADE cited "owned 7 ranks
+          ahead of projection" — following that call kept both winners' third-highest
+          scorer out of both entries. Net read after two slates: the screen is
+          slate-dependent noise (5/6 one week, 2/6 the prior), which supports the
+          lesson's residual rule — the listing alone can justify a verdict in NEITHER
+          direction — while contradicting its stronger "systematically flags the
+          winning population" mechanism.
     codified_in: null
     retired_reason: null
 
@@ -2617,6 +2720,116 @@ lessons:
       than as evidence about that lineup. Links
       [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-08-09-the-single-bullet-gets-the-least-disciplined-build]].
+    status: validated
+    confirmations:
+      - date: "2026-09-06"
+        slate: "UFC Fight Night: Hooker vs. Parnasse 9.5.26 — 588 + 951 SEs"
+        origin_dir: "rules/mma_se/history/2026-09-06__ufc-fight-night-hooker-vs-parnasse-9-5-26"
+        note: >
+          FIRST confirmation of both surviving claims — promoted to validated. (1)
+          DISPERSION: another wide 14-fight card (pool average 400.7, maximum 731.2)
+          and the ordering signal came back positive in both contests for the third
+          consecutive wide card: Cash% 0.251/0.255, ROI 0.181/0.209, Top1% 0.135/0.224,
+          Win% 0.082/0.068 — against the two tight title-card zeros the retired lesson
+          was born from. (2) SINGLE-ROW WEAKNESS, confirmed hard: the two picks carried
+          near-identical sim credentials (Top1% 3.20 and 3.2, both "tied with the
+          table best" inside the noise band) and finished 60 pool-percentiles apart —
+          one scored 339.22, beaten by 72.7% of the pool (picking edge -61.48 points),
+          the other 515.97, beating 87.2% of it (+115.27). The metric orders the POOL;
+          it says almost nothing about any one row.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-09-06 — UFC Fight Night: Hooker vs. Parnasse (Paris) ----
+
+  - id: mma-se-2026-09-06-price-tag-lean-fades-in-the-leverage-band-delete-the-winners-carrier
+    born: "2026-09-06"
+    origin: "rules/mma_se/history/2026-09-06__ufc-fight-night-hooker-vs-parnasse-9-5-26"
+    statement: >
+      A LEAN FADE priced on "his win won't pay at this salary" applied to a
+      10-15%-projected-owned live finisher fades the exact population the codified
+      leverage screen exists to find — and it keeps handing the winners their carrier.
+      Evidence (9/6 Paris): Delphine Benouaich ($8,500, 14% projected / 9.4-10.7%
+      actual own) was LEAN-FADED on Brett's price-tag line ("even 100 strikes won't be
+      enough at this price tag") plus +335 finish odds; she scored 143.03 — the
+      slate's top overperformer, +83.82 over projection — and was the differentiation
+      carrier of the 588-field WINNER. Modestas Bukauskas ($7,400, 15% projected /
+      10.1% actual) had his left-hand-KO path named in the strategy's own `## Leverage`
+      section yet was tiered `Fade` on the board; he scored 93.05 and carried the
+      951-field WINNER. The board's Fade tier out-averaged its Okay tier (56.5 vs
+      41.9) with all three leakage names (Benouaich 143.0, Sola 103.7, Bukauskas 93.0)
+      above the entire Okay tier — and perfect fade discipline (0 of 6 calls violated,
+      adherence.json) meant ZERO exposure to both winning carriers. The discipline
+      worked; the calls were the leak. Mechanism: in the ~10-15% ownership band the
+      crowd's absence has already paid for a modest win-case, so "his win scores
+      modestly for the price" is expected-points logic — the same cash-game arithmetic
+      [[mma-se-2026-08-23-salary-buys-floor-not-ceiling]] says a GPP must ignore. A
+      fade there needs a DEAD path (he can't win, or his win truly can't score), not a
+      price complaint. Rule to test: before any FADE/LEAN FADE lands on a fighter
+      under ~15% projected own with live finish odds, the verdict must name the dead
+      path in one sentence — otherwise the fighter belongs in `## Leverage` — and the
+      board may never tier a `## Leverage`-listed fighter `Fade` (Bukauskas was both
+      at once, so the two sections contradicted each other silently). Links
+      [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]],
+      [[mma-se-2026-06-20-fade-on-structure-not-narrative]],
+      [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]],
+      [[mma-se-2026-08-29-owned-ahead-of-projection-is-not-a-trap-signal]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-09-06 — UFC Paris (Hooker vs. Parnasse 9.5.26) ----
+
+  - id: mma-se-2026-09-06-leverage-is-a-projected-winner
+    born: "2026-09-06"
+    origin: >
+      autopsies.md + MEGA 194665456 review — 2026-09-05 UFC Paris. Codified same
+      day on explicit user directive (skipping the 3-confirmation gate).
+    statement: >
+      In SE fields, uniqueness is free — both 9/5 picks carried expected
+      duplicates of 0.0 while built entirely from favorites and coin-flips — so
+      a contrarian slot must be a low-owned PROJECTED WINNER (under-owned
+      favorite or near-coinflip side), never the weak side of a mismatch taken
+      to be different. The 9/5 picks spent three slots betting against
+      favorites (Hooker over Parnasse, Wood over Pinto, Soriano over
+      Donchenko): 0-for-3. The slate's definers were low-owned winners:
+      Benouaich (56% win prob, 9.4% own, 143 pts), Cornolle (48%, 5.8%, 85),
+      Andrusca (28%, 12.3%, 85). Betting against top chalk is a claim the odds
+      are wrong and needs its own evidence; being different is not evidence.
+      Links [[mma-se-2026-06-27-leverage-is-the-low-own-finisher-not-the-named-dog]].
+    status: codified
+    confirmations:
+      - date: "2026-09-06"
+        slate: "UFC Fight Night: Hooker vs. Parnasse 9.5.26 — 588 + 951 SEs + 31,708 MME"
+        origin_dir: "rules/mma_se/history/2026-09-06__ufc-fight-night-hooker-vs-parnasse-9-5-26"
+        note: >
+          Origin slate. Every pool row at or above the MEGA winning score
+          (705.9) carried Benouaich + Sola + Campbell — low-owned or mid-owned
+          WINNERS, zero anti-favorite flips.
+    contradictions: []
+    codified_in: >
+      philosophy.md — "The leverage piece must be a projected winner";
+      framework.md Pre-Submission Checklist item 2; analysis_runner.py pick
+      prompt (guidance bullet, conditional only — never requires leverage).
+    retired_reason: null
+
+  - id: mma-se-2026-09-06-presim-metrics-bury-winners
+    born: "2026-09-06"
+    origin: "picker_check.json + sim_autopsy rank_signal — 2026-09-05 UFC Paris"
+    statement: >
+      WATCH ITEM, not a behavior change (gated per the fitted-param rule). The
+      pre-sim headline metrics ranked the actual contest winners mid-table on
+      9/5: the pool row that would have won all three contests (731.2 actual)
+      sat ON the shown Clinch table at 2.26% Top-1% / 40% ROI while
+      Parnasse-chalk builds showed 3.4-3.5% / ~107%; this slate's rank_signal
+      had cash% as the best actual-score predictor (Spearman 0.25) and win%
+      the worst (0.07). Second slate with this shape (8/29 was the first). Do
+      NOT touch the blend on n=2 — keep reading each slate's sim_autopsy
+      rank_signal at autopsy time and revisit when a stable pattern holds
+      across ~5+ slates.
     status: hypothesis
     confirmations: []
     contradictions: []

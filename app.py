@@ -1481,7 +1481,10 @@ with tab_grade:
                                 _load_box(_sim_ros + _cl_ros)
                         st.caption("Nothing above is entered anywhere — load a set "
                                    "into the box below, edit it freely, and the "
-                                   "grade underneath follows what you put there.")
+                                   "grade underneath follows what you put there. "
+                                   "Before lock: each pick is argued for ONE named "
+                                   "contest — confirm the DK entry screen matches "
+                                   "the contest in this panel's header (9/5 lesson).")
 
                 # ---- Grade box (A-F, calibrated to THIS contest) ----------
                 _gtext = st.text_area("Lineups for this contest (one per line)",

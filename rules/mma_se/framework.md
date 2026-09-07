@@ -103,7 +103,10 @@ Before locking each lineup:
 1. ✓ **2-3 conviction anchors are present and defensible** (written reasoning exists)
 2. ✓ **The leverage screen was RUN** — the card's sub-20%-owned ceiling candidates are named and
    considered. (Carrying one is optional. A lineup with zero low-owned fighters passes this check;
-   never add one to tick this box.)
+   never add one to tick this box.) When one IS carried, it must be a **projected winner** — an
+   under-owned favorite or near-coinflip side, never the weak side of a mismatch taken for
+   uniqueness (9/5 lesson: uniqueness is free in SE fields; three anti-favorite flips went 0-for-3
+   while the slate's definers were low-owned winners).
 3. ✓ **No opponent stacks** across all 6 fighters
 4. ✓ **Salary $48,500-$50,000**
 5. ✓ **If playing multiple SEs, at least one conviction anchor differs**
@@ -114,7 +117,11 @@ Before locking each lineup:
    - 3,000-entrant: ceiling sum > 650
 8. ✓ **Expected cash rank** (ask yourself: "If all 6 hit and have their typical win-scores, what rank would this lineup achieve in the field size I'm playing?")
 9. ✓ **No more than 1 fighter priced under $7,200** (punt-tier discipline from MME framework)
-10. ✓ **Submission verified** — read back the locked DK lineup before final submit (5/9 execution lesson)
+10. ✓ **Submission verified** — read back the locked DK lineup AND the contest name against the
+    pick before final submit. Each pick's argument (payout shape, field size, duplication math) is
+    built for ONE named contest — confirm the DK entry screen shows that exact contest (5/9
+    execution lesson; confirmed by violation 9/5/26 when two picks were entered into each other's
+    contests and one missed a cash it would otherwise have made)
 
 If any check fails, revise before submitting.
 

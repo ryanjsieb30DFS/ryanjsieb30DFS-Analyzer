@@ -732,6 +732,14 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
         + f"- Picking {my} lineup(s) means each pick must earn its own reason. If that is more "
         f"than 1, the picks should win in DIFFERENT ways, not be near-copies.\n"
         f"- A trap is a price, not a player: judge every lineup on THIS slate's numbers.\n"
+        f"- WHEN a lineup you like steps away from the crowd (never a requirement — see the "
+        f"low-owned rule above), prefer the step that KEEPS win probability: an under-owned "
+        f"favorite or the under-owned side of a near-coinflip, not the weak side of a mismatch "
+        f"taken to be different (codified 9/6/26). In small fields the dupes column already shows "
+        f"uniqueness is nearly free with all-favorite builds, so a bet against a heavy favorite "
+        f"is a claim the ODDS are wrong and the Why must give its own evidence for that claim — "
+        f"'nobody will have him' is not evidence. On 9/5 three anti-favorite flips went 0-for-3 "
+        f"while the slate was decided by low-owned projected winners.\n"
         f"- The `strategy` column names the low-owned (leverage) players a lineup carries. "
         f"That is INFORMATION, not a score: those names come from an ownership screen "
         f"(under 10% owned), NOT from a decision the slate strategy made. **A lineup that "
@@ -759,7 +767,12 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
         f"that pass, and never write YES to a question the lineup actually fails. "
         f"EXCEPT a question requiring a low-owned player (see above): answer it "
         f"'N/A — not a rule' and change nothing about the pick.>\n\n"
-        f"Do not add sections. Do not ask questions — read the inputs and produce the file."
+        f"**Enter in:** {sim_label} — this pick's whole argument (payout shape, field size, "
+        f"duplication math) is built for THIS contest only. Before lock, read back the DK entry "
+        f"screen and confirm it shows this exact contest name (9/5 lesson: two picks entered "
+        f"into each other's contests, and one missed a cash it would otherwise have made).\n\n"
+        f"Do not add sections (the `**Enter in:**` line above is part of the required format). "
+        f"Do not ask questions — read the inputs and produce the file."
     )
     res = _run_claude(prompt, out_path)
     res.update(key=key, sim_label=str(sim_label))

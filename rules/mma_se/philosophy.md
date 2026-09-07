@@ -27,6 +27,14 @@ A 150-lineup MME can afford to have 30 lineups that are "all-in on Veretennikov 
 
 The difference from MME: In MME, you can have lineups that are 60% conviction, 40% contrarian (or vice versa). In SE, the ratio is roughly 70% conviction, 30% contrarian. You're making one shot and you need it to work — conviction plays are the load-bearing walls.
 
+### The leverage piece must be a projected winner (codified 9/6/26)
+
+When a SE lineup does step away from the crowd, the step itself must still be a bet the odds like: a **low-owned fighter the vendor projects to WIN** — an under-owned favorite or the under-owned side of a near-coinflip — never the weak side of a mismatch taken to be different.
+
+Why: in SE field sizes, uniqueness is already free. On the 9/5/26 Paris card, both picks reported expected duplicates of 0.0 while built entirely from favorites and coin-flips — six slots of mostly-favorites makes you unique in a 588 or 951-entry field without giving up any win probability. Yet three slots were spent betting against favorites (Hooker over Parnasse at 18% to win, Wood over Pinto, Soriano over Donchenko): 0-for-3, and the uniqueness those flips bought was already there. Meanwhile the fighters who decided the contests were low-owned WINNERS: Benouaich (56% to win, 9.4% owned, 143 pts), Cornolle (48%, 5.8% owned, 85), Andrusca (28%, 12.3% owned, 85).
+
+The test before taking any contrarian slot: "does the vendor give this fighter a real chance to win the fight (favorite or near-coinflip), and is the field under-owning that chance?" If the answer leans on "but nobody will have him," the slot is buying uniqueness you already own — pass. Betting against a top-chalk favorite is a claim that the odds are WRONG, and it needs its own evidence; being different is not evidence.
+
 ## Field Size Matters More in SE
 
 A 490-entrant SE is a fundamentally different game from a 1,189-entrant SE, which is different from a 3,000-entrant SE.
