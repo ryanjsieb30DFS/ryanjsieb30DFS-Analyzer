@@ -427,10 +427,15 @@ def override_report(slug: str, rules_dir: Path | None = None) -> dict:
 
 def _contest_join_key(name: str) -> str:
     """Join key between a Sim contest label and a results-ledger contest name.
-    The Sim label carries a trailing type tag the ledger drops —
-    'UFC $3K Clinch [Single Entry] (SE)' vs 'UFC $3K Clinch [Single Entry]'."""
+    The Sim label carries trailing type tags the ledger may drop, in part or
+    whole — 'UFC $4K Clinch [Single Entry] (SE)' vs 'UFC $4k Clinch' (the
+    9/5/26 slate declared contests without the bracket and the picker check
+    joined nothing), so both the '(SE)' tag and an entry-type bracket like
+    '[Single Entry]' / '[150 Entry Max]' are stripped from both sides."""
     s = re.sub(r"\s*\((se|3-?max|5-?max|20-?max|150-?max|mme)\)\s*$", "",
                str(name or ""), flags=re.I)
+    s = re.sub(r"\s*\[(single entry|\d+[\s-]?entry max|\d+[\s-]?max)\]\s*$",
+               "", s, flags=re.I)
     return re.sub(r"\s+", " ", s).casefold().strip()
 
 

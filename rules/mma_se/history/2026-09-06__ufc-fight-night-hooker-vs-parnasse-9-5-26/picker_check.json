@@ -1,7 +1,40 @@
 {
   "schema_version": 1,
   "slug": "mma_se",
-  "contests": [],
-  "note": "No contest had all three legs: a saved pick, a logged winning score, and a Sim scored pool. Score the slate in the Sim before logging the autopsy to fill this in.",
-  "generated_at": "2026-09-06 22:35"
+  "contests": [
+    {
+      "date": "2026-09-06",
+      "contest": "UFC $4K Clinch [Single Entry] (SE)",
+      "winning_score": 678.3,
+      "pool_n": 10000,
+      "pool_max": 731.2,
+      "pool_held_winner": true,
+      "n_pool_ge_win": 15,
+      "pick_actual": 339.2,
+      "pick_won": false,
+      "pick_pool_pctile": 27.3,
+      "slice_n": 500,
+      "slice_max": 731.2,
+      "slice_held_winner": true,
+      "n_slice_above_pick": 392
+    },
+    {
+      "date": "2026-09-06",
+      "contest": "UFC $6K Flying Knee [Single Entry] (SE)",
+      "winning_score": 684.4,
+      "pool_n": 10000,
+      "pool_max": 731.2,
+      "pool_held_winner": true,
+      "n_pool_ge_win": 12,
+      "pick_actual": 516.0,
+      "pick_won": false,
+      "pick_pool_pctile": 87.2,
+      "slice_n": 500,
+      "slice_max": 678.9,
+      "slice_held_winner": false,
+      "n_slice_above_pick": 90
+    }
+  ],
+  "note": null,
+  "generated_at": "2026-09-06 22:39"
 }
