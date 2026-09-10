@@ -1171,13 +1171,18 @@ with tab_grade:
                       if _cpath.exists() else None)
         except Exception:  # noqa: BLE001 — banner only, never blocks the tab
             _c_gen = None
-        _c_age = _age_days(_c_gen)
-        if (_c_age is not None and _pool_age is not None
-                and _c_age > _pool_age + 0.01):
+        # On the CORRECT workflow the contract is written before the pool
+        # (strategy → contract → build → send), so the contract being an hour
+        # older is normal — the old any-age-gap check fired on every
+        # correctly-run slate (9/9/26 review finding). Stale now means the
+        # contract is from an EARLIER CALENDAR DAY than the pool.
+        if (_c_gen and _pool_when
+                and str(_c_gen)[:10] < str(_pool_when)[:10]):
             st.warning(
-                f"⚠️ The strategy contract ({_c_gen}) predates this Sim pool "
-                f"({_pool_when}) — picks would be gated on the PREVIOUS "
-                "slate's strategy. Regenerate the slate strategy first."
+                f"⚠️ The strategy contract ({_c_gen}) is from an earlier day "
+                f"than this Sim pool ({_pool_when}) — picks would be gated on "
+                "the PREVIOUS slate's strategy. Regenerate the slate strategy "
+                "first."
             )
 
     _src_g = cached_sources(slug)
@@ -1356,6 +1361,89 @@ with tab_grade:
                     "— the old picks are stale; re-run them below.")
 
         _all_parsed = []   # (label, parsed lineups) for the cross-contest view
+        # ---- 🎯 Pick every contest in one click (9/9/26) -------------------
+        # Per-contest picks are order-DEPENDENT (one lineup, one contest — an
+        # earlier pick removes its rosters from later contests' tables), and
+        # the doctrine gives the biggest-money contest first claim. This
+        # button runs the same per-contest pick as the buttons below, for
+        # every simmed contest, in that fixed order — so the order is never
+        # something to remember.
+        _pick_all_flash = st.session_state.pop(f"pick_all_msgs_{slug}", None)
+        for _m in _pick_all_flash or []:
+            (st.success if _m.startswith("✅") else st.error)(_m)
+        _pickable_a = ([s for s in _sections if s["sim"] is not None]
+                       if _pk_pool else [])
+        if len(_pickable_a) > 1 and _ls.strategy_gate(slug).get("has_contract"):
+
+            def _claim_order(sec):
+                _d = sec["declared"] or {}
+                _sc = sec["sim"] or {}
+                return (float(_d.get("prize_pool") or _sc.get("prize_pool") or 0),
+                        float(_d.get("entry_fee") or _sc.get("entry_fee") or 0))
+
+            if st.button(
+                    f"🎯 Have Claude pick ALL {len(_pickable_a)} contests "
+                    "(biggest money first)",
+                    key=f"pick_all_{slug}", type="primary",
+                    help="Runs the same per-contest pick as the buttons below "
+                         "for every contest, biggest prize pool first — the "
+                         "order the one-lineup-one-contest rule wants. Each "
+                         "pick is validated exactly like a single pick; a "
+                         "failed contest is reported and the rest continue. "
+                         "Expect ~1-2 minutes per contest."):
+                _msgs = []
+                for _sec_a in sorted(_pickable_a, key=_claim_order,
+                                     reverse=True):
+                    _lbl_a = str(_sec_a["label"])
+                    _key_a = _sec_a["key"]
+                    _sim_a = _sec_a["sim"]
+                    _decl_a = _sec_a["declared"] or {}
+                    _my_a = int(_decl_a.get("my_entries")
+                                or (_sim_a or {}).get("my_entries") or 1)
+                    _gate_a = _ls.strategy_gate(slug)
+                    _elig_a = _ls.eligible_indexes(_pk_pool, _gate_a)
+                    _taken_a = _ls.taken_roster_keys(slug, _pk_pool,
+                                                     exclude_label=_lbl_a)
+                    with st.spinner(f"Picking {_lbl_a}… (~1-2 min)"):
+                        _pres_a = run_contest_selection(slug, contest_label,
+                                                        sport, _lbl_a)
+                    if not _pres_a.get("ok"):
+                        _msgs.append(f"❌ {_lbl_a}: {_pres_a.get('error')}")
+                        continue
+                    _rows_a = _ls.candidate_slice(
+                        _pk_pool, _sim_a,
+                        strategy=_ls.strategy_slice_names(slug),
+                        taken=_taken_a, allowed=_elig_a["allowed"],
+                        gate=_gate_a)
+                    _pick_pa = _ls.pick_path(slug, _key_a)
+                    _pick_mda = (_pick_pa.read_text()
+                                 if _pick_pa.exists() else "")
+                    _ppa = _ls.parse_pick(_pick_mda, _rows_a, _my_a,
+                                          taken=_taken_a, gate=_gate_a,
+                                          relaxed=tuple(_elig_a["relaxed"]))
+                    if _ppa["errors"]:
+                        _msgs.append(f"❌ {_lbl_a}: "
+                                     + "; ".join(_ppa["errors"]))
+                        continue
+                    for _pk_a in _ppa["picks"]:
+                        if _pk_a.get("override"):
+                            _ls.log_override(
+                                slug, _gate_a.get("slate") or "", _lbl_a,
+                                _pk_a["index"],
+                                (next((r["roster"] for r in _rows_a
+                                       if r["index"] == _pk_a["index"]), [])),
+                                _pk_a["override"], _ppa["why"] or "")
+                    _ls.save_contest_pick(slug, _pk_pool, _lbl_a,
+                                          _sec_a["declared"], _ppa["picks"],
+                                          _ppa["why"])
+                    _msgs.append(
+                        f"✅ {_lbl_a}: picked {len(_ppa['picks'])} entr"
+                        + ("y" if len(_ppa["picks"]) == 1 else "ies")
+                        + ("" if not _ppa.get("warnings")
+                           else " — ⚠ " + "; ".join(_ppa["warnings"])))
+                st.session_state[f"pick_all_msgs_{slug}"] = _msgs
+                st.rerun()
+
         for _sec in _sections:
             _key = _sec["key"]
             _sim_c = _sec["sim"]
@@ -2164,6 +2252,25 @@ with tab_autopsy:
 
         if parsed_contests:
             st.divider()
+            # Pre-fill from the Sim's standings manifest (9/9/26) — the Sim
+            # already names the slate at Score time and pushes it across the
+            # bridge; typing it a second time here was pure duplication. The
+            # common prefix of the pushed names (they differ per contest) is
+            # the slate-level name; still fully editable.
+            _lbl_key_a = f"autopsy_slate_label_{slug}"
+            if not (st.session_state.get(_lbl_key_a) or "").strip():
+                try:
+                    import os.path as _osp
+                    _sim_names_a = sorted({str(r.get("slate_name") or "").strip()
+                                           for r in (_sim_pushed or [])
+                                           if r.get("slate_name")})
+                    _prefill = (_osp.commonprefix(_sim_names_a).strip(" -_/")
+                                if len(_sim_names_a) > 1
+                                else (_sim_names_a[0] if _sim_names_a else ""))
+                    if len(_prefill) >= 4:
+                        st.session_state[_lbl_key_a] = _prefill
+                except NameError:
+                    pass
             slate_label = st.text_input(
                 "Slate label (names the archive folder)",
                 key=f"autopsy_slate_label_{slug}",
