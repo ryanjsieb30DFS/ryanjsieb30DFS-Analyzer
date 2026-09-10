@@ -95,10 +95,11 @@ def _parse_lineup_string(lineup_str: str) -> list[str]:
     if not isinstance(lineup_str, str):
         return []
     # Explicit position-marker alternation: multi-char tokens (CPT/UTIL/FLEX
-    # for showdowns) must come before the single-char class (G golf, F MMA,
-    # D NASCAR) or they'd never match.
+    # for showdowns, DST/QB/RB/WR/TE for NFL Classic) must come before the
+    # single-char class (G golf, F MMA, D NASCAR) or they'd never match —
+    # the D inside DST would split "DST Broncos" as D + "ST Broncos".
     tokens = re.split(
-        r"(?:^|\s)(CPT|UTIL|FLEX|[GDF])\s+", lineup_str
+        r"(?:^|\s)(CPT|UTIL|FLEX|DST|QB|RB|WR|TE|[GDF])\s+", lineup_str
     )
     # tokens alternate: ['', position, name_segment, position, name_segment, ...]
     players: list[str] = []
@@ -107,6 +108,19 @@ def _parse_lineup_string(lineup_str: str) -> list[str]:
         if name:
             players.append(name)
     return players
+
+
+def _lineup_captain(lineup_str: str) -> str | None:
+    """The player named in the CPT slot of a showdown lineup string, or None.
+
+    'CPT Lamar Jackson FLEX Derrick Henry ...' -> 'Lamar Jackson'. Used so
+    showdown salary/projection math can price the captain at his 1.5x CPT
+    price instead of the FLEX price."""
+    if not isinstance(lineup_str, str):
+        return None
+    m = re.search(r"(?:^|\s)CPT\s+(.*?)(?:\s+(?:CPT|UTIL|FLEX|DST|QB|RB|WR|TE|[GDF])\s+|$)",
+                  lineup_str)
+    return m.group(1).strip() if m and m.group(1).strip() else None
 
 
 _NAME_SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v"}
@@ -211,9 +225,14 @@ def _json_safe(val):
 
 
 def lineup_profile(players: list[str], own_map: dict, proj_lookup: dict | None,
-                   dup_counts: dict, sport: str) -> dict:
+                   dup_counts: dict, sport: str, cpt: str | None = None) -> dict:
     """Structural profile of one lineup. salary_used/proj_total are None unless
-    EVERY player matched projections — partial sums mislead."""
+    EVERY player matched projections — partial sums mislead.
+
+    `cpt` names the captain of a showdown lineup (NFL SD). When the matched
+    projection row carries the captain-slot price/projection (salary_cpt /
+    proj_cpt), the captain is summed at THOSE values — priced at FLEX, a
+    captained lineup looks like it fits under caps it doesn't."""
     norms = [_norm_name(p) for p in players]
     owns = [own_map[n] for n in norms if n in own_map]
     profile = {
@@ -226,8 +245,19 @@ def lineup_profile(players: list[str], own_map: dict, proj_lookup: dict | None,
     if proj_lookup is not None:
         rows = [proj_lookup.get(n) for n in norms]
         if all(r is not None for r in rows):
-            profile["salary_used"] = int(sum(r["salary"] for r in rows))
-            profile["proj_total"] = round(sum(r["proj_points"] for r in rows), 2)
+            cpt_norm = _norm_name(cpt) if cpt else None
+
+            def _val(n, r, flex_key, cpt_key):
+                if n == cpt_norm:
+                    v = r.get(cpt_key)
+                    if v is not None and v == v:  # present, not NaN
+                        return float(v)
+                return float(r[flex_key])
+
+            profile["salary_used"] = int(sum(
+                _val(n, r, "salary", "salary_cpt") for n, r in zip(norms, rows)))
+            profile["proj_total"] = round(sum(
+                _val(n, r, "proj_points", "proj_cpt") for n, r in zip(norms, rows)), 2)
     return profile
 
 
@@ -260,7 +290,7 @@ def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str) -> d
         for _, r in proj_df.iterrows():
             entry = {"salary": r["salary"], "proj_points": r["proj_points"],
                      "ownership": r.get("ownership")}
-            for opt in ("team", "position"):
+            for opt in ("team", "position", "salary_cpt", "proj_cpt", "own_cpt"):
                 if opt in proj_df.columns:
                     entry[opt] = r[opt]
             proj_lookup[r["_norm"]] = entry
@@ -278,7 +308,8 @@ def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str) -> d
     def _profiled(rows: pd.DataFrame) -> pd.DataFrame:
         out = []
         for _, r in rows.iterrows():
-            prof = lineup_profile(r["Lineup_parsed"], own_map, proj_lookup, dup_counts, sport)
+            prof = lineup_profile(r["Lineup_parsed"], own_map, proj_lookup, dup_counts,
+                                  sport, cpt=_lineup_captain(r.get("Lineup")))
             out.append({
                 "rank": int(r["Rank"]),
                 "entry_name": r["EntryName"],
@@ -384,9 +415,14 @@ def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str) -> d
         "ambiguous_players": ambiguous_players,
         # norm → salary, for salary-aware counterfactual swaps (None when the
         # autopsy runs standings-only). Consumed by counterfactual.near_miss.
+        # NFL Showdown (9/9/26): the swap engine prices every player FLAT, so a
+        # captain swap would be priced at the FLEX salary and "fits under the
+        # cap" could be false. Until the counterfactual is captain-aware, NFL
+        # degrades to the honest points-only read (salary_checked: False)
+        # rather than shipping wrong cap math.
         "salary_map": ({n: int(e["salary"]) for n, e in proj_lookup.items()
                         if e.get("salary") == e.get("salary")}
-                       if proj_lookup else None),
+                       if proj_lookup and sport != "nfl" else None),
     }
 
 

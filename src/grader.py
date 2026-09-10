@@ -69,11 +69,18 @@ def parse_lineups(text: str, pool) -> list[dict]:
     for _, r in pool.iterrows():
         own_v = r.get("ownership")
         sal_v = r.get("salary")
-        universe[_norm_name(str(r["name"]))] = {
+        entry = {
             "name": str(r["name"]),
             "own": float(own_v) if own_v is not None and own_v == own_v else None,
             "salary": float(sal_v) if sal_v is not None and sal_v == sal_v else None,
         }
+        # NFL Showdown: keep the captain-slot price/own on the row so a
+        # "CPT <name>" token can be priced at the real 1.5x captain salary.
+        for k in ("salary_cpt", "own_cpt", "proj_cpt"):
+            v = r.get(k) if k in pool.columns else None
+            if v is not None and v == v:
+                entry[k] = float(v)
+        universe[_norm_name(str(r["name"]))] = entry
     out = []
     for line in text.splitlines():
         line = line.strip()
@@ -82,6 +89,14 @@ def parse_lineups(text: str, pool) -> list[dict]:
         tokens = [t.strip() for t in re.split(r"[,\t;/·]+", line) if t.strip()]
         players, unmatched = [], []
         for t in tokens:
+            # A pasted showdown roster often keeps DK's slot markers
+            # ("CPT Lamar Jackson", "FLEX Derrick Henry"). Strip the marker
+            # before matching; remember CPT so salary math can use the
+            # captain price.
+            m = re.match(r"(?i)^(CPT|FLEX|UTIL)\s+(.+)$", t)
+            is_cpt = bool(m and m.group(1).upper() == "CPT")
+            if m:
+                t = m.group(2).strip()
             key = _norm_name(t)
             hit = universe.get(key)
             if hit is None and len(key) >= 4:
@@ -90,6 +105,15 @@ def parse_lineups(text: str, pool) -> list[dict]:
                 # player silently grades the wrong lineup.
                 subs = [v for k, v in universe.items() if key in k]
                 hit = subs[0] if len(subs) == 1 else None
+            if hit is not None and is_cpt:
+                hit = dict(hit)  # never mutate the shared universe row
+                hit["cpt"] = True
+                # Captain math: the CPT salary is the real price DK charges;
+                # the CPT own is that player's captain-slot ownership.
+                if hit.get("salary_cpt") is not None:
+                    hit["salary"] = hit["salary_cpt"]
+                if hit.get("own_cpt") is not None:
+                    hit["own"] = hit["own_cpt"]
             (players if hit else unmatched).append(hit or t)
         if players or unmatched:
             out.append({"raw": line, "players": players, "unmatched": unmatched})
@@ -98,8 +122,16 @@ def parse_lineups(text: str, pool) -> list[dict]:
 
 # -------------------------------------------------------------- calibration ----
 def _baseline_key(slug: str, sport: str | None) -> str | None:
-    # RD4 showdown has its own seed block; every other slug maps to its sport.
-    return "showdown" if slug == "pga_rd4_sd" else sport
+    # Showdown slugs get their own baseline keys; every other slug maps to its
+    # sport. NFL Showdown's "nfl_showdown" block does not exist yet in
+    # shark_baseline.json (the user's NFL standings archive is Classic-only, so
+    # no SD envelope can be mined) — calibration() already degrades to None
+    # envelope targets, which renders as "no envelope data", never a warning.
+    if slug == "pga_rd4_sd":
+        return "showdown"
+    if slug == "nfl_sd":
+        return "nfl_showdown"
+    return sport
 
 
 def calibration(slug: str, sport: str | None, contests: list[dict] | None) -> dict:
@@ -419,6 +451,17 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
         g["expected_dupes"] = round(naive * factor if factor else naive, 2)
         g["dupes_corrected"] = bool(factor)
         g["dupes_factor"] = factor
+
+    # NFL Showdown: without a "CPT <name>" marker the whole lineup is priced
+    # at FLEX salaries, so the salary shown runs LOW (the captain really costs
+    # 1.5x). Say so — information only, never a letter cost.
+    if cal.get("sport") == "nfl" and players and not any(p.get("cpt") for p in players):
+        g["flags"].append({"level": "info", "code": "no_cpt_marker",
+                           "msg": "No captain marked — paste the roster with "
+                                  "'CPT ' before the captain's name so the "
+                                  "salary math can use his real 1.5x captain "
+                                  "price. The salary shown here uses the "
+                                  "cheaper FLEX prices for all six players."})
 
     # 0) Salary sanity: DK wouldn't accept an over-cap lineup, so exceeding the
     # cap here almost always means a token matched the WRONG player.

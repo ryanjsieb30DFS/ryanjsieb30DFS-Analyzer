@@ -148,6 +148,62 @@ def _run_claude(prompt: str, out_path: Path, collateral: list | None = None) -> 
     return {"ok": True, "error": None, "duration_s": duration, "cost_usd": cost}
 
 
+
+# NFL Showdown strategy-section instructions, injected into run_analysis for
+# slug nfl_sd only. Format doctrine from docs/nfl_game_theory.md Part 2 +
+# rules/nfl_sd/framework.md. CHECKS and information only — the synthesis-first
+# rule still holds: no PLAY/PASS commands, the user decides.
+_NFL_SD_STRATEGY_BLOCK = (
+    "NFL SHOWDOWN — FORMAT-SPECIFIC INSTRUCTIONS (this slate is DK single-game: "
+    "1 Captain who scores 1.5x points at a higher 1.5x salary + 5 FLEX, $50,000 "
+    "cap, both teams required). Read `rules/nfl_sd/framework.md` for the winner "
+    "data behind each item. Weave ALL of the following into the standard "
+    "sections — still synthesis, never play/fade commands:\n"
+    "- BE SCRIPT-FIRST. A Showdown lineup is a bet on how ONE game goes, so the "
+    "strategy's spine is the game stories (scripts): the high-scoring back-and-"
+    "forth game (shootout), the low-scoring grind (slog), the one-sided rout "
+    "(blowout/onslaught), and the losing team throwing late (garbage time). In "
+    "`## Edges & tensions` (or `## Slate at a glance`), give each script a "
+    "rough weight from the Vegas total and spread in the articles: total 49+ "
+    "leans shootout (pass-catcher captains won 47% there), total 42 or less "
+    "leans slog (running-back captains won 46%), a spread of 7+ makes the "
+    "blowout script real (favorite captains won 80% of those games).\n"
+    "- THE CAPTAIN-LEVERAGE READ IS MANDATORY. The projections carry each "
+    "player's captain-slot ownership (own_cpt / CPT Own) next to his flex "
+    "ownership — compare them. The field picks the quarterback as captain far "
+    "too often: he is the best captain only about 1 game in 5, while wide "
+    "receivers and running backs together are over 61% of winning captains. "
+    "Name the over-captained player(s) and the under-captained ceiling paths, "
+    "with both ownership numbers. Winning captains are usually chalk-cluster "
+    "players at ~11% captain own, not obscure punts.\n"
+    "- SURFACE THE CORRELATION SHAPES as information: a pocket QB captain "
+    "historically wins with 2-3 of his own pass-catchers; a WR captain with "
+    "his QB plus at most ONE more teammate; 89% of passing-script winners "
+    "carried a player from the OTHER team (the bring-back); kicker + his own "
+    "defense is the slog pairing, a kicker next to his own captain QB is "
+    "anti-correlated; more than 2 combined kicker+defense pieces almost never "
+    "wins.\n"
+    "- TEAM-SPLIT FRAMING: 3-3 and 4-2 splits win about two-thirds of slates; "
+    "5-1 (nearly all one team) is the blowout bet, about 1 slate in 8-10; the "
+    "2-4 split tilted AWAY from the captain's team is the most under-used "
+    "winning shape. Say which splits this slate's Vegas line supports.\n"
+    "- DUPLICATION WARNINGS BY SHAPE: with only ~30 relevant players the chalk "
+    "build gets copied at scale, and what predicts copies is the PRODUCT of "
+    "the six ownerships (not the sum). Name the highest-product chalk "
+    "combination as the dupe magnet. Note the salary-left fact: the median "
+    "winner left $1,400 unspent and only 7% of winners spent the full $50,000 "
+    "— an exact-$50K chalk build is the most-copied shape.\n"
+    "- CONTEST PROFILE: the user plays Showdown with 5-20 entries in LARGE-"
+    "field lottery-style contests, so frame `## Build it like a sharp` around "
+    "one entry per game script (the script portfolio) plus dupe awareness — "
+    "never one 'best' lineup repeated. Still ZERO lineups: name candidates "
+    "per script decision (captain tier, bring-back, salary shape) and stop.\n"
+    "- NFL SCORING NOTE: 0.0 is a REAL score here (a covered receiver, a "
+    "kicker with no tries) and a defense can score NEGATIVE points — never "
+    "call a 0.0 a scratch.\n\n"
+)
+
+
 def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
     """Build the bundle (articles + every loaded vendor projection) and run headless
     Claude to write the slate strategy to data/slate_analysis/<slug>.md."""
@@ -165,7 +221,7 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"`rules/{slug}/framework.md`, `rules/{slug}/autopsies.md`, `rules/{slug}/lessons.yaml`, "
         f"`rules/shared/anchor_equivalence.md`, `rules/shared/sharp_playbook.md`, and the venue "
         f"file for this slate's venue (golf → rules/pga_classic/courses, nascar → "
-        f"rules/nascar/tracks; mma has none — create a stub marked "
+        f"rules/nascar/tracks; mma and nfl have none — create a stub marked "
         f"UNVERIFIED if the venue file is missing).\n\n"
         f"SOURCE-OF-TRUTH RULE: synthesize from BOTH the articles AND the vendor projections, "
         f"cross-checked against the framework and the OPEN lessons in lessons.yaml. BLEND the "
@@ -190,7 +246,8 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"ownership, or ownership ranking ahead of projection rank (see the bundle's "
         f"`## Trap-shaped prices` section when present). History informs the FIELD'S behavior "
         f"(where your opponents go); it never informs a player's quality.\n\n"
-        f"MANDATORY pre-flight — do ALL of this SILENTLY as prep. **Do NOT print a checklist or a "
+        + (_NFL_SD_STRATEGY_BLOCK if slug == "nfl_sd" else "")
+        + f"MANDATORY pre-flight — do ALL of this SILENTLY as prep. **Do NOT print a checklist or a "
         f"pre-flight section; the user does not want to see it.** Only the RESULT of this prep shows, "
         f"inside the sections below. Confirm the article files are for the CURRENT slate (compare the "
         f"bundle's generation date + article file dates against today); if they look stale, do NOT "
@@ -726,7 +783,7 @@ def run_contest_selection(slug: str, contest_label: str, sport: str,
         f"`rules/{slug}/autopsies.md`, `rules/{slug}/lessons.yaml` (apply every OPEN "
         f"hypothesis/validated lesson whose mechanism fits; silently drop the rest), "
         f"`rules/shared/anchor_equivalence.md`, `rules/shared/sharp_playbook.md`, and the "
-        f"venue file (golf → rules/pga_classic/courses, nascar → rules/nascar/tracks; "
+        f"venue file (golf → rules/pga_classic/courses, nascar → rules/nascar/tracks; nfl and "
         f"mma has none).\n\n"
         + _metric_block
         + f"- Picking {my} lineup(s) means each pick must earn its own reason. If that is more "
@@ -812,6 +869,7 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
         return {"ok": False, "error": "Player pool is empty — check the loaded projections.",
                 "duration_s": 0.0, "cost_usd": None}
     is_mma = sport == "mma"
+    is_nfl = sport == "nfl"
 
     # The exact playable set, as a fixed table Claude must rank without adding/dropping.
     def _row(r):
@@ -824,6 +882,21 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
             ceil = f"{r['ceiling']:.1f}" if r.get("ceiling") is not None else "n/a"
             wp = f"{r['win_prob'] * 100:.0f}%" if r.get("win_prob") is not None else "n/a"
             extra = f", ceiling(win) {ceil}, win% {wp}"
+        if is_nfl:
+            # Showdown: FLEX price/own already ride sal/own above; add the
+            # position, team, and captain-slot numbers so the board can show
+            # the CPT-vs-FLEX leverage read. `own` here is the vendor's TOTAL
+            # (CPT+FLEX) own; own_flex/own_cpt are the split.
+            pos = str(r.get("position") or "?")
+            team = str(r.get("team") or "?")
+            csal = (f"${int(r['salary_cpt']):,}" if r.get("salary_cpt")
+                    is not None else "n/a")
+            cown = (f"{r['own_cpt']:.1f}%" if r.get("own_cpt") is not None
+                    else "n/a")
+            fown = (f"{r['own_flex']:.1f}%" if r.get("own_flex") is not None
+                    else "n/a")
+            extra = (f", pos {pos}, team {team}, CPT salary {csal}, "
+                     f"flex own {fown}, CPT own {cown}")
         return f"- {r['name']} — {sal}, proj own {own}, proj pts {proj}{extra}{opp}"
 
     player_lines = "\n".join(_row(r) for _, r in full.iterrows())
@@ -862,6 +935,15 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
            "instantly — NEVER jargon codes like 'coffin +7.6' or ranking shorthand — and Tier "
            "carries any `· Leverage` label.\n"
            if is_mma else
+           "`| Rank | Player | Pos | Team | Flex Sal | CPT Sal | Proj | Flex Own | CPT Own "
+           "| How it wins | Tier |`, using the per-player numbers above (Flex Sal/Proj/Flex "
+           "Own are the regular-slot price, projection, and ownership; CPT Sal/CPT Own are "
+           "the captain-slot 1.5x price and how many teams captain him). 'How it wins' is a "
+           "SHORT PLAIN-ENGLISH phrase (~10–15 words) a non-expert reads instantly — for a "
+           "Showdown board say the GAME STORY the player pays in (the shootout, the grind, "
+           "the blowout, the catch-up script) — NEVER jargon codes or ranking shorthand — "
+           "and Tier carries any `· Leverage` label.\n"
+           if is_nfl else
            "`| Rank | Player | Sal | Proj | Own | How it wins | Tier |`, where 'How it wins' is a "
            "SHORT PLAIN-ENGLISH phrase (~10–15 words) a non-expert reads instantly — NEVER jargon "
            "codes like 'coffin +7.6' or ranking shorthand — and Tier carries any `· Leverage` "
@@ -1027,7 +1109,8 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str, hist_dir=None)
         f"result-based. A recurring shark-gap axis (1b) should birth or confirm a mechanism lesson.\n"
         f"3. UPDATE THE VENUE FILE for this slate's venue (sport `{sport}`; see CLAUDE.md for the "
         f"venue dir; create the file from the archived strategy if missing): append a date-stamped "
-        f"'Per-slate observation' line with what this slate proved or disproved about the venue.\n"
+        f"'Per-slate observation' line with what this slate proved or disproved about the venue. "
+        f"(mma and nfl have NO venue concept — skip this step entirely for them.)\n"
         f"4. WRITE `{out_path}` with EXACTLY these sections, in this order, with these word "
         f"budgets (LENGTH BUDGET updated 8/11/26 — specificity beats brevity; the user: 'I "
         f"don't want the strategy and autopsy findings to become too vague': the WHOLE review "

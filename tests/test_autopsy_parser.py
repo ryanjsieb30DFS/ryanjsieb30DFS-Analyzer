@@ -75,6 +75,36 @@ def test_missing_columns_raises():
         assert "missing" in str(e).lower()
 
 
+def test_lineup_string_nfl_showdown():
+    # DK NFL Showdown: CPT + 5 FLEX. Any position can fill FLEX (K/DST too).
+    s = ("CPT Lamar Jackson FLEX Derrick Henry FLEX Zay Flowers "
+         "FLEX DK Metcalf FLEX Chris Boswell FLEX Steelers")
+    assert _parse_lineup_string(s) == [
+        "Lamar Jackson", "Derrick Henry", "Zay Flowers",
+        "DK Metcalf", "Chris Boswell", "Steelers"]
+
+
+def test_lineup_string_nfl_classic_markers():
+    # NFL Classic markers. DST must split as a whole token — the D inside
+    # DST would otherwise match the single-char NASCAR class and mis-split
+    # "DST Broncos" into "ST Broncos".
+    s = ("QB Josh Allen RB Saquon Barkley RB Bijan Robinson WR Justin Jefferson "
+         "WR CeeDee Lamb WR Nico Collins TE Trey McBride FLEX Ja'Marr Chase "
+         "DST Broncos")
+    assert _parse_lineup_string(s) == [
+        "Josh Allen", "Saquon Barkley", "Bijan Robinson", "Justin Jefferson",
+        "CeeDee Lamb", "Nico Collins", "Trey McBride", "Ja'Marr Chase",
+        "Broncos"]
+
+
+def test_lineup_captain_extraction():
+    from src.autopsy import _lineup_captain
+    assert _lineup_captain(
+        "CPT Lamar Jackson FLEX Derrick Henry FLEX Steelers") == "Lamar Jackson"
+    assert _lineup_captain("G Jon Rahm G Cameron Young") is None
+    assert _lineup_captain(None) is None
+
+
 def test_lineup_string_golf_captain():
     assert _parse_lineup_string("G Jon Rahm G Cameron Young") == ["Jon Rahm", "Cameron Young"]
     assert _parse_lineup_string("D Ryan Blaney D Joey Logano") == ["Ryan Blaney", "Joey Logano"]

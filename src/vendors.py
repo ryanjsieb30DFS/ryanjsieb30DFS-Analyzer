@@ -177,6 +177,27 @@ VENDOR_SIGNATURES: list[dict] = [
         "drop_columns": ["value"],
         "add_to_proj": ["finish_points"],
     },
+    {
+        # ETR's NFL Showdown export (user-confirmed 2026-09-09; samples in
+        # ~/Downloads "DK <AWAY>-<HOME> Showdown Fantasy and Ownership
+        # Projections.csv"). Salary/Projection/Ceiling are FLEX values;
+        # `total_own` is CPT+FLEX combined. CPT columns are the captain-slot
+        # 1.5x price/projection/ownership; the loader derives
+        # own_flex = ownership - own_cpt.
+        "name": "ETR NFL Showdown",
+        "sport": "nfl",
+        "required_columns": {
+            "name", "team", "position", "salary", "projection",
+            "cpt_salary", "cpt_projection", "cpt_own",
+        },
+        "column_map": {
+            "projection": "proj_points",
+            "total_own": "ownership",
+            "cpt_salary": "salary_cpt",
+            "cpt_projection": "proj_cpt",
+            "cpt_own": "own_cpt",
+        },
+    },
 ]
 
 

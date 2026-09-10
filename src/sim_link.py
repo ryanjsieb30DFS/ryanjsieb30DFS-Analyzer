@@ -343,7 +343,12 @@ def clear_sim_handoff(slug: str) -> None:
 # ---------------------------------------------------------------------------
 
 _SLUG_SPORT = {"pga_classic": "golf", "pga_rd4_sd": "golf_showdown",
-               "mma_se": "mma", "nascar": "nascar"}
+               "mma_se": "mma", "nascar": "nascar",
+               # NFL Showdown gets its OWN baseline key (the golf_showdown
+               # precedent): a showdown's ownership/salary structure must
+               # never inherit a classic-format envelope. Deliberately NOT in
+               # _CORRECTABLE_SPORTS — no NFL dupe-correction corpus exists.
+               "nfl_sd": "nfl_showdown"}
 
 # Sports whose corpus evidence is tight enough to correct a user-facing number.
 # Measured over the Sim's 577-contest corpus (7/25/26), median observed/naive by

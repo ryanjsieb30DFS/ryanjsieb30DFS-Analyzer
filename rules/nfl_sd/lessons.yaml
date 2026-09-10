@@ -1,0 +1,7 @@
+# Lesson ledger — one entry per generalizable lesson. Claude edits during the
+# post-autopsy review; the user approves codifications/retirements.
+# Lifecycle: hypothesis -> validated -> codified | retired.
+# Promotion: 3 mechanism confirmations -> propose codifying into framework.md.
+# Retirement: 2 mechanism contradictions -> propose retiring.
+# GPP guard: a lost contest is NOT a contradiction; only mechanism failures count.
+lessons: []

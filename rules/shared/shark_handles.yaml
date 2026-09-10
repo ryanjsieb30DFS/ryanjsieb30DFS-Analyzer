@@ -28,6 +28,9 @@ core_twelve: &core
 sharks_by_sport:
   golf: *core          # pga_classic + pga_rd4_sd
   nfl: *core
+  nfl_showdown: *core  # same pros; own key so SD observations never blend
+                       # into a Classic envelope (no SD baseline exists yet —
+                       # everything downstream degrades to "no envelope data")
   mma:                 # moklovin won UFC 250; expand as specialists recur
     - moklovin
   nascar:              # NASCAR has its own ecosystem (not the golf/NFL crowd)
@@ -54,3 +57,4 @@ slug_sport:
   pga_rd4_sd: golf
   mma_se: mma
   nascar: nascar
+  nfl_sd: nfl_showdown

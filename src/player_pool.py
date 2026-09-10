@@ -140,7 +140,7 @@ def build_pool(sources: dict[str, dict]) -> pd.DataFrame:
                     break
         ceil_val = round(float(ceil.mean()), 1) if not ceil.empty else (
             round(float(pwin.mean()), 1) if not pwin.empty else None)
-        rows.append({
+        row = {
             "name": g["name"].iloc[0],
             "salary": int(sal.max()) if not sal.empty else None,
             "ownership": round(float(own.mean()), 1) if not own.empty else None,
@@ -149,7 +149,24 @@ def build_pool(sources: dict[str, dict]) -> pd.DataFrame:
             "win_prob": round(float(wprob.mean()), 3) if not wprob.empty else None,
             "opponent": opp,
             "vendors": int(g["__vendor"].nunique()),
-        })
+        }
+        # NFL Showdown extras: position/team ride the board, and the
+        # captain-slot price/projection/ownership let the board show the
+        # CPT-vs-FLEX read. Consensus like the base columns: max price,
+        # mean projection/own.
+        for _sc in ("position", "team"):
+            if _sc in g.columns:
+                row[_sc] = next(
+                    (str(v).strip() for v in g[_sc]
+                     if isinstance(v, str) and str(v).strip()), "")
+        for _nc, _agg in (("salary_cpt", "max"), ("proj_cpt", "mean"),
+                          ("own_cpt", "mean"), ("own_flex", "mean")):
+            if _nc in g.columns:
+                vals = pd.to_numeric(g[_nc], errors="coerce").dropna()
+                if not vals.empty:
+                    row[_nc] = (int(vals.max()) if _agg == "max"
+                                else round(float(vals.mean()), 1))
+        rows.append(row)
 
     pool = pd.DataFrame(rows)
     if "opponent" in pool.columns and not pool["opponent"].str.strip().any():

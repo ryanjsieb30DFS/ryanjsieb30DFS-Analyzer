@@ -49,6 +49,10 @@ CONTEST_TYPES = {
     "PGA RD4 Showdown": {"slug": "pga_rd4_sd", "sport": "golf"},
     "MMA": {"slug": "mma_se", "sport": "mma"},
     "NASCAR": {"slug": "nascar", "sport": "nascar"},
+    # DK single-game format: 1 Captain (1.5x points, higher CPT salary) +
+    # 5 FLEX, $50K cap, both teams represented. Added 9/9/26 — first NFL
+    # support in this repo; NFL Classic is still out of scope.
+    "NFL Showdown": {"slug": "nfl_sd", "sport": "nfl"},
 }
 
 
@@ -2446,7 +2450,8 @@ with tab_autopsy:
                     _pool_saved = player_pool.load_pool(slug)
                     if _pool_saved:
                         _cal = _pcal.grade_tiers(
-                            _pool_saved["markdown"], _to_log[0]["parsed"]["players"])
+                            _pool_saved["markdown"], _to_log[0]["parsed"]["players"],
+                            sport=sport)
                         _cal_md = _pcal.calibration_md(_cal)
                         if _cal_md:
                             with md_path.open("a") as _fmd3:

@@ -9,7 +9,14 @@ Optional sport-specific columns (preserved if present):
   matchup, opponent, win_prob, proj_win, proj_loss,
     ko_pct, sub_pct, dec_pct                                (MMA)
   starting_position, dominator_points, fast_laps            (NASCAR)
+  salary_cpt, proj_cpt, own_cpt, own_flex                   (NFL Showdown)
   dk_id                                                     (all)
+
+NFL Showdown ownership convention (ETR NFL Showdown vendor):
+  `ownership` is the TOTAL own (CPT + FLEX combined) — that is what the
+  vendor ships and what every downstream ownership read uses. `own_cpt` is
+  the captain-slot own; `own_flex` = max(ownership - own_cpt, 0) is derived
+  here so both slots are readable separately.
 
 Stddev is auto-derived (vendors typically don't provide it):
   - If 'ceiling' is present: stddev = (ceiling - proj_points) / 1.28
@@ -34,6 +41,10 @@ OPTIONAL_FLOAT_COLUMNS = [
     "ko_pct", "sub_pct", "dec_pct",
     "dominator_points", "fast_laps",
     "team_total",
+    # NFL Showdown captain-slot columns (1.5x price/projection/own) + the
+    # derived flex-only ownership. FLEX values live in salary/proj_points;
+    # `ownership` stays the vendor's TOTAL (CPT+FLEX) own — see module docs.
+    "salary_cpt", "proj_cpt", "own_cpt", "own_flex",
     # live to-par leaderboard score (e.g. DK PGA RD4 SD "Current Score").
     # Float, NOT int: the int path uses -1 as its NA sentinel, which would
     # wipe every real -1 (one-under) score.
@@ -129,6 +140,16 @@ def load_projections(csv_path_or_buffer, source_name: str | None = None) -> pd.D
     projections["proj_points"] = projections["proj_points"].astype(float)
     projections = drop_junk_rows(projections)
     projections["ownership"] = _normalize_ownership_column(projections["ownership"])
+
+    # NFL Showdown: derive the flex-only ownership. `ownership` is the
+    # vendor's TOTAL (CPT + FLEX combined) own and is kept that way — every
+    # downstream ownership read sees the total. own_cpt is scaled the same
+    # way the ownership column was (ETR ships both as percents), and the
+    # subtraction is floored at 0 so a rounding artifact can't go negative.
+    if "own_cpt" in projections.columns and "own_flex" not in projections.columns:
+        _cpt = projections["own_cpt"].apply(_clean_number)
+        _tot = pd.to_numeric(projections["ownership"], errors="coerce")
+        projections["own_flex"] = (_tot - _cpt).clip(lower=0)
 
     for col in OPTIONAL_FLOAT_COLUMNS:
         if col in projections.columns:
@@ -328,6 +349,17 @@ def warn_missing_for_sport(projections: pd.DataFrame, sport: str | None) -> list
         warnings.append(
             "NASCAR: 'starting_position' column missing — PD floor constraint cannot be enforced."
         )
+    if sport == "nfl":
+        for col, why in (
+            ("position", "the board can't show QB/RB/WR/TE/K/DST"),
+            ("team", "the both-teams / team-split reads are blind"),
+            ("salary_cpt", "captain salary math falls back to the FLEX price "
+                           "(a captained lineup will look cheaper than it is)"),
+            ("own_cpt", "the captain-leverage read (CPT own vs FLEX own) is "
+                        "unavailable"),
+        ):
+            if col not in projections.columns:
+                warnings.append(f"NFL Showdown: '{col}' column missing — {why}.")
     # Ceiling: golf vendors normally ship one. If it vanishes (a vendor
     # format change), the file still loads but every ceiling panel (mispricing,
     # boom/bust, leverage-vs-ceiling) silently hides — make that LOUD.

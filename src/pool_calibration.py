@@ -58,11 +58,15 @@ def parse_pool_tiers(md: str) -> list[dict]:
     return out
 
 
-def grade_tiers(pool_md: str, players_df) -> dict:
+def grade_tiers(pool_md: str, players_df, sport: str | None = None) -> dict:
     """Per-tier actual-FPTS rollup + ordering check + leakage.
 
     `players_df` = the parsed standings' players frame (name / actual_fpts) —
-    scores are identical across the slate's contests, so any contest works."""
+    scores are identical across the slate's contests, so any contest works.
+
+    `sport`: NFL is the one sport where an exact 0.0 is a REAL score (a
+    shut-down WR3, a kicker with no attempts — and DSTs can even go negative),
+    so the scratch exclusion below is skipped for sport == "nfl"."""
     rows = parse_pool_tiers(pool_md)
     if not rows or players_df is None or players_df.empty:
         return {"gradable": False}
@@ -84,11 +88,13 @@ def grade_tiers(pool_md: str, players_df) -> dict:
         if f is None:
             continue
         # An exact 0.0 means the player didn't compete (scratched fight /
-        # withdrawal / DNS) — anyone who plays scores SOMETHING in all four
-        # sports. Counting the zero as a real result falsely breaks tier
+        # withdrawal / DNS) — anyone who plays scores SOMETHING in golf, MMA,
+        # and NASCAR. Counting the zero as a real result falsely breaks tier
         # ordering (7/26 Ankalaev slate: Dulatov's cancelled fight dragged
         # Core under Good). Excluded from averages, surfaced separately.
-        if f == 0.0:
+        # NFL carve-out (9/9/26): 0.0 IS a real NFL score (and DSTs go
+        # negative), so nothing is excluded there.
+        if f == 0.0 and sport != "nfl":
             scratches.append({"name": r["name"], "tier": t})
             continue
         by_tier[t].append(f)

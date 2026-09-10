@@ -23,7 +23,8 @@ _REPO_ROOT = Path(__file__).parent.parent
 _BUNDLE_DIR = _REPO_ROOT / "data" / "bundle"
 
 # Venue-knowledge dir per slug (relative to rules/). Both PGA slugs share the
-# same physical courses; MMA has no strategy-relevant venue.
+# same physical courses; MMA and NFL have no strategy-relevant venue (absent
+# slugs simply get no venue block — nothing crashes, nothing is fabricated).
 _VENUE_DIRS = {
     "nascar": "nascar/tracks",
     "pga_classic": "pga_classic/courses",
