@@ -1144,3 +1144,69 @@ def test_override_outcomes_empty_without_history(tmp_path):
     out = ls.override_outcomes("nascar", rules_dir=tmp_path)
     assert out["rows"] == [] and out["clean"]["n"] == 0
     assert "No archived contest" in ls.override_outcomes_md(out)
+
+
+# ---------------------------------------------------------------------------
+# 9/10/26 — anchor-equivalence twins in Core count as ONE anchor
+# ---------------------------------------------------------------------------
+
+def test_core_twins_count_as_one_anchor_no_contradiction(tmp_path, monkeypatch):
+    """The first NFL Showdown contract: Core = Nacua + McCaffrey, the same two
+    names are the top duplicated pair AND an anchor-equivalence twin set.
+    "Hold both" + "never both" was flagged as self-contradicting; the twins
+    now share one Core slot, so "hold one twin, never both" is coherent."""
+    gate = _contract(
+        tmp_path, monkeypatch,
+        board=[{"name": "Puka Nacua", "tier": "Core"},
+               {"name": "Christian McCaffrey", "tier": "Core"},
+               {"name": "Davante Adams", "tier": "Good"}],
+        chalk_pairs=[{"players": ["Puka Nacua", "Christian McCaffrey"],
+                      "joint_pct": 42.6}],
+        anchor_pairs=[{"players": ["Puka Nacua", "Christian McCaffrey"]}])
+    assert gate["core_need"] == 1
+    assert len(gate["core_groups"]) == 1
+    assert ls.contract_conflicts(gate) == []
+
+    one_twin = ["Puka Nacua", "Davante Adams", "X1", "X2", "X3", "X4"]
+    other_twin = ["Christian McCaffrey", "Davante Adams", "X1", "X2", "X3", "X4"]
+    both = ["Puka Nacua", "Christian McCaffrey", "X1", "X2", "X3", "X4"]
+    neither = ["Davante Adams", "X1", "X2", "X3", "X4", "X5"]
+    assert ls.compliance(one_twin, gate) == []
+    assert ls.compliance(other_twin, gate) == []
+    assert any("most duplicated pair" in c for c in ls.compliance(both, gate))
+    assert not any("Core-tier" in c for c in ls.compliance(both, gate))
+    assert any("Core-tier" in c for c in ls.compliance(neither, gate))
+
+    pool = {"rosters": [one_twin, other_twin, both, neither]}
+    elig = ls.eligible_indexes(pool, gate)
+    assert elig["full"] == 2 and elig["conflicts"] == []
+    md = ls.gate_summary(gate, elig, pool=pool)
+    assert "twins count as ONE anchor" in md
+    assert "at least 1 Core-tier" in md
+
+
+def test_core_twins_plus_a_third_anchor_need_two_groups(tmp_path, monkeypatch):
+    """Twins + one more Core name = two anchor groups, so a lineup needs a
+    twin AND the third name; both twins alone only cover one group."""
+    gate = _contract(
+        tmp_path, monkeypatch,
+        board=[{"name": "TwinA", "tier": "Core"}, {"name": "TwinB", "tier": "Core"},
+               {"name": "Solo", "tier": "Core"}],
+        chalk_pairs=[{"players": ["TwinA", "TwinB"], "joint_pct": 30.0}],
+        anchor_pairs=[{"players": ["TwinA", "TwinB"]}])
+    assert gate["core_need"] == 2
+    assert ls.compliance(["TwinA", "Solo", "X1", "X2", "X3", "X4"], gate) == []
+    both_twins_only = ls.compliance(["TwinA", "TwinB", "X1", "X2", "X3", "X4"], gate)
+    assert any("Core-tier" in c for c in both_twins_only)
+
+
+def test_core_pair_that_is_not_twins_still_contradicts(tmp_path, monkeypatch):
+    """No anchor_pairs entry = the two Core names are independent anchors, and
+    the 8/29 contradiction stands exactly as before."""
+    gate = _contract(
+        tmp_path, monkeypatch,
+        board=[{"name": "Umar", "tier": "Core"}, {"name": "LiuCe", "tier": "Core"}],
+        chalk_pairs=[{"players": ["Umar", "LiuCe"], "joint_pct": 17.1}],
+        anchor_pairs=[])
+    assert gate["core_need"] == 2
+    assert len(ls.contract_conflicts(gate)) == 1

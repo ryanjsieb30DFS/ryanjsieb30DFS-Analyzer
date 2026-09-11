@@ -184,19 +184,31 @@ VENDOR_SIGNATURES: list[dict] = [
         # `total_own` is CPT+FLEX combined. CPT columns are the captain-slot
         # 1.5x price/projection/ownership; the loader derives
         # own_flex = ownership - own_cpt.
+        #
+        # 2026-09-10: ETR renamed four Showdown headers for the 2026 season
+        # (Name→Player, Position→Pos, Projection→Proj, CPT Projection→CPT Proj)
+        # and added Site/Slate columns — the Week 1 TNF sheet failed to load on
+        # the first live slate. Same fix as ETR PGA: identity rests on the
+        # headers ETR has never renamed; the volatile ones resolve via
+        # `aliases` (first present wins), so both generations load.
         "name": "ETR NFL Showdown",
         "sport": "nfl",
         "required_columns": {
-            "name", "team", "position", "salary", "projection",
-            "cpt_salary", "cpt_projection", "cpt_own",
+            "team", "salary", "ceiling", "total_own",
+            "cpt_salary", "cpt_own",
+        },
+        "aliases": {
+            "name": ["name", "player"],
+            "position": ["position", "pos"],
+            "proj_points": ["projection", "proj"],
+            "proj_cpt": ["cpt_projection", "cpt_proj"],
         },
         "column_map": {
-            "projection": "proj_points",
             "total_own": "ownership",
             "cpt_salary": "salary_cpt",
-            "cpt_projection": "proj_cpt",
             "cpt_own": "own_cpt",
         },
+        "drop_columns": ["site", "slate"],
     },
 ]
 

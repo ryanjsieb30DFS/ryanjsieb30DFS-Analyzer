@@ -136,7 +136,8 @@ def strategy_gate(slug: str) -> dict:
         d = json.loads(p.read_text())
     except Exception:  # noqa: BLE001 — no contract → no gate
         return {"has_contract": False, "fade": {}, "underweight": {},
-                "leverage": {}, "core": {}, "chalk_pair": [], "slate": ""}
+                "leverage": {}, "core": {}, "core_groups": [], "core_need": 0,
+                "chalk_pair": [], "slate": ""}
     fade, uw = {}, {}
     for c in d.get("calls") or []:
         nm, v = c.get("name"), c.get("verdict")
@@ -157,11 +158,56 @@ def strategy_gate(slug: str) -> dict:
         if len(names) == 2:
             pair = names
             break
+    # Anchor-equivalence twins inside Core count as ONE anchor (9/10/26).
+    # The contract's `anchor_pairs` are the ownership twins the user's
+    # 4-slate-validated Anchor-Equivalence Rule is about — "if 2+ chalk-tier
+    # anchors sit at similar own, run the alternative", and the Sim already
+    # renders every such group as an "At Most 1" player-group rule. Reading
+    # the Core tier as "hold 2" when Core IS one twin pair asked for both
+    # twins in every lineup — the exact opposite of that rule — and on the
+    # first NFL Showdown slate (Nacua/McCaffrey, 65% own each, Core = the
+    # pair = the top duplicated pair) it made every pooled lineup a rule
+    # break. So Core is counted in anchor GROUPS: a lineup needs
+    # min(2, number of groups) groups represented, and one twin satisfies
+    # its group. Both twins together is still priced by the chalk-pair rule.
+    groups = _core_groups(core, d.get("anchor_pairs") or [])
     return {"has_contract": True, "fade": fade, "underweight": uw,
-            "leverage": lev, "core": core, "chalk_pair": pair,
+            "leverage": lev, "core": core, "core_groups": groups,
+            "core_need": min(2, len(groups)), "chalk_pair": pair,
             # The card this contract was written for — the override log keys
             # on it so overrides can be joined to results.jsonl by slate.
             "slate": str(d.get("slate") or "")}
+
+
+def _core_groups(core: dict, anchor_pairs: list) -> list[set]:
+    """Partition the Core tier's join keys into anchor-equivalence groups.
+    Names that share a contract `anchor_pairs` entry land in one group;
+    every other Core name is a group of its own."""
+    remaining = set(core)
+    groups: list[set] = []
+    for gr in anchor_pairs:
+        members = {_strat_norm(str(n)) for n in (gr.get("players") or []) if n}
+        hit = members & remaining
+        if len(hit) >= 2:
+            groups.append(hit)
+            remaining -= hit
+    groups += [{k} for k in sorted(remaining)]
+    return groups
+
+
+def _core_need(gate: dict) -> int:
+    core = gate.get("core") or {}
+    if "core_need" in gate:
+        return int(gate["core_need"])
+    return min(2, len(core))
+
+
+def _core_have(names: set, gate: dict) -> int:
+    """How many Core anchor GROUPS this roster represents (twins count once)."""
+    groups = gate.get("core_groups")
+    if groups is None:
+        return len(names & set(gate.get("core") or {}))
+    return sum(1 for g in groups if names & g)
 
 
 def contract_conflicts(gate: dict) -> list[str]:
@@ -195,9 +241,16 @@ def contract_conflicts(gate: dict) -> list[str]:
     # Core needs min(2, len(core)) names. When Core holds 2 or fewer, meeting
     # it means holding ALL of them — so a forbidden pair inside Core is a
     # straight contradiction. (With 3+ Core names another legal pair exists.)
-    if len(pair) == 2 and core and len(core) <= 2:
+    # 9/10/26: NOT a contradiction when the pair is an anchor-equivalence
+    # twin set — the twins share one Core slot, so "hold one twin, never
+    # both" is exactly what the contract now says (see `strategy_gate`).
+    groups = gate.get("core_groups")
+    if groups is None:
+        groups = [{k} for k in core]
+    if len(pair) == 2 and core and len(groups) <= 2:
         pair_norm = {_strat_norm(pair[0]), _strat_norm(pair[1])}
-        if pair_norm <= set(core):
+        twins = any(pair_norm <= g for g in groups)
+        if pair_norm <= set(core) and not twins:
             out.append(
                 f"the strategy names only two must-have players "
                 f"({', '.join(sorted(core.values()))}) and asks every lineup to "
@@ -295,11 +348,14 @@ def compliance(roster: list, gate: dict, relaxed: tuple = ()) -> list[str]:
                        f"{'LEAN FADE' if verdict == 'lean_fade' else 'FADE'}")
     core = gate.get("core") or {}
     if "core" not in relaxed and core:
-        need = min(2, len(core))
-        have = len(names & set(core))
+        need = _core_need(gate)
+        have = _core_have(names, gate)
         if have < need:
+            twin_note = (" (ownership twins count as one anchor)"
+                         if any(len(g) > 1 for g in gate.get("core_groups") or [])
+                         else "")
             out.append(f"has {have} Core-tier player(s), the strategy's anchors "
-                       f"— it needs {need}")
+                       f"— it needs {need}{twin_note}")
     pair = gate.get("chalk_pair") or []
     if "chalk_pair" not in relaxed and len(pair) == 2:
         if {_strat_norm(pair[0]), _strat_norm(pair[1])} <= names:
@@ -667,8 +723,14 @@ def gate_summary(gate: dict, elig: dict, pool: dict | None = None,
                      + ", ".join(sorted(nm for nm, _v in gate["fade"].values()))
                      + ")" + _price("fade"))
     if gate.get("core") and "core" not in elig.get("relaxed", []):
-        rules.append(f"at least {min(2, len(gate['core']))} Core-tier players "
-                     "(the strategy's anchors)" + _price("core"))
+        _twin_groups = [g for g in gate.get("core_groups") or [] if len(g) > 1]
+        _twin_txt = ""
+        if _twin_groups:
+            _twin_txt = (" — ownership twins count as ONE anchor: "
+                         + "; ".join(" / ".join(sorted(gate["core"][k] for k in g))
+                                     for g in _twin_groups))
+        rules.append(f"at least {_core_need(gate)} Core-tier player(s) "
+                     "(the strategy's anchors)" + _twin_txt + _price("core"))
     if len(gate.get("chalk_pair") or []) == 2 \
             and "chalk_pair" not in elig.get("relaxed", []):
         rules.append(f"never both {gate['chalk_pair'][0]} and "
