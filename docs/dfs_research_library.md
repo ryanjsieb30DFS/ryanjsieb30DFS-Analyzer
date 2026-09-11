@@ -199,6 +199,9 @@ Your autopsies already catch several of these in your own play — that loop is 
 5. **Course-history discount (golf):** treat course history in articles as an ownership signal, not a projection signal — worth ~0.1 strokes, priced like it's worth a stroke.
 6. **Rake line in contest declarations:** when declaring contests in the Analyzer, note the rake; prefer structures with 2x min-cash and 10th ≈ 10% of 1st.
 7. **R4 showdown leader discount:** leaderboard position is worth at most ~1.4 birdies of scoring — the strategy should always say plainly that Sunday's points come from birdies, not from being ahead.
+8. **Captain ownership band (NFL SD, APPLIED 9/10/26):** the pre-lock check flags any captain under 5% projected own and asks for the ceiling case in one sentence. *(ETR 2025 sim study; now in rules/nfl_sd/framework.md.)*
+9. **Script-named construction (NFL SD, APPLIED 9/10/26):** every entered lineup names its team split (5-1 / 4-2 / 3-3 / 2-4 / 1-5) and the story that split bets on; a 3-3 with no story is flagged. *(Now in rules/nfl_sd/framework.md + philosophy.md.)*
+10. **Dupe-adjusted pick (Sim tool, NFL SD):** when two candidate lineups are within ~5 points of sim ROI, prefer the one with fewer projected dupes. *(Code change; waits on NFL SD support in the Sim.)*
 
 ## Chapter 10 — Tool upgrade ideas surfaced by the research (backlog, not commitments)
 
@@ -213,6 +216,7 @@ Your autopsies already catch several of these in your own play — that loop is 
 - **Levitan's Game Selection (ETR)** — contest choice with real rake numbers. The single most actionable doc for your format.
 - **ETR Winning Milly Maker Trends** — the base rates of winning lineups (with the field-size caveat).
 - **ETR Showdown 101** — the duplication math (ownership products).
+- **ETR NFL Showdown research set (5 articles, digested 9/10/26)** — `docs/etr_research/DIGEST_2026-09-10_nfl_sd.md`: the 2025 mid-field sim study (what winning multi-entry players do, what sims can and cannot predict), the 2020–25 kicker study, and conditional stack rates for top-1% lineups.
 - **Data Golf's model methodology** — the sharpest public sports model writeup; golf evaluation truth.
 - **Haugh & Singal (Management Science) + Hunter/Vielma/Zaman (MIT)** — the academic proofs behind leverage and portfolio construction.
 - **FantasyLabs five-round UFC study** — the 80/20 five-round-dog stat.

@@ -144,7 +144,7 @@ Because CPT costs 1.5x salary for 1.5x points, the multiplier itself buys nothin
 
 Why: on every completed pass, the *catcher* scores more fantasy points than the thrower (the catcher gets the yards plus a full point for the reception; the QB gets a fraction of the yards). So the QB's own receivers systematically out-captain him. **WR and RB together are over 61% of winning captains.**
 
-**Winning captains are not obscure.** Median winning-captain ownership was ~11%, and the average winning captain cost $13,000 and scored 23.6 CPT points. You don't need a 2%-owned captain — you need the *right member of the chalk cluster* (the WR1 or RB instead of the QB). Cheap punt captains under $7,500 only won when they had genuine slate-topping ceiling (a goal-line RB, a deep-threat WR) — never as a salary trick. Kicker captains cap your ceiling; remove them from the captain pool.
+**Winning captains are not obscure.** Median winning-captain ownership was ~11%, and the average winning captain cost $13,000 and scored 23.6 CPT points. You don't need a 2%-owned captain — you need the *right member of the chalk cluster* (the WR1 or RB instead of the QB). Cheap punt captains under $7,500 only won when they had genuine slate-topping ceiling (a goal-line RB, a deep-threat WR) — never as a salary trick. Kicker captains are rare and usually cap your ceiling, but 2025 kicker scoring rose enough (win index 0.78x → 1.05x) that they are no longer an automatic remove from the captain pool.
 
 ## 2.2 Correlation rules inside one game
 
@@ -175,7 +175,7 @@ With only ~30 relevant players, the chalk build gets copied at scale. The famous
 
 **What predicts duplicates is the PRODUCT of ownerships, not the sum** (ETR regression, the best single predictor). A lineup of six 20% players dupes far more than one mixing 40% studs with a 2% punt at the same total ownership. Also: spending exactly $50,000 raises dupes; the captain's own ownership barely matters — dupes come from the whole roster.
 
-**Uniqueness levers, roughly cheapest first:** leave salary ($600–$3,000 unspent; the median WINNER left $1,400, and only 7% of winners spent the full cap — note this is the opposite of Classic); one sub-3% FLEX piece (41% of winners had one); a kicker (in 40% of winners, massively under-used); the 2-4 team split; two same-team RBs. One punt is a lever — three is a dead lineup (zero top-1% lineups carried 3+ min-priced players).
+**Uniqueness levers, roughly cheapest first:** leave salary ($600–$3,000 unspent; the median WINNER left $1,400, and only 7% of winners spent the full cap — note this is the opposite of Classic); one sub-3% FLEX piece (41% of winners had one); the 2-4 team split; two same-team RBs. *(Correction 9/10/26: a kicker used to be a blanket lever — in 40% of winners, under-used by the field — but ETR's 2025 data shows the field and DK pricing caught up; the kicker edge is now conditional on domes, close spreads, and low ownership. See `docs/etr_research/DIGEST_2026-09-10_nfl_sd.md`.)* One punt is a lever — three is a dead lineup (zero top-1% lineups carried 3+ min-priced players).
 
 **The double-QB note:** rostering BOTH quarterbacks (one or both in FLEX) is described by PFF's multi-year review as "the closest thing to a cheat code" — at least one QB appears in ~96% of top lineups, and it sidesteps the QB-captain trap while keeping full exposure. Zero-QB builds win only ~5% of the time and are a large-field-only script bet (slog/blowout).
 

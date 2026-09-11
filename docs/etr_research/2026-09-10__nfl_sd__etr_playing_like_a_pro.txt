@@ -1,0 +1,369 @@
+NFL In-Season Product Available NOW!SUBSCRIBE
+NFL Showdown: Playing Like a Pro
+CODY MAIN    //    SEP 7, 2026
+Polymarket Sign-Up Bonus: Deposit $10,get $50!
+Trade on NFL games every week on Polymarket. Sign up for Polymarket with
+code ETR for a $50 bonus when you deposit $10.
+
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 1/17
+ 
+In Part 1 of this series, we established two things: The post-lock sims are well
+calibrated at the cash-rate and top-1% level, and max-entry players
+systematically outperform every other cohort on virtually any metric we can
+measure with the post-lock sim data at our disposal. They have a higher
+average sim ROI, higher cash rate, higher top-1% rate, and higher actual ROI,
+and the gap isn’t particularly close.
+We determined in Part 1 whether the sims work and tried to understand
+where there may be flaws. In Part 2, we’re going to attempt to understand
+what the “pros” are doing so we can leverage that information in our lineup-
+building process.
+The important distinction to make here is that we aren’t going to focus on
+what or who won. The Solver’s post-lock sim data only dates back to Week 5
+of the 2025 season and gives us a 33-slate sample to draw from. While it’s a
+growing sample, it’s still too noisy to learn much from, given how much a
+single slate can distort everything. Instead, we’re going to focus on the subset
+of players who simply build better lineups than their opponents and ask what
+they’re doing differently. While single lineup decisions will be a component
+of this article, the more important question to answer is how the best players
+are thinking about constructing a portfolio of lineups with the goal of
+growing their bankroll.
+ 
+How Pros Build
+Before we get into the specifics, it’s worth repeating that this analysis is
+focused on NFL primetime showdown slates from Week 5 through the Super
+Bowl of the 2025 season, spanning 33 slates. For those 33 slates, we’ve
+gathered the post-lock sim data from The Solver for the Wildcat or Field
+Sign Up Now
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 2/17
+General contests, which are generally between 1,000 and 1,500 total entries
+with a 37-entry max per user at either a $333 or $444 buy-in.
+To highlight the skill gap we’re working with, max-entry (31+ entries in a slate)
+players averaged +12.0% sim ROI per lineup across our dataset, while players
+who submitted just a single lineup in those same contests averaged -10.5%.
+Cash rate (23.1% vs. 21.1%), top-1% rate (1.37% vs. 0.92%), and actual ROI (+8.0%
+vs. -21.6%) were just as drastic. So what are max-entry players doing at the
+lineup level that leads to such drastic differences in results?
+CPT Selection
+ 
+This isn’t our first time reviewing the proper CPT allocation. We’ve reviewed
+it over multiple seasons in lottery-style contests on DraftKings; we’ve looked
+at what top-1% finishing lineups do most often; and we’ve looked at what the
+field is doing to try and identify how we can give ourselves the biggest
+advantage at the format’s most important roster spot.
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 3/17
+Max-entry players use CPT RB in 31.1% of their lineups compared to 24.9%
+from single-entry players. Max-entry CPT RB lineups average a +8.0% sim
+ROI, CPT WR +4.5%, CPT QB -3.3%, and CPT TE -12.0%, highlighting an
+advantage gained over the field simply by dedicating a higher percentage of
+their lineups to the running back position. Additionally, max-entry players
+use CPT TE just 7.2% of the time versus 11.4% for single-entry players.
+Over the 33 slates in our sample, the actual results followed the sim’s
+expectations. Across all lineups, CPT RB averaged a +24.8% actual ROI, 24.7%
+cash rate, and 1.43% top-1% rate, while CPT TE lineups posted a -53.0% actual
+ROI. Among max-entry players only, CPT RB lineups averaged a +54.7%
+actual ROI and 1.77% top-1% rate. While those results are merely descriptive
+and can be heavily influenced by a few outcomes over a relatively small
+sample, the consistency with what was expected by the sim ROI provides
+some validation. CPT RB is more consistently assigned a positive post-lock
+sim ROI and is more frequently used by max-entry players than their lower-
+volume counterparts. So why do the sims like CPT RB?
+The answer is nuanced, but we can make some assumptions from our 33-
+slate sample without seeing a player-level distribution under the hood. Of the
+slates we tracked, running backs were the only position to outperform their
+ETR projection on average, scoring 0.2 DraftKings points more than
+projected, with a 45% beat rate, compared to wide receivers, who
+underperformed by 1.5 DraftKings points, and tight ends, who scored 3.1
+points fewer on average, beating their projection just 30% of the time. The
+implication is that RBs are more likely to beat their mean projection.
+CPT RB lineups don’t just produce a better average sim ROI; they also
+produce a better distribution of lineups. CPT RB lineups hit the Very Good
+threshold (>= 40% sim ROI) at the highest rate of any position (16.9%) and had
+the lowest Horrid rate (< -30%) at 12.9%. CPT TE, for example, hit Very Good
+just 6.1% of the time and found the Horrid bucket at a 27.8% clip.
+ 
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 4/17
+ 
+The most important finding might be the construction trigger and
+compounding effect that CPT RB funnels lineups toward. CPT RB includes
+D/ST in FLEX at the highest rate of any position (17.8%). Of course, pairing
+CPT RB with same-team D/ST naturally correlates around a specific game-
+script bet. If our RB beats his mean projection, there’s an increased chance
+the game is playing out as expected and his team’s D/ST is also scoring well.
+CPT RB also correlates with higher utilization of five-favorite, one-underdog
+constructions (19.0%) and fewer three-favorite, three-underdog (29.0%) builds,
+compared to other positions. CPT RB creates a natural pull toward
+unbalanced builds, which result in a higher average sim ROI. When you
+combine these three elements: CPT RB + same-team D/ST + 5-1 roster
+construction, average sim ROI jumps to 24.6% with a 27.5% Very Good rate
+and just a 3.5% Horrid rate.
+We know by now that max-entry players outperform single-entry players in
+every single metric. That holds true when we look at how they deploy the
+CPT position on an ownership basis. That means the ownership bucket(s)
+max-entry players most often utilize aren’t the primary driver of better
+lineups; rather, the decision-making process is better throughout the entire
+lineup.
+We did, however, find that single-entry players are over-indexing heavily in
+the sub-5% CPT ownership range (25.4% utilization vs. 16.3% for max-entry
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 5/17
+players), chasing low-owned captains with an even worse likelihood of
+achieving a slate-winning score. Max-entry players allocated their CPT
+exposure more evenly across the 5-25% implied ownership range, where the
+sim most consistently assigns a positive ROI across all cohorts. While max-
+entry players still found a positive average sim ROI (+5%) when using sub-5%-
+owned CPTs, it was the lowest average ROI among all implied ownership
+buckets. Similarly, while single-entry players posted a negative average sim
+ROI across all implied CPT ownership buckets, their best results (-3%) came
+from the 25+% range. This isn’t to suggest we shouldn’t roster a low-owned
+CPT; max-entry players allocate 16% of their portfolios to the sub-5% range
+too. We just shouldn’t solely use low ownership as a reason to play them.
+ 
+ 
+Roster Construction
+Understanding team-level roster construction has become table stakes in NFL
+showdown, to the point where we project how many players from each team
+the field will use on each slate. In our Showdown Breakdown column, you’ll
+find utilization projections for each of the possible combinations: 5 (favorites)
+– 1 (underdog), 4-2, 3-3, 2-4, and 1-5. Each construction represents an implied
+bet on how the game is going to play out. 5-1 suggests the favorite will
+dominate, 3-3 might assume a more back-and-forth affair, and 1-5 paints a
+picture of an underdog not only covering the spread but winning outright.
+Based on the 33-slate sample we have from last season, the sim’s verdict on 3-
+3 roster construction is fairly clear, owning the lowest average sim ROI (-4.9%)
+of any roster construction, and yet single-entry players utilized it at a 38.0%
+clip versus 26.8% for max-entry players. I don’t think that gap is a
+coincidence, but instead a difference in each cohort’s understanding of
+game-script uncertainty.
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 6/17
+3-3 builds become a low-conviction default for users submitting single
+lineups as a means to structure a lineup around a balanced game script that
+doesn’t properly account for the inherently volatile outcomes in a single NFL
+game. That doesn’t mean max-entry players are avoiding 3-3 builds entirely
+either, but they are more willing than single-entry users to play for outcomes
+that attempt to capture the necessary real-life right-tail outcomes required to
+climb DFS leaderboards.
+Max-entry players used 5-1 roster constructions (20.6%) far more than single-
+entry players (11.9%), averaging a +20.2% sim ROI, a 24.2% Very Good rate, and
+just a 5.2% Horrid rate. These lineups are often structured around a coherent
+game script that positions them to succeed when that game script comes to
+fruition and fail when it doesn’t. An even more drastic example of this is the
+opposite construction: max-entry players deploying 1-5 builds at an 8.5% clip
+vs. 3.3% for single-entry players. It’s the type of low-probability bet that can
+produce asymmetric upside when it hits, fitting into Drew Dinkmeyer’s old
+adage of “what do you win, when you win?”
+ 
+ 
+ 
+DST/K In FLEX
+Look, I’m like most of you; I want to root for receptions, yards, and
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 7/17
+touchdowns in primetime island games. Watching a 9-3 Jets vs. Browns
+showdown snoozer isn’t my Thursday night cup of tea. It’s clear, however,
+that there is a distinct behavioral gap between single-entry and max-entry
+players that follows that exact logic. 
+ 
+Single-entry players run no D/ST or K in FLEX in 53.9% of their lineups,
+producing a -17.2% average sim ROI and -32% actual ROI. Max-entry players
+deploy lineups with no D/ST or K in just 32.7% of their lineups, but even
+those versions are better positioned for success (+5.6% sim ROI). It is still their
+weakest lineup configuration by a wide margin, even if overall structure and
+decision-making make this subset a +EV bet on average.
+The decisions are even more pronounced when looking at just lineups that
+include both D/ST and K, with max-entry players using this construction in
+20.5% of their lineups for an average +16.9% sim ROI and 1.87% top-1% rate
+compared to single-entry players who use this build in just 8.6% of their
+lineups. For the same reasons single-entry players over-index on 3-3 builds,
+double D/ST and K builds get overlooked because it forces conviction on a
+specific game script that most users hand-building a single lineup aren’t
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 8/17
+willing to commit to.
+This isn’t to suggest all lineups should contain a kicker, D/ST, or multiples of
+either, but before submitting any showdown lineups, it’s worth asking
+yourself whether rostering six skill players is a deliberate decision you want
+to make or whether it’s a default you landed on, because the sim is often
+going to penalize it.
+ 
+ 
+Dupe Counts
+It’s worth being honest about what we can and can’t control pre-lock,
+particularly regarding projected duplicates. The best pre-lock predictors of
+dupe count are still variables that have an overall weak correlation to actual
+dupes, but using them along with the displayed dupe count in The Solver’s
+sims can help paint a picture of how often we should expect other users to
+play any given lineup.
+Product ownership, the measurement that multiplies the ownership of every
+player in the lineup, correlated with dupe count at r = +0.430; cumulative
+ownership, the sum of all players’ ownership, at r = +0.390; and relative
+projection, how close the lineup’s total ETR projection is to the theoretical
+maximum for a given slate, at r = +0.384.
+The logic between all three is fairly similar: Lineups get duplicated because
+multiple players using the same projection systems arrive at the same players
+or lineups, and highly-projected lineups are likelier to feature highly-owned
+players that will converge with the rest of the field.
+ 
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 9/17
+ 
+Using the relative projection percentile and projected cumulative ownership,
+we can get a reasonable gauge of how popular a given lineup might be. A
+lineup with 200+% cumulative ownership that projects in the top 1% of the
+slate averaged 15 dupes in this dataset, with a 90th-percentile outcome of 42.
+For comparison, a lineup in the top 2-5% and 180-200% cumulative
+ownership averages four dupes and a 90th-percentile outcome of 11. Max-
+entry players assign 53.7% of their lineups to the 90-95% of slate-max
+projection range vs. 41.8% for single-entry users, where the sim still provides a
+strong positive ROI without running into the same dupe effects that higher-
+projecting lineups face.
+ 
+ 
+How Pros Diversify
+The goal of this article isn’t to convince you to enter 44 lineups in the $333
+Wildcat because we know what max-entry players are doing. Not everyone
+has the bankroll for that. The point is that the players who consistently grow
+their bankrolls in these contests aren’t just doing it through better individual
+lineup decisions; they’re also thinking about their entries as an entire
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 10/17
+portfolio. Whether you’re entering three lineups or 44, or considering a
+different contest entirely, the same portfolio logic applies, even if you have
+fewer bullets or less money in play. 
+A reminder: We defined “pros” as players who entered at least 75% of the
+contest maximum on 10 or more slates across the 2025 season that we have
+data for. This gave us consistent, high-volume participation to analyze in an
+11-player cohort.
+Nine of the 11 players were profitable over a 33-slate sample, a meaningful
+number given that only 14% of all qualified users in our dataset made money.
+One of the two max-entry users who did not make money during this 33-
+slate sample averaged the highest sim ROI of any user in the dataset at
++24.9%, a harsh reality check that even if you’re building better individual
+lineups than the rest of the field, there is no guarantee of actual profit,
+particularly in what is still a relatively small sample.
+ 
+ 
+What the Portfolio Actually Looks Like
+ 
+ 
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 11/17
+Across the 11 users we tracked, the season-long portfolio had a few defining
+characteristics that we can apply to our allocations.
+The sim ROI distribution shows that about 19% of these users’ lineups
+qualified as Very Good (>= 40% sim ROI), another 25% are Solid (10-40%), and
+only 7% qualified as Horrid (< -30%), while single-entry users submitted
+Horrid lineups at a 28% clip. The goal wasn’t to only submit the very best
+lineups but rather to find a group of lineups that were not bad.
+A similar logic can be applied to game-script construction. Max-entry players
+used 5-1 at 21%, 4-2 at 26%, 3-3 at 27%, 2-4 at 18%, and 1-5 at 8%. They weren’t
+over-indexing on a specific game script, but instead covering the full
+distribution of how games can actually play out. Even their usage of 3-3
+construction shows they aren’t avoiding particular builds.
+ 
+ 
+One of the most common portfolio-driven questions I get is “how many
+captains should I play in ‘X’ contest?” and it often elicits a non-answer that
+asks the inquirer to consider their own risk tolerance, level of conviction, etc.
+But analyzing max-entry players’ CPT portfolio in the Wildcat may provide
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 12/17
+better insight into how these players think through this question. From the
+33-slate sample we looked at, max-entry players averaged 8.7 unique CPT
+players per slate across their portfolio, ranging from 6.9 to 11.4 per user. On
+average, the most-owned CPT received 33% exposure, second-most-owned
+CPT 22%, third 15%, fourth 10%, fifth 7%, sixth 5%, seventh 4%, and eighth 3%. 
+ 
+ 
+A common belief is that high-volume players are constantly taking aggressive
+stands against the field by fading chalk and loading up on low-owned dart
+throws as a means to ladder up DFS leaderboards, and they’re able to do so
+because they have more bullets and a bigger bankroll to take extremely
+leveraged positions.
+We measured leverage by comparing each max-entry user’s personal
+exposure to each FLEX spot against that FLEX spot’s actual ownership in the
+contest. A FLEX player who is owned by 40% of the field and appears in 60%
+of a max-entry user’s portfolio represents a 1.5x positive leverage play. The
+same player at 20% exposure in their portfolio would represent a 0.5x
+negative leverage position.
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 13/17
+From the chart above, we can see that 40.5% of all FLEX roster spots fell
+within the 0.75-1.25x range, meaning that a FLEX player who was owned by
+40% of the field was owned by max-entry users somewhere between 30% and
+50%. The vast majority of their FLEX decisions were not full fades or massive
+overweight positions.
+ 
+This chart depicts a similar story, showing the median personal exposure by
+max-entry users, bucketed by each FLEX player’s actual ownership across the
+entire field. The red dashed line shows a neutral position relative to the field;
+anywhere the green bar sits above the red line indicates a spot where the
+max-entry users are overweight, and anywhere below the red line is
+underweight.
+We can see that max-entry users are willing to take more shots on sub-5%-
+owned FLEX players, rostering them at a 4% clip, representing a +1.85x
+leveraged position against the field, and modestly underweight FLEX options
+that land in the 5-10% range, where players may not be low-owned enough to
+justify the drop in projection and too owned to meaningfully improve the
+reduction in projected dupes.
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 14/17
+ 
+Putting It Together
+The skill gap between max-entry and single-entry players in these contests
+can’t be summarized by a single thing; instead, it’s a collection of small
+construction advantages that accumulate across all lineups and dozens of
+separate slates, resulting in an edge that consistently allows them to
+maximize bankroll growth. When these decisions are compounded, they
+produce a +12.0% average sim ROI for max-entry users vs. -10.5% for their
+single-entry peers.
+Though we may not be able to replicate their success at the same stakes, we
+can apply many of these findings in other contests to increase our expected
+value. Some practical questions we can ask ourselves before we submit a
+single lineup or a full portfolio: Would a max-entry player recognize why this
+lineup is built this way? Is there a clear game-script decision behind the CPT
+choice? Does the roster construction of this lineup match the bet I’m making
+on the game? Is there a D/ST or K in FLEX, or is it missing for a reason? Is the
+fantasy-point projection of this lineup competitive without being amongst
+the most obvious builds on the slate? Am I aware of where my CPT and FLEX
+positions stand relative to projected field ownership, and are those positions
+intentional?
+We can’t guarantee profit, but if we’re able to answer these questions each
+slate, we’re building in a way that aligns with the way the best players build,
+and just maybe our post-lock expectations will be closer to +12% than -10% as
+a result.
+In-Season Package, Showdown
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 15/17
+SUBSCRIPTIONS
+NFL Products
+NBA Products
+Golf Products
+The Solver
+ARTICLES
+NFL Content Schedule
+Silva’s Matchups
+Best Ball
+Free Podcasts
+DFS
+Projections
+Strategy
+DFS Optimizer
+Simulations
+ETR TEAM
+About
+YouTube
+Discord
+Twitter
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 16/17
+Gambling problem? Call 1-800-GAMBLER (NJ/PA/IL), 1-800-9-WITH-IT (IN only), 1-800-
+BETS-OFF (IA only), 1-800-522-4700 (CO Only), TN REDLINE: 800-889-9789 or 1-888-532-
+3500 (VA only).
+© 2024 Establish the Run. All rights reserved. Privacy Policy | Terms of Service
+9/10/26, 9:26 PM NFL Showdown: Playing Like a Pro | Establish The Run
+https://establishtherun.com/nﬂ-showdown-playing-like-a-pro/ 17/17

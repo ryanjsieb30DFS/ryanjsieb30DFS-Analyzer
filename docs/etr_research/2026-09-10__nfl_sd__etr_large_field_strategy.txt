@@ -1,0 +1,317 @@
+NFL In-Season Product Available NOW!SUBSCRIBE
+NFL Showdown Large-Field
+Tournament Strategy
+CODY MAIN    //    SEP 5, 2025
+Polymarket Sign-Up Bonus: Deposit $10,get $50!
+
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 1/17
+ 
+As our opponents continue to evolve and the available information improves,
+I believe one of the biggest remaining edges in NFL showdown is properly
+constructing lineups to maximize correlation while still mitigating the
+likelihood that those lineups are heavily duplicated by the field. To start
+establishing optimal roster construction theories, we can use years’ worth of
+primetime showdown data as our guiding light. Of course, past production
+DOES NOT equal future success, but it is, at minimum, a worthy thought
+exercise and can potentially play a major role in our decision-making process
+on future showdown slates.
+Carrying a 1.5x salary and DraftKings point multiplier, pinpointing the
+optimal CPT is a necessity for showdown profitability. For this exercise, let’s
+assume we’ve already correctly identified the slate-winning CPT and move
+down to our remaining five FLEX positions to appropriately build out the
+rest of this lineup. The data above, taken from the past three seasons’ worth
+Trade on NFL games every week on Polymarket. Sign up for Polymarket with
+code ETR for a $50 bonus when you deposit $10.
+Sign Up Now
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 2/17
+of primetime showdown slates, is for top-1% finishing lineups in the large-
+field GPP on DraftKings. This particular heat map shows that if a QB is
+rostered at CPT, he’s paired with 1.82 WR/TE from his own team and 1.07
+WR/TE from the opposing team, on average. Let’s dive in further:
+ 
+CPT QBs are paired with exactly (2) same-team WR/TE in 46.3% of top-
+1% finishing lineups
+CPT QBs are paired with exactly (3) same-team WR/TE in 18.9% of top-
+1% finishing lineups
+CPT QBs are paired with exactly (1) same-team WR/TE in 28.9% of top-
+1% finishing lineups
+CPT QBs are paired with exactly (0) same-team WR/TE in 5.1% of top-
+1% finishing lineups
+Ultimately, the most common winning CPT QB stack is also the most
+intuitive one. IF a QB is going to finish as the slate’s top overall scorer, THEN
+he’s likely supporting multiple pass catchers. Our baseline for CPT QB
+lineups should default to pairing him with at least (2) WR/TE teammates and
+adjust on a slate-by-slate basis as needed.
+Massaging rules to fit slate context is important, to avoid grouping ourselves
+out of quality lineups. QBs who derive at least some of their value on the
+ground can be more profitably single stacked or in rare instances played
+unstacked entirely. There were (8) QBs last season who appeared in at least 10
+games and had a rushing share north of 20.0%. These types have more outs to
+slate-winning fantasy production while supporting fewer pass catchers.
+Given DraftKings’ full-point PPR format with 100-yard bonuses, if a winning
+lineup features a quarterback and just one wide receiver, it’s more likely we
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 3/17
+find the WR to be the optimal CPT while his QB fills a FLEX spot. However,
+instances where a CPT QB is optimal with just (1) WR are quite common,
+even for those QBs who lack rushing upside. This can occur even when a QB
+scores fewer points than his WR if he’s the cheaper of the two, if the
+remaining pass-catching production is evenly distributed behind the top-
+scoring WR, or if the combined WR salaries don’t allow for two of them to be
+rostered together.
+ 
+CPT QBs are paired with exactly (1) same-team RB in 44.0% of top-1%
+finishing lineups
+While some more so than others, we know running backs are positively
+correlated with their quarterbacks and can conclude that a slate-winning
+performance from a QB likely means his offense was productive as a whole.
+ 
+CPT QBs are paired with exactly (1) opposing WR/TE in 54.4% of top-1%
+finishing lineups
+CPT QBs are paired with exactly (2) opposing WR/TE in 23.5% of top-1%
+finishing lineups 
+Another traditional and widely accepted main-slate stacking strategy, the
+pass-catching ‘bring-back’ from the opposing team has been profitable in
+single-game slates as well. 79.7% of all top-1% finishing lineups that roster a
+CPT QB have been paired with at least one WR/TE from the opponent.
+While still not a rigid rule that needs to be enforced, we should often default
+to rostering a bring-back in our CPT QB lineups.
+ 
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 4/17
+CPT QBs are paired with the kicker from their team more often (21.5%)
+than they’re paired with an opposing kicker (17.5%)
+The data suggests pairing a CPT QB with his kicker is better than an opposing
+kicker when presented with those two options. For some of the same reasons
+we would expect skill-position players to outscore baseline expectations if
+their QB is having a captain-worthy performance, a kicker would benefit
+from additional scoring opportunities.
+CPT RBs are paired with their QB in 60.8% of top-1% finishing lineups
+CPT RBs are paired with exactly (0) same-team WR/TE in 16.7% of top-
+1% finishing lineups
+CPT RBs are paired with exactly (1) same-team WR/TE in 55.4% of top-
+1% finishing lineups
+CPT RBs are paired with exactly (2) same-team WR/TE in 24.6% of top-
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 5/17
+1% finishing lineups
+No surprises here as we see double WR/TE in FLEX drop from 49.4% with a
+CPT QB to just 27.7% when an RB is rostered in that position and (3) WR/TE
+drops from 17.8% to a nearly invisible 3.0%. An ‘at most (2) same-team WR/TE IF
+CPT RB’ rule is acceptable with an ability to adjust when slate-specific
+dynamics call for it.
+ 
+CPT RBs are rostered as part of 3-3 (3 same team – 3 opponent) lineups
+in 36.3% of top-1% finishing lineups
+CPT RBs are rostered as part of 4-2 (4 same team – 2 opponent) lineups
+in 34.2% of top-1% finishing lineups 
+ 
+CPT WRs are paired with (0) same-team WR/TE in 38.1% of top-1%
+finishing lineups
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 6/17
+CPT WRs are paired with (1) same-team WR/TE in 50.4% of top-1%
+finishing lineups
+Just 9.2% of the time will you find a top-1% finishing lineup that has a CPT WR
+and two or more pass catchers from his own team in FLEX positions. Most
+often, we should be implementing an ‘IF CPT WR, at most (1) same-team
+WR/TE’ rule to avoid cannibalizing the upside of our captain selection.
+Should we find ourselves landing on lineups that include a CPT WR with
+multiple pass catchers from his own team, the prudent move may be to
+change our captain to that team’s QB to fully capture the passing attack’s
+upside.
+ 
+CPT WRs are paired with at least (1) opposing WR/TE in 83.7% of top-1%
+finishing lineups
+To an even higher degree than CPT QBs, pass-catching bring-backs from the
+opposing team in CPT WR lineups are frequent. 54.4% of the time, they
+include just a single bring-back.
+ 
+CPT WRs are rostered without their QB in 13.9% of top-1% finishing
+lineups
+We know that historically, it’s taken an average of 22.4 DraftKings points,
+before the 1.5x multiplier, for a WR to finish as the CPT in top-1% finishing
+lineups. How, then, is it possible for QBs to fall short of those lineups so
+frequently? The most obvious example is when a single WR soaks up a vast
+majority of the team’s pass-catching production while his QB struggles to
+produce fantasy points elsewhere. This will occur most often with high-
+volume, low-aDOT receivers whose production is elevated by DraftKings’
+scoring system.
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 7/17
+Salary constraints are another driver of the unstacked CPT WR success rate.
+Historically, the average salary, after the 1.5x multiplier, of a CPT WR in top-
+1% lineups is $12,550. We also know that the average salary for a starting QB is
+$10,647. With at least (1) QB appearing in 92.5% of ALL top-1% lineups, we can
+confidently assume most winning lineups will feature at least one of the two
+playable options. However, if the opposing QB matches or exceeds the
+fantasy production of the wide receiver’s quarterback, it can quickly become
+difficult to find the salary needed to play all three. In these instances, we’ll
+find the opposing QB in winning lineups.
+In order to maximize our win potential in naked CPT WR lineups, it makes
+sense to a) prioritize the opposing team’s QB and b) mute the need to play
+the same-team WR/TE in FLEX.
+CPT TEs are paired with their QB in 89.4% of top-1% finishing lineups
+CPT TEs are paired with exactly (1) same-team WR/TE in 58.4% of top-
+1% finishing lineups
+The TE position can largely be treated similarly to their WR peers with the
+exception of a few who break the traditional tight end mold. The biggest —
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 8/17
+and I use that term loosely — differences here include a slightly higher
+correlation with their QB when compared to CPT WR, mostly as a result of
+TEs finding a ceiling via touchdowns instead of volume. Touchdown scoring
+being a huge driver of their fantasy production also means more
+opportunities for fellow pass catchers to rack up PPR-friendly production,
+making them more likely to be rostered alongside a CPT TE than we’d expect
+for a CPT WR.
+ 
+Let’s shift gears from optimally building around our preferred CPT to
+optimally building around a preferred outcome. Onslaught lineups, as I’ll
+refer to them, include five players from one team with just one player from
+the opposing team. A possible way to build for blowouts or just lopsided
+fantasy production, onslaughts are generally less utilized than more balanced
+roster constructions and, at least in my opinion, have relatively
+straightforward paths to climbing leaderboards when we’re right, and we can
+start by knocking out the bring-back from the opposing side.
+ 
+50.1% of top-1% finishing onslaught lineups use a WR/TE from the
+opposing team
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 9/17
+94.7% of top-1% finishing onslaught lineups use a CPT from the
+onslaught (5) side
+Pretty straightforward, right? We most likely want to be considering a pass
+catcher or the occasional running back to fill out the opposing side of our
+onslaught and we DO NOT want to roster them at CPT. While fully
+understanding exceptions exist, we almost always want our CPT to come
+from the onslaught side, as a bet on 5-1 winning is a bet on lopsided
+outcomes. 
+ 
+Now on to the other side of the ball:
+ 
+95.1% of top-1% finishing onslaught lineups use the QB from the
+onslaught side
+28.3% of top-1% finishing onslaught lineups use CPT QB from the
+onslaught side
+47.3% of top-1% finishing onslaught lineups use exactly (2) WR/TE from
+the onslaught side
+67.8% of top-1% finishing onslaught lineups use exactly (1) RB from the
+onslaught side
+58.4% of top-1% finishing onslaught lineups use the D/ST from the
+onslaught side
+We should almost always be including the QB from the onslaught side in our
+5-1 lineups. If one team produces enough DraftKings points to propel this
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 10/17
+many players into a winning lineup, it’s extremely likely the QB scored
+enough raw points to also be in that group. Additionally, they’re the most
+likely CPT in 5-1 constructions (28.4%) just ahead of WR (28.3%), RB (21.9%),
+and D/ST (13.6%).
+While CPT D/ST only appears in 3.3% of all other top-1% finishing lineup
+constructions (2-4, 3-3, 4-2), they force their way into a rather impressive
+13.6% of top-1% finishing 5-1 and 1-5 lineups. If an offense is going to support
+(4) skill-position players and limit the opposition to (1) FLEX-worthy
+performance, it’s possible the salary relief earned from rostering the
+onslaught D/ST at CPT is deserving of our consideration (ducks).
+ 
+ 
+77.1% of top-1% finishing lineups roster a CPT from the (4) side in 4-2/2-
+4 roster construction
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 11/17
+Not quite as drastic as the 94.7% in the 5-1/1-5 lineups discussed above, but the
+same general thesis holds true in 2-4/4-2 roster constructions as well. Of
+course, it’s possible a WR or RB from the opposing team separates in a big
+enough way to finish as the optimal CPT, but it’s much more likely that our
+CPT comes from the side we’re heavier on in these types of unbalanced
+builds.
+ 
+69.4% of top-1% finishing 4-2/2-4 lineups use exactly (1) WR/TE from
+the opposing team
+10.4% of top-1% finishing 4-2/2-4 lineups use exactly (2) WR/TE from
+the opposing team
+43.2% of top-1% finishing 4-2/2-4 lineups use exactly (1) RB from the
+opposing team
+Not unlike the 5-1/1-5 roster construction, the most common bring-back
+from the opposing side of a 4-2 lineup will be a skill-position player who
+doesn’t rely on the overall success of his offense to produce fantasy points.
+We should infrequently be considering opposing D/ST (4.4%) and/or
+opposing kicker (11.4%) as pieces of the two-player bring-back in these
+lineups.
+ 
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 12/17
+Above, we stressed how important it is to relax our rules based on slate-
+specific context. Last season, there were (8) QBs with at least a 20.0% share of
+their team’s rushing attempts, presenting us with at least a handful of signal-
+callers who can provide fantasy upside with more than just their arm. For
+QBs that fit this archetype, we see the frequency of them being rostered
+unstacked at CPT increase to 11.6% vs. just 5.6% for their pocket-passing
+counterparts. While single- and double-stack success rate remains largely
+unchanged, we also witness fewer successful triple stacks (11.6%) vs. 17.8% for
+QBs with a sub-20% rush share.
+ 
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 13/17
+Many showdown correlations are neat and easily explainable, like CPT QB +
+FLEX WR/TE, but when we get to D/ST and kicker, lines are blurred, and
+figuring out how to best build lineups with these positions in them becomes
+more difficult. While there is no one-size-fits-all solution, we can try and
+avoid common mistakes to maximize our upside when these positions do
+find their way into winning lineups.
+ 
+D/STs are paired with 3.14 teammates on average 
+D/STs are paired with exactly (3) teammates in 39.3% of top-1% finishing
+lineups
+D/STs are paired with exactly (4) teammates in 39.9% of top-1% finishing
+lineups
+Beyond the clear confirmation that D/STs should not be used as the lone
+bring-back in 5-1 lineups (0.4%), we can see that even as part of the two-player
+side in 4-2 lineups (4.0%), opposing D/STs struggle to find winning lineups. In
+fact, 79.2% of all top-1% finishing lineups that feature a D/ST pair the defense
+with at least three additional teammates.
+ 
+Future Analysis
+Going forward, I hope to maintain this column as an ever-updating
+repository of sorts that we can all use on Thursday, Sunday, and Monday
+nights when crafting unblemished showdown lineups. In turn, I’ll need your
+help to let me know what I’ve missed and what additional information could
+be added to further improve our chances of climbing primetime
+leaderboards.
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 14/17
+Bryce Young, Carolina Panthers, DraftKings, FanDuel, DFS Strategy, In-
+Season Package, Showdown
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 15/17
+SUBSCRIPTIONS
+NFL Products
+NBA Products
+Golf Products
+The Solver
+ARTICLES
+NFL Content Schedule
+Silva’s Matchups
+Best Ball
+Free Podcasts
+DFS
+Projections
+Strategy
+DFS Optimizer
+Simulations
+ETR TEAM
+About
+YouTube
+Discord
+Twitter
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 16/17
+Gambling problem? Call 1-800-GAMBLER (NJ/PA/IL), 1-800-9-WITH-IT (IN only), 1-800-
+BETS-OFF (IA only), 1-800-522-4700 (CO Only), TN REDLINE: 800-889-9789 or 1-888-532-
+3500 (VA only).
+© 2024 Establish the Run. All rights reserved. Privacy Policy | Terms of Service
+9/10/26, 9:25 PM NFL Showdown Large-Field Tournament Strategy | Establish The Run
+https://establishtherun.com/nﬂ-showdown-large-ﬁeld-tournament-strategy/ 17/17

@@ -1,0 +1,331 @@
+NFL In-Season Product Available NOW!SUBSCRIBE
+NFL Showdown DFS: What Are the
+Sims Saying?
+CODY MAIN    //    SEP 4, 2026
+Polymarket Sign-Up Bonus: Deposit $10,get $50!
+Trade on NFL games every week on Polymarket. Sign up for Polymarket with
+code ETR for a $50 bonus when you deposit $10.
+
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 1/16
+ 
+Earlier this offseason, Mike Leone published a data-driven piece on The
+Solver’s NFL Classic sims, providing a meticulous deep dive into whether the
+post-lock simulations actually predict real-world outcomes. Using two
+seasons’ worth of Game Changer data, Leone found that the sims were well-
+calibrated; lineups that sim positively at lock cash more often, finish in the
+top 10 more often, and produce better actual ROI than their negatively-
+simming counterparts. Leone was able to separate the signal from DFS noise
+and find actionable takeaways from the post-lock sims that we can all apply in
+our pre-lock lineup construction process.
+I entered the doldrums of the NFL offseason with a similar goal, applied to a
+much different dataset. The question was simple: Do the sims work the same
+way in NFL showdown as they do in classic?
+To find out, I gathered all available post-lock sims data from The Solver’s
+showdown contests, specifically focused on both the Wildcat ($333 buy-in)
+and Field General ($444 buy-in), for every week we had that data and ETR
+projection data. The resulting dataset: 49,146 total lineups across 33 different
+slates, from Week 5 through the Super Bowl. For every lineup reviewed, we
+can see all of the relevant post-lock sim data (ROI, cash rate, top-1% rate, etc.),
+along with the actual contest result (lineup rank, money won) and a full
+construction breakdown (CPT position, roster construction, salary used,
+duplicates, projected ownership, etc.) thanks to the ETR projection data. 
+There are a few important distinctions worth pointing out: While this dataset
+covers 33 different slates, that is still a remarkably small sample. Additionally,
+this is a very different contest than the one Leone covered, featuring a larger
+field, lower buy-in, and multi-entry vs. single-entry status. Some of the things
+Leone unearthed through his review of the classic post-lock sims will hold up
+for showdown, and others won’t. We’ll start by asking whether the sims are
+actually calibrated, what that means for our bankroll, and wrap up by
+Sign Up Now
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 2/16
+identifying practical construction principles we can apply once the 2026
+season gets underway. 
+Before we dive specifically into our showdown post-lock sims, it’s important
+to review Leone’s article to understand what our sims do and don’t account
+for. With that serving as a baseline for our analysis, let’s start by determining
+whether or not the sims correctly distribute the cash probability across
+individual lineups. If the sims say a lineup has a 30% cash rate, does that
+lineup actually cash more often than one the sims have at 15%?
+We bucketed all 49,146 lineups by their sim cash rate and compared it to how
+often lineups in that bucket actually cashed:
+ 
+ 
+As predicted cash rate increased, actual cash rate increased as well. For
+example, lineups in the 18-21% sim cash rate bucket cashed 20.8% of the time,
+while lineups that were predicted to cash at a 30+% clip cashed 31.1% of the
+time. The sims’ cash rate is a reliable signal; a lineup predicted to cash more
+often than another lineup does, in fact, cash more often.
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 3/16
+ 
+ 
+Do the Sims Pick Winners?
+A well-calibrated cash rate is great, but for those playing top-heavy GPP
+contests, squeaking inside the cash line isn’t the primary objective. The most
+intuitive way to evaluate whether or not the sims have any predictive power is
+to look at winning lineups and ask: How did they sim?
+Leone found that 65.7% of Game Changer winners had a positive sim ROI,
+well above the 40% of overall lineups that simmed positively in those
+contests. Our showdown data tells a different story: Of the 33 contest winners
+in our dataset, just 13 (39.4%) had a positive sim ROI at lock, below the 50.5%
+of all lineups that simmed positively overall.
+It is important to reiterate that there are significant differences between the
+contest Leone studied and this one. The Game Changer is a single-entry
+contest, where every user built one lineup. Our Wildcat and Field General
+database is for multi-entry contests, where 16 of the 33 aforementioned
+winners (48.5%) were players who entered the maximum number of lineups
+allowed in that contest. When high-volume players are submitting a diverse
+portfolio of lineups, it’s likelier that a poorly simming lineup emerges as a
+potential winner.
+ 
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 4/16
+ 
+As you can see, winners aren’t clustered in the upper-right quadrant quite like
+they are in the Game Changer, and there are negatively-simming winners
+across every cash-rate bucket. A few things are working against the sim here:
+larger fields, multi-entry format, the inherent variance of a single-game slate,
+and the small-sample nature of the data we’ve collected. Negatively-simming
+lineups win more often than might be expected, and a portion of those come
+from high-volume players who were more likely to have a winning lineup in
+their portfolio, regardless of individual lineup quality. This, by itself, doesn’t
+mean the sim is useless; we’ve already determined that there is signal in the
+cash-rate calibration. But the charted winners across this 33-slate sample do
+provide a useful reality check on what the sims can tell us in this format. 
+That all felt pretty doomsday-ish as I was typing it: “Sorry, single-game slates
+are highly volatile, high-volume players are likelier to have a winning lineup
+in their MME portfolio, and lineups that the sims think are ‘bad’ at lock win
+more often than we expect them to.” 
+If we zoom out from first place, the picture changes considerably. Rather
+than just looking at winning lineups from each contest, let’s look at the top-10
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 5/16
+finishers across our 33 slates, 375 lineups in total. This gives us both a larger
+sample of top-finishing lineups and a more meaningful test of what the sims
+are actually trying to accomplish. It isn’t claiming to tell us which single
+lineup will win a given week, but rather which lineups have the best
+probability in a top-prize-paying position. Winning a 1,500-person
+showdown contest still requires a huge amount of positive variance that is
+tough to reliably predict, especially over such a small sample. But
+consistently finishing in the top 10, for example, provides a better proxy.
+ 
+ 
+The top-10 chart still has its fair share of negatively-simming lineups,
+clustered in the lower-left quadrant, but of the 375 top-10 lineups in this
+dataset, 222 (59.2%) had a positive sim ROI at lock, compared to 50.5% of all
+lineups in the field. A positively-simming lineup was 1.17x more likely to
+finish in the top 10 than you’d expect by chance, while negatively-simming
+lineups were 0.82x as likely. The average sim ROI of top-10 finishers was
++6.7%, more than five percentage points above the field average of 1.5%. The
+sims still struggle to identify exactly which lineup will win on any given
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 6/16
+showdown slate, but it is providing signal on the pool of lineups more likely
+to finish where the real money is.
+ 
+ 
+Sim ROI: Signal, Noise, and Dupes
+We’ve already found that the cash-rate calibration shows that the sim reliably
+separates good lineups from bad ones, and the top-10 rate shows that the sim
+is correctly identifying lineups that have a chance to finish near the top of
+GPP leaderboards. However, we still need to explore the relationship between
+sim ROI and actual ROI and finally touch on the dupe discussion.
+ 
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 7/16
+ 
+We bucketed all 49,031 lineups into eight sim ROI ranges and measured three
+things: actual ROI, cash rate, and dupe count. Each chart deserves an
+explanation, and while the findings aren’t nearly as clean as we may expect,
+the takeaways are the most actionable pieces of information from this entire
+article.
+The actual ROI chart isn’t the clean staircase you’d expect. The worst lineups
+according to the post-lock sims are, however, the worst at realizing a positive
+ROI. Lineups with a -40% or worse post-lock sim ROI posted a -42.0% actual
+ROI, the worst among all cohorts, while the bucket from -40 to -25% wasn’t
+far behind, checking in with a -24.7% actual ROI. Additionally, the best
+lineups, those in the 40+% sim ROI group, yielded positive results, averaging
+an 11.0% actual ROI. With nothing else, this would paint a pretty clear picture:
+The worst lineups at lock were the least likely to yield profitable results, and
+the best lineups at lock were. The middle of the distribution, though, raises
+some eyebrows, with the -25 to -10% bucket outperforming every positive
+post-lock sim bucket with a 13.8% actual ROI, while every bucket from 0-10%,
+10-25%, and 25-40% all produced a negative actual ROI. While Leone found
+similar variance in these ‘middle’ buckets in classic, the effect is even more
+pronounced in showdown.
+In the second section of the chart, we can see that cash rate and top-1% finish
+rate by sim ROI tell a cleaner story. Cash rate rises fairly consistently from
+the 16.1% in the worst bucket to 24.9% in the 25-40% bucket, while top-1% rate
+is directionally correct at both extremes as well, checking in at 0.57% in the <=
+-40% bucket and 1.41% in the >= 40% bucket. So, if the sim is largely doing its
+job, why the actual ROI dip in the middle buckets that we should expect to
+outperform their worse-simming counterparts?
+The final section highlights average duplicate count for each sim ROI bucket,
+starting at 1.79 average dupes in the <= -40% range, climbing to a peak of 4.73
+in the 0-10% bucket, before leveling off in the >= 40% bucket at 3.89 average
+dupes. This intuitively makes sense for two reasons: The field is identifying
+theoretically sound lineups that are more likely to sim well and playing them
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 8/16
+at a higher rate, and lineups that sim well pre-lock are also more likely to be
+played by those of us deploying the sims. As we know, when duped lineups
+finish in the money, winnings are split amongst all lineups, suppressing the
+actual ROI of that lineup. 
+We can try to quantify just how much the ROI is suppressed. Among the
+lineups that actually cashed in the contest, unique entries averaged $1,826 in
+winnings, for a 396% ROI. Lineups that were deemed “heavily duplicated” (>=
+11x) that cashed averaged just $976 in winnings for a 156% ROI, good for a 60%
+haircut on actual return simply for being duplicated. 
+ 
+ 
+When we split the sim ROI buckets further down into low dupe (1-2), mid
+dupe (3-5), and high dupe (6+), we can see consistent examples of low-dupe
+lineups outperforming their higher-duped counterparts in actual ROI. No
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 9/16
+better example than the >= 40% sim ROI bucket, where low-dupe lineups
+posted a 19.5% actual ROI compared to -30% for lineups that were duped at
+least 6x.
+It is worth noting that the small 33-slate sample isn’t free from some noise
+here, specifically in the -40 to -25% sim ROI bucket where high-dupe lineups
+posted a 50% actual ROI. That return is driven by a few lineups, most notably
+a seven-dupe lineup in Week 18 that actually shipped the slate for an 8,373%
+ROI. However, 76% of the lineups in the entire dataset from this bucket
+posted an actual ROI of -100%.
+ 
+ 
+The biggest takeaway from this section is that the worst sim ROI buckets (<=
+-25%) are genuinely bad lineups and, by and large, should be avoided. These
+lineups cashed infrequently (16.1%), had the lowest realized return (-42.0%),
+and did so despite averaging the lowest number of dupes (1.79) of any sim
+ROI bucket. I’d also add that two lineups with similar sim ROIs may not be
+equal; the lineup with fewer projected dupes and a 15% sim ROI is likely
+better than one with 10 dupes and a 20% sim ROI. The biggest problem in
+deciding between the two is that the actual number of times a lineup is
+played by our opponents in any given contest is extremely difficult to predict.
+It’s ultimately up to each of us to consider a lineup’s desirability and to
+determine if it’s more or less likely to be played than projected. 
+ 
+ 
+Contest Selection 
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 10/16
+ 
+ 
+When I set out to review post-lock sim data, I knew the Wildcat and Field
+General-style contests would be a perfect place to start for a few reasons.
+First, I’ve only ever dived deep into full-blown lotto-style contests, wager $20
+to win $1 million. Second, these mid-tier buy-in contests offer a solid mix of
+users entering one or just a few lineups and another group max-entering.
+Regardless, the stakes make it so that most people playing in these contests
+have some level of intentionality behind their lineups. The casual player
+building a few lineups from the toilet is largely priced out. It’s an important
+distinction because the gap, even in these contests, between single-entry and
+max-entry players is significant and may provide some insight into how to
+better deploy our bankroll via proper contest selection.
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 11/16
+In the 33 slates we observed, we found that low-entry players (1-3 lineups)
+accounted for 38.0% of all lineups, mid-entry (4-30) accounted for 35.3%, and
+max-entry players (31+) accounted for 26.7%. Despite accounting for a smaller
+portion of the total pool, 31+ entry players accounted for 31.8% of money won
+compared to just 21.2% for single-entry users.
+The post-lock sim data agrees: Max-entry players are simply building better
+lineups than their single-entry opponents. Single-entry players averaged a
+-10.5% sim ROI across their lineups, with just 35.7% of their total portfolio
+simming positively. Players who entered at least 31 lineups averaged a 12.0%
+sim ROI, with 63.7% of their lineups simming positively. High-volume players
+weren’t just winning on volume; they were winning because they were
+consistently submitting better lineups.
+The actual outcomes align closely with the sim predictions. Single-entry
+players cashed at a 21.1% clip, found top-1% scores 0.92% of the time, and
+averaged a -21.6% actual ROI. Max-entry players cashed at a 23.1% rate, found
+top-1% scores 1.37% of the time, and closed with a +8.0% average actual ROI.
+Single-entry players had 28.5% of their lineups land in the “Horrid” (< -30%)
+tier and just 6.9% land in the “Very Good” (>= 40%) tier. Among the 31+ entry
+players, only 9.3% of lineups landed in the “Horrid” tier, while 18.3% found
+their way into the “Very Good” tier.
+Ultimately, the post-lock sim data reinforces some points many of us already
+knew: If you’re considering playing a single lineup in a multi-entry contest
+like the Wildcat or Field General, those funds are better deployed in separate
+single-entry contests at lower buy-ins where users do not have as strong of a
+structural advantage over you and make up a smaller percentage of the total
+pool. 
+ 
+ 
+Conclusion: Applying What the Sims Are Actually Telling Us
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 12/16
+Now that we’ve reviewed 49,031 showdown lineups across 33 slates, we can
+attempt to answer the original question: What are the sims saying? 
+We know the cash-rate calibration is the cleanest signal in the entire 33-slate
+sample. The sims correctly distribute cash-rate probability across individual
+lineups from the 14.7% actual cash rate in the lowest bucket to 31.1% in the
+highest bucket. If the sim says your lineup is more likely to cash than another,
+it is.
+Additionally, the top-1% rate calibration holds up at both extremes but is
+noisier in the middle of the distribution. Lineups with the lowest sim top-1%
+rate finished in the top 1% at just 0.52x the expected rate, while lineups in the
+1.5%+ top-1% bucket finished in the top 1% at a 1.21-1.29% clip. In terms of
+“getting shots on goal,” prioritizing lineups with higher predicted top-1% rates
+and avoiding those that don’t is a good signal for building a portfolio of
+lineups with paths to climbing DFS leaderboards.
+The harshest reality check from this exercise was that the sim only correctly
+identified contest winners less than 40% of the time; that is, only 13 of 33
+winning lineups simmed positively at lock. If we expand to top-10 finishes,
+the signal flips in the sims’ favor: 59.2% of top-10 finishing lineups had a
+positive sim ROI. 
+The dupe equation adds a layer of complexity that we rarely have to worry
+about with classic slates. The sim is correctly finding quality lineups, reflected
+in the cash rate and top-1% finish rate, but the actual ROI is also impacted by
+how many other players are duplicating our lineup. This remains the single
+biggest user-driven advantage in showdown: understanding lineup
+desirability and the likelihood other users will also be playing said lineup.
+Lastly, the ability to subset our data between max-entry and single-entry
+users highlights an important decision point non-maxers should consider
+before registering for Wildcat and Field General-style showdown contests.
+Max-entry users are systematically building better lineups by almost any
+metric we can track, including sim ROI, cash rate, top-1% rate, and actual ROI.
+For single- or low-entry players in MME-style contests, it’s worth seriously
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 13/16
+considering if your bankroll could be better deployed in contests that aren’t
+skewed against you.
+Now that we have a firm understanding of what the sims are telling us, we’ll
+take everything we learned here and apply it directly to showdown lineup
+construction as we set our sights on 2026. In Part 2 of this series, we’ll cover
+CPT selection, roster construction, and how to use all of the above
+information to turn the sims into a powerful lineup-building tool.
+In-Season Package, Showdown
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 14/16
+SUBSCRIPTIONS
+NFL Products
+NBA Products
+Golf Products
+The Solver
+ARTICLES
+NFL Content Schedule
+Silva’s Matchups
+Best Ball
+Free Podcasts
+DFS
+Projections
+Strategy
+DFS Optimizer
+Simulations
+ETR TEAM
+About
+YouTube
+Discord
+Twitter
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 15/16
+Gambling problem? Call 1-800-GAMBLER (NJ/PA/IL), 1-800-9-WITH-IT (IN only), 1-800-
+BETS-OFF (IA only), 1-800-522-4700 (CO Only), TN REDLINE: 800-889-9789 or 1-888-532-
+3500 (VA only).
+© 2024 Establish the Run. All rights reserved. Privacy Policy | Terms of Service
+9/10/26, 9:25 PM NFL Showdown DFS: What Are the Sims Saying? | Establish The Run
+https://establishtherun.com/nﬂ-showdown-dfs-what-are-the-sims-saying/ 16/16

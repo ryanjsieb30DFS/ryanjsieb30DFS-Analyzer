@@ -4,4 +4,71 @@
 # Promotion: 3 mechanism confirmations -> propose codifying into framework.md.
 # Retirement: 2 mechanism contradictions -> propose retiring.
 # GPP guard: a lost contest is NOT a contradiction; only mechanism failures count.
-lessons: []
+lessons:
+  # ---- 2026-09-10 — ETR NFL Showdown research digest (external, pre-season) ----
+
+  - id: nfl_sd_cpt_rb_lean
+    born: "2026-09-10"
+    origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 Wildcat/Field General sim study (33 slates)); external data, not a logged slate"
+    statement: >
+      RB captains beat their projection more often than any other position; TE captains are the weakest. Why: RB usage (carries + targets) is stickier week to week than a receiver's target share, so the RB ceiling is reached more often. Counts as confirmed when: on a logged slate, RB captains appear in top-10 finishes at or above their share of the captain pool.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_sd_sub5_cpt_leak
+    born: "2026-09-10"
+    origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 sim study); external data, not a logged slate"
+    statement: >
+      Captains under 5% projected ownership underperform captains in the 5–25% band. Why: the ceiling needed to be the slate's top raw scorer is rarer than the ownership discount is worth. Counts as confirmed when: a logged slate's top-10 captains sit mostly in the 5–25% band and the sub-5% captains in the user's entries miss.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_sd_three_three_default
+    born: "2026-09-10"
+    origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 sim study); external data, not a logged slate"
+    statement: >
+      3-3 builds without a named game script underperform 5-1, 1-5, and 4-2 builds that have one. Why: a single NFL game resolves to one side more often than it splits evenly. Counts as confirmed when: the slate's top-10 lineups are unbalanced (4-2 or wider) more often than 3-3.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_sd_six_skill_default
+    born: "2026-09-10"
+    origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 sim study); external data, not a logged slate"
+    statement: >
+      Lineups with no kicker and no DST underperform lineups that carry one or both. Why: K and DST are the highest-scoring pieces in their salary tier and force the lineup to state a script. Counts as confirmed when: the slate's top-10 lineups carry a K or DST more often than the user's entries did.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_sd_kicker_conditional
+    born: "2026-09-10"
+    origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR kicker study 2020–25); external data, not a logged slate"
+    statement: >
+      The kicker edge exists only in dome games, close spreads (the underdog kicker), or when the kicker is under-owned; blanket kicker use is neutral since 2025. Why: the field and DK pricing caught up to the old kicker discount; what is left is environment- and ownership-specific. Counts as confirmed when: a dome or close-spread kicker out-scores his salary tier on a logged slate while owned below the favorite's kicker.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_sd_dupe_over_sim
+    born: "2026-09-10"
+    origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 sim study); external data, not a logged slate"
+    statement: >
+      At similar sim ROI, the lineup with fewer projected duplicates wins on actual return. Why: an 11x-duplicated cash returns about 60% less than a unique cash. Counts as confirmed when: a logged contest's top finishers with positive sim ROI were low-dupe more often than high-dupe.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null

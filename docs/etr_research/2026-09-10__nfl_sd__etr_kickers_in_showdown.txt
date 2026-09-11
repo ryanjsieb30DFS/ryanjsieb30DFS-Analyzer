@@ -1,0 +1,327 @@
+NFL In-Season Product Available NOW!SUBSCRIBE
+Should We Be Playing Kickers More
+in NFL Showdown?
+CODY MAIN    //    AUG 29, 2026
+Polymarket Sign-Up Bonus: Deposit $10,get $50!
+
+9/10/26, 9:26 PM Should We Be Playing Kickers More in NFL Showdown? | Establish The Run
+https://establishtherun.com/should-we-be-playing-kickers-more-in-nﬂ-showdown/ 1/13
+ 
+Nothing says NFL showdown quite like Chris Boswell scoring 26 DraftKings
+points in an 18-10 win over the Falcons, where the lone offensive highlight was
+a 41-yard pass, setting up Boswell’s third field goal of the first half.
+You needed a shower at 11:00 p.m. CT to rinse off the stench of that game, but
+if you rostered Boswell, you were doing so with a few more dollars in your
+pocket. That’s the question this article will answer: Should we be rostering
+kickers more in NFL showdown?
+Historical ownership pushes back on that assumption: 64.1% of all primetime
+NFL showdown lineups in the DraftKings flagship contest roster no kickers. The
+position, even in our analysis of them, often gets dismissed as a shrug or the
+last piece you click in when you’ve already built a lineup you like. That
+dismissal may have worked in the past, but it’s becoming harder to defend now.
+The NFL’s kickoff rule was overhauled in 2024 and changed again in 2025,
+along with a revamp of the K-Ball preparation rules that have resulted in a
+change to how kickers are producing fantasy points, resulting in more field goal
+attempts, improved accuracy, expanded range, and better DraftKings scoring
+on a per-game basis. Have our opponents priced those things in?
+We’ll use our database of 22.4 million weighted contest entries across nearly
+200 primetime NFL showdown slates from 2020-2025 to give us an answer for
+how the DFS field is handling it, and a play-by-play dataset of the kick detail
+covering 5,594 field goal attempts and 6,438 extra point attempts from all NFL
+games since 2021 to answer the real-world impact.
+ 
+Trade on NFL games every week on Polymarket. Sign up for Polymarket with
+code ETR for a $50 bonus when you deposit $10.
+Sign Up Now
+9/10/26, 9:26 PM Should We Be Playing Kickers More in NFL Showdown? | Establish The Run
+https://establishtherun.com/should-we-be-playing-kickers-more-in-nﬂ-showdown/ 2/13
+PART 1: What The Contest Database Shows
+Pre-2025
+Before we figure out if the DFS field has adjusted, we need to establish a
+baseline of what they’ve done historically to identify how it’s changed and
+whether it’s changed enough. Given the rule changes before the 2025 season, it
+makes sense to split our contest database into two cohorts: 2021-24 and 2025.
+ 
+Lineup Field Utilization Top-1% Rate Top-10% Rate Win Index
+No kicker 64.60% 0.99% 9.86% 0.93x
+K in Flex 33.50% 1.23% 10.89% 1.15x
+K in CPT 1.90% 0.84% 9.32% 0.78x
+ 
+Pre-2025, at least one kicker in FLEX lineups accounted for 33.5% of all lineups
+submitted and finished in the top 1% at a 1.23% clip, finding a top-1% finish at a
+1.15x relative rate to their field utilization. No-kicker lineups underperformed
+slightly (0.93x), and kicker at CPT checked in as the worst of the three
+constructions with just a 0.78x rate.
+2025
+The 2025 distribution tells a different story. Across 3.8 million weighted
+lineups, the same three-way split looks like this: 
+9/10/26, 9:26 PM Should We Be Playing Kickers More in NFL Showdown? | Establish The Run
+https://establishtherun.com/should-we-be-playing-kickers-more-in-nﬂ-showdown/ 3/13
+ 
+Lineup Field Utilization Top-1% Rate Top-10% Rate Win Index
+No kicker 60.40% 1.03% 9.89% 0.99x
+K in Flex 37.20% 1.06% 10.27% 1.02x
+K in CPT 2.40% 1.10% 10.57% 1.05x
+ 
+K in FLEX jumps from 33.5% to 37.2% in 2025, while no-K lineups fell from
+64.6% to 60.5%. A somewhat meaningful discovery by the field was that kickers
+in FLEX were working, and they adjusted. 
+ 
+ 
+PART 2: What the ETR Projection & Ownership Data Shows
+Let’s take a more general look at kicker projection, ownership, and DraftKings-
+point performances from our dataset, which spans 197 separate slates from
+2020-2025.
+ 
+Era Count
+Mean
+FLEX
+Own
+Median
+FLEX
+Own
+Fav
+Kicker
+Own
+Dog
+Kicker
+Own
+Mean
+CPT
+Own
+Mean
+FPTS
+Mean
+Proj
+Proj
+Error
+Pre-
+2025 445 20.40% 19.40% 22.90% 17.90% 1.00% 8.3 8.14 0.16
+9/10/26, 9:26 PM Should We Be Playing Kickers More in NFL Showdown? | Establish The Run
+https://establishtherun.com/should-we-be-playing-kickers-more-in-nﬂ-showdown/ 4/13
+2025 96 22.70% 22.30% 24.80% 20.70% 1.20% 8.79 8.57 0.22
+ 
+Using the same pre-2025 vs. 2025 split, we can see that the market is moving at
+the individual player level just as it is in the aggregate construction utilization.
+Average K FLEX ownership moved from 20.4% to 22.7% in 2025, and the
+elevated ownership was rewarded with increased production. Scoring
+improved from 8.3 DraftKings points to 8.8 DraftKings points, slightly
+outperforming their projection in both eras.
+DraftKings Pricing: The Algorithm Caught Up
+Before we can compare kickers to their salary-matched peers to determine
+how they stack up against skill players, it’s worth exploring how kicker pricing
+itself has evolved through the years.
+ 
+Season Median
+Salary
+Mean
+Salary
+Avg
+FPTS
+Avg
+Proj
+Proj
+Error
+FPTS
+/ $1K
+Avg
+Ownership
+2020 $4,000 $3,937 7.32 8.31 -1 1.86 17.60%
+2021 $4,000 $3,915 7.62 8.29 -0.68 1.96 18.60%
+2022 $4,000 $4,071 8.54 7.92 0.62 2.12 22.90%
+2023 $4,800 $4,656 8.59 7.98 0.61 1.86 20.30%
+2024 $5,000 $4,953 9.26 8.23 1.03 1.87 22.30%
+2025 $5,000 $4,988 8.79 8.57 0.22 1.76 22.70%
+9/10/26, 9:26 PM Should We Be Playing Kickers More in NFL Showdown? | Establish The Run
+https://establishtherun.com/should-we-be-playing-kickers-more-in-nﬂ-showdown/ 5/13
+ 
+Median kicker salary was unchanged for three seasons from 2020 through
+2022 despite DraftKings points increasing from 7.32 to 8.54, causing kicker
+value to peak in 2022. Then in 2023, median kicker salary jumped from $4,000
+to $4,800, before climbing to $5,000 last season. For context, every other skill
+position saw its median salary decrease from 2020 to 2025:
+ 
+Season QB RB WR TE K DST
+2020 $10,600 $7,200 $6,600 $5,600 $4,000 $3,600
+2021 $10,800 $7,200 $6,400 $5,200 $4,000 $3,600
+2022 $10,100 $7,000 $6,400 $5,000 $4,000 $3,900
+2023 $10,000 $6,900 $6,300 $5,200 $4,800 $4,000
+2024 $9,700 $6,600 $6,200 $5,200 $5,000 $4,000
+2025 $10,000 $6,800 $5,800 $4,600 $5,000 $4,000
+ 
+QB is down $600, WR $800, TE $1,000, and RB $400, while kickers are up
+$1,000. Part of the argument for kicker FLEX was that they were a more salary-
+efficient option than their counterparts, but that argument is slightly weaker
+now than it was in 2020-2022. The position remains the highest-scoring option
+in its own salary tier, but that tier has since shifted upward as the gap between
+kickers and skill players has narrowed.
+Salary-Matched Scoring Comparison
+9/10/26, 9:26 PM Should We Be Playing Kickers More in NFL Showdown? | Establish The Run
+https://establishtherun.com/should-we-be-playing-kickers-more-in-nﬂ-showdown/ 6/13
+ 
+Position Count Median
+Salary
+Avg
+FPTS
+Avg
+Proj
+Proj
+Error
+Avg
+Ownership
+K 541 $4,400 8.39 8.22 0.17 20.80%
+TE 294 $4,800 7.7 7.44 0.25 22.10%
+WR 600 $4,600 7.18 7.08 0.1 18.50%
+D/ST 474 $4,000 6.61 6.17 0.44 16.20%
+RB 245 $4,600 5.62 6.44 -0.82 15.20%
+ 
+Cross-positional comparisons get tricky because the salary band on kickers is
+generally narrower, so we wind up comparing them sometimes to depth
+receivers, change-of-pace running backs, or TE2-type options when matched
+for salary. But even with that caveat, we find that kickers are the highest-scoring
+position in their own salary tier at 8.39 average DraftKings points,
+outperforming their projection by 0.17 points. RBs in the same salary tier, for
+example, average 5.62 DraftKings points and underperform their base
+projection by 0.82 points. On a slate-by-slate basis against salary-matched
+competition, kickers beat same-priced RBs on 71.4% of slates and same-priced
+WRs at a 59.3% clip.
+ 
+ 
+PART 3: The Real-Game Data
+9/10/26, 9:26 PM Should We Be Playing Kickers More in NFL Showdown? | Establish The Run
+https://establishtherun.com/should-we-be-playing-kickers-more-in-nﬂ-showdown/ 7/13
+To this point, we’ve only looked at results from DFS contests, namely
+primetime showdown slates, where we had kicker salaries, projections,
+ownership, and DraftKings scores. That misses a large portion of the kicker
+equation from all other non-primetime games. This section will use the play-
+by-play kick detail from 2021-25, covering 5,594 field goal attempts and 6,438
+extra point attempts across 1,424 games to understand how recent rule changes
+have impacted what’s actually happening on the field.
+ 
+Season FGA/gm FGM/gm FG% Avg
+Dist
+55+
+att/gm
+55+
+FG% XPA/gm DK
+avg
+DK
+med
+2021 1.91 1.63 85.30% 38.6 0.094 52.80% 2.34 7.61 7
+2022 1.96 1.67 85.40% 39.2 0.142 61.30% 2.22 7.78 7
+2023 1.97 1.69 85.80% 39.1 0.139 59.00% 2.2 7.85 7
+2024 2.07 1.75 84.20% 39.9 0.167 58.50% 2.32 8.15 8
+2025 2.04 1.74 85.60% 40.5 0.209 63.20% 2.36 8.31 8
+ 
+Field goal volume is on the rise: Field goal attempts per kicker per game rose
+from 1.91 in 2021 to a peak of 2.07 in 2024 and held steady at 2.04 in 2025,
+representing an 8% increase over four seasons. The median drive started 75
+yards from the kicker’s own end zone in 2021-23 and moved to 70 yards in
+2024 and 67 in 2025. The resulting eight yards of improved field position flows
+directly into more field goal opportunities. 
+Average attempt distance is growing: Average FG attempt distance increased
+from 38.6 yards in 2021 to 40.5 yards in 2025. It’s plausible that the K-ball rule
+change, which allows teams to receive their designated kicking balls at the
+beginning of the season rather than 90 minutes before kickoff, is leading to
+increased confidence from both coaching staffs and kickers to attempt longer
+9/10/26, 9:26 PM Should We Be Playing Kickers More in NFL Showdown? | Establish The Run
+https://establishtherun.com/should-we-be-playing-kickers-more-in-nﬂ-showdown/ 8/13
+field goals. It’s not just the average distance increasing, either. The 55-yard-plus
+bucket increased from 0.09 attempts per kicker per game in 2021 to 0.21 in
+2025, and the 2025 make rate increased to 63.2% from 52.8% in 2021. Kickers
+are attempting more field goals, more long-range field goals, and making them
+more often than they used to.
+ 
+Season Total Games 10+ pts 15+ pts 20+ pts
+2021 561 33.70% 7.00% 0.90%
+2022 565 32.70% 6.40% 0.90%
+2023 563 32.10% 8.00% 1.20%
+2024 567 37.00% 10.10% 2.50%
+2025 562 38.40% 10.30% 1.40%
+ 
+As a result, DraftKings scoring across all games has increased from 7.6 in 2021
+to 8.3 in 2025, while the median has improved by a full point. The ceiling
+performances have followed, as the 15+ DraftKings-point rate jumped from
+7.0% in 2021 to 10.3% in 2025.
+ 
+ 
+What the Data Tells Us
+Using the data from all three sources — contest entries, ETR projections and
+ownership, and real-game kick detail — we get a nuanced answer to the
+question “should we be rostering kickers more?”
+9/10/26, 9:26 PM Should We Be Playing Kickers More in NFL Showdown? | Establish The Run
+https://establishtherun.com/should-we-be-playing-kickers-more-in-nﬂ-showdown/ 9/13
+Before 2025, the answer was a resounding yes. Lineups that featured a kicker in
+FLEX posted a 1.15x win index across more than 15 million contest entries. Our
+opponents simply weren’t playing kickers as often as they should.
+In 2025, that equation shifted because both the field and DraftKings’ pricing
+algorithm caught up. As kicker in FLEX became more popular (37.2% of all
+lineups), the median salary increased from $4,000 to $5,000, compressing the
+win index to virtually breakeven, despite kicker performance improving.
+Playing kickers indiscriminately no longer offers the blanket advantage it once
+did as salary and ownership discounts have evaporated.
+The real-game data still paints a positive forward-looking picture for the
+position, further complicating things. DraftKings scoring per kicker game is the
+highest it’s ever been, ceiling game frequency has increased since 2021, and the
+K-ball rules have had a meaningful impact on both long-range FG frequency
+and success, which means the position is simply better than it was when the
+showdown format was created.
+What I’ll be watching for in 2026:
+Utilization of favored kicker in 5-1 builds: In 2025, 41.6% of all 5-1 lineups
+included the favored kicker in FLEX, up from 37.9% prior. The advantage for
+playing a kicker in 5-1 builds vs. no kicker was virtually indistinguishable in
+2025 after being a common fixture in top-1% finishing lineups in previous
+seasons. If the field’s utilization of favored kickers in onslaught builds remains
+high, it makes sense to look elsewhere this season.
+Dome games: Average kicker DraftKings scoring peaked at 9.2 points in dome
+games last season, compared to 7.9 for outdoor games. Dome kickers score 15+
+DraftKings points 12.0% of the time compared to 6.7% for outdoor kickers. This
+is likely partially priced in by the DFS market, but if kicker ownership is
+depressed in these environments, I’ll be more willing to target them
+aggressively.
+9/10/26, 9:26 PM Should We Be Playing Kickers More in NFL Showdown? | Establish The Run
+https://establishtherun.com/should-we-be-playing-kickers-more-in-nﬂ-showdown/ 10/13
+K at CPT: Ugh, I didn’t want to have to write this, I promise. However, the
+changes to kickoffs improving starting field position and the new K-ball era are
+clearly giving rise to higher kicker ceilings, as noted above. 2.4% of all
+primetime showdown lineups in 2025 rostered a kicker at CPT, so I’m not
+looking to pile into Ka’imi Fairbairn at 4.9% ownership or Brandon Aubrey at
+2.8%. But I’m no longer entirely dismissing the position as a legitimate threat to
+lead the slate in overall scoring.
+K in close-spread environments: In games decided by one touchdown or
+fewer, both kickers average 2.2 field goal attempts and 2.1 extra point attempts
+per game, with the winner (8.3 DK points) and loser (8.4) posting nearly
+identical average fantasy scores. If underdog kickers stay lower-owned (18.8%)
+than favorites (23.4%), as was the case in 2025, there’s a window to buy in games
+that project for a narrow margin of victory.
+Chris Boswell, Pittsburgh Steelers, In-Season Package, Showdown
+9/10/26, 9:26 PM Should We Be Playing Kickers More in NFL Showdown? | Establish The Run
+https://establishtherun.com/should-we-be-playing-kickers-more-in-nﬂ-showdown/ 11/13
+SUBSCRIPTIONS
+NFL Products
+NBA Products
+Golf Products
+The Solver
+ARTICLES
+NFL Content Schedule
+Silva’s Matchups
+Best Ball
+Free Podcasts
+DFS
+Projections
+Strategy
+DFS Optimizer
+Simulations
+ETR TEAM
+About
+YouTube
+Discord
+Twitter
+9/10/26, 9:26 PM Should We Be Playing Kickers More in NFL Showdown? | Establish The Run
+https://establishtherun.com/should-we-be-playing-kickers-more-in-nﬂ-showdown/ 12/13
+Gambling problem? Call 1-800-GAMBLER (NJ/PA/IL), 1-800-9-WITH-IT (IN only), 1-800-BETS-
+OFF (IA only), 1-800-522-4700 (CO Only), TN REDLINE: 800-889-9789 or 1-888-532-3500 (VA
+only).
+© 2024 Establish the Run. All rights reserved. Privacy Policy | Terms of Service
+9/10/26, 9:26 PM Should We Be Playing Kickers More in NFL Showdown? | Establish The Run
+https://establishtherun.com/should-we-be-playing-kickers-more-in-nﬂ-showdown/ 13/13
