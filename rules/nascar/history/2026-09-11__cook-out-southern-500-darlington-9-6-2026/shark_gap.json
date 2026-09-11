@@ -1,0 +1,77 @@
+{
+  "field": 1470,
+  "anchors": [
+    "erik jones",
+    "chris buescher",
+    "tyler reddick"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 6,
+    "own_per_slot": 37.9,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.778,
+    "anchor_exposure_by_player": {
+      "erik jones": 0.667,
+      "chris buescher": 1.0,
+      "tyler reddick": 0.667
+    },
+    "max_overlap": 6,
+    "unique_pct": 83.3,
+    "best_pctile": 2.24,
+    "median_pctile": 37.62
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 36.3,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.667,
+    "anchor_exposure_by_player": {
+      "erik jones": 0.0,
+      "chris buescher": 1.0,
+      "tyler reddick": 1.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 61.29,
+    "median_pctile": 61.29
+  },
+  "deltas": [
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 83.3,
+      "delta": 16.7
+    },
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 36.3,
+      "shark": 37.9,
+      "delta": -1.6
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.667,
+      "shark": 0.778,
+      "delta": -0.111
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 0.0,
+      "shark": 0.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "nascar",
+  "sport": "nascar"
+}

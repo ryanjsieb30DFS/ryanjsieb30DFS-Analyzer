@@ -1,0 +1,46 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 10,
+    "leverage_capture": 0.0,
+    "leverage_hit": [],
+    "leverage_missed": [
+      "Christopher Bell",
+      "Ryan Blaney"
+    ],
+    "overperformer_capture": 0.2,
+    "overperformer_hit": [
+      "Ty Gibbs"
+    ],
+    "underperformer_exposure": 0.2,
+    "underperformer_hit": [
+      "Connor Zilisch"
+    ]
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 2,
+    "avg_ratio": 0.879,
+    "best_percentile": 61.3,
+    "median_percentile": 68.4,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 261.94998,
+        "proj_total": 299.45,
+        "ratio": 0.875,
+        "percentile": 68.4,
+        "avg_own": 36.97
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 264.65002,
+        "proj_total": 299.7,
+        "ratio": 0.883,
+        "percentile": 61.3,
+        "avg_own": 36.29
+      }
+    ]
+  }
+}

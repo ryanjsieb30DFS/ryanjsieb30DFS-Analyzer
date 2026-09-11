@@ -1,0 +1,30 @@
+{
+  "slug": "nascar",
+  "sport": "nascar",
+  "contest_label": "NASCAR",
+  "date": "2026-09-11",
+  "slate_label": "Cook Out Southern 500 Darlington 9.6.2026",
+  "archived_at": "2026-09-11 18:49",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json",
+    "lineup_selection.json",
+    "nascar__031fa476_pick.md",
+    "nascar__031fa476_slice.md",
+    "nascar__b3d83586_pick.md",
+    "nascar__b3d83586_slice.md"
+  ],
+  "missing": [
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/nascar/2026-09-06__DDD 9.6.26.pdf",
+    "articles/nascar/2026-09-06__DFR 1 9.6.26.pdf",
+    "articles/nascar/2026-09-06__DFR 2 9.6.26.pdf",
+    "articles/nascar/2026-09-06__DFR 3 9.6.26.pdf"
+  ],
+  "proj_source": null
+}

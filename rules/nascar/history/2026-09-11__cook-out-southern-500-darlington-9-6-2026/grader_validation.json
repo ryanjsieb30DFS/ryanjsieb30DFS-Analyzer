@@ -1,0 +1,35 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "lineups": [
+    {
+      "players": [
+        "AJ Allmendinger",
+        "Carson Hocevar",
+        "Chris Buescher",
+        "Denny Hamlin",
+        "Shane Van Gisbergen",
+        "Tyler Reddick"
+      ],
+      "percentile": 68.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Chase Briscoe",
+        "Chris Buescher",
+        "Connor Zilisch",
+        "Ty Gibbs",
+        "Tyler Reddick",
+        "Zane Smith"
+      ],
+      "percentile": 61.3,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    68.4,
+    61.3
+  ]
+}

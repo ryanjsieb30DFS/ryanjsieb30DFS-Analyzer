@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "slug": "nascar",
+  "contests": [
+    {
+      "date": "2026-09-11",
+      "contest": "NAS $5K Engine Block [Single Entry] (SE)",
+      "winning_score": 387.2,
+      "pool_n": 10000,
+      "pool_max": 406.3,
+      "pool_held_winner": true,
+      "n_pool_ge_win": 2,
+      "pick_actual": 261.9,
+      "pick_won": false,
+      "pick_pool_pctile": 70.0,
+      "slice_n": 500,
+      "slice_max": 406.3,
+      "slice_held_winner": true,
+      "n_slice_above_pick": 234
+    },
+    {
+      "date": "2026-09-11",
+      "contest": "NAS $15K Engine Block [Single Entry] (SE)",
+      "winning_score": 393.2,
+      "pool_n": 10000,
+      "pool_max": 406.3,
+      "pool_held_winner": true,
+      "n_pool_ge_win": 1,
+      "pick_actual": 264.6,
+      "pick_won": false,
+      "pick_pool_pctile": 71.8,
+      "slice_n": 500,
+      "slice_max": 406.3,
+      "slice_held_winner": true,
+      "n_slice_above_pick": 214
+    }
+  ],
+  "note": null,
+  "generated_at": "2026-09-11 18:49"
+}

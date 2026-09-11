@@ -1,0 +1,214 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "n_contests": 2,
+  "calls": [
+    {
+      "name": "Ryan Blaney",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194920552 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194920559 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-194920552 2.csv",
+        "contest-standings-194920559 2.csv"
+      ]
+    },
+    {
+      "name": "Kyle Larson",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194920552 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194920559 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-194920552 2.csv",
+        "contest-standings-194920559 2.csv"
+      ]
+    },
+    {
+      "name": "Zane Smith",
+      "verdict": "underweight",
+      "exposure_pct": 50.0,
+      "in_lineups": 1,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194920552 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194920559 2.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-194920552 2.csv"
+      ],
+      "over_in": [
+        "contest-standings-194920559 2.csv"
+      ]
+    },
+    {
+      "name": "AJ Allmendinger",
+      "verdict": "underweight",
+      "exposure_pct": 50.0,
+      "in_lineups": 1,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194920552 2.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        },
+        {
+          "contest": "contest-standings-194920559 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-194920559 2.csv"
+      ],
+      "over_in": [
+        "contest-standings-194920552 2.csv"
+      ]
+    },
+    {
+      "name": "Corey Heim",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194920552 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194920559 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Riley Herbst",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-194920552 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-194920559 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 4,
+  "leverage_candidates": [
+    {
+      "name": "Joey Logano",
+      "rostered": false
+    },
+    {
+      "name": "Ryan Preece",
+      "rostered": false
+    },
+    {
+      "name": "Alex Bowman",
+      "rostered": false
+    },
+    {
+      "name": "John H. Nemechek",
+      "rostered": false
+    },
+    {
+      "name": "Austin Cindric",
+      "rostered": false
+    },
+    {
+      "name": "Daniel Suarez",
+      "rostered": false
+    },
+    {
+      "name": "Austin Hill",
+      "rostered": false
+    },
+    {
+      "name": "Josh Berry",
+      "rostered": false
+    },
+    {
+      "name": "Todd Gilliland",
+      "rostered": false
+    },
+    {
+      "name": "Austin Dillon",
+      "rostered": false
+    },
+    {
+      "name": "Ricky Stenhouse Jr",
+      "rostered": false
+    },
+    {
+      "name": "Ty Dillon",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 0,
+  "leverage_of": 12
+}

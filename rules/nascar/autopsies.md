@@ -603,3 +603,45 @@ A 5-check pre-lock validator was prototyped and then removed across all sports. 
 | **Fade** | 6 | 1.8 | 50.6 |
 - ✅ Tier ordering HELD — higher tiers outscored lower ones on average.
 - 🕳️ Buried: **Ryan Preece** (Fade) scored 50.6 — above the top tier's average.
+
+
+## 2026-09-11 18:49 — NASCAR (contest-standings-194920552 2.csv)
+- Entries: 490
+- Winning score: 387.2
+- Cash line (top 20%): 312.8
+- My entries: 1 · best rank 335/490 (top 68.4%)
+- Winners (top 20): avg own 39.77% vs mine 36.97% · sub-10% plays/lineup 0.35 vs mine 0.0 · salary Δ -160
+- Overperformed proj: Kyle Larson, Christopher Bell, Josh Berry
+- Underperformed proj: William Byron, Ricky Stenhouse Jr, Brad Keselowski
+
+
+## 2026-09-11 18:49 — NASCAR (contest-standings-194920559 2.csv)
+- Entries: 1,470
+- Winning score: 393.2
+- Cash line (top 20%): 312.8
+- My entries: 1 · best rank 901/1,470 (top 61.3%)
+- Winners (top 20): avg own 34.71% vs mine 36.29% · sub-10% plays/lineup 0.4 vs mine 0.0 · salary Δ +305
+- Overperformed proj: Kyle Larson, Christopher Bell, Josh Berry
+- Underperformed proj: William Byron, Ricky Stenhouse Jr, Brad Keselowski
+- Slate-defining plays: Christopher Bell (78.2 pts @ 13.7%), Ryan Blaney (66.1 pts @ 19.2%)
+
+### Strategy adherence — did you follow your own strategy? (2 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Ryan Blaney** was in 0 of 1 lineups in contest-standings-194920552 2.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Ryan Blaney** was in 0 of 1 lineups in contest-standings-194920559 2.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Kyle Larson** was in 0 of 1 lineups in contest-standings-194920552 2.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Kyle Larson** was in 0 of 1 lineups in contest-standings-194920559 2.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Zane Smith** was in 0 of 1 lineups in contest-standings-194920552 2.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call over-exposed inside contest-standings-194920559 2.csv: **Zane Smith** in 1 of 1 there — the pooled average hid it.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **AJ Allmendinger** was in 0 of 1 lineups in contest-standings-194920559 2.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call over-exposed inside contest-standings-194920552 2.csv: **AJ Allmendinger** in 1 of 1 there — the pooled average hid it.
+- Leverage candidates rostered somewhere: **0 of 12**.
+
+### Player-pool tier calibration (38 of 38 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 4 | 51.7 | 69.7 |
+| **Good** | 4 | 30.6 | 74.3 |
+| **Okay** | 25 | 29.3 | 110.3 |
+| **Fade** | 5 | 10.0 | 29.2 |
+- ✅ Tier ordering HELD — higher tiers outscored lower ones on average.

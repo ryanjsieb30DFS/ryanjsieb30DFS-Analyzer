@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "slug": "nascar",
+  "pool_fp": "a962f6ebf143",
+  "pool_len": 10000,
+  "contests": {
+    "NAS $5K Engine Block [Single Entry] (SE)": {
+      "picked": [
+        {
+          "index": 3815,
+          "roster_key": "AJ Allmendinger|Carson Hocevar|Chris Buescher|Denny Hamlin|Shane Van Gisbergen|Tyler Reddick"
+        }
+      ],
+      "why": "(18% picked, projection 12 ranks lower, Nemechek projects the same 26.0 points at 6%); underweight means less than the crowd but never zero, this is my only entry carrying him this slate, his 3-of-4 top-18 Darlington record gives him a real floor, and every same-shape row swapping him out sits a full noise band or more lower on every sim column. Second, it drops Erik Jones (47% owned): his pick rate runs 7 ranks ahead of his projection \u2014 the exact \"popular $8-10K name whose ownership outran his projection\" shape that made up 11 of 13 flagged traps in this very contest's history \u2014 and Buescher, the held twin at the same ownership, is the Core-tier half of that pair. Ownership and projection disagree on Hamlin, and I trusted projection; ownership and track history disagree on the back-of-grid chalk train, and I trusted history.",
+      "generated_at": "2026-09-06 13:44",
+      "declared_contest_id": "b3d83586"
+    },
+    "NAS $15K Engine Block [Single Entry] (SE)": {
+      "picked": [
+        {
+          "index": 6051,
+          "roster_key": "Chase Briscoe|Chris Buescher|Connor Zilisch|Ty Gibbs|Tyler Reddick|Zane Smith"
+        }
+      ],
+      "why": "(34% picked while Van Gisbergen projects the identical 34.35 points at 18%) \u2014 underweight means less than the crowd but never zero, this is the only one of my two entries carrying him, my other entry holds Van Gisbergen so the near-tie is covered once on each side instead of doubled, and at $6,200 from 33rd Dustin calls him \"+EV every time\"; every tied row that avoids Zane instead carries the banned Reddick+Jones pair or a second underweight player. At 34.5% average ownership with zero expected copies (dupes 0), a good day here is not shared with anyone.",
+      "generated_at": "2026-09-06 15:56",
+      "declared_contest_id": "031fa476"
+    }
+  }
+}

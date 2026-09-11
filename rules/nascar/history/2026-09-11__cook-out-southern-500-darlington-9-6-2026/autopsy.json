@@ -1,0 +1,1699 @@
+[
+  {
+    "timestamp": "2026-09-11 18:49",
+    "contest_type": "NASCAR",
+    "source_file": "contest-standings-194920552 2.csv",
+    "contest_id": "194920552",
+    "entries": 490,
+    "winning_score": 387.25,
+    "cash_line_p80": 312.80002,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nascar",
+    "sport": "nascar",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 38,
+      "total": 38
+    },
+    "user_summary": {
+      "avg_own_mean": 36.97,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 50000.0,
+      "entry_count": 1,
+      "best_rank": 335,
+      "best_percentile": 68.4
+    },
+    "user_lineups": [
+      {
+        "rank": 335,
+        "entry_name": "RyvlesGaming30",
+        "points": 261.94998,
+        "percentile": 68.4,
+        "players": [
+          "Denny Hamlin",
+          "Tyler Reddick",
+          "Chris Buescher",
+          "Carson Hocevar",
+          "Shane Van Gisbergen",
+          "AJ Allmendinger"
+        ],
+        "avg_own": 36.97,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 299.45,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Kyle Larson",
+        "proj_points": 62.4,
+        "actual_fpts": 110.3,
+        "fpts_delta": 47.9,
+        "ownership": 35.0,
+        "actual_own": 26.33
+      },
+      {
+        "name": "Christopher Bell",
+        "proj_points": 43.7,
+        "actual_fpts": 78.2,
+        "fpts_delta": 34.5,
+        "ownership": 12.0,
+        "actual_own": 13.88
+      },
+      {
+        "name": "Josh Berry",
+        "proj_points": 21.0,
+        "actual_fpts": 49.85,
+        "fpts_delta": 28.85,
+        "ownership": 6.0,
+        "actual_own": 6.33
+      },
+      {
+        "name": "Ty Gibbs",
+        "proj_points": 50.35,
+        "actual_fpts": 74.3,
+        "fpts_delta": 23.95,
+        "ownership": 39.0,
+        "actual_own": 44.49
+      },
+      {
+        "name": "Bubba Wallace",
+        "proj_points": 39.35,
+        "actual_fpts": 60.35,
+        "fpts_delta": 21.0,
+        "ownership": 15.0,
+        "actual_own": 15.1
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "William Byron",
+        "proj_points": 47.35,
+        "actual_fpts": -10.75,
+        "fpts_delta": -58.1,
+        "ownership": 17.0,
+        "actual_own": 14.49
+      },
+      {
+        "name": "Ricky Stenhouse Jr",
+        "proj_points": 15.0,
+        "actual_fpts": -21.0,
+        "fpts_delta": -36.0,
+        "ownership": 2.0,
+        "actual_own": 1.22
+      },
+      {
+        "name": "Brad Keselowski",
+        "proj_points": 40.25,
+        "actual_fpts": 9.8,
+        "fpts_delta": -30.45,
+        "ownership": 13.0,
+        "actual_own": 8.78
+      },
+      {
+        "name": "Austin Dillon",
+        "proj_points": 18.0,
+        "actual_fpts": -7.0,
+        "fpts_delta": -25.0,
+        "ownership": 3.0,
+        "actual_own": 1.63
+      },
+      {
+        "name": "Connor Zilisch",
+        "proj_points": 27.0,
+        "actual_fpts": 4.0,
+        "fpts_delta": -23.0,
+        "ownership": 10.0,
+        "actual_own": 12.86
+      }
+    ],
+    "slate_defining_plays": [],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 39.77,
+      "low_own_count_mean": 0.35,
+      "salary_used_mean": 49840.0,
+      "dup_max": 17,
+      "unique_pct": 55.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "dgood23323",
+          "points": 387.25,
+          "percentile": 0.2,
+          "players": [
+            "Ryan Blaney",
+            "Kyle Larson",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Erik Jones",
+            "AJ Allmendinger"
+          ],
+          "avg_own": 36.74,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 289.25,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "RattlerBlack",
+          "points": 386.19998,
+          "percentile": 0.4,
+          "players": [
+            "Kyle Larson",
+            "Christopher Bell",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Erik Jones",
+            "Austin Hill"
+          ],
+          "avg_own": 33.2,
+          "low_own_count": 1,
+          "salary_used": 49700,
+          "proj_total": 272.45,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "el_tri",
+          "points": 374.4,
+          "percentile": 0.6,
+          "players": [
+            "Kyle Larson",
+            "Chase Briscoe",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Erik Jones",
+            "AJ Allmendinger"
+          ],
+          "avg_own": 38.78,
+          "low_own_count": 0,
+          "salary_used": 49500,
+          "proj_total": 291.9,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "AJTruth33",
+          "points": 366.80002,
+          "percentile": 0.8,
+          "players": [
+            "Tyler Reddick",
+            "Kyle Larson",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Zane Smith",
+            "AJ Allmendinger"
+          ],
+          "avg_own": 36.94,
+          "low_own_count": 0,
+          "salary_used": 48900,
+          "proj_total": 291.6,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "slipperywhendry",
+          "points": 366.6,
+          "percentile": 1.0,
+          "players": [
+            "Tyler Reddick",
+            "Kyle Larson",
+            "Ty Gibbs",
+            "Bubba Wallace",
+            "Erik Jones",
+            "Chad Finchum"
+          ],
+          "avg_own": 34.25,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 281.6,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "jedimasters21",
+          "points": 364.8,
+          "percentile": 1.2,
+          "players": [
+            "Kyle Larson",
+            "Ty Gibbs",
+            "Chris Buescher",
+            "Bubba Wallace",
+            "Carson Hocevar",
+            "Zane Smith"
+          ],
+          "avg_own": 37.69,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 290.8,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "russellbussey",
+          "points": 363.65,
+          "percentile": 1.4,
+          "players": [
+            "Tyler Reddick",
+            "Kyle Larson",
+            "Ty Gibbs",
+            "Corey Heim",
+            "Erik Jones",
+            "AJ Allmendinger"
+          ],
+          "avg_own": 37.28,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 290.25,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "cw_hoover",
+          "points": 357.45,
+          "percentile": 1.6,
+          "players": [
+            "Kyle Larson",
+            "Ty Gibbs",
+            "Chris Buescher",
+            "Carson Hocevar",
+            "Erik Jones",
+            "Alex Bowman"
+          ],
+          "avg_own": 41.19,
+          "low_own_count": 1,
+          "salary_used": 49600,
+          "proj_total": 291.1,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "DIKDRAGON",
+          "points": 357.4,
+          "percentile": 1.8,
+          "players": [
+            "Kyle Larson",
+            "Ty Gibbs",
+            "Chris Buescher",
+            "Bubba Wallace",
+            "Erik Jones",
+            "Zane Smith"
+          ],
+          "avg_own": 41.22,
+          "low_own_count": 0,
+          "salary_used": 49600,
+          "proj_total": 290.8,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "wfornos3",
+          "points": 357.35,
+          "percentile": 2.0,
+          "players": [
+            "Kyle Larson",
+            "Christopher Bell",
+            "Chris Buescher",
+            "Carson Hocevar",
+            "Erik Jones",
+            "Zane Smith"
+          ],
+          "avg_own": 41.09,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 291.8,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 2.8,
+        "low_own_count_delta": 0.35,
+        "salary_used_delta": -160.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 489,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Erik Jones",
+          "field_own": 66.1,
+          "actual_fpts": 49.0
+        },
+        {
+          "name": "Chris Buescher",
+          "field_own": 62.2,
+          "actual_fpts": 38.5
+        },
+        {
+          "name": "Tyler Reddick",
+          "field_own": 51.4,
+          "actual_fpts": 69.7
+        },
+        {
+          "name": "Carson Hocevar",
+          "field_own": 44.9,
+          "actual_fpts": 56.4
+        },
+        {
+          "name": "Ty Gibbs",
+          "field_own": 44.5,
+          "actual_fpts": 74.3
+        },
+        {
+          "name": "Zane Smith",
+          "field_own": 33.1,
+          "actual_fpts": 25.0
+        },
+        {
+          "name": "Chase Briscoe",
+          "field_own": 29.4,
+          "actual_fpts": 53.2
+        },
+        {
+          "name": "Denny Hamlin",
+          "field_own": 28.0,
+          "actual_fpts": 45.5
+        },
+        {
+          "name": "Kyle Larson",
+          "field_own": 26.3,
+          "actual_fpts": 110.3
+        },
+        {
+          "name": "AJ Allmendinger",
+          "field_own": 21.4,
+          "actual_fpts": 31.1
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Chris Buescher",
+            "Erik Jones"
+          ],
+          "field_pct": 46.3,
+          "count": 226
+        },
+        {
+          "players": [
+            "Erik Jones",
+            "Tyler Reddick"
+          ],
+          "field_pct": 37.5,
+          "count": 183
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Erik Jones"
+          ],
+          "field_pct": 35.2,
+          "count": 172
+        },
+        {
+          "players": [
+            "Chris Buescher",
+            "Tyler Reddick"
+          ],
+          "field_pct": 35.0,
+          "count": 171
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Chris Buescher"
+          ],
+          "field_pct": 31.6,
+          "count": 154
+        },
+        {
+          "players": [
+            "Erik Jones",
+            "Ty Gibbs"
+          ],
+          "field_pct": 31.4,
+          "count": 153
+        },
+        {
+          "players": [
+            "Chris Buescher",
+            "Ty Gibbs"
+          ],
+          "field_pct": 31.4,
+          "count": 153
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Tyler Reddick"
+          ],
+          "field_pct": 25.4,
+          "count": 124
+        },
+        {
+          "players": [
+            "Erik Jones",
+            "Zane Smith"
+          ],
+          "field_pct": 21.7,
+          "count": 106
+        },
+        {
+          "players": [
+            "Ty Gibbs",
+            "Tyler Reddick"
+          ],
+          "field_pct": 21.3,
+          "count": 104
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Carson Hocevar",
+            "Chris Buescher",
+            "Erik Jones",
+            "Ty Gibbs",
+            "Tyler Reddick",
+            "Zane Smith"
+          ],
+          "count": 27,
+          "field_pct": 5.5
+        },
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Carson Hocevar",
+            "Chris Buescher",
+            "Erik Jones",
+            "Kyle Larson",
+            "Tyler Reddick"
+          ],
+          "count": 17,
+          "field_pct": 3.5
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Chase Briscoe",
+            "Chris Buescher",
+            "Connor Zilisch",
+            "Erik Jones",
+            "Tyler Reddick"
+          ],
+          "count": 10,
+          "field_pct": 2.0
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Chris Buescher",
+            "Erik Jones",
+            "Shane Van Gisbergen",
+            "Ty Gibbs",
+            "Tyler Reddick"
+          ],
+          "count": 9,
+          "field_pct": 1.8
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Chris Buescher",
+            "Denny Hamlin",
+            "Erik Jones",
+            "Ty Gibbs",
+            "Zane Smith"
+          ],
+          "count": 8,
+          "field_pct": 1.6
+        }
+      ],
+      "winners_profile": {
+        "n": 5,
+        "avg_own_per_slot": 36.0,
+        "dart_pct": 40.0,
+        "unique_pct": 100.0
+      },
+      "fish_profile": {
+        "n": 244,
+        "avg_own_per_slot": 31.0,
+        "dart_pct": 29.9,
+        "unique_pct": 85.7
+      },
+      "fish_traps": [
+        {
+          "name": "Chris Buescher",
+          "fish_pct": 56.6,
+          "winner_pct": 0.0,
+          "gap": 56.6,
+          "actual_fpts": 38.5,
+          "field_own": 62.2,
+          "own_rank": 2
+        },
+        {
+          "name": "Denny Hamlin",
+          "fish_pct": 41.8,
+          "winner_pct": 0.0,
+          "gap": 41.8,
+          "actual_fpts": 45.5,
+          "field_own": 28.0,
+          "own_rank": 8
+        },
+        {
+          "name": "William Byron",
+          "fish_pct": 29.1,
+          "winner_pct": 0.0,
+          "gap": 29.1,
+          "actual_fpts": -10.8,
+          "field_own": 14.5,
+          "own_rank": 13
+        },
+        {
+          "name": "Corey Heim",
+          "fish_pct": 17.6,
+          "winner_pct": 0.0,
+          "gap": 17.6,
+          "actual_fpts": 29.2,
+          "field_own": 13.9,
+          "own_rank": 14
+        },
+        {
+          "name": "Brad Keselowski",
+          "fish_pct": 17.2,
+          "winner_pct": 0.0,
+          "gap": 17.2,
+          "actual_fpts": 9.8,
+          "field_own": 8.8,
+          "own_rank": 19
+        },
+        {
+          "name": "Connor Zilisch",
+          "fish_pct": 16.0,
+          "winner_pct": 0.0,
+          "gap": 16.0,
+          "actual_fpts": 4.0,
+          "field_own": 12.9,
+          "own_rank": 17
+        },
+        {
+          "name": "Shane Van Gisbergen",
+          "fish_pct": 15.2,
+          "winner_pct": 0.0,
+          "gap": 15.2,
+          "actual_fpts": 20.8,
+          "field_own": 13.9,
+          "own_rank": 14
+        },
+        {
+          "name": "Chase Briscoe",
+          "fish_pct": 34.0,
+          "winner_pct": 20.0,
+          "gap": 14.0,
+          "actual_fpts": 53.2,
+          "field_own": 29.4,
+          "own_rank": 7
+        },
+        {
+          "name": "Noah Gragson",
+          "fish_pct": 13.5,
+          "winner_pct": 0.0,
+          "gap": 13.5,
+          "actual_fpts": 6.0,
+          "field_own": 9.2,
+          "own_rank": 18
+        },
+        {
+          "name": "Ross Chastain",
+          "fish_pct": 11.9,
+          "winner_pct": 0.0,
+          "gap": 11.9,
+          "actual_fpts": 13.2,
+          "field_own": 7.5,
+          "own_rank": 21
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "dgood23323",
+          "best_rank": 1,
+          "percentile": 0.2
+        },
+        {
+          "handle": "RattlerBlack",
+          "best_rank": 2,
+          "percentile": 0.4
+        },
+        {
+          "handle": "el_tri",
+          "best_rank": 3,
+          "percentile": 0.6
+        },
+        {
+          "handle": "AJTruth33",
+          "best_rank": 4,
+          "percentile": 0.8
+        },
+        {
+          "handle": "slipperywhendry",
+          "best_rank": 5,
+          "percentile": 1.0
+        },
+        {
+          "handle": "jedimasters21",
+          "best_rank": 6,
+          "percentile": 1.2
+        },
+        {
+          "handle": "russellbussey",
+          "best_rank": 7,
+          "percentile": 1.4
+        },
+        {
+          "handle": "cw_hoover",
+          "best_rank": 8,
+          "percentile": 1.6
+        },
+        {
+          "handle": "DIKDRAGON",
+          "best_rank": 9,
+          "percentile": 1.8
+        },
+        {
+          "handle": "wfornos3",
+          "best_rank": 10,
+          "percentile": 2.0
+        },
+        {
+          "handle": "babyak17",
+          "best_rank": 11,
+          "percentile": 2.2
+        },
+        {
+          "handle": "jport7",
+          "best_rank": 12,
+          "percentile": 2.5
+        },
+        {
+          "handle": "wetwoody",
+          "best_rank": 12,
+          "percentile": 2.5
+        },
+        {
+          "handle": "Hunter4ever89",
+          "best_rank": 14,
+          "percentile": 2.9
+        },
+        {
+          "handle": "stiles_12",
+          "best_rank": 14,
+          "percentile": 2.9
+        }
+      ],
+      "read": [
+        "Field crowded **Erik Jones** at 66.1% (49.0 fpts) \u2014 the chalk to consider fading.",
+        "**Chris Buescher + Erik Jones** were together in 46.3% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Chris Buescher** was a fish trap: 56.6% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 387.25,
+      "winner_handle": "dgood23323",
+      "roster": [
+        {
+          "name": "Ryan Blaney",
+          "own": 17.14,
+          "fpts": 66.1
+        },
+        {
+          "name": "Kyle Larson",
+          "own": 26.33,
+          "fpts": 110.3
+        },
+        {
+          "name": "Ty Gibbs",
+          "own": 44.49,
+          "fpts": 74.3
+        },
+        {
+          "name": "Carson Hocevar",
+          "own": 44.9,
+          "fpts": 56.4
+        },
+        {
+          "name": "Erik Jones",
+          "own": 66.12,
+          "fpts": 49.0
+        },
+        {
+          "name": "AJ Allmendinger",
+          "own": 21.43,
+          "fpts": 31.15
+        }
+      ],
+      "avg_own": 36.7,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Ryan Blaney",
+        "own": 17.14,
+        "fpts": 66.1
+      },
+      "expected_dupes": 0.63
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "blocked_swap": {
+        "out": "Shane Van Gisbergen",
+        "in": "Kyle Larson",
+        "gain": 89.5,
+        "over_cap_by": 3500
+      },
+      "gradable": true,
+      "won": false,
+      "your_points": 261.94998,
+      "winner_points": 387.25,
+      "gap": 125.3,
+      "your_percentile": 68.4,
+      "n_shared": 2,
+      "shared": [
+        "AJ Allmendinger",
+        "Carson Hocevar"
+      ],
+      "your_uniques": [
+        {
+          "name": "Tyler Reddick",
+          "fpts": 69.65,
+          "salary": 10500
+        },
+        {
+          "name": "Denny Hamlin",
+          "fpts": 45.55,
+          "salary": 11000
+        },
+        {
+          "name": "Chris Buescher",
+          "fpts": 38.45,
+          "salary": 8600
+        },
+        {
+          "name": "Shane Van Gisbergen",
+          "fpts": 20.75,
+          "salary": 6500
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Kyle Larson",
+          "fpts": 110.3,
+          "salary": 10000
+        },
+        {
+          "name": "Ty Gibbs",
+          "fpts": 74.3,
+          "salary": 8800
+        },
+        {
+          "name": "Ryan Blaney",
+          "fpts": 66.1,
+          "salary": 10200
+        },
+        {
+          "name": "Erik Jones",
+          "fpts": 49.0,
+          "salary": 7500
+        }
+      ],
+      "best_swap": {
+        "out": "Denny Hamlin",
+        "in": "Kyle Larson",
+        "gain": 64.8,
+        "would_have_won": false
+      },
+      "swaps_needed": null
+    }
+  },
+  {
+    "timestamp": "2026-09-11 18:49",
+    "contest_type": "NASCAR",
+    "source_file": "contest-standings-194920559 2.csv",
+    "contest_id": "194920559",
+    "entries": 1470,
+    "winning_score": 393.19998,
+    "cash_line_p80": 312.80002,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nascar",
+    "sport": "nascar",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 38,
+      "total": 38
+    },
+    "user_summary": {
+      "avg_own_mean": 36.29,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 49600.0,
+      "entry_count": 1,
+      "best_rank": 901,
+      "best_percentile": 61.3
+    },
+    "user_lineups": [
+      {
+        "rank": 901,
+        "entry_name": "RyvlesGaming30",
+        "points": 264.65002,
+        "percentile": 61.3,
+        "players": [
+          "Tyler Reddick",
+          "Chase Briscoe",
+          "Ty Gibbs",
+          "Chris Buescher",
+          "Zane Smith",
+          "Connor Zilisch"
+        ],
+        "avg_own": 36.29,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 299.7,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Kyle Larson",
+        "proj_points": 62.4,
+        "actual_fpts": 110.3,
+        "fpts_delta": 47.9,
+        "ownership": 35.0,
+        "actual_own": 23.67
+      },
+      {
+        "name": "Christopher Bell",
+        "proj_points": 43.7,
+        "actual_fpts": 78.2,
+        "fpts_delta": 34.5,
+        "ownership": 12.0,
+        "actual_own": 13.74
+      },
+      {
+        "name": "Josh Berry",
+        "proj_points": 21.0,
+        "actual_fpts": 49.85,
+        "fpts_delta": 28.85,
+        "ownership": 6.0,
+        "actual_own": 8.1
+      },
+      {
+        "name": "Ty Gibbs",
+        "proj_points": 50.35,
+        "actual_fpts": 74.3,
+        "fpts_delta": 23.95,
+        "ownership": 39.0,
+        "actual_own": 46.53
+      },
+      {
+        "name": "Bubba Wallace",
+        "proj_points": 39.35,
+        "actual_fpts": 60.35,
+        "fpts_delta": 21.0,
+        "ownership": 15.0,
+        "actual_own": 15.99
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "William Byron",
+        "proj_points": 47.35,
+        "actual_fpts": -10.75,
+        "fpts_delta": -58.1,
+        "ownership": 17.0,
+        "actual_own": 14.56
+      },
+      {
+        "name": "Ricky Stenhouse Jr",
+        "proj_points": 15.0,
+        "actual_fpts": -21.0,
+        "fpts_delta": -36.0,
+        "ownership": 2.0,
+        "actual_own": 2.65
+      },
+      {
+        "name": "Brad Keselowski",
+        "proj_points": 40.25,
+        "actual_fpts": 9.8,
+        "fpts_delta": -30.45,
+        "ownership": 13.0,
+        "actual_own": 11.77
+      },
+      {
+        "name": "Austin Dillon",
+        "proj_points": 18.0,
+        "actual_fpts": -7.0,
+        "fpts_delta": -25.0,
+        "ownership": 3.0,
+        "actual_own": 2.79
+      },
+      {
+        "name": "Connor Zilisch",
+        "proj_points": 27.0,
+        "actual_fpts": 4.0,
+        "fpts_delta": -23.0,
+        "ownership": 10.0,
+        "actual_own": 11.5
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Christopher Bell",
+        "salary": 9600,
+        "actual_fpts": 78.2,
+        "actual_own": 13.74,
+        "top_lineup_pct": 45.0
+      },
+      {
+        "name": "Ryan Blaney",
+        "salary": 10200,
+        "actual_fpts": 66.1,
+        "actual_own": 19.18,
+        "top_lineup_pct": 35.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 34.71,
+      "low_own_count_mean": 0.4,
+      "salary_used_mean": 49905.0,
+      "dup_max": 5,
+      "unique_pct": 45.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "Schoey17",
+          "points": 393.19998,
+          "percentile": 0.1,
+          "players": [
+            "Kyle Larson",
+            "Christopher Bell",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Erik Jones",
+            "Zane Smith"
+          ],
+          "avg_own": 35.45,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 284.8,
+          "dup_count": 5
+        },
+        {
+          "rank": 1,
+          "entry_name": "lippy1933",
+          "points": 393.19998,
+          "percentile": 0.1,
+          "players": [
+            "Kyle Larson",
+            "Christopher Bell",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Erik Jones",
+            "Zane Smith"
+          ],
+          "avg_own": 35.45,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 284.8,
+          "dup_count": 5
+        },
+        {
+          "rank": 1,
+          "entry_name": "chimidon",
+          "points": 393.19998,
+          "percentile": 0.1,
+          "players": [
+            "Kyle Larson",
+            "Christopher Bell",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Erik Jones",
+            "Zane Smith"
+          ],
+          "avg_own": 35.45,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 284.8,
+          "dup_count": 5
+        },
+        {
+          "rank": 1,
+          "entry_name": "fchonor",
+          "points": 393.19998,
+          "percentile": 0.1,
+          "players": [
+            "Kyle Larson",
+            "Christopher Bell",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Erik Jones",
+            "Zane Smith"
+          ],
+          "avg_own": 35.45,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 284.8,
+          "dup_count": 5
+        },
+        {
+          "rank": 1,
+          "entry_name": "crob0605",
+          "points": 393.19998,
+          "percentile": 0.1,
+          "players": [
+            "Kyle Larson",
+            "Christopher Bell",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Erik Jones",
+            "Zane Smith"
+          ],
+          "avg_own": 35.45,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 284.8,
+          "dup_count": 5
+        },
+        {
+          "rank": 6,
+          "entry_name": "jamielucey",
+          "points": 390.25,
+          "percentile": 0.4,
+          "players": [
+            "Ryan Blaney",
+            "Kyle Larson",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Erik Jones",
+            "Todd Gilliland"
+          ],
+          "avg_own": 32.73,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 282.25,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "lklk88088",
+          "points": 387.25,
+          "percentile": 0.5,
+          "players": [
+            "Ryan Blaney",
+            "Kyle Larson",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Erik Jones",
+            "AJ Allmendinger"
+          ],
+          "avg_own": 35.93,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 289.25,
+          "dup_count": 4
+        },
+        {
+          "rank": 7,
+          "entry_name": "NYGFan56",
+          "points": 387.25,
+          "percentile": 0.5,
+          "players": [
+            "Ryan Blaney",
+            "Kyle Larson",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Erik Jones",
+            "AJ Allmendinger"
+          ],
+          "avg_own": 35.93,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 289.25,
+          "dup_count": 4
+        },
+        {
+          "rank": 7,
+          "entry_name": "justinbrave0515",
+          "points": 387.25,
+          "percentile": 0.5,
+          "players": [
+            "Ryan Blaney",
+            "Kyle Larson",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Erik Jones",
+            "AJ Allmendinger"
+          ],
+          "avg_own": 35.93,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 289.25,
+          "dup_count": 4
+        },
+        {
+          "rank": 7,
+          "entry_name": "reyrey08",
+          "points": 387.25,
+          "percentile": 0.5,
+          "players": [
+            "Ryan Blaney",
+            "Kyle Larson",
+            "Ty Gibbs",
+            "Carson Hocevar",
+            "Erik Jones",
+            "AJ Allmendinger"
+          ],
+          "avg_own": 35.93,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 289.25,
+          "dup_count": 4
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -1.58,
+        "low_own_count_delta": 0.4,
+        "salary_used_delta": 305.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 1462,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Erik Jones",
+          "field_own": 61.0,
+          "actual_fpts": 49.0
+        },
+        {
+          "name": "Chris Buescher",
+          "field_own": 54.8,
+          "actual_fpts": 38.5
+        },
+        {
+          "name": "Tyler Reddick",
+          "field_own": 52.6,
+          "actual_fpts": 69.7
+        },
+        {
+          "name": "Ty Gibbs",
+          "field_own": 46.5,
+          "actual_fpts": 74.3
+        },
+        {
+          "name": "Carson Hocevar",
+          "field_own": 43.0,
+          "actual_fpts": 56.4
+        },
+        {
+          "name": "Chase Briscoe",
+          "field_own": 27.5,
+          "actual_fpts": 53.2
+        },
+        {
+          "name": "Denny Hamlin",
+          "field_own": 27.5,
+          "actual_fpts": 45.5
+        },
+        {
+          "name": "Zane Smith",
+          "field_own": 24.8,
+          "actual_fpts": 25.0
+        },
+        {
+          "name": "Kyle Larson",
+          "field_own": 23.7,
+          "actual_fpts": 110.3
+        },
+        {
+          "name": "AJ Allmendinger",
+          "field_own": 22.2,
+          "actual_fpts": 31.1
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Chris Buescher",
+            "Erik Jones"
+          ],
+          "field_pct": 40.9,
+          "count": 598
+        },
+        {
+          "players": [
+            "Erik Jones",
+            "Tyler Reddick"
+          ],
+          "field_pct": 36.0,
+          "count": 526
+        },
+        {
+          "players": [
+            "Chris Buescher",
+            "Tyler Reddick"
+          ],
+          "field_pct": 32.0,
+          "count": 467
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Erik Jones"
+          ],
+          "field_pct": 31.7,
+          "count": 463
+        },
+        {
+          "players": [
+            "Erik Jones",
+            "Ty Gibbs"
+          ],
+          "field_pct": 30.3,
+          "count": 443
+        },
+        {
+          "players": [
+            "Chris Buescher",
+            "Ty Gibbs"
+          ],
+          "field_pct": 28.3,
+          "count": 413
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Chris Buescher"
+          ],
+          "field_pct": 28.2,
+          "count": 412
+        },
+        {
+          "players": [
+            "Ty Gibbs",
+            "Tyler Reddick"
+          ],
+          "field_pct": 24.0,
+          "count": 351
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Tyler Reddick"
+          ],
+          "field_pct": 23.6,
+          "count": 345
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Ty Gibbs"
+          ],
+          "field_pct": 21.2,
+          "count": 310
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Carson Hocevar",
+            "Chris Buescher",
+            "Erik Jones",
+            "Ty Gibbs",
+            "Tyler Reddick",
+            "Zane Smith"
+          ],
+          "count": 72,
+          "field_pct": 4.9
+        },
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Carson Hocevar",
+            "Chris Buescher",
+            "Erik Jones",
+            "Kyle Larson",
+            "Tyler Reddick"
+          ],
+          "count": 35,
+          "field_pct": 2.4
+        },
+        {
+          "players": [
+            "AJ Allmendinger",
+            "Carson Hocevar",
+            "Chase Briscoe",
+            "Chris Buescher",
+            "Erik Jones",
+            "Tyler Reddick"
+          ],
+          "count": 26,
+          "field_pct": 1.8
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Chris Buescher",
+            "Denny Hamlin",
+            "Erik Jones",
+            "Ty Gibbs",
+            "Zane Smith"
+          ],
+          "count": 26,
+          "field_pct": 1.8
+        },
+        {
+          "players": [
+            "Carson Hocevar",
+            "Chris Buescher",
+            "Erik Jones",
+            "Shane Van Gisbergen",
+            "Ty Gibbs",
+            "Tyler Reddick"
+          ],
+          "count": 20,
+          "field_pct": 1.4
+        }
+      ],
+      "winners_profile": {
+        "n": 15,
+        "avg_own_per_slot": 36.0,
+        "dart_pct": 6.7,
+        "unique_pct": 46.7
+      },
+      "fish_profile": {
+        "n": 730,
+        "avg_own_per_slot": 28.2,
+        "dart_pct": 37.3,
+        "unique_pct": 81.0
+      },
+      "fish_traps": [
+        {
+          "name": "Denny Hamlin",
+          "fish_pct": 42.2,
+          "winner_pct": 0.0,
+          "gap": 42.2,
+          "actual_fpts": 45.5,
+          "field_own": 27.5,
+          "own_rank": 6
+        },
+        {
+          "name": "Tyler Reddick",
+          "fish_pct": 48.8,
+          "winner_pct": 6.7,
+          "gap": 42.1,
+          "actual_fpts": 69.7,
+          "field_own": 52.6,
+          "own_rank": 3
+        },
+        {
+          "name": "William Byron",
+          "fish_pct": 28.9,
+          "winner_pct": 0.0,
+          "gap": 28.9,
+          "actual_fpts": -10.8,
+          "field_own": 14.6,
+          "own_rank": 14
+        },
+        {
+          "name": "Chris Buescher",
+          "fish_pct": 48.8,
+          "winner_pct": 20.0,
+          "gap": 28.8,
+          "actual_fpts": 38.5,
+          "field_own": 54.8,
+          "own_rank": 2
+        },
+        {
+          "name": "Chase Briscoe",
+          "fish_pct": 29.6,
+          "winner_pct": 6.7,
+          "gap": 22.9,
+          "actual_fpts": 53.2,
+          "field_own": 27.5,
+          "own_rank": 6
+        },
+        {
+          "name": "Brad Keselowski",
+          "fish_pct": 20.5,
+          "winner_pct": 0.0,
+          "gap": 20.5,
+          "actual_fpts": 9.8,
+          "field_own": 11.8,
+          "own_rank": 17
+        },
+        {
+          "name": "Corey Heim",
+          "fish_pct": 19.9,
+          "winner_pct": 0.0,
+          "gap": 19.9,
+          "actual_fpts": 29.2,
+          "field_own": 16.3,
+          "own_rank": 12
+        },
+        {
+          "name": "Bubba Wallace",
+          "fish_pct": 15.6,
+          "winner_pct": 0.0,
+          "gap": 15.6,
+          "actual_fpts": 60.4,
+          "field_own": 16.0,
+          "own_rank": 13
+        },
+        {
+          "name": "Connor Zilisch",
+          "fish_pct": 14.5,
+          "winner_pct": 0.0,
+          "gap": 14.5,
+          "actual_fpts": 4.0,
+          "field_own": 11.5,
+          "own_rank": 18
+        },
+        {
+          "name": "Ross Chastain",
+          "fish_pct": 14.2,
+          "winner_pct": 0.0,
+          "gap": 14.2,
+          "actual_fpts": 13.2,
+          "field_own": 8.7,
+          "own_rank": 21
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "Schoey17",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "lippy1933",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "chimidon",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "fchonor",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "crob0605",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "jamielucey",
+          "best_rank": 6,
+          "percentile": 0.4
+        },
+        {
+          "handle": "lklk88088",
+          "best_rank": 7,
+          "percentile": 0.5
+        },
+        {
+          "handle": "NYGFan56",
+          "best_rank": 7,
+          "percentile": 0.5
+        },
+        {
+          "handle": "justinbrave0515",
+          "best_rank": 7,
+          "percentile": 0.5
+        },
+        {
+          "handle": "reyrey08",
+          "best_rank": 7,
+          "percentile": 0.5
+        },
+        {
+          "handle": "redrum305",
+          "best_rank": 11,
+          "percentile": 0.8
+        },
+        {
+          "handle": "debd11",
+          "best_rank": 11,
+          "percentile": 0.8
+        },
+        {
+          "handle": "hhuckman",
+          "best_rank": 13,
+          "percentile": 0.9
+        },
+        {
+          "handle": "theteamcubed",
+          "best_rank": 14,
+          "percentile": 1.0
+        },
+        {
+          "handle": "RyanCox421",
+          "best_rank": 15,
+          "percentile": 1.0
+        }
+      ],
+      "read": [
+        "Field crowded **Erik Jones** at 61.0% (49.0 fpts) \u2014 the chalk to consider fading.",
+        "**Chris Buescher + Erik Jones** were together in 40.9% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Denny Hamlin** was a fish trap: 42.2% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 393.19998,
+      "winner_handle": "Schoey17",
+      "roster": [
+        {
+          "name": "Kyle Larson",
+          "own": 23.67,
+          "fpts": 110.3
+        },
+        {
+          "name": "Christopher Bell",
+          "own": 13.74,
+          "fpts": 78.2
+        },
+        {
+          "name": "Ty Gibbs",
+          "own": 46.53,
+          "fpts": 74.3
+        },
+        {
+          "name": "Carson Hocevar",
+          "own": 42.99,
+          "fpts": 56.4
+        },
+        {
+          "name": "Erik Jones",
+          "own": 60.95,
+          "fpts": 49.0
+        },
+        {
+          "name": "Zane Smith",
+          "own": 24.83,
+          "fpts": 25.0
+        }
+      ],
+      "avg_own": 35.5,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Christopher Bell",
+        "own": 13.74,
+        "fpts": 78.2
+      },
+      "expected_dupes": 1.45
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "blocked_swap": {
+        "out": "Connor Zilisch",
+        "in": "Kyle Larson",
+        "gain": 106.3,
+        "over_cap_by": 3900
+      },
+      "gradable": true,
+      "won": false,
+      "your_points": 264.65002,
+      "winner_points": 393.19998,
+      "gap": 128.5,
+      "your_percentile": 61.3,
+      "n_shared": 2,
+      "shared": [
+        "Ty Gibbs",
+        "Zane Smith"
+      ],
+      "your_uniques": [
+        {
+          "name": "Tyler Reddick",
+          "fpts": 69.65,
+          "salary": 10500
+        },
+        {
+          "name": "Chase Briscoe",
+          "fpts": 53.25,
+          "salary": 9800
+        },
+        {
+          "name": "Chris Buescher",
+          "fpts": 38.45,
+          "salary": 8600
+        },
+        {
+          "name": "Connor Zilisch",
+          "fpts": 4.0,
+          "salary": 5700
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Kyle Larson",
+          "fpts": 110.3,
+          "salary": 10000
+        },
+        {
+          "name": "Christopher Bell",
+          "fpts": 78.2,
+          "salary": 9600
+        },
+        {
+          "name": "Carson Hocevar",
+          "fpts": 56.4,
+          "salary": 7900
+        },
+        {
+          "name": "Erik Jones",
+          "fpts": 49.0,
+          "salary": 7500
+        }
+      ],
+      "best_swap": {
+        "out": "Chase Briscoe",
+        "in": "Kyle Larson",
+        "gain": 57.0,
+        "would_have_won": false
+      },
+      "swaps_needed": 4
+    }
+  }
+]

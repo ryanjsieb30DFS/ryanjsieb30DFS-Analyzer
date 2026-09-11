@@ -1,0 +1,26 @@
+{
+  "contests": [
+    {
+      "name": "NAS $5K Engine Block",
+      "type": "SE",
+      "field_size": 490,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "prize_pool": 5000,
+      "payout_shape": null,
+      "id": "b3d83586"
+    },
+    {
+      "name": "NAS $15K Engine Block",
+      "type": "SE",
+      "field_size": 1470,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "prize_pool": 15000,
+      "payout_shape": null,
+      "id": "031fa476"
+    }
+  ]
+}
