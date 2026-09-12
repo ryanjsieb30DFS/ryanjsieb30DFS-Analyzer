@@ -14,7 +14,10 @@ lessons:
       RB captains beat their projection more often than any other position; TE captains are the weakest. Why: RB usage (carries + targets) is stickier week to week than a receiver's target share, so the RB ceiling is reached more often. Counts as confirmed when: on a logged slate, RB captains appear in top-10 finishes at or above their share of the captain pool.
     status: hypothesis
     confirmations: []
-    contradictions: []
+    contradictions:
+      - date: "2026-09-11"
+        history: "rules/nfl_sd/history/2026-09-11__nfl-sd-9-10-26"
+        note: "RB captains were 1 of 10 (Dimeback) and 2 of 10 (Huddle) top-ten captains against ~30% of the captain pool (McCaffrey 20.5% + Williams 8.2% + Corum). Winners captained QB Purdy (33.15 CPT); McCaffrey scored 13.8 flex. One slate — mechanism not yet retired."
     codified_in: null
     retired_reason: null
 
@@ -24,7 +27,10 @@ lessons:
     statement: >
       Captains under 5% projected ownership underperform captains in the 5–25% band. Why: the ceiling needed to be the slate's top raw scorer is rarer than the ownership discount is worth. Counts as confirmed when: a logged slate's top-10 captains sit mostly in the 5–25% band and the sub-5% captains in the user's entries miss.
     status: hypothesis
-    confirmations: []
+    confirmations:
+      - date: "2026-09-11"
+        history: "rules/nfl_sd/history/2026-09-11__nfl-sd-9-10-26"
+        note: "PARTIAL — band half held: 6 of 10 top-ten captains in both contests sat in the 5–25% band (Purdy 6.4%, McCaffrey 20.5%). Second half failed: the user's sub-5% captain Evans (4.9%) scored 38.0 CPT, and sub-5% captains Deebo (2.0%) and Robinson (0.2%) took 4 of 10 Dimeback top-ten spots. Not counted toward promotion."
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -34,8 +40,11 @@ lessons:
     origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 sim study); external data, not a logged slate"
     statement: >
       3-3 builds without a named game script underperform 5-1, 1-5, and 4-2 builds that have one. Why: a single NFL game resolves to one side more often than it splits evenly. Counts as confirmed when: the slate's top-10 lineups are unbalanced (4-2 or wider) more often than 3-3.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-11"
+        history: "rules/nfl_sd/history/2026-09-11__nfl-sd-9-10-26"
+        note: "Top-10 lineups were 4-2 or wider in 8 of 10 (Dimeback: 5-1 x2, 4-2 x6, 3-3 x2) and 7 of 10 (Huddle). The Dimeback winner was 5-1 toward the 49ers. The user's 3-3 Huddle pick (which overrode the strategy's 2-4 shape citing the sim) finished 389th."
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -45,8 +54,11 @@ lessons:
     origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 sim study); external data, not a logged slate"
     statement: >
       Lineups with no kicker and no DST underperform lineups that carry one or both. Why: K and DST are the highest-scoring pieces in their salary tier and force the lineup to state a script. Counts as confirmed when: the slate's top-10 lineups carry a K or DST more often than the user's entries did.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-11"
+        history: "rules/nfl_sd/history/2026-09-11__nfl-sd-9-10-26"
+        note: "6 of 10 top-ten lineups in EACH contest carried a K or DST (Pineiro 11.0 pts, 49ers DST) vs the user's 0 of 2. Caveat: both first-place lineups were six skill players with no K/DST — the edge is a rate, never a quota."
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -56,8 +68,11 @@ lessons:
     origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR kicker study 2020–25); external data, not a logged slate"
     statement: >
       The kicker edge exists only in dome games, close spreads (the underdog kicker), or when the kicker is under-owned; blanket kicker use is neutral since 2025. Why: the field and DK pricing caught up to the old kicker discount; what is left is environment- and ownership-specific. Counts as confirmed when: a dome or close-spread kicker out-scores his salary tier on a logged slate while owned below the favorite's kicker.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-11"
+        history: "rules/nfl_sd/history/2026-09-11__nfl-sd-9-10-26"
+        note: "Roofed stadium (Melbourne) + 3.5-point spread: underdog kicker Pineiro ($4,800) scored 11.0 and sat in 6 of the Dimeback top ten; favorite's kicker Mevis ($5,000) scored 1.0. Ownership was even (21.3% vs 21.1%), so the environment half confirmed and the under-owned half was untested."
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -67,6 +82,53 @@ lessons:
     origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 sim study); external data, not a logged slate"
     statement: >
       At similar sim ROI, the lineup with fewer projected duplicates wins on actual return. Why: an 11x-duplicated cash returns about 60% less than a unique cash. Counts as confirmed when: a logged contest's top finishers with positive sim ROI were low-dupe more often than high-dupe.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+    # 2026-09-11: untested — the archive holds no per-lineup sim ROI for the top finishers. Top-10 dupe counts were 1-3 in both contests.
+
+  # ---- 2026-09-11 — NFL SD 9.10.26 (49ers at Rams, Melbourne) — first logged slate ----
+
+  - id: nfl_sd_qb_cpt_under_base_rate
+    born: "2026-09-11"
+    origin: "rules/nfl_sd/history/2026-09-11__nfl-sd-9-10-26"
+    statement: >
+      When a quarterback's projected captain ownership sits well under the ~20% base rate at which a QB is the optimal captain, that QB is UNDER-picked leverage and belongs on the strategy's captain menu — the framework line "the field over-captains the QB" is a check, not a given. Why: the 1.5x multiplier buys nothing, so captain value is ceiling times (1 minus ownership); a QB with a top-3 ceiling at 6% captain ownership is the cheapest access to the slate's top score. Origin: Purdy 6.4% captain (ceiling 29.0, third on the sheet) scored 33.15 as captain and won BOTH contests; the strategy's captain menu named Adams (5.6 pts), Evans and Williams and omitted Purdy. Counts as confirmed when: on a logged slate a QB captained under ~10% is the winning captain or in the top-10 at/above his captain share.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_sd_cheap_side_catchers
+    born: "2026-09-11"
+    origin: "rules/nfl_sd/history/2026-09-11__nfl-sd-9-10-26"
+    statement: >
+      When the field's cheap fillers lean one team (that side's TE/RB2/DST at 20-30% each because the chalk stars leave ~$4,300 per remaining slot), the OTHER side's $7K-$8K pass-catchers under 20% ownership are the leverage set — regardless of which team wins. Why: a competitive-game script scores both sides, but only one side is cheap to own; the low-owned side's catchers carry the same points at a fraction of the duplication. Origin: Rams fillers Ferguson/Parkinson/Corum (24.3/20.9/29.5% owned) scored 0.0/2.4/5.4 while 49ers catchers Deebo/Evans/Robinson (17.5/27.7/4.8%) scored 18.0/16.9/13.0; the strategy surfaced the writers' 49ers-side read (edge 5) but left Deebo in Okay and Stafford in Good. Counts as confirmed when: the un-crowded side's mid-priced catchers out-average the crowded side's fillers on a logged slate with a spread under 7.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_sd_pick_override_inside_band
+    born: "2026-09-11"
+    origin: "rules/nfl_sd/history/2026-09-11__nfl-sd-9-10-26"
+    statement: >
+      A pick rationale that overrides a strategy SHAPE rule (salary left, team split, captain-plus-teammates check) by citing a sim gap INSIDE the noise band loses the override; the shape rule is winner-data prior the sim's chance-to-win ranking does not carry when its correlation with real scores is ~0.2. Why: at 0.19 correlation and a ±0.4-point band, "best row on the table" is a coin-flip among ~10 rows, while the shape rules separate winners from fish at 2-to-1 rates. Origin: the Dimeback pick took the 5.33% top row, overrode the "leave salary" rule and failed the WR-captain+≤1-teammate check (5-1 Rams), then beat only 22.4% of the pool with 401 of 500 table rows above it; the Huddle pick overrode the 2-4 shape for a 3-3. 0 for 2. Counts as confirmed when: a logged pick that writes "trusted the sim over the strategy" on a sub-band gap finishes below the pool median.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_sd_underweight_across_entries
+    born: "2026-09-11"
+    origin: "rules/nfl_sd/history/2026-09-11__nfl-sd-9-10-26"
+    statement: >
+      An UNDERWEIGHT call is judged across EVERY entry on the slate, not per contest: "this is a single entry so he is not in every bullet" is void when the same player rides every contest's pick. Why: underweight means less exposure than the crowd; two single-entry contests both carrying the player is 100% exposure against the crowd's 24%, the opposite of the call. Origin: Ferguson (UNDERWEIGHT, 24.3% owned) was in 2 of 2 entries with that exact defense written in both rationales, and scored 0.0. Counts as confirmed when: a logged slate's under-own call rides every entry across contests and the player finishes below his salary tier.
     status: hypothesis
     confirmations: []
     contradictions: []

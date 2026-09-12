@@ -22,7 +22,7 @@ CPT costs 1.5x for 1.5x points, so the multiplier itself buys nothing — the ca
 | DST | 6% | field ~2.5% |
 | K | 3% | field ~0.8% |
 
-- **The field over-captains the QB.** He is optimal about 1 in 5; the field makes him the most popular captain nearly every slate. On every completed pass the catcher out-scores the thrower — the QB's own receivers systematically out-captain him. **WR + RB = 61%+ of winning captains.**
+- **Check whether the field over-captains the QB — it is not automatic.** He is optimal about 1 in 5. On 9/10/26 the field captained both quarterbacks under 8% and both contest winners captained Purdy; when a QB's captain ownership sits well under 20%, he belongs on the captain menu. On every completed pass the catcher out-scores the thrower — the QB's own receivers systematically out-captain him. **WR + RB = 61%+ of winning captains.**
 - **Winning captains are not obscure**: median winning-captain own ~11%, average price ~$13,000, ~23.6 CPT points. The edge is the right member of the chalk cluster, not a 2% punt.
 - Cheap captains under $7,500 won only with genuine slate-topping ceiling (goal-line RB, deep threat) — never as a salary trick. Winning sub-$7,500 captains scored 26.4 CPT points, 2.6x their median projection: reaching "value" is not enough, the punt needs a path to the slate's top raw score.
 - **Captain ownership lives in the 5–25% band.** The sub-5% captain chosen for ownership alone is the documented single-entry leak (single-entry players put 25% of captains there vs 16% for winning multi-entry players, and it was the pros' lowest-ROI bucket). Low ownership is a tiebreaker, never the thesis.
