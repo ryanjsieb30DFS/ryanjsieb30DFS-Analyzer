@@ -51,8 +51,12 @@ CONTEST_TYPES = {
     "NASCAR": {"slug": "nascar", "sport": "nascar"},
     # DK single-game format: 1 Captain (1.5x points, higher CPT salary) +
     # 5 FLEX, $50K cap, both teams represented. Added 9/9/26 — first NFL
-    # support in this repo; NFL Classic is still out of scope.
+    # support in this repo.
     "NFL Showdown": {"slug": "nfl_sd", "sport": "nfl"},
+    # DK main-slate format: 9 positional slots (QB, RB, RB, WR, WR, WR, TE,
+    # FLEX = RB/WR/TE, DST), $50K cap, players from at least 2 games. Added
+    # 9/12/26. Small-field (SE/3-Max/5-Max) is the user's Classic profile.
+    "NFL Classic": {"slug": "nfl_classic", "sport": "nfl"},
 }
 
 
@@ -163,7 +167,7 @@ def _cached_breakdown(slug: str, src_mtime: float, primary_name: str, sport_: st
     real_ceil = landscape.has_real_ceiling(df)
     out = {
         "vendor": pool[primary_name].get("vendor"),
-        "warnings": warn_missing_for_sport(df, sport_),
+        "warnings": warn_missing_for_sport(df, sport_, slug=slug),
         "df": df,
         "flags": landscape.breakdown_flags(df),
         "real_ceil": real_ceil,
@@ -199,7 +203,7 @@ def _cached_dk_analysis(csv_bytes: bytes, sport_: str | None, slug_: str, src_mt
         proj_frame = proj_frame_for_autopsy([s.get("df") for s in pool.values()])
     except Exception:  # noqa: BLE001 — enrichment is best-effort
         proj_frame = None
-    analysis = analyze_contest(parsed, proj_frame, sport_)
+    analysis = analyze_contest(parsed, proj_frame, sport_, slug=slug_)
     try:
         from src import shark_gap as _sg
         gap = _sg.gap_for_slug(slug_, parsed)
@@ -389,7 +393,7 @@ with tab_proj:
                 st.caption(f"↳ Dropped {len(_junk)} unparseable row(s) from the export: "
                            + ", ".join(_junk[:5])
                            + ("…" if len(_junk) > 5 else ""))
-            for _w in warn_missing_for_sport(df, sport):
+            for _w in warn_missing_for_sport(df, sport, slug=slug):
                 st.warning(f"⚠️ {f.name}: {_w}")
             _conf = df.attrs.get("vendor_confidence") or {}
             if _conf.get("ambiguous"):
@@ -450,7 +454,7 @@ with tab_proj:
                 sessions.save_source(slug, _pf.name, _pdf, _pv)
                 st.success(f"✅ {_pf.name} — detected as **{_pv}** "
                            f"({len(_pdf)} players)")
-                for _pw in warn_missing_for_sport(_pdf, sport):
+                for _pw in warn_missing_for_sport(_pdf, sport, slug=slug):
                     st.warning(f"⚠️ {_pf.name}: {_pw}")
 
     sources = cached_sources(slug)

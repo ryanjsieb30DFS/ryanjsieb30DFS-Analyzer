@@ -1,0 +1,85 @@
+# Lesson ledger — one entry per generalizable lesson. Claude edits during the
+# post-autopsy review; the user approves codifications/retirements.
+# Lifecycle: hypothesis -> validated -> codified | retired.
+# Promotion: 3 mechanism confirmations -> propose codifying into framework.md.
+# Retirement: 2 mechanism contradictions -> propose retiring.
+# GPP guard: a lost contest is NOT a contradiction; only mechanism failures count.
+lessons:
+  # ---- 2026-09-12 — seeded from docs/nfl_game_theory.md Part 1 (external winner studies, pre-season) ----
+
+  - id: nfl_classic_double_stack_edge
+    born: "2026-09-12"
+    origin: "docs/nfl_game_theory.md 1.2 — ETR Milly Maker winner studies (external data, not a logged slate)"
+    statement: >
+      A QB stacked with two of his own pass-catchers beats a single stack and a naked QB in winning lineups (41% of winners vs 29% of the field; naked QB 6% vs 17%). Why: a monster passing game (4+ TDs) almost never lands in one receiver's hands, so two catchers double the capture of the QB's ceiling. Counts as confirmed when: a logged slate's top-10 lineups carry QB + 2 same-team pass-catchers more often than the field's rate for that slate.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_te_bring_back
+    born: "2026-09-12"
+    origin: "docs/nfl_game_theory.md 1.2 — ETR winner studies (external data, not a logged slate)"
+    statement: >
+      A tight end used as the bring-back (the opposing pass-catcher next to a QB stack) appears in winning lineups more often than the field uses it (+34%). Why: tight-end ceilings are touchdown-driven and cluster in the high-scoring games a stack is already betting on. Counts as confirmed when: on a logged slate, top-10 lineups with a QB stack carry an opposing TE at a higher rate than the field.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_rb_chalk_sturdy
+    born: "2026-09-12"
+    origin: "docs/nfl_game_theory.md 1.4 — 4for4 / FantasyLabs ownership-to-points work (external data, not a logged slate)"
+    statement: >
+      Running back is the one position where winning lineups are CHALKIER than the field; fading a volume-based chalk RB costs more than it gains. Why: RB ownership predicts RB points (0.55) because touches are the most bankable input in football. Counts as confirmed when: on a logged slate, the top-10 lineups' RB ownership is at or above the field's RB ownership while their QB/DST/TE ownership sits below it.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_dst_chalk_fragile
+    born: "2026-09-12"
+    origin: "docs/nfl_game_theory.md 1.4 — ownership-to-points correlations (external data, not a logged slate)"
+    statement: >
+      The highest-owned defense is the most reliably overpriced piece on the slate. Why: DST scoring is the least predictable on the board (ownership predicts DST points at only 0.21), so the field's confidence is not backed by the distribution. Counts as confirmed when: on a logged slate, the top-owned DST finishes outside the top-3 defenses by points while top-10 lineups used a lower-owned DST.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_cheap_qb_leverage
+    born: "2026-09-12"
+    origin: "docs/nfl_game_theory.md 1.5 — ETR winner salary studies (external data, not a logged slate)"
+    statement: >
+      Quarterbacks under $6,000 win more often than the field uses them (45% of winners vs 38% field usage). Why: QB scoring is flat relative to price, cheap QBs run low-owned, and the savings buy RB/WR studs. Counts as confirmed when: a logged slate's top-10 lineups carry a sub-$6,000 QB at a higher rate than the field.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_full_cap
+    born: "2026-09-12"
+    origin: "docs/nfl_game_theory.md 1.5 — ETR salary-left test (external data, not a logged slate)"
+    statement: >
+      Winning Classic lineups spend the full cap (84% at $49,800+); leaving salary buys no uniqueness edge in this format. Why: with nine slots, uniqueness comes from player choice and stack structure, and every dollar left is projection surrendered. Counts as confirmed when: a logged slate's top-10 lineups average $49,500+ in salary used.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_forced_value_stampede
+    born: "2026-09-12"
+    origin: "docs/nfl_game_theory.md 1.5 + the 8/30/26 MMA ownership report (stampede chalk +15-30 pts of own)"
+    statement: >
+      When late news creates a cheap forced-value starter, the field over-rushes the obvious pivot and under-owns the second-order beneficiary (the passing game that inherits the work). Why: everyone's salary math routes through the same cheap player and the same two studs the savings buy. Counts as confirmed when: on a logged slate with a late-news value play, his actual ownership exceeds the last vendor projection by 10+ points while a same-team second-order beneficiary appears in top-10 lineups above his ownership.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null

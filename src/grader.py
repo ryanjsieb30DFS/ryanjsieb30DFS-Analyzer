@@ -89,11 +89,13 @@ def parse_lineups(text: str, pool) -> list[dict]:
         tokens = [t.strip() for t in re.split(r"[,\t;/·]+", line) if t.strip()]
         players, unmatched = [], []
         for t in tokens:
-            # A pasted showdown roster often keeps DK's slot markers
-            # ("CPT Lamar Jackson", "FLEX Derrick Henry"). Strip the marker
-            # before matching; remember CPT so salary math can use the
-            # captain price.
-            m = re.match(r"(?i)^(CPT|FLEX|UTIL)\s+(.+)$", t)
+            # A pasted roster often keeps DK's slot markers ("CPT Lamar
+            # Jackson", "FLEX Derrick Henry", "QB Josh Allen", "DST Broncos").
+            # Strip the marker before matching; remember CPT so salary math
+            # can use the captain price. Multi-character NFL Classic markers
+            # sit in the same alternation (DST before the rest so the D is
+            # never read as a lone marker).
+            m = re.match(r"(?i)^(CPT|FLEX|UTIL|DST|QB|RB|WR|TE)\s+(.+)$", t)
             is_cpt = bool(m and m.group(1).upper() == "CPT")
             if m:
                 t = m.group(2).strip()
@@ -452,10 +454,11 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
         g["dupes_corrected"] = bool(factor)
         g["dupes_factor"] = factor
 
-    # NFL Showdown: without a "CPT <name>" marker the whole lineup is priced
+    # NFL Showdown ONLY (slug-gated 9/12/26 — NFL Classic has no captain, so
+    # the flag would misfire there): without a "CPT <name>" marker the whole lineup is priced
     # at FLEX salaries, so the salary shown runs LOW (the captain really costs
     # 1.5x). Say so — information only, never a letter cost.
-    if cal.get("sport") == "nfl" and players and not any(p.get("cpt") for p in players):
+    if cal.get("slug") == "nfl_sd" and players and not any(p.get("cpt") for p in players):
         g["flags"].append({"level": "info", "code": "no_cpt_marker",
                            "msg": "No captain marked — paste the roster with "
                                   "'CPT ' before the captain's name so the "

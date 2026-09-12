@@ -45,6 +45,9 @@ OPTIONAL_FLOAT_COLUMNS = [
     # derived flex-only ownership. FLEX values live in salary/proj_points;
     # `ownership` stays the vendor's TOTAL (CPT+FLEX) own — see module docs.
     "salary_cpt", "proj_cpt", "own_cpt", "own_flex",
+    # NFL Classic: vendor floor + the LARGE-field ownership kept alongside the
+    # small-field `ownership` the strategy reads (leverage delta between them).
+    "floor", "own_large",
     # live to-par leaderboard score (e.g. DK PGA RD4 SD "Current Score").
     # Float, NOT int: the int path uses -1 as its NA sentinel, which would
     # wipe every real -1 (one-under) score.
@@ -330,8 +333,14 @@ def validate_projections(projections: pd.DataFrame) -> None:
         )
 
 
-def warn_missing_for_sport(projections: pd.DataFrame, sport: str | None) -> list[str]:
-    """Return warnings about optional columns missing for the given sport."""
+def warn_missing_for_sport(projections: pd.DataFrame, sport: str | None,
+                           slug: str | None = None) -> list[str]:
+    """Return warnings about optional columns missing for the given sport.
+
+    `slug` splits sports with more than one format: NFL Showdown wants the
+    captain columns, NFL Classic (no captain) only position/team/opponent.
+    With slug=None an NFL sheet gets the Showdown checks (pre-9/12 behavior).
+    """
     warnings = []
     if sport == "mma":
         if "opponent" not in projections.columns and "matchup" not in projections.columns:
@@ -349,7 +358,15 @@ def warn_missing_for_sport(projections: pd.DataFrame, sport: str | None) -> list
         warnings.append(
             "NASCAR: 'starting_position' column missing — PD floor constraint cannot be enforced."
         )
-    if sport == "nfl":
+    if sport == "nfl" and slug == "nfl_classic":
+        for col, why in (
+            ("position", "the board can't show QB/RB/WR/TE/DST or read stacks"),
+            ("team", "stack / game-environment reads are blind"),
+            ("opponent", "bring-back and QB-vs-DST reads are blind"),
+        ):
+            if col not in projections.columns:
+                warnings.append(f"NFL Classic: '{col}' column missing — {why}.")
+    elif sport == "nfl":
         for col, why in (
             ("position", "the board can't show QB/RB/WR/TE/K/DST"),
             ("team", "the both-teams / team-split reads are blind"),

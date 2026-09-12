@@ -348,7 +348,11 @@ _SLUG_SPORT = {"pga_classic": "golf", "pga_rd4_sd": "golf_showdown",
                # precedent): a showdown's ownership/salary structure must
                # never inherit a classic-format envelope. Deliberately NOT in
                # _CORRECTABLE_SPORTS — no NFL dupe-correction corpus exists.
-               "nfl_sd": "nfl_showdown"}
+               "nfl_sd": "nfl_showdown",
+               # NFL Classic shares the plain `nfl` key with the shark
+               # baseline (mined from the user's 69-file Classic archive).
+               # Also NOT in _CORRECTABLE_SPORTS — no NFL dupe corpus.
+               "nfl_classic": "nfl"}
 
 # Sports whose corpus evidence is tight enough to correct a user-facing number.
 # Measured over the Sim's 577-contest corpus (7/25/26), median observed/naive by

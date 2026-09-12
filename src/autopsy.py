@@ -261,7 +261,8 @@ def lineup_profile(players: list[str], own_map: dict, proj_lookup: dict | None,
     return profile
 
 
-def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str) -> dict:
+def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str,
+                    slug: str | None = None) -> dict:
     """Structural analysis of one contest: the user's entries, the top finishers'
     lineup profiles, proj-vs-actual outliers, and slate-defining plays."""
     lineups = parsed["lineups"]
@@ -419,10 +420,14 @@ def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str) -> d
         # captain swap would be priced at the FLEX salary and "fits under the
         # cap" could be false. Until the counterfactual is captain-aware, NFL
         # degrades to the honest points-only read (salary_checked: False)
-        # rather than shipping wrong cap math.
+        # rather than shipping wrong cap math. Slug-gated 9/12/26: NFL
+        # Classic has no captain, so it keeps the salary-aware read. (A
+        # caller passing sport="nfl" with no slug still gets the safe None.)
         "salary_map": ({n: int(e["salary"]) for n, e in proj_lookup.items()
                         if e.get("salary") == e.get("salary")}
-                       if proj_lookup and sport != "nfl" else None),
+                       if proj_lookup and not (
+                           sport == "nfl" and slug != "nfl_classic")
+                       else None),
     }
 
 

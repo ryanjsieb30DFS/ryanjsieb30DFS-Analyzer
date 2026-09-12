@@ -38,15 +38,16 @@ def test_sd_vendor_detected():
     assert sig["sport"] == "nfl"
 
 
-def test_main_slate_etr_nfl_gets_no_signature():
-    # The ETR NFL Main Slate export lacks the CPT columns — Showdown is the
-    # ONLY NFL signature tonight, so this header set must match NOTHING.
+def test_main_slate_etr_nfl_is_not_showdown():
+    # The ETR NFL Main Slate export lacks the CPT columns — it must route to
+    # the Classic signature (added 9/12/26), never to Showdown.
     cols = _norm_cols([
         "Name", "Team", "Opponent", "Position", "Salary", "Projection",
         "Value", "Ownership", "DKSlateID", "Floor", "Ceiling", "Small",
     ])
     df = pd.DataFrame(columns=sorted(cols))
-    assert detect_vendor(df) is None
+    sig = detect_vendor(df)
+    assert sig is not None and sig["name"] == "ETR NFL Classic (legacy)"
 
 
 def test_sd_signature_does_not_shadow_others():

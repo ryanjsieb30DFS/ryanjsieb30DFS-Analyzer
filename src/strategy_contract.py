@@ -97,6 +97,141 @@ def parse_structure_rules(strategy_md: str) -> list[dict]:
     return out
 
 
+
+# ---------------------------------------------------------------------------
+# `## Build rules` — the strategy's machine-readable rule block (9/12/26)
+# ---------------------------------------------------------------------------
+# The strategy prompt makes every slate strategy close with ONE fenced yaml
+# block copying every rule it stated in prose. This is the ONLY channel by
+# which the Sim's Filter gate learns a rule: the old pair math
+# (chalk_pairs / anchor_pairs) invented "never both" bans the strategy never
+# wrote, and on 9/12 the gate enforced the wrong pairs while the plan's own
+# refusals went unchecked. Codified lessons ride the same block, each tagged
+# with its lesson id in `from`, so lessons are enforced only when the strategy
+# says they apply to THIS slate — nothing here is pre-built.
+
+_LINEUP_RULES = {"at_most", "at_least", "exactly", "salary_min", "salary_max"}
+_PORTFOLIO_RULES = {"min_entries_with", "max_entries_with", "max_exposure_pct"}
+_BUILD_RULES_HEADING = re.compile(r"^##\s*Build rules\b", re.I | re.M)
+_FENCE = re.compile(r"```(?:yaml|yml)?\s*\n(.*?)```", re.S)
+
+
+def parse_build_rules(strategy_md: str, universe: dict | None = None) -> dict:
+    """Read the strategy's `## Build rules` yaml block.
+
+    Returns {lineup_rules, portfolio_rules, errors, present}. `universe` maps
+    normalized name -> sheet name; when given, every player is resolved
+    against it and a rule naming an unknown player is DROPPED and reported in
+    `errors` (a rule about a player who is not on the sheet can never be
+    checked, and a silently-kept half-rule would enforce the wrong thing).
+    Never raises: a missing or malformed block yields empty lists + errors."""
+    out = {"lineup_rules": [], "portfolio_rules": [], "errors": [], "present": False}
+    md = strategy_md or ""
+    m = _BUILD_RULES_HEADING.search(md)
+    if not m:
+        return out
+    out["present"] = True
+    section = md[m.end():]
+    nxt = re.search(r"^##\s", section, re.M)
+    if nxt:
+        section = section[:nxt.start()]
+    fm = _FENCE.search(section)
+    if not fm:
+        out["errors"].append("no fenced yaml block under ## Build rules")
+        return out
+    try:
+        import yaml
+        data = yaml.safe_load(fm.group(1)) or {}
+    except Exception as exc:  # noqa: BLE001
+        out["errors"].append(f"yaml did not parse: {exc}")
+        return out
+    if not isinstance(data, dict):
+        out["errors"].append("yaml block is not a mapping")
+        return out
+
+    def _resolve(names) -> tuple[list[str], list[str]]:
+        good, bad = [], []
+        for nm in names or []:
+            nm = str(nm).strip()
+            if not nm:
+                continue
+            if not universe:
+                good.append(nm)
+                continue
+            key = _norm_name(nm)
+            actual = universe.get(key)
+            if actual is None and len(key) >= 4:
+                hits = [v for k, v in universe.items() if key in k]
+                actual = hits[0] if len(hits) == 1 else None
+            (good if actual else bad).append(actual or nm)
+        return good, bad
+
+    def _int(v, default=None):
+        try:
+            return int(float(v))
+        except (TypeError, ValueError):
+            return default
+
+    for item in data.get("lineup_rules") or []:
+        if not isinstance(item, dict):
+            continue
+        rule = str(item.get("rule") or "").strip().lower()
+        if rule not in _LINEUP_RULES:
+            out["errors"].append(f"unknown lineup rule '{rule}'")
+            continue
+        row = {"rule": rule, "why": str(item.get("why") or "").strip(),
+               "from": str(item.get("from") or "strategy").strip() or "strategy"}
+        if rule.startswith("salary_"):
+            v = _int(item.get("value"))
+            if v is None:
+                out["errors"].append(f"{rule} without a numeric value")
+                continue
+            row["value"] = v
+        else:
+            c = _int(item.get("count"))
+            good, bad = _resolve(item.get("players"))
+            if bad:
+                out["errors"].append(f"{rule}: unknown player(s) {', '.join(bad)} — rule dropped")
+                continue
+            if c is None or not good:
+                out["errors"].append(f"{rule} needs a count and at least one player")
+                continue
+            row["count"] = c
+            row["players"] = good
+        out["lineup_rules"].append(row)
+
+    for item in data.get("portfolio_rules") or []:
+        if not isinstance(item, dict):
+            continue
+        rule = str(item.get("rule") or "").strip().lower()
+        if rule not in _PORTFOLIO_RULES:
+            out["errors"].append(f"unknown portfolio rule '{rule}'")
+            continue
+        row = {"rule": rule, "why": str(item.get("why") or "").strip(),
+               "from": str(item.get("from") or "strategy").strip() or "strategy"}
+        if rule == "max_exposure_pct":
+            good, bad = _resolve([item.get("player")] if item.get("player") else item.get("players"))
+            v = _int(item.get("value"))
+            if bad or not good or v is None:
+                out["errors"].append(f"{rule}: needs a known player and a percent value — rule dropped")
+                continue
+            row["player"] = good[0]
+            row["value"] = max(0, min(100, v))
+        else:
+            c = _int(item.get("count"))
+            good, bad = _resolve(item.get("players"))
+            if bad:
+                out["errors"].append(f"{rule}: unknown player(s) {', '.join(bad)} — rule dropped")
+                continue
+            if c is None or not good:
+                out["errors"].append(f"{rule} needs a count and at least one player")
+                continue
+            row["count"] = c
+            row["players"] = good
+        out["portfolio_rules"].append(row)
+    return out
+
+
 def _slate_title(md: str) -> str | None:
     """The strategy's first markdown heading — the human-readable slate name."""
     for line in (md or "").splitlines():
@@ -177,6 +312,8 @@ def write_contract(slug: str, strategy_md: str, sources: dict) -> Path:
         except Exception:  # noqa: BLE001
             anchor_pairs = []
 
+    build_rules = parse_build_rules(strategy_md, universe or None)
+
     payload = {
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "slug": slug,
@@ -195,6 +332,15 @@ def write_contract(slug: str, strategy_md: str, sources: dict) -> Path:
         # leaderboard golfers per lineup"). The Sim pre-fills its leaderboard
         # rule from these; it resolves WHICH golfers itself from current_score.
         "structure_rules": parse_structure_rules(strategy_md),
+        # The strategy's own machine-readable rule block (9/12/26) — the ONLY
+        # rules the Sim's Filter gate enforces when present. `build_rules`
+        # carries `present` (the strategy wrote the section) + parse errors so
+        # the Sim can say "no rule block — legacy screen" vs "block dropped
+        # rule X" instead of silently enforcing less than the plan said.
+        "lineup_rules": build_rules["lineup_rules"],
+        "portfolio_rules": build_rules["portfolio_rules"],
+        "build_rules": {"present": build_rules["present"],
+                        "errors": build_rules["errors"]},
         # The tiered player board (Core/Good/Okay/Fade + Leverage), machine-
         # readable, so the Sim can show each player's tier at build time. Rides
         # the contract because the contract already has the full slate

@@ -1,0 +1,2256 @@
+[
+  {
+    "field_size": 4705,
+    "winning_score": 201.18,
+    "cash_line_p80": 91.34,
+    "median_score": 110.34,
+    "sharks_present": [
+      "moklovin",
+      "ShaidyAdvice"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 8.9,
+      "leverage_pct": 93.6,
+      "anchor_exposure": 0.287,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 8.1,
+      "leverage_pct": 97.0,
+      "anchor_exposure": 0.242,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "lama7557",
+    "winner_lineup": [
+      "Broncos",
+      "Jayden Reed",
+      "Josh Allen",
+      "Javonte Williams",
+      "J.K. Dobbins",
+      "Michael Mayer",
+      "Tyreek Hill",
+      "Cooper Kupp",
+      "Jameson Williams"
+    ],
+    "winner_profile": {
+      "own_per_slot": 7.1,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.0,
+      "unique_pct": 100.0
+    },
+    "top_n": 47,
+    "winners_avg_own": 8.0,
+    "winners_low_own_mean": 6.23,
+    "winners_unique_pct": 95.7,
+    "winners_dup_max": 2,
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Saquon Barkley",
+        "own": 11.01,
+        "fpts": 36.2,
+        "top_pct": 46.8
+      },
+      {
+        "name": "Jayden Reed",
+        "own": 6.91,
+        "fpts": 36.1,
+        "top_pct": 53.2
+      },
+      {
+        "name": "Cooper Kupp",
+        "own": 11.31,
+        "fpts": 35.0,
+        "top_pct": 53.2
+      },
+      {
+        "name": "Jameson Williams",
+        "own": 6.33,
+        "fpts": 27.4,
+        "top_pct": 36.2
+      }
+    ],
+    "family": "Full",
+    "week": 1,
+    "year": "2024",
+    "slug": "nfl_classic",
+    "date": "2024-W01",
+    "source_file": "Full Slate Week 1 2024.csv"
+  },
+  {
+    "field_size": 4705,
+    "winning_score": 181.56,
+    "cash_line_p80": 93.52,
+    "median_score": 110.58,
+    "sharks_present": [
+      "moklovin",
+      "ShaidyAdvice"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 9.7,
+      "leverage_pct": 94.7,
+      "anchor_exposure": 0.208,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 9.7,
+      "leverage_pct": 93.4,
+      "anchor_exposure": 0.211,
+      "unique_pct": 99.4
+    },
+    "winner_entry": "kinggar",
+    "winner_lineup": [
+      "Commanders",
+      "Troy Franklin",
+      "Josh Allen",
+      "Jonathan Taylor",
+      "Chuba Hubbard",
+      "Dallas Goedert",
+      "CeeDee Lamb",
+      "Zay Flowers",
+      "Keon Coleman"
+    ],
+    "winner_profile": {
+      "own_per_slot": 6.4,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.0,
+      "unique_pct": 100.0
+    },
+    "top_n": 47,
+    "winners_avg_own": 8.72,
+    "winners_low_own_mean": 5.47,
+    "winners_unique_pct": 95.7,
+    "winners_dup_max": 2,
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Josh Allen",
+        "own": 3.93,
+        "fpts": 41.76,
+        "top_pct": 38.3
+      },
+      {
+        "name": "Derrick Henry",
+        "own": 10.67,
+        "fpts": 33.2,
+        "top_pct": 42.6
+      },
+      {
+        "name": "Zay Flowers",
+        "own": 5.31,
+        "fpts": 31.1,
+        "top_pct": 38.3
+      }
+    ],
+    "family": "Full",
+    "week": 1,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W01",
+    "source_file": "Full Slate Week 1 2025.csv"
+  },
+  {
+    "field_size": 2352,
+    "winning_score": 211.52,
+    "cash_line_p80": 99.68,
+    "median_score": 118.31,
+    "sharks_present": [
+      "moklovin",
+      "ShaidyAdvice"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 16.9,
+      "leverage_pct": 81.4,
+      "anchor_exposure": 0.424,
+      "unique_pct": 96.4
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 18.0,
+      "leverage_pct": 82.5,
+      "anchor_exposure": 0.488,
+      "unique_pct": 99.0
+    },
+    "winner_entry": "moklovin",
+    "winner_lineup": [
+      "Bears",
+      "Mike Gesicki",
+      "Joe Burrow",
+      "Bijan Robinson",
+      "Chase Brown",
+      "Mark Andrews",
+      "Ja'Marr Chase",
+      "Drake London",
+      "Adonai Mitchell"
+    ],
+    "winner_profile": {
+      "own_per_slot": 18.6,
+      "leverage_pct": 77.1,
+      "anchor_exposure": 0.495,
+      "unique_pct": 100.0
+    },
+    "top_n": 24,
+    "winners_avg_own": 19.51,
+    "winners_low_own_mean": 2.88,
+    "winners_unique_pct": 87.5,
+    "winners_dup_max": 3,
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Joe Burrow",
+        "own": 18.62,
+        "fpts": 36.72,
+        "top_pct": 75.0
+      },
+      {
+        "name": "Adonai Mitchell",
+        "own": 12.07,
+        "fpts": 13.1,
+        "top_pct": 41.7
+      }
+    ],
+    "family": "Full",
+    "week": 10,
+    "year": "2024",
+    "slug": "nfl_classic",
+    "date": "2024-W10",
+    "source_file": "Full Slate Week 10 2024.csv"
+  },
+  {
+    "field_size": 2223,
+    "winning_score": 222.6,
+    "cash_line_p80": 113.23,
+    "median_score": 137.32,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 12.9,
+      "leverage_pct": 88.6,
+      "anchor_exposure": 0.343,
+      "unique_pct": 94.3
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 14.8,
+      "leverage_pct": 72.6,
+      "anchor_exposure": 0.482,
+      "unique_pct": 92.2
+    },
+    "winner_entry": "vinnyp12",
+    "winner_lineup": [
+      "Raiders",
+      "Dalton Schultz",
+      "Caleb Williams",
+      "Jonathan Taylor",
+      "De'Von Achane",
+      "Sam LaPorta",
+      "Ladd McConkey",
+      "Wan'Dale Robinson",
+      "Jameson Williams"
+    ],
+    "winner_profile": {
+      "own_per_slot": 8.5,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.333,
+      "unique_pct": 33.3
+    },
+    "top_n": 22,
+    "winners_avg_own": 12.55,
+    "winners_low_own_mean": 4.64,
+    "winners_unique_pct": 86.4,
+    "winners_dup_max": 3,
+    "n_slate_defining": 6,
+    "slate_defining": [
+      {
+        "name": "Jonathan Taylor",
+        "own": 9.58,
+        "fpts": 52.6,
+        "top_pct": 36.4
+      },
+      {
+        "name": "TreVeyon Henderson",
+        "own": 11.43,
+        "fpts": 31.0,
+        "top_pct": 54.5
+      },
+      {
+        "name": "Trey McBride",
+        "own": 13.36,
+        "fpts": 30.7,
+        "top_pct": 31.8
+      },
+      {
+        "name": "Jameson Williams",
+        "own": 6.84,
+        "fpts": 26.9,
+        "top_pct": 36.4
+      },
+      {
+        "name": "George Kittle",
+        "own": 10.66,
+        "fpts": 23.4,
+        "top_pct": 36.4
+      },
+      {
+        "name": "Jauan Jennings",
+        "own": 19.97,
+        "fpts": 18.1,
+        "top_pct": 31.8
+      }
+    ],
+    "family": "Full",
+    "week": 10,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W10",
+    "source_file": "Full Slate Week 10 2025.csv"
+  },
+  {
+    "field_size": 2319,
+    "winning_score": 238.2,
+    "cash_line_p80": 103.78,
+    "median_score": 127.88,
+    "sharks_present": [
+      "moklovin",
+      "ShaidyAdvice"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 11.7,
+      "leverage_pct": 97.9,
+      "anchor_exposure": 0.283,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 13.8,
+      "leverage_pct": 93.0,
+      "anchor_exposure": 0.384,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "billywhiteshoes",
+    "winner_lineup": [
+      "Titans",
+      "Dawson Knox",
+      "Jared Goff",
+      "Saquon Barkley",
+      "Rhamondre Stevenson",
+      "Taysom Hill",
+      "Amon-Ra St. Brown",
+      "Jameson Williams",
+      "Jauan Jennings"
+    ],
+    "winner_profile": {
+      "own_per_slot": 9.9,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.0,
+      "unique_pct": 100.0
+    },
+    "top_n": 23,
+    "winners_avg_own": 11.7,
+    "winners_low_own_mean": 4.26,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Amon-Ra St. Brown",
+        "own": 6.08,
+        "fpts": 41.7,
+        "top_pct": 43.5
+      },
+      {
+        "name": "Saquon Barkley",
+        "own": 17.34,
+        "fpts": 36.8,
+        "top_pct": 43.5
+      },
+      {
+        "name": "Jonnu Smith",
+        "own": 6.21,
+        "fpts": 31.1,
+        "top_pct": 30.4
+      },
+      {
+        "name": "David Montgomery",
+        "own": 11.25,
+        "fpts": 24.5,
+        "top_pct": 30.4
+      },
+      {
+        "name": "Texans",
+        "own": 11.43,
+        "fpts": 19.0,
+        "top_pct": 34.8
+      }
+    ],
+    "family": "Full",
+    "week": 11,
+    "year": "2024",
+    "slug": "nfl_classic",
+    "date": "2024-W11",
+    "source_file": "Full Slate Week 11 2024.csv"
+  },
+  {
+    "field_size": 1568,
+    "winning_score": 230.88,
+    "cash_line_p80": 100.41,
+    "median_score": 124.93,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 15.9,
+      "leverage_pct": 83.0,
+      "anchor_exposure": 0.369,
+      "unique_pct": 89.4
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 15.9,
+      "leverage_pct": 85.6,
+      "anchor_exposure": 0.413,
+      "unique_pct": 97.9
+    },
+    "winner_entry": "jstodd22",
+    "winner_lineup": [
+      "Patriots",
+      "Christian McCaffrey",
+      "Jacoby Brissett",
+      "TreVeyon Henderson",
+      "Chase Brown",
+      "Trey McBride",
+      "George Pickens",
+      "Michael Wilson",
+      "John Metchie III"
+    ],
+    "winner_profile": {
+      "own_per_slot": 16.9,
+      "leverage_pct": 85.7,
+      "anchor_exposure": 0.381,
+      "unique_pct": 100.0
+    },
+    "top_n": 20,
+    "winners_avg_own": 18.29,
+    "winners_low_own_mean": 3.15,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Christian McCaffrey",
+        "own": 14.6,
+        "fpts": 35.1,
+        "top_pct": 70.0
+      },
+      {
+        "name": "Jacoby Brissett",
+        "own": 17.22,
+        "fpts": 26.88,
+        "top_pct": 85.0
+      },
+      {
+        "name": "Greg Dortch",
+        "own": 9.18,
+        "fpts": 18.6,
+        "top_pct": 65.0
+      }
+    ],
+    "family": "Full",
+    "week": 11,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W11",
+    "source_file": "Full Slate Week 11 2025.csv"
+  },
+  {
+    "field_size": 2224,
+    "winning_score": 219.0,
+    "cash_line_p80": 101.22,
+    "median_score": 120.6,
+    "sharks_present": [
+      "moklovin",
+      "ShaidyAdvice"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 14.3,
+      "leverage_pct": 81.4,
+      "anchor_exposure": 0.424,
+      "unique_pct": 98.6
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 15.3,
+      "leverage_pct": 81.7,
+      "anchor_exposure": 0.478,
+      "unique_pct": 99.5
+    },
+    "winner_entry": "zonic09",
+    "winner_lineup": [
+      "Commanders",
+      "Tyreek Hill",
+      "Caleb Williams",
+      "Saquon Barkley",
+      "Jahmyr Gibbs",
+      "Luke Schoonmaker",
+      "DJ Moore",
+      "Jordan Addison",
+      "Keenan Allen"
+    ],
+    "winner_profile": {
+      "own_per_slot": 11.7,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.333,
+      "unique_pct": 100.0
+    },
+    "top_n": 22,
+    "winners_avg_own": 11.16,
+    "winners_low_own_mean": 5.73,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Saquon Barkley",
+        "own": 9.89,
+        "fpts": 49.2,
+        "top_pct": 68.2
+      },
+      {
+        "name": "Josh Jacobs",
+        "own": 8.86,
+        "fpts": 31.6,
+        "top_pct": 45.5
+      },
+      {
+        "name": "Jakobi Meyers",
+        "own": 11.15,
+        "fpts": 25.1,
+        "top_pct": 45.5
+      }
+    ],
+    "family": "Full",
+    "week": 12,
+    "year": "2024",
+    "slug": "nfl_classic",
+    "date": "2024-W12",
+    "source_file": "Full Slate Week 12 2024.csv"
+  },
+  {
+    "field_size": 1568,
+    "winning_score": 232.76,
+    "cash_line_p80": 121.14,
+    "median_score": 147.74,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 15.6,
+      "leverage_pct": 91.5,
+      "anchor_exposure": 0.348,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 18.6,
+      "leverage_pct": 78.9,
+      "anchor_exposure": 0.605,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "radtek83",
+    "winner_lineup": [
+      "Bengals",
+      "George Kittle",
+      "Jalen Hurts",
+      "Jahmyr Gibbs",
+      "Sean Tucker",
+      "Hunter Henry",
+      "Jaxon Smith-Njigba",
+      "A.J. Brown",
+      "John Metchie III"
+    ],
+    "winner_profile": {
+      "own_per_slot": 8.6,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.0,
+      "unique_pct": 100.0
+    },
+    "top_n": 20,
+    "winners_avg_own": 19.15,
+    "winners_low_own_mean": 3.35,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Hunter Henry",
+        "own": 8.99,
+        "fpts": 27.5,
+        "top_pct": 45.0
+      }
+    ],
+    "family": "Full",
+    "week": 12,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W12",
+    "source_file": "Full Slate Week 12 2025.csv"
+  },
+  {
+    "field_size": 1568,
+    "winning_score": 197.64,
+    "cash_line_p80": 92.73,
+    "median_score": 110.47,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 14.2,
+      "leverage_pct": 78.7,
+      "anchor_exposure": 0.298,
+      "unique_pct": 97.9
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 14.3,
+      "leverage_pct": 82.3,
+      "anchor_exposure": 0.354,
+      "unique_pct": 99.6
+    },
+    "winner_entry": "birdknowsfantasy",
+    "winner_lineup": [
+      "Broncos",
+      "Trey McBride",
+      "Bo Nix",
+      "Bijan Robinson",
+      "RJ Harvey",
+      "Evan Engram",
+      "A.J. Brown",
+      "Courtland Sutton",
+      "Adonai Mitchell"
+    ],
+    "winner_profile": {
+      "own_per_slot": 10.4,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.333,
+      "unique_pct": 100.0
+    },
+    "top_n": 20,
+    "winners_avg_own": 14.73,
+    "winners_low_own_mean": 3.35,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Bijan Robinson",
+        "own": 8.29,
+        "fpts": 33.3,
+        "top_pct": 35.0
+      },
+      {
+        "name": "Seahawks",
+        "own": 10.27,
+        "fpts": 30.0,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Adonai Mitchell",
+        "own": 5.55,
+        "fpts": 27.2,
+        "top_pct": 35.0
+      },
+      {
+        "name": "Kyle Pitts Sr.",
+        "own": 10.65,
+        "fpts": 15.2,
+        "top_pct": 45.0
+      }
+    ],
+    "family": "Full",
+    "week": 13,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W13",
+    "source_file": "Full Slate Week 13 2025.csv"
+  },
+  {
+    "field_size": 1960,
+    "winning_score": 208.74,
+    "cash_line_p80": 108.76,
+    "median_score": 131.05,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 16.2,
+      "leverage_pct": 79.3,
+      "anchor_exposure": 0.351,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 18.4,
+      "leverage_pct": 78.0,
+      "anchor_exposure": 0.427,
+      "unique_pct": 99.6
+    },
+    "winner_entry": "invertedcheese",
+    "winner_lineup": [
+      "Commanders",
+      "Harold Fannin Jr.",
+      "Jacoby Brissett",
+      "Jahmyr Gibbs",
+      "RJ Harvey",
+      "Kyle Pitts Sr.",
+      "Puka Nacua",
+      "Michael Wilson",
+      "Tre Tucker"
+    ],
+    "winner_profile": {
+      "own_per_slot": 19.8,
+      "leverage_pct": 72.4,
+      "anchor_exposure": 0.466,
+      "unique_pct": 100.0
+    },
+    "top_n": 20,
+    "winners_avg_own": 19.34,
+    "winners_low_own_mean": 3.15,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Puka Nacua",
+        "own": 9.03,
+        "fpts": 38.7,
+        "top_pct": 35.0
+      },
+      {
+        "name": "Harold Fannin Jr.",
+        "own": 6.94,
+        "fpts": 28.4,
+        "top_pct": 60.0
+      },
+      {
+        "name": "RJ Harvey",
+        "own": 16.73,
+        "fpts": 22.0,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Colston Loveland",
+        "own": 11.53,
+        "fpts": 12.9,
+        "top_pct": 30.0
+      }
+    ],
+    "family": "Full",
+    "week": 14,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W14",
+    "source_file": "Full Slate Week 14 2025.csv"
+  },
+  {
+    "field_size": 1773,
+    "winning_score": 239.02,
+    "cash_line_p80": 113.66,
+    "median_score": 138.72,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 14.4,
+      "leverage_pct": 91.4,
+      "anchor_exposure": 0.546,
+      "unique_pct": 98.3
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 14.9,
+      "leverage_pct": 86.4,
+      "anchor_exposure": 0.597,
+      "unique_pct": 90.3
+    },
+    "winner_entry": "twitterqueen",
+    "winner_lineup": [
+      "Raiders",
+      "Colby Parkinson",
+      "Matthew Stafford",
+      "Travis Etienne Jr.",
+      "Chuba Hubbard",
+      "Kyle Pitts Sr.",
+      "Puka Nacua",
+      "Amon-Ra St. Brown",
+      "Jameson Williams"
+    ],
+    "winner_profile": {
+      "own_per_slot": 15.8,
+      "leverage_pct": 89.7,
+      "anchor_exposure": 0.661,
+      "unique_pct": 100.0
+    },
+    "top_n": 20,
+    "winners_avg_own": 15.62,
+    "winners_low_own_mean": 3.15,
+    "winners_unique_pct": 85.0,
+    "winners_dup_max": 3,
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Amon-Ra St. Brown",
+        "own": 10.04,
+        "fpts": 44.4,
+        "top_pct": 90.0
+      },
+      {
+        "name": "Travis Etienne Jr.",
+        "own": 19.74,
+        "fpts": 31.5,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Matthew Stafford",
+        "own": 13.25,
+        "fpts": 24.92,
+        "top_pct": 40.0
+      },
+      {
+        "name": "Colby Parkinson",
+        "own": 9.48,
+        "fpts": 24.5,
+        "top_pct": 40.0
+      },
+      {
+        "name": "Bears",
+        "own": 3.55,
+        "fpts": 18.0,
+        "top_pct": 30.0
+      }
+    ],
+    "family": "Full",
+    "week": 15,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W15",
+    "source_file": "Full Slate Week 15 2025.csv"
+  },
+  {
+    "field_size": 1568,
+    "winning_score": 216.64,
+    "cash_line_p80": 112.3,
+    "median_score": 129.6,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 12.6,
+      "leverage_pct": 91.5,
+      "anchor_exposure": 0.397,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 11.9,
+      "leverage_pct": 92.9,
+      "anchor_exposure": 0.335,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "mpuntsch",
+    "winner_lineup": [
+      "Titans",
+      "DJ Moore",
+      "Jacoby Brissett",
+      "James Cook III",
+      "Kenneth Gainwell",
+      "Taysom Hill",
+      "Puka Nacua",
+      "Chris Olave",
+      "Ladd McConkey"
+    ],
+    "winner_profile": {
+      "own_per_slot": 9.4,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.0,
+      "unique_pct": 100.0
+    },
+    "top_n": 20,
+    "winners_avg_own": 10.82,
+    "winners_low_own_mean": 5.65,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Chris Olave",
+        "own": 9.18,
+        "fpts": 39.8,
+        "top_pct": 55.0
+      },
+      {
+        "name": "Brock Purdy",
+        "own": 4.4,
+        "fpts": 31.9,
+        "top_pct": 30.0
+      },
+      {
+        "name": "Kenneth Gainwell",
+        "own": 13.33,
+        "fpts": 23.8,
+        "top_pct": 40.0
+      },
+      {
+        "name": "Tyler Shough",
+        "own": 6.25,
+        "fpts": 20.12,
+        "top_pct": 45.0
+      },
+      {
+        "name": "Jauan Jennings",
+        "own": 19.32,
+        "fpts": 18.1,
+        "top_pct": 40.0
+      }
+    ],
+    "family": "Full",
+    "week": 16,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W16",
+    "source_file": "Full Slate Week 16 2025.csv"
+  },
+  {
+    "field_size": 1176,
+    "winning_score": 213.62,
+    "cash_line_p80": 108.02,
+    "median_score": 130.3,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 18.1,
+      "leverage_pct": 74.3,
+      "anchor_exposure": 0.581,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 17.9,
+      "leverage_pct": 72.8,
+      "anchor_exposure": 0.517,
+      "unique_pct": 99.3
+    },
+    "winner_entry": "sunset76",
+    "winner_lineup": [
+      "Broncos",
+      "Christian McCaffrey",
+      "Malik Willis",
+      "Derrick Henry",
+      "RJ Harvey",
+      "Jake Tonges",
+      "Ja'Marr Chase",
+      "Luther Burden III",
+      "Konata Mumpfield"
+    ],
+    "winner_profile": {
+      "own_per_slot": 15.5,
+      "leverage_pct": 72.7,
+      "anchor_exposure": 0.424,
+      "unique_pct": 90.9
+    },
+    "top_n": 20,
+    "winners_avg_own": 15.8,
+    "winners_low_own_mean": 2.55,
+    "winners_unique_pct": 90.0,
+    "winners_dup_max": 2,
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Bijan Robinson",
+        "own": 10.2,
+        "fpts": 42.9,
+        "top_pct": 70.0
+      },
+      {
+        "name": "Brock Purdy",
+        "own": 11.05,
+        "fpts": 40.92,
+        "top_pct": 70.0
+      },
+      {
+        "name": "Luther Burden III",
+        "own": 5.7,
+        "fpts": 30.8,
+        "top_pct": 45.0
+      },
+      {
+        "name": "Stefon Diggs",
+        "own": 17.77,
+        "fpts": 25.1,
+        "top_pct": 55.0
+      },
+      {
+        "name": "Jake Tonges",
+        "own": 14.29,
+        "fpts": 19.0,
+        "top_pct": 70.0
+      }
+    ],
+    "family": "Full",
+    "week": 17,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W17",
+    "source_file": "Full Slate Week 17 2025.csv"
+  },
+  {
+    "field_size": 1815,
+    "winning_score": 194.52,
+    "cash_line_p80": 88.46,
+    "median_score": 108.3,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 14.7,
+      "leverage_pct": 77.6,
+      "anchor_exposure": 0.374,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 14.1,
+      "leverage_pct": 75.0,
+      "anchor_exposure": 0.364,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "tstyron174",
+    "winner_lineup": [
+      "Raiders",
+      "Jahmyr Gibbs",
+      "Lamar Jackson",
+      "Rhamondre Stevenson",
+      "Tyrone Tracy Jr.",
+      "Mark Andrews",
+      "Michael Wilson",
+      "Zay Flowers",
+      "Luther Burden III"
+    ],
+    "winner_profile": {
+      "own_per_slot": 9.2,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.111,
+      "unique_pct": 100.0
+    },
+    "top_n": 20,
+    "winners_avg_own": 9.9,
+    "winners_low_own_mean": 4.95,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Rhamondre Stevenson",
+        "own": 3.64,
+        "fpts": 38.3,
+        "top_pct": 40.0
+      },
+      {
+        "name": "Zay Flowers",
+        "own": 11.63,
+        "fpts": 32.8,
+        "top_pct": 65.0
+      },
+      {
+        "name": "Tyrone Tracy Jr.",
+        "own": 6.5,
+        "fpts": 31.9,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Michael Wilson",
+        "own": 18.73,
+        "fpts": 20.9,
+        "top_pct": 55.0
+      },
+      {
+        "name": "Parker Washington",
+        "own": 14.33,
+        "fpts": 19.7,
+        "top_pct": 35.0
+      }
+    ],
+    "family": "Full",
+    "week": 18,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W18",
+    "source_file": "Full Slate Week 18 2025.csv"
+  },
+  {
+    "field_size": 3892,
+    "winning_score": 196.22,
+    "cash_line_p80": 95.16,
+    "median_score": 115.02,
+    "sharks_present": [
+      "moklovin",
+      "ShaidyAdvice"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 13.8,
+      "leverage_pct": 94.0,
+      "anchor_exposure": 0.534,
+      "unique_pct": 97.5
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 13.0,
+      "leverage_pct": 94.2,
+      "anchor_exposure": 0.459,
+      "unique_pct": 90.1
+    },
+    "winner_entry": "shaidyadvice",
+    "winner_lineup": [
+      "Broncos",
+      "Alvin Kamara",
+      "Derek Carr",
+      "Breece Hall",
+      "De'Von Achane",
+      "Mike Gesicki",
+      "Deebo Samuel Sr.",
+      "Jaylen Waddle",
+      "Rashid Shaheed"
+    ],
+    "winner_profile": {
+      "own_per_slot": 13.3,
+      "leverage_pct": 92.2,
+      "anchor_exposure": 0.504,
+      "unique_pct": 95.0
+    },
+    "top_n": 39,
+    "winners_avg_own": 11.99,
+    "winners_low_own_mean": 4.9,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Alvin Kamara",
+        "own": 2.57,
+        "fpts": 47.0,
+        "top_pct": 35.9
+      },
+      {
+        "name": "Malik Nabers",
+        "own": 12.51,
+        "fpts": 31.7,
+        "top_pct": 61.5
+      },
+      {
+        "name": "De'Von Achane",
+        "own": 15.21,
+        "fpts": 29.5,
+        "top_pct": 30.8
+      },
+      {
+        "name": "Chris Godwin",
+        "own": 14.47,
+        "fpts": 27.7,
+        "top_pct": 43.6
+      },
+      {
+        "name": "Deebo Samuel Sr.",
+        "own": 15.21,
+        "fpts": 21.0,
+        "top_pct": 33.3
+      }
+    ],
+    "family": "Full",
+    "week": 2,
+    "year": "2024",
+    "slug": "nfl_classic",
+    "date": "2024-W02",
+    "source_file": "Full Slate Week 2 2024.csv"
+  },
+  {
+    "field_size": 4042,
+    "winning_score": 211.04,
+    "cash_line_p80": 104.58,
+    "median_score": 124.44,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 11.9,
+      "leverage_pct": 95.7,
+      "anchor_exposure": 0.492,
+      "unique_pct": 99.3
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 12.6,
+      "leverage_pct": 88.4,
+      "anchor_exposure": 0.47,
+      "unique_pct": 99.9
+    },
+    "winner_entry": "twitterqueen",
+    "winner_lineup": [
+      "Dolphins",
+      "Jake Ferguson",
+      "Dak Prescott",
+      "Christian McCaffrey",
+      "Alvin Kamara",
+      "Tucker Kraft",
+      "Ja'Marr Chase",
+      "Malik Nabers",
+      "Jakobi Meyers"
+    ],
+    "winner_profile": {
+      "own_per_slot": 14.7,
+      "leverage_pct": 76.6,
+      "anchor_exposure": 0.626,
+      "unique_pct": 100.0
+    },
+    "top_n": 40,
+    "winners_avg_own": 10.81,
+    "winners_low_own_mean": 5.03,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Malik Nabers",
+        "own": 5.69,
+        "fpts": 40.7,
+        "top_pct": 45.0
+      },
+      {
+        "name": "Ja'Marr Chase",
+        "own": 16.25,
+        "fpts": 39.5,
+        "top_pct": 37.5
+      },
+      {
+        "name": "Tucker Kraft",
+        "own": 10.69,
+        "fpts": 27.4,
+        "top_pct": 40.0
+      },
+      {
+        "name": "De'Von Achane",
+        "own": 15.29,
+        "fpts": 26.2,
+        "top_pct": 37.5
+      },
+      {
+        "name": "CeeDee Lamb",
+        "own": 16.11,
+        "fpts": 23.2,
+        "top_pct": 30.0
+      }
+    ],
+    "family": "Full",
+    "week": 2,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W02",
+    "source_file": "Full Slate Week 2 2025.csv"
+  },
+  {
+    "field_size": 2810,
+    "winning_score": 228.38,
+    "cash_line_p80": 95.66,
+    "median_score": 120.01,
+    "sharks_present": [
+      "moklovin",
+      "ShaidyAdvice"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 13.1,
+      "leverage_pct": 96.8,
+      "anchor_exposure": 0.42,
+      "unique_pct": 98.9
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 12.5,
+      "leverage_pct": 98.6,
+      "anchor_exposure": 0.373,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "relicck",
+    "winner_lineup": [
+      "Vikings",
+      "Jordan Mason",
+      "Brock Purdy",
+      "Saquon Barkley",
+      "Devin Singletary",
+      "Dallas Goedert",
+      "Rashee Rice",
+      "Brandon Aiyuk",
+      "Jauan Jennings"
+    ],
+    "winner_profile": {
+      "own_per_slot": 13.4,
+      "leverage_pct": 98.9,
+      "anchor_exposure": 0.461,
+      "unique_pct": 100.0
+    },
+    "top_n": 28,
+    "winners_avg_own": 14.25,
+    "winners_low_own_mean": 4.04,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 2,
+    "slate_defining": [
+      {
+        "name": "Jauan Jennings",
+        "own": 11.49,
+        "fpts": 49.5,
+        "top_pct": 89.3
+      },
+      {
+        "name": "Rashee Rice",
+        "own": 14.48,
+        "fpts": 32.1,
+        "top_pct": 39.3
+      }
+    ],
+    "family": "Full",
+    "week": 3,
+    "year": "2024",
+    "slug": "nfl_classic",
+    "date": "2024-W03",
+    "source_file": "Full Slate Week 3 2024.csv"
+  },
+  {
+    "field_size": 3137,
+    "winning_score": 204.12,
+    "cash_line_p80": 108.72,
+    "median_score": 128.62,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 12.5,
+      "leverage_pct": 93.6,
+      "anchor_exposure": 0.337,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 12.9,
+      "leverage_pct": 94.1,
+      "anchor_exposure": 0.357,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "elusivesmoke",
+    "winner_lineup": [
+      "Vikings",
+      "Kenneth Walker III",
+      "Sam Darnold",
+      "Jonathan Taylor",
+      "Jordan Mason",
+      "Juwan Johnson",
+      "Puka Nacua",
+      "Jaxon Smith-Njigba",
+      "Keenan Allen"
+    ],
+    "winner_profile": {
+      "own_per_slot": 12.9,
+      "leverage_pct": 92.6,
+      "anchor_exposure": 0.358,
+      "unique_pct": 100.0
+    },
+    "top_n": 31,
+    "winners_avg_own": 14.85,
+    "winners_low_own_mean": 3.61,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Jonathan Taylor",
+        "own": 14.12,
+        "fpts": 35.8,
+        "top_pct": 61.3
+      },
+      {
+        "name": "Vikings",
+        "own": 4.11,
+        "fpts": 30.0,
+        "top_pct": 45.2
+      },
+      {
+        "name": "Caleb Williams",
+        "own": 11.28,
+        "fpts": 29.12,
+        "top_pct": 41.9
+      },
+      {
+        "name": "Puka Nacua",
+        "own": 12.66,
+        "fpts": 25.8,
+        "top_pct": 38.7
+      },
+      {
+        "name": "Jaxon Smith-Njigba",
+        "own": 17.09,
+        "fpts": 20.6,
+        "top_pct": 32.3
+      }
+    ],
+    "family": "Full",
+    "week": 3,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W03",
+    "source_file": "Full Slate Week 3 2025.csv"
+  },
+  {
+    "field_size": 2352,
+    "winning_score": 199.68,
+    "cash_line_p80": 105.19,
+    "median_score": 125.46,
+    "sharks_present": [
+      "moklovin",
+      "ShaidyAdvice"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 11.4,
+      "leverage_pct": 92.1,
+      "anchor_exposure": 0.329,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 11.8,
+      "leverage_pct": 81.9,
+      "anchor_exposure": 0.37,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "gregr1224",
+    "winner_lineup": [
+      "Falcons",
+      "Brian Robinson Jr.",
+      "Justin Fields",
+      "Bijan Robinson",
+      "Jordan Mason",
+      "Dallas Goedert",
+      "Nico Collins",
+      "George Pickens",
+      "Tre Tucker"
+    ],
+    "winner_profile": {
+      "own_per_slot": 11.1,
+      "leverage_pct": 85.0,
+      "anchor_exposure": 0.217,
+      "unique_pct": 100.0
+    },
+    "top_n": 24,
+    "winners_avg_own": 12.24,
+    "winners_low_own_mean": 4.12,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Justin Fields",
+        "own": 5.61,
+        "fpts": 35.98,
+        "top_pct": 45.8
+      },
+      {
+        "name": "Jordan Mason",
+        "own": 16.79,
+        "fpts": 27.0,
+        "top_pct": 54.2
+      },
+      {
+        "name": "Chuba Hubbard",
+        "own": 17.3,
+        "fpts": 25.1,
+        "top_pct": 41.7
+      },
+      {
+        "name": "Brian Robinson Jr.",
+        "own": 17.43,
+        "fpts": 23.3,
+        "top_pct": 37.5
+      },
+      {
+        "name": "Falcons",
+        "own": 8.97,
+        "fpts": 17.0,
+        "top_pct": 41.7
+      }
+    ],
+    "family": "Full",
+    "week": 4,
+    "year": "2024",
+    "slug": "nfl_classic",
+    "date": "2024-W04",
+    "source_file": "Full Slate Week 4 2024.csv"
+  },
+  {
+    "field_size": 3137,
+    "winning_score": 221.18,
+    "cash_line_p80": 127.18,
+    "median_score": 147.48,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 18.8,
+      "leverage_pct": 68.1,
+      "anchor_exposure": 0.596,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 16.0,
+      "leverage_pct": 80.1,
+      "anchor_exposure": 0.457,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "elusivesmoke",
+    "winner_lineup": [
+      "Lions",
+      "Omarion Hampton",
+      "Jordan Love",
+      "Bijan Robinson",
+      "Kenneth Gainwell",
+      "Jake Ferguson",
+      "Jaxon Smith-Njigba",
+      "Courtland Sutton",
+      "Romeo Doubs"
+    ],
+    "winner_profile": {
+      "own_per_slot": 13.1,
+      "leverage_pct": 94.7,
+      "anchor_exposure": 0.284,
+      "unique_pct": 100.0
+    },
+    "top_n": 31,
+    "winners_avg_own": 16.24,
+    "winners_low_own_mean": 3.77,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Josh Jacobs",
+        "own": 12.43,
+        "fpts": 31.7,
+        "top_pct": 45.2
+      },
+      {
+        "name": "Kenneth Gainwell",
+        "own": 19.48,
+        "fpts": 31.4,
+        "top_pct": 77.4
+      },
+      {
+        "name": "Justin Fields",
+        "own": 8.77,
+        "fpts": 28.14,
+        "top_pct": 38.7
+      },
+      {
+        "name": "Drake London",
+        "own": 8.38,
+        "fpts": 28.0,
+        "top_pct": 41.9
+      }
+    ],
+    "family": "Full",
+    "week": 4,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W04",
+    "source_file": "Full Slate Week 4 2025.csv"
+  },
+  {
+    "field_size": 2745,
+    "winning_score": 209.28,
+    "cash_line_p80": 107.71,
+    "median_score": 126.44,
+    "sharks_present": [
+      "moklovin",
+      "ShaidyAdvice"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 13.7,
+      "leverage_pct": 82.9,
+      "anchor_exposure": 0.297,
+      "unique_pct": 96.3
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 14.6,
+      "leverage_pct": 78.0,
+      "anchor_exposure": 0.36,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "backinblackron",
+    "winner_lineup": [
+      "Broncos",
+      "Alec Pierce",
+      "Joe Burrow",
+      "Derrick Henry",
+      "D'Andre Swift",
+      "Cade Otton",
+      "Ja'Marr Chase",
+      "Tee Higgins",
+      "Tutu Atwell"
+    ],
+    "winner_profile": {
+      "own_per_slot": 10.1,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.333,
+      "unique_pct": 100.0
+    },
+    "top_n": 27,
+    "winners_avg_own": 12.67,
+    "winners_low_own_mean": 4.19,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Kirk Cousins",
+        "own": 4.85,
+        "fpts": 38.36,
+        "top_pct": 70.4
+      },
+      {
+        "name": "Drake London",
+        "own": 10.16,
+        "fpts": 36.4,
+        "top_pct": 66.7
+      },
+      {
+        "name": "Darnell Mooney",
+        "own": 6.96,
+        "fpts": 34.5,
+        "top_pct": 48.1
+      },
+      {
+        "name": "D'Andre Swift",
+        "own": 12.64,
+        "fpts": 20.0,
+        "top_pct": 33.3
+      }
+    ],
+    "family": "Full",
+    "week": 5,
+    "year": "2024",
+    "slug": "nfl_classic",
+    "date": "2024-W05",
+    "source_file": "Full Slate Week 5 2024.csv"
+  },
+  {
+    "field_size": 3137,
+    "winning_score": 231.52,
+    "cash_line_p80": 132.12,
+    "median_score": 153.12,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 16.3,
+      "leverage_pct": 78.7,
+      "anchor_exposure": 0.291,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 18.3,
+      "leverage_pct": 67.3,
+      "anchor_exposure": 0.441,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "dolamight",
+    "winner_lineup": [
+      "Saints",
+      "Rachaad White",
+      "Josh Allen",
+      "Breece Hall",
+      "Rico Dowdle",
+      "Jake Ferguson",
+      "Ja'Marr Chase",
+      "Jaxon Smith-Njigba",
+      "Jaylen Waddle"
+    ],
+    "winner_profile": {
+      "own_per_slot": 15.9,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.333,
+      "unique_pct": 100.0
+    },
+    "top_n": 31,
+    "winners_avg_own": 19.92,
+    "winners_low_own_mean": 1.68,
+    "winners_unique_pct": 71.0,
+    "winners_dup_max": 9,
+    "n_slate_defining": 7,
+    "slate_defining": [
+      {
+        "name": "Rico Dowdle",
+        "own": 18.68,
+        "fpts": 35.4,
+        "top_pct": 80.6
+      },
+      {
+        "name": "Jaxon Smith-Njigba",
+        "own": 17.09,
+        "fpts": 30.2,
+        "top_pct": 38.7
+      },
+      {
+        "name": "Christian McCaffrey",
+        "own": 16.96,
+        "fpts": 27.9,
+        "top_pct": 54.8
+      },
+      {
+        "name": "Kendrick Bourne",
+        "own": 9.21,
+        "fpts": 27.2,
+        "top_pct": 32.3
+      },
+      {
+        "name": "Jaylen Waddle",
+        "own": 11.48,
+        "fpts": 26.0,
+        "top_pct": 51.6
+      },
+      {
+        "name": "Rachaad White",
+        "own": 19.51,
+        "fpts": 23.1,
+        "top_pct": 58.1
+      },
+      {
+        "name": "Saints",
+        "own": 19.54,
+        "fpts": 18.0,
+        "top_pct": 74.2
+      }
+    ],
+    "family": "Full",
+    "week": 5,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W05",
+    "source_file": "Full Slate Week 5 2025.csv"
+  },
+  {
+    "field_size": 2788,
+    "winning_score": 218.68,
+    "cash_line_p80": 105.12,
+    "median_score": 128.77,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 12.1,
+      "leverage_pct": 95.7,
+      "anchor_exposure": 0.245,
+      "unique_pct": 98.9
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 13.0,
+      "leverage_pct": 90.6,
+      "anchor_exposure": 0.349,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "rajonrondough",
+    "winner_lineup": [
+      "Raiders",
+      "Rachaad White",
+      "Patrick Mahomes",
+      "Christian McCaffrey",
+      "Rico Dowdle",
+      "Michael Mayer",
+      "Drake London",
+      "Ladd McConkey",
+      "Chris Olave"
+    ],
+    "winner_profile": {
+      "own_per_slot": 16.3,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.333,
+      "unique_pct": 100.0
+    },
+    "top_n": 28,
+    "winners_avg_own": 13.89,
+    "winners_low_own_mean": 3.18,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Drake London",
+        "own": 13.63,
+        "fpts": 34.8,
+        "top_pct": 85.7
+      },
+      {
+        "name": "Jaxon Smith-Njigba",
+        "own": 14.78,
+        "fpts": 33.2,
+        "top_pct": 42.9
+      },
+      {
+        "name": "Patrick Mahomes",
+        "own": 17.68,
+        "fpts": 31.48,
+        "top_pct": 42.9
+      },
+      {
+        "name": "Ladd McConkey",
+        "own": 13.67,
+        "fpts": 26.0,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Chris Olave",
+        "own": 17.43,
+        "fpts": 15.8,
+        "top_pct": 32.1
+      }
+    ],
+    "family": "Full",
+    "week": 6,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W06",
+    "source_file": "Full Slate Week 6 2025.csv"
+  },
+  {
+    "field_size": 2352,
+    "winning_score": 189.78,
+    "cash_line_p80": 92.38,
+    "median_score": 110.94,
+    "sharks_present": [
+      "moklovin",
+      "ShaidyAdvice"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 13.0,
+      "leverage_pct": 94.3,
+      "anchor_exposure": 0.433,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 11.8,
+      "leverage_pct": 94.9,
+      "anchor_exposure": 0.43,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "graat",
+    "winner_lineup": [
+      "Broncos",
+      "Tank Bigsby",
+      "Brock Purdy",
+      "Breece Hall",
+      "Josh Jacobs",
+      "Cade Otton",
+      "Brian Thomas Jr.",
+      "Jaxon Smith-Njigba",
+      "George Pickens"
+    ],
+    "winner_profile": {
+      "own_per_slot": 6.6,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.0,
+      "unique_pct": 100.0
+    },
+    "top_n": 24,
+    "winners_avg_own": 9.84,
+    "winners_low_own_mean": 5.88,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 7,
+    "slate_defining": [
+      {
+        "name": "Lamar Jackson",
+        "own": 6.16,
+        "fpts": 35.44,
+        "top_pct": 41.7
+      },
+      {
+        "name": "Baker Mayfield",
+        "own": 12.93,
+        "fpts": 32.0,
+        "top_pct": 37.5
+      },
+      {
+        "name": "Breece Hall",
+        "own": 8.84,
+        "fpts": 29.1,
+        "top_pct": 41.7
+      },
+      {
+        "name": "Derrick Henry",
+        "own": 8.59,
+        "fpts": 28.2,
+        "top_pct": 37.5
+      },
+      {
+        "name": "Rashod Bateman",
+        "own": 3.53,
+        "fpts": 25.1,
+        "top_pct": 41.7
+      },
+      {
+        "name": "Cade Otton",
+        "own": 9.44,
+        "fpts": 21.0,
+        "top_pct": 33.3
+      },
+      {
+        "name": "Broncos",
+        "own": 18.71,
+        "fpts": 20.0,
+        "top_pct": 54.2
+      }
+    ],
+    "family": "Full",
+    "week": 7,
+    "year": "2024",
+    "slug": "nfl_classic",
+    "date": "2024-W07",
+    "source_file": "Full Slate Week 7 2024.csv"
+  },
+  {
+    "field_size": 2352,
+    "winning_score": 227.18,
+    "cash_line_p80": 116.14,
+    "median_score": 140.07,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 13.9,
+      "leverage_pct": 82.9,
+      "anchor_exposure": 0.281,
+      "unique_pct": 95.7
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 14.3,
+      "leverage_pct": 80.2,
+      "anchor_exposure": 0.399,
+      "unique_pct": 98.6
+    },
+    "winner_entry": "monahan687",
+    "winner_lineup": [
+      "Browns",
+      "DeVonta Smith",
+      "Joe Flacco",
+      "Jonathan Taylor",
+      "Jaylen Warren",
+      "Darnell Washington",
+      "Ja'Marr Chase",
+      "Tee Higgins",
+      "DK Metcalf"
+    ],
+    "winner_profile": {
+      "own_per_slot": 9.0,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.0,
+      "unique_pct": 100.0
+    },
+    "top_n": 24,
+    "winners_avg_own": 12.36,
+    "winners_low_own_mean": 4.75,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 5,
+    "slate_defining": [
+      {
+        "name": "Christian McCaffrey",
+        "own": 19.39,
+        "fpts": 42.1,
+        "top_pct": 41.7
+      },
+      {
+        "name": "Ja'Marr Chase",
+        "own": 11.82,
+        "fpts": 41.1,
+        "top_pct": 50.0
+      },
+      {
+        "name": "Jahmyr Gibbs",
+        "own": 10.03,
+        "fpts": 39.8,
+        "top_pct": 41.7
+      },
+      {
+        "name": "Joe Flacco",
+        "own": 6.08,
+        "fpts": 28.98,
+        "top_pct": 41.7
+      },
+      {
+        "name": "Browns",
+        "own": 9.35,
+        "fpts": 25.0,
+        "top_pct": 58.3
+      }
+    ],
+    "family": "Full",
+    "week": 7,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W07",
+    "source_file": "Full Slate Week 7 2025.csv"
+  },
+  {
+    "field_size": 2352,
+    "winning_score": 204.9,
+    "cash_line_p80": 105.86,
+    "median_score": 124.9,
+    "sharks_present": [
+      "moklovin",
+      "ShaidyAdvice"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 14.9,
+      "leverage_pct": 89.3,
+      "anchor_exposure": 0.557,
+      "unique_pct": 97.9
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 13.9,
+      "leverage_pct": 93.8,
+      "anchor_exposure": 0.464,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "shaidyadvice",
+    "winner_lineup": [
+      "Steelers",
+      "J.K. Dobbins",
+      "Brock Purdy",
+      "Jahmyr Gibbs",
+      "Aaron Jones",
+      "Cade Otton",
+      "CeeDee Lamb",
+      "Ricky Pearsall",
+      "Cedric Tillman"
+    ],
+    "winner_profile": {
+      "own_per_slot": 13.4,
+      "leverage_pct": 92.9,
+      "anchor_exposure": 0.467,
+      "unique_pct": 100.0
+    },
+    "top_n": 24,
+    "winners_avg_own": 13.57,
+    "winners_low_own_mean": 4.08,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 4,
+    "slate_defining": [
+      {
+        "name": "Cedric Tillman",
+        "own": 15.65,
+        "fpts": 28.9,
+        "top_pct": 70.8
+      },
+      {
+        "name": "De'Von Achane",
+        "own": 14.03,
+        "fpts": 26.7,
+        "top_pct": 70.8
+      },
+      {
+        "name": "Justin Jefferson",
+        "own": 16.75,
+        "fpts": 22.5,
+        "top_pct": 37.5
+      },
+      {
+        "name": "Steelers",
+        "own": 9.52,
+        "fpts": 15.0,
+        "top_pct": 33.3
+      }
+    ],
+    "family": "Full",
+    "week": 8,
+    "year": "2024",
+    "slug": "nfl_classic",
+    "date": "2024-W08",
+    "source_file": "Full Slate Week 8 2024.csv"
+  },
+  {
+    "field_size": 2175,
+    "winning_score": 219.22,
+    "cash_line_p80": 117.1,
+    "median_score": 138.78,
+    "sharks_present": [
+      "moklovin",
+      "ShaidyAdvice"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 12.0,
+      "leverage_pct": 97.1,
+      "anchor_exposure": 0.295,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 13.1,
+      "leverage_pct": 89.9,
+      "anchor_exposure": 0.398,
+      "unique_pct": 99.6
+    },
+    "winner_entry": "twitterqueen",
+    "winner_lineup": [
+      "Jets",
+      "Aaron Jones",
+      "Matthew Stafford",
+      "Alvin Kamara",
+      "Chase Brown",
+      "Mike Gesicki",
+      "Cooper Kupp",
+      "Jaxon Smith-Njigba",
+      "Cedric Tillman"
+    ],
+    "winner_profile": {
+      "own_per_slot": 16.3,
+      "leverage_pct": 80.0,
+      "anchor_exposure": 0.557,
+      "unique_pct": 100.0
+    },
+    "top_n": 22,
+    "winners_avg_own": 13.56,
+    "winners_low_own_mean": 3.68,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 3,
+    "slate_defining": [
+      {
+        "name": "Jaxon Smith-Njigba",
+        "own": 3.31,
+        "fpts": 40.0,
+        "top_pct": 36.4
+      },
+      {
+        "name": "De'Von Achane",
+        "own": 17.1,
+        "fpts": 32.1,
+        "top_pct": 36.4
+      },
+      {
+        "name": "Alvin Kamara",
+        "own": 17.1,
+        "fpts": 30.5,
+        "top_pct": 36.4
+      }
+    ],
+    "family": "Full",
+    "week": 9,
+    "year": "2024",
+    "slug": "nfl_classic",
+    "date": "2024-W09",
+    "source_file": "Full Slate Week 9 2024.csv"
+  },
+  {
+    "field_size": 2352,
+    "winning_score": 223.5,
+    "cash_line_p80": 118.61,
+    "median_score": 142.85,
+    "sharks_present": [
+      "moklovin"
+    ],
+    "user_present": [],
+    "shark_profile": {
+      "own_per_slot": 9.9,
+      "leverage_pct": 100.0,
+      "anchor_exposure": 0.162,
+      "unique_pct": 100.0
+    },
+    "user_profile": {},
+    "top10_profile": {
+      "own_per_slot": 15.9,
+      "leverage_pct": 87.8,
+      "anchor_exposure": 0.497,
+      "unique_pct": 100.0
+    },
+    "winner_entry": "kyriemeariver",
+    "winner_lineup": [
+      "Falcons",
+      "Kyle Monangai",
+      "Trevor Lawrence",
+      "Christian McCaffrey",
+      "Bijan Robinson",
+      "Brock Bowers",
+      "Drake London",
+      "Jameson Williams",
+      "Dyami Brown"
+    ],
+    "winner_profile": {
+      "own_per_slot": 14.1,
+      "leverage_pct": 70.0,
+      "anchor_exposure": 0.433,
+      "unique_pct": 100.0
+    },
+    "top_n": 24,
+    "winners_avg_own": 15.93,
+    "winners_low_own_mean": 5.12,
+    "winners_unique_pct": 100.0,
+    "winners_dup_max": 1,
+    "n_slate_defining": 1,
+    "slate_defining": [
+      {
+        "name": "Brock Bowers",
+        "own": 7.36,
+        "fpts": 46.3,
+        "top_pct": 66.7
+      }
+    ],
+    "family": "Full",
+    "week": 9,
+    "year": "2025",
+    "slug": "nfl_classic",
+    "date": "2025-W09",
+    "source_file": "Full Slate Week 9 2025.csv"
+  }
+]

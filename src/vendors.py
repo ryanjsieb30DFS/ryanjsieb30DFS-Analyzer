@@ -210,6 +210,55 @@ VENDOR_SIGNATURES: list[dict] = [
         },
         "drop_columns": ["site", "slate"],
     },
+    {
+        # ETR's NFL Classic ("Main Slate" / any multi-game slate) export,
+        # 2026 header generation (user sample 2026-09-12: "DraftKings NFL DFS
+        # Projections -- Main Slate (42).csv"). Small Field own is the
+        # ownership the strategy reads (the user plays small-field Classic);
+        # Large Field own is kept as its own column for the leverage delta.
+        # DST rows are team nicknames ("Chargers ") with a trailing space —
+        # the loader's name strip handles it, matching DK standings ("Broncos").
+        "name": "ETR NFL Classic",
+        "sport": "nfl",
+        "required_columns": {"dk_pos", "opp", "dk_salary", "dk_proj", "dk_ceiling"},
+        "aliases": {
+            "name": ["player", "name", "dk_name"],
+            "ownership": ["small_field", "large_field", "dk_ownership", "ownership"],
+        },
+        "column_map": {
+            "dk_pos": "position",
+            "opp": "opponent",
+            "dk_salary": "salary",
+            "dk_proj": "proj_points",
+            "dk_ceiling": "ceiling",
+            "dk_floor": "floor",
+            "large_field": "own_large",
+            "id": "dk_id",
+        },
+        "drop_columns": ["dk_value", "site", "slate"],
+    },
+    {
+        # ETR NFL Classic, 2024-25 header generations (the historical files
+        # in ~/Downloads: "Name/Team/Opponent/Position/Salary/Projection/
+        # Value/Ownership/DKSlateID/Floor/Ceiling/Small" and the 3-game-slate
+        # variant "DK Name/.../DK Position/DK Salary/DK Projection/DK
+        # Ownership/DK Floor/DK Ceiling/DKSlateID"). Kept so past slates can be
+        # replayed; DKSlateID is the header no other vendor ships.
+        "name": "ETR NFL Classic (legacy)",
+        "sport": "nfl",
+        "required_columns": {"team", "opponent", "dkslateid"},
+        "aliases": {
+            "name": ["name", "dk_name", "player"],
+            "position": ["position", "dk_position", "pos"],
+            "salary": ["salary", "dk_salary"],
+            "proj_points": ["projection", "dk_projection", "proj"],
+            "ownership": ["small", "ownership", "dk_ownership"],
+            "ceiling": ["ceiling", "dk_ceiling"],
+            "floor": ["floor", "dk_floor"],
+        },
+        "column_map": {"dkslateid": "dk_id"},
+        "drop_columns": ["value", "dk_value", "site", "slate"],
+    },
 ]
 
 
@@ -290,6 +339,11 @@ def normalize_to_canonical(df: pd.DataFrame, signature: dict) -> pd.DataFrame:
         if not present:
             continue
         keep, losers = present[0], present[1:]
+        # A losing candidate that column_map ALSO names keeps its own
+        # canonical home instead of being dropped (ETR NFL Classic: Small
+        # Field wins `ownership`, Large Field survives as `own_large`).
+        col_map = signature.get("column_map", {})
+        losers = [c for c in losers if c not in col_map]
         if losers:
             df = df.drop(columns=losers)
         if keep != canonical:

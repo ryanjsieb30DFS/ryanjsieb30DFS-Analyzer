@@ -1,6 +1,6 @@
 {
   "generated_from": "/Users/ryansieb/Downloads/contest-standings-*.csv",
-  "n_contests": 63,
+  "n_contests": 75,
   "sports": {
     "nascar": {
       "n_contests": 24,
@@ -91,6 +91,27 @@
       },
       "seed_weight": 1,
       "accumulated_contests": 0
+    },
+    "nfl": {
+      "n_contests": 28,
+      "n_with_sharks": 28,
+      "user_envelope": {},
+      "shark_envelope": {
+        "own_per_slot": 13.693,
+        "leverage_pct": 88.075,
+        "anchor_exposure": 0.375,
+        "unique_pct": 98.55
+      },
+      "mean_gap": {},
+      "seed_envelope": {
+        "own_per_slot": 13.693,
+        "leverage_pct": 88.075,
+        "anchor_exposure": 0.375,
+        "unique_pct": 98.55
+      },
+      "seed_weight": 28,
+      "accumulated_contests": 0,
+      "seed_source": "scripts/mine_nfl_history.py 2026-09-12 \u2014 tracked sharks; 28 small-field (<10,000) NFL Classic contests from the 2024-25 archive"
     }
   },
   "contests": [
@@ -421,6 +442,202 @@
       "sport": "showdown",
       "n_field": 5945,
       "n_players": 28,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 1 2024.csv",
+      "sport": "nfl",
+      "n_field": 4705,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 1 2025.csv",
+      "sport": "nfl",
+      "n_field": 4705,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 10 2024.csv",
+      "sport": "nfl",
+      "n_field": 2352,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 10 2025.csv",
+      "sport": "nfl",
+      "n_field": 2223,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 11 2024.csv",
+      "sport": "nfl",
+      "n_field": 2319,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 11 2025.csv",
+      "sport": "nfl",
+      "n_field": 1568,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 12 2024.csv",
+      "sport": "nfl",
+      "n_field": 2224,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 12 2025.csv",
+      "sport": "nfl",
+      "n_field": 1568,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 13 2025.csv",
+      "sport": "nfl",
+      "n_field": 1568,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 14 2025.csv",
+      "sport": "nfl",
+      "n_field": 1960,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 15 2025.csv",
+      "sport": "nfl",
+      "n_field": 1773,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 16 2025.csv",
+      "sport": "nfl",
+      "n_field": 1568,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 17 2025.csv",
+      "sport": "nfl",
+      "n_field": 1176,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 18 2025.csv",
+      "sport": "nfl",
+      "n_field": 1815,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 2 2024.csv",
+      "sport": "nfl",
+      "n_field": 3892,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 2 2025.csv",
+      "sport": "nfl",
+      "n_field": 4042,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 3 2024.csv",
+      "sport": "nfl",
+      "n_field": 2810,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 3 2025.csv",
+      "sport": "nfl",
+      "n_field": 3137,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 4 2024.csv",
+      "sport": "nfl",
+      "n_field": 2352,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 4 2025.csv",
+      "sport": "nfl",
+      "n_field": 3137,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 5 2024.csv",
+      "sport": "nfl",
+      "n_field": 2745,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 5 2025.csv",
+      "sport": "nfl",
+      "n_field": 3137,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 6 2025.csv",
+      "sport": "nfl",
+      "n_field": 2788,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 7 2024.csv",
+      "sport": "nfl",
+      "n_field": 2352,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 7 2025.csv",
+      "sport": "nfl",
+      "n_field": 2352,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 8 2024.csv",
+      "sport": "nfl",
+      "n_field": 2352,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 9 2024.csv",
+      "sport": "nfl",
+      "n_field": 2175,
+      "n_players": null,
+      "sharks_in_field": true
+    },
+    {
+      "id": "Full Slate Week 9 2025.csv",
+      "sport": "nfl",
+      "n_field": 2352,
+      "n_players": null,
       "sharks_in_field": true
     }
   ]

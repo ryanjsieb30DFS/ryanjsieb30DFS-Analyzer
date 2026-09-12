@@ -204,6 +204,103 @@ _NFL_SD_STRATEGY_BLOCK = (
 )
 
 
+# NFL Classic strategy-section instructions, injected into run_analysis for
+# slug nfl_classic only. Format doctrine from docs/nfl_game_theory.md Part 1 +
+# rules/nfl_classic/framework.md (DRAFT). Information and CHECKS only — the
+# synthesis-first rule still holds: no PLAY/PASS commands, the user decides.
+_NFL_CLASSIC_STRATEGY_BLOCK = (
+    "NFL CLASSIC — FORMAT-SPECIFIC INSTRUCTIONS (this slate is DK main-slate "
+    "football: 9 spots — 1 QB, 2 RB, 3 WR, 1 TE, 1 FLEX that can be a RB, WR "
+    "or TE, and 1 team defense (DST) — $50,000 cap, players from at least two "
+    "games). Read `rules/nfl_classic/framework.md` for the winner data behind "
+    "each item. Weave ALL of the following into the standard sections — still "
+    "synthesis, never play/fade commands:\n"
+    "- PICK THE GAME BEFORE THE PLAYERS. Points come in bundles: when a QB "
+    "throws a touchdown, one of his receivers catches it, so two roster spots "
+    "score off one play. The slate read starts with the Vegas lines in the "
+    "articles, not with players. In `## Slate at a glance` or `## Edges & "
+    "tensions`, name the 2-3 game environments worth stacking (a game total "
+    "of 48+ or a team expected to score 24+ is where stacks reach their "
+    "ceiling), each with its total, spread, and the ownership the articles "
+    "give its QB and top receivers. The richest leverage in this format is a "
+    "low-owned STACK, not a low-owned player: the field floods the highest "
+    "total, so the second or third highest total with the same shootout "
+    "shape at half the ownership is the sharp read, and so is attacking the "
+    "chalk game through its less obvious pieces (the WR2, the TE).\n"
+    "- SURFACE THE STACK MENU as information. The modal winning skeleton is "
+    "QB + 2 of his own pass-catchers + 1 pass-catcher from the OTHER team "
+    "(the bring-back) — four of nine spots tied to one game. Winner data: a "
+    "QB with no teammates won 6% vs 17% of the field (never); QB + 1 "
+    "teammate is 49% of winners AND 49% of the field (neutral, zero "
+    "leverage); QB + 2 teammates is 41% of winners vs 29% of the field (the "
+    "biggest measured edge in the format); QB + 3 is slightly losing. The "
+    "bring-back is 36% of winners vs 31% of the field, and a tight end used "
+    "as the bring-back shows up 34% more often in winners. Skip the "
+    "bring-back only when the stack's ceiling story is a blowout, not a "
+    "shootout. For each stackable game, name the QB, his 2-3 candidate "
+    "pass-catchers with their ownership, and the bring-back candidates. "
+    "Never roster a defense against your own stack (QB vs opposing DST is "
+    "the worst pair on the board, -0.46).\n"
+    "- STURDY VS FRAGILE CHALK, BY POSITION. Running back is the ONE position "
+    "where winners were CHALKIER than the field — RB ownership predicts RB "
+    "points (0.55) because volume is the most bankable thing in football; "
+    "fading a well-founded bell-cow RB is how you finish 200,000th. Winners "
+    "diverge from the field hardest at QB, DST and TE; a chalk defense is the "
+    "most reliably overpriced thing on any slate (ownership predicts DST "
+    "points at only 0.21). Label every chalk player in `## Top plays` / "
+    "`## Fades` as sturdy (volume/role-based) or fragile (last week's "
+    "highlight, a touchdown-dependent role, a 'popular defense'), with the "
+    "number that says which.\n"
+    "- THE FORCED-VALUE READ. When news makes a cheap backup a 15-touch "
+    "starter, his ownership hits 40-60% because everyone's salary math "
+    "routes through him. If his volume is locked, the field eats him and "
+    "differentiates in what the savings BUY (the field buys the same two "
+    "obvious studs — surface the third). If his role is shaky (a committee, "
+    "a bad matchup), say so with the numbers — half the field absorbing a "
+    "near-zero is one of the highest-leverage spots of the season. Inactives "
+    "land 90 minutes before lock: the field stampedes onto the obvious "
+    "pivot; name the SECOND-ORDER beneficiary (the passing game that "
+    "inherits the work), the same stampede pattern the MMA ownership report "
+    "measured at +15-30 points of over-rush.\n"
+    "- SALARY: winners spend the full cap (84% of winners at $49,800+, ETR "
+    "tested leaving money and found no edge). Uniqueness comes from player "
+    "choices and stack structure, never from leftover salary. Cheap QBs are "
+    "the price-leverage spot (sub-$6,000 QBs won 45% vs 38% field usage); "
+    "TE is elite or punt, never the middle, and rarely in the FLEX; RB is "
+    "the winning FLEX choice (58% of winners).\n"
+    "- DUPLICATION IS A CHECK, NOT AN ENGINE, at the user's field sizes. The "
+    "user plays Classic in the SMALLEST fields the bankroll allows (single-"
+    "entry / 3-Max / 5-Max, fields of a few hundred to a few thousand). In "
+    "fields that size a chalk build is copied in low single digits, so the "
+    "read is: name the dupe magnet (exact $50,000 + the forced value play + "
+    "the obvious QB-WR1 single stack from the top total + the chalk "
+    "defense) once, and note that double stacks and TE bring-backs are "
+    "dupe-resistant AND +EV — structure is the cheapest uniqueness. Do NOT "
+    "write the big-field attack step (step 6 of `## Build it like a sharp`) "
+    "for Classic unless a 20-Max or 150-Max contest is actually declared.\n"
+    "- SMALL-FIELD SHAPE. The user's own 28 small-field NFL contests (median "
+    "field ~2,300) say the winning lineup carried about 94% total ownership "
+    "across the scored slots, about 4 players under 10% owned and 2 under "
+    "5%, a top-owned anchor near 30%, and was unique in its field — the same "
+    "shape as a Milly Maker winner. Do not frame 'safer' builds for small "
+    "fields; frame balanced-with-leverage builds. These are RATES across "
+    "winners, never per-lineup quotas.\n"
+    "- ANCHOR-EQUIVALENCE AT THE GAME LEVEL. If two game environments (or two "
+    "QB stacks) project similarly at similar ownership, surface that they "
+    "are substitutable, exactly as the rule does for individual anchors. In "
+    "a 3-Max the three entries answer three different game stories, never "
+    "three shades of one build.\n"
+    "- CONTEST PROFILE: SE / 3-Max / 5-Max only. Frame `## Build it like a "
+    "sharp` around the game-stack decision first (which game, which QB, "
+    "double stack or single, bring-back or not), then the RB chalk decision, "
+    "then the DST/TE punts. Still ZERO lineups: name candidates per decision "
+    "and stop.\n"
+    "- NFL SCORING NOTE: 0.0 is a REAL score here (a covered receiver, a "
+    "benched player) and a defense can score NEGATIVE points — never call a "
+    "0.0 a scratch.\n\n"
+)
+
+
 def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
     """Build the bundle (articles + every loaded vendor projection) and run headless
     Claude to write the slate strategy to data/slate_analysis/<slug>.md."""
@@ -247,6 +344,7 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"`## Trap-shaped prices` section when present). History informs the FIELD'S behavior "
         f"(where your opponents go); it never informs a player's quality.\n\n"
         + (_NFL_SD_STRATEGY_BLOCK if slug == "nfl_sd" else "")
+        + (_NFL_CLASSIC_STRATEGY_BLOCK if slug == "nfl_classic" else "")
         + f"MANDATORY pre-flight — do ALL of this SILENTLY as prep. **Do NOT print a checklist or a "
         f"pre-flight section; the user does not want to see it.** Only the RESULT of this prep shows, "
         f"inside the sections below. Confirm the article files are for the CURRENT slate (compare the "
@@ -417,16 +515,16 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"   2. **The leverage piece.** Where the sharp's low-owned player comes from, 2–4 named "
         f"candidates with ownership, target anchored to the observed `## Shark reality` numbers "
         f"when present.\n"
-        f"   3. **What a sharp refuses.** The top duplicated pair(s) with counts — 'carrying both "
+        f"   3. **What the field duplicates.** The top duplicated pair(s) with counts — 'carrying both "
         f"means sharing the entry with ~N opponents before it starts.' Pair counts describe the "
-        f"FIELD's habit, never the players' quality. **STEPS 1 AND 3 MUST AGREE (9/10/26 — the "
-        f"first NFL Showdown strategy said 'a sharp anchors on both stars' in step 1 and 'a sharp "
-        f"refuses carrying both' in step 3, and the Grade tab flagged the whole strategy as "
-        f"self-contradicting).** If step 3 refuses a pair, then step 1, `How a SHARP will play "
-        f"it`, and the two players' `## Top plays` rows must all say ONE of the pair per lineup, "
-        f"never both — the anchor-equivalence read ('one twin per lineup, the other twin is the "
-        f"swap'). If instead the sharp read is to hold both, step 3 must refuse a DIFFERENT pair "
-        f"and say why both is fine here. Never state both stances. In Showdown, name the SLOT "
+        f"FIELD's habit, never the players' quality, and a count is INFORMATION, not a rule "
+        f"(9/12/26, user directive): surfacing a pair does NOT mean a sharp refuses it. Refuse a "
+        f"pair ONLY when THIS slate's own reads argue for it (a pair that cannot both pay under "
+        f"one game script, or a twin pair the Anchor-Equivalence rule says is one bet), and say "
+        f"which read. **STEPS 1 AND 3 MUST AGREE (9/10/26 — a strategy once said 'anchors on "
+        f"both stars' in step 1 and 'refuses carrying both' in step 3).** Whatever stance step 3 "
+        f"takes on a pair, step 1, `How a SHARP will play it`, and the two players' `## Top "
+        f"plays` rows say the same thing. Never state both stances. In Showdown, name the SLOT "
         f"every time 'both' appears: both at flex, or one captain + one flex.\n"
         f"   4. **The salary shape.** The anchor's downstream cost in plain arithmetic — anchor "
         f"takes $X, the other slots average $Y. If the chalk cannot all fit under the cap, say "
@@ -453,7 +551,33 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"avoid both halves of the pair the field will duplicate?'), never as a threshold a roster "
         f"must clear.\n"
         f"   Close with the sharp-envelope target in ONE line, citing the most relevant named pro "
-        f"from `## Shark reality` as coaching where one exists.\n\n"
+        f"from `## Shark reality` as coaching where one exists.\n"
+        f"9. `## Build rules` — THE MACHINE-READABLE COPY of every rule this strategy stated "
+        f"(9/12/26, user directive: 'the Analyzer's strategy and lessons learned enforced on the "
+        f"diversifier when the filter gate is selected'). The Sim tool reads ONLY this block when "
+        f"it screens lineups, so a rule that is not here is not enforced, and a rule that IS here "
+        f"must already be stated in the prose above — this block never introduces a new rule. "
+        f"Write ONE fenced ```yaml block with two lists:\n"
+        f"   `lineup_rules` — checks on ONE lineup. Each item: `rule` (at_most | at_least | "
+        f"exactly | salary_min | salary_max), `count` (for the first three) or `value` (dollars, "
+        f"for the salary rules), `players` (exact names as they appear in the projections; omit "
+        f"for salary rules), `why` (≤12 words quoting the read it comes from), `from` "
+        f"('strategy' when it is this slate's own read, or the lesson id from "
+        f"`rules/{slug}/lessons.yaml` when a CODIFIED lesson is the source).\n"
+        f"   `portfolio_rules` — checks on the SET of entries across every contest. Each item: "
+        f"`rule` (min_entries_with = at least `count` entries hold ≥1 of `players`; "
+        f"max_entries_with = at most `count` entries hold ≥1 of `players`; max_exposure_pct = "
+        f"one `player` in at most `value` percent of entries), plus `why` and `from` as above. "
+        f"The Anchor-Equivalence rule is a portfolio rule (min_entries_with 1 of the alternative "
+        f"anchor), NEVER a per-lineup ban, unless step 3 refused the pair for a stated reason. A "
+        f"dart or low-owned RATE ('about one dart across the entries') is max_entries_with, never "
+        f"a lineup rule. NEVER write a lineup rule that REQUIRES a low-owned player. The `from` "
+        f"field is how codified lessons get enforced: read every `status: codified` lesson in "
+        f"`rules/{slug}/lessons.yaml`, and for each one whose mechanism fits THIS slate and can "
+        f"be checked on a roster, write its rule here with `from: <lesson id>`; lessons that do "
+        f"not fit this slate, and hypothesis/validated lessons, are NOT written. Names must be "
+        f"exact projection-sheet names, one rule per line-item, no prose inside the block, no "
+        f"rule you cannot point to in the sections above. An empty list is legal and honest.\n\n"
         f"Do not ask any questions — read the inputs and produce the file."
     )
     return _run_claude(prompt, out_path)
@@ -877,7 +1001,10 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
         return {"ok": False, "error": "Player pool is empty — check the loaded projections.",
                 "duration_s": 0.0, "cost_usd": None}
     is_mma = sport == "mma"
-    is_nfl = sport == "nfl"
+    # Slug-level split (9/12/26): Showdown boards carry the captain-slot
+    # columns; Classic boards carry position/team/opponent only.
+    is_nfl_sd = slug == "nfl_sd"
+    is_nfl_classic = sport == "nfl" and not is_nfl_sd
 
     # The exact playable set, as a fixed table Claude must rank without adding/dropping.
     def _row(r):
@@ -890,7 +1017,14 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
             ceil = f"{r['ceiling']:.1f}" if r.get("ceiling") is not None else "n/a"
             wp = f"{r['win_prob'] * 100:.0f}%" if r.get("win_prob") is not None else "n/a"
             extra = f", ceiling(win) {ceil}, win% {wp}"
-        if is_nfl:
+        if is_nfl_classic:
+            pos = str(r.get("position") or "?")
+            team = str(r.get("team") or "?")
+            big = (f", large-field own {r['own_large']:.0f}%"
+                   if r.get("own_large") is not None and r["own_large"] == r["own_large"]
+                   else "")
+            extra = f", pos {pos}, team {team}{big}"
+        if is_nfl_sd:
             # Showdown: FLEX price/own already ride sal/own above; add the
             # position, team, and captain-slot numbers so the board can show
             # the CPT-vs-FLEX leverage read. `own` here is the vendor's TOTAL
@@ -951,7 +1085,16 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
            "Showdown board say the GAME STORY the player pays in (the shootout, the grind, "
            "the blowout, the catch-up script) — NEVER jargon codes or ranking shorthand — "
            "and Tier carries any `· Leverage` label.\n"
-           if is_nfl else
+           if is_nfl_sd else
+           "`| Rank | Player | Pos | Team | Opp | Sal | Proj | Own | How it wins | Tier |`, "
+           "using the per-player numbers above (Own is the small-field projected "
+           "ownership the user's contests run on). 'How it wins' is a SHORT "
+           "PLAIN-ENGLISH phrase (~10–15 words) a non-expert reads instantly — for a "
+           "Classic board say the STACK or GAME STORY the player pays in (the game "
+           "shootout he is stacked into, the bell-cow volume, the bring-back, the "
+           "punt defense) — NEVER jargon codes or ranking shorthand — and Tier "
+           "carries any `· Leverage` label.\n"
+           if is_nfl_classic else
            "`| Rank | Player | Sal | Proj | Own | How it wins | Tier |`, where 'How it wins' is a "
            "SHORT PLAIN-ENGLISH phrase (~10–15 words) a non-expert reads instantly — NEVER jargon "
            "codes like 'coffin +7.6' or ranking shorthand — and Tier carries any `· Leverage` "
