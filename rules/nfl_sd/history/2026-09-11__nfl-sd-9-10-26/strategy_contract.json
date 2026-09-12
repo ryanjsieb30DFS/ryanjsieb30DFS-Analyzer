@@ -1,0 +1,278 @@
+{
+  "generated_at": "2026-09-10 19:43",
+  "slug": "nfl_sd",
+  "slate": "NFL Showdown \u2014 49ers at Rams (Melbourne), Thursday 9/10/26",
+  "calls": [
+    {
+      "name": "Terrance Ferguson",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Colby Parkinson",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Blake Corum",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Harrison Mevis",
+      "verdict": "underweight"
+    }
+  ],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "Jake Tonges",
+      "own": 4.8
+    },
+    {
+      "name": "Demarcus Robinson",
+      "own": 4.8
+    },
+    {
+      "name": "Jordan Whittington",
+      "own": 3.4
+    },
+    {
+      "name": "Kyle Juszczyk",
+      "own": 7.9
+    },
+    {
+      "name": "Kaelon Black",
+      "own": 3.9
+    },
+    {
+      "name": "Konata Mumpfield",
+      "own": 6.5
+    },
+    {
+      "name": "Davis Allen",
+      "own": 2.2
+    },
+    {
+      "name": "Luke Farrell",
+      "own": 1.2
+    },
+    {
+      "name": "Xavier Smith",
+      "own": 2.9
+    },
+    {
+      "name": "Ronnie Rivers",
+      "own": 0.7
+    },
+    {
+      "name": "Jacob Cowing",
+      "own": 0.3
+    },
+    {
+      "name": "KhaDarel Hodge",
+      "own": 0.9
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Puka Nacua",
+        "Christian McCaffrey"
+      ],
+      "joint_pct": 42.6
+    },
+    {
+      "players": [
+        "Puka Nacua",
+        "Matthew Stafford"
+      ],
+      "joint_pct": 38.6
+    },
+    {
+      "players": [
+        "Christian McCaffrey",
+        "Matthew Stafford"
+      ],
+      "joint_pct": 38.3
+    },
+    {
+      "players": [
+        "Puka Nacua",
+        "Brock Purdy"
+      ],
+      "joint_pct": 34.4
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Puka Nacua",
+        "Christian McCaffrey"
+      ]
+    },
+    {
+      "players": [
+        "Kyren Williams",
+        "Davante Adams"
+      ]
+    },
+    {
+      "players": [
+        "Blake Corum",
+        "Mike Evans",
+        "Rams"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "board": [
+    {
+      "name": "Puka Nacua",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Christian McCaffrey",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Davante Adams",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Mike Evans",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Brock Purdy",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Kyren Williams",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Matthew Stafford",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Deebo Samuel Sr.",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "George Kittle",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "De'Zhaun Stribling",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Tyler Higbee",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Eddy Pineiro",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Jake Tonges",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Blake Corum",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Kyle Juszczyk",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Demarcus Robinson",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Harrison Mevis",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Terrance Ferguson",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Colby Parkinson",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Rams",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "49ers",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Jordan Whittington",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Konata Mumpfield",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Kaelon Black",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Davis Allen",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Luke Farrell",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Xavier Smith",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Ronnie Rivers",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "KhaDarel Hodge",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Jacob Cowing",
+      "tier": "Fade",
+      "leverage": false
+    }
+  ]
+}

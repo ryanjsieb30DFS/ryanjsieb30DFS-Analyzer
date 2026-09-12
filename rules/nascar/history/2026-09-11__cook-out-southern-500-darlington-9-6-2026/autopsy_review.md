@@ -64,7 +64,7 @@ This section records one decision per flagged lesson.
 
 ## Proposed codifications
 
-This section lists rule changes for you to approve; nothing is applied yet.
+**APPLIED 2026-09-11 (user-approved):** all four items below are live in framework.md and lessons.yaml.
 
 1. **Codify `nascar-2026-07-26-fade-tier-buries-ceiling-tagged-definers`** (Indy + Daytona + Darlington). Add to `framework.md` Step 6 as check #13: "Player-pool tiering: the Fade tier is for negative-leverage chalk and cars with no path to a top-15; a sub-10%-owned driver the articles tag 'MME or fade' / 'large-field-only' / 'random contrarian' is tiered Okay · Leverage, never Fade — that phrase prices his floor, and the SE payout pays his ceiling."
 2. **Merge `nascar-2026-07-12-narrative-suppressed-elite-is-leverage` into `nascar-2026-05-01-hms-intermediate-double-up`**; append to the survivor: "An article org-narrative that demotes HMS at an intermediate lowers the field's pick rate, not the cars' ceiling — treat the low-owned HMS driver as leverage, not a fade (Chicagoland: Byron 85.25 at 10-13%)." Retire the hypothesis with reason "merged".

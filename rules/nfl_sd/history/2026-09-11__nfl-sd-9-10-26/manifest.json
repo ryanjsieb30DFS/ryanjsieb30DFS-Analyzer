@@ -1,0 +1,28 @@
+{
+  "slug": "nfl_sd",
+  "sport": "nfl",
+  "contest_label": "NFL Showdown",
+  "date": "2026-09-11",
+  "slate_label": "NFL SD 9.10.26",
+  "archived_at": "2026-09-11 22:12",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json",
+    "lineup_selection.json",
+    "nfl_sd__856ed90a_pick.md",
+    "nfl_sd__856ed90a_slice.md",
+    "nfl_sd__9889029f_pick.md",
+    "nfl_sd__9889029f_slice.md"
+  ],
+  "missing": [
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/nfl_sd/2026-09-10__NFL SD Matchups 9.10.26.pdf",
+    "articles/nfl_sd/2026-09-10__SD Breakdown 9.10.26.pdf"
+  ],
+  "proj_source": null
+}

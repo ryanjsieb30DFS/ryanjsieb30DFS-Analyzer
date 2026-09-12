@@ -65,12 +65,16 @@ lessons:
       HMS speed correlates across teammates at intermediate tracks, so a
       Byron+Elliott style double-up captures the same equipment edge twice
       (Byron 43 + Elliott 95.95 cashed L3 at Texas). Track for Kansas, Vegas,
-      Charlotte and other intermediates.
+      Charlotte and other intermediates. SCOPING NOTE (merged 2026-09-11 from
+      nascar-2026-07-12-narrative-suppressed-elite-is-leverage): an article
+      org-narrative that demotes HMS at an intermediate lowers the field's
+      pick rate, not the cars' ceiling — treat the low-owned HMS driver as
+      leverage, not a fade (Chicagoland: Byron 85.25 at 10-13%).
     status: codified
     confirmations:
       - {date: "2026-07-12", slate: "Chicagoland Speedway", note: "William Byron (HMS) was the single best driver on the slate — 85.25 FPTS at only 10-13% own, in 40-80% of the top lineups across all three contests, and Alex Bowman (HMS) anchored the #1 lineup of the 23,461 field. The intermediate HMS speed edge showed up decisively. NOTE: the strategy DEMOTED this codified lesson on the strength of one article's 'Toyota > HMS in 2026' org read (Key themes; Byron filed as 'MME contrarian, not the primary path') and forfeited the slate's biggest leverage dominator. First mechanism confirmation of HMS-at-intermediates AND the trigger for the new [[nascar-2026-07-12-narrative-suppressed-elite-is-leverage]] hypothesis. Elliott (30.9) was mediocre so the literal teammate double-up was only half-expressed; the org-speed-at-intermediates mechanism held via Byron+Bowman."}
     contradictions: []
-    codified_in: "framework.md — Quick-Reference Decision Heuristics (HMS + intermediates -> consider double-up)"
+    codified_in: "framework.md — Quick-Reference Decision Heuristics (HMS + intermediates -> consider double-up; narrative-suppressed-elite scoping note appended 2026-09-11)"
     retired_reason: null
 
   - id: nascar-2026-05-01-sub-10-punts-over-15-20
@@ -572,11 +576,11 @@ lessons:
       (rosterable ALONGSIDE mid-pack PD, not instead of it), and reserve the deep-back
       fade for drivers the FIELD is also low on. Re-scopes
       [[nascar-2026-06-20-midpack-pd-over-deep-back-chalk]].
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: "merged into nascar-2026-09-11-venue-start-mix-is-a-base-rate-not-a-refusal (2026-09-11, user-approved) — the road-course caution case is one example of the general base-rate lesson"
 
   - id: nascar-2026-06-28-injury-narrative-not-a-fade-thesis
     born: "2026-06-28"
@@ -625,11 +629,11 @@ lessons:
       contrarian afterthought. Complements [[nascar-2026-05-01-hms-intermediate-double-up]],
       [[nascar-2026-05-17-mechanism-check-before-reapplying-patterns]] and
       [[nascar-2026-05-24-anchor-equivalence]].
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: "merged into nascar-2026-05-01-hms-intermediate-double-up (2026-09-11, user-approved) — the narrative-suppressed-elite mechanism is now a scoping note on the survivor"
 
   # ---------------------------------------------------------------
   # Atlanta Motor Speedway (Quaker State 400) — 2026-07-12
@@ -808,7 +812,7 @@ lessons:
       - {date: "2026-08-30", slate: "Coke Zero Sugar 400, Daytona (8/29/26)", history_dir: "rules/nascar/history/2026-08-30__coke-zero-sugar-400-daytona-international-speedway-8-29-26", note: "Second mechanism confirmation — THIRD confirming slate (Indy + Iowa + Daytona). Both halves fired again. (a) Anchors dropped: consensus anchors at lock were Bell 63.5% / Hamlin 50.8% / Stenhouse 46.4% ($4K); the $4K entry held Stenhouse only and spent the anchor slots on Blaney (30%, -3.85, the #2 fish trap), Elliott (18.6%, 23.65, a fish trap) and Zane Smith (43.9%, 16.1, the #1 fish trap); the $12K entry held Bell only and spent them on Blaney, Bubba (43.7%, 29.9) and Keselowski. The drop case for Hamlin/Stenhouse was an UNDERWEIGHT built on an ownership-vs-projection rank gap, not a ceiling case — both winners held both. (b) Sixth slot empty: lowest-owned pieces were Gilliland 24% and Keselowski 16%; zero sub-10% names, 0 of 12 definers, while the winners' sixth slots were Suarez 10.2% (64.35) and Reddick 13.5% (57.15). Shark gap own/slot was FLAT (+0.3 vs the pros' 34.2) — the shape now matches the pros; the leak is anchor selection plus the empty definer slot, exactly this lesson. Meets promotion criteria -> codification proposal in autopsy_review Proposed codifications (framework.md Step 6 check #12)."}
       - {date: "2026-09-11", slate: "Cook Out Southern 500, Darlington (9/6/26)", history_dir: "rules/nascar/history/2026-09-11__cook-out-southern-500-darlington-9-6-2026", note: "Post-codification confirmation — FOURTH slate on the anchor-exposure axis (Indy, Iowa, Daytona, Darlington), and the first time the PICKER broke the codified rule in writing. Lock anchors were Erik Jones (61-66%), Buescher (55-62%), Reddick (52%). Both entries were picker rows and both dropped Jones; the written drop case was 'his pick rate runs 7 ranks ahead of his projection' plus the venue chart's 0.6 deep-back seats — a rank gap, which check #12 rules out as a ceiling case. Jones scored 49.0 and was in BOTH winners (dgood23323 387.25; the five-way $15K tie at 393.2) and 9 of the $5K top 10. Shark gap: own/slot flat (36.3 vs 37.9), rosters unique, anchor exposure 0.667 vs the pros' 0.778 — the ONLY axis that separated. Sixth-slot half: the winners' differentiators were Blaney 17% (66.1) and Bell 14% (78.2), mid-teens pieces per [[nascar-2026-08-09-definer-band-scales-with-field-size]]; both entries' lowest-owned pieces were Zilisch 11-13% (4.0) and Van Gisbergen 14% (20.75). Rule holds; the picker's override path is the remaining hole (scope note proposed in autopsy_review)."}
     contradictions: []
-    codified_in: "framework.md — Step 6 mandatory check #12 (Anchors held, sixth slot differentiates; added 2026-08-30, user-approved)"
+    codified_in: "framework.md — Step 6 mandatory check #12 (Anchors held, sixth slot differentiates; added 2026-08-30, user-approved; picker scope note added 2026-09-11, user-approved)"
     retired_reason: null
 
   - id: nascar-2026-07-26-fade-tier-buries-ceiling-tagged-definers
@@ -833,12 +837,12 @@ lessons:
       `· Leverage` instead. Links
       [[nascar-2026-05-17-mme-or-fade-means-fade-in-se]] and
       [[nascar-2026-07-21-definer-screen-must-reach-entries]].
-    status: validated
+    status: codified
     confirmations:
       - {date: "2026-08-30", slate: "Coke Zero Sugar 400, Daytona (8/29/26)", history_dir: "rules/nascar/history/2026-08-30__coke-zero-sugar-400-daytona-international-speedway-8-29-26", note: "Mechanism confirmed by the FIX working (the inverse test). The board held its ceiling-tagged sub-10% plays in Core/Okay · Leverage instead of Fade — Suarez rank 5 Core · Leverage (64.35, the $4K winner's carrier), McDowell rank 21 Okay · Leverage (56.7, #3 lineup both contests), Berry Good · Leverage (50.7) — and for the first time in four slates the tiers ORDERED (Core 39.8 > Good 30.5 > Okay 24.6 > Fade 1.8; NW/Indy/Iowa were all out of order). The single Fade-tier leak was Ryan Preece (50.6 from P4 at 3-7% own), tiered Fade on START POSITION, not on article floor-language — a different reason, so not a contradiction of this mechanism, but a note that a front-row car at a fast team can survive a pack race. Promoted to validated."}
       - {date: "2026-09-11", slate: "Cook Out Southern 500, Darlington (9/6/26)", history_dir: "rules/nascar/history/2026-09-11__cook-out-southern-500-darlington-9-6-2026", note: "Second inverse-test confirmation — THIRD confirming slate (Indy origin + Daytona + Darlington). The board kept every article floor-language name out of Fade (Logano 'MME or fade', Ty Dillon 'that one time makes you rich', Austin Hill 'worth mixing in' all rode the Leverage list in Okay), reserved Fade for Herbst (13.0 proj) and Heim (first Cup start here), and the tiers ORDERED a second straight slate (Core 51.7 > Good 30.6 > Okay 29.3 > Fade 10.0) with ZERO leakage — no Fade-tier driver above the Core average, Fade max 29.2. Josh Berry (rank 15, Okay · Leverage, 6% proj) scored 49.85 as the list's hit. Meets promotion criteria -> codification proposal in autopsy_review Proposed codifications (framework.md Step 6 check #13)."}
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Step 6 mandatory check #13 (Player-pool tiering; added 2026-09-11, user-approved, Indy + Daytona + Darlington)"
     retired_reason: null
 
   # ---------------------------------------------------------------
@@ -1002,6 +1006,11 @@ lessons:
       again the meat). Pre-lock: every venue-chart claim in Build it like a
       sharp is phrased as odds ("history pays this band ~0.6 seats"), and
       the refusal list is reserved for duplication pairs and stated fades.
+      MERGED IN (2026-09-11): the Sonoma road-course case — a low multi-year
+      deep-back-optimal rate (6.7%) is a base rate, and one caution/fuel
+      sequence can revive the deep-back path within a race (Keselowski P35 in
+      ~7 of the top 10); do not fade a deep-back CHALK on a road course purely
+      on that rate.
     status: hypothesis
     confirmations:
       - {date: "2026-09-11", slate: "Cook Out Southern 500, Darlington (9/6/26) — 20-max replication", history_dir: "rules/nascar/history/2026-09-11__cook-out-southern-500-darlington-9-6-2026", note: "SAME-RACE REPLICATION, NOT A NEW SLATE COUNT. Source: 20-max contest 194861814 (14,749 entries, same Darlington race; reviewed 2026-09-11 from ~/Downloads standings, contest NOT logged by user choice). Top-1% lineups (n=148) averaged 0.46 top-10 starters vs 1.41 for the field; 85 of 148 carried ZERO top-10 starters; 19 carried three-plus of the Jones/Buescher/Hocevar/Zane back quartet. Both picker rows carried two top-10 starters (Reddick P1 + Hamlin P4 / Briscoe P7) because the venue chart was applied as a refusal, and both finished in the bottom half. Hamlin: 0.0% of the top 1%, 44.5% of the bottom half; Byron: 0.0% / 32.6%."}

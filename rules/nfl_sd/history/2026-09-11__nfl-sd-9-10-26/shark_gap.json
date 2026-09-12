@@ -1,0 +1,77 @@
+{
+  "field": 2378,
+  "anchors": [
+    "christian mccaffrey",
+    "puka nacua",
+    "matthew stafford"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 2,
+    "own_per_slot": 6.3,
+    "leverage_pct": 100.0,
+    "anchor_exposure": 0.5,
+    "anchor_exposure_by_player": {
+      "christian mccaffrey": 1.0,
+      "puka nacua": 0.0,
+      "matthew stafford": 0.5
+    },
+    "max_overlap": 3,
+    "unique_pct": 100.0,
+    "best_pctile": 26.91,
+    "median_pctile": 78.76
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 7.9,
+    "leverage_pct": 100.0,
+    "anchor_exposure": 0.667,
+    "anchor_exposure_by_player": {
+      "christian mccaffrey": 1.0,
+      "puka nacua": 0.0,
+      "matthew stafford": 1.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 16.36,
+    "median_pctile": 16.36
+  },
+  "deltas": [
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 7.9,
+      "shark": 6.3,
+      "delta": 1.6
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.667,
+      "shark": 0.5,
+      "delta": 0.167
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "nfl_sd",
+  "sport": "nfl_showdown"
+}

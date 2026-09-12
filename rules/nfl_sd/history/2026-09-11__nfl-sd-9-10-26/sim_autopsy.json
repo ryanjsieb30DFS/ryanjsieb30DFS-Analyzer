@@ -1,0 +1,150 @@
+[
+  {
+    "slug": "nfl_sd",
+    "slate_name": "NFL Showdown contest-standings-195390886 2026-09-11",
+    "contest_id": "195390886",
+    "field_size": 1960,
+    "schema_version": 1,
+    "generated_at": "2026-09-11 22:07",
+    "user": {
+      "n_entries": 1,
+      "best_points": 50.199997,
+      "avg_points": 50.2,
+      "best_rank": 1480
+    },
+    "pool": {
+      "n": 10000,
+      "avg_actual": 60.3,
+      "median_actual": 60.15,
+      "max_actual": 107.55,
+      "n_beating_best_entry": 7765,
+      "pct_beating_best_entry": 77.65,
+      "picking_edge_points": -10.1
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 10000,
+        "spearman_vs_actual": 0.19,
+        "top100_avg_actual": 62.5,
+        "pool_avg_actual": 60.3
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 10000,
+        "spearman_vs_actual": 0.173,
+        "top100_avg_actual": 61.58,
+        "pool_avg_actual": 60.3
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 10000,
+        "spearman_vs_actual": 0.156,
+        "top100_avg_actual": 63.63,
+        "pool_avg_actual": 60.3
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 10000,
+        "spearman_vs_actual": 0.137,
+        "top100_avg_actual": 60.66,
+        "pool_avg_actual": 60.3
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 1480,
+        "Points": 50.2,
+        "Lineup": "CPT Davante Adams FLEX Puka Nacua FLEX Matthew Stafford FLEX Brock Purdy FLEX Terrance Ferguson FLEX Tyler Higbee",
+        "matched": true,
+        "pre_sim_roi_pct": 232.8,
+        "pre_sim_top1_pct": 5.45,
+        "pre_sim_win_pct": 0.64,
+        "pre_sim_cash_pct": 39.67,
+        "post_roi_pct": 149.86,
+        "post_top1_pct": 4.13,
+        "post_win_pct": 0.36,
+        "post_cash_pct": 33.4
+      }
+    ]
+  },
+  {
+    "slug": "nfl_sd",
+    "slate_name": "NFL Showdown contest-standings-195517295 2026-09-11",
+    "contest_id": "195517295",
+    "field_size": 2378,
+    "schema_version": 1,
+    "generated_at": "2026-09-11 22:06",
+    "user": {
+      "n_entries": 1,
+      "best_points": 71.75,
+      "avg_points": 71.75,
+      "best_rank": 389
+    },
+    "pool": {
+      "n": 10000,
+      "avg_actual": 60.3,
+      "median_actual": 60.15,
+      "max_actual": 107.55,
+      "n_beating_best_entry": 1917,
+      "pct_beating_best_entry": 19.17,
+      "picking_edge_points": 11.45
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 10000,
+        "spearman_vs_actual": 0.191,
+        "top100_avg_actual": 62.43,
+        "pool_avg_actual": 60.3
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 10000,
+        "spearman_vs_actual": 0.178,
+        "top100_avg_actual": 61.42,
+        "pool_avg_actual": 60.3
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 10000,
+        "spearman_vs_actual": 0.156,
+        "top100_avg_actual": 62.85,
+        "pool_avg_actual": 60.3
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 10000,
+        "spearman_vs_actual": 0.138,
+        "top100_avg_actual": 60.64,
+        "pool_avg_actual": 60.3
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 389,
+        "Points": 71.75,
+        "Lineup": "CPT Mike Evans FLEX Christian McCaffrey FLEX Matthew Stafford FLEX Brock Purdy FLEX Blake Corum FLEX Terrance Ferguson",
+        "matched": true,
+        "pre_sim_roi_pct": 172.4,
+        "pre_sim_top1_pct": 4.12,
+        "pre_sim_win_pct": 0.255,
+        "pre_sim_cash_pct": 37.8,
+        "post_roi_pct": 92.46,
+        "post_top1_pct": 2.74,
+        "post_win_pct": 0.18,
+        "post_cash_pct": 31.95
+      }
+    ]
+  }
+]

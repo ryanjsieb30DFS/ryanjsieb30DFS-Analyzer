@@ -1,0 +1,35 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "lineups": [
+    {
+      "players": [
+        "Brock Purdy",
+        "Davante Adams",
+        "Matthew Stafford",
+        "Puka Nacua",
+        "Terrance Ferguson",
+        "Tyler Higbee"
+      ],
+      "percentile": 75.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Blake Corum",
+        "Brock Purdy",
+        "Christian McCaffrey",
+        "Matthew Stafford",
+        "Mike Evans",
+        "Terrance Ferguson"
+      ],
+      "percentile": 16.4,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    75.5,
+    16.4
+  ]
+}

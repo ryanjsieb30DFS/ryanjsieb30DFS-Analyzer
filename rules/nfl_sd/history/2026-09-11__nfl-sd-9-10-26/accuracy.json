@@ -1,0 +1,46 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 9,
+    "leverage_capture": null,
+    "leverage_hit": [],
+    "leverage_missed": [],
+    "overperformer_capture": 0.4,
+    "overperformer_hit": [
+      "Brock Purdy",
+      "Mike Evans"
+    ],
+    "underperformer_exposure": 0.75,
+    "underperformer_hit": [
+      "Matthew Stafford",
+      "Puka Nacua",
+      "Davante Adams"
+    ]
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 2,
+    "avg_ratio": 0.647,
+    "best_percentile": 16.4,
+    "median_percentile": 75.5,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 50.199997,
+        "proj_total": 94.1,
+        "ratio": 0.533,
+        "percentile": 75.5,
+        "avg_own": 3.57
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 71.75,
+        "proj_total": 94.1,
+        "ratio": 0.762,
+        "percentile": 16.4,
+        "avg_own": 3.03
+      }
+    ]
+  }
+}

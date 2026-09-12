@@ -1,0 +1,36 @@
+{
+  "schema_version": 2,
+  "slug": "nfl_sd",
+  "pool_fp": "405d12ef3445",
+  "pool_len": 10000,
+  "contests": {
+    "NFL Showdown $10K Dimeback [Single Entry] (SE)": {
+      "picked": [
+        {
+          "index": 1636,
+          "roster_key": "Brock Purdy|Davante Adams|Matthew Stafford|Puka Nacua|Terrance Ferguson|Tyler Higbee",
+          "override": [
+            "has 1 Core-tier player(s), the strategy's anchors \u2014 it needs 2"
+          ]
+        }
+      ],
+      "why": "This lineup has a 5.33% chance to finish first (top1%), about a 1-in-19 shot, which is the best of all 10,000 pooled lineups and ties only two others inside the noise band. The sim says the entry is worth +225% (sim ROI), meaning it expects about $3.25 back for every $1 in, also the best on the table. The crowd is piling its captain spot on Nacua and McCaffrey (44% of all captains together), so this lineup keeps Nacua at flex and gives the captain (the 1.5x scorer) to Davante Adams, whom only about 1 in 12 teams captain (8.4%), even though he had 27 end-zone targets last year, nine more than any receiver in football. Average ownership is 41% per player (about 4 of every 10 teams have each piece), which is chalky, but the sim expects 0.0 copies of this exact lineup, because the Adams captain plus Tyler Higbee (10.2% owned, about 1 in 10 teams) make the whole combination rare. Projected points are 94.15, a few points under the 100.1 top of the pool, so it belongs but is not the highest projection, and that is fine because winners sit at the field's projection level, not above it. The lineup is one story: the Rams throw all night (Stafford at flex with Nacua, Adams, Ferguson, and Higbee), and Purdy is the 49ers bring-back that scores if the game turns into a shootout. Where the strategy and the sim disagree is the exact $50,000 spend, which the strategy says a sharp refuses because it gets copied; I trusted the sim's 0.0 expected copies over the general rule here. This pick carries two costs. It breaks the \u203c \"at least 2 Core-tier players\" rule by holding only Puka Nacua, but that rule cannot be met without also breaking the \u203c \"never both Nacua and McCaffrey\" rule, and the strategy's own step 3 says a sharp refuses that pair, so holding one star and not both is the strategy's real intent. It also carries Terrance Ferguson, whom the strategy marks \u26a0 UNDERWEIGHT (use less than the crowd, never zero), because he is the $3,200 piece that lets an Adams captain, Nacua, and both quarterbacks fit, and this is a single entry so he is not in every bullet. I looked down the table too: 3443 (5.18%) captains Blake Corum at a 17.9 ceiling, and the framework says cheap captains only win with a slate-topping ceiling; 8860 (4.90%) is the 49ers story the strategy saved for the Huddle and carries two underweight players at a lower +180% ROI; 4231 (4.46%) is this same lineup with Kyren Williams and Corum instead of Nacua and Higbee, trading the slate's best ceiling (37.0) for a split backfield.",
+      "generated_at": "2026-09-10 19:54",
+      "declared_contest_id": "9889029f"
+    },
+    "NFL Showdown $10K Huddle [Single Entry] (SE)": {
+      "picked": [
+        {
+          "index": 8860,
+          "roster_key": "Blake Corum|Brock Purdy|Christian McCaffrey|Matthew Stafford|Mike Evans|Terrance Ferguson",
+          "override": [
+            "has 1 Core-tier player(s), the strategy's anchors \u2014 it needs 2"
+          ]
+        }
+      ],
+      "why": "This lineup has a 4.74% chance to finish first (top1%), about a 1-in-21 shot, and that is tied with the best row on the whole table once you allow for the 0.44-point noise band. The sim says the entry is worth +209% (sim ROI), meaning it expects about $3.09 back for every $1 in, the second-best on the table. The crowd is doing one thing here: about 2 of every 3 teams have Nacua and the same for McCaffrey, and 44% of all captain spots go to those two stars. This lineup keeps McCaffrey but gives the captain (the player who scores 1.5 times his points) to Mike Evans, whom only 4.9% of teams captain, about 1 in 20, even though he had 21.5% of the 49ers' targets and a 24.0-point ceiling. For that step to pay, the 49ers need to throw to keep up or win, which is exactly the game the Matchups writer picked (49ers 21, Rams 17) against the Vegas line. Average ownership is 43% per player (about 4 of every 10 teams have each piece), which is chalky, but the sim expects only 1 copy of this exact lineup, because the Evans captain makes the whole combination rare. Projected points are 94.1, about 6 points under the 100.1 top of the pool, so it belongs without being the highest projection, and that is fine because winners sit at the field's projection level, not above it. The lineup is one story: Purdy throws to Evans and dumps it to McCaffrey (the 49ers' 21.3% target share back), and Stafford is the Rams bring-back that scores if the game turns into a shootout. Where the sim and the strategy disagree is the team split, 3-3 instead of the 2-4 shape the strategy liked, and I trusted the sim's tied-for-best win chance over that general shape. This pick carries costs. It breaks the \u203c \"at least 2 Core-tier players\" rule by holding only McCaffrey, but that rule cannot be met without breaking the \u203c \"never both Nacua and McCaffrey\" rule, and the strategy's own step 3 says a sharp refuses that pair, so one star and not both is what the strategy really meant. It also carries Blake Corum and Terrance Ferguson, whom the strategy marks \u26a0 UNDERWEIGHT (use less than the crowd, never zero), because they are the $7,800 of cheap Rams pieces that let an Evans captain, McCaffrey, and both quarterbacks fit under the cap, and this is a single entry so neither is in every bullet. I looked down the table too: 4231 (4.31%, inside the band) captains Davante Adams and shares 4 of 6 players, including the captain, with the Dimeback pick already entered, so the two entries would answer the same question; 3443 (5.0%) captains Blake Corum, whose 17.9 ceiling is not a slate-topping captain, and shares 5 of 6 players with the Dimeback pick; 5272 (4.26%) is a Stafford captain that also shares 5 of 6 with the Dimeback pick. This row is the only top-band lineup that tells a different story from the entry already in play.",
+      "generated_at": "2026-09-10 19:56",
+      "declared_contest_id": "856ed90a"
+    }
+  }
+}

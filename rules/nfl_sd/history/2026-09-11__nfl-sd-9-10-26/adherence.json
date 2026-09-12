@@ -1,0 +1,164 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "n_contests": 2,
+  "calls": [
+    {
+      "name": "Terrance Ferguson",
+      "verdict": "underweight",
+      "exposure_pct": 100.0,
+      "in_lineups": 2,
+      "of": 2,
+      "followed": false,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195390886.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        },
+        {
+          "contest": "contest-standings-195517295.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        }
+      ]
+    },
+    {
+      "name": "Colby Parkinson",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195390886.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195517295.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-195390886.csv",
+        "contest-standings-195517295.csv"
+      ]
+    },
+    {
+      "name": "Blake Corum",
+      "verdict": "underweight",
+      "exposure_pct": 50.0,
+      "in_lineups": 1,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195390886.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195517295.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-195390886.csv"
+      ],
+      "over_in": [
+        "contest-standings-195517295.csv"
+      ]
+    },
+    {
+      "name": "Harrison Mevis",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195390886.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195517295.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-195390886.csv",
+        "contest-standings-195517295.csv"
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 1,
+  "per_contest_flags": 3,
+  "leverage_candidates": [
+    {
+      "name": "Jake Tonges",
+      "rostered": false
+    },
+    {
+      "name": "Demarcus Robinson",
+      "rostered": false
+    },
+    {
+      "name": "Jordan Whittington",
+      "rostered": false
+    },
+    {
+      "name": "Kyle Juszczyk",
+      "rostered": false
+    },
+    {
+      "name": "Kaelon Black",
+      "rostered": false
+    },
+    {
+      "name": "Konata Mumpfield",
+      "rostered": false
+    },
+    {
+      "name": "Davis Allen",
+      "rostered": false
+    },
+    {
+      "name": "Luke Farrell",
+      "rostered": false
+    },
+    {
+      "name": "Xavier Smith",
+      "rostered": false
+    },
+    {
+      "name": "Ronnie Rivers",
+      "rostered": false
+    },
+    {
+      "name": "Jacob Cowing",
+      "rostered": false
+    },
+    {
+      "name": "KhaDarel Hodge",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 0,
+  "leverage_of": 12
+}
