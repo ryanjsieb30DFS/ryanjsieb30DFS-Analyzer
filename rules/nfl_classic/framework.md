@@ -24,6 +24,22 @@ NFL scoring note (unique among this repo's sports): **0.0 FPTS is a real score**
 
 Three reads: winners are balanced, not contrarian (one ~30% anchor AND about four sub-10% pieces; only 1 of 69 had zero sub-10% players); the shape barely changes with field size; uniqueness is nearly free and nearly mandatory. This is a RATE across winners — never a per-lineup quota (the codified sharp-envelope lesson applies from day one). `rules/shared/shark_baseline.json` carries an `nfl` block mined from these 28 files (`scripts/mine_nfl_history.py`); the Grade tab reads its envelope as information.
 
+## The large-field archive (41 Milly-size contests, mined 2026-09-12)
+
+The other 41 files are large fields (median ~147,000 entries). They do NOT feed the shark envelope — the user's Classic play is small-field — but they were mined the same way (`rules/nfl_classic/_mining/slates.csv` holds all 69 rows) and they tell the same story:
+
+| Measure | Small (<10k, n=28) | Large (n=41) |
+|---|---|---|
+| Winning score, median (min / max) | 215 (182 / 239) | 233 (163 / 282) |
+| Rank-1 winner: ownership per slot | 12.4% | 14.7% |
+| Rank-1 winner carried a sub-5% piece | 92% | 80% |
+| Rank-1 winner: top anchor exposure | 0.30 | 0.37 |
+| Rank-1 winner unique in its field | 97% | 99% |
+| Tracked sharks in the field (of n) | 28 | 41 |
+| Shark envelope: own/slot · sub-5% piece · anchor · unique | 13.7 · 88% · 0.38 · 98.6% | 14.9 · 78% · 0.34 · 98.1% |
+
+Reads: the large-field winner is slightly CHALKIER per slot (14.7 vs 12.4) and needs the sub-5% piece a little less often — a bigger field is won by a higher raw score, not by more weirdness. The winning score runs ~18 points higher because 147,000 tickets sample the tail deeper. Uniqueness is near-total at both sizes. The user's own entries appear in 2 of the 41 large contests (12.7% per slot, a sub-5% piece both times, unique both times) and in none of the small ones, so the small-field user envelope starts empty. These are RATES across winners, never per-lineup quotas.
+
 ## Correlation — points come in bundles
 
 Stacking (a QB with his own pass-catchers) costs no salary and no median projection; it fattens the right tail because two roster spots score off one play. Measured pairs (4for4 / FantasyLabs / RotoGrinders composites):
