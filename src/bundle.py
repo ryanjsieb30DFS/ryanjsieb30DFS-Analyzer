@@ -106,7 +106,7 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
                 "_Payout shape read: **Top-heavy** → the win is everything; maximum-ceiling, "
                 "contrarian builds and the leverage-away reads matter most. **Flat** → many "
                 "similar payouts; a tight high-floor-of-ceiling thesis competes fine. "
-                "**Balanced** → in between. Surface it in `## How to approach the slate`; "
+                "**Balanced** → in between. Surface it in `## Slate at a glance`; "
                 "never a play/fade command._"
             )
         from src.contests import MME_CONTEST_TYPES
@@ -123,13 +123,17 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
                 "guidance below still applies to any SE/3-Max/5-Max contests on "
                 "the same slate — the two games never blend._"
             )
-        L.append(
-            "_The home game is **small-field GPPs — Single Entry, 3-Max, and "
-            "5-Max**. Build for a tight all-unique set of 1/3/5 bullets: still "
-            "ceiling-and-leverage over median (GPP), but each of your few lineups is a "
-            "distinct thesis — no 150-max MME spray. Field size within this range tunes "
-            "the contrarian dial; it never flips you to a cash/floor game._"
-        )
+        # NFL Showdown is a different game (5-20 entries in large-field
+        # lottos, framed by the NFL SD strategy block); the small-field
+        # home-game line applies to every other slug.
+        if slug != "nfl_sd":
+            L.append(
+                "_The home game is **small-field GPPs — Single Entry, 3-Max, and "
+                "5-Max**. Build for a tight all-unique set of 1/3/5 bullets: still "
+                "ceiling-and-leverage over median (GPP), but each of your few lineups is a "
+                "distinct thesis — no 150-max MME spray. Field size within this range tunes "
+                "the contrarian dial; it never flips you to a cash/floor game._"
+            )
     else:
         L.append("_No contests declared._")
 

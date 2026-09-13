@@ -167,7 +167,11 @@ _NFL_SD_STRATEGY_BLOCK = (
     "rough weight from the Vegas total and spread in the articles: total 49+ "
     "leans shootout (pass-catcher captains won 47% there), total 42 or less "
     "leans slog (running-back captains won 46%), a spread of 7+ makes the "
-    "blowout script real (favorite captains won 80% of those games).\n"
+    "blowout script real (favorite captains won 80% of those games). Name each "
+    "script with the thesis vocabulary in the framework's `Thesis vocabulary` "
+    "block (blowout 5-1, upset 5-1, garbage-time build, ground-and-pound, "
+    "shootout double-stack, salary punt, off-position captain) so a lineup "
+    "thesis can be stated in one named shape.\n"
     "- THE CAPTAIN-LEVERAGE READ IS MANDATORY. The projections carry each "
     "player's captain-slot ownership (own_cpt / CPT Own) next to his flex "
     "ownership — compare them. The field picks the quarterback as captain far "
@@ -206,7 +210,7 @@ _NFL_SD_STRATEGY_BLOCK = (
 
 # NFL Classic strategy-section instructions, injected into run_analysis for
 # slug nfl_classic only. Format doctrine from docs/nfl_game_theory.md Part 1 +
-# rules/nfl_classic/framework.md (DRAFT). Information and CHECKS only — the
+# rules/nfl_classic/framework.md (approved 9/12/26). Information and CHECKS only — the
 # synthesis-first rule still holds: no PLAY/PASS commands, the user decides.
 _NFL_CLASSIC_STRATEGY_BLOCK = (
     "NFL CLASSIC — FORMAT-SPECIFIC INSTRUCTIONS (this slate is DK main-slate "
@@ -989,11 +993,11 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
     persisted = load_persisted(slug)
     full = build_pool(sources)
     if persisted:
-        kept, removed = apply_fades(full, extract_fades(persisted["markdown"]))
+        _, removed = apply_fades(full, extract_fades(persisted["markdown"]))
         strategy_note = ("Also read the written slate strategy at "
                          f"`data/slate_analysis/{slug}.md`.")
     else:
-        kept, removed = full, []
+        removed = []
         strategy_note = ("No slate strategy was generated for this slate — rank the FULL "
                          "pool below (no fades removed); ground the ranking in the articles "
                          "+ framework.")

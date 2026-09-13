@@ -14,7 +14,6 @@ import re
 
 import pandas as pd
 
-from src.autopsy import _norm_name
 from src.sessions import load_sources
 
 # "Player Name (12345678)" — DK's combined "Name + ID" column.

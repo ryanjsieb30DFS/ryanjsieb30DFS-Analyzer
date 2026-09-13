@@ -31,6 +31,33 @@ from src.autopsy import _norm_name
 
 _SALARY_CAP = 50_000
 
+# DK NFL Classic roster: QB, RB, RB, WR, WR, WR, TE, FLEX (RB/WR/TE), DST.
+# A 9-man roster is legal iff exactly 1 QB + 1 DST, at least 2 RB / 3 WR /
+# 1 TE, and exactly 7 RB+WR+TE (the seventh is the FLEX).
+_CLASSIC_MIN = {"QB": 1, "RB": 2, "WR": 3, "TE": 1, "DST": 1}
+_CLASSIC_FLEX = {"RB", "WR", "TE"}
+
+
+def _norm_pos(p) -> str | None:
+    if p is None or p != p:
+        return None
+    p = str(p).strip().upper()
+    return {"D": "DST", "DS": "DST", "DEF": "DST", "D/ST": "DST"}.get(p, p) or None
+
+
+def classic_roster_legal(positions: list[str]) -> bool:
+    """True when a 9-position multiset fills the DK Classic slots."""
+    if len(positions) != 9:
+        return False
+    counts: dict[str, int] = {}
+    for p in positions:
+        counts[p] = counts.get(p, 0) + 1
+    if counts.get("QB", 0) != 1 or counts.get("DST", 0) != 1:
+        return False
+    if any(counts.get(k, 0) < v for k, v in _CLASSIC_MIN.items()):
+        return False
+    return sum(counts.get(k, 0) for k in _CLASSIC_FLEX) == 7
+
 # "Leverage piece" threshold for the winner-story read (matches shark_gap's
 # sub-10 low-own convention for definers; sub-5 is the dart line).
 _LOW_OWN = 10.0
@@ -138,6 +165,28 @@ def near_miss(parsed: dict, analysis: dict) -> dict:
     salary_checked = (your_total is not None
                       and all(i["salary"] is not None for i in win_uniq))
 
+    # Position legality (NFL Classic, 9/12/26): a swap must leave a roster
+    # that still fills QB/RB/RB/WR/WR/WR/TE/FLEX/DST. Golf, MMA and NASCAR
+    # have no positions (no position_map → every swap is position-legal);
+    # NFL Showdown never reaches here with salary data (captain pricing).
+    position_map = analysis.get("position_map") or {}
+    your_pos = {k: _norm_pos(position_map.get(k)) for k in your_roster}
+    for o in your_uniq:
+        o["position"] = your_pos.get(_norm_name(o["name"]))
+    for i in win_uniq:
+        i["position"] = _norm_pos(position_map.get(_norm_name(i["name"])))
+    position_checked = (bool(position_map)
+                        and len(your_pos) == 9
+                        and all(v is not None for v in your_pos.values())
+                        and all(i["position"] is not None for i in win_uniq))
+
+    def _legal(outs_, ins_) -> bool:
+        if not position_checked:
+            return True
+        outs_names = {_norm_name(o["name"]) for o in outs_}
+        kept = [v for k, v in your_pos.items() if k not in outs_names]
+        return classic_roster_legal(kept + [i["position"] for i in ins_])
+
     def _fits(outs_, ins_) -> bool:
         if not salary_checked:
             return True
@@ -153,6 +202,8 @@ def near_miss(parsed: dict, analysis: dict) -> dict:
         for i in win_uniq:
             if o["fpts"] is None or i["fpts"] is None:
                 continue
+            if not _legal([o], [i]):
+                continue  # an illegal roster is not a swap at all
             cand = {"out": o["name"], "in": i["name"],
                     "gain": round(i["fpts"] - o["fpts"], 1)}
             if _fits([o], [i]):
@@ -168,7 +219,7 @@ def near_miss(parsed: dict, analysis: dict) -> dict:
     if blocked_swap and best_swap and blocked_swap["gain"] <= best_swap["gain"]:
         blocked_swap = None
 
-    # Minimum swaps to win: exact search over swap SETS (≤6 uniques a side, so
+    # Minimum swaps to win: exact search over swap SETS (≤9 uniques a side, so
     # brute force is cheap) — points gained and salary delta both depend only
     # on WHICH players move, not how they pair up. Without salary data this
     # reduces to the best-gain-per-k check (same result as the old greedy).
@@ -180,7 +231,7 @@ def near_miss(parsed: dict, analysis: dict) -> dict:
         for out_set in combinations(outs, k):
             for in_set in combinations(ins, k):
                 gain = sum(i["fpts"] for i in in_set) - sum(o["fpts"] for o in out_set)
-                if gain > gap and _fits(out_set, in_set):
+                if gain > gap and _legal(out_set, in_set) and _fits(out_set, in_set):
                     found = True
                     break
             if found:
@@ -191,6 +242,7 @@ def near_miss(parsed: dict, analysis: dict) -> dict:
 
     return {
         "salary_checked": salary_checked,
+        "position_checked": position_checked,
         "blocked_swap": blocked_swap,
         "gradable": True,
         "won": False,
@@ -237,6 +289,8 @@ def counterfactual_md(story: dict, miss: dict) -> str | None:
                 verdict = ("**that ONE swap wins the contest**" if s["would_have_won"]
                            else "not enough alone")
                 fit = " that fits the cap" if miss.get("salary_checked") else ""
+                if miss.get("position_checked"):
+                    fit += " and keeps a legal roster"
                 head += (f" Best single swap{fit}: {s['out']} → **{s['in']}** "
                          f"(+{s['gain']} pts — {verdict}).")
             elif miss.get("blocked_swap"):
@@ -244,6 +298,8 @@ def counterfactual_md(story: dict, miss: dict) -> str | None:
             if miss.get("swaps_needed"):
                 cap_note = (" (salary-cap checked)" if miss.get("salary_checked")
                             else " (salary not checked — projections were cleared)")
+                if miss.get("position_checked"):
+                    cap_note += " (roster positions checked)"
                 head += f" Minimum swaps to win: **{miss['swaps_needed']}**{cap_note}."
             elif miss.get("best_swap") or miss.get("blocked_swap"):
                 head += " Even swapping every differing player wouldn't have won — structural, not marginal."

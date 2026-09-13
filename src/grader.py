@@ -54,7 +54,7 @@ _DRAFT_DIR = _REPO_ROOT / "data" / "grade_drafts"
 _OWN_MARGIN = 1.2    # chalk-heavy INFO note fires only above target × margin
 _LOW_OWN = 10.0
 _DART_OWN = 5.0
-_SALARY_CAP = 50000  # DK classic cap, all five slates
+_SALARY_CAP = 50000  # DK cap, every supported slate
 
 
 # ------------------------------------------------------------------ parsing ----
@@ -388,7 +388,6 @@ def contest_grade_md(grades: list[dict], letters: list[dict],
         out.append(f"_Calibration for **{cal.get('contest_name') or 'this contest'}** — "
                    + " · ".join(bits) + "_")
     for i, (g, lt) in enumerate(zip(grades, letters), 1):
-        warns = [f for f in g["flags"] if f["level"] == "warn"]
         infos = [f for f in g["flags"] if f["level"] == "info"]
         stats = []
         if g["avg_own"] is not None:

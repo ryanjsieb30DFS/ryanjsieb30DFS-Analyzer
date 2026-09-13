@@ -94,6 +94,15 @@ Median winning lineup totaled **~167% ownership across 6 slots (~28% per slot)**
 - Dupe awareness is load-bearing at these field sizes: product-of-ownership, salary-left, and the under-used shapes (2-4 split, kicker) are where large-field equity lives.
 - Set diversity doctrine applies in full (`rules/shared/set_diversity.md`): diversity is a property of the SET, judged pairs-of-picks down.
 
+**Thesis vocabulary (named shapes).** Every Showdown lineup's one-sentence thesis names ONE of these shapes, so the portfolio can be read at a glance and the autopsy can score each shape by name. The names come from TwoGun's showdown presets (a 3x Milly Maker winner); the data behind each shape is already in this doc. This is naming only — no shape is required, banned, or graded.
+- **Blowout 5-1** — the favorite runs away with it: favorite captain, the favorite's QB + two pass-catchers + RB or DST, one bring-back pass-catcher (never the opposing DST). Real when the spread is 7+.
+- **Upset 5-1** — the same onslaught on the underdog's side: dog captain, dog QB + catchers, the dog DST, one favorite bring-back. The dupe-cheap version of the onslaught.
+- **Garbage-time build** — the favorite leads early, the loser throws late: a 2-4 tilted away from the captain's team, underdog pass-catchers carrying the volume, favorite RB or DST as the early-game anchor. Under-built by the field (16%) and ~40% fewer dupes in 7+ spreads.
+- **Ground-and-pound** — the slog (total 42 or less): RB captain + his own DST + a kicker, few pass-catchers. The strongest single combo measured (CPT RB + own DST + 5-1 = +24.6% sim ROI).
+- **Shootout double-stack** — total 49+: QB + two of his catchers + a bring-back catcher, both offenses live. WR captains won 47% here; at 51+ the RB captain is the leverage.
+- **Salary punt** — any of the above with a sub-3% piece and $1,400+ left, bought for uniqueness, not points.
+- **Off-position captain** — TE, kicker or DST wearing the 1.5x. Only pays when it comes without ownership (CPT DST is 13.6% of winning 5-1/1-5 lineups vs 3.3% elsewhere).
+
 **Portfolio shape, scaled from the winning multi-entry players (ETR 2025):** about 8–9 unique captains per slate on a 33 / 22 / 15 / 10 / 7 / 5 / 4 / 3% exposure ladder, scaled down to the entry count (at 5 entries that is roughly 2-1-1-1 across four captains); construction mix roughly 5-1 21% / 4-2 26% / 3-3 27% / 2-4 18% / 1-5 8% — covering the distribution of how the game can go, not one script repeated. The target is a set with **zero "horrid" lineups** (pros 7%, single-entry 28%), not a set of only peak lineups.
 
 **Contest-selection flag (ETR 2025):** single- and low-entry players in multi-entry showdown contests posted −21.6% actual ROI against a max-entry cohort building better lineups at volume. A 5–20 entry set in a lotto field is competing against 150-max portfolios; either lean on the dupe levers harder than they can, or route part of the bankroll to single-entry showdown contests where the structural gap is smaller. Declare the entry-max with each contest so this is visible at declaration time.

@@ -166,7 +166,6 @@ def good_bad_plays(exposure: pd.DataFrame, top_n: int = 12) -> dict:
         has_ceiling = "ceiling" in e.columns and e["ceiling"].notna().any()
         upside = e["ceiling"] if has_ceiling else e.get("proj_points")
         e["upside"] = pd.to_numeric(upside, errors="coerce") if upside is not None else pd.NA
-        own = pd.to_numeric(e["field_own_pct"], errors="coerce")
         # value = upside per $1k salary (context; only when salary present).
         if "salary" in e.columns and e["salary"].notna().any():
             sal = pd.to_numeric(e["salary"], errors="coerce")

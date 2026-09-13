@@ -120,3 +120,74 @@ if __name__ == "__main__":
         fn()
         print(f"ok  {fn.__name__}")
     print(f"\n{len(fns)} passed")
+
+
+def _classic_base(winner: str = "dst_swap"):
+    """NFL Classic: your lineup vs the winner differs by DST (yours) → WR
+    (theirs) and RB → RB. Only the RB swap keeps a legal roster."""
+    mine = ["QB1", "RB1", "RB2", "WR1", "WR2", "WR3", "TE1", "RB3", "DST1"]
+    theirs = ["QB1", "RB1", "RB2", "WR1", "WR2", "WR3", "TE1", "RB4", "DST1"]
+    theirs_dst_swap = ["QB1", "RB1", "RB2", "WR1", "WR2", "WR3", "TE1", "RB3", "WR4"]
+    win_roster = theirs_dst_swap if winner == "dst_swap" else theirs
+    lineups = [
+        {"Rank": 1, "EntryName": "shark (1/1)", "Points": 200.0,
+         "Lineup_parsed": win_roster},
+        {"Rank": 2, "EntryName": "me", "Points": 180.0, "Lineup_parsed": mine},
+    ]
+    pos = {"QB1": "QB", "RB1": "RB", "RB2": "RB", "RB3": "RB", "RB4": "RB",
+           "WR1": "WR", "WR2": "WR", "WR3": "WR", "WR4": "WR", "TE1": "TE",
+           "DST1": "DST"}
+    fp = {"QB1": 25, "RB1": 20, "RB2": 18, "RB3": 5, "RB4": 30, "WR1": 20,
+          "WR2": 15, "WR3": 12, "WR4": 40, "TE1": 10, "DST1": 8}
+    players = [{"name": n, "actual_own": 10.0, "actual_fpts": float(v)}
+               for n, v in fp.items()]
+    analysis = {
+        "user_lineups_df": pd.DataFrame([
+            {"rank": 2, "entry_name": "me", "points": 180.0, "players": mine}]),
+        "salary_map": {n.lower(): 5000 for n in pos},
+        "position_map": {n.lower(): p for n, p in pos.items()},
+    }
+    return _parsed(lineups, players), analysis
+
+
+def test_classic_roster_legal():
+    assert cf.classic_roster_legal(
+        ["QB", "RB", "RB", "WR", "WR", "WR", "TE", "RB", "DST"])
+    assert cf.classic_roster_legal(
+        ["QB", "RB", "RB", "WR", "WR", "WR", "TE", "TE", "DST"])
+    assert not cf.classic_roster_legal(
+        ["QB", "RB", "RB", "WR", "WR", "WR", "TE", "WR", "WR"])   # no DST
+    assert not cf.classic_roster_legal(
+        ["QB", "QB", "RB", "WR", "WR", "WR", "TE", "RB", "DST"])  # two QB
+    assert not cf.classic_roster_legal(["QB"] * 9)
+
+
+def test_classic_illegal_position_swap_is_never_suggested():
+    """The winner's only unique piece is a WR replacing your DST — a roster
+    with no DST is not a swap. Even though it out-gains everything, it must
+    not appear as best_swap, blocked_swap, or a swaps_needed count."""
+    parsed, analysis = _classic_base()
+    m = cf.near_miss(parsed, analysis)
+    assert m["position_checked"] is True
+    assert m["best_swap"] is None
+    assert m["blocked_swap"] is None
+    assert m["swaps_needed"] is None
+
+
+def test_classic_legal_same_position_swap_still_found():
+    # The RB4 lineup is the winner: RB3 → RB4 is legal.
+    parsed, analysis = _classic_base(winner="rb_swap")
+    m = cf.near_miss(parsed, analysis)
+    assert m["position_checked"] is True
+    assert m["best_swap"]["out"] == "RB3" and m["best_swap"]["in"] == "RB4"
+    assert m["best_swap"]["would_have_won"] is True
+    assert m["swaps_needed"] == 1
+    assert "keeps a legal roster" in cf.counterfactual_md(None, m)
+
+
+def test_no_position_map_means_no_position_gate():
+    parsed, analysis = _classic_base()
+    analysis.pop("position_map")
+    m = cf.near_miss(parsed, analysis)
+    assert m["position_checked"] is False
+    assert m["best_swap"]["out"] == "DST1" and m["best_swap"]["in"] == "WR4"

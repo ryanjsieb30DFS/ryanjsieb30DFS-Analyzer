@@ -428,6 +428,12 @@ def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str,
                        if proj_lookup and not (
                            sport == "nfl" and slug != "nfl_classic")
                        else None),
+        # norm → position, NFL Classic only: lets near_miss reject swaps that
+        # would leave an illegal DK roster (a DST out for a WR in is not a
+        # swap). Slug-routed — NFL SD and Classic are different games.
+        "position_map": ({n: e.get("position") for n, e in proj_lookup.items()
+                          if e.get("position") == e.get("position")}
+                         if proj_lookup and slug == "nfl_classic" else None),
     }
 
 
@@ -529,7 +535,6 @@ def record_md_summary(record: dict) -> str:
         )
         deltas = ws.get("vs_user") or {}
         own_d = deltas.get("avg_own_delta")
-        low_d = deltas.get("low_own_count_delta")
         if own_d is not None and ws.get("avg_own_mean") is not None:
             lines.append(
                 f"- Winners (top {ws.get('top_n')}): avg own {ws['avg_own_mean']}% "

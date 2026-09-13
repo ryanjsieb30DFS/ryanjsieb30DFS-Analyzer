@@ -19,7 +19,6 @@ from __future__ import annotations
 from collections import Counter
 from itertools import combinations
 
-import pandas as pd
 
 from src.autopsy import _norm_name, is_user_entry
 
