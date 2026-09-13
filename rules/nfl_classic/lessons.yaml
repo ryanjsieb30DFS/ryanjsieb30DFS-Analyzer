@@ -140,3 +140,58 @@ lessons:
     contradictions: []
     codified_in: null
     retired_reason: null
+
+  - id: nfl_classic_dst_pressure_not_points_allowed
+    born: "2026-09-12"
+    origin: "ETR research digest 9/12/26 (Week 1 columns) — docs/etr_research/DIGEST_2026-09-12_nfl_classic_week1_columns.md (Thorn, OL vs DL Mismatches); external data, not a logged slate"
+    statement: >
+      A DST attached to a top-6 pass-rush mismatch outscores a DST picked for opponent points allowed. Why: only 2.5% of games are shutouts and 9.7% hold a team to six or fewer, so DST points come from sacks and turnovers, which come from QB pressure. Counts as confirmed when: over 6 logged slates, mismatch-backed DSTs beat their projection more often than points-allowed picks.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_week1_ownership_premium
+    born: "2026-09-12"
+    origin: "ETR research digest 9/12/26 (Week 1 columns) — docs/etr_research/DIGEST_2026-09-12_nfl_classic_week1_columns.md (Brott, GPP Leverage Week 1 (Milly + Spy)); external data, not a logged slate"
+    statement: >
+      In Week 1 the higher-owned of two matched twins (same position, price within $500, projection within one point) hits 25 DK points more often than later in the season, relative to the lower-owned twin. Why: the field's Week 1 preference has historically carried real information; the ceiling gap narrows later while the ownership gap stays. Counts as confirmed when: the user's Week 1 autopsies (this season and next) show the chalk twin outscoring the leverage twin at a higher rate than mid-season autopsies do.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_one_game_cap_by_field
+    born: "2026-09-12"
+    origin: "ETR research digest 9/12/26 (Week 1 columns) — docs/etr_research/DIGEST_2026-09-12_nfl_classic_week1_columns.md (Dinkmeyer, Establish The Million Week 1); external data, not a logged slate"
+    statement: >
+      Six players from one game in a small field produces measurable duplication; five is the large-field ceiling. Why: the same game's obvious pieces funnel every builder into the same roster. Counts as confirmed when: the Sim's dupe report or the standings show a 6-from-one-game lineup duplicated in a small field on 3 slates.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_three_rb_underowned
+    born: "2026-09-12"
+    origin: "ETR research digest 9/12/26 (Week 1 columns) — docs/etr_research/DIGEST_2026-09-12_nfl_classic_week1_columns.md (Leone, Establish The Million Week 1); external data, not a logged slate"
+    statement: >
+      Three-RB builds appear in top lineups more often than in the field and run under-owned. Why: RB is the sturdy-chalk position and the FLEX RB is the winning FLEX; the field still defaults to a WR FLEX. Counts as confirmed when: the stack-centric autopsy shows a 3-RB slot mix over-represented among winners on 4 of 6 slates.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_fangio_tree_volume_drag
+    born: "2026-09-12"
+    origin: "ETR research digest 9/12/26 (Week 1 columns) — docs/etr_research/DIGEST_2026-09-12_nfl_classic_week1_columns.md (Thorman, Snaps and Pace Week 1); external data, not a logged slate"
+    statement: >
+      A game with a Fangio-tree defensive coordinator finishes bottom-half in combined plays, so a stack there needs a volume discount. Why: Fangio's eight DC seasons ranked 32nd to 14th in combined offensive plays. Counts as confirmed when: logged slates with such a game show its total plays below the slate median 4 of 6 times.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
