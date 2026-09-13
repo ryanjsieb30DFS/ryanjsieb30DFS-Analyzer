@@ -38,3 +38,10 @@ data/grade/
 # Local archives of cleared slate workspaces (e.g. the unlogged 8/15/26
 # NASCAR files) — user data, never repo history.
 data/archive/
+
+# Safety copies made by sidecar / tendencies rebuilds — local only. The
+# auto-backup button stages the whole rules tree, which is how four of these
+# (and two orphaned NASCAR sim_pool.csv hand-offs) got committed before 9/12/26.
+rules/**/*.bak
+rules/**/*.bak2
+rules/**/history/**/sim_pool.csv

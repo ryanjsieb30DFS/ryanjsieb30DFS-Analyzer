@@ -31,32 +31,15 @@ from src.autopsy import _norm_name
 
 _SALARY_CAP = 50_000
 
-# DK NFL Classic roster: QB, RB, RB, WR, WR, WR, TE, FLEX (RB/WR/TE), DST.
-# A 9-man roster is legal iff exactly 1 QB + 1 DST, at least 2 RB / 3 WR /
-# 1 TE, and exactly 7 RB+WR+TE (the seventh is the FLEX).
-_CLASSIC_MIN = {"QB": 1, "RB": 2, "WR": 3, "TE": 1, "DST": 1}
-_CLASSIC_FLEX = {"RB", "WR", "TE"}
+# NFL Classic positions + roster legality come from the shared rulebook
+# (src/nfl_classic_defs.py — byte-identical to the Sim's copy; the cross-repo
+# parity test locks them together).
+from src.nfl_classic_defs import normalize_position as _rulebook_position
+from src.nfl_classic_defs import roster_legal as classic_roster_legal  # noqa: F401
 
 
 def _norm_pos(p) -> str | None:
-    if p is None or p != p:
-        return None
-    p = str(p).strip().upper()
-    return {"D": "DST", "DS": "DST", "DEF": "DST", "D/ST": "DST"}.get(p, p) or None
-
-
-def classic_roster_legal(positions: list[str]) -> bool:
-    """True when a 9-position multiset fills the DK Classic slots."""
-    if len(positions) != 9:
-        return False
-    counts: dict[str, int] = {}
-    for p in positions:
-        counts[p] = counts.get(p, 0) + 1
-    if counts.get("QB", 0) != 1 or counts.get("DST", 0) != 1:
-        return False
-    if any(counts.get(k, 0) < v for k, v in _CLASSIC_MIN.items()):
-        return False
-    return sum(counts.get(k, 0) for k in _CLASSIC_FLEX) == 7
+    return _rulebook_position(p) or None
 
 # "Leverage piece" threshold for the winner-story read (matches shark_gap's
 # sub-10 low-own convention for definers; sub-5 is the dart line).

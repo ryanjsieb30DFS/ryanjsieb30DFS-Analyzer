@@ -644,8 +644,8 @@ def run_grade(slug: str, contest_label: str, sport: str, lineups_text: str,
 
     n_lineups = len([l for l in (lineups_text or "").splitlines() if l.strip()])
     distinct = (
-        f"2. `## Distinctness` — do the lineups answer DIFFERENT what-ifs? Name any pair that "
-        f"answers the same question (competing lineups).\n" if n_lineups > 1 else "")
+        "2. `## Distinctness` — do the lineups answer DIFFERENT what-ifs? Name any pair that "
+        "answers the same question (competing lineups).\n" if n_lineups > 1 else "")
     prompt = (
         cal_line + contest_line +
         f"You are grading the user's {contest_label} DK lineups (sport: {sport}) "
@@ -660,16 +660,16 @@ def run_grade(slug: str, contest_label: str, sport: str, lineups_text: str,
         f"OR `**THESIS-LESS**` if no coherent winning story exists. Every lineup needs an "
         f"articulable thesis — vague labels don't count.\n"
         + distinct +
-        f"3. `## Lessons that activate` — any open lesson from lessons.yaml this set of "
-        f"lineups triggers, or 'None.' State the lesson as one plain sentence about what keeps "
-        f"happening and why (the mechanism) — the lesson id may follow in parentheses.\n"
-        f"WRITING STYLE (user directives 7/27/26 write for a smart 5th grader + 8/9/26 keep it "
-        f"SHORT — say each thing once): short sentences, one idea each (~15 words, hard stop 25). Say the plain meaning "
-        f"FIRST with the DFS word in parentheses after, every time — 'the players most teams "
-        f"will pick (the chalk)'. Explain what each number means: '32% owned — about 1 in 3 "
-        f"teams has him'. Open each section with one sentence saying what it is for. "
-        f"NO play/fade commands, NO alternative "
-        f"lineups, NO swap suggestions. Do not ask questions — produce the file."
+        "3. `## Lessons that activate` — any open lesson from lessons.yaml this set of "
+        "lineups triggers, or 'None.' State the lesson as one plain sentence about what keeps "
+        "happening and why (the mechanism) — the lesson id may follow in parentheses.\n"
+        "WRITING STYLE (user directives 7/27/26 write for a smart 5th grader + 8/9/26 keep it "
+        "SHORT — say each thing once): short sentences, one idea each (~15 words, hard stop 25). Say the plain meaning "
+        "FIRST with the DFS word in parentheses after, every time — 'the players most teams "
+        "will pick (the chalk)'. Explain what each number means: '32% owned — about 1 in 3 "
+        "teams has him'. Open each section with one sentence saying what it is for. "
+        "NO play/fade commands, NO alternative "
+        "lineups, NO swap suggestions. Do not ask questions — produce the file."
     )
     return _run_claude(prompt, out_path)
 

@@ -240,3 +240,58 @@ def test_payout_shape_thresholds_match_sim():
     for lad in fixtures:
         assert ours(lad) == theirs(lad), (
             f"payout shape drift on {lad!r} — port the change to the other repo")
+
+
+# ---------------------------------------------------------------------------
+# NFL Classic rulebook (9/12/26) — positions, games, stacks, correlation
+# ---------------------------------------------------------------------------
+
+def test_nfl_classic_rulebook_is_byte_identical():
+    """src/nfl_classic_defs.py is a VERBATIM copy in both repos: the Sim's
+    builder / sim / field and the Analyzer's counterfactual / autopsy read one
+    definition of a position, a game, a stack and the correlation loadings.
+    Any edit must be copied to the other repo."""
+    from pathlib import Path
+    ours = (Path(__file__).parent.parent / "src" / "nfl_classic_defs.py").read_text()
+    theirs = (SIM / "src" / "nfl_classic_defs.py").read_text()
+    assert ours == theirs, (
+        "src/nfl_classic_defs.py differs between the Analyzer and the Sim — "
+        "copy the edited file to the other repo verbatim (Sim "
+        "src/nfl_classic_defs.py <-> Analyzer src/nfl_classic_defs.py)."
+    )
+
+
+def test_nfl_classic_rulebook_behavior():
+    """Behavioral pins on the shared rulebook so a 'harmless' edit that
+    changes an answer fails by name, not just by diff."""
+    from src import nfl_classic_defs as d
+    # Every defense / kicker spelling folds; blanks fold to ''.
+    for raw in ("D", "DS", "DEF", "D/ST", "d/st", " dst "):
+        assert d.normalize_position(raw) == "DST", raw
+    assert d.normalize_position("PK") == "K"
+    assert d.normalize_position(float("nan")) == "" and d.normalize_position(None) == ""
+    # Road / home markers strip; a team code starting with AT survives.
+    for raw in ("@KC", "VS KC", "vs. KC", "VSKC", "AT KC", " kc "):
+        assert d.normalize_opponent(raw) == "KC", raw
+    assert d.normalize_opponent("ATL") == "ATL"
+    # A game is the unordered pair; a blank side is one-sided.
+    assert d.game_key("ATL", "@PIT") == d.game_key("PIT", "VS ATL") == ("ATL", "PIT")
+    assert d.game_key("ATL", None) == ("ATL",) and d.game_key("ATL", None) != d.game_key("PIT", "ATL")
+    # Stack definition (user decision 9/12/26): any non-DST teammate is a
+    # mate, any non-DST opponent is a bring-back.
+    assert d.STACK_MATE_POSITIONS == ("RB", "WR", "TE")
+    assert d.BRINGBACK_POSITIONS == ("RB", "WR", "TE")
+    s = d.stack_shape(
+        ["QB", "RB", "WR", "WR", "TE", "RB", "WR", "TE", "DST"],
+        ["KC", "KC", "KC", "LAC", "LAC", "DAL", "DAL", "DAL", "LAC"],
+        ["@LAC", "@LAC", "@LAC", "KC", "KC", "NYG", "NYG", "NYG", "KC"])
+    assert s == {"qb_team": "KC", "mates": 2, "bringback": 2, "dst_vs_qb": True,
+                 "games": 2, "shape": "stack2"}
+    # Roster legality.
+    assert d.roster_legal(["QB", "RB", "RB", "WR", "WR", "WR", "TE", "RB", "D"])
+    assert not d.roster_legal(["QB", "RB", "RB", "WR", "WR", "WR", "TE", "WR", "WR"])
+    # Correlation loadings are the sim's factor model — pinned so a re-fit is
+    # a deliberate, visible change in BOTH repos.
+    assert d.NFL_GAME_LOADING["QB"] == 0.62 and d.NFL_TEAM_LOADING["QB"] == 0.45
+    assert d.NFL_DST_OPP_LOADING == -0.50
+    assert d.SALARY_CAP == 50_000 and d.CLASSIC_SIZE == 9
