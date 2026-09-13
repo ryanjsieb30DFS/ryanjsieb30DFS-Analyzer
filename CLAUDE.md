@@ -2,6 +2,8 @@
 
 Article-driven, multi-sport DFS slate-strategy tool for DraftKings. Streamlit web app. Personal-use, single user (`ryanjsieb30`).
 
+**DRAFTKINGS ONLY — IGNORE FANDUEL (user directive 9/12/26: "ignore ignore ignore").** The user never plays FanDuel. Articles, ETR files, and research PDFs carry FD columns/sections/prices/ownership/advice; every prompt, digest, framework edit, and vendor profile drops them (`analysis_runner.DK_ONLY_NOTE` is prepended to every headless run; the bundle header repeats it; ETR vendor profiles drop `fd_*` columns). Never cite an FD number, never propose an FD-only rule.
+
 ## What this is
 
 A pre-slate / post-slate **slate-strategy** tool for **PGA Classic, PGA RD4 Showdown, MMA, NASCAR, NFL Showdown, NFL Classic**. The user uploads the slate's **articles** (PDFs, notes, data files, screenshots) AND vendor **projections**, and Claude synthesizes a written **slate strategy**: top plays, how to approach the slate, key themes, leverage & fades, and the decisions that define the slate. After the contest, the user uploads DK contest-standings and the Analyzer drives a post-mortem + learning loop.

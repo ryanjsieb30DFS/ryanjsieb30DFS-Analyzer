@@ -32,6 +32,20 @@ def _claude_binary() -> str | None:
     return str(fallback) if fallback.exists() else None
 
 
+# Prepended to EVERY headless prompt (strategy, player pool, grade, contest
+# selection, autopsy review, research digest). User directive 9/12/26:
+# "Ignore FanDuel (FD). We don't play on FD. ignore ignore ignore."
+DK_ONLY_NOTE = (
+    "SITE RULE — DRAFTKINGS ONLY. The user plays DraftKings exclusively and "
+    "never FanDuel. Every article, projection file, and research piece may "
+    "carry FanDuel (FD) sections, columns, prices, ownership, or advice: "
+    "IGNORE ALL OF IT. Never cite an FD price, FD ownership, FD-specific "
+    "roster rule, or FD strategy; never let an FD number stand in for a DK "
+    "one; if an article's point exists only for FD, drop it. Everything you "
+    "write is for DK pricing, DK roster rules, and DK contests.\n\n"
+)
+
+
 def _run_claude(prompt: str, out_path: Path, collateral: list | None = None) -> dict:
     """Run `claude -p` headlessly and confirm `out_path` was freshly written.
 
@@ -86,7 +100,7 @@ def _run_claude(prompt: str, out_path: Path, collateral: list | None = None) -> 
                 pass  # best-effort, same as _rollback_partial
 
     cmd = [
-        binary, "-p", prompt,
+        binary, "-p", DK_ONLY_NOTE + prompt,
         "--output-format", "json",
         "--permission-mode", "acceptEdits",
         "--allowedTools", "Read,Glob,Grep,Write,Edit",

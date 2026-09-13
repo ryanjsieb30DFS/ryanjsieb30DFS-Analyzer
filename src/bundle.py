@@ -71,6 +71,8 @@ def build_bundle(slug: str, contest_label: str, sport: str) -> Path:
     L: list[str] = [
         f"# Slate bundle — {contest_label}",
         f"_Generated {ts} · slug `{slug}` · sport `{sport}`_",
+        "_**DraftKings only.** Ignore every FanDuel (FD) section, column, price, "
+        "ownership number, or roster rule in any file below — the user never plays FD._",
         "",
         "This file consolidates everything for the active slate: the article/slate-data "
         "files AND every loaded vendor projection. Read it, then read the article files it "
