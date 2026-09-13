@@ -25,17 +25,20 @@ _ROW = re.compile(r"^\s*\|(.+)\|\s*$")
 
 
 def parse_pool_tiers(md: str) -> list[dict]:
-    """(player, tier) rows from the pool's leading ranked table, in table order.
-    Empty list when there's no parsable table or no Tier column."""
+    """{name, tier, leverage, pos} rows from EVERY ranked table in the pool
+    doc (one global table for most sports; one table PER POSITION for NFL
+    Classic since 9/12/26), in document order. `tier` is the bare tier
+    (`· Leverage` split off into the `leverage` flag); `pos` is the table's
+    Pos column when present, else ''. Empty list when nothing parses."""
     if not md:
         return []
-    header_cols, tier_i, name_i = None, None, None
+    header_cols, tier_i, name_i, pos_i = None, None, None, None
     out: list[dict] = []
+    seen: set = set()
     for line in md.splitlines():
         m = _ROW.match(line)
         if not m:
-            if header_cols is not None and out:
-                break  # table ended
+            header_cols = None  # a table ended; the next header re-arms
             continue
         cells = [c.strip() for c in m.group(1).split("|")]
         if header_cols is None:
@@ -43,7 +46,9 @@ def parse_pool_tiers(md: str) -> list[dict]:
             if "tier" in lowered:
                 header_cols = cells
                 tier_i = lowered.index("tier")
-                name_i = lowered.index("player") if "player" in lowered else 1
+                name_i = (lowered.index("player") if "player" in lowered
+                          else lowered.index("fighter") if "fighter" in lowered else 1)
+                pos_i = lowered.index("pos") if "pos" in lowered else None
             continue
         if set("".join(cells)) <= {"-", ":", " ", ""}:
             continue  # separator row
@@ -51,10 +56,15 @@ def parse_pool_tiers(md: str) -> list[dict]:
             continue
         name = cells[name_i].strip("* ")
         tier_raw = cells[tier_i].strip("*` ")
-        # `· Leverage` is orthogonal to quality — strip it off the tier.
-        tier = re.split(r"\s*·\s*", tier_raw)[0].strip()
-        if name and tier:
-            out.append({"name": name, "tier": tier})
+        # `· Leverage` is orthogonal to quality — split it off the tier.
+        parts = re.split(r"\s*·\s*", tier_raw)
+        tier = parts[0].strip()
+        leverage = any("lev" in p.lower() for p in parts[1:])
+        pos = cells[pos_i].strip("*` ") if pos_i is not None and pos_i < len(cells) else ""
+        key = _norm_name(name)
+        if name and tier and key not in seen:
+            seen.add(key)
+            out.append({"name": name, "tier": tier, "leverage": leverage, "pos": pos})
     return out
 
 

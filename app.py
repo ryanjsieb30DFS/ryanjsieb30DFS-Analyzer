@@ -384,8 +384,21 @@ with tab_proj:
                     f"Headers seen: {list(df.columns)}"
                 )
                 continue
+            # A NEW file for a vendor that already has one REPLACES it (9/12/26):
+            # the old file is kept as the PRELIMINARY snapshot so the Projections
+            # tab can show what moved (ETR's Saturday file vs the ~11:30 ET
+            # Sunday final). Before this the two files merged and the HIGHER
+            # projection per player won — a downgraded player kept his old number.
+            from src import projections_snapshot as _psnap
+            _existing = {n: b for n, b in sessions.load_sources(slug).items()
+                         if b.get("vendor") == vendor_name}
+            for _old_name, _old in _existing.items():
+                _psnap.save_prelim(slug, _old_name, vendor_name, _old["df"])
+                sessions.drop_source(slug, _old_name)
             sessions.save_source(slug, f.name, df, vendor_name)
-            st.success(f"✅ {f.name} — detected as **{vendor_name}** ({len(df)} players)")
+            st.success(f"✅ {f.name} — detected as **{vendor_name}** ({len(df)} players)"
+                       + (f" — replaced {', '.join(_existing)} (kept as the preliminary "
+                          "snapshot for the diff below)" if _existing else ""))
             # Loud at UPLOAD time (not buried in the Breakdown): rows silently
             # filtered + sport-critical columns this vendor stopped shipping.
             _junk = df.attrs.get("junk_dropped") or []
@@ -470,6 +483,43 @@ with tab_proj:
                 st.rerun()
 
         st.divider()
+        # ---- Final vs preliminary (NFL Classic stage 2, 9/12/26) ----------------
+        from src import projections_snapshot as _psnap
+        _prelim = _psnap.load_prelim(slug)
+        if _prelim is not None and not _prelim["df"].empty:
+            with st.expander(
+                    f"🔁 Final vs preliminary — what moved since {_prelim['source_name']} "
+                    f"(saved {_prelim['saved_at']})", expanded=True):
+                st.caption(
+                    "The file you replaced is the preliminary snapshot. Players who "
+                    "vanished from the new file are likely ruled out. Swings past the "
+                    "thresholds (projection ±2 points or ±15%, ownership ±3 points, any "
+                    "salary change) are listed, and anyone in your locked pool is marked "
+                    "so you can decide whether the pool changes. Only injury news and big "
+                    "swings should change the pool — the rebuild absorbs the rest."
+                )
+                try:
+                    from src import pool_lock as _plock
+                    _pool_names = [p["name"] for p in
+                                   ((_plock.locked_pool(slug) or {}).get("players") or [])
+                                   if p.get("in")]
+                    _cur = player_pool.build_pool(
+                        {n: b for n, b in sources.items() if b.get("vendor") == _prelim["vendor"]}
+                        or sources)
+                    _d = _psnap.diff_prelim_vs_final(_prelim["df"], _cur, _pool_names)
+                    st.markdown(_md_safe(_psnap.diff_md(_d)))
+                    if _d["moves"]:
+                        _mv = pd.DataFrame(_d["moves"])[[
+                            "name", "pos", "team", "sal_before", "sal_after",
+                            "proj_before", "proj_after", "proj_delta",
+                            "own_before", "own_after", "own_delta", "in_pool"]]
+                        st.dataframe(_mv.sort_values("proj_delta", key=lambda s: -s.abs()),
+                                     use_container_width=True, hide_index=True, height=320)
+                except Exception as _e:  # noqa: BLE001 — display-only
+                    st.caption(f"Diff unavailable: {_e}")
+                if st.button("Forget the preliminary snapshot", key=f"forget_prelim_{slug}"):
+                    _psnap.clear_prelim(slug)
+                    st.rerun()
         # Name-hygiene: the same player under two spellings would sit on the
         # board TWICE at different owns/salaries — flag it before it misleads.
         _susp = player_pool.suspect_duplicates(player_pool.build_pool(sources))
@@ -1093,7 +1143,87 @@ with tab_strategy:
             else:
                 st.error(_pr["error"])
     saved_pool = player_pool.load_pool(slug)
-    if saved_pool:
+    if saved_pool and slug == "nfl_classic":
+        # ---- NFL Classic: the board IS the pool (9/12/26) --------------------
+        # Claude drafted it position by position; the user flips tiers or the
+        # leverage flag here, then locks it. Core/Good/Okay = IN, Fade = OUT.
+        from src import pool_lock as _plock
+        _rows = _plock.board_rows(slug)
+        _locked = _plock.locked_pool(slug)
+        with st.container(border=True):
+            st.markdown("### 🔒 Player pool — approve or flip, then lock")
+            st.caption(
+                f"Claude drafted this pool from the board (last ranked {saved_pool['mtime']}). "
+                "Walk it top to bottom: quarterbacks first, because the quarterbacks you keep "
+                "decide which games the running backs, receivers, tight ends and defenses "
+                "stack into. Change any Tier or Leverage box and it is saved as your call. "
+                "Core, Good and Okay are IN the pool; Fade is OUT. Lock sends the pool to the "
+                "Sim, where one button switches everyone outside it off."
+            )
+            _summ = _plock.pool_summary(_rows)
+            _bits = [f"{p}: {_summ[p]['in']} in / {_summ[p]['out']} out"
+                     for p in _plock.POSITIONS if p in _summ]
+            st.markdown("**" + " · ".join(_bits) + f" · total {_summ['total']['in']} in**")
+            if _locked:
+                st.success(f"Locked {_locked['locked_at']} — {_locked['n_in']} in / "
+                           f"{_locked['n_out']} out. Re-lock after any flip so the Sim sees it.")
+            _lc1, _lc2, _lc3 = st.columns([2, 1, 1])
+            if _lc1.button("🔒 Lock pool → Sim", key=f"lock_pool_{slug}", type="primary",
+                           help="Writes the approved pool (with your flips) into the "
+                                "strategy contract the Sim reads. Hard pool: the Sim's "
+                                "'Apply locked pool' button switches Include on for "
+                                "members and off for everyone else."):
+                _blk = _plock.lock_pool(slug)
+                st.success(f"Locked: {_blk['n_in']} in / {_blk['n_out']} out.")
+                st.rerun()
+            if _lc2.button("Reset my flips", key=f"reset_flips_{slug}",
+                           help="Drops every override — the pool goes back to Claude's tiers."):
+                _plock.clear_overrides(slug)
+                st.rerun()
+            if _locked and _lc3.button("Unlock", key=f"unlock_pool_{slug}"):
+                _plock.unlock_pool(slug)
+                st.rerun()
+            _missing = [r["name"] for r in _rows if r["missing"]]
+            if _missing:
+                st.warning("Tiered by Claude but NOT in the current projections (dropped from "
+                           "the final file?): " + ", ".join(_missing))
+            for _pos, _grp in _plock.rows_by_position(_rows).items():
+                _in = sum(1 for r in _grp if r["in_pool"])
+                with st.expander(f"{_pos} — {_in} in / {len(_grp) - _in} out",
+                                 expanded=(_pos == "QB")):
+                    _pdf = pd.DataFrame([{
+                        "Player": r["name"], "Team": r["team"], "Opp": r["opponent"],
+                        "Sal": r["salary"], "Proj": r["proj"], "Own": r["own"],
+                        "Claude": r["claude_tier"], "Tier": r["tier"],
+                        "Leverage": bool(r["leverage"]), "In pool": bool(r["in_pool"]),
+                    } for r in _grp])
+                    _edited = st.data_editor(
+                        _pdf, use_container_width=True, hide_index=True,
+                        key=f"pool_edit_{slug}_{_pos}",
+                        disabled=["Player", "Team", "Opp", "Sal", "Proj", "Own", "Claude",
+                                  "In pool"],
+                        column_config={
+                            "Sal": st.column_config.NumberColumn("Sal", format="$%d"),
+                            "Proj": st.column_config.NumberColumn("Proj", format="%.1f"),
+                            "Own": st.column_config.NumberColumn("Own", format="%.1f%%"),
+                            "Tier": st.column_config.SelectboxColumn(
+                                "Tier", options=list(_plock.TIERS), required=True),
+                            "Leverage": st.column_config.CheckboxColumn("Leverage"),
+                            "In pool": st.column_config.CheckboxColumn("In pool"),
+                        },
+                    )
+                    _changed = False
+                    for _orig, (_, _new) in zip(_grp, _edited.iterrows()):
+                        if (str(_new["Tier"]) != _orig["tier"]
+                                or bool(_new["Leverage"]) != bool(_orig["leverage"])):
+                            _plock.set_override(slug, _orig["name"], tier=str(_new["Tier"]),
+                                                leverage=bool(_new["Leverage"]), pos=_pos)
+                            _changed = True
+                    if _changed:
+                        st.rerun()
+            with st.expander("Claude's write-ups (how each wins)", expanded=False):
+                st.markdown(_md_safe(saved_pool["markdown"]))
+    elif saved_pool:
         with st.container(border=True):
             st.caption(f"Last updated: {saved_pool['mtime']}")
             # Render the leading ranked table as a dataframe (easy-to-read, sortable);

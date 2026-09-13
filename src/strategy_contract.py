@@ -362,13 +362,19 @@ def _board_rows(slug: str) -> list[dict]:
         if not saved:
             return []
         rows = pool_calibration.parse_pool_tiers(saved["markdown"])
+        # The user's pool-review flips (NFL Classic pool lock, 9/12/26) sit on
+        # top of Claude's tiers so the Sim sees the APPROVED board.
+        from src.pool_lock import load_overrides
+        overrides = load_overrides(slug)
         out = []
         for r in rows:
-            tier_raw = str(r.get("tier") or "")
+            name = str(r.get("name") or "")
+            ov = overrides.get(_norm_name(name)) or {}
             out.append({
-                "name": str(r.get("player") or r.get("name") or ""),
-                "tier": tier_raw.replace("· Leverage", "").replace("·", "").strip(),
-                "leverage": "leverage" in tier_raw.lower(),
+                "name": name,
+                "tier": str(ov.get("tier") or r.get("tier") or "").strip(),
+                "leverage": bool(ov.get("leverage", r.get("leverage", False))),
+                "pos": str(ov.get("pos") or r.get("pos") or ""),
             })
         return [r for r in out if r["name"] and r["tier"]]
     except Exception:  # noqa: BLE001 — the board is an enhancement, never a blocker

@@ -45,3 +45,6 @@ data/archive/
 rules/**/*.bak
 rules/**/*.bak2
 rules/**/history/**/sim_pool.csv
+
+# Preliminary projections snapshot (NFL Classic stage 2 diff) — per-slate.
+data/projections_prev/
