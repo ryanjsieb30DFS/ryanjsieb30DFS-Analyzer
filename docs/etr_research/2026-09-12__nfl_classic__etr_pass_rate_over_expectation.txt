@@ -1,0 +1,143 @@
+NFL In-Season Product Available NOW! SUBSCRIBE !
+Pass Rate Over Expectation
+ESTABLISH THE RUN STAFF     //     JAN 17, 2026
+ 
+What is PROE?
+PROE stands for Pass Rate Over Expectation. The site nﬂfastR  hosts a repository for play-by-play data
+going back to 1999, and for each offensive play since 2006, they provide an “xpass”. Xpass is the
+probability of a called pass play (dropback) on that particular play, and scrambles are counted as a called
+Polymarket Sign-Up Bonus: Deposit $10, get $50!
+Trade on NFL games every week on Polymarket. Sign up for Polymarket  with code ETR for a $50 bonus
+when you deposit $10.
+Sign Up Now
+"
+Pass Rate Over Expectation | Establish The Run https://establishtherun.com/pass-rate-over-expectation/
+1 of 5 9/12/26, 8:03 PM
+pass play. This probability is determined by a variety of factors taking into account game context —
+down, distance, time remaining, yard line, score differential, etc.
+A team’s PROE is their actual  called pass rate minus their expected  pass rate, determined using the xpass
+of each play. In some ways, this is a better measure of team intent than situation-neutral or early-down
+pass rates because we are able to increase the sample size by not excluding plays and account for the
+granular context of each play.
+ 
+Why is PROE useful?
+There are two major factors that determine a team’s future pass rate: game script and PROE. While
+game script can be difficult to predict and is volatile, PROE is a bit more stable. Thus, an understanding
+of each team’s PROE can often be a better indicator of how aggressive they will be in the passing game
+in the future, since their past actual pass rate may be skewed by volatile or extreme game scripts. Of
+course, attempting to combine future anticipated game script along with team aggressiveness (PROE)
+gives us our best chance at predicting a team’s future pass rate, which has plenty of fantasy implications.
+ 
+The following table contains the following columns:
+• Pass Rate (the number of called passing plays (aka Dropbacks) divided by the total number of
+offensive plays)
+• PROE (a team’s PROE on all plays over the course of the season)
+• PROE Neutral (a team’s PROE on all plays in neutral situations over the course of the season)
+• “Neutral” here means the following play types are excluded: special teams plays, spikes, kneels,
+ﬁnal 2min of each half, blowouts, and ﬂuky plays (e.g., fumbled snap)
+• PROE Red Zone (a team’s PROE on red-zone plays over the course of the season).
+• This can be helpful in predicting a team’s future pass:rush TD ratio, but keep in mind the
+sample sizes are much smaller when looking at only these plays.
+• PROE Last 4 Games (a team’s PROE on all plays over their last four games only)
+ 
+THE BELOW IS FINAL 2025 DATA. 2026 DATA WILL DEBUT FOLLOWING WEEK 2.
+ 
+Pass Rate Over Expectation | Establish The Run https://establishtherun.com/pass-rate-over-expectation/
+2 of 5 9/12/26, 8:03 PM
+PP aa ss ss   RR aa t t ee   OO vv ee r r   EE xx pp ee cc t t aa t t i i oo nn
+69.3 3.9 4.8
+57.2 -5.5 -5.5
+52.9 -8.0 -8.6
+56.1 -3.5 -3.2
+58.1 -6.6 -4.5
+58.3 -4.1 -3.8
+66.0 1.8 4.2
+62.6 -3.8 -5.0
+62.6 -0.3 0.4
+62.7 1.7 1.7
+59.3 -5.2 -6.6
+56.8 -2.9 -2.8
+60.5 -0.2 -1.0
+59.7 -0.6 1.6
+59.9 1.1 0.9
+65.7 4.5 6.3
+58.4 3.3 5.7
+62.3 0.7 1.8
+64.6 -1.0 0.8
+56.5 -6.1 -5.9
+61.4 -1.2 -1.8
+60.9 2.5 3.8
+63.1 -2.9 -2.8
+58.1 -5.0 -5.2
+61.3 -8.2 -10.5
+56.9 -3.1 -3.2
+60.2 -1.0 -0.5
+52.4 -6.6 -4.9
+58.2 -1.3 -2.4
+61.6 -2.6 -2.4
+64.9 -3.7 -3.6
+58.9 -3.7 -0.4
+PROE (%)
+TEAM OVERALL PASS RATE (%) OVERALL NEUTRAL
+Arizona Cardinals
+Atlanta Falcons
+Baltimore Ravens
+Buffalo Bills
+Carolina Panthers
+Chicago Bears
+Cincinnati Bengals
+Cleveland Browns
+Dallas Cowboys
+Denver Broncos
+Detroit Lions
+Green Bay Packers
+Houston Texans
+Indianapolis Colts
+Jacksonville Jaguars
+Kansas City Chiefs
+Los Angeles Rams
+Los Angeles Chargers
+Las Vegas Raiders
+Miami Dolphins
+Minnesota Vikings
+New England Patriots
+New Orleans Saints
+New York Giants
+New York Jets
+Philadelphia Eagles
+Pittsburgh Steelers
+Seattle Seahawks
+San Francisco 49ers
+Tampa Bay Buccaneers
+Tennessee Titans
+Washington Commanders
+Pass Rate Over Expectation | Establish The Run https://establishtherun.com/pass-rate-over-expectation/
+3 of 5 9/12/26, 8:03 PM
+Jordan Addison , Justin Jefferson , Minnesota Vikings , In-Season Package
+Pass Rate Over Expectation | Establish The Run https://establishtherun.com/pass-rate-over-expectation/
+4 of 5 9/12/26, 8:03 PM
+Gambling problem? Call 1-800-GAMBLER (NJ/PA/IL), 1-800-9-WITH-IT (IN only), 1-800-BETS-OFF (IA only), 1-800-522-4700 (CO Only), TN REDLINE:
+800-889-9789 or 1-888-532-3500 (VA only).
+SUBSCRIPTIONS
+NFL Products
+NBA Products
+Golf Products
+The Solver
+ARTICLES
+NFL Content Schedule
+Silva’s Matchups
+Best Ball
+Free Podcasts
+DFS
+Projections
+Strategy
+DFS Optimizer
+Simulations
+ETR TEAM
+About
+YouTube
+Discord
+Twitter
+© 2024 Establish the Run. All rights reserved. Privacy Policy  | Terms of Service
+Pass Rate Over Expectation | Establish The Run https://establishtherun.com/pass-rate-over-expectation/
+5 of 5 9/12/26, 8:03 PM

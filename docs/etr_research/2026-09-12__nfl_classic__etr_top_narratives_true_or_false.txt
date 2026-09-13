@@ -1,0 +1,294 @@
+NFL In-Season Product Available NOW! SUBSCRIBE !
+Top NFL Narratives: True or
+False?
+SAM BROTT     //     AUG 5, 2024
+Polymarket Sign-Up Bonus: Deposit $10,
+get $50!
+"
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+1 of 17 9/12/26, 8:01 PM
+A lot of NFL fans and fantasy players are certain. They’re sure that rookie
+QBs target TEs more often, and rushing QBs throw to RBs less, and fast
+WRs perform better on turf.
+The ETR data science team decided to put these narratives to the test. We
+used historical results to compare to expectations.
+NARRATIVE 1: Mobile QBs score better against man defenses
+Premise : When defenders are in zone defense, they are able to focus on
+reading the quarterback. On the other hand, defenders are more likely to
+have their backs turned to the quarterback when playing man defense. As a
+result, quarterbacks are more likely to have better scrambling efficiency
+against man defenses.
+Analysis : We compared the average scramble yardage gained by defensive
+scheme for both quarterbacks that do scramble regularly and those who do
+not. We also reviewed the distribution of all quarterback scrambles from
+the 2021-2023 seasons against both man and zone defenses.
+Trade on NFL games every week on Polymarket. Sign up for Polymarket
+with code ETR for a $50 bonus when you deposit $10.
+Sign Up Now
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+2 of 17 9/12/26, 8:01 PM
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+3 of 17 9/12/26, 8:01 PM
+Takeaway : TRUE
+The evidence suggests that quarterbacks have more scrambling success
+against man defenses. This is true for both quarterbacks that scramble
+regularly and those who do not. It is worth noting that most scrambles
+have historically only gone for a handful of yards gained. However, the
+majority of scrambles that have gained 10 or more yards have come
+against man defenses, and these are the tail outcomes that we care about
+most in fantasy. If we can regularly and accurately predict how often
+defenses will play man versus zone, then we can gain an edge in predicting
+the likelihood of a quarterback’s scrambling success. 
+NARRATIVE 2: Mobile QBs throw to RBs at a lower rate
+Premise : Quarterbacks who scramble often are less likely to check down to
+their running backs because they are content to scramble instead.
+Analysis : First, we compared the total positional target rates for both
+quarterbacks that do scramble regularly and those who do not. Then, we
+also compared the positional targets per game for each quarterback type. 
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+4 of 17 9/12/26, 8:01 PM
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+5 of 17 9/12/26, 8:01 PM
+Takeaway : TRUE
+The evidence supports the narrative that scrambling quarterbacks throw to
+running backs less often than non-scramblers do, but it may not be a
+meaningful difference. While there is a slight difference in the running
+back target rates for the two quarterback groups, it is only a ~1% difference.
+Looking at raw targets per game, scrambling quarterbacks target running
+backs only ~0.6 fewer times per game than non-scramblers. Overall, the
+evidence is consistent but also weak and noisy. One example of this noise
+is that the magnitude of the results is particularly sensitive to the exact
+thresholds we use to deﬁne scramblers versus non-scramblers.
+The noisy nature of these results is also highlighted in the notable ﬁnding
+that scrambling quarterbacks have provided more opportunities for tight
+ends. Here, it is important to recognize that some of the quarterbacks who
+have scrambled the most over the past three seasons have been tied to
+teams with an elite tight end or a weaker wide receiver corps (e.g., Justin
+Fields ).
+NARRATIVE 3: Mobile QBs provide better rushing opportunities for
+their RBs
+Premise : Running backs will be more efficient when playing with
+quarterbacks who see signiﬁcant designed rush shares because opposing
+defenses must respect the threat of the quarterback’s mobility.
+Analysis : We compared the running backs’ expected yards per carry for
+both quarterbacks that do see regular designed rushes and those who do
+not. We also analyzed the same comparison using actual yards per carry.
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+6 of 17 9/12/26, 8:01 PM
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+7 of 17 9/12/26, 8:01 PM
+Takeaway : TRUE
+The data indicates that running backs do beneﬁt from playing with mobile
+quarterbacks, but the evidence is not overwhelming. When looking at Next
+Gen Stats, the advantage of playing with a mobile quarterback was roughly
+only 0.1 expected yards per carry on average. This advantage jumps
+slightly to 0.2 when using actual yards per carry. But perhaps more
+interesting is reviewing the full distribution of weekly outcomes by
+quarterback type. As shown in the charts above, running backs have seen
+slightly more right tail outcomes when playing with mobile quarterbacks.
+Put another way, most running back carries will go for only a few yards,
+but playing with a mobile quarterback increases the odds that a running
+back’s carry will be a home run. Once again, these are the tail outcomes
+that we should look for and can win us weeks in fantasy football. We
+should be careful to not overweight this narrative, but it may be useful as a
+ceiling tiebreaker in our weekly decisions.
+NARRATIVE 4: Backup QBs are more likely to throw to backup WRs
+Premise : Quarterbacks who were not the starter from Day 1 are more
+likely to have worked with backup wide receivers in the preseason and
+weekly practices. As a result, backup quarterbacks are more likely to
+develop a connection with and target backup wide receivers when they
+have opportunities to play in the regular season.
+Analysis : We compared average wide receiver target rates by quarterback
+roles. We removed Weeks 17 and 18 from this analysis to avoid games in
+which multiple starters did not play.
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+8 of 17 9/12/26, 8:01 PM
+Takeaway : TRUE
+In the 2021-2023 seasons, backup quarterbacks targeted backup WRs
+approximately 2-3% more often than starting quarterbacks did. This
+difference is even larger when including Weeks 17 and 18, as expected.
+While a differential of 2-3% may only yield one additional target per game,
+these small edges can add up over time. Additionally, these rates may be
+even more exaggerated when zooming in on speciﬁc backup quarterback-
+receiver duos.
+NARRATIVE 5: Backup QBs throw to TEs more often
+Premise : Backup quarterbacks are more likely to play it safe with more
+dependable targets and are therefore also more likely to throw to tight
+ends than starters are.
+Analysis : We compared average positional target rates by quarterback roles
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+9 of 17 9/12/26, 8:01 PM
+from the 2021-2023 seasons.
+Takeaway : FALSE
+As shown in the chart above, quarterbacks in spot starts targeted tight ends
+at roughly an identical rate to starting quarterbacks. Long-term backups
+targeted tight ends 3% more often than either of the other quarterback
+groups, but we found no explanation for why long-term backups would
+target tight ends more often than short-term backups. We ﬁnd it difficult to
+consider this narrative to be true given this discrepancy between the long-
+term backups and the spot starters. This is a good reminder that even over
+the course of three full seasons, we generally deal with small sample sizes
+for NFL analysis and need to be cautious in assuming causation. 
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+10 of 17 9/12/26, 8:01 PM
+NARRATIVE 6: Offenses are more likely to exceed fantasy expectations
+in dome games
+Premise : Because domes provide controlled environments and are free of
+variable weather, teams are more likely to be able to execute their offenses
+according to plan. 
+Analysis : We compared a variety of key macro stats between dome and
+outdoor environments to measure the historical impact of dome
+environments on each stat.
+In dome games, relative to outdoor games, we see that:
+• Teams score 13% more  TDs
+• Teams run roughly the same  number of total plays and passing plays
+(but slightly more running plays)
+• Quarterbacks have 22% fewer  designed rushes and 12% fewer  scrambles
+• Running backs receive 4% fewer  targets and 18% fewer receiving TDs
+• Wide receivers and tight ends record 10% and 12% more  receiving yards,
+respectively
+• Wide receivers and tight ends score 22% and 33% more  receiving
+touchdowns, respectively
+• Quarterbacks score 12% more  DraftKings fantasy points
+• Running backs, wide receivers, and tight ends score 6% more  DraftKings
+fantasy points
+• D/STs score 15% fewer  DraftKings fantasy points
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+11 of 17 9/12/26, 8:01 PM
+Takeaway : TRUE
+The historical data conﬁrms the narrative that dome environments affect
+macro game outcomes. Domes affect passing games more than the run
+game, as quarterbacks are more efficient (and less likely to scramble/check
+down to running backs). We should consider whether our players are
+playing in dome settings for all positions, but especially for those involved
+in the passing game. However, be careful not to double-count these effects,
+as most projections, including ETR’s, already account for dome effects to
+some degree. 
+NARRATIVE 7: Multiple high-ADP skill players from the same offense
+cannot all exceed ADP
+Premise : Because running backs, wide receivers, and tight ends typically
+need high volumes and large touchdown totals to pay off a high ADP, it’s
+unlikely that multiple skill players from the same offense can
+simultaneously exceed their ADPs.
+Analysis : We reviewed all instances of a single team having two or more
+skill players with an ADP of 36 or higher in PPR fantasy drafts from
+2015-2023. In these scenarios, 61% of players exceeded expectations.
+We also reviewed all instances in which a team had two or more total
+players (including quarterback) with an ADP of 36 or higher. The success
+rate is lower overall for this larger group of players at only 56%.
+Takeaway : FALSE
+Historical success rates suggest that we should not be scared of drafting
+high-ADP skill players regardless of how many “mouths to feed” their
+offenses have. Season-long projection models like ETR’s already account
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+12 of 17 9/12/26, 8:01 PM
+for each player’s micro team environments and we don’t need to double-
+count their impacts.
+It was interesting to ﬁnd that high-ADP players with high-ADP teammates
+have failed expectations more often when the team’s quarterback is one of
+those teammates drafted in the top 36 spots. This is mostly due to the
+fragility that’s present when an entire offense is predicated on the success
+of its star quarterback. For example, when Andrew Luck  was injured in
+2015, or Aaron Rodgers  in 2017, it was much more difficult for their high-
+ADP teammates to provide value. This is a good reminder of why, even
+though we want to draft quarterback stacks in best ball tournament
+formats like Best Ball Mania, it is an unnecessary risk to take on in most
+season-long fantasy formats.
+NARRATIVE 8: QB-WR duos that were college teammates are more
+likely to succeed (The #ShowerNarrative)
+Premise : An Adam Levitan classic. When quarterback-receiver duos who
+were also teammates (read: showered together) in college, they are more
+likely to have developed an unbreakable bond during their formative years
+and therefore the quarterback is more likely to target that receiver more
+often than another quarterback would.
+Analysis : We compared the targets per route run (TPRR) for receivers who
+ﬁt the shower narrative and also played with at least one other quarterback
+in his career over the 2021-2023 NFL seasons.
+Four receivers had a notably higher  TPRR when playing with their former
+college teammate:
+1. Jaylen Waddle  (with Tua Tagovailoa )
+2. Damien Harris  (with Mac Jones )
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+13 of 17 9/12/26, 8:01 PM
+3. Robbie Chosen , formerly Robby Anderson  (with P.J. Walker )
+4. Albert Okwuegbunam  (with Drew Lock )
+Two receivers had a notably lower  TPRR when playing with their former
+college teammate: 
+1. DeVonta Smith  (with Jalen Hurts )
+2. Travis Etienne  (with Trevor Lawrence )
+Five receivers had roughly the same  TPRR when playing with their former
+college teammate: 
+1. Davante Adams  (with Derek Carr )
+2. Ja’Marr Chase  (with Joe Burrow )
+3. Marquise Brown  (with Kyler Murray )
+4. James Washington  (with Mason Rudolph )
+5. Dyami Brown  (with Sam Howell )
+Takeaway : CASE-BY-CASE BASIS
+This is a fun narrative to make jokes about and might actually be true for
+some speciﬁc teammates. For example, Waddle had a notable drop in
+TPRR when Tagovailoa wasn’t playing. However, the historical data
+suggests that this narrative is very rarely predictive and making broad
+assumptions based on this narrative alone will certainly lead us into
+trouble.
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+14 of 17 9/12/26, 8:01 PM
+NARRATIVE 9: Freak athletes are more likely to produce outlier results
+(The PSM Narrative)
+Premise : Another Adam Levitan specialty. Players who are freak athletes
+(also known as players “popping in the PSM”) are just so amazing that they
+cannot possibly fail to exceed expectations in fantasy football.
+Analysis : We formally developed and quantiﬁed a rigorous PSM for each
+of the four main fantasy football positions: quarterback, running back,
+wide receiver, and tight end. We then assigned a PSM score to each player
+from the 2021-2023 seasons and ranked each player within his position
+and season. Finally, we compared each player’s PSM score to the difference
+between our projections and the actual fantasy points scored on a weekly
+basis for every player.
+There was a very weak correlation between a player’s PSM score and their
+ability to consistently exceed fantasy projections. However, we found one
+very clear trend: Players who were ranked No. 1 in the PSM in a season for
+their position nearly always  met or exceeded ETR’s weekly base projections
+for the player on average across the season. This list of players includes:
+• Josh Allen , all seasons 2021-2023
+• Derrick Henry , all seasons 2021-2023
+• DK Metcalf , all seasons 2021-2023
+• George Kittle , all seasons 2021-2023
+Takeaway : MAYBE TRUE
+It’s a tough stretch to consider the PSM narrative to be true. However, it
+may simply be another way to acknowledge that although these freak
+athletes are no more likely to exceed their base projections in any given
+week, their ceilings are massively high when they do exceed expectations.
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+15 of 17 9/12/26, 8:01 PM
+These are the prototypes of players who may truly be “better in best ball”
+and make for strong targets in DFS tournaments due to their abilities to
+reach slate-breaking upsides.
+Cincinnati Bengals , Ja'Marr Chase , Joe Burrow , NFL Draft Kit Pro
+SUBSCRIPTIONS
+NFL Products
+NBA Products
+Golf Products
+The Solver
+ARTICLES
+NFL Content Schedule
+Silva’s Matchups
+Best Ball
+Free Podcasts
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+16 of 17 9/12/26, 8:01 PM
+Gambling problem? Call 1-800-GAMBLER (NJ/PA/IL), 1-800-9-WITH-IT (IN only), 1-800-
+BETS-OFF (IA only), 1-800-522-4700 (CO Only), TN REDLINE: 800-889-9789 or
+1-888-532-3500 (VA only).
+DFS
+Projections
+Strategy
+DFS Optimizer
+Simulations
+ETR TEAM
+About
+YouTube
+Discord
+Twitter
+© 2024 Establish the Run. All rights reserved. Privacy Policy  | Terms of Service
+Top NFL Narratives: True or False? | Establish The Run https://establishtherun.com/top-nﬂ-narratives-true-or-false/
+17 of 17 9/12/26, 8:01 PM

@@ -171,6 +171,7 @@ The consensus across SaberSim, THE SOLVER, Stokastic, and the academic papers:
 5. **Trust sim rankings, not sim numbers.** The only public calibration study (ETR's, 35 weeks of a real SE contest) found sims pick winners at 1.65x random — but the ROI numbers themselves were only directionally right. *Your "sim rank not gospel" rule, independently confirmed.*
 6. **Portfolios should cover different worlds, not maximize a metric** — the academic result (Hunter/Vielma/Zaman) proves top-N-by-ROI is formally suboptimal; sequential building with overlap caps and a variance floor is the principled recipe. *Our diversifier's world-coverage objective is the same math.*
 7. Best code-level reference for our exact stack: chanzer0's open-source PGA-DFS-Tools (Gaussian mixtures for the cut, ownership-sampled fields, payout-curve ROI).
+8. **ETR's post-lock calibration, in detail (9/6/26, DK Game Changer SE ~275 entries, 35 contests, 9,570 lineups):** cash rate calibrated in 4 of 5 buckets but over-confident for the top 0.9% of lineups; **top-10 rate the best-calibrated metric** (5 of 5 buckets; lineups simmed above 7% hit 6.4%); sim ROI directional (every negative bucket negative, every positive bucket positive) but flat across the three best buckets; the best pre-lock lineups give back ~20 points of ROI post-lock; three ownership misses explain the craters (stack pieces up, chalk-combo count up, differentiation piece up). *Same ordering as our 7/28 benchmark — Top 1% our most consistent winner-finder, ROI our noisiest. Full digest: `docs/etr_research/DIGEST_2026-09-12_nfl_classic.md`.*
 
 ---
 
@@ -202,6 +203,9 @@ Your autopsies already catch several of these in your own play — that loop is 
 8. **Captain ownership band (NFL SD, APPLIED 9/10/26):** the pre-lock check flags any captain under 5% projected own and asks for the ceiling case in one sentence. *(ETR 2025 sim study; now in rules/nfl_sd/framework.md.)*
 9. **Script-named construction (NFL SD, APPLIED 9/10/26):** every entered lineup names its team split (5-1 / 4-2 / 3-3 / 2-4 / 1-5) and the story that split bets on; a 3-3 with no story is flagged. *(Now in rules/nfl_sd/framework.md + philosophy.md.)*
 10. **Dupe-adjusted pick (Sim tool, NFL SD):** when two candidate lineups are within ~5 points of sim ROI, prefer the one with fewer projected dupes. *(Code change; waits on NFL SD support in the Sim.)*
+11. **Chalk bring-back inside the stack or not at all (NFL Classic, APPLIED 9/12/26):** a chalk pass-catcher from the chalk game is a positive inside the stack he correlates with and a negative naked. *(ETR two-contest study; now in rules/nfl_classic/framework.md.)*
+12. **Fade the bring-back only for a construction edge (NFL Classic, APPLIED 9/12/26):** omit the obvious bring-back when the freed salary buys a Tier-1 RB or a mini-correlation, and mostly in small fields. *(Now in rules/nfl_classic/framework.md.)*
+13. **Pick inside the threshold by the three ownership checks (NFL Classic, APPLIED 9/12/26):** correlated pieces, chalk-combo lineup count, differentiation piece — the pre-lock check that predicts a pre→post-lock crater. *(Now in rules/nfl_classic/framework.md + philosophy.md belief 6.)*
 
 ## Chapter 10 — Tool upgrade ideas surfaced by the research (backlog, not commitments)
 

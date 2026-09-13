@@ -1,0 +1,190 @@
+NFL In-Season Product Available NOW! SUBSCRIBE !
+When Is a Chalk Bring-Back
+Worth It?
+MIKE LEONE     //     SEP 3, 2026 CINCINNATI BENGALS , JA'MARR CHASE , IN-
+SEASON PACKAGE
+"
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+1 of 16 9/12/26, 8:01 PM
+Earlier this offseason, I wrote an article titled PP uu t t t t i i nn gg   t t hh e e   SS i i m m s s   t t o o   t t hh e e   TT e e s s t t .
+The goal of that article was to evaluate the efficacy of the post-lock sims at
+The Solver . The results were positive. The sims were directionally accurate
+at predicting cash rates, top-10 ﬁnish rates, and ROI. The simulated ROI,
+the most important metric, was more volatile than the other metrics, but it
+clearly showed that the teams with better simulated ROIs had better actual
+ROIs. I did warn in that article against “sim hacking” (i.e., trying to break
+the sims to ﬁnd the best possible simulated ROI). There appears to be a
+simulated ROI threshold beyond which all positively simulated teams are
+similarly strong in practice and difficult to distinguish from one another.
+Polymarket Sign-Up Bonus: Deposit $10,
+get $50!
+Trade on NFL games every week on Polymarket. Sign up for Polymarket
+with code ETR for a $50 bonus when you deposit $10.
+Sign Up Now
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+2 of 16 9/12/26, 8:01 PM
+In today’s article, I’m using the post-lock sims to evaluate one speciﬁc
+element of game stacking: whether to include the obvious opposing bring-
+back. Several slates last year made me wonder if chalk bring-backs were
+overplayed by the ﬁeld . All else equal, more positive correlation improves
+a DFS lineup. But all else is not equal. Even good strategies in a vacuum
+can turn into -EV strategies if too many of our opponents implement
+them. It’s the same reason why the best-projected RB value on a slate could
+be a bad tournament play.
+When the Chalk Bring-Back Is +EV
+The slate that had me thinking about this was Week 9. CIN-CHI game
+stacks were popular; the game had a 51.5-point total, the second-highest
+mark on the slate. D’Andre Swift  was out for the Bears, making Kyle
+Monangai  a key value on the slate. Caleb Williams  was our second-best
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+3 of 16 9/12/26, 8:01 PM
+QB value, but much more stackable than the top QB value ( Jaxson Dart ).
+Ja’Marr Chase  was our top projected WR, both in raw total points and in
+value.
+Before the slate, I was talking to Drew Dinkmeyer about a few simulated
+Bears-stack lineups that looked good after swapping the slightly lower-
+projected Puka Nacua  in for Ja’Marr Chase . We both dismissed the idea as
+preposterous; it went against everything we’ve been taught as DFS players.
+Sacriﬁce projection and correlation? No way.
+Ironically, despite the game shooting out (47-42), Chase came incredibly
+close to failing. He ended up with 20.1 DraftKings points, but 5.3 of those
+came when he achieved the bonus on the second-to-last play of the game.
+Puka Nacua  had almost the reverse outcome. He scored in the ﬁrst half
+and seemed destined for a huge day. The game ended in a blowout,
+however, and Puka wound up ﬁve yards short of the bonus but still scored
+22.5 DraftKings points. He still outscored Chase, but not in a meaningful
+way.
+The way the games unfolded showed how Puka could lap Chase while the
+Bears stacks still succeeded, giving those lineups substantial leverage over
+the ﬁeld.
+In the Game Changer, I played Chase with my Caleb stack and ﬁnished
+with the highest post-lock simulated ROI — good for plenty of Sklansky
+bucks but $0 in actual winnings, while the second-highest post-lock sim
+ROI team won ﬁrst place:
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+4 of 16 9/12/26, 8:01 PM
+If we look at only the Caleb teams in the tournament, here are the highest-
+owned WRs and their mean post-lock sim ROI:
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+5 of 16 9/12/26, 8:01 PM
+Chase’s ownership ballooned to 66% on Caleb teams, while Puka’s fell to
+just 13%. Yet their simulated ROIs remained similar, even slightly favoring
+Chase despite his roughly 5x ownership. On this particular slate, Chase
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+6 of 16 9/12/26, 8:01 PM
+deserved the huge increase in ownership, and there are a few reasons for
+that:
+1. He was the best WR play on the slate in a vacuum (top raw and value
+projection).
+2. The swap to Nacua allowed for a ton of direct 1-on-1 leverage, but it
+didn’t make any change whatsoever to the rest of the lineup (more on
+this later).
+3. Although Chase was a popular bring-back on Caleb teams, Caleb
+himself wasn’t overly owned. He was actually the fourth-highest-owned
+QB in this contest at 11%, which reduced the need for galaxy-braining
+leverage around him.
+Retesting all the potential lineups I made that week against the ACTUAL
+ﬁeld yielded similar results:
+It’s worth noting that Puka over Chase teams didn’t simulate poorly . The
+sims certainly believed they were viable, and that the ownership of the two
+on Caleb teams was close to equilibrium.
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+7 of 16 9/12/26, 8:01 PM
+Chase on non-Caleb teams had a negative mean post-lock sim ROI. Of 15
+non-Caleb QBs played in the contest, Chase had a positive mean ROI on
+only four (and two of those were at +1%). 
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+8 of 16 9/12/26, 8:01 PM
+So while including the obvious Chase bring-back on Bears stacks was best,
+if you were to galaxy-brain, it was better to swap out Chase for Puka on
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+9 of 16 9/12/26, 8:01 PM
+Bears stacks than it was to play Chase outside of Bears stacks (which likely
+stems from the strong value yet modest ownership on Caleb).
+When the Chalk Bring-Back Is -EV
+With the Chase-Puka dilemma from Week 9 fresh on my mind and
+another popular bring-back decision looming in Week 10, I decided to
+experiment with playing a more contrarian angle. In the 100-person
+Luxury Box, I played a Mac Jones  triple stack, but I opted against the
+obvious bring-back ( Puka Nacua ).
+In this case, the sims agreed with my decision. You can see below that 10
+lineups (10%) in the ﬁeld played Mac Jones . My lineup was the only one
+without Nacua. Of the nine Jones stacks with a Nacua bring-back, only
+three of them had a post-lock sim ROI that was positive, and those were all
+relatively modest (all outside the top 20 ROI teams in a 100-person ﬁeld).
+In total, both the mean and median ROIs for the Mac stacks with the chalk
+Puka bring-back were negative.
+So, why were the sims good with the chalk Caleb-Chase teams in Week 9
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+10 of 16 9/12/26, 8:01 PM
+but not the chalk Mac-Puka teams in Week 10 (and noting that Caleb and
+Mac themselves had similar value rankings and ﬁeld ownership)?
+The smaller ﬁeld magniﬁed the ownership disparity. I was the only Mac-
+without-Puka lineup in the contest, compared with seven Caleb-Puka
+lineups in the Week 9 Game Changer. The raw number of competing
+lineups matters, not merely the ownership percentages. 
+The most important difference was that fading Puka created a
+meaningfully different roster construction. By fading Puka, I was able to
+use the extra salary to play a 3-RB team on a week with three clear Tier 1
+RB values:
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+11 of 16 9/12/26, 8:01 PM
+Meanwhile, the other nine Mac Jones  teams all had to play a double-TE
+lineup to ﬁt in Puka’s salary on a slate where TE offered no standout values:
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+12 of 16 9/12/26, 8:01 PM
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+13 of 16 9/12/26, 8:01 PM
+Additionally, fading Puka opened a WR spot for an additional mini-
+correlation: Deebo Samuel  and Jameson Williams .
+The key difference was what the fade accomplished beyond direct
+leverage.
+Conclusion
+This is a limited study of two small-ﬁeld tournaments from two different
+weeks. Still, examining why the sims favored certain lineups produced
+several takeaways for the upcoming season:
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+14 of 16 9/12/26, 8:01 PM
+• It’s not always worth forcing the contrarian angle (fading an obvious
+bring-back), but it is a tool in the toolbox.
+• Adding a chalk bring-back to an existing team stack can be worthwhile,
+even at inﬂated ownership, when the player is a strong value and ﬁts
+naturally within the roster construction, as Chase did in Week 9.
+• Fading a chalk bring-back can create a higher-variance lineup without
+sacriﬁcing overall EV, as the Puka-over-Chase pivot did in Week 9.
+• Smaller-ﬁeld tournaments may offer clearer opportunities to omit the
+chalk bring-back. More opponents hand-build or follow traditional
+correlation rules in those contests, and the smaller ﬁeld allows one
+such decision to separate you from a meaningful portion of the lineups
+you need to beat.
+• The strongest bring-back fades are those that unlock a meaningful
+roster-construction advantage, as fading Puka did by enabling three
+Tier 1 RB values in Week 10.
+SUBSCRIPTIONS
+NFL Products
+NBA Products
+Golf Products
+The Solver
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+15 of 16 9/12/26, 8:01 PM
+Gambling problem? Call 1-800-GAMBLER (NJ/PA/IL), 1-800-9-WITH-IT (IN only), 1-800-
+BETS-OFF (IA only), 1-800-522-4700 (CO Only), TN REDLINE: 800-889-9789 or
+1-888-532-3500 (VA only).
+ARTICLES
+NFL Content Schedule
+Silva’s Matchups
+Best Ball
+Free Podcasts
+DFS
+Projections
+Strategy
+DFS Optimizer
+Simulations
+ETR TEAM
+About
+YouTube
+Discord
+Twitter
+© 2024 Establish the Run. All rights reserved. Privacy Policy  | Terms of Service
+When Is a Chalk Bring-Back Worth It? | Establish The Run https://establishtherun.com/when-is-a-chalk-bring-back-worth-it/
+16 of 16 9/12/26, 8:01 PM

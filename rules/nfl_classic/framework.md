@@ -1,6 +1,6 @@
 # NFL Classic Framework
 
-**DRAFT 2026-09-12 — seeded from docs/nfl_game_theory.md Part 1 + docs/nfl_support_scope.md contest profile; pending user approval.**
+**Seeded 2026-09-12 from docs/nfl_game_theory.md Part 1 + docs/nfl_support_scope.md contest profile. Updated 2026-09-12 with the ETR Classic research digest (`docs/etr_research/DIGEST_2026-09-12_nfl_classic.md`). User-approved 2026-09-12.**
 Sources: Establish The Run (Adam Levitan's Milly Maker winner studies, game selection, salary-left test), 4for4 (correlation matrices, stack thresholds), FantasyLabs / Jonathan Bales (ownership-as-price, dupe studies), Stokastic, RotoGrinders, Hunter/Vielma/Zaman (MIT "Picking Winners"), plus an empirical pass over the user's own 69 NFL contest-standings files (2024–25, `~/Desktop/DFS/DFS NFL Past Slate Data/`). Numbers below are cross-vendor winner data plus that archive — the local autopsy ledger starts at zero Classic slates.
 
 ## The format
@@ -61,9 +61,9 @@ ETR's multi-year Milly Maker studies, winners vs field:
 2. **Single stack (QB + 1): ~49% of winners AND ~49% of the field.** Neutral — the default buys zero leverage.
 3. **Double stack (QB + 2): 41% of winners vs 29% of the field.** The biggest measured edge in the format: a 4-TD passing game almost never lands in one receiver's hands.
 4. **Triple stack (QB + 3): slightly losing in Classic.** Only ~60 offensive points exist even in a great game.
-5. **Bring-back (stack + 1 opposing pass-catcher): 36% of winners vs 31% of the field.** Real but modest; two or more opposing pieces shows no edge.
+5. **Bring-back (stack + 1 opposing pass-catcher): 36% of winners vs 31% of the field.** Real but modest; two or more opposing pieces shows no edge. **The chalk bring-back is fine INSIDE the stack** even at very high conditional ownership (Chase was 66% on Caleb Williams stacks, Week 9 2025, and simmed as well as the 13%-owned pivot) when three things hold: he is the best raw-and-value play at his position, he fits the roster without forcing anything else, and the QB he rides with is not the chalk QB (Caleb was 11%, the 4th-highest-owned QB). **The same chalk WR outside his stack is a negative** (Chase simmed negative on 11 of 15 non-Caleb QBs). A chalk pass-catcher from the chalk game belongs in the stack he correlates with, or not at all.
 6. **TE bring-back: +34% in winning builds.** TE booms cluster in exactly the high-scoring games the stack is already betting on.
-7. **Skip the bring-back** when the stack's ceiling story is a blowout (a huge favorite steamrolling), not a shootout.
+7. **Skip or fade the bring-back only when the fade buys something.** A blowout-shaped ceiling story (huge favorite steamrolling) is one reason. The other is roster construction: in a 100-entry contest (Week 10 2025) the one Mac Jones stack WITHOUT the obvious Nacua bring-back worked because the freed salary bought three Tier-1 RB values and a WR slot for a mini-correlation, while the nine stacks WITH Nacua were forced into double-TE builds on a slate with no TE value. **Small fields are where this fade counts most** — more opponents hand-build by the correlation rulebook, and one lineup without the bring-back among ten stacks is a measurable edge. A direct 1-for-1 pivot (Nacua for Chase) that changes nothing else raises variance at the same EV; that is allowed, not required.
 
 **The modal winning skeleton:** QB + 2 of his pass-catchers + 1 opposing pass-catcher (often the TE) — four of nine spots tied to one game — plus an expensive chalk RB, with leverage sprinkled through the rest.
 
@@ -72,6 +72,8 @@ ETR's multi-year Milly Maker studies, winners vs field:
 - **Total:** games totaling 48+ are natural stack targets; a team expected to score 24+ is where stacks reach ceiling at meaningful rates (4for4).
 - **Spread:** small spread + high total = shootout → full game stack with bring-back. Spread of 7+ = blowout risk → the favorite's RB + DST pairing, or the underdog's receivers alone (trailing teams throw).
 - **Pace:** two fast teams = more plays = more raw material.
+- **Team intent:** ETR's Pass Rate Over Expectation (PROE — how much more a team throws than the game situation predicts) is the stable half of future pass rate; game script is the volatile half. Two high-PROE teams in one game is the shootout shape; a high red-zone PROE leans that team's touchdowns to WR/TE. 2026 numbers start after Week 2 (`docs/etr_research/2026-09-12__nfl_classic__etr_pass_rate_over_expectation.pdf`).
+- **Dome tiebreaker:** in domes QBs score ~12% more, WR/TE ~6% more (receiving TDs +22%/+33%), and DSTs ~15% LESS. ETR's projections already carry most of this — it breaks ties between two otherwise-equal game environments and counts against the dome DST; it is never added on top.
 - **The leverage overlay:** ownership floods the slate's top total. The sharp read is the second or third highest total with the same shootout shape at half the ownership, or attacking the chalk game through its less obvious pieces (WR2, TE). **The richest leverage in NFL is a low-owned stack, not a low-owned player.**
 
 ## Ownership as a price
@@ -118,6 +120,8 @@ Hunter, Vielma & Zaman: for top-heavy payouts the right objective is maximizing 
 - Which 2–3 game environments are stackable this week (total, spread, pace), and what does each stack cost in ownership?
 - Does each built lineup name its stack shape (QB + how many teammates, bring-back or not) and the game story behind it?
 - Is the DST facing the lineup's own stack? (The −0.46 pair.)
+- **The three ownership checks** (ETR's post-lock autopsy of a ~275-entry SE field, 35 contests): did the CORRELATED pieces come in above projection? how many lineups share the chalk COMBO (count them — 48 vs 80 lineups is a different contest)? did the DIFFERENTIATION piece stay low? Expect the best pre-lock lineups to give back ~20 points of sim ROI once the real field is in; a lineup that fails all three checks craters, one that passes all three improves.
+- **Metrics:** Win% / Top 1% / Top 10% decide; cash rate is calibrated but over-confident at the very top; the sim separates bad from good well (positive-sim lineups won 1.65x chance, negative 0.57x) and very good from best poorly (the three best sim buckets posted the same real ROI) — pick inside the good set, never by ROI rank. AVG and CEILING points are irrelevant; some weeks the winner is a low-scoring slate.
 - Which chalk is sturdy (volume) and which is fragile (highlight / TD-dependent / popular DST), with the number that says which?
 - Is there a forced-value play, is his role locked, and who is the second-order beneficiary the field is missing?
 - Salary used: is the lineup at $49,800+, and if not, why?

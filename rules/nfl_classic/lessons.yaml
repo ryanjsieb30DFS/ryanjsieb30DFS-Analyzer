@@ -83,3 +83,60 @@ lessons:
     contradictions: []
     codified_in: null
     retired_reason: null
+
+  # ---- 2026-09-12 PM — ETR NFL Classic research digest (external, pre-season) ----
+
+  - id: nfl_classic_chalk_bringback_inside_stack
+    born: "2026-09-12"
+    origin: "ETR research digest 9/12/26 — docs/etr_research/DIGEST_2026-09-12_nfl_classic.md (Leone, When Is a Chalk Bring-Back Worth It: two small-field contests); external data, not a logged slate"
+    statement: >
+      A chalk pass-catcher from the chalk game scores as a positive inside the stack he correlates with and as a negative outside it. Why: the stack pays his ceiling twice; naked, his ownership is a pure tax. Counts as confirmed when: on a logged slate, the chalk bring-back's top-10 lineups are stack-mates of his QB more often than not, and his naked lineups finish below the field median.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_bringback_fade_needs_a_reason
+    born: "2026-09-12"
+    origin: "ETR research digest 9/12/26 — docs/etr_research/DIGEST_2026-09-12_nfl_classic.md (Leone, When Is a Chalk Bring-Back Worth It: two small-field contests); external data, not a logged slate"
+    statement: >
+      Fading the obvious bring-back beats keeping him only when the fade buys a construction edge (a third Tier-1 RB, a mini-correlation). Why: the fade's leverage alone is small in a stack that is not over-owned; the salary it frees is where the edge lives. Counts as confirmed when: a logged no-bring-back winner or top-10 lineup carries a visibly different construction from the with-bring-back stacks.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_positive_sim_wins_more
+    born: "2026-09-12"
+    origin: "ETR research digest 9/12/26 — docs/etr_research/DIGEST_2026-09-12_nfl_classic.md (Leone, Putting the Sims to the Test: 35 Game Changer SE contests); external data, not a logged slate"
+    statement: >
+      The user's entered lineup sims positive on Top 1% / Win% at lock more often when it finishes top 10 than when it does not. Why: ETR measured 1.65x / 0.57x on a same-size SE field. Counts as confirmed when: the picker check in the autopsy shows the top-10 finisher was positive-sim in 6 or more of the first 10 logged slates.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_ownership_miss_three_checks
+    born: "2026-09-12"
+    origin: "ETR research digest 9/12/26 — docs/etr_research/DIGEST_2026-09-12_nfl_classic.md (Leone, Putting the Sims to the Test: 35 Game Changer SE contests); external data, not a logged slate"
+    statement: >
+      A lineup that misses on all three ownership checks (correlated pieces up, chalk combo count up, differentiation piece up) finishes below a lineup that passes all three, at equal pre-lock sim. Why: the real field is tougher than the projected one by about 20 points of ROI and the miss concentrates in exactly these three places. Counts as confirmed when: the Sim's vendor_calibration ownership deltas for the entered lineup's stack, combo and low-own piece predict its percentile direction on 4 or more of 6 logged slates.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_dome_stack_tiebreaker
+    born: "2026-09-12"
+    origin: "ETR research digest 9/12/26 — docs/etr_research/DIGEST_2026-09-12_nfl_classic.md (Brott, Top NFL Narratives, 2021-23 data); external data, not a logged slate"
+    statement: >
+      Between two equal game environments, the dome game's stack outscores the outdoor one and the dome DST underscores. Why: +12% QB / -15% DST DK points in domes historically. Counts as confirmed when: logged slates show the dome-game stack's actual points above projection more often than the outdoor comparison's.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
