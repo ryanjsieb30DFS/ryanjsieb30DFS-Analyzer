@@ -86,8 +86,35 @@ def parse_dk_results(csv_path_or_buffer) -> dict:
     )
     players["actual_fpts"] = pd.to_numeric(players["actual_fpts"], errors="coerce")
     players["name"] = players["name"].astype(str).str.strip()
+    players = _collapse_slot_rows(players)
 
     return {"lineups": lineups, "players": players}
+
+
+def _collapse_slot_rows(players: pd.DataFrame) -> pd.DataFrame:
+    """ONE row per player. DK NFL standings list a player once per roster slot
+    the field used — Classic: an RB row AND a FLEX row (9/13/26: Gibbs showed
+    2.5% instead of 52.8% + 2.5%, and every table doubled him); Showdown: a
+    CPT row whose FPTS is already 1.5x plus a FLEX row. %Drafted is SUMMED
+    across a player's rows (total ownership); FPTS is the FLEX-basis number
+    (a CPT-only player is divided back by 1.5). Frames with no repeated name
+    pass through unchanged (golf / MMA / NASCAR)."""
+    if players is None or players.empty or not players["name"].duplicated().any():
+        return players
+    slots = players["roster_position"].astype(str).str.strip().str.upper()
+    df = players.copy()
+    df["_cpt"] = (slots == "CPT").to_numpy()
+    rows = []
+    for _name, grp in df.groupby("name", sort=False):
+        base = grp.iloc[0].copy()
+        flex = grp[~grp["_cpt"]]
+        if len(flex):
+            base["actual_fpts"] = float(pd.to_numeric(flex["actual_fpts"], errors="coerce").max())
+        else:
+            base["actual_fpts"] = float(pd.to_numeric(grp["actual_fpts"], errors="coerce").max()) / 1.5
+        base["actual_own"] = float(pd.to_numeric(grp["actual_own"], errors="coerce").fillna(0.0).sum())
+        rows.append(base.drop(labels="_cpt"))
+    return pd.DataFrame(rows).reset_index(drop=True)
 
 
 def _parse_lineup_string(lineup_str: str) -> list[str]:

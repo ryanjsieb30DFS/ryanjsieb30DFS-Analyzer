@@ -12,8 +12,14 @@ lessons:
     origin: "docs/nfl_game_theory.md 1.2 — ETR Milly Maker winner studies (external data, not a logged slate)"
     statement: >
       A QB stacked with two of his own pass-catchers beats a single stack and a naked QB in winning lineups (41% of winners vs 29% of the field; naked QB 6% vs 17%). Why: a monster passing game (4+ TDs) almost never lands in one receiver's hands, so two catchers double the capture of the QB's ceiling. Counts as confirmed when: a logged slate's top-10 lineups carry QB + 2 same-team pass-catchers more often than the field's rate for that slate.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-13"
+        history_dir: "rules/nfl_classic/history/2026-09-13__nfl-classic-week-1-9-13-2026__2"
+        note: >
+          10 of the 20 top-10 lineups across the SE (2,450) and 3-Max (1,960) carried QB + 2 same-team catchers
+          (Young+McMillan+Coker x4, Shough+Olave+Juwan Johnson x4, Shough+Olave+Vele, Kyler stacks) — 50% vs the
+          29% external field baseline. This slate's own field rate was not measured; soft confirmation.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -34,8 +40,15 @@ lessons:
     origin: "docs/nfl_game_theory.md 1.4 — 4for4 / FantasyLabs ownership-to-points work (external data, not a logged slate)"
     statement: >
       Running back is the one position where winning lineups are CHALKIER than the field; fading a volume-based chalk RB costs more than it gains. Why: RB ownership predicts RB points (0.55) because touches are the most bankable input in football. Counts as confirmed when: on a logged slate, the top-10 lineups' RB ownership is at or above the field's RB ownership while their QB/DST/TE ownership sits below it.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-13"
+        history_dir: "rules/nfl_classic/history/2026-09-13__nfl-classic-week-1-9-13-2026__2"
+        note: >
+          Jahmyr Gibbs ($8,000, 57-61% owned, 37.6 pts) sat in 17 of the 20 top-10 lineups — above his field rate.
+          The other chalk anchors ran BELOW field in the top 10: Michael Mayer (TE, 47-51%, 9.2) in 8 of 20,
+          Ja'Marr Chase (WR, 38%, 3.2) in 1 of 20, Jets DST (20%, 9.0) in 4 of 20. RB chalk held; every other
+          position's chalk was where the losing half lived.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -56,8 +69,14 @@ lessons:
     origin: "docs/nfl_game_theory.md 1.5 — ETR winner salary studies (external data, not a logged slate)"
     statement: >
       Quarterbacks under $6,000 win more often than the field uses them (45% of winners vs 38% field usage). Why: QB scoring is flat relative to price, cheap QBs run low-owned, and the savings buy RB/WR studs. Counts as confirmed when: a logged slate's top-10 lineups carry a sub-$6,000 QB at a higher rate than the field.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-13"
+        history_dir: "rules/nfl_classic/history/2026-09-13__nfl-classic-week-1-9-13-2026__2"
+        note: >
+          15 of the 20 top-10 lineups ran a sub-$6,000 QB: Bryce Young $5,200 (35.44) x7, Tyler Shough $5,600
+          (29.2) x5, Kyler Murray $5,500 x2, Malik Willis x1. The field's four most-owned QBs were all $6,000+
+          (Goff, Burrow, Herbert, Lamar at 7-12% each) and only Lamar (28.96) paid.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -67,8 +86,13 @@ lessons:
     origin: "docs/nfl_game_theory.md 1.5 — ETR salary-left test (external data, not a logged slate)"
     statement: >
       Winning Classic lineups spend the full cap (84% at $49,800+); leaving salary buys no uniqueness edge in this format. Why: with nine slots, uniqueness comes from player choice and stack structure, and every dollar left is projection surrendered. Counts as confirmed when: a logged slate's top-10 lineups average $49,500+ in salary used.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-13"
+        history_dir: "rules/nfl_classic/history/2026-09-13__nfl-classic-week-1-9-13-2026__2"
+        note: >
+          SE top-24 averaged $49,833 used; 3-Max top-20 averaged $49,905. All 40 top lineups were unique.
+          The user's four entries averaged $49,925 — this rule was followed.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -135,8 +159,15 @@ lessons:
     origin: "ETR research digest 9/12/26 — docs/etr_research/DIGEST_2026-09-12_nfl_classic.md (Brott, Top NFL Narratives, 2021-23 data); external data, not a logged slate"
     statement: >
       Between two equal game environments, the dome game's stack outscores the outdoor one and the dome DST underscores. Why: +12% QB / -15% DST DK points in domes historically. Counts as confirmed when: logged slates show the dome-game stack's actual points above projection more often than the outdoor comparison's.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-13"
+        history_dir: "rules/nfl_classic/history/2026-09-13__nfl-classic-week-1-9-13-2026__2"
+        note: >
+          Stack half only. The strategy's two top games were NO@DET (dome, 49.5) and TB@CIN (outdoors, rain chance,
+          50.5). The dome stack beat projection across the board — Shough 29.2 vs 18.5, Olave 31.2 vs 18.2,
+          St. Brown 28.7 vs 20.5 — while the outdoor stack missed: Burrow 15.2 vs 21.8, Chase 3.2 vs 22.1,
+          Higgins 8.9. DST half not checked (Bengals DST score not archived).
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -159,7 +190,14 @@ lessons:
       In Week 1 the higher-owned of two matched twins (same position, price within $500, projection within one point) hits 25 DK points more often than later in the season, relative to the lower-owned twin. Why: the field's Week 1 preference has historically carried real information; the ceiling gap narrows later while the ownership gap stays. Counts as confirmed when: the user's Week 1 autopsies (this season and next) show the chalk twin outscoring the leverage twin at a higher rate than mid-season autopsies do.
     status: hypothesis
     confirmations: []
-    contradictions: []
+    contradictions:
+      - date: "2026-09-13"
+        history_dir: "rules/nfl_classic/history/2026-09-13__nfl-classic-week-1-9-13-2026__2"
+        note: >
+          Week 1 2026: the higher-owned twin lost every matched pair the strategy named. QB: Goff (proj 19.3% own,
+          16.44 pts) vs Lamar 28.96 / Hurts 24.72. RB tier: Hampton 9.3, Barkley 9.0, Achane 10.6 (14-25% owned)
+          vs Taylor 26.1 / Bijan 31.3 (10-11%). WR: Chase (38%, 3.2) vs Jefferson (11%, 31.2). Only Gibbs held.
+          One slate is noise — a second Week 1 (2027) is needed before retiring.
     codified_in: null
     retired_reason: null
 
@@ -179,8 +217,14 @@ lessons:
     origin: "ETR research digest 9/12/26 (Week 1 columns) — docs/etr_research/DIGEST_2026-09-12_nfl_classic_week1_columns.md (Leone, Establish The Million Week 1); external data, not a logged slate"
     statement: >
       Three-RB builds appear in top lineups more often than in the field and run under-owned. Why: RB is the sturdy-chalk position and the FLEX RB is the winning FLEX; the field still defaults to a WR FLEX. Counts as confirmed when: the stack-centric autopsy shows a 3-RB slot mix over-represented among winners on 4 of 6 slates.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-13"
+        history_dir: "rules/nfl_classic/history/2026-09-13__nfl-classic-week-1-9-13-2026__2"
+        note: >
+          10 of the 20 top-10 lineups ran three RBs (RB in the FLEX), including both winners (dankepka: Gibbs +
+          Taylor + Mayer flex is NOT one; FearSweetPea: Gibbs + Jeanty + Swift IS). Third RBs that paid: D'Andre
+          Swift $6,100 35.4, Jeanty $6,600 35.7, Etienne, Chase Brown. Field rate not measured; 1 of 6 slates.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -190,6 +234,61 @@ lessons:
     origin: "ETR research digest 9/12/26 (Week 1 columns) — docs/etr_research/DIGEST_2026-09-12_nfl_classic_week1_columns.md (Thorman, Snaps and Pace Week 1); external data, not a logged slate"
     statement: >
       A game with a Fangio-tree defensive coordinator finishes bottom-half in combined plays, so a stack there needs a volume discount. Why: Fangio's eight DC seasons ranked 32nd to 14th in combined offensive plays. Counts as confirmed when: logged slates with such a game show its total plays below the slate median 4 of 6 times.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-09-13 — born from the Week 1 autopsy (first logged NFL Classic slate) ----
+
+  - id: nfl_classic_shootout_opposing_qb_not_fade
+    born: "2026-09-13"
+    origin: "rules/nfl_classic/history/2026-09-13__nfl-classic-week-1-9-13-2026__2"
+    statement: >
+      When the strategy calls a game a shootout and names the OTHER team's pass-catchers as bring-backs, that team's
+      quarterback cannot sit in the Fade tier — his passing points ARE the bring-back's points. Why: a bring-back only
+      pays if the opposing QB throws, so a shootout thesis and a Fade on its second QB contradict each other, and the
+      cheap low-owned QB is the highest-leverage way to own the same game story. Evidence: the board called CHI@CAR
+      up-in-pace with McMillan/Coker as bring-backs, tiered Bryce Young ($5,200, 1.6% proj own) Fade, and Young scored
+      35.44 as the 3-Max winner's QB and in 7 of the 20 top-10 lineups; Jalen Coker ($4,600, 36.8) was the slate's
+      definer in 60%+ of top lineups. Counts as confirmed when: on a logged slate, a Fade-tiered QB from a game the
+      strategy called a shootout finishes top-5 at QB while his catchers were named as bring-backs.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_set_shares_one_game
+    born: "2026-09-13"
+    origin: "rules/nfl_classic/history/2026-09-13__nfl-classic-week-1-9-13-2026__2"
+    statement: >
+      Set diversity is judged by GAME, not by lineup: when the strategy routes the sharp's separation through one
+      pivot game, entries that share that game's pieces live and die together even when their QBs differ. Why: NFL
+      points come in bundles per game, so two lineups holding the same two pass-catchers from one game are one bet
+      with two tickets. Evidence: 2 of the user's 4 entries carried Tee Higgins ($6,300, 8.9) + Chris Godwin Jr.
+      ($5,200, 8.3) from TB@CIN — the SE as a Burrow double stack with Chase (3.2), the 3-Max 2/3 as naked fillers
+      under a Hurts stack; they finished top-71.3% and top-49.3% while the entry with no TB@CIN piece finished top-11.2%.
+      Counts as confirmed when: on a multi-entry slate, entries sharing 2+ pieces from one game finish within 15
+      percentile points of each other while the entry with no shared game finishes apart.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_classic_small_field_pros_run_chalkier
+    born: "2026-09-13"
+    origin: "rules/nfl_classic/history/2026-09-13__nfl-classic-week-1-9-13-2026__2"
+    statement: >
+      In the user's sub-3,000 NFL Classic fields the tracked pros run about 19-20% average ownership per roster spot
+      and carry BOTH the RB chalk anchor and the WR chalk anchor; the seeded 13.7% envelope understates them. Why:
+      the seed was mined from 28 archive files that skew to bigger, sharper fields, while the pros who enter a $12
+      SE build near the field and separate at QB/stack, not at the anchors. Evidence: moklovin, youdacao and
+      ShaidyAdvice ran 19.6% per slot, all three held Gibbs + Chase, one held Mayer; the user ran 20.8% with all
+      three. Counts as confirmed when: two more logged slates show in-field pros at 17%+ per slot with 2 of 3 chalk
+      anchors held.
     status: hypothesis
     confirmations: []
     contradictions: []
