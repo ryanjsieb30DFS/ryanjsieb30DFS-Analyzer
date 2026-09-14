@@ -1,0 +1,140 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "n_contests": 2,
+  "calls": [
+    {
+      "name": "Brandon Aubrey",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195526160 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195642931 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-195526160 2.csv",
+        "contest-standings-195642931 2.csv"
+      ]
+    },
+    {
+      "name": "Ryan Flournoy",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195526160 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195642931 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-195526160 2.csv",
+        "contest-standings-195642931 2.csv"
+      ]
+    },
+    {
+      "name": "Tyrone Tracy Jr.",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 2,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195526160 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195642931 2.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-195526160 2.csv",
+        "contest-standings-195642931 2.csv"
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 3,
+  "leverage_candidates": [
+    {
+      "name": "KaVontae Turpin",
+      "rostered": false
+    },
+    {
+      "name": "Darnell Mooney",
+      "rostered": false
+    },
+    {
+      "name": "Odell Beckham Jr.",
+      "rostered": true
+    },
+    {
+      "name": "Devin Singletary",
+      "rostered": false
+    },
+    {
+      "name": "Emari Demercado",
+      "rostered": false
+    },
+    {
+      "name": "Brevyn Spann-Ford",
+      "rostered": false
+    },
+    {
+      "name": "Hunter Luepke",
+      "rostered": false
+    },
+    {
+      "name": "Luke Schoonmaker",
+      "rostered": false
+    },
+    {
+      "name": "Jonathan Mingo",
+      "rostered": false
+    },
+    {
+      "name": "Braxton Berrios",
+      "rostered": false
+    },
+    {
+      "name": "Chris Manhertz",
+      "rostered": false
+    },
+    {
+      "name": "Patrick Ricard",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 1,
+  "leverage_of": 12
+}

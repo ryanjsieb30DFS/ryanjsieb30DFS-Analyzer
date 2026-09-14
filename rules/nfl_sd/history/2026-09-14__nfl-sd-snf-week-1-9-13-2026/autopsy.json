@@ -1,0 +1,1693 @@
+[
+  {
+    "timestamp": "2026-09-14 18:38",
+    "contest_type": "NFL Showdown",
+    "source_file": "contest-standings-195526160 2.csv",
+    "contest_id": "195526160",
+    "entries": 1960,
+    "winning_score": 135.20001,
+    "cash_line_p80": 99.8,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nfl_sd",
+    "sport": "nfl",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 29,
+      "total": 35
+    },
+    "user_summary": {
+      "avg_own_mean": 39.41,
+      "low_own_count_mean": 1.0,
+      "salary_used_mean": 49100.0,
+      "entry_count": 1,
+      "best_rank": 1514,
+      "best_percentile": 77.2
+    },
+    "user_lineups": [
+      {
+        "rank": 1514,
+        "entry_name": "RyvlesGaming30",
+        "points": 75.600006,
+        "percentile": 77.2,
+        "players": [
+          "Javonte Williams",
+          "Dak Prescott",
+          "George Pickens",
+          "Cam Skattebo",
+          "Dominic Zvada",
+          "Odell Beckham Jr."
+        ],
+        "avg_own": 39.41,
+        "low_own_count": 1,
+        "salary_used": 49100,
+        "proj_total": 88.5,
+        "dup_count": 2
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Isaiah Likely",
+        "proj_points": 8.9,
+        "actual_fpts": 27.8,
+        "fpts_delta": 18.9,
+        "ownership": 24.4,
+        "actual_own": 33.01
+      },
+      {
+        "name": "Devin Singletary",
+        "proj_points": 2.7,
+        "actual_fpts": 13.8,
+        "fpts_delta": 11.1,
+        "ownership": 6.9,
+        "actual_own": 3.1599999999999997
+      },
+      {
+        "name": "Jaxson Dart",
+        "proj_points": 18.8,
+        "actual_fpts": 26.6,
+        "fpts_delta": 7.8,
+        "ownership": 63.1,
+        "actual_own": 74.14
+      },
+      {
+        "name": "Javonte Williams",
+        "proj_points": 17.9,
+        "actual_fpts": 24.2,
+        "fpts_delta": 6.3,
+        "ownership": 55.4,
+        "actual_own": 63.62
+      },
+      {
+        "name": "Jonathan Mingo",
+        "proj_points": 0.6,
+        "actual_fpts": 2.0,
+        "fpts_delta": 1.4,
+        "ownership": 0.8,
+        "actual_own": 0.36
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "George Pickens",
+        "proj_points": 16.0,
+        "actual_fpts": 5.8,
+        "fpts_delta": -10.2,
+        "ownership": 47.7,
+        "actual_own": 44.64
+      },
+      {
+        "name": "Brandon Aubrey",
+        "proj_points": 9.5,
+        "actual_fpts": 2.0,
+        "fpts_delta": -7.5,
+        "ownership": 30.1,
+        "actual_own": 34.33
+      },
+      {
+        "name": "Jake Ferguson",
+        "proj_points": 9.0,
+        "actual_fpts": 2.6,
+        "fpts_delta": -6.4,
+        "ownership": 23.8,
+        "actual_own": 19.18
+      },
+      {
+        "name": "Tyrone Tracy Jr.",
+        "proj_points": 6.2,
+        "actual_fpts": 0.4,
+        "fpts_delta": -5.8,
+        "ownership": 16.6,
+        "actual_own": 16.02
+      },
+      {
+        "name": "Dominic Zvada",
+        "proj_points": 8.4,
+        "actual_fpts": 4.0,
+        "fpts_delta": -4.4,
+        "ownership": 22.1,
+        "actual_own": 11.790000000000001
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Devin Singletary",
+        "salary": 1400,
+        "actual_fpts": 13.8,
+        "actual_own": 3.1599999999999997,
+        "top_lineup_pct": 40.0
+      },
+      {
+        "name": "Emari Demercado",
+        "salary": 1000,
+        "actual_fpts": 0.7,
+        "actual_own": 14.65,
+        "top_lineup_pct": 35.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 47.03,
+      "low_own_count_mean": 0.6,
+      "salary_used_mean": 49605.0,
+      "dup_max": 11,
+      "unique_pct": 30.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "tajohn53",
+          "points": 135.20001,
+          "percentile": 0.1,
+          "players": [
+            "Jaxson Dart",
+            "Dak Prescott",
+            "Javonte Williams",
+            "Cam Skattebo",
+            "Isaiah Likely",
+            "Devin Singletary"
+          ],
+          "avg_own": 46.82,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 91.8,
+          "dup_count": 2
+        },
+        {
+          "rank": 2,
+          "entry_name": "Myrik",
+          "points": 134.6,
+          "percentile": 0.1,
+          "players": [
+            "Isaiah Likely",
+            "CeeDee Lamb",
+            "Jaxson Dart",
+            "Malik Nabers",
+            "Javonte Williams",
+            "Devin Singletary"
+          ],
+          "avg_own": 41.17,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 84.1,
+          "dup_count": 2
+        },
+        {
+          "rank": 2,
+          "entry_name": "22Blitz",
+          "points": 134.6,
+          "percentile": 0.1,
+          "players": [
+            "Isaiah Likely",
+            "CeeDee Lamb",
+            "Jaxson Dart",
+            "Malik Nabers",
+            "Javonte Williams",
+            "Devin Singletary"
+          ],
+          "avg_own": 41.17,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 84.1,
+          "dup_count": 2
+        },
+        {
+          "rank": 4,
+          "entry_name": "PiscesManifesto",
+          "points": 130.1,
+          "percentile": 0.2,
+          "players": [
+            "Devin Singletary",
+            "CeeDee Lamb",
+            "Dak Prescott",
+            "Jaxson Dart",
+            "Javonte Williams",
+            "Isaiah Likely"
+          ],
+          "avg_own": 49.04,
+          "low_own_count": 1,
+          "salary_used": 48300,
+          "proj_total": 87.5,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "rothy1312",
+          "points": 128.95,
+          "percentile": 0.3,
+          "players": [
+            "Cam Skattebo",
+            "Dak Prescott",
+            "Jaxson Dart",
+            "Javonte Williams",
+            "Isaiah Likely",
+            "Devin Singletary"
+          ],
+          "avg_own": 46.82,
+          "low_own_count": 1,
+          "salary_used": 49400,
+          "proj_total": 89.7,
+          "dup_count": 2
+        },
+        {
+          "rank": 6,
+          "entry_name": "Hit-men",
+          "points": 127.5,
+          "percentile": 0.3,
+          "players": [
+            "Isaiah Likely",
+            "Dak Prescott",
+            "George Pickens",
+            "Jaxson Dart",
+            "Javonte Williams",
+            "Devin Singletary"
+          ],
+          "avg_own": 48.43,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 88.4,
+          "dup_count": 3
+        },
+        {
+          "rank": 6,
+          "entry_name": "hamhock41",
+          "points": 127.5,
+          "percentile": 0.3,
+          "players": [
+            "Isaiah Likely",
+            "Dak Prescott",
+            "George Pickens",
+            "Jaxson Dart",
+            "Javonte Williams",
+            "Devin Singletary"
+          ],
+          "avg_own": 48.43,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 88.4,
+          "dup_count": 3
+        },
+        {
+          "rank": 6,
+          "entry_name": "CK_PGH",
+          "points": 127.5,
+          "percentile": 0.3,
+          "players": [
+            "Isaiah Likely",
+            "Dak Prescott",
+            "George Pickens",
+            "Jaxson Dart",
+            "Javonte Williams",
+            "Devin Singletary"
+          ],
+          "avg_own": 48.43,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 88.4,
+          "dup_count": 3
+        },
+        {
+          "rank": 9,
+          "entry_name": "joker2375",
+          "points": 125.5,
+          "percentile": 0.5,
+          "players": [
+            "Isaiah Likely",
+            "CeeDee Lamb",
+            "Dak Prescott",
+            "Jaxson Dart",
+            "Javonte Williams",
+            "Luke Schoonmaker"
+          ],
+          "avg_own": 48.7,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 88.9,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "smack152",
+          "points": 123.8,
+          "percentile": 0.5,
+          "players": [
+            "Isaiah Likely",
+            "Dak Prescott",
+            "Jaxson Dart",
+            "Javonte Williams",
+            "Cam Skattebo",
+            "KaVontae Turpin"
+          ],
+          "avg_own": 47.27,
+          "low_own_count": 1,
+          "salary_used": 49600,
+          "proj_total": 88.2,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 7.62,
+        "low_own_count_delta": -0.4,
+        "salary_used_delta": 505.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 1956,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Jaxson Dart",
+          "field_own": 74.1,
+          "actual_fpts": 26.6
+        },
+        {
+          "name": "Dak Prescott",
+          "field_own": 72.0,
+          "actual_fpts": 15.4
+        },
+        {
+          "name": "Javonte Williams",
+          "field_own": 63.6,
+          "actual_fpts": 24.2
+        },
+        {
+          "name": "CeeDee Lamb",
+          "field_own": 48.3,
+          "actual_fpts": 15.4
+        },
+        {
+          "name": "George Pickens",
+          "field_own": 44.6,
+          "actual_fpts": 5.8
+        },
+        {
+          "name": "Cam Skattebo",
+          "field_own": 35.0,
+          "actual_fpts": 14.1
+        },
+        {
+          "name": "Brandon Aubrey",
+          "field_own": 34.3,
+          "actual_fpts": 2.0
+        },
+        {
+          "name": "Isaiah Likely",
+          "field_own": 33.0,
+          "actual_fpts": 27.8
+        },
+        {
+          "name": "Malik Nabers",
+          "field_own": 24.8,
+          "actual_fpts": 12.9
+        },
+        {
+          "name": "Theo Johnson",
+          "field_own": 19.2,
+          "actual_fpts": 1.9
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Dak Prescott",
+            "Jaxson Dart"
+          ],
+          "field_pct": 50.6,
+          "count": 989
+        },
+        {
+          "players": [
+            "Javonte Williams",
+            "Jaxson Dart"
+          ],
+          "field_pct": 47.3,
+          "count": 925
+        },
+        {
+          "players": [
+            "Dak Prescott",
+            "Javonte Williams"
+          ],
+          "field_pct": 42.4,
+          "count": 828
+        },
+        {
+          "players": [
+            "CeeDee Lamb",
+            "Dak Prescott"
+          ],
+          "field_pct": 35.0,
+          "count": 684
+        },
+        {
+          "players": [
+            "CeeDee Lamb",
+            "Jaxson Dart"
+          ],
+          "field_pct": 31.5,
+          "count": 616
+        },
+        {
+          "players": [
+            "Dak Prescott",
+            "George Pickens"
+          ],
+          "field_pct": 31.0,
+          "count": 606
+        },
+        {
+          "players": [
+            "George Pickens",
+            "Jaxson Dart"
+          ],
+          "field_pct": 29.8,
+          "count": 583
+        },
+        {
+          "players": [
+            "CeeDee Lamb",
+            "Javonte Williams"
+          ],
+          "field_pct": 25.5,
+          "count": 499
+        },
+        {
+          "players": [
+            "George Pickens",
+            "Javonte Williams"
+          ],
+          "field_pct": 25.1,
+          "count": 491
+        },
+        {
+          "players": [
+            "Cam Skattebo",
+            "Jaxson Dart"
+          ],
+          "field_pct": 23.5,
+          "count": 459
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "CeeDee Lamb",
+            "Dak Prescott",
+            "Javonte Williams",
+            "Jaxson Dart",
+            "Ryan Flournoy",
+            "Theo Johnson"
+          ],
+          "count": 45,
+          "field_pct": 2.3
+        },
+        {
+          "players": [
+            "Brandon Aubrey",
+            "Dak Prescott",
+            "Emari Demercado",
+            "George Pickens",
+            "Javonte Williams",
+            "Jaxson Dart"
+          ],
+          "count": 44,
+          "field_pct": 2.3
+        },
+        {
+          "players": [
+            "CeeDee Lamb",
+            "Dak Prescott",
+            "Javonte Williams",
+            "Jaxson Dart",
+            "Theo Johnson",
+            "Tyrone Tracy Jr."
+          ],
+          "count": 37,
+          "field_pct": 1.9
+        },
+        {
+          "players": [
+            "CeeDee Lamb",
+            "Dak Prescott",
+            "Emari Demercado",
+            "Javonte Williams",
+            "Jaxson Dart",
+            "Ryan Flournoy"
+          ],
+          "count": 20,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Brandon Aubrey",
+            "George Pickens",
+            "Isaiah Likely",
+            "Javonte Williams",
+            "Jaxson Dart",
+            "Malachi Fields"
+          ],
+          "count": 19,
+          "field_pct": 1.0
+        }
+      ],
+      "winners_profile": {
+        "n": 20,
+        "avg_own_per_slot": 47.0,
+        "dart_pct": 55.0,
+        "unique_pct": 55.0
+      },
+      "fish_profile": {
+        "n": 978,
+        "avg_own_per_slot": 41.3,
+        "dart_pct": 7.0,
+        "unique_pct": 59.9
+      },
+      "fish_traps": [
+        {
+          "name": "George Pickens",
+          "fish_pct": 66.1,
+          "winner_pct": 15.0,
+          "gap": 51.1,
+          "actual_fpts": 5.8,
+          "field_own": 44.6,
+          "own_rank": 5
+        },
+        {
+          "name": "Brandon Aubrey",
+          "fish_pct": 41.7,
+          "winner_pct": 0.0,
+          "gap": 41.7,
+          "actual_fpts": 2.0,
+          "field_own": 34.3,
+          "own_rank": 7
+        },
+        {
+          "name": "Jake Ferguson",
+          "fish_pct": 23.8,
+          "winner_pct": 0.0,
+          "gap": 23.8,
+          "actual_fpts": 2.6,
+          "field_own": 19.2,
+          "own_rank": 11
+        },
+        {
+          "name": "Tyrone Tracy Jr.",
+          "fish_pct": 18.3,
+          "winner_pct": 0.0,
+          "gap": 18.3,
+          "actual_fpts": 0.4,
+          "field_own": 16.0,
+          "own_rank": 14
+        },
+        {
+          "name": "Malachi Fields",
+          "fish_pct": 17.7,
+          "winner_pct": 0.0,
+          "gap": 17.7,
+          "actual_fpts": 4.5,
+          "field_own": 16.2,
+          "own_rank": 13
+        },
+        {
+          "name": "Ryan Flournoy",
+          "fish_pct": 16.4,
+          "winner_pct": 0.0,
+          "gap": 16.4,
+          "actual_fpts": 4.2,
+          "field_own": 18.5,
+          "own_rank": 12
+        },
+        {
+          "name": "Cowboys",
+          "fish_pct": 16.2,
+          "winner_pct": 0.0,
+          "gap": 16.2,
+          "actual_fpts": 3.0,
+          "field_own": 12.8,
+          "own_rank": 16
+        },
+        {
+          "name": "Malik Nabers",
+          "fish_pct": 27.9,
+          "winner_pct": 15.0,
+          "gap": 12.9,
+          "actual_fpts": 12.9,
+          "field_own": 24.8,
+          "own_rank": 9
+        },
+        {
+          "name": "Odell Beckham Jr.",
+          "fish_pct": 12.1,
+          "winner_pct": 0.0,
+          "gap": 12.1,
+          "actual_fpts": 0.0,
+          "field_own": 9.4,
+          "own_rank": 19
+        },
+        {
+          "name": "Theo Johnson",
+          "fish_pct": 16.9,
+          "winner_pct": 5.0,
+          "gap": 11.9,
+          "actual_fpts": 1.9,
+          "field_own": 19.2,
+          "own_rank": 10
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "tajohn53",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "Myrik",
+          "best_rank": 2,
+          "percentile": 0.1
+        },
+        {
+          "handle": "22Blitz",
+          "best_rank": 2,
+          "percentile": 0.1
+        },
+        {
+          "handle": "PiscesManifesto",
+          "best_rank": 4,
+          "percentile": 0.2
+        },
+        {
+          "handle": "rothy1312",
+          "best_rank": 5,
+          "percentile": 0.3
+        },
+        {
+          "handle": "hamhock41",
+          "best_rank": 6,
+          "percentile": 0.3
+        },
+        {
+          "handle": "Hit-men",
+          "best_rank": 6,
+          "percentile": 0.3
+        },
+        {
+          "handle": "CK_PGH",
+          "best_rank": 6,
+          "percentile": 0.3
+        },
+        {
+          "handle": "joker2375",
+          "best_rank": 9,
+          "percentile": 0.5
+        },
+        {
+          "handle": "smack152",
+          "best_rank": 10,
+          "percentile": 0.5
+        },
+        {
+          "handle": "NicNPatsFan",
+          "best_rank": 11,
+          "percentile": 0.6
+        },
+        {
+          "handle": "pholo",
+          "best_rank": 11,
+          "percentile": 0.6
+        },
+        {
+          "handle": "mrboodah",
+          "best_rank": 13,
+          "percentile": 0.7
+        },
+        {
+          "handle": "Papasfishin",
+          "best_rank": 13,
+          "percentile": 0.7
+        },
+        {
+          "handle": "thunderdan63",
+          "best_rank": 15,
+          "percentile": 0.8
+        }
+      ],
+      "read": [
+        "Field crowded **Jaxson Dart** at 74.1% (26.6 fpts) \u2014 the chalk to consider fading.",
+        "**Dak Prescott + Jaxson Dart** were together in 50.6% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**George Pickens** was a fish trap: 66.1% of the fish, only 15.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 135.20001,
+      "winner_handle": "tajohn53",
+      "roster": [
+        {
+          "name": "Jaxson Dart",
+          "own": 74.14,
+          "fpts": 26.6
+        },
+        {
+          "name": "Dak Prescott",
+          "own": 71.99,
+          "fpts": 15.4
+        },
+        {
+          "name": "Javonte Williams",
+          "own": 63.62,
+          "fpts": 24.2
+        },
+        {
+          "name": "Cam Skattebo",
+          "own": 35.0,
+          "fpts": 14.1
+        },
+        {
+          "name": "Isaiah Likely",
+          "own": 33.01,
+          "fpts": 27.8
+        },
+        {
+          "name": "Devin Singletary",
+          "own": 3.1599999999999997,
+          "fpts": 13.8
+        }
+      ],
+      "avg_own": 46.8,
+      "n_low_own": 1,
+      "carrier": {
+        "name": "Devin Singletary",
+        "own": 3.1599999999999997,
+        "fpts": 13.8
+      },
+      "expected_dupes": 2.43
+    },
+    "near_miss": {
+      "salary_checked": false,
+      "position_checked": false,
+      "blocked_swap": null,
+      "gradable": true,
+      "won": false,
+      "your_points": 75.600006,
+      "winner_points": 135.20001,
+      "gap": 59.6,
+      "your_percentile": 77.2,
+      "n_shared": 3,
+      "shared": [
+        "Cam Skattebo",
+        "Dak Prescott",
+        "Javonte Williams"
+      ],
+      "your_uniques": [
+        {
+          "name": "George Pickens",
+          "fpts": 5.8,
+          "salary": null,
+          "position": null
+        },
+        {
+          "name": "Dominic Zvada",
+          "fpts": 4.0,
+          "salary": null,
+          "position": null
+        },
+        {
+          "name": "Odell Beckham Jr.",
+          "fpts": 0.0,
+          "salary": null,
+          "position": null
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Isaiah Likely",
+          "fpts": 27.8,
+          "salary": null,
+          "position": null
+        },
+        {
+          "name": "Jaxson Dart",
+          "fpts": 26.6,
+          "salary": null,
+          "position": null
+        },
+        {
+          "name": "Devin Singletary",
+          "fpts": 13.8,
+          "salary": null,
+          "position": null
+        }
+      ],
+      "best_swap": {
+        "out": "Odell Beckham Jr.",
+        "in": "Isaiah Likely",
+        "gain": 27.8,
+        "would_have_won": false
+      },
+      "swaps_needed": null
+    }
+  },
+  {
+    "timestamp": "2026-09-14 18:38",
+    "contest_type": "NFL Showdown",
+    "source_file": "contest-standings-195642931 2.csv",
+    "contest_id": "195642931",
+    "entries": 1902,
+    "winning_score": 135.20001,
+    "cash_line_p80": 99.8,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nfl_sd",
+    "sport": "nfl",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 28,
+      "total": 34
+    },
+    "user_summary": {
+      "avg_own_mean": 40.01,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 48600.0,
+      "entry_count": 1,
+      "best_rank": 689,
+      "best_percentile": 36.2
+    },
+    "user_lineups": [
+      {
+        "rank": 689,
+        "entry_name": "RyvlesGaming30",
+        "points": 93.25,
+        "percentile": 36.2,
+        "players": [
+          "Cam Skattebo",
+          "CeeDee Lamb",
+          "Jaxson Dart",
+          "Javonte Williams",
+          "Dominic Zvada",
+          "Theo Johnson"
+        ],
+        "avg_own": 40.01,
+        "low_own_count": 0,
+        "salary_used": 48600,
+        "proj_total": 89.1,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Isaiah Likely",
+        "proj_points": 8.9,
+        "actual_fpts": 27.8,
+        "fpts_delta": 18.9,
+        "ownership": 24.4,
+        "actual_own": 38.33
+      },
+      {
+        "name": "Devin Singletary",
+        "proj_points": 2.7,
+        "actual_fpts": 13.8,
+        "fpts_delta": 11.1,
+        "ownership": 6.9,
+        "actual_own": 3.1999999999999997
+      },
+      {
+        "name": "Jaxson Dart",
+        "proj_points": 18.8,
+        "actual_fpts": 26.6,
+        "fpts_delta": 7.8,
+        "ownership": 63.1,
+        "actual_own": 68.72
+      },
+      {
+        "name": "Javonte Williams",
+        "proj_points": 17.9,
+        "actual_fpts": 24.2,
+        "fpts_delta": 6.3,
+        "ownership": 55.4,
+        "actual_own": 57.94
+      },
+      {
+        "name": "Jonathan Mingo",
+        "proj_points": 0.6,
+        "actual_fpts": 2.0,
+        "fpts_delta": 1.4,
+        "ownership": 0.8,
+        "actual_own": 0.47
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "George Pickens",
+        "proj_points": 16.0,
+        "actual_fpts": 5.8,
+        "fpts_delta": -10.2,
+        "ownership": 47.7,
+        "actual_own": 45.06
+      },
+      {
+        "name": "Brandon Aubrey",
+        "proj_points": 9.5,
+        "actual_fpts": 2.0,
+        "fpts_delta": -7.5,
+        "ownership": 30.1,
+        "actual_own": 34.39
+      },
+      {
+        "name": "Jake Ferguson",
+        "proj_points": 9.0,
+        "actual_fpts": 2.6,
+        "fpts_delta": -6.4,
+        "ownership": 23.8,
+        "actual_own": 21.81
+      },
+      {
+        "name": "Tyrone Tracy Jr.",
+        "proj_points": 6.2,
+        "actual_fpts": 0.4,
+        "fpts_delta": -5.8,
+        "ownership": 16.6,
+        "actual_own": 15.3
+      },
+      {
+        "name": "Dominic Zvada",
+        "proj_points": 8.4,
+        "actual_fpts": 4.0,
+        "fpts_delta": -4.4,
+        "ownership": 22.1,
+        "actual_own": 10.78
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Devin Singletary",
+        "salary": 1400,
+        "actual_fpts": 13.8,
+        "actual_own": 3.1999999999999997,
+        "top_lineup_pct": 45.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 45.64,
+      "low_own_count_mean": 0.75,
+      "salary_used_mean": 49715.0,
+      "dup_max": 17,
+      "unique_pct": 35.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "tajohn53",
+          "points": 135.20001,
+          "percentile": 0.1,
+          "players": [
+            "Jaxson Dart",
+            "Dak Prescott",
+            "Javonte Williams",
+            "Cam Skattebo",
+            "Isaiah Likely",
+            "Devin Singletary"
+          ],
+          "avg_own": 46.06,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 91.8,
+          "dup_count": 3
+        },
+        {
+          "rank": 2,
+          "entry_name": "quis414",
+          "points": 134.6,
+          "percentile": 0.1,
+          "players": [
+            "Isaiah Likely",
+            "CeeDee Lamb",
+            "Jaxson Dart",
+            "Malik Nabers",
+            "Javonte Williams",
+            "Devin Singletary"
+          ],
+          "avg_own": 40.93,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 84.1,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "wormlove3",
+          "points": 134.0,
+          "percentile": 0.2,
+          "players": [
+            "Javonte Williams",
+            "Dak Prescott",
+            "Jaxson Dart",
+            "Cam Skattebo",
+            "Isaiah Likely",
+            "Devin Singletary"
+          ],
+          "avg_own": 46.06,
+          "low_own_count": 1,
+          "salary_used": 49700,
+          "proj_total": 91.5,
+          "dup_count": 3
+        },
+        {
+          "rank": 4,
+          "entry_name": "andrewogline1",
+          "points": 128.95,
+          "percentile": 0.2,
+          "players": [
+            "Cam Skattebo",
+            "CeeDee Lamb",
+            "Jaxson Dart",
+            "Javonte Williams",
+            "Isaiah Likely",
+            "Devin Singletary"
+          ],
+          "avg_own": 42.84,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 88.1,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "VAStreets",
+          "points": 128.95,
+          "percentile": 0.2,
+          "players": [
+            "Cam Skattebo",
+            "Dak Prescott",
+            "Jaxson Dart",
+            "Javonte Williams",
+            "Isaiah Likely",
+            "Devin Singletary"
+          ],
+          "avg_own": 46.06,
+          "low_own_count": 1,
+          "salary_used": 49400,
+          "proj_total": 89.7,
+          "dup_count": 3
+        },
+        {
+          "rank": 6,
+          "entry_name": "jimbo6880",
+          "points": 127.5,
+          "percentile": 0.3,
+          "players": [
+            "Isaiah Likely",
+            "Dak Prescott",
+            "George Pickens",
+            "Jaxson Dart",
+            "Javonte Williams",
+            "Devin Singletary"
+          ],
+          "avg_own": 46.93,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 88.4,
+          "dup_count": 3
+        },
+        {
+          "rank": 6,
+          "entry_name": "dduncan31986",
+          "points": 127.5,
+          "percentile": 0.3,
+          "players": [
+            "Isaiah Likely",
+            "Dak Prescott",
+            "George Pickens",
+            "Jaxson Dart",
+            "Javonte Williams",
+            "Devin Singletary"
+          ],
+          "avg_own": 46.93,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 88.4,
+          "dup_count": 3
+        },
+        {
+          "rank": 6,
+          "entry_name": "hamhock41",
+          "points": 127.5,
+          "percentile": 0.3,
+          "players": [
+            "Isaiah Likely",
+            "Dak Prescott",
+            "George Pickens",
+            "Jaxson Dart",
+            "Javonte Williams",
+            "Devin Singletary"
+          ],
+          "avg_own": 46.93,
+          "low_own_count": 1,
+          "salary_used": 49800,
+          "proj_total": 88.4,
+          "dup_count": 3
+        },
+        {
+          "rank": 9,
+          "entry_name": "oliviaguzzo",
+          "points": 125.5,
+          "percentile": 0.5,
+          "players": [
+            "Isaiah Likely",
+            "CeeDee Lamb",
+            "Dak Prescott",
+            "Jaxson Dart",
+            "Javonte Williams",
+            "Luke Schoonmaker"
+          ],
+          "avg_own": 47.24,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 88.9,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "cjbig50",
+          "points": 124.600006,
+          "percentile": 0.5,
+          "players": [
+            "Isaiah Likely",
+            "CeeDee Lamb",
+            "Dak Prescott",
+            "Javonte Williams",
+            "Cam Skattebo",
+            "Devin Singletary"
+          ],
+          "avg_own": 42.78,
+          "low_own_count": 1,
+          "salary_used": 49600,
+          "proj_total": 86.2,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 5.63,
+        "low_own_count_delta": 0.75,
+        "salary_used_delta": 1115.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 1894,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Jaxson Dart",
+          "field_own": 68.7,
+          "actual_fpts": 26.6
+        },
+        {
+          "name": "Dak Prescott",
+          "field_own": 68.3,
+          "actual_fpts": 15.4
+        },
+        {
+          "name": "Javonte Williams",
+          "field_own": 57.9,
+          "actual_fpts": 24.2
+        },
+        {
+          "name": "CeeDee Lamb",
+          "field_own": 49.0,
+          "actual_fpts": 15.4
+        },
+        {
+          "name": "George Pickens",
+          "field_own": 45.1,
+          "actual_fpts": 5.8
+        },
+        {
+          "name": "Cam Skattebo",
+          "field_own": 39.9,
+          "actual_fpts": 14.1
+        },
+        {
+          "name": "Isaiah Likely",
+          "field_own": 38.3,
+          "actual_fpts": 27.8
+        },
+        {
+          "name": "Brandon Aubrey",
+          "field_own": 34.4,
+          "actual_fpts": 2.0
+        },
+        {
+          "name": "Malik Nabers",
+          "field_own": 28.4,
+          "actual_fpts": 12.9
+        },
+        {
+          "name": "Jake Ferguson",
+          "field_own": 21.8,
+          "actual_fpts": 2.6
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Dak Prescott",
+            "Jaxson Dart"
+          ],
+          "field_pct": 44.0,
+          "count": 832
+        },
+        {
+          "players": [
+            "Javonte Williams",
+            "Jaxson Dart"
+          ],
+          "field_pct": 38.2,
+          "count": 724
+        },
+        {
+          "players": [
+            "Dak Prescott",
+            "Javonte Williams"
+          ],
+          "field_pct": 36.1,
+          "count": 683
+        },
+        {
+          "players": [
+            "CeeDee Lamb",
+            "Dak Prescott"
+          ],
+          "field_pct": 34.0,
+          "count": 643
+        },
+        {
+          "players": [
+            "Dak Prescott",
+            "George Pickens"
+          ],
+          "field_pct": 30.1,
+          "count": 569
+        },
+        {
+          "players": [
+            "CeeDee Lamb",
+            "Jaxson Dart"
+          ],
+          "field_pct": 29.1,
+          "count": 550
+        },
+        {
+          "players": [
+            "George Pickens",
+            "Jaxson Dart"
+          ],
+          "field_pct": 27.9,
+          "count": 529
+        },
+        {
+          "players": [
+            "Isaiah Likely",
+            "Jaxson Dart"
+          ],
+          "field_pct": 25.7,
+          "count": 487
+        },
+        {
+          "players": [
+            "Cam Skattebo",
+            "Jaxson Dart"
+          ],
+          "field_pct": 24.8,
+          "count": 469
+        },
+        {
+          "players": [
+            "CeeDee Lamb",
+            "Javonte Williams"
+          ],
+          "field_pct": 23.8,
+          "count": 451
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "CeeDee Lamb",
+            "Dak Prescott",
+            "Javonte Williams",
+            "Jaxson Dart",
+            "Theo Johnson",
+            "Tyrone Tracy Jr."
+          ],
+          "count": 27,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "Brandon Aubrey",
+            "Dak Prescott",
+            "Emari Demercado",
+            "George Pickens",
+            "Javonte Williams",
+            "Jaxson Dart"
+          ],
+          "count": 27,
+          "field_pct": 1.4
+        },
+        {
+          "players": [
+            "CeeDee Lamb",
+            "Dak Prescott",
+            "Javonte Williams",
+            "Jaxson Dart",
+            "Ryan Flournoy",
+            "Theo Johnson"
+          ],
+          "count": 23,
+          "field_pct": 1.2
+        },
+        {
+          "players": [
+            "Cam Skattebo",
+            "Dak Prescott",
+            "Emari Demercado",
+            "Isaiah Likely",
+            "Javonte Williams",
+            "Jaxson Dart"
+          ],
+          "count": 17,
+          "field_pct": 0.9
+        },
+        {
+          "players": [
+            "Emari Demercado",
+            "George Pickens",
+            "Isaiah Likely",
+            "Javonte Williams",
+            "Jaxson Dart",
+            "Malik Nabers"
+          ],
+          "count": 17,
+          "field_pct": 0.9
+        }
+      ],
+      "winners_profile": {
+        "n": 19,
+        "avg_own_per_slot": 45.5,
+        "dart_pct": 63.2,
+        "unique_pct": 68.4
+      },
+      "fish_profile": {
+        "n": 946,
+        "avg_own_per_slot": 39.6,
+        "dart_pct": 8.6,
+        "unique_pct": 68.4
+      },
+      "fish_traps": [
+        {
+          "name": "George Pickens",
+          "fish_pct": 65.0,
+          "winner_pct": 15.8,
+          "gap": 49.2,
+          "actual_fpts": 5.8,
+          "field_own": 45.1,
+          "own_rank": 5
+        },
+        {
+          "name": "Brandon Aubrey",
+          "fish_pct": 38.1,
+          "winner_pct": 0.0,
+          "gap": 38.1,
+          "actual_fpts": 2.0,
+          "field_own": 34.4,
+          "own_rank": 8
+        },
+        {
+          "name": "Jake Ferguson",
+          "fish_pct": 27.2,
+          "winner_pct": 0.0,
+          "gap": 27.2,
+          "actual_fpts": 2.6,
+          "field_own": 21.8,
+          "own_rank": 10
+        },
+        {
+          "name": "Malachi Fields",
+          "fish_pct": 21.2,
+          "winner_pct": 0.0,
+          "gap": 21.2,
+          "actual_fpts": 4.5,
+          "field_own": 18.0,
+          "own_rank": 11
+        },
+        {
+          "name": "Malik Nabers",
+          "fish_pct": 30.3,
+          "winner_pct": 10.5,
+          "gap": 19.8,
+          "actual_fpts": 12.9,
+          "field_own": 28.4,
+          "own_rank": 9
+        },
+        {
+          "name": "Tyrone Tracy Jr.",
+          "fish_pct": 19.3,
+          "winner_pct": 0.0,
+          "gap": 19.3,
+          "actual_fpts": 0.4,
+          "field_own": 15.3,
+          "own_rank": 13
+        },
+        {
+          "name": "Cowboys",
+          "fish_pct": 18.1,
+          "winner_pct": 0.0,
+          "gap": 18.1,
+          "actual_fpts": 3.0,
+          "field_own": 12.6,
+          "own_rank": 17
+        },
+        {
+          "name": "Ryan Flournoy",
+          "fish_pct": 15.2,
+          "winner_pct": 0.0,
+          "gap": 15.2,
+          "actual_fpts": 4.2,
+          "field_own": 17.3,
+          "own_rank": 12
+        },
+        {
+          "name": "Darnell Mooney",
+          "fish_pct": 13.8,
+          "winner_pct": 0.0,
+          "gap": 13.8,
+          "actual_fpts": 4.7,
+          "field_own": 13.2,
+          "own_rank": 16
+        },
+        {
+          "name": "Odell Beckham Jr.",
+          "fish_pct": 12.4,
+          "winner_pct": 0.0,
+          "gap": 12.4,
+          "actual_fpts": 0.0,
+          "field_own": 10.4,
+          "own_rank": 19
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "tajohn53",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "quis414",
+          "best_rank": 2,
+          "percentile": 0.1
+        },
+        {
+          "handle": "wormlove3",
+          "best_rank": 3,
+          "percentile": 0.2
+        },
+        {
+          "handle": "andrewogline1",
+          "best_rank": 4,
+          "percentile": 0.2
+        },
+        {
+          "handle": "VAStreets",
+          "best_rank": 4,
+          "percentile": 0.2
+        },
+        {
+          "handle": "jimbo6880",
+          "best_rank": 6,
+          "percentile": 0.3
+        },
+        {
+          "handle": "hamhock41",
+          "best_rank": 6,
+          "percentile": 0.3
+        },
+        {
+          "handle": "dduncan31986",
+          "best_rank": 6,
+          "percentile": 0.3
+        },
+        {
+          "handle": "oliviaguzzo",
+          "best_rank": 9,
+          "percentile": 0.5
+        },
+        {
+          "handle": "cjbig50",
+          "best_rank": 10,
+          "percentile": 0.5
+        },
+        {
+          "handle": "elmtree",
+          "best_rank": 11,
+          "percentile": 0.6
+        },
+        {
+          "handle": "md4life",
+          "best_rank": 12,
+          "percentile": 0.6
+        },
+        {
+          "handle": "jmatano23",
+          "best_rank": 13,
+          "percentile": 0.7
+        },
+        {
+          "handle": "brodyjohnson1",
+          "best_rank": 13,
+          "percentile": 0.7
+        },
+        {
+          "handle": "yanier.t",
+          "best_rank": 13,
+          "percentile": 0.7
+        }
+      ],
+      "read": [
+        "Field crowded **Jaxson Dart** at 68.7% (26.6 fpts) \u2014 the chalk to consider fading.",
+        "**Dak Prescott + Jaxson Dart** were together in 44.0% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**George Pickens** was a fish trap: 65.0% of the fish, only 15.8% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 135.20001,
+      "winner_handle": "tajohn53",
+      "roster": [
+        {
+          "name": "Jaxson Dart",
+          "own": 68.72,
+          "fpts": 26.6
+        },
+        {
+          "name": "Dak Prescott",
+          "own": 68.35,
+          "fpts": 15.4
+        },
+        {
+          "name": "Javonte Williams",
+          "own": 57.94,
+          "fpts": 24.2
+        },
+        {
+          "name": "Cam Skattebo",
+          "own": 39.85,
+          "fpts": 14.1
+        },
+        {
+          "name": "Isaiah Likely",
+          "own": 38.33,
+          "fpts": 27.8
+        },
+        {
+          "name": "Devin Singletary",
+          "own": 3.1999999999999997,
+          "fpts": 13.8
+        }
+      ],
+      "avg_own": 46.1,
+      "n_low_own": 1,
+      "carrier": {
+        "name": "Devin Singletary",
+        "own": 3.1999999999999997,
+        "fpts": 13.8
+      },
+      "expected_dupes": 2.53
+    },
+    "near_miss": {
+      "salary_checked": false,
+      "position_checked": false,
+      "blocked_swap": null,
+      "gradable": true,
+      "won": false,
+      "your_points": 93.25,
+      "winner_points": 135.20001,
+      "gap": 42.0,
+      "your_percentile": 36.2,
+      "n_shared": 3,
+      "shared": [
+        "Cam Skattebo",
+        "Javonte Williams",
+        "Jaxson Dart"
+      ],
+      "your_uniques": [
+        {
+          "name": "CeeDee Lamb",
+          "fpts": 15.4,
+          "salary": null,
+          "position": null
+        },
+        {
+          "name": "Dominic Zvada",
+          "fpts": 4.0,
+          "salary": null,
+          "position": null
+        },
+        {
+          "name": "Theo Johnson",
+          "fpts": 1.9,
+          "salary": null,
+          "position": null
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Isaiah Likely",
+          "fpts": 27.8,
+          "salary": null,
+          "position": null
+        },
+        {
+          "name": "Dak Prescott",
+          "fpts": 15.4,
+          "salary": null,
+          "position": null
+        },
+        {
+          "name": "Devin Singletary",
+          "fpts": 13.8,
+          "salary": null,
+          "position": null
+        }
+      ],
+      "best_swap": {
+        "out": "Theo Johnson",
+        "in": "Isaiah Likely",
+        "gain": 25.9,
+        "would_have_won": false
+      },
+      "swaps_needed": null
+    }
+  }
+]

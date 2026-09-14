@@ -1,0 +1,48 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 9,
+    "leverage_capture": 0.0,
+    "leverage_hit": [],
+    "leverage_missed": [
+      "Devin Singletary",
+      "Emari Demercado"
+    ],
+    "overperformer_capture": 0.4,
+    "overperformer_hit": [
+      "Jaxson Dart",
+      "Javonte Williams"
+    ],
+    "underperformer_exposure": 0.4,
+    "underperformer_hit": [
+      "George Pickens",
+      "Dominic Zvada"
+    ]
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 2,
+    "avg_ratio": 0.95,
+    "best_percentile": 36.2,
+    "median_percentile": 77.2,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 75.600006,
+        "proj_total": 88.5,
+        "ratio": 0.854,
+        "percentile": 77.2,
+        "avg_own": 39.41
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 93.25,
+        "proj_total": 89.1,
+        "ratio": 1.047,
+        "percentile": 36.2,
+        "avg_own": 40.01
+      }
+    ]
+  }
+}

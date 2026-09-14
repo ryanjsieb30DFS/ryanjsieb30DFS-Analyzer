@@ -44,3 +44,44 @@ This file is a running log of distilled process lessons from post-contest autops
 | **Okay** | 18 | 6.4 | 27.0 |
 | **Fade** | 5 | 1.5 | 3.9 |
 - ✅ Tier ordering HELD — higher tiers outscored lower ones on average.
+
+
+## 2026-09-14 18:38 — NFL Showdown (contest-standings-195526160 2.csv)
+- Entries: 1,960
+- Winning score: 135.2
+- Cash line (top 20%): 99.8
+- My entries: 1 · best rank 1,514/1,960 (top 77.2%)
+- Winners (top 20): avg own 47.03% vs mine 39.41% · sub-10% plays/lineup 0.6 vs mine 1.0 · salary Δ +505
+- Overperformed proj: Isaiah Likely, Devin Singletary, Jaxson Dart
+- Underperformed proj: George Pickens, Brandon Aubrey, Jake Ferguson
+- Slate-defining plays: Devin Singletary (13.8 pts @ 3.2%), Emari Demercado (0.7 pts @ 14.7%)
+
+
+## 2026-09-14 18:38 — NFL Showdown (contest-standings-195642931 2.csv)
+- Entries: 1,902
+- Winning score: 135.2
+- Cash line (top 20%): 99.8
+- My entries: 1 · best rank 689/1,902 (top 36.2%)
+- Winners (top 20): avg own 45.64% vs mine 40.01% · sub-10% plays/lineup 0.75 vs mine 0.0 · salary Δ +1,115
+- Overperformed proj: Isaiah Likely, Devin Singletary, Jaxson Dart
+- Underperformed proj: George Pickens, Brandon Aubrey, Jake Ferguson
+- Slate-defining plays: Devin Singletary (13.8 pts @ 3.2%)
+
+### Strategy adherence — did you follow your own strategy? (2 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Brandon Aubrey** was in 0 of 1 lineups in contest-standings-195526160 2.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Brandon Aubrey** was in 0 of 1 lineups in contest-standings-195642931 2.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Ryan Flournoy** was in 0 of 1 lineups in contest-standings-195526160 2.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Ryan Flournoy** was in 0 of 1 lineups in contest-standings-195642931 2.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Tyrone Tracy Jr.** was in 0 of 1 lineups in contest-standings-195526160 2.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- ⚠️ UNDERWEIGHT call zeroed in one contest: **Tyrone Tracy Jr.** was in 0 of 1 lineups in contest-standings-195642931 2.csv — underweight means at least one bullet in EACH contest, not one across the whole set.
+- Leverage candidates rostered somewhere: **1 of 12**.
+
+### Player-pool tier calibration (29 of 29 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 3 | 22.1 | 26.6 |
+| **Good** | 5 | 15.2 | 27.8 |
+| **Okay** | 16 | 3.2 | 13.8 |
+| **Fade** | 5 | 0.8 | 2.2 |
+- ✅ Tier ordering HELD — higher tiers outscored lower ones on average.

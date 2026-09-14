@@ -1,0 +1,150 @@
+[
+  {
+    "slug": "nfl_sd",
+    "slate_name": "NFL Showdown contest-standings-195526160 2 2026-09-14",
+    "contest_id": "195526160",
+    "field_size": 1960,
+    "schema_version": 1,
+    "generated_at": "2026-09-14 18:36",
+    "user": {
+      "n_entries": 1,
+      "best_points": 75.600006,
+      "avg_points": 75.6,
+      "best_rank": 1514
+    },
+    "pool": {
+      "n": 10000,
+      "avg_actual": 78.83,
+      "median_actual": 78.4,
+      "max_actual": 135.8,
+      "n_beating_best_entry": 5674,
+      "pct_beating_best_entry": 56.74,
+      "picking_edge_points": -3.23
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 10000,
+        "spearman_vs_actual": 0.145,
+        "top100_avg_actual": 85.5,
+        "pool_avg_actual": 78.83
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 10000,
+        "spearman_vs_actual": 0.216,
+        "top100_avg_actual": 87.14,
+        "pool_avg_actual": 78.83
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 10000,
+        "spearman_vs_actual": 0.079,
+        "top100_avg_actual": 80.11,
+        "pool_avg_actual": 78.83
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 10000,
+        "spearman_vs_actual": 0.278,
+        "top100_avg_actual": 94.05,
+        "pool_avg_actual": 78.83
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 1514,
+        "Points": 75.6,
+        "Lineup": "CPT Javonte Williams FLEX Dak Prescott FLEX George Pickens FLEX Cam Skattebo FLEX Dominic Zvada FLEX Odell Beckham Jr.",
+        "matched": true,
+        "pre_sim_roi_pct": 2.5,
+        "pre_sim_top1_pct": 1.05,
+        "pre_sim_win_pct": 0.005,
+        "pre_sim_cash_pct": 30.75,
+        "post_roi_pct": 25.16,
+        "post_top1_pct": 1.79,
+        "post_win_pct": 0.06,
+        "post_cash_pct": 29.35
+      }
+    ]
+  },
+  {
+    "slug": "nfl_sd",
+    "slate_name": "NFL Showdown contest-standings-195642931 2 2026-09-14",
+    "contest_id": "195642931",
+    "field_size": 1902,
+    "schema_version": 1,
+    "generated_at": "2026-09-14 18:35",
+    "user": {
+      "n_entries": 1,
+      "best_points": 93.25,
+      "avg_points": 93.25,
+      "best_rank": 689
+    },
+    "pool": {
+      "n": 10000,
+      "avg_actual": 78.83,
+      "median_actual": 78.4,
+      "max_actual": 135.8,
+      "n_beating_best_entry": 1871,
+      "pct_beating_best_entry": 18.71,
+      "picking_edge_points": 14.42
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 10000,
+        "spearman_vs_actual": 0.143,
+        "top100_avg_actual": 86.77,
+        "pool_avg_actual": 78.83
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 10000,
+        "spearman_vs_actual": 0.216,
+        "top100_avg_actual": 87.69,
+        "pool_avg_actual": 78.83
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 10000,
+        "spearman_vs_actual": 0.089,
+        "top100_avg_actual": 81.5,
+        "pool_avg_actual": 78.83
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 10000,
+        "spearman_vs_actual": 0.277,
+        "top100_avg_actual": 94.56,
+        "pool_avg_actual": 78.83
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30",
+        "Rank": 689,
+        "Points": 93.25,
+        "Lineup": "CPT Cam Skattebo FLEX CeeDee Lamb FLEX Jaxson Dart FLEX Javonte Williams FLEX Dominic Zvada FLEX Theo Johnson",
+        "matched": true,
+        "pre_sim_roi_pct": 31.9,
+        "pre_sim_top1_pct": 1.78,
+        "pre_sim_win_pct": 0.07,
+        "pre_sim_cash_pct": 33.26,
+        "post_roi_pct": 19.63,
+        "post_top1_pct": 1.72,
+        "post_win_pct": 0.052,
+        "post_cash_pct": 29.92
+      }
+    ]
+  }
+]

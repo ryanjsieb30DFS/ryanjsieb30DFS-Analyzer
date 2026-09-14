@@ -1,0 +1,77 @@
+{
+  "field": 1960,
+  "anchors": [
+    "jaxson dart",
+    "dak prescott",
+    "javonte williams"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 4,
+    "own_per_slot": 42.0,
+    "leverage_pct": 25.0,
+    "anchor_exposure": 0.667,
+    "anchor_exposure_by_player": {
+      "jaxson dart": 0.75,
+      "dak prescott": 1.0,
+      "javonte williams": 0.25
+    },
+    "max_overlap": 4,
+    "unique_pct": 100.0,
+    "best_pctile": 71.07,
+    "median_pctile": 80.26
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 39.4,
+    "leverage_pct": 0.0,
+    "anchor_exposure": 0.667,
+    "anchor_exposure_by_player": {
+      "jaxson dart": 0.0,
+      "dak prescott": 1.0,
+      "javonte williams": 1.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 77.24,
+    "median_pctile": 77.24
+  },
+  "deltas": [
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 0.0,
+      "shark": 25.0,
+      "delta": -25.0
+    },
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 39.4,
+      "shark": 42.0,
+      "delta": -2.6
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.667,
+      "shark": 0.667,
+      "delta": 0.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "nfl_sd",
+  "sport": "nfl_showdown"
+}

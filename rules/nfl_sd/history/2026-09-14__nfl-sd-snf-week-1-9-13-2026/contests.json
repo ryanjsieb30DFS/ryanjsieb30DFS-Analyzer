@@ -1,0 +1,118 @@
+{
+  "contests": [
+    {
+      "name": "NFL Showdown $10K Dimeback [Single Entry]",
+      "type": "SE",
+      "field_size": 1960,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 6.0,
+      "prize_pool": 10000,
+      "payout_shape": "Top-heavy",
+      "id": "81f7d47f"
+    },
+    {
+      "name": "NFL Showdown $8K Huddle [Single Entry]",
+      "type": "SE",
+      "field_size": 1902,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 5.0,
+      "prize_pool": 8000,
+      "payout_ladder": [
+        [
+          1,
+          1,
+          750.0
+        ],
+        [
+          2,
+          2,
+          300.0
+        ],
+        [
+          3,
+          3,
+          200.0
+        ],
+        [
+          4,
+          4,
+          150.0
+        ],
+        [
+          5,
+          5,
+          125.0
+        ],
+        [
+          6,
+          7,
+          100.0
+        ],
+        [
+          8,
+          10,
+          75.0
+        ],
+        [
+          11,
+          13,
+          60.0
+        ],
+        [
+          14,
+          16,
+          55.0
+        ],
+        [
+          17,
+          19,
+          50.0
+        ],
+        [
+          20,
+          22,
+          45.0
+        ],
+        [
+          23,
+          25,
+          40.0
+        ],
+        [
+          26,
+          30,
+          35.0
+        ],
+        [
+          31,
+          40,
+          30.0
+        ],
+        [
+          41,
+          55,
+          25.0
+        ],
+        [
+          56,
+          90,
+          20.0
+        ],
+        [
+          91,
+          156,
+          15.0
+        ],
+        [
+          157,
+          432,
+          10.0
+        ]
+      ],
+      "payout_shape": "Top-heavy",
+      "id": "7aaccdc6"
+    }
+  ]
+}

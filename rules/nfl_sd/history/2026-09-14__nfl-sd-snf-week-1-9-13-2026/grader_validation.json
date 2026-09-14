@@ -1,0 +1,35 @@
+{
+  "gradable": true,
+  "n_lineups": 2,
+  "lineups": [
+    {
+      "players": [
+        "Cam Skattebo",
+        "Dak Prescott",
+        "Dominic Zvada",
+        "George Pickens",
+        "Javonte Williams",
+        "Odell Beckham Jr."
+      ],
+      "percentile": 77.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cam Skattebo",
+        "CeeDee Lamb",
+        "Dominic Zvada",
+        "Javonte Williams",
+        "Jaxson Dart",
+        "Theo Johnson"
+      ],
+      "percentile": 36.2,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    77.2,
+    36.2
+  ]
+}

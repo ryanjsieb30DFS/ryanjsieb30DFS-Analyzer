@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "slug": "nfl_sd",
+  "contests": [
+    {
+      "date": "2026-09-14",
+      "contest": "NFL Showdown $10K Dimeback [Single Entry]",
+      "winning_score": 135.2,
+      "pool_n": 10000,
+      "pool_max": 135.8,
+      "pool_held_winner": true,
+      "n_pool_ge_win": 1,
+      "pick_actual": 75.6,
+      "pick_won": false,
+      "pick_pool_pctile": 43.3,
+      "pick_source": "entered",
+      "n_entered": 1
+    },
+    {
+      "date": "2026-09-14",
+      "contest": "NFL Showdown $8K Huddle [Single Entry]",
+      "winning_score": 135.2,
+      "pool_n": 10000,
+      "pool_max": 135.8,
+      "pool_held_winner": true,
+      "n_pool_ge_win": 1,
+      "pick_actual": 93.2,
+      "pick_won": false,
+      "pick_pool_pctile": 81.2,
+      "pick_source": "entered",
+      "n_entered": 1
+    }
+  ],
+  "note": null,
+  "generated_at": "2026-09-14 18:38"
+}

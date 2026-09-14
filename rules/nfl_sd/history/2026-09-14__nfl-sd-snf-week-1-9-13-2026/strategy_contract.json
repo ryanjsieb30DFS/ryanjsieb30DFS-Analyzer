@@ -1,0 +1,405 @@
+{
+  "generated_at": "2026-09-13 19:36",
+  "slug": "nfl_sd",
+  "slate": "NFL Showdown \u2014 Cowboys at Giants (Sunday Night, 9/13/26)",
+  "calls": [
+    {
+      "name": "Brandon Aubrey",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Ryan Flournoy",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Tyrone Tracy Jr.",
+      "verdict": "underweight"
+    }
+  ],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "KaVontae Turpin",
+      "own": 8.3
+    },
+    {
+      "name": "Darnell Mooney",
+      "own": 9.8
+    },
+    {
+      "name": "Odell Beckham Jr.",
+      "own": 8.5
+    },
+    {
+      "name": "Devin Singletary",
+      "own": 6.9
+    },
+    {
+      "name": "Emari Demercado",
+      "own": 8.3
+    },
+    {
+      "name": "Brevyn Spann-Ford",
+      "own": 3.4
+    },
+    {
+      "name": "Hunter Luepke",
+      "own": 2.5
+    },
+    {
+      "name": "Luke Schoonmaker",
+      "own": 1.8
+    },
+    {
+      "name": "Jonathan Mingo",
+      "own": 0.8
+    },
+    {
+      "name": "Braxton Berrios",
+      "own": 0.7
+    },
+    {
+      "name": "Chris Manhertz",
+      "own": 0.4
+    },
+    {
+      "name": "Patrick Ricard",
+      "own": 0.4
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Dak Prescott",
+        "Jaxson Dart"
+      ],
+      "joint_pct": 42.0
+    },
+    {
+      "players": [
+        "Dak Prescott",
+        "Javonte Williams"
+      ],
+      "joint_pct": 36.8
+    },
+    {
+      "players": [
+        "Jaxson Dart",
+        "Javonte Williams"
+      ],
+      "joint_pct": 35.0
+    },
+    {
+      "players": [
+        "Dak Prescott",
+        "CeeDee Lamb"
+      ],
+      "joint_pct": 34.6
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Dak Prescott",
+        "Jaxson Dart"
+      ]
+    },
+    {
+      "players": [
+        "Javonte Williams",
+        "CeeDee Lamb"
+      ]
+    },
+    {
+      "players": [
+        "Cam Skattebo",
+        "Malik Nabers"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "lineup_rules": [
+    {
+      "rule": "at_most",
+      "why": "twins, -0.33 correlated, one bet (step 3)",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "CeeDee Lamb",
+        "George Pickens"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "K + DST pieces two or fewer (step 7)",
+      "from": "strategy",
+      "count": 2,
+      "players": [
+        "Brandon Aubrey",
+        "Dominic Zvada",
+        "Cowboys",
+        "Giants"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never two kickers (framework shape fact)",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Brandon Aubrey",
+        "Dominic Zvada"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never three min-priced punts (step 4)",
+      "from": "strategy",
+      "count": 2,
+      "players": [
+        "Devin Singletary",
+        "Emari Demercado",
+        "Brevyn Spann-Ford",
+        "Hunter Luepke",
+        "Luke Schoonmaker",
+        "Jonathan Mingo",
+        "Braxton Berrios",
+        "Chris Manhertz",
+        "Patrick Ricard"
+      ]
+    },
+    {
+      "rule": "salary_max",
+      "why": "leave at least $500 unspent (step 4)",
+      "from": "strategy",
+      "value": 49500
+    }
+  ],
+  "portfolio_rules": [
+    {
+      "rule": "min_entries_with",
+      "why": "Anchor-Equivalence: one entry runs the alternative twin",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "George Pickens"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT, judged across both entries",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Brandon Aubrey"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT, judged across both entries",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Ryan Flournoy"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT, judged across both entries",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Tyrone Tracy Jr."
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "LEAN FADE: mostly avoid across the set",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Giants"
+      ]
+    }
+  ],
+  "build_rules": {
+    "present": true,
+    "errors": []
+  },
+  "board": [
+    {
+      "name": "Javonte Williams",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Jaxson Dart",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Dak Prescott",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "CeeDee Lamb",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "George Pickens",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Cam Skattebo",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Malik Nabers",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Isaiah Likely",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Jake Ferguson",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Dominic Zvada",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "K"
+    },
+    {
+      "name": "Theo Johnson",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Cowboys",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Brandon Aubrey",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "K"
+    },
+    {
+      "name": "KaVontae Turpin",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Ryan Flournoy",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Malachi Fields",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Tyrone Tracy Jr.",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Darnell Mooney",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Emari Demercado",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Brevyn Spann-Ford",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "Giants",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Odell Beckham Jr.",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Devin Singletary",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Hunter Luepke",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Luke Schoonmaker",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Jonathan Mingo",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Braxton Berrios",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Chris Manhertz",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Patrick Ricard",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    }
+  ]
+}

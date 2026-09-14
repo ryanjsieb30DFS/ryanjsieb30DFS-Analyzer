@@ -22,3 +22,4 @@
 {"own_per_slot": 6.3, "leverage_pct": 100.0, "anchor_exposure": 0.5, "unique_pct": 100.0, "date": "2026-09-11", "slug": "nfl_sd", "sport": "nfl_showdown", "contest_type": "SE", "contest_id": "195517295", "n_entries": 2}
 {"own_per_slot": 3.1, "leverage_pct": 100.0, "anchor_exposure": 0.778, "unique_pct": 100.0, "date": "2026-09-13", "slug": "nfl_classic", "sport": "nfl", "contest_type": "SE", "contest_id": "195548784", "n_entries": 3}
 {"own_per_slot": 19.6, "leverage_pct": 66.7, "anchor_exposure": 0.778, "unique_pct": 100.0, "date": "2026-09-13", "slug": "nfl_classic", "sport": "nfl", "contest_type": "SE", "contest_id": "195548784", "n_entries": 3}
+{"own_per_slot": 42.0, "leverage_pct": 25.0, "anchor_exposure": 0.667, "unique_pct": 100.0, "date": "2026-09-14", "slug": "nfl_sd", "sport": "nfl_showdown", "contest_type": "SE", "contest_id": "195526160", "n_entries": 4}
