@@ -56,6 +56,16 @@ def parse_pool_tiers(md: str) -> list[dict]:
             continue
         name = cells[name_i].strip("* ")
         tier_raw = cells[tier_i].strip("*` ")
+        if tier_raw.lower() == "tier":
+            # A second table's header row pasted with NO blank line after the
+            # previous table (NFL Classic auto-out tables, 9/13/26) — re-arm on
+            # it instead of recording a bogus "Player / Tier" player.
+            lowered = [c.lower() for c in cells]
+            header_cols, tier_i = cells, lowered.index("tier")
+            name_i = (lowered.index("player") if "player" in lowered
+                      else lowered.index("fighter") if "fighter" in lowered else 1)
+            pos_i = lowered.index("pos") if "pos" in lowered else None
+            continue
         # `· Leverage` is orthogonal to quality — split it off the tier.
         parts = re.split(r"\s*·\s*", tier_raw)
         tier = parts[0].strip()

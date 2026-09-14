@@ -111,3 +111,33 @@ def test_scored_pool_raw_returns_unreduced_rows(tmp_path):
     reduced = scored_pool(tmp_path / "sim", "mma_se", "42")
     assert len(reduced) == 1                      # None-actual row dropped
     assert scored_pool_raw(tmp_path / "sim", "mma_se", "999") is None
+
+
+def test_picker_check_falls_back_to_entered_lineups(tmp_path):
+    """No lineup_selection.json (picks made in the Sim / by hand) -> the check
+    grades the ENTERED lineups from autopsy.json against the Sim's scored pool
+    instead of reporting 'not measurable' (9/13/26)."""
+    import gzip, json
+    from src import picker_check as pc
+    hist = tmp_path / "hist"; hist.mkdir()
+    (hist / "results.json").write_text(json.dumps({
+        "date": "2026-09-13",
+        "contests": [{"name": "NFL $25K Fair Catch [Single Entry]",
+                      "source_file": "contest-standings-195548784.csv"}]}))
+    (hist / "autopsy.json").write_text(json.dumps([{
+        "contest_id": "195548784", "winning_score": 228.56,
+        "user_lineups": [{"points": 128.86, "players": ["A", "B"]}]}]))
+    sim = tmp_path / "sim"; sp = sim / "rules" / "nfl_classic" / "scored_pools"; sp.mkdir(parents=True)
+    rows = [{"players": "A, B", "actual_score": 100.0},
+            {"players": "C, D", "actual_score": 150.0},
+            {"players": "E, F", "actual_score": 230.0}]
+    with gzip.open(sp / "NFL_Classic_contest_standings_195548784_x__abc.json.gz", "wt") as f:
+        f.write(json.dumps(rows))
+    data = pc.check_history_dir(hist, "nfl_classic", sim_root=sim)
+    assert data["note"] is None and len(data["contests"]) == 1
+    r = data["contests"][0]
+    assert r["pick_source"] == "entered" and r["pick_actual"] == 128.9
+    assert r["pool_held_winner"] is True and r["n_pool_ge_win"] == 1
+    assert r["pick_pool_pctile"] == round(100.0 * 1 / 3, 1)
+    md = pc.check_md(data)
+    assert "ENTERED" in md and "Fair Catch" in md

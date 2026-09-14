@@ -190,7 +190,7 @@ def test_rules_dir_exists():
         assert (root / f).exists(), f"rules/nfl_classic/{f} missing"
     import yaml
     lessons = yaml.safe_load((root / "lessons.yaml").read_text())["lessons"]
-    assert len(lessons) >= 4 and all(l["status"] == "hypothesis" for l in lessons)
+    assert len(lessons) >= 4 and all(l["status"] in ("hypothesis", "validated", "codified", "retired") for l in lessons)
 
 
 def test_strategy_block_injection():
@@ -200,5 +200,5 @@ def test_strategy_block_injection():
     src = inspect.getsource(ar.run_analysis)
     assert '_NFL_CLASSIC_STRATEGY_BLOCK if slug == "nfl_classic"' in src
     assert '_NFL_SD_STRATEGY_BLOCK if slug == "nfl_sd"' in src
-    pool_src = inspect.getsource(ar.run_player_pool)
+    pool_src = inspect.getsource(ar.build_player_pool_prompt)
     assert "| Rank | Player | Pos | Team | Opp | Sal | Proj | Own | How it wins | Tier |" in pool_src

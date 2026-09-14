@@ -138,13 +138,20 @@ def slate_rows(hist: Path, slug: str, sim_root: Path) -> list[dict]:
     score, no scored pool) are skipped — never guessed at."""
     hist = Path(hist)
     try:
-        sel = json.loads((hist / "lineup_selection.json").read_text())
         res = json.loads((hist / "results.json").read_text())
         autopsy = json.loads((hist / "autopsy.json").read_text())
     except (OSError, json.JSONDecodeError):
         return []
+    try:
+        sel = json.loads((hist / "lineup_selection.json").read_text())
+    except (OSError, json.JSONDecodeError):
+        sel = None
     if not isinstance(sel, dict) or sel.get("schema_version") != 2:
-        return []
+        # No Analyzer pick was saved this slate (9/13/26: the picks were made
+        # in the Sim / by hand). Grade what was actually ENTERED instead —
+        # the entered lineups are in autopsy.json — so the pool-vs-pick read
+        # still happens. The row says which it measured.
+        return _entered_rows(res, autopsy, slug, sim_root)
     win_by_id = {}
     for r in autopsy if isinstance(autopsy, list) else []:
         try:
@@ -210,6 +217,46 @@ def slate_rows(hist: Path, slug: str, sim_root: Path) -> list[dict]:
     return out
 
 
+def _entered_rows(res: dict, autopsy, slug: str, sim_root: Path) -> list[dict]:
+    """Fallback rows when no Analyzer pick exists: the user's ENTERED lineups
+    (from the logged standings) against the Sim's scored pool. Same shape as
+    the pick rows plus `pick_source = "entered"`; slice legs are absent."""
+    out = []
+    for r in autopsy if isinstance(autopsy, list) else []:
+        cid = str(r.get("contest_id") or "")
+        try:
+            win = float(r.get("winning_score"))
+        except (TypeError, ValueError):
+            continue
+        entered = [float(u.get("points")) for u in (r.get("user_lineups") or [])
+                   if u.get("points") is not None]
+        pool = scored_pool(sim_root, slug, cid) if cid else None
+        if not entered or not pool:
+            continue
+        pool_scores = [a for _rk, a in pool]
+        best = max(entered)
+        label = None
+        for c in res.get("contests") or []:
+            if cid and cid in str(c.get("source_file") or ""):
+                label = c.get("name")
+        out.append({
+            "date": str(res.get("date") or ""),
+            "contest": str(label or r.get("source_file") or cid),
+            "winning_score": round(win, 1),
+            "pool_n": len(pool_scores),
+            "pool_max": round(max(pool_scores), 1),
+            "pool_held_winner": max(pool_scores) >= win,
+            "n_pool_ge_win": sum(1 for a in pool_scores if a >= win),
+            "pick_actual": round(best, 1),
+            "pick_won": best >= win,
+            "pick_pool_pctile": round(
+                100.0 * sum(1 for a in pool_scores if a < best) / len(pool_scores), 1),
+            "pick_source": "entered",
+            "n_entered": len(entered),
+        })
+    return out
+
+
 def check_history_dir(hist_dir: Path, slug: str,
                       sim_root: Path | None = None) -> dict:
     """The picker check for ONE archived slate, ready to persist as
@@ -261,11 +308,15 @@ def check_md(data: dict) -> str:
             bits.append("No archived table for this contest — the slice leg "
                         "is unmeasurable here (tables archive with every "
                         "slate from 8/30/26 on).")
+        _who = ("Your best ENTERED lineup" if r.get("pick_source") == "entered"
+                else "The pick")
         bits.append(
-            f"The pick scored {r['pick_actual']:g}"
+            f"{_who} scored {r['pick_actual']:g}"
             + (" — it WON the contest." if r["pick_won"] else
                f", beating {r['pick_pool_pctile']:g}% of the pool it was "
-               "chosen from."))
+               "chosen from.")
+            + (" (No Analyzer pick was saved this slate, so this grades what "
+               "you entered.)" if r.get("pick_source") == "entered" else ""))
         if r.get("n_slice_above_pick"):
             bits.append(
                 f"⚠️ {r['n_slice_above_pick']} row(s) ON THE SHOWN TABLE "

@@ -22,6 +22,22 @@ from src.bundle import build_bundle
 _REPO_ROOT = Path(__file__).parent.parent
 _TIMEOUT_S = 1200  # generous ceiling for reading many article PDFs/images
 
+# NFL Classic pool auto-out floor (9/13/26). The Classic projections file
+# carries ~340 players, and the headless pool run used to demand a table row
+# PLUS a numbered write-up for every one of them. Inside the 20-minute
+# `_TIMEOUT_S` the 9/13 run finished QB, RB and the WR table, timed out, and
+# the rollback left the user with nothing. Players projected under this floor
+# are OUT of the pool by rule: the prompt hands Claude a pre-rendered `Fade`
+# table row for each (so every downstream parser still sees them) and Claude
+# neither ranks nor writes them up. Strategy-designated fades are never
+# auto-outed — they stay in the ranked set so the board says why they are out.
+# Golf / MMA / NASCAR / NFL Showdown pools (30–150 players) are untouched.
+NFL_CLASSIC_POOL_MIN_PROJ = 3.0
+NFL_CLASSIC_AUTO_OUT_PHRASE = f"Under {NFL_CLASSIC_POOL_MIN_PROJ:g} projected points"
+NFL_CLASSIC_POOL_COLUMNS = ("| Rank | Player | Pos | Team | Opp | Sal | Proj | Own "
+                            "| How it wins | Tier |")
+_NFL_CLASSIC_POOL_POSITIONS = ("QB", "RB", "WR", "TE", "DST")
+
 
 def _claude_binary() -> str | None:
     """Resolve the claude CLI path; Streamlit's PATH may not include ~/.local/bin."""
@@ -1018,11 +1034,76 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
     if full.empty:
         return {"ok": False, "error": "Player pool is empty — check the loaded projections.",
                 "duration_s": 0.0, "cost_usd": None}
+    out_path = _REPO_ROOT / "data" / "player_pool" / f"{slug}.md"
+    bundle_path = build_bundle(slug, contest_label, sport)
+    prompt = build_player_pool_prompt(full, removed, strategy_note, slug, contest_label,
+                                      sport, out_path, bundle_path)
+    return _run_claude(prompt, out_path)
+
+
+def split_nfl_classic_pool(full, removed: list | None = None):
+    """(ranked, auto_out) split of the NFL Classic pool frame.
+
+    `auto_out` = players projected under `NFL_CLASSIC_POOL_MIN_PROJ` (or with
+    no projection) who are NOT strategy-designated fades; they leave the pool
+    by rule and Claude never writes them up. Everyone else is `ranked`. Both
+    keep `full`'s column set and row order."""
+    import pandas as pd
+    from src.autopsy import _norm_name
+    if full is None or full.empty:
+        return full, full
+    proj = pd.to_numeric(full.get("proj_points"), errors="coerce")
+    fade_keys = {_norm_name(str(n)) for n in (removed or [])}
+    is_fade = full["name"].astype(str).map(lambda n: _norm_name(n) in fade_keys)
+    low = proj.isna() | (proj < NFL_CLASSIC_POOL_MIN_PROJ)
+    out_mask = low & ~is_fade
+    return full[~out_mask].reset_index(drop=True), full[out_mask].reset_index(drop=True)
+
+
+def _nfl_classic_auto_out_tables(auto_out) -> dict:
+    """{pos: markdown table} of the auto-out players, one ready-to-paste table
+    per position in the ranked-board column layout, Tier `Fade`. Positions with
+    nobody auto-outed are absent."""
+    from src.nfl_classic_defs import normalize_position
+    sep = "|" + "---|" * (NFL_CLASSIC_POOL_COLUMNS.count("|") - 1)
+    rows_by_pos: dict = {}
+    if auto_out is None or auto_out.empty:
+        return {}
+    for _, r in auto_out.iterrows():
+        pos = normalize_position(str(r.get("position") or "")) or "?"
+        own = f"{r['ownership']:.0f}%" if r.get("ownership") is not None and r["ownership"] == r["ownership"] else "n/a"
+        proj = f"{r['proj_points']:.1f}" if r.get("proj_points") is not None and r["proj_points"] == r["proj_points"] else "n/a"
+        sal = f"${int(r['salary']):,}" if r.get("salary") is not None and r["salary"] == r["salary"] else "n/a"
+        team = str(r.get("team") or "?")
+        opp = str(r.get("opponent") or "") if r.get("opponent") == r.get("opponent") else ""
+        rows_by_pos.setdefault(pos, []).append(
+            f"| out | {r['name']} | {pos} | {team} | {opp} | {sal} | {proj} | {own} "
+            f"| {NFL_CLASSIC_AUTO_OUT_PHRASE} | Fade |")
+    order = list(_NFL_CLASSIC_POOL_POSITIONS) + [p for p in rows_by_pos if p not in _NFL_CLASSIC_POOL_POSITIONS]
+    return {pos: "\n".join([NFL_CLASSIC_POOL_COLUMNS, sep] + rows_by_pos[pos])
+            for pos in order if pos in rows_by_pos}
+
+
+def build_player_pool_prompt(full, removed: list, strategy_note: str, slug: str,
+                             contest_label: str, sport: str, out_path, bundle_path) -> str:
+    """The headless player-pool prompt, as a pure function of its inputs (so
+    tests can inspect it without shelling out). `full` = the build_pool frame,
+    `removed` = the strategy's fade names, `strategy_note` = the sentence
+    pointing Claude at the written strategy (or saying there is none)."""
     is_mma = sport == "mma"
     # Slug-level split (9/12/26): Showdown boards carry the captain-slot
     # columns; Classic boards carry position/team/opponent only.
     is_nfl_sd = slug == "nfl_sd"
     is_nfl_classic = sport == "nfl" and not is_nfl_sd
+
+    # NFL Classic (9/13/26): split the fixed list into the RANKED SET Claude
+    # tables + writes up and the AUTO-OUT set that leaves the pool by rule.
+    auto_out_tables: dict = {}
+    n_auto_out = 0
+    if is_nfl_classic:
+        full, auto_out = split_nfl_classic_pool(full, removed)
+        auto_out_tables = _nfl_classic_auto_out_tables(auto_out)
+        n_auto_out = 0 if auto_out is None else len(auto_out)
 
     # The exact playable set, as a fixed table Claude must rank without adding/dropping.
     def _row(r):
@@ -1061,18 +1142,36 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
 
     player_lines = "\n".join(_row(r) for _, r in full.iterrows())
     removed_note = (", ".join(removed)) if removed else "none"
-    out_path = _REPO_ROOT / "data" / "player_pool" / f"{slug}.md"
-    bundle_path = build_bundle(slug, contest_label, sport)
+
+    auto_out_block = ""
+    if is_nfl_classic and n_auto_out:
+        tables = "\n\n".join(f"### {pos} — out of the pool (not written up)\n{tbl}"
+                              for pos, tbl in auto_out_tables.items())
+        auto_out_block = (
+            f"AUTO-OUT — NOT PART OF THE RANKED SET: {n_auto_out} more players project under "
+            f"{NFL_CLASSIC_POOL_MIN_PROJ:g} DraftKings points and are OUT of the pool by rule. "
+            f"Do NOT rank them, do NOT write them up, do NOT mention them anywhere else in the "
+            f"file. Under each position's ranked table (after that position's numbered "
+            f"write-ups), leave ONE BLANK LINE and then paste that position's block below "
+            f"EXACTLY as written — heading, header row, separator row, and every player row, "
+            f"same columns, Tier `Fade` — so the pool parser still sees every player. Copy, "
+            f"do not retype or reorder:\n\n{tables}\n\n")
 
     prompt = (
         f"Write the {contest_label} PLAYER POOL — a ranked, annotated board of the rosterable "
         f"players, for a GPP hand-builder. **This board IS what the user builds lineups from** — the "
         f"top tiers (Core/Good/Okay) are the build set, the Fade tier is what to avoid. Player "
         f"analysis + ranking is the priority; make every write-up a sharp, buildable read.\n\n"
-        f"The pool membership is FIXED — these {len(full)} players, and ONLY these. Do NOT add, "
-        f"drop, or rename any player. The strategy DESIGNATES these as fades — you MUST give each of "
+        + (f"The RANKED SET is FIXED — these {len(full)} players, and ONLY these (the auto-out "
+           f"players listed further down are handled separately). Do NOT add, drop, or "
+           f"rename any player. "
+           if is_nfl_classic else
+           f"The pool membership is FIXED — these {len(full)} players, and ONLY these. Do NOT add, "
+           f"drop, or rename any player. ")
+        + f"The strategy DESIGNATES these as fades — you MUST give each of "
         f"them the `Fade` tier (they STAY on the board, ranked at the bottom): {removed_note}.\n"
         f"{player_lines}\n\n"
+        + auto_out_block +
         f"Read for grounding: the bundle at `{bundle_path}` and — this is MANDATORY — EVERY single "
         f"slate-data file it lists under `articles/{slug}/`. Read ALL of them, no exceptions: article "
         f"PDFs, notes (.txt/.md), data CSVs (read as text tables), AND every photo/screenshot/image "
@@ -1140,14 +1239,22 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
            "SHORT PLAIN-ENGLISH phrase (~10–15 words) a non-expert reads instantly — NEVER jargon "
            "codes like 'coffin +7.6' or ranking shorthand — and Tier carries any `· Leverage` "
            "label.\n")
-        + ("(3) Under that position's table, a numbered list of that position's write-ups, "
-           "best to worst (rank numbers restart at 1 in each section). "
+        + ("(3) Under that position's table, a numbered list of write-ups for that position's "
+           "**Core / Good / Okay players ONLY**, best to worst (rank numbers restart at 1 in "
+           "each section). **Fade-tier players get NO numbered entry** — their table row is "
+           "their whole write-up: the 'How it wins' cell says in 12 words or fewer why they "
+           "are OUT this week (e.g. 'Split backfield, no goal-line work, priced like a "
+           "starter'). (4) Then that position's pasted out-of-the-pool table, if it has one. "
            if is_nfl_classic else
            "- THEN a single continuous numbered list (the detailed write-ups), best to worst. ")
         + "Each entry LEADS WITH THE DATA, tier LAST as a one-word read:\n"
         f"  `**N. Player Name** — $salary, own% (per source), proj X[, ceiling Y]` then a 1–2 "
         f"sentence synthesis in PLAIN, COMPLETE ENGLISH: how it wins (the ceiling path / the edge) "
-        f"+ the key risk or condition. Write for a smart 5th grader (user directive 7/27/26), and "
+        f"+ the key risk or condition. "
+        + ("**NFL CLASSIC LENGTH CAP: exactly ONE sentence on how it wins + ONE sentence on the "
+           "risk, 35 words TOTAL at most — this is a 200-player board and the run must finish.** "
+           if is_nfl_classic else "")
+        + f"Write for a smart 5th grader (user directive 7/27/26), and "
         f"keep it SHORT (8/9/26) — say it once, clearly, and stop. "
         f"**ONE IDEA PER SENTENCE, ~15 words, hard stop at 25.** Do not chain clauses with "
         f"semicolons or dashes into one long sentence, and never stack more than two numbers in a "
@@ -1187,15 +1294,19 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
         f"slate-data files you read (e.g. 'All 4 files read'), and EXPLICITLY LIST any file you "
         f"could NOT read or parse, with the reason (e.g. a PDF that wouldn't extract). If every file "
         f"parsed, say so. This is mandatory — coverage must be visible.\n\n"
-        f"Every one of the {len(full)} players gets exactly one ranked entry.\n\n"
-        f"HARD RULE — NEVER CREATE LINEUPS: this is a board of INDIVIDUAL players ranked "
+        + (f"Every one of the {len(full)} ranked-set players gets exactly one table row in its "
+           f"position's ranked table; ONLY Core / Good / Okay rows also get a numbered write-up; "
+           f"the {n_auto_out} auto-out players appear ONLY in the pasted out-of-the-pool tables.\n\n"
+           if is_nfl_classic else
+           f"Every one of the {len(full)} players gets exactly one ranked entry.\n\n")
+        + f"HARD RULE — NEVER CREATE LINEUPS: this is a board of INDIVIDUAL players ranked "
         f"independently. Do NOT assemble, suggest, or imply any lineup, roster, or combination "
         f"of players — no N-man builds, no 'play these together', no sample/example lineups, no "
         f"stacks or pairings presented as a build. Each entry stands alone; construction lives in "
         f"the separate sim tool, not here.\n\n"
         f"Do not ask any questions — read the inputs and produce the file."
     )
-    return _run_claude(prompt, out_path)
+    return prompt
 
 
 def run_autopsy_review(slug: str, contest_label: str, sport: str, hist_dir=None) -> dict:
