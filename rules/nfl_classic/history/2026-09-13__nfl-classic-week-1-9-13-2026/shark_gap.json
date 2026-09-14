@@ -1,0 +1,77 @@
+{
+  "field": 2450,
+  "anchors": [
+    "jahmyr gibbs",
+    "jamarr chase",
+    "michael mayer"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 3,
+    "own_per_slot": 3.1,
+    "leverage_pct": 100.0,
+    "anchor_exposure": 0.778,
+    "anchor_exposure_by_player": {
+      "jahmyr gibbs": 1.0,
+      "jamarr chase": 1.0,
+      "michael mayer": 0.333
+    },
+    "max_overlap": 4,
+    "unique_pct": 100.0,
+    "best_pctile": 22.33,
+    "median_pctile": 33.35
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 1,
+    "own_per_slot": 4.3,
+    "leverage_pct": 100.0,
+    "anchor_exposure": 1.0,
+    "anchor_exposure_by_player": {
+      "jahmyr gibbs": 1.0,
+      "jamarr chase": 1.0,
+      "michael mayer": 1.0
+    },
+    "max_overlap": 0,
+    "unique_pct": 100.0,
+    "best_pctile": 71.35,
+    "median_pctile": 71.35
+  },
+  "deltas": [
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 4.3,
+      "shark": 3.1,
+      "delta": 1.2
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 1.0,
+      "shark": 0.778,
+      "delta": 0.222
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "nfl_classic",
+  "sport": "nfl"
+}

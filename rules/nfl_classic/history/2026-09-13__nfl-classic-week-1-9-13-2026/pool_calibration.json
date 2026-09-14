@@ -1,0 +1,46 @@
+{
+  "gradable": true,
+  "n_pool": 291,
+  "n_matched": 180,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 8,
+      "avg_fpts": 21.0,
+      "max_fpts": 37.6
+    },
+    {
+      "tier": "Good",
+      "n": 40,
+      "avg_fpts": 17.3,
+      "max_fpts": 38.3
+    },
+    {
+      "tier": "Okay",
+      "n": 48,
+      "avg_fpts": 11.3,
+      "max_fpts": 38.7
+    },
+    {
+      "tier": "Fade",
+      "n": 84,
+      "avg_fpts": 7.6,
+      "max_fpts": 35.7
+    }
+  ],
+  "tiers_ordered": true,
+  "leakage": [
+    {
+      "name": "Bryce Young",
+      "tier": "Fade",
+      "fpts": 35.4
+    },
+    {
+      "name": "Ashton Jeanty",
+      "tier": "Fade",
+      "fpts": 35.7
+    }
+  ],
+  "excluded_scratches": [],
+  "summary": "Core 21.0 > Good 17.3 > Okay 11.3 > Fade 7.6  \u2713 ordered"
+}

@@ -1,0 +1,73 @@
+{
+  "gradable": true,
+  "n_lineups": 4,
+  "lineups": [
+    {
+      "players": [
+        "Bucky Irving",
+        "Caleb Williams",
+        "Chuba Hubbard",
+        "Colston Loveland",
+        "Jahmyr Gibbs",
+        "Luther Burden III",
+        "Steelers",
+        "Tre Tucker",
+        "Zay Flowers"
+      ],
+      "percentile": 11.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Chris Olave",
+        "Jahmyr Gibbs",
+        "Jameson Williams",
+        "Jared Goff",
+        "Michael Mayer",
+        "Omarion Hampton",
+        "Parker Washington",
+        "Raiders",
+        "Tyler Warren"
+      ],
+      "percentile": 41.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Chris Godwin Jr.",
+        "Dallas Goedert",
+        "De'Von Achane",
+        "DeVonta Smith",
+        "Jahmyr Gibbs",
+        "Jalen Hurts",
+        "Michael Mayer",
+        "Steelers",
+        "Tee Higgins"
+      ],
+      "percentile": 49.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Chris Godwin Jr.",
+        "Chuba Hubbard",
+        "Ja'Marr Chase",
+        "Jahmyr Gibbs",
+        "Joe Burrow",
+        "Michael Mayer",
+        "Raiders",
+        "Sam LaPorta",
+        "Tee Higgins"
+      ],
+      "percentile": 71.3,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    11.2,
+    41.4,
+    49.3,
+    71.3
+  ]
+}

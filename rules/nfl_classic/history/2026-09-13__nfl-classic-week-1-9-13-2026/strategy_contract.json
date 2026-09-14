@@ -1,0 +1,4092 @@
+{
+  "generated_at": "2026-09-13 10:06",
+  "slug": "nfl_classic",
+  "slate": "NFL Classic \u2014 Week 1 slate strategy (Sunday, September 13, 2026)",
+  "calls": [
+    {
+      "name": "Jared Goff",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Jets",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Ashton Jeanty",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Sam LaPorta",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Tre Tucker",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Devaughn Vele",
+      "verdict": "underweight"
+    }
+  ],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "Jalen Hurts",
+      "own": 4.6
+    },
+    {
+      "name": "Lamar Jackson",
+      "own": 5.6
+    },
+    {
+      "name": "James Cook III",
+      "own": 4.6
+    },
+    {
+      "name": "Chase Brown",
+      "own": 8.3
+    },
+    {
+      "name": "Josh Allen",
+      "own": 0.7
+    },
+    {
+      "name": "Caleb Williams",
+      "own": 5.5
+    },
+    {
+      "name": "Nico Collins",
+      "own": 5.8
+    },
+    {
+      "name": "Kyler Murray",
+      "own": 7.8
+    },
+    {
+      "name": "Trevor Lawrence",
+      "own": 5.9
+    },
+    {
+      "name": "DeVonta Smith",
+      "own": 6.2
+    },
+    {
+      "name": "Baker Mayfield",
+      "own": 4.5
+    },
+    {
+      "name": "Tetairoa McMillan",
+      "own": 9.4
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Jahmyr Gibbs",
+        "Michael Mayer"
+      ],
+      "joint_pct": 28.4
+    },
+    {
+      "players": [
+        "Jahmyr Gibbs",
+        "Ja'Marr Chase"
+      ],
+      "joint_pct": 18.8
+    },
+    {
+      "players": [
+        "Jahmyr Gibbs",
+        "Chris Olave"
+      ],
+      "joint_pct": 16.8
+    },
+    {
+      "players": [
+        "Jahmyr Gibbs",
+        "Amon-Ra St. Brown"
+      ],
+      "joint_pct": 16.2
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Ja'Marr Chase",
+        "Chris Olave",
+        "Amon-Ra St. Brown"
+      ]
+    },
+    {
+      "players": [
+        "Sam LaPorta",
+        "Jared Goff",
+        "Jets",
+        "Tre Tucker"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "lineup_rules": [
+    {
+      "rule": "salary_min",
+      "why": "84% of winners spent $49,800+; leftover salary buys nothing",
+      "from": "strategy",
+      "value": 49800
+    },
+    {
+      "rule": "at_most",
+      "why": "six from Saints-Lions runs into very similar lineups (Dinkmeyer)",
+      "from": "strategy",
+      "count": 5,
+      "players": [
+        "Jared Goff",
+        "Jahmyr Gibbs",
+        "Amon-Ra St. Brown",
+        "Jameson Williams",
+        "Sam LaPorta",
+        "Chris Olave",
+        "Tyler Shough",
+        "Devaughn Vele",
+        "Juwan Johnson",
+        "Travis Etienne Jr.",
+        "Lions",
+        "Saints"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never a defense against the lineup's own quarterback",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Jared Goff",
+        "Saints"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never a defense against the lineup's own quarterback",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Joe Burrow",
+        "Buccaneers"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never a defense against the lineup's own quarterback",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Justin Herbert",
+        "Cardinals"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never a defense against the lineup's own quarterback",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Jalen Hurts",
+        "Commanders"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never a defense against the lineup's own quarterback",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Caleb Williams",
+        "Panthers"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never a defense against the lineup's own quarterback",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Kyler Murray",
+        "Packers"
+      ]
+    }
+  ],
+  "portfolio_rules": [
+    {
+      "rule": "min_entries_with",
+      "why": "five QBs project 20.3-21.8; at least one entry runs a non-Goff twin",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Joe Burrow",
+        "Jalen Hurts",
+        "Justin Herbert",
+        "Lamar Jackson",
+        "Caleb Williams"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT: fourth QB by projection, first by ownership",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Jared Goff"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "LEAN FADE: eighth DST by projection, second by ownership",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Jets"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "LEAN FADE: slog game, hot-hand backfield read",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Ashton Jeanty"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT: Lions No. 4 option at 19.7% owned",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Sam LaPorta"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT: owned 61 ranks ahead of projection",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Tre Tucker"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT: owned 82 ranks ahead of projection",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Devaughn Vele"
+      ]
+    }
+  ],
+  "build_rules": {
+    "present": true,
+    "errors": []
+  },
+  "board": [
+    {
+      "name": "Joe Burrow",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Jalen Hurts",
+      "tier": "Core",
+      "leverage": true,
+      "pos": "QB"
+    },
+    {
+      "name": "Justin Herbert",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Caleb Williams",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "QB"
+    },
+    {
+      "name": "Lamar Jackson",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "QB"
+    },
+    {
+      "name": "Kyler Murray",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "QB"
+    },
+    {
+      "name": "Trevor Lawrence",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "QB"
+    },
+    {
+      "name": "Baker Mayfield",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "QB"
+    },
+    {
+      "name": "Jared Goff",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Tyler Shough",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Josh Allen",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "QB"
+    },
+    {
+      "name": "Jayden Daniels",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "QB"
+    },
+    {
+      "name": "Jordan Love",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Kirk Cousins",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "QB"
+    },
+    {
+      "name": "Bryce Young",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Daniel Jones",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "C.J. Stroud",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Malik Willis",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Aaron Rodgers",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Geno Smith",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Jacoby Brissett",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Cam Ward",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Deshaun Watson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Cooper Rush",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Mason Rudolph",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Will Howard",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Taylen Green",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Jahmyr Gibbs",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Bijan Robinson",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "James Cook III",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Chase Brown",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "De'Von Achane",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Omarion Hampton",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Jonathan Taylor",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Saquon Barkley",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Derrick Henry",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Travis Etienne Jr.",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Chuba Hubbard",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Bucky Irving",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "D'Andre Swift",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Breece Hall",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Jaylen Warren",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "David Montgomery",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "MarShawn Lloyd",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Jordan Mason",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Tony Pollard",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Rico Dowdle",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Quinshon Judkins",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Bhayshul Tuten",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Chris Rodriguez Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Kenny Gainwell",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Jacory Croskey-Merritt",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Rachaad White",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Mike Washington Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Ashton Jeanty",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Jeremiyah Love",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Justice Hill",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Samaje Perine",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Chris Brooks",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Dylan Sampson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Tyler Allgeier",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Woody Marks",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Kyle Monangai",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Tyjae Spears",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Jonathon Brooks",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Aaron Jones Sr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Keaton Mitchell",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Kendre Miller",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Brian Robinson Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Braelon Allen",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Ray Davis",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Kaleb Johnson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Tank Bigsby",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Sione Vaki",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Jacob Saylors",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Corey Kiner",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Isaiah Davis",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Jaylen Wright",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Kimani Vidal",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Seth McGowan",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Ollie Gordon II",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Alec Ingold",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Ameer Abdullah",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Will Shipley",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Josh Williams",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Roschon Johnson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "CJ Donaldson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Kaytron Allen",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Bam Knight",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Dylan Laube",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Connor Heyward",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Nick Singleton",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "DJ Giddens",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Rasheen Ali",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Tahj Brooks",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Frank Gore Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "AJ Dillon",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "British Brooks",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Raheim Sanders",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Demond Claiborne",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "DeeJay Dallas",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "DJ Herman",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Michael Burton",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Riley Nowakowski",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Ja'Marr Chase",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Amon-Ra St. Brown",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Justin Jefferson",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Tee Higgins",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "DeVonta Smith",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Ladd McConkey",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Nico Collins",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Tetairoa McMillan",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Luther Burden III",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Zay Flowers",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Emeka Egbuka",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Jameson Williams",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Parker Washington",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Garrett Wilson",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jalen Coker",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Quentin Johnston",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Chris Godwin Jr.",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Christian Watson",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Chris Olave",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Josh Downs",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Marvin Harrison Jr.",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jayden Reed",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Drake London",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Tre Tucker",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Devaughn Vele",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Terry McLaurin",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jordan Addison",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "DJ Moore",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "DK Metcalf",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Wan'Dale Robinson",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Matthew Golden",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Ted Hurst III",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Dontayvion Wicks",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Rome Odunze",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jakobi Meyers",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Michael Pittman Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Stefon Diggs",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Khalil Shakir",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Alec Pierce",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Michael Wilson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Carnell Tate",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Brian Thomas Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Keenan Allen",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Adonai Mitchell",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jalen Nailor",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Rashod Bateman",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jerry Jeudy",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "KC Concepcion",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Tre' Harris",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Caleb Douglas",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Malik Washington",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Denzel Boston",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Calvin Ridley",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Kayshon Boutte",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jauan Jennings",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Ja'Kobi Lane",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Makai Lemon",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Xavier Hutchinson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Isaac TeSlaa",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Xavier Legette",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jaylin Noel",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Andrei Iosivas",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jahan Dotson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Kendrick Bourne",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Chris Bell",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jack Bech",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Treylon Burks",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Roman Wilson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Kalif Raymond",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Keon Coleman",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Omar Cooper Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Bryce Lance",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Travis Hunter",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Olamide Zaccheaus",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jalen Tolbert",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Joshua Palmer",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Elic Ayomanor",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Tez Johnson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Isaiah Williams",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Hollywood Brown",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Ashton Dulin",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Germie Bernard",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Isaiah Bond",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Zachariah Branch",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Barion Brown",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Kevin Austin Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Antonio Williams",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Devontez Walker",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Tai Felton",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Brenen Thompson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Tom Kennedy",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Zavion Thomas",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Chimere Dike",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jimmy Horn Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Brycen Tremayne",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Bo Melton",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Cody White",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Dohnte Meyers",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Kevin Coleman Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jalen Brooks",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Skyy Moore",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Laquon Treadwell",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Kameron Johnson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Dyami Brown",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jaylin Lane",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jared Wayne",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Elijah Sarratt",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "John Metchie III",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jahdae Walker",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Colbie Young",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Malik Benson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Devin Duvernay",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Tay Martin",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Josh Cameron",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "CJ Williams",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Myles Price",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Arian Smith",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Darius Cooper",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Luke McCaffrey",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Malachi Corley",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Tylan Wallace",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jackson Meeks",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Ke'Shawn Williams",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Greg Dortch",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Skyler Bell",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Reggie Virgil",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Simi Fehoko",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Chris Blair",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "J. Michael Sturdivant",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Derius Davis",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Ryan Miller",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Britain Covey",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Kaden Wetjen",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Ben Skowronek",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Nick Westbrook-Ikhine",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Trey McBride",
+      "tier": "Core",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "Michael Mayer",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Colston Loveland",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Tyler Warren",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "Dallas Goedert",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "Sam LaPorta",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Juwan Johnson",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Tucker Kraft",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Mark Andrews",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Brenton Strange",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Cade Otton",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "T.J. Hockenson",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Dalton Schultz",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Kyle Pitts Sr.",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "Dalton Kincaid",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Chig Okonkwo",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "Harold Fannin Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Pat Freiermuth",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Greg Dulcich",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Mason Taylor",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Gunnar Helm",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Mike Gesicki",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Charlie Kolar",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Darren Waller",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Darnell Washington",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Erick All Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Cole Kmet",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "David Njoku",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Eagles",
+      "tier": "Core",
+      "leverage": true,
+      "pos": "DST"
+    },
+    {
+      "name": "Jaguars",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Steelers",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "DST"
+    },
+    {
+      "name": "Chargers",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "DST"
+    },
+    {
+      "name": "Titans",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Lions",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "DST"
+    },
+    {
+      "name": "Bears",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "DST"
+    },
+    {
+      "name": "Bills",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "DST"
+    },
+    {
+      "name": "Texans",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "DST"
+    },
+    {
+      "name": "Raiders",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Ravens",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Jets",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Bengals",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Packers",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Vikings",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Browns",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Dolphins",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Falcons",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Buccaneers",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Commanders",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Colts",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Panthers",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Cardinals",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Saints",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "DST"
+    }
+  ],
+  "pool": {
+    "locked_at": "2026-09-13 10:26",
+    "hard": true,
+    "slug": "nfl_classic",
+    "n_in": 96,
+    "n_out": 195,
+    "by_position": {
+      "QB": 14,
+      "RB": 22,
+      "WR": 32,
+      "TE": 16,
+      "DST": 12
+    },
+    "players": [
+      {
+        "name": "Joe Burrow",
+        "pos": "QB",
+        "tier": "Core",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Jalen Hurts",
+        "pos": "QB",
+        "tier": "Core",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Justin Herbert",
+        "pos": "QB",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Caleb Williams",
+        "pos": "QB",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Lamar Jackson",
+        "pos": "QB",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Kyler Murray",
+        "pos": "QB",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Trevor Lawrence",
+        "pos": "QB",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Baker Mayfield",
+        "pos": "QB",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Jared Goff",
+        "pos": "QB",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Tyler Shough",
+        "pos": "QB",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Josh Allen",
+        "pos": "QB",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Jayden Daniels",
+        "pos": "QB",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Jordan Love",
+        "pos": "QB",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Kirk Cousins",
+        "pos": "QB",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Bryce Young",
+        "pos": "QB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Daniel Jones",
+        "pos": "QB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "C.J. Stroud",
+        "pos": "QB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Malik Willis",
+        "pos": "QB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Aaron Rodgers",
+        "pos": "QB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Geno Smith",
+        "pos": "QB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jacoby Brissett",
+        "pos": "QB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Cam Ward",
+        "pos": "QB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Deshaun Watson",
+        "pos": "QB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Cooper Rush",
+        "pos": "QB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Mason Rudolph",
+        "pos": "QB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Will Howard",
+        "pos": "QB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Taylen Green",
+        "pos": "QB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jahmyr Gibbs",
+        "pos": "RB",
+        "tier": "Core",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Bijan Robinson",
+        "pos": "RB",
+        "tier": "Core",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "James Cook III",
+        "pos": "RB",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Chase Brown",
+        "pos": "RB",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "De'Von Achane",
+        "pos": "RB",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Omarion Hampton",
+        "pos": "RB",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Jonathan Taylor",
+        "pos": "RB",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Saquon Barkley",
+        "pos": "RB",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Derrick Henry",
+        "pos": "RB",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Travis Etienne Jr.",
+        "pos": "RB",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Chuba Hubbard",
+        "pos": "RB",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Bucky Irving",
+        "pos": "RB",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "D'Andre Swift",
+        "pos": "RB",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Breece Hall",
+        "pos": "RB",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Jaylen Warren",
+        "pos": "RB",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "David Montgomery",
+        "pos": "RB",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "MarShawn Lloyd",
+        "pos": "RB",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Jordan Mason",
+        "pos": "RB",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Tony Pollard",
+        "pos": "RB",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Rico Dowdle",
+        "pos": "RB",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Quinshon Judkins",
+        "pos": "RB",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Bhayshul Tuten",
+        "pos": "RB",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Chris Rodriguez Jr.",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Kenny Gainwell",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jacory Croskey-Merritt",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Rachaad White",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Mike Washington Jr.",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Ashton Jeanty",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jeremiyah Love",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Justice Hill",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Samaje Perine",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Chris Brooks",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Dylan Sampson",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Tyler Allgeier",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Woody Marks",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Kyle Monangai",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Tyjae Spears",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jonathon Brooks",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Aaron Jones Sr.",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Keaton Mitchell",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Kendre Miller",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Brian Robinson Jr.",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Braelon Allen",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Ray Davis",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Kaleb Johnson",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Tank Bigsby",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Sione Vaki",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jacob Saylors",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Corey Kiner",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Isaiah Davis",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jaylen Wright",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Kimani Vidal",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Seth McGowan",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Ollie Gordon II",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Alec Ingold",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Ameer Abdullah",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Will Shipley",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Josh Williams",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Roschon Johnson",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "CJ Donaldson",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Kaytron Allen",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Bam Knight",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Dylan Laube",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Connor Heyward",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Nick Singleton",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "DJ Giddens",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Rasheen Ali",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Tahj Brooks",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Frank Gore Jr.",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "AJ Dillon",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "British Brooks",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Raheim Sanders",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Demond Claiborne",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "DeeJay Dallas",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "DJ Herman",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Michael Burton",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Riley Nowakowski",
+        "pos": "RB",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Ja'Marr Chase",
+        "pos": "WR",
+        "tier": "Core",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Amon-Ra St. Brown",
+        "pos": "WR",
+        "tier": "Core",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Justin Jefferson",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Tee Higgins",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "DeVonta Smith",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Ladd McConkey",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Nico Collins",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Tetairoa McMillan",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Luther Burden III",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Zay Flowers",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Emeka Egbuka",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Jameson Williams",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Parker Washington",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Garrett Wilson",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Jalen Coker",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Quentin Johnston",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Chris Godwin Jr.",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Christian Watson",
+        "pos": "WR",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Chris Olave",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Josh Downs",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Marvin Harrison Jr.",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Jayden Reed",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Drake London",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Tre Tucker",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Devaughn Vele",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Terry McLaurin",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Jordan Addison",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "DJ Moore",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "DK Metcalf",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Wan'Dale Robinson",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Matthew Golden",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Ted Hurst III",
+        "pos": "WR",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Dontayvion Wicks",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Rome Odunze",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jakobi Meyers",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Michael Pittman Jr.",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Stefon Diggs",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Khalil Shakir",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Alec Pierce",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Michael Wilson",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Carnell Tate",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Brian Thomas Jr.",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Keenan Allen",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Adonai Mitchell",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jalen Nailor",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Rashod Bateman",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jerry Jeudy",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "KC Concepcion",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Tre' Harris",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Caleb Douglas",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Malik Washington",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Denzel Boston",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Calvin Ridley",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Kayshon Boutte",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jauan Jennings",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Ja'Kobi Lane",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Makai Lemon",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Xavier Hutchinson",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Isaac TeSlaa",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Xavier Legette",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jaylin Noel",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Andrei Iosivas",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jahan Dotson",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Kendrick Bourne",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Chris Bell",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jack Bech",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Treylon Burks",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Roman Wilson",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Kalif Raymond",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Keon Coleman",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Omar Cooper Jr.",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Bryce Lance",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Travis Hunter",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Olamide Zaccheaus",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jalen Tolbert",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Joshua Palmer",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Elic Ayomanor",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Tez Johnson",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Isaiah Williams",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Hollywood Brown",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Ashton Dulin",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Germie Bernard",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Isaiah Bond",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Zachariah Branch",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Barion Brown",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Kevin Austin Jr.",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Antonio Williams",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Devontez Walker",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Tai Felton",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Brenen Thompson",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Tom Kennedy",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Zavion Thomas",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Chimere Dike",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jimmy Horn Jr.",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Brycen Tremayne",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Bo Melton",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Cody White",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Dohnte Meyers",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Kevin Coleman Jr.",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jalen Brooks",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Skyy Moore",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Laquon Treadwell",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Kameron Johnson",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Dyami Brown",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jaylin Lane",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jared Wayne",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Elijah Sarratt",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "John Metchie III",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jahdae Walker",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Colbie Young",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Malik Benson",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Devin Duvernay",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Tay Martin",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Josh Cameron",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "CJ Williams",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Myles Price",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Arian Smith",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Darius Cooper",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Luke McCaffrey",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Malachi Corley",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Tylan Wallace",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Jackson Meeks",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Ke'Shawn Williams",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Greg Dortch",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Skyler Bell",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Reggie Virgil",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Simi Fehoko",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Chris Blair",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "J. Michael Sturdivant",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Derius Davis",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Ryan Miller",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Britain Covey",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Kaden Wetjen",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Ben Skowronek",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Nick Westbrook-Ikhine",
+        "pos": "WR",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Trey McBride",
+        "pos": "TE",
+        "tier": "Core",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Michael Mayer",
+        "pos": "TE",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Colston Loveland",
+        "pos": "TE",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Tyler Warren",
+        "pos": "TE",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Dallas Goedert",
+        "pos": "TE",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Sam LaPorta",
+        "pos": "TE",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Juwan Johnson",
+        "pos": "TE",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Tucker Kraft",
+        "pos": "TE",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Mark Andrews",
+        "pos": "TE",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Brenton Strange",
+        "pos": "TE",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Cade Otton",
+        "pos": "TE",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "T.J. Hockenson",
+        "pos": "TE",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Dalton Schultz",
+        "pos": "TE",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Kyle Pitts Sr.",
+        "pos": "TE",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Dalton Kincaid",
+        "pos": "TE",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Chig Okonkwo",
+        "pos": "TE",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Harold Fannin Jr.",
+        "pos": "TE",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Pat Freiermuth",
+        "pos": "TE",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Greg Dulcich",
+        "pos": "TE",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Mason Taylor",
+        "pos": "TE",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Gunnar Helm",
+        "pos": "TE",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Mike Gesicki",
+        "pos": "TE",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Charlie Kolar",
+        "pos": "TE",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Darren Waller",
+        "pos": "TE",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Darnell Washington",
+        "pos": "TE",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Erick All Jr.",
+        "pos": "TE",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Cole Kmet",
+        "pos": "TE",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "David Njoku",
+        "pos": "TE",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Eagles",
+        "pos": "DST",
+        "tier": "Core",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Jaguars",
+        "pos": "DST",
+        "tier": "Good",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Steelers",
+        "pos": "DST",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Chargers",
+        "pos": "DST",
+        "tier": "Good",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Titans",
+        "pos": "DST",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Lions",
+        "pos": "DST",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Bears",
+        "pos": "DST",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Bills",
+        "pos": "DST",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Texans",
+        "pos": "DST",
+        "tier": "Okay",
+        "leverage": true,
+        "in": true
+      },
+      {
+        "name": "Raiders",
+        "pos": "DST",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Ravens",
+        "pos": "DST",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Jets",
+        "pos": "DST",
+        "tier": "Okay",
+        "leverage": false,
+        "in": true
+      },
+      {
+        "name": "Bengals",
+        "pos": "DST",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Packers",
+        "pos": "DST",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Vikings",
+        "pos": "DST",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Browns",
+        "pos": "DST",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Dolphins",
+        "pos": "DST",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Falcons",
+        "pos": "DST",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Buccaneers",
+        "pos": "DST",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Commanders",
+        "pos": "DST",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Colts",
+        "pos": "DST",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Panthers",
+        "pos": "DST",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Cardinals",
+        "pos": "DST",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      },
+      {
+        "name": "Saints",
+        "pos": "DST",
+        "tier": "Fade",
+        "leverage": false,
+        "in": false
+      }
+    ]
+  }
+}

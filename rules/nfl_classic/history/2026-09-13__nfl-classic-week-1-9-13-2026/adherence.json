@@ -1,0 +1,210 @@
+{
+  "gradable": true,
+  "n_lineups": 4,
+  "n_contests": 2,
+  "calls": [
+    {
+      "name": "Jared Goff",
+      "verdict": "underweight",
+      "exposure_pct": 25.0,
+      "in_lineups": 1,
+      "of": 4,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195553295.csv",
+          "in_lineups": 1,
+          "of": 3,
+          "exposure_pct": 33.3
+        },
+        {
+          "contest": "contest-standings-195548784.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-195548784.csv"
+      ]
+    },
+    {
+      "name": "Jets",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 4,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195553295.csv",
+          "in_lineups": 0,
+          "of": 3,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195548784.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Ashton Jeanty",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 4,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195553295.csv",
+          "in_lineups": 0,
+          "of": 3,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195548784.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Sam LaPorta",
+      "verdict": "underweight",
+      "exposure_pct": 25.0,
+      "in_lineups": 1,
+      "of": 4,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195553295.csv",
+          "in_lineups": 0,
+          "of": 3,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195548784.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-195553295.csv"
+      ],
+      "over_in": [
+        "contest-standings-195548784.csv"
+      ]
+    },
+    {
+      "name": "Tre Tucker",
+      "verdict": "underweight",
+      "exposure_pct": 25.0,
+      "in_lineups": 1,
+      "of": 4,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195553295.csv",
+          "in_lineups": 1,
+          "of": 3,
+          "exposure_pct": 33.3
+        },
+        {
+          "contest": "contest-standings-195548784.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-195548784.csv"
+      ]
+    },
+    {
+      "name": "Devaughn Vele",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 4,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195553295.csv",
+          "in_lineups": 0,
+          "of": 3,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195548784.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "zeroed_in": [
+        "contest-standings-195553295.csv",
+        "contest-standings-195548784.csv"
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 4,
+  "leverage_candidates": [
+    {
+      "name": "Jalen Hurts",
+      "rostered": true
+    },
+    {
+      "name": "Lamar Jackson",
+      "rostered": false
+    },
+    {
+      "name": "James Cook III",
+      "rostered": false
+    },
+    {
+      "name": "Chase Brown",
+      "rostered": false
+    },
+    {
+      "name": "Josh Allen",
+      "rostered": false
+    },
+    {
+      "name": "Caleb Williams",
+      "rostered": true
+    },
+    {
+      "name": "Nico Collins",
+      "rostered": false
+    },
+    {
+      "name": "Kyler Murray",
+      "rostered": false
+    },
+    {
+      "name": "Trevor Lawrence",
+      "rostered": false
+    },
+    {
+      "name": "DeVonta Smith",
+      "rostered": true
+    },
+    {
+      "name": "Baker Mayfield",
+      "rostered": false
+    },
+    {
+      "name": "Tetairoa McMillan",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 3,
+  "leverage_of": 12
+}
