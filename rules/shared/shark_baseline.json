@@ -97,8 +97,8 @@
       "n_with_sharks": 28,
       "user_envelope": {},
       "shark_envelope": {
-        "own_per_slot": 13.328,
-        "leverage_pct": 88.486,
+        "own_per_slot": 13.897,
+        "leverage_pct": 87.338,
         "anchor_exposure": 0.389,
         "unique_pct": 98.6
       },
