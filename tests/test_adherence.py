@@ -172,3 +172,43 @@ if __name__ == "__main__":
         fn()
         print(f"ok  {fn.__name__}")
     print(f"\n{len(fns)} passed")
+
+
+def test_zeroed_underweight_skipped_when_portfolio_rule_scopes_the_set():
+    # 9/14/26 NFL SD: the strategy's own build rules said `max_entries_with: 1`
+    # for Aubrey — judged across BOTH entries — yet the grader flagged him
+    # "zeroed in one contest" twice. A set-scoped call is never per-contest.
+    records = [
+        {"source_file": "a.csv", "contest_id": "1",
+         "user_lineups": [{"players": [f"A{i}", "B", "C"]} for i in range(5)]},
+        {"source_file": "b.csv", "contest_id": "2",
+         "user_lineups": [{"players": ["Brandon Aubrey", f"D{i}", "E"]} for i in range(2)]
+                          + [{"players": [f"F{i}", "G", "H"]} for i in range(3)]},
+    ]
+    contract = {"calls": [{"name": "Brandon Aubrey", "verdict": "underweight"}],
+                "portfolio_rules": [{"rule": "max_entries_with", "count": 1,
+                                     "players": ["Brandon Aubrey"]}]}
+    a = adherence.grade_adherence(contract, records)
+    call = a["calls"][0]
+    assert "zeroed_in" not in call
+    assert a["per_contest_flags"] == 0
+    # max_exposure_pct scopes the set the same way
+    contract["portfolio_rules"] = [{"rule": "max_exposure_pct",
+                                    "player": "Brandon Aubrey", "value": 20}]
+    a = adherence.grade_adherence(contract, records)
+    assert "zeroed_in" not in a["calls"][0]
+
+
+def test_zeroed_underweight_skipped_in_single_lineup_contest():
+    # One lineup per contest: a bullet there is 100% exposure, which the soft
+    # cap already forbids — zero is the only compliant answer, never a flag.
+    records = [
+        {"source_file": "se1.csv", "contest_id": "1",
+         "user_lineups": [{"players": ["A", "B", "C"]}]},
+        {"source_file": "se2.csv", "contest_id": "2",
+         "user_lineups": [{"players": ["D", "E", "F"]}]},
+    ]
+    a = adherence.grade_adherence(
+        {"calls": [{"name": "Tyrone Tracy Jr.", "verdict": "underweight"}]}, records)
+    assert "zeroed_in" not in a["calls"][0]
+    assert a["per_contest_flags"] == 0

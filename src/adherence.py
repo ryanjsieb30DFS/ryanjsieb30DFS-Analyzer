@@ -76,6 +76,22 @@ def _user_lineups_by_contest(records) -> list[dict]:
     return out
 
 
+def _set_scoped_players(contract: dict | None) -> set[str]:
+    """Players the strategy's `portfolio_rules` govern ACROSS the entry set
+    (max_entries_with / max_exposure_pct). For these, an UNDERWEIGHT call is
+    judged on the whole set, never per contest — the strategy said so."""
+    out: set[str] = set()
+    for r in (contract or {}).get("portfolio_rules") or []:
+        if not isinstance(r, dict):
+            continue
+        if r.get("rule") == "max_exposure_pct" and r.get("player"):
+            out.add(_norm_name(str(r["player"])))
+        elif r.get("rule") == "max_entries_with":
+            for p in r.get("players") or []:
+                out.add(_norm_name(str(p)))
+    return out
+
+
 def grade_adherence(contract: dict | None, records) -> dict:
     """Grade the entered lineups against the strategy contract's calls.
 
@@ -91,6 +107,7 @@ def grade_adherence(contract: dict | None, records) -> dict:
     # Single-contest slates skip the extra bookkeeping (pooled IS per-contest).
     by_contest = _user_lineups_by_contest(records)
     multi_contest = len(by_contest) > 1
+    set_scoped = _set_scoped_players(contract)
 
     n = len(lineups)
     graded = []
@@ -131,7 +148,19 @@ def grade_adherence(contract: dict | None, records) -> dict:
                 c_n = len(ct["lineups"])
                 bc.append({"contest": ct["label"], "in_lineups": c_hits, "of": c_n,
                            "exposure_pct": round(100.0 * c_hits / c_n, 1)})
-                if verdict == "underweight" and c_hits == 0:
+                # zeroed_in fires only where "one bullet in EACH contest" is
+                # what the strategy actually asked for. Two exemptions (9/14/26
+                # NFL SD: Aubrey / Flournoy / Tracy were flagged in BOTH
+                # single-entry contests while the strategy's own portfolio
+                # rule said `max_entries_with: 1`, judged across the set):
+                #   * the contract carries a portfolio rule naming the player
+                #     (max_entries_with / max_exposure_pct) — the call is
+                #     set-scoped by the strategy's own words;
+                #   * the contest holds ONE lineup — a bullet there is 100%
+                #     exposure, which the soft cap already forbids, so zero is
+                #     the only compliant answer.
+                if (verdict == "underweight" and c_hits == 0
+                        and key not in set_scoped and c_n > 1):
                     zeroed_in.append(ct["label"])
                 if verdict in _SOFT_VERDICTS and c_hits / c_n > _SOFT_MAX_EXPOSURE:
                     over_in.append(ct["label"])
@@ -194,8 +223,9 @@ def adherence_md(a: dict) -> str:
             bc = next((b for b in c.get("by_contest") or [] if b["contest"] == label), {})
             out.append(
                 f"- ⚠️ UNDERWEIGHT call zeroed in one contest: **{c['name']}** was in "
-                f"0 of {bc.get('of', '?')} lineups in {label} — underweight means "
-                f"at least one bullet in EACH contest, not one across the whole set.")
+                f"0 of {bc.get('of', '?')} lineups in {label} — with no portfolio "
+                f"rule for this player, underweight means at least one bullet in "
+                f"EACH contest, not one across the whole set.")
         for label in c.get("over_in") or []:
             bc = next((b for b in c.get("by_contest") or [] if b["contest"] == label), {})
             out.append(

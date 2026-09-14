@@ -67,3 +67,25 @@ def test_salary_used_fills_when_all_match_and_nulls_when_one_missing():
 
     analysis = analyze_contest(parsed, None, "golf")
     assert analysis["winners_df"].iloc[0]["salary_used"] is None
+
+
+def test_slate_defining_requires_a_real_score():
+    """9/14/26 NFL SD: Emari Demercado (0.7 pts, 14.7% owned) sat in the top-20
+    as a salary dump and rendered as 'slate-defining'. A definer must score at
+    least the field's median player score."""
+    # 12 entries; every winner holds Filler (low own, ~0 pts) and Definer
+    # (low own, big score); the rest of the roster is chalk.
+    chalk = ["Chalk One", "Chalk Two", "Chalk Three", "Chalk Four"]
+    lineup = " ".join(f"G {p}" for p in chalk + ["Definer Guy", "Filler Guy"])
+    lines = ["Rank,EntryId,EntryName,TimeRemaining,Points,Lineup,,Player,Roster Position,%Drafted,FPTS"]
+    player_rows = [(p, "60.0%", 20.0) for p in chalk] + [
+        ("Definer Guy", "5.0%", 30.0), ("Filler Guy", "5.0%", 0.7)]
+    for i in range(12):
+        p, own, fpts = player_rows[i] if i < len(player_rows) else ("", "", "")
+        tail = f",,{p},G,{own},{fpts}" if p else ",,,,,"
+        lines.append(f"{i+1},{100+i},Opp{i},0,{200-i},{lineup}{tail}")
+    parsed = parse_dk_results(io.BytesIO("\n".join(lines).encode()))
+    analysis = analyze_contest(parsed, None, "nfl")
+    names = {d["name"] for d in analysis["slate_defining"]}
+    assert "Definer Guy" in names
+    assert "Filler Guy" not in names

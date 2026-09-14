@@ -414,10 +414,17 @@ def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str,
             _norm_name(p) for lp in winners_df["players"] for p in set(lp)
         )
         display = {_norm_name(p["name"]): p["name"] for _, p in players.iterrows()}
+        # A definer must have SCORED. Winners share cheap fillers too (9/14/26
+        # NFL SD: Emari Demercado, 0.7 points at 14.7% owned, sat in 30% of
+        # the top-20 as a salary dump and rendered as "slate-defining"). The
+        # floor is the field's median player score, so it scales per sport.
+        scored = sorted(float(v) for v in fpts_map.values() if v is not None and float(v) > 0)
+        fpts_floor = scored[len(scored) // 2] if scored else 0.0
         for norm, count in appearance.items():
             pct = count / len(winners_df) * 100
             own = own_map.get(norm)
-            if pct >= 30 and own is not None and own < 20:
+            actual = float(fpts_map.get(norm, 0) or 0)
+            if pct >= 30 and own is not None and own < 20 and actual >= fpts_floor and actual > 0:
                 proj = proj_lookup.get(norm) if proj_lookup else None
                 slate_defining.append({
                     "name": display.get(norm, norm),
