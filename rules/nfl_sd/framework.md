@@ -117,7 +117,7 @@ Median winning lineup totaled **~167% ownership across 6 slots (~28% per slot)**
 - K+DST count ≤2 per lineup; kicker not next to his own CPT QB unless the build says why.
 - Anchor-Equivalence: which chalk anchors sit at similar own (including CPT-slot own) and are substitutable?
 - Is any captain under 5% projected own, and if so, what is the one-sentence ceiling case (not the ownership case)?
-- Does every 3-3 build name the story it is betting on, or is it the default?
+- **A 3-3 build must name its story or it is not entered (codified 9/14/26, lesson nfl_sd_three_three_default).** Across 33 ETR slates and both logged slates the unbalanced shapes took the top spots more often than 3-3; on 9/14 the top 3 in both contests were 2-4 toward the Giants. A 3-3 with no story is a bet on nothing; the 2-4 tilted toward the captain's opponent is the under-built winning shape.
 - Is any lineup six skill players with no K and no DST, and is that deliberate?
 
 **Pre-submit questions (ETR, asked of every lineup before it goes in):** Is there a clear game-script decision behind the captain? Does the team split match the bet? Is a DST or K in FLEX, and if not, why? Is the projection competitive without being one of the most obvious builds on the slate? Do I know where each piece sits vs field ownership, and is that position intentional?

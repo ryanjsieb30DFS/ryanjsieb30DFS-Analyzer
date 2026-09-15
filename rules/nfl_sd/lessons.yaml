@@ -12,7 +12,7 @@ lessons:
     origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 Wildcat/Field General sim study (33 slates)); external data, not a logged slate"
     statement: >
       RB captains beat their projection more often than any other position; TE captains are the weakest. Why: RB usage (carries + targets) is stickier week to week than a receiver's target share, so the RB ceiling is reached more often. Counts as confirmed when: on a logged slate, RB captains appear in top-10 finishes at or above their share of the captain pool.
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions:
       - date: "2026-09-11"
@@ -22,22 +22,22 @@ lessons:
         history: "rules/nfl_sd/history/2026-09-14__nfl-sd-snf-week-1-9-13-2026"
         note: "Second slate: RB captains were 2 of 10 (Dimeback: Skattebo 5th, Singletary 4th) and 3 of 10 (Huddle: Williams 3rd, Skattebo 4th x2) top-ten captains against ~30% of the captain pool (Williams 22.4% + Skattebo 6.3% + Tracy/Singletary/Demercado). Winners captained QB Dart (39.9 CPT); 7 of 10 Dimeback top-ten captains were TE Likely. Williams CPT beat his 26.9 CPT projection (36.3); Skattebo missed his (21.15 vs 21.75). Two contradictions of the top-10 test — retirement/narrowing proposed 9/14."
     codified_in: null
-    retired_reason: null
+    retired_reason: "RB captains sat below their ~30% share of the captain pool in the top ten on both logged slates (1-2 of 10 on 9/10, 2-3 of 10 on 9/14). User approved 2026-09-14."
 
   - id: nfl_sd_sub5_cpt_leak
     born: "2026-09-10"
     origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 sim study); external data, not a logged slate"
     statement: >
-      Captains under 5% projected ownership underperform captains in the 5–25% band. Why: the ceiling needed to be the slate's top raw scorer is rarer than the ownership discount is worth. Counts as confirmed when: a logged slate's top-10 captains sit mostly in the 5–25% band and the sub-5% captains in the user's entries miss.
+      The WINNING captain sits in the 5–25% projected-ownership band; sub-5% captains fill top-10 spots but have not won. Why: a sub-5% captain needs the slate's top raw score AND the right five around him, so he reaches the top ten far more often than first place. Counts as confirmed when: a logged contest's winning captain sits in the 5–25% band (sub-5% captains in the top ten neither confirm nor contradict). NARROWED 2026-09-14 (user approved) from "sub-5% captains underperform the band" after that half failed on both logged slates; evidence reset to the two winners.
     status: hypothesis
     confirmations:
       - date: "2026-09-11"
         history: "rules/nfl_sd/history/2026-09-11__nfl-sd-9-10-26"
-        note: "PARTIAL — band half held: 6 of 10 top-ten captains in both contests sat in the 5–25% band (Purdy 6.4%, McCaffrey 20.5%). Second half failed: the user's sub-5% captain Evans (4.9%) scored 38.0 CPT, and sub-5% captains Deebo (2.0%) and Robinson (0.2%) took 4 of 10 Dimeback top-ten spots. Not counted toward promotion."
-    contradictions:
+        note: "Winner captained QB Purdy at 6.7% (33.15 CPT) — inside the band. Sub-5% captains Deebo (2.0%) and Robinson (0.2%) took 4 of 10 Dimeback top-ten spots and the user's sub-5% captain Evans (4.9%) scored 38.0 CPT, none won."
       - date: "2026-09-14"
         history: "rules/nfl_sd/history/2026-09-14__nfl-sd-snf-week-1-9-13-2026"
-        note: "The 'underperform' half failed a second time: TE Likely at 4.95% captain ownership (3.0% projected) scored 41.7 CPT and was 7 of the 10 Dimeback top-ten captains, Singletary (~0.2% CPT) was 4th; sub-5% captains held 8 of 10 Dimeback top-ten spots. The band half held again: the winner of both contests captained Dart at 18.8%, so 2 of 2 WINNERS sat in the 5–25% band while sub-5% captains filled top-10 spots and won 0 of 4. Narrowing proposed 9/14: the band is about the WINNING captain, not the top ten."
+        note: "Winner of both contests captained QB Dart at 18.8% (39.9 CPT) — inside the band. Sub-5% captains Likely (4.95%, 41.7 CPT) and Singletary (~0.2%) held 8 of 10 Dimeback top-ten spots and won 0 of 4 contests."
+    contradictions: []
     codified_in: null
     retired_reason: null
 
@@ -46,7 +46,7 @@ lessons:
     origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 sim study); external data, not a logged slate"
     statement: >
       3-3 builds without a named game script underperform 5-1, 1-5, and 4-2 builds that have one. Why: a single NFL game resolves to one side more often than it splits evenly. Counts as confirmed when: the slate's top-10 lineups are unbalanced (4-2 or wider) more often than 3-3.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-09-11"
         history: "rules/nfl_sd/history/2026-09-11__nfl-sd-9-10-26"
@@ -55,7 +55,7 @@ lessons:
         history: "rules/nfl_sd/history/2026-09-14__nfl-sd-snf-week-1-9-13-2026"
         note: "Huddle top-10 unbalanced 6 of 10 (2-4 x5, 4-2 x1) vs 3-3 x4; Dimeback a 5-5 tie (2-4 x4, 4-2 x1, 3-3 x5). The top 3 in BOTH contests were 2-4 toward the Giants (the 17.9%-of-field shape the strategy flagged as under-built). The user's 2-4 Huddle entry (CPT Skattebo) beat 63.8% of the field; the user's 3-3 Dimeback entry (CPT Williams) beat 22.8%. Counted as the second confirmation with the Dimeback tie noted — third confirming slate, codification proposed 9/14."
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Pre-lock checks (3-3 must name its story; user approved 2026-09-14)"
     retired_reason: null
 
   - id: nfl_sd_six_skill_default
