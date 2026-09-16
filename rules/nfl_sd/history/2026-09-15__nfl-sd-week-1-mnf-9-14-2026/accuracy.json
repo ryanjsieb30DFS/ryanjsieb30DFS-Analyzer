@@ -1,0 +1,76 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 15,
+    "leverage_capture": 1.0,
+    "leverage_hit": [
+      "Evan Engram",
+      "Chiefs"
+    ],
+    "leverage_missed": [],
+    "overperformer_capture": 0.8,
+    "overperformer_hit": [
+      "Kenneth Walker III",
+      "Evan Engram",
+      "Chiefs",
+      "Patrick Mahomes"
+    ],
+    "underperformer_exposure": 0.8,
+    "underperformer_hit": [
+      "Jaylen Waddle",
+      "Bo Nix",
+      "Courtland Sutton",
+      "J.K. Dobbins"
+    ]
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 5,
+    "avg_ratio": 0.862,
+    "best_percentile": 0.3,
+    "median_percentile": 67.2,
+    "n_top_10pct": 1,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30 (2/5)",
+        "points": 118.509995,
+        "proj_total": 82.1,
+        "ratio": 1.443,
+        "percentile": 0.3,
+        "avg_own": 40.01
+      },
+      {
+        "entry_name": "RyvlesGaming30 (4/5)",
+        "points": 65.95,
+        "proj_total": 79.5,
+        "ratio": 0.83,
+        "percentile": 58.1,
+        "avg_own": 43.28
+      },
+      {
+        "entry_name": "RyvlesGaming30 (5/5)",
+        "points": 60.949997,
+        "proj_total": 78.7,
+        "ratio": 0.774,
+        "percentile": 67.2,
+        "avg_own": 41.59
+      },
+      {
+        "entry_name": "RyvlesGaming30 (3/5)",
+        "points": 58.14,
+        "proj_total": 77.3,
+        "ratio": 0.752,
+        "percentile": 72.8,
+        "avg_own": 41.54
+      },
+      {
+        "entry_name": "RyvlesGaming30 (1/5)",
+        "points": 41.04,
+        "proj_total": 80,
+        "ratio": 0.513,
+        "percentile": 92.2,
+        "avg_own": 41.84
+      }
+    ]
+  }
+}

@@ -1,0 +1,439 @@
+{
+  "generated_at": "2026-09-14 19:38",
+  "slug": "nfl_sd",
+  "slate": "NFL Showdown \u2014 Broncos at Chiefs (Monday night, Week 1) \u2014 slate strategy",
+  "calls": [
+    {
+      "name": "Patrick Mahomes",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Xavier Worthy",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Harrison Butker",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Broncos",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Evan Engram",
+      "verdict": "underweight"
+    }
+  ],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "Noah Gray",
+      "own": 7.5
+    },
+    {
+      "name": "Marvin Mims Jr.",
+      "own": 5.6
+    },
+    {
+      "name": "Cyrus Allen",
+      "own": 4.7
+    },
+    {
+      "name": "Emmett Johnson",
+      "own": 4.9
+    },
+    {
+      "name": "Jonah Coleman",
+      "own": 4.4
+    },
+    {
+      "name": "Adam Trautman",
+      "own": 4.2
+    },
+    {
+      "name": "Brashard Smith",
+      "own": 4.0
+    },
+    {
+      "name": "Troy Franklin",
+      "own": 3.5
+    },
+    {
+      "name": "Nate Adkins",
+      "own": 1.9
+    },
+    {
+      "name": "Adam Prentice",
+      "own": 0.3
+    },
+    {
+      "name": "Jake Briningstool",
+      "own": 0.5
+    },
+    {
+      "name": "Jalen Royals",
+      "own": 0.6
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Patrick Mahomes",
+        "Bo Nix"
+      ],
+      "joint_pct": 44.8
+    },
+    {
+      "players": [
+        "Patrick Mahomes",
+        "Kenneth Walker III"
+      ],
+      "joint_pct": 39.0
+    },
+    {
+      "players": [
+        "Bo Nix",
+        "Kenneth Walker III"
+      ],
+      "joint_pct": 35.9
+    },
+    {
+      "players": [
+        "Patrick Mahomes",
+        "Rashee Rice"
+      ],
+      "joint_pct": 34.1
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Travis Kelce",
+        "J.K. Dobbins",
+        "Courtland Sutton"
+      ]
+    },
+    {
+      "players": [
+        "Harrison Butker",
+        "Xavier Worthy",
+        "Pat Bryant",
+        "Wil Lutz"
+      ]
+    },
+    {
+      "players": [
+        "Broncos",
+        "Chiefs",
+        "Evan Engram"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "lineup_rules": [
+    {
+      "rule": "at_most",
+      "why": "never two kickers; one kicker per entry",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Harrison Butker",
+        "Wil Lutz"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "kicker plus defense pieces at two or fewer",
+      "from": "strategy",
+      "count": 2,
+      "players": [
+        "Harrison Butker",
+        "Wil Lutz",
+        "Chiefs",
+        "Broncos"
+      ]
+    },
+    {
+      "rule": "at_least",
+      "why": "one quarterback per entry; zero-QB is a 5% shape",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Patrick Mahomes",
+        "Bo Nix"
+      ]
+    },
+    {
+      "rule": "salary_max",
+      "why": "exact-cap four-star shape is the copied build",
+      "from": "strategy",
+      "value": 49500
+    }
+  ],
+  "portfolio_rules": [
+    {
+      "rule": "min_entries_with",
+      "why": "Anchor-Equivalence: Nix is the less-owned Mahomes twin",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Bo Nix"
+      ]
+    },
+    {
+      "rule": "min_entries_with",
+      "why": "Anchor-Equivalence: Waddle is the less-owned Rice twin",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Jaylen Waddle"
+      ]
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "UNDERWEIGHT: less than the crowd's 69.7%",
+      "from": "strategy",
+      "player": "Patrick Mahomes",
+      "value": 60
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "UNDERWEIGHT: Lutz projects the same at less ownership",
+      "from": "strategy",
+      "player": "Harrison Butker",
+      "value": 20
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "UNDERWEIGHT: Chiefs D cheaper, projects higher",
+      "from": "strategy",
+      "player": "Broncos",
+      "value": 20
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "UNDERWEIGHT: Bryant cheaper, projects higher",
+      "from": "strategy",
+      "player": "Evan Engram",
+      "value": 20
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "LEAN FADE: mostly avoid, one deep-shot entry at most",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Xavier Worthy"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "sub-5% piece in two or three of five entries, a rate",
+      "from": "strategy",
+      "count": 3,
+      "players": [
+        "Emmett Johnson",
+        "Jonah Coleman",
+        "Marvin Mims Jr.",
+        "Cyrus Allen",
+        "Noah Gray",
+        "Adam Trautman",
+        "Brashard Smith",
+        "Troy Franklin",
+        "Nate Adkins"
+      ]
+    }
+  ],
+  "build_rules": {
+    "present": true,
+    "errors": []
+  },
+  "board": [
+    {
+      "name": "Kenneth Walker III",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Jaylen Waddle",
+      "tier": "Core",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Bo Nix",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Rashee Rice",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Travis Kelce",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "J.K. Dobbins",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Courtland Sutton",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Patrick Mahomes",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Pat Bryant",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "RJ Harvey",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Tyquan Thornton",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Wil Lutz",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "K"
+    },
+    {
+      "name": "Chiefs",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Emmett Johnson",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Marvin Mims Jr.",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Broncos",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Harrison Butker",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "K"
+    },
+    {
+      "name": "Evan Engram",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Jonah Coleman",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Cyrus Allen",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Noah Gray",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "Troy Franklin",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Adam Trautman",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "Brashard Smith",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Nate Adkins",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "Xavier Worthy",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Adam Prentice",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Jake Briningstool",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Jalen Royals",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Nikko Remigio",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Ben VanSumeren",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    }
+  ]
+}

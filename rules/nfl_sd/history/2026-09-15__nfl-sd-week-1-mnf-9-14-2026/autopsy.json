@@ -1,0 +1,906 @@
+[
+  {
+    "timestamp": "2026-09-15 22:15",
+    "contest_type": "NFL Showdown",
+    "source_file": "contest-standings-195526228.csv",
+    "contest_id": "195526228",
+    "entries": 47562,
+    "winning_score": 124.61,
+    "cash_line_p80": 92.859998,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nfl_sd",
+    "sport": "nfl",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 31,
+      "total": 50
+    },
+    "user_summary": {
+      "avg_own_mean": 41.65,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 49180.0,
+      "entry_count": 5,
+      "best_rank": 120,
+      "best_percentile": 0.3
+    },
+    "user_lineups": [
+      {
+        "rank": 120,
+        "entry_name": "RyvlesGaming30 (2/5)",
+        "points": 118.509995,
+        "percentile": 0.3,
+        "players": [
+          "Kenneth Walker III",
+          "Patrick Mahomes",
+          "Rashee Rice",
+          "Travis Kelce",
+          "Chiefs",
+          "Pat Bryant"
+        ],
+        "avg_own": 40.01,
+        "low_own_count": 0,
+        "salary_used": 49500,
+        "proj_total": 82.1,
+        "dup_count": 79
+      },
+      {
+        "rank": 27626,
+        "entry_name": "RyvlesGaming30 (4/5)",
+        "points": 65.95,
+        "percentile": 58.1,
+        "players": [
+          "Courtland Sutton",
+          "Bo Nix",
+          "Patrick Mahomes",
+          "Rashee Rice",
+          "Harrison Butker",
+          "Evan Engram"
+        ],
+        "avg_own": 43.28,
+        "low_own_count": 0,
+        "salary_used": 49200,
+        "proj_total": 79.5,
+        "dup_count": 129
+      },
+      {
+        "rank": 31947,
+        "entry_name": "RyvlesGaming30 (5/5)",
+        "points": 60.949997,
+        "percentile": 67.2,
+        "players": [
+          "Travis Kelce",
+          "Bo Nix",
+          "Patrick Mahomes",
+          "RJ Harvey",
+          "J.K. Dobbins",
+          "Wil Lutz"
+        ],
+        "avg_own": 41.59,
+        "low_own_count": 0,
+        "salary_used": 48900,
+        "proj_total": 78.7,
+        "dup_count": 28
+      },
+      {
+        "rank": 34621,
+        "entry_name": "RyvlesGaming30 (3/5)",
+        "points": 58.14,
+        "percentile": 72.8,
+        "players": [
+          "J.K. Dobbins",
+          "Kenneth Walker III",
+          "Bo Nix",
+          "Jaylen Waddle",
+          "Wil Lutz",
+          "Broncos"
+        ],
+        "avg_own": 41.54,
+        "low_own_count": 0,
+        "salary_used": 49000,
+        "proj_total": 77.3,
+        "dup_count": 37
+      },
+      {
+        "rank": 43867,
+        "entry_name": "RyvlesGaming30 (1/5)",
+        "points": 41.04,
+        "percentile": 92.2,
+        "players": [
+          "Jaylen Waddle",
+          "Bo Nix",
+          "Rashee Rice",
+          "Travis Kelce",
+          "J.K. Dobbins",
+          "Pat Bryant"
+        ],
+        "avg_own": 41.84,
+        "low_own_count": 0,
+        "salary_used": 49300,
+        "proj_total": 80,
+        "dup_count": 30
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Kenneth Walker III",
+        "proj_points": 17.2,
+        "actual_fpts": 37.1,
+        "fpts_delta": 19.9,
+        "ownership": 55.9,
+        "actual_own": 57.97
+      },
+      {
+        "name": "Evan Engram",
+        "proj_points": 6.2,
+        "actual_fpts": 14.3,
+        "fpts_delta": 8.1,
+        "ownership": 17.5,
+        "actual_own": 18.02
+      },
+      {
+        "name": "Emmett Johnson",
+        "proj_points": 2.9,
+        "actual_fpts": 8.8,
+        "fpts_delta": 5.9,
+        "ownership": 4.9,
+        "actual_own": 5.42
+      },
+      {
+        "name": "Chiefs",
+        "proj_points": 6.3,
+        "actual_fpts": 12.0,
+        "fpts_delta": 5.7,
+        "ownership": 18.4,
+        "actual_own": 14.229999999999999
+      },
+      {
+        "name": "Patrick Mahomes",
+        "proj_points": 17.7,
+        "actual_fpts": 22.66,
+        "fpts_delta": 4.96,
+        "ownership": 69.7,
+        "actual_own": 66.83
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Jaylen Waddle",
+        "proj_points": 13.6,
+        "actual_fpts": 1.2,
+        "fpts_delta": -12.4,
+        "ownership": 40.9,
+        "actual_own": 44.98
+      },
+      {
+        "name": "Bo Nix",
+        "proj_points": 17.4,
+        "actual_fpts": 7.44,
+        "fpts_delta": -9.96,
+        "ownership": 64.3,
+        "actual_own": 74.42999999999999
+      },
+      {
+        "name": "Courtland Sutton",
+        "proj_points": 10.0,
+        "actual_fpts": 3.1,
+        "fpts_delta": -6.9,
+        "ownership": 28.3,
+        "actual_own": 29.0
+      },
+      {
+        "name": "J.K. Dobbins",
+        "proj_points": 9.9,
+        "actual_fpts": 3.6,
+        "fpts_delta": -6.3,
+        "ownership": 30.4,
+        "actual_own": 30.560000000000002
+      },
+      {
+        "name": "Tyquan Thornton",
+        "proj_points": 5.0,
+        "actual_fpts": 0.0,
+        "fpts_delta": -5.0,
+        "ownership": 11.6,
+        "actual_own": 9.59
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Evan Engram",
+        "salary": 3400,
+        "actual_fpts": 14.3,
+        "actual_own": 18.02,
+        "top_lineup_pct": 100.0
+      },
+      {
+        "name": "Chiefs",
+        "salary": 4400,
+        "actual_fpts": 12.0,
+        "actual_own": 14.229999999999999,
+        "top_lineup_pct": 92.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 100,
+      "avg_own_mean": 38.57,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 48898.0,
+      "dup_max": 84,
+      "unique_pct": 1.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "BigD2812 (2/2)",
+          "points": 124.61,
+          "percentile": 0.0,
+          "players": [
+            "Kenneth Walker III",
+            "Patrick Mahomes",
+            "Rashee Rice",
+            "Travis Kelce",
+            "Chiefs",
+            "Evan Engram"
+          ],
+          "avg_own": 39.32,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 81.6,
+          "dup_count": 84
+        },
+        {
+          "rank": 1,
+          "entry_name": "Nadroj311 (61/150)",
+          "points": 124.61,
+          "percentile": 0.0,
+          "players": [
+            "Kenneth Walker III",
+            "Patrick Mahomes",
+            "Rashee Rice",
+            "Travis Kelce",
+            "Chiefs",
+            "Evan Engram"
+          ],
+          "avg_own": 39.32,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 81.6,
+          "dup_count": 84
+        },
+        {
+          "rank": 1,
+          "entry_name": "baller_2k15 (37/50)",
+          "points": 124.61,
+          "percentile": 0.0,
+          "players": [
+            "Kenneth Walker III",
+            "Patrick Mahomes",
+            "Rashee Rice",
+            "Travis Kelce",
+            "Chiefs",
+            "Evan Engram"
+          ],
+          "avg_own": 39.32,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 81.6,
+          "dup_count": 84
+        },
+        {
+          "rank": 1,
+          "entry_name": "AaronCosta (57/150)",
+          "points": 124.61,
+          "percentile": 0.0,
+          "players": [
+            "Kenneth Walker III",
+            "Patrick Mahomes",
+            "Rashee Rice",
+            "Travis Kelce",
+            "Chiefs",
+            "Evan Engram"
+          ],
+          "avg_own": 39.32,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 81.6,
+          "dup_count": 84
+        },
+        {
+          "rank": 1,
+          "entry_name": "asorin187 (147/150)",
+          "points": 124.61,
+          "percentile": 0.0,
+          "players": [
+            "Kenneth Walker III",
+            "Patrick Mahomes",
+            "Rashee Rice",
+            "Travis Kelce",
+            "Chiefs",
+            "Evan Engram"
+          ],
+          "avg_own": 39.32,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 81.6,
+          "dup_count": 84
+        },
+        {
+          "rank": 1,
+          "entry_name": "Lord_Lici (37/150)",
+          "points": 124.61,
+          "percentile": 0.0,
+          "players": [
+            "Kenneth Walker III",
+            "Patrick Mahomes",
+            "Rashee Rice",
+            "Travis Kelce",
+            "Chiefs",
+            "Evan Engram"
+          ],
+          "avg_own": 39.32,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 81.6,
+          "dup_count": 84
+        },
+        {
+          "rank": 1,
+          "entry_name": "Atrain45 (15/150)",
+          "points": 124.61,
+          "percentile": 0.0,
+          "players": [
+            "Kenneth Walker III",
+            "Patrick Mahomes",
+            "Rashee Rice",
+            "Travis Kelce",
+            "Chiefs",
+            "Evan Engram"
+          ],
+          "avg_own": 39.32,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 81.6,
+          "dup_count": 84
+        },
+        {
+          "rank": 1,
+          "entry_name": "Nardgorr",
+          "points": 124.61,
+          "percentile": 0.0,
+          "players": [
+            "Kenneth Walker III",
+            "Patrick Mahomes",
+            "Rashee Rice",
+            "Travis Kelce",
+            "Chiefs",
+            "Evan Engram"
+          ],
+          "avg_own": 39.32,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 81.6,
+          "dup_count": 84
+        },
+        {
+          "rank": 1,
+          "entry_name": "jclark33 (31/150)",
+          "points": 124.61,
+          "percentile": 0.0,
+          "players": [
+            "Kenneth Walker III",
+            "Patrick Mahomes",
+            "Rashee Rice",
+            "Travis Kelce",
+            "Chiefs",
+            "Evan Engram"
+          ],
+          "avg_own": 39.32,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 81.6,
+          "dup_count": 84
+        },
+        {
+          "rank": 1,
+          "entry_name": "klsu22",
+          "points": 124.61,
+          "percentile": 0.0,
+          "players": [
+            "Kenneth Walker III",
+            "Patrick Mahomes",
+            "Rashee Rice",
+            "Travis Kelce",
+            "Chiefs",
+            "Evan Engram"
+          ],
+          "avg_own": 39.32,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 81.6,
+          "dup_count": 84
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -3.08,
+        "low_own_count_delta": 0.0,
+        "salary_used_delta": -282.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 47321,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Bo Nix",
+          "field_own": 74.4,
+          "actual_fpts": 7.4
+        },
+        {
+          "name": "Patrick Mahomes",
+          "field_own": 66.8,
+          "actual_fpts": 22.7
+        },
+        {
+          "name": "Kenneth Walker III",
+          "field_own": 58.0,
+          "actual_fpts": 37.1
+        },
+        {
+          "name": "Jaylen Waddle",
+          "field_own": 45.0,
+          "actual_fpts": 1.2
+        },
+        {
+          "name": "Rashee Rice",
+          "field_own": 44.3,
+          "actual_fpts": 9.9
+        },
+        {
+          "name": "Travis Kelce",
+          "field_own": 34.5,
+          "actual_fpts": 10.1
+        },
+        {
+          "name": "J.K. Dobbins",
+          "field_own": 30.6,
+          "actual_fpts": 3.6
+        },
+        {
+          "name": "Courtland Sutton",
+          "field_own": 29.0,
+          "actual_fpts": 3.1
+        },
+        {
+          "name": "Harrison Butker",
+          "field_own": 27.1,
+          "actual_fpts": 7.0
+        },
+        {
+          "name": "Xavier Worthy",
+          "field_own": 23.0,
+          "actual_fpts": 4.8
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Bo Nix",
+            "Patrick Mahomes"
+          ],
+          "field_pct": 46.6,
+          "count": 22060
+        },
+        {
+          "players": [
+            "Bo Nix",
+            "Kenneth Walker III"
+          ],
+          "field_pct": 38.5,
+          "count": 18194
+        },
+        {
+          "players": [
+            "Kenneth Walker III",
+            "Patrick Mahomes"
+          ],
+          "field_pct": 34.7,
+          "count": 16425
+        },
+        {
+          "players": [
+            "Bo Nix",
+            "Jaylen Waddle"
+          ],
+          "field_pct": 34.6,
+          "count": 16369
+        },
+        {
+          "players": [
+            "Patrick Mahomes",
+            "Rashee Rice"
+          ],
+          "field_pct": 30.5,
+          "count": 14454
+        },
+        {
+          "players": [
+            "Bo Nix",
+            "Rashee Rice"
+          ],
+          "field_pct": 28.7,
+          "count": 13594
+        },
+        {
+          "players": [
+            "Jaylen Waddle",
+            "Patrick Mahomes"
+          ],
+          "field_pct": 24.6,
+          "count": 11626
+        },
+        {
+          "players": [
+            "Patrick Mahomes",
+            "Travis Kelce"
+          ],
+          "field_pct": 24.5,
+          "count": 11607
+        },
+        {
+          "players": [
+            "Bo Nix",
+            "Travis Kelce"
+          ],
+          "field_pct": 23.3,
+          "count": 11038
+        },
+        {
+          "players": [
+            "Bo Nix",
+            "Courtland Sutton"
+          ],
+          "field_pct": 22.4,
+          "count": 10619
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Bo Nix",
+            "J.K. Dobbins",
+            "Jaylen Waddle",
+            "Pat Bryant",
+            "Patrick Mahomes",
+            "Travis Kelce"
+          ],
+          "count": 221,
+          "field_pct": 0.5
+        },
+        {
+          "players": [
+            "Bo Nix",
+            "Harrison Butker",
+            "Kenneth Walker III",
+            "Pat Bryant",
+            "Patrick Mahomes",
+            "Travis Kelce"
+          ],
+          "count": 179,
+          "field_pct": 0.4
+        },
+        {
+          "players": [
+            "Bo Nix",
+            "Harrison Butker",
+            "J.K. Dobbins",
+            "Kenneth Walker III",
+            "Pat Bryant",
+            "Patrick Mahomes"
+          ],
+          "count": 154,
+          "field_pct": 0.3
+        },
+        {
+          "players": [
+            "Bo Nix",
+            "Evan Engram",
+            "Jaylen Waddle",
+            "Pat Bryant",
+            "Patrick Mahomes",
+            "Rashee Rice"
+          ],
+          "count": 138,
+          "field_pct": 0.3
+        },
+        {
+          "players": [
+            "Bo Nix",
+            "Courtland Sutton",
+            "Evan Engram",
+            "Harrison Butker",
+            "Patrick Mahomes",
+            "Rashee Rice"
+          ],
+          "count": 128,
+          "field_pct": 0.3
+        }
+      ],
+      "winners_profile": {
+        "n": 473,
+        "avg_own_per_slot": 40.9,
+        "dart_pct": 0.0,
+        "unique_pct": 8.0
+      },
+      "fish_profile": {
+        "n": 23658,
+        "avg_own_per_slot": 40.1,
+        "dart_pct": 17.2,
+        "unique_pct": 16.8
+      },
+      "fish_traps": [
+        {
+          "name": "Jaylen Waddle",
+          "fish_pct": 62.0,
+          "winner_pct": 5.1,
+          "gap": 57.0,
+          "actual_fpts": 1.2,
+          "field_own": 45.0,
+          "own_rank": 4
+        },
+        {
+          "name": "Bo Nix",
+          "fish_pct": 86.9,
+          "winner_pct": 41.2,
+          "gap": 45.7,
+          "actual_fpts": 7.4,
+          "field_own": 74.4,
+          "own_rank": 1
+        },
+        {
+          "name": "Courtland Sutton",
+          "fish_pct": 38.2,
+          "winner_pct": 0.4,
+          "gap": 37.8,
+          "actual_fpts": 3.1,
+          "field_own": 29.0,
+          "own_rank": 8
+        },
+        {
+          "name": "J.K. Dobbins",
+          "fish_pct": 36.7,
+          "winner_pct": 5.3,
+          "gap": 31.4,
+          "actual_fpts": 3.6,
+          "field_own": 30.6,
+          "own_rank": 7
+        },
+        {
+          "name": "Broncos",
+          "fish_pct": 26.1,
+          "winner_pct": 1.1,
+          "gap": 25.0,
+          "actual_fpts": 3.0,
+          "field_own": 19.4,
+          "own_rank": 14
+        },
+        {
+          "name": "Wil Lutz",
+          "fish_pct": 25.0,
+          "winner_pct": 0.0,
+          "gap": 25.0,
+          "actual_fpts": 4.0,
+          "field_own": 21.9,
+          "own_rank": 12
+        },
+        {
+          "name": "Xavier Worthy",
+          "fish_pct": 26.1,
+          "winner_pct": 11.2,
+          "gap": 14.9,
+          "actual_fpts": 4.8,
+          "field_own": 23.0,
+          "own_rank": 10
+        },
+        {
+          "name": "Tyquan Thornton",
+          "fish_pct": 10.3,
+          "winner_pct": 0.0,
+          "gap": 10.3,
+          "actual_fpts": 0.0,
+          "field_own": 9.6,
+          "own_rank": 17
+        },
+        {
+          "name": "RJ Harvey",
+          "fish_pct": 25.3,
+          "winner_pct": 16.3,
+          "gap": 9.0,
+          "actual_fpts": 8.1,
+          "field_own": 21.3,
+          "own_rank": 13
+        },
+        {
+          "name": "Rashee Rice",
+          "fish_pct": 50.5,
+          "winner_pct": 42.7,
+          "gap": 7.8,
+          "actual_fpts": 9.9,
+          "field_own": 44.3,
+          "own_rank": 5
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "BigD2812",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "Nadroj311",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "donmafia89",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "Trudi0247",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "mvargas520",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "beershere",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "relicck",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "Kenmasters7",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "khill111111",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "T_revor",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "texican8823",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "rbmowery",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "Varncass",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "TB701",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "monkeyhuesser",
+          "best_rank": 1,
+          "percentile": 0.0
+        }
+      ],
+      "read": [
+        "Field crowded **Bo Nix** at 74.4% (7.4 fpts) \u2014 the chalk to consider fading.",
+        "**Bo Nix + Patrick Mahomes** were together in 46.6% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Jaylen Waddle** was a fish trap: 62.0% of the fish, only 5.1% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 124.61,
+      "winner_handle": "BigD2812",
+      "roster": [
+        {
+          "name": "Kenneth Walker III",
+          "own": 57.97,
+          "fpts": 37.1
+        },
+        {
+          "name": "Patrick Mahomes",
+          "own": 66.83,
+          "fpts": 22.66
+        },
+        {
+          "name": "Rashee Rice",
+          "own": 44.33,
+          "fpts": 9.9
+        },
+        {
+          "name": "Travis Kelce",
+          "own": 34.54,
+          "fpts": 10.1
+        },
+        {
+          "name": "Chiefs",
+          "own": 14.229999999999999,
+          "fpts": 12.0
+        },
+        {
+          "name": "Evan Engram",
+          "own": 18.02,
+          "fpts": 14.3
+        }
+      ],
+      "avg_own": 39.3,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Chiefs",
+        "own": 14.229999999999999,
+        "fpts": 12.0
+      },
+      "expected_dupes": 72.35
+    },
+    "near_miss": {
+      "salary_checked": false,
+      "position_checked": false,
+      "blocked_swap": null,
+      "gradable": true,
+      "won": false,
+      "your_points": 118.509995,
+      "winner_points": 124.61,
+      "gap": 6.1,
+      "your_percentile": 0.3,
+      "n_shared": 5,
+      "shared": [
+        "Chiefs",
+        "Kenneth Walker III",
+        "Patrick Mahomes",
+        "Rashee Rice",
+        "Travis Kelce"
+      ],
+      "your_uniques": [
+        {
+          "name": "Pat Bryant",
+          "fpts": 8.2,
+          "salary": null,
+          "position": null
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Evan Engram",
+          "fpts": 14.3,
+          "salary": null,
+          "position": null
+        }
+      ],
+      "best_swap": {
+        "out": "Pat Bryant",
+        "in": "Evan Engram",
+        "gain": 6.1,
+        "would_have_won": false
+      },
+      "swaps_needed": null
+    },
+    "stack_report": null
+  }
+]

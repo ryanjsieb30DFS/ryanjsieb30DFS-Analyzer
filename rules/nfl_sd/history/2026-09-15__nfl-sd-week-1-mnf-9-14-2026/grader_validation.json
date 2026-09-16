@@ -1,0 +1,74 @@
+{
+  "gradable": true,
+  "n_lineups": 5,
+  "lineups": [
+    {
+      "players": [
+        "Chiefs",
+        "Kenneth Walker III",
+        "Pat Bryant",
+        "Patrick Mahomes",
+        "Rashee Rice",
+        "Travis Kelce"
+      ],
+      "percentile": 0.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bo Nix",
+        "Courtland Sutton",
+        "Evan Engram",
+        "Harrison Butker",
+        "Patrick Mahomes",
+        "Rashee Rice"
+      ],
+      "percentile": 58.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bo Nix",
+        "J.K. Dobbins",
+        "Patrick Mahomes",
+        "RJ Harvey",
+        "Travis Kelce",
+        "Wil Lutz"
+      ],
+      "percentile": 67.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bo Nix",
+        "Broncos",
+        "J.K. Dobbins",
+        "Jaylen Waddle",
+        "Kenneth Walker III",
+        "Wil Lutz"
+      ],
+      "percentile": 72.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bo Nix",
+        "J.K. Dobbins",
+        "Jaylen Waddle",
+        "Pat Bryant",
+        "Rashee Rice",
+        "Travis Kelce"
+      ],
+      "percentile": 92.2,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    0.3,
+    58.1,
+    67.2,
+    72.8,
+    92.2
+  ]
+}

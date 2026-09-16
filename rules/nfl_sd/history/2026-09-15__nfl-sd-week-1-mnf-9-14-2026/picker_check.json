@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "slug": "nfl_sd",
+  "contests": [
+    {
+      "date": "2026-09-15",
+      "contest": "NFL Showdown $200K Flea Flicker",
+      "winning_score": 124.6,
+      "pool_n": 10000,
+      "pool_max": 121.4,
+      "pool_held_winner": false,
+      "n_pool_ge_win": 0,
+      "pick_actual": 118.5,
+      "pick_won": false,
+      "pick_pool_pctile": 100.0,
+      "pick_source": "entered",
+      "n_entered": 5
+    }
+  ],
+  "note": null,
+  "generated_at": "2026-09-15 22:15"
+}

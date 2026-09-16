@@ -1,0 +1,136 @@
+[
+  {
+    "slug": "nfl_sd",
+    "slate_name": "NFL Showdown contest-standings-195526228 2026-09-15",
+    "contest_id": "195526228",
+    "field_size": 47562,
+    "schema_version": 1,
+    "generated_at": "2026-09-15 21:56",
+    "user": {
+      "n_entries": 5,
+      "best_points": 118.509995,
+      "avg_points": 68.92,
+      "best_rank": 120
+    },
+    "pool": {
+      "n": 10000,
+      "avg_actual": 69.87,
+      "median_actual": 70.12,
+      "max_actual": 121.41,
+      "n_beating_best_entry": 3,
+      "pct_beating_best_entry": 0.03,
+      "picking_edge_points": -0.95
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 10000,
+        "spearman_vs_actual": 0.101,
+        "top100_avg_actual": 80.07,
+        "pool_avg_actual": 69.87
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 10000,
+        "spearman_vs_actual": 0.183,
+        "top100_avg_actual": 78.44,
+        "pool_avg_actual": 69.87
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 10000,
+        "spearman_vs_actual": 0.051,
+        "top100_avg_actual": 76.13,
+        "pool_avg_actual": 69.87
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 10000,
+        "spearman_vs_actual": 0.252,
+        "top100_avg_actual": 88.62,
+        "pool_avg_actual": 69.87
+      }
+    ],
+    "entered": [
+      {
+        "EntryName": "RyvlesGaming30 (2/5)",
+        "Rank": 120,
+        "Points": 118.51,
+        "Lineup": "CPT Kenneth Walker III FLEX Patrick Mahomes FLEX Rashee Rice FLEX Travis Kelce FLEX Chiefs  FLEX Pat Bryant",
+        "matched": true,
+        "pre_sim_roi_pct": 25.8,
+        "pre_sim_top1_pct": 4.07,
+        "pre_sim_win_pct": 0.016,
+        "pre_sim_cash_pct": 34.44,
+        "post_roi_pct": 37.08,
+        "post_top1_pct": 1.61,
+        "post_win_pct": 0.004,
+        "post_cash_pct": 28.51
+      },
+      {
+        "EntryName": "RyvlesGaming30 (4/5)",
+        "Rank": 27626,
+        "Points": 65.95,
+        "Lineup": "CPT Courtland Sutton FLEX Bo Nix FLEX Patrick Mahomes FLEX Rashee Rice FLEX Harrison Butker FLEX Evan Engram",
+        "matched": true,
+        "pre_sim_roi_pct": -34.5,
+        "pre_sim_top1_pct": 1.54,
+        "pre_sim_win_pct": 0.006,
+        "pre_sim_cash_pct": 24.97,
+        "post_roi_pct": 11.71,
+        "post_top1_pct": 1.45,
+        "post_win_pct": 0.003,
+        "post_cash_pct": 25.86
+      },
+      {
+        "EntryName": "RyvlesGaming30 (5/5)",
+        "Rank": 31947,
+        "Points": 60.95,
+        "Lineup": "CPT Travis Kelce FLEX Bo Nix FLEX Patrick Mahomes FLEX RJ Harvey FLEX J.K. Dobbins FLEX Wil Lutz",
+        "matched": true,
+        "pre_sim_roi_pct": -19.5,
+        "pre_sim_top1_pct": 1.85,
+        "pre_sim_win_pct": 0.0,
+        "pre_sim_cash_pct": 24.88,
+        "post_roi_pct": -25.73,
+        "post_top1_pct": 0.92,
+        "post_win_pct": 0.001,
+        "post_cash_pct": 23.82
+      },
+      {
+        "EntryName": "RyvlesGaming30 (3/5)",
+        "Rank": 34621,
+        "Points": 58.14,
+        "Lineup": "CPT J.K. Dobbins FLEX Kenneth Walker III FLEX Bo Nix FLEX Jaylen Waddle FLEX Wil Lutz FLEX Broncos ",
+        "matched": true,
+        "pre_sim_roi_pct": 20.1,
+        "pre_sim_top1_pct": 2.42,
+        "pre_sim_win_pct": 0.03,
+        "pre_sim_cash_pct": 24.19,
+        "post_roi_pct": -50.56,
+        "post_top1_pct": 0.56,
+        "post_win_pct": 0.0,
+        "post_cash_pct": 20.85
+      },
+      {
+        "EntryName": "RyvlesGaming30 (1/5)",
+        "Rank": 43867,
+        "Points": 41.04,
+        "Lineup": "CPT Jaylen Waddle FLEX Bo Nix FLEX Rashee Rice FLEX Travis Kelce FLEX J.K. Dobbins FLEX Pat Bryant",
+        "matched": true,
+        "pre_sim_roi_pct": 8.9,
+        "pre_sim_top1_pct": 3.01,
+        "pre_sim_win_pct": 0.02,
+        "pre_sim_cash_pct": 29.93,
+        "post_roi_pct": 133.75,
+        "post_top1_pct": 2.39,
+        "post_win_pct": 0.008,
+        "post_cash_pct": 28.72
+      }
+    ]
+  }
+]

@@ -85,3 +85,28 @@ This file is a running log of distilled process lessons from post-contest autops
 | **Okay** | 16 | 3.2 | 13.8 |
 | **Fade** | 5 | 0.8 | 2.2 |
 - ✅ Tier ordering HELD — higher tiers outscored lower ones on average.
+
+
+## 2026-09-15 22:15 — NFL Showdown (contest-standings-195526228.csv)
+- Entries: 47,562
+- Winning score: 124.6
+- Cash line (top 20%): 92.9
+- My entries: 5 · best rank 120/47,562 (top 0.3%)
+- Winners (top 100): avg own 38.57% vs mine 41.65% · sub-10% plays/lineup 0.0 vs mine 0.0 · salary Δ -282
+- Overperformed proj: Kenneth Walker III, Evan Engram, Emmett Johnson
+- Underperformed proj: Jaylen Waddle, Bo Nix, Courtland Sutton
+- Slate-defining plays: Evan Engram (14.3 pts @ 18.0%), Chiefs (12.0 pts @ 14.2%)
+
+### Strategy adherence — did you follow your own strategy? (5 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ 1 under-own call(s) over-exposed: **Patrick Mahomes** (60.0%)
+- Leverage candidates rostered somewhere: **0 of 12**.
+
+### Player-pool tier calibration (31 of 31 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 4 | 13.9 | 37.1 |
+| **Good** | 5 | 9.5 | 22.7 |
+| **Okay** | 16 | 3.9 | 14.3 |
+| **Fade** | 6 | 1.1 | 4.8 |
+- ✅ Tier ordering HELD — higher tiers outscored lower ones on average.

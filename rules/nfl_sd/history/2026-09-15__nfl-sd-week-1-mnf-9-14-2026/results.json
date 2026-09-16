@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-15",
+  "slug": "nfl_sd",
+  "sport": "nfl",
+  "slate_label": "NFL SD Week 1 MNF 9.14.2026",
+  "history_dir": "rules/nfl_sd/history/2026-09-15__nfl-sd-week-1-mnf-9-14-2026",
+  "contests": [
+    {
+      "name": "NFL Showdown $200K Flea Flicker",
+      "type": "150-Max",
+      "source_file": "contest-standings-195526228.csv",
+      "field_size": 47562,
+      "my_entries": 5,
+      "entry_fee": 5.0,
+      "buy_in": 25.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 120,
+      "best_percentile": 0.3
+    }
+  ],
+  "total_buy_in": 25.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": null,
+  "best_percentile": null,
+  "best_rank_mme": 120,
+  "best_percentile_mme": 0.3,
+  "entries_total": 5,
+  "edge_leverage_capture": 1.0,
+  "edge_overperformer_capture": 0.8,
+  "edge_bust_exposure": 0.8,
+  "lineup_avg_ratio": 0.862,
+  "shark_gap_top": null,
+  "adherence_fades_violated": 0,
+  "adherence_leverage_covered": "0/12",
+  "tier_summary": "Core 13.9 > Good 9.5 > Okay 3.9 > Fade 1.1  \u2713 ordered",
+  "tiers_ordered": true,
+  "grader_check": {
+    "flagged_pctiles": [],
+    "clean_pctiles": [
+      0.3,
+      58.1,
+      67.2,
+      72.8,
+      92.2
+    ]
+  },
+  "stack_summary": null
+}
