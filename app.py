@@ -206,7 +206,9 @@ def _cached_dk_analysis(csv_bytes: bytes, sport_: str | None, slug_: str, src_mt
     analysis = analyze_contest(parsed, proj_frame, sport_, slug=slug_)
     try:
         from src import shark_gap as _sg
-        gap = _sg.gap_for_slug(slug_, parsed)
+        # NFL Classic passes its team/position lookup so the shark gap can
+        # add the double-stack / bring-back axes; None for every other slug.
+        gap = _sg.gap_for_slug(slug_, parsed, stack_lookup=analysis.get("stack_lookup"))
     except Exception:  # noqa: BLE001 — the gap panel is best-effort
         gap = None
     try:
@@ -215,6 +217,19 @@ def _cached_dk_analysis(csv_bytes: bytes, sport_: str | None, slug_: str, src_mt
     except Exception:  # noqa: BLE001 — the field panel is best-effort
         field = None
     return parsed, analysis, gap, field
+
+
+def _stack_blocks_md(records: list) -> str | None:
+    """The '### Stack shapes' blocks for every logged NFL Classic record,
+    joined; None when no record carries a stack report (every other sport)."""
+    try:
+        from src.nfl_stack_autopsy import stack_md as _smd
+        blocks = [_smd(r["stack_report"], r.get("source_file"))
+                  for r in records if r.get("stack_report")]
+        blocks = [b for b in blocks if b]
+        return "\n\n".join(blocks) if blocks else None
+    except Exception:  # noqa: BLE001 — display-only
+        return None
 
 
 def _split_leading_table(md: str):
@@ -599,6 +614,29 @@ with tab_proj:
                     "real ceiling — hidden here because this slate's projections are projection-only "
                     "(no fabricated ceiling)."
                 )
+
+            # NFL Classic only (ETR digest 9/12/26, Section E) — report-only
+            # reads: chalk pairs counted in LINEUPS, the three ownership checks
+            # under an ownership miss, and the IKB edit-count guard. Never a
+            # rule, never a warning. Slug-routed: NFL SD is a different game.
+            if slug == "nfl_classic":
+                _nc_field = max((int(c.get("field_size") or 0)
+                                 for c in (load_contests(slug) or [])), default=0)
+                st.markdown("#### Chalk pairs — how many lineups carry them")
+                st.caption("The pairs most of the field will roster together, counted as "
+                           "lineups in the biggest contest you declared (ownership × "
+                           "ownership × field size — a floor, real fields pair their "
+                           "chalk more). A pair is a spot where a lineup shares its "
+                           "fate with that many others; breaking one is your call.")
+                st.markdown(_md_safe(landscape.chalk_combo_counts_md(
+                    landscape.chalk_combo_counts(bd["df"], _nc_field))))
+                st.markdown("#### Ownership stress test — the three checks under a miss")
+                st.markdown(_md_safe(landscape.stress_test_md(
+                    landscape.ownership_stress_test(bd["df"], _nc_field))))
+                _ikb = sim_link.ikb_md(sim_link.ikb_edit_summary(slug))
+                if _ikb:
+                    st.markdown("#### IKB check — your projection edits")
+                    st.markdown(_md_safe(f"ℹ️ {_ikb}"))
 
             # Cross-vendor disagreement — only when 2+ sources loaded
             if bd.get("disagree") is not None:
@@ -2109,6 +2147,20 @@ with tab_autopsy:
                     st.caption("In ≥30% of top lineups at <20% field ownership.")
                     st.dataframe(pd.DataFrame(analysis["slate_defining"]), use_container_width=True)
 
+                # NFL Classic stack shapes (Phase 4): how the field, the top
+                # 1%, the top 20 and you stacked, and the winner's shape in
+                # words. Needs the slate's projections loaded (for teams);
+                # otherwise the block says it is not gradable.
+                if analysis.get("stack_report"):
+                    try:
+                        from src.nfl_stack_autopsy import stack_md as _stack_md_fn
+                        _smd = _stack_md_fn(analysis["stack_report"], dk_csv.name)
+                        if _smd:
+                            with st.container(border=True):
+                                st.markdown(_md_safe(_smd))
+                    except Exception:  # noqa: BLE001 — display-only, never blocks
+                        pass
+
                 # Self-grade: did OUR entered lineups capture the leverage/edges?
                 if analysis.get("user_lineups_df") is not None and not analysis["user_lineups_df"].empty:
                     from src import accuracy
@@ -2531,7 +2583,9 @@ with tab_autopsy:
                     # small-field trend via process_trend_block.
                     _pick = (max(_focus, key=lambda pc: len(pc["lineups"]))
                              if _focus else None)
-                    sgap = (_shark_gap.gap_for_slug(slug, _pick["parsed"])
+                    sgap = (_shark_gap.gap_for_slug(
+                                slug, _pick["parsed"],
+                                stack_lookup=_pick["analysis"].get("stack_lookup"))
                             if _pick else None)
                     # Accumulate the observed shark structure into the living
                     # envelope, then refresh the baseline the Grade tab and
@@ -2701,6 +2755,9 @@ with tab_autopsy:
                     "calibration_md": (_cal_md_fn(_cal)
                                        if _cal and _cal.get("gradable") else None),
                     "picker_md": _picker_md,
+                    # NFL Classic stack shapes, one block per logged contest
+                    # (None for every other slug).
+                    "stack_md": _stack_blocks_md(records),
                 }
                 st.rerun()
 
@@ -2771,6 +2828,11 @@ with tab_autopsy:
                 st.markdown(_md_safe(_done["calibration_md"]))
                 st.caption("The board's tiers graded against actuals — archived to "
                            "pool_calibration.json + trended in results.jsonl.")
+        if _done.get("stack_md"):
+            with st.container(border=True):
+                st.markdown(_md_safe(_done["stack_md"]))
+                st.caption("NFL Classic stack shapes — archived to stack_report.json, "
+                           "one line in results.jsonl, and read by the post-autopsy review.")
         if st.button("🧹 Clear slate data (start the next slate fresh)", key=f"clear_after_log_{slug}"):
             clear_persisted(slug)
             player_pool.clear_pool(slug)

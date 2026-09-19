@@ -80,6 +80,12 @@ def parse_lineups(text: str, pool) -> list[dict]:
             v = r.get(k) if k in pool.columns else None
             if v is not None and v == v:
                 entry[k] = float(v)
+        # NFL Classic: position / team / opponent ride the row so the
+        # three-ownership-checks line can find the QB stack (9/14/26).
+        for k in ("position", "team", "opponent"):
+            v = r.get(k) if k in pool.columns else None
+            if isinstance(v, str) and v.strip():
+                entry[k] = v.strip()
         universe[_norm_name(str(r["name"]))] = entry
     out = []
     for line in text.splitlines():
@@ -549,6 +555,17 @@ def grade_lineup(lu: dict, cal: dict) -> dict:
         g["flags"].append({"level": "info", "code": "crowded_info",
                            "msg": f"Reliably-crowded players aboard: {', '.join(crowded_hits)}"})
 
+    # 6) NFL Classic — the framework's three ownership checks, as ONE plain
+    # info line (ETR digest 9/12/26, Section E item 4). Pre-lock it says where
+    # the lineup sits on each check from projected ownership; information
+    # only, never a warning, never a letter cost.
+    if cal.get("slug") == "nfl_classic" and players:
+        tc = three_checks(players, cal.get("field_size"))
+        if tc:
+            g["three_checks"] = tc
+            g["flags"].append({"level": "info", "code": "three_checks",
+                               "msg": three_checks_line(tc)})
+
     if g.get("unmatched"):
         g["flags"].append({"level": "info", "code": "unmatched",
                            "msg": f"Not matched to projections (typo?): "
@@ -741,3 +758,122 @@ def leverage_md(lineups: list[dict]) -> str | None:
         else:
             out.append(f"| {name} | {mine:.0f}% | — | — |")
     return "\n".join(out)
+
+
+# ------------------------------------- NFL Classic: the three ownership checks ----
+
+def three_checks(players: list[dict], field_size: int | None,
+                 actual_own: dict | None = None) -> dict | None:
+    """Where ONE NFL Classic lineup sits on the framework's three ownership
+    checks (rules/nfl_classic/framework.md; ETR's post-lock autopsy of a
+    ~275-entry SE field):
+      1. correlated pieces — the QB plus his stacked teammates and any
+         bring-back; their projected ownership, each and summed;
+      2. chalk combo — the lineup's two highest-owned players and the number
+         of lineups in the declared field expected to share that pair
+         (own_a × own_b × field size, the same math the strategy prose cites);
+      3. differentiation piece — the lowest-owned player and his ownership.
+    `actual_own` ({norm_name: actual own%}, post-lock) adds a pass/fail per
+    check: a check passes when the real number came in at or under the
+    projection. Information only. None when the roster carries no ownership."""
+    rows = [p for p in (players or []) if p.get("own") is not None]
+    if not rows:
+        return None
+    from src.nfl_classic_defs import (STACK_MATE_POSITIONS, BRINGBACK_POSITIONS,
+                                      normalize_position, normalize_team,
+                                      normalize_opponent)
+    pos = [normalize_position(p.get("position") or "") for p in rows]
+    tm = [normalize_team(p.get("team") or "") for p in rows]
+    op = [normalize_opponent(p.get("opponent") or "") for p in rows]
+    qb_i = next((i for i, q in enumerate(pos) if q == "QB"), None)
+    stack: list[dict] = []
+    if qb_i is not None:
+        qb_team, qb_opp = tm[qb_i], op[qb_i]
+        stack.append({"name": rows[qb_i]["name"], "own": float(rows[qb_i]["own"]), "role": "QB"})
+        for i, p in enumerate(rows):
+            if i == qb_i:
+                continue
+            if qb_team and tm[i] == qb_team and pos[i] in STACK_MATE_POSITIONS:
+                stack.append({"name": p["name"], "own": float(p["own"]), "role": "stack"})
+            elif qb_opp and tm[i] == qb_opp and pos[i] in BRINGBACK_POSITIONS:
+                stack.append({"name": p["name"], "own": float(p["own"]), "role": "bring-back"})
+    by_own = sorted(rows, key=lambda p: -float(p["own"]))
+    pair = by_own[:2]
+    fs = int(field_size) if field_size else 0
+    pair_pct = (float(pair[0]["own"]) / 100.0 * float(pair[1]["own"]) / 100.0 * 100.0
+                if len(pair) == 2 else None)
+    combo = {"players": [p["name"] for p in pair],
+             "owns": [round(float(p["own"]), 1) for p in pair],
+             "joint_pct": round(pair_pct, 1) if pair_pct is not None else None,
+             "expected_lineups": (int(round(pair_pct / 100.0 * fs))
+                                  if pair_pct is not None and fs else None),
+             "field_size": fs or None}
+    low = by_own[-1]
+    diff = {"name": low["name"], "own": round(float(low["own"]), 1)}
+    out = {"stack": stack, "stack_own": round(sum(s["own"] for s in stack), 1),
+           "combo": combo, "diff": diff, "has_qb": qb_i is not None}
+
+    if actual_own:
+        def _act(name):
+            return actual_own.get(_norm_name(name))
+        verdicts = {}
+        acts = [(_act(s["name"]), s["own"]) for s in stack]
+        if stack and all(a is not None for a, _ in acts):
+            a_sum = sum(a for a, _ in acts)
+            verdicts["stack"] = {"actual": round(a_sum, 1), "projected": out["stack_own"],
+                                 "pass": a_sum <= out["stack_own"]}
+        pa = [_act(n) for n in combo["players"]]
+        if len(pa) == 2 and all(a is not None for a in pa) and fs:
+            a_cnt = int(round(pa[0] / 100.0 * pa[1] / 100.0 * fs))
+            verdicts["combo"] = {"actual": a_cnt, "projected": combo["expected_lineups"],
+                                 "pass": a_cnt <= (combo["expected_lineups"] or 0)}
+        da = _act(diff["name"])
+        if da is not None:
+            verdicts["diff"] = {"actual": round(float(da), 1), "projected": diff["own"],
+                                "pass": float(da) <= diff["own"]}
+        out["verdicts"] = verdicts
+        out["passed"] = sum(1 for v in verdicts.values() if v["pass"])
+        out["checked"] = len(verdicts)
+    return out
+
+
+def three_checks_line(tc: dict) -> str:
+    """ONE plain sentence for the Grade tab. Pre-lock: the projected numbers
+    on each check. Post-lock (verdicts present): pass/fail per check."""
+    if not tc:
+        return ""
+    if tc.get("has_qb") and tc["stack"]:
+        pcs = ", ".join(f"{s['name']} {s['own']:.0f}%" + (f" ({s['role']})" if s["role"] != "QB" else "")
+                        for s in tc["stack"])
+        c1 = f"correlated pieces {pcs} — {tc['stack_own']:.0f}% summed"
+    elif tc.get("has_qb"):
+        c1 = f"correlated pieces: the QB {tc['stack'][0]['name']} rides alone (no stack, no bring-back)" \
+            if tc["stack"] else "correlated pieces: none"
+    else:
+        c1 = "correlated pieces: no quarterback matched, so no stack read"
+    cb = tc["combo"]
+    if len(cb["players"]) == 2:
+        c2 = (f"chalk pair {cb['players'][0]} + {cb['players'][1]} "
+              f"({cb['owns'][0]:.0f}% × {cb['owns'][1]:.0f}%)")
+        if cb.get("expected_lineups") is not None:
+            c2 += f" — about {cb['expected_lineups']:,} of the {cb['field_size']:,} lineups share it"
+        else:
+            c2 += f" — {cb['joint_pct']}% of lineups share it (no field size declared)"
+    else:
+        c2 = "chalk pair: fewer than two players matched"
+    c3 = f"differentiation piece {tc['diff']['name']} at {tc['diff']['own']:.1f}%"
+    v = tc.get("verdicts")
+    if v:
+        def _pf(key, unit=""):
+            r = v.get(key)
+            if not r:
+                return "no actual number"
+            return (f"{'PASS' if r['pass'] else 'FAIL'}: actual {r['actual']}{unit} vs "
+                    f"projected {r['projected']}{unit}")
+        return (f"Three ownership checks, post-lock — {tc.get('passed', 0)} of "
+                f"{tc.get('checked', 0)} passed: (1) {c1} → {_pf('stack', '%')}; "
+                f"(2) {c2} → {_pf('combo', ' lineups')}; (3) {c3} → {_pf('diff', '%')}. "
+                f"ETR's read: 0-for-3 craters, 3-for-3 improves. Information only.")
+    return (f"Three ownership checks (pre-lock, projected numbers): (1) {c1}; (2) {c2}; "
+            f"(3) {c3}. The post-lock pass/fail comes once real ownership is in. "
+            f"Information only — this never moves the grade.")

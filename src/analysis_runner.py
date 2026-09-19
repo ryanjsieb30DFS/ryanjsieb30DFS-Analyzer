@@ -1352,7 +1352,15 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str, hist_dir=None)
         f"table Claude was shown, and where did the pick land), "
         f"the last few rows of `rules/{slug}/results.jsonl` (the process TREND — leverage capture, "
         f"bust exposure, adherence across slates, not just this one), "
-        f"the latest entries in `rules/{slug}/autopsy_data.jsonl`, "
+        + (
+            f"the stack report at `{hist_dir}/stack_report.json` (if present — NFL Classic "
+            f"only: per contest, how the whole field, the top 1%, the top 20 and your entries "
+            f"stacked — a stack is the QB plus his own teammates, a bring-back is a player from "
+            f"the team he is playing against — plus the winning lineup's shape in words; read "
+            f"it as information about how winners built, never as a rule to impose), "
+            if slug == "nfl_classic" else ""
+        )
+        + f"the latest entries in `rules/{slug}/autopsy_data.jsonl`, "
         f"and the lesson ledger at "
         f"`rules/{slug}/lessons.yaml` (create it with the standard header from CLAUDE.md's "
         f"'Lesson ledger' section if missing). Then, following the 'Post-autopsy ritual' in CLAUDE.md:\n"

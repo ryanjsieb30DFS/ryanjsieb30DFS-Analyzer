@@ -29,7 +29,7 @@ lessons:
     origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 sim study); external data, not a logged slate"
     statement: >
       The WINNING captain sits in the 5–25% projected-ownership band; sub-5% captains fill top-10 spots but have not won. Why: a sub-5% captain needs the slate's top raw score AND the right five around him, so he reaches the top ten far more often than first place. Counts as confirmed when: a logged contest's winning captain sits in the 5–25% band (sub-5% captains in the top ten neither confirm nor contradict). NARROWED 2026-09-14 (user approved) from "sub-5% captains underperform the band" after that half failed on both logged slates; evidence reset to the two winners.
-    status: hypothesis
+    status: codified
     confirmations:
       - date: "2026-09-11"
         history: "rules/nfl_sd/history/2026-09-11__nfl-sd-9-10-26"
@@ -37,8 +37,11 @@ lessons:
       - date: "2026-09-14"
         history: "rules/nfl_sd/history/2026-09-14__nfl-sd-snf-week-1-9-13-2026"
         note: "Winner of both contests captained QB Dart at 18.8% (39.9 CPT) — inside the band. Sub-5% captains Likely (4.95%, 41.7 CPT) and Singletary (~0.2%) held 8 of 10 Dimeback top-ten spots and won 0 of 4 contests."
+      - date: "2026-09-15"
+        history: "rules/nfl_sd/history/2026-09-15__nfl-sd-week-1-mnf-9-14-2026"
+        note: "Third logged winner inside the band: the $200K Flea Flicker (47,562 entries) was won by 84 identical lineups captaining RB Kenneth Walker III at 16.3% projected captain ownership (37.1 flex, 55.65 as captain). The strategy's sub-6% captain menu (Kelce 5.4%, Sutton 5.1%, Dobbins 5.7%) scored 10.1 / 3.1 / 3.6 flex. 3 of 3 winners in the band — codification proposed 9/15."
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — The captain decision (5–25% captain band; user approved 2026-09-19)"
     retired_reason: null
 
   - id: nfl_sd_three_three_default
@@ -57,29 +60,33 @@ lessons:
     contradictions: []
     codified_in: "framework.md — Pre-lock checks (3-3 must name its story; user approved 2026-09-14)"
     retired_reason: null
+    # 2026-09-15 codified-rule check: APPLIED (step 5 gave each of the five entries a named script and split: 5-1 KC, 3-3, 2-4, 1-5, 4-2) and the mechanism HELD — the game tipped to the Chiefs (Walker 37.1, Mahomes 22.7, Chiefs DST 12.0 vs Nix 7.4, Waddle 1.2) and the winner was a 5-1 Chiefs build. The user's one 3-3 (CPT Sutton, both QBs, Rice, Butker, Engram) beat 42% of the field; the 5-1 Chiefs entry beat 99.7%.
 
   - id: nfl_sd_six_skill_default
     born: "2026-09-10"
     origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 sim study); external data, not a logged slate"
     statement: >
       Lineups with no kicker and no DST underperform lineups that carry one or both. Why: K and DST are the highest-scoring pieces in their salary tier and force the lineup to state a script. Counts as confirmed when: the slate's top-10 lineups carry a K or DST more often than the user's entries did.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-09-11"
         history: "rules/nfl_sd/history/2026-09-11__nfl-sd-9-10-26"
         note: "6 of 10 top-ten lineups in EACH contest carried a K or DST (Pineiro 11.0 pts, 49ers DST) vs the user's 0 of 2. Caveat: both first-place lineups were six skill players with no K/DST — the edge is a rate, never a quota."
+      - date: "2026-09-15"
+        history: "rules/nfl_sd/history/2026-09-15__nfl-sd-week-1-mnf-9-14-2026"
+        note: "Mechanism held: the Chiefs DST ($4,400, 14.2% owned) scored 12.0, the most of any piece priced $4,000-$5,200 (Butker 7.0, Broncos DST 3.0, Lutz 4.0), and sat in the winning lineup (all 84 copies) and 92% of the top lineups. The user carried a K or DST in 4 of 5 entries (80%) vs 10 of 10 at the top. Third confirming slate (origin + 9/11 + 9/15) against one contradiction (9/14) — codification proposed 9/15 as a rate."
     contradictions:
       - date: "2026-09-14"
         history: "rules/nfl_sd/history/2026-09-14__nfl-sd-snf-week-1-9-13-2026"
         note: "Mechanism failed: 0 of 10 top-ten lineups in EITHER contest carried a K or DST while the user carried Zvada (4.0 pts) in 2 of 2. All four K/DST pieces busted (Aubrey 2.0 at 34% owned, Zvada 4.0, Cowboys DST 3.0, Giants DST 3.0) and the 'highest-scoring piece in its tier' was Singletary ($1,400, 13.8) and Likely ($6,400, 27.8) instead. 1 confirmation, 1 contradiction — stays validated, not promoted."
-    codified_in: null
+    codified_in: "framework.md — Pre-lock checks (no-K-no-DST is a choice, a rate across the set; user approved 2026-09-19)"
     retired_reason: null
 
   - id: nfl_sd_kicker_conditional
     born: "2026-09-10"
     origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR kicker study 2020–25); external data, not a logged slate"
     statement: >
-      The kicker edge exists only in dome games, close spreads (the underdog kicker), or when the kicker is under-owned; blanket kicker use is neutral since 2025. Why: the field and DK pricing caught up to the old kicker discount; what is left is environment- and ownership-specific. Counts as confirmed when: a dome or close-spread kicker out-scores his salary tier on a logged slate while owned below the favorite's kicker.
+      The kicker edge exists in DOME games and when the vendor sheet shows the kicker under-owned; the outdoor close-spread underdog kicker is NOT an edge (0 for 2: Zvada 4.0, Lutz 4.0; the one confirmation, Pineiro 11.0, was a roofed stadium). NARROWED 2026-09-19 (user approved) from "close spread OR dome OR under-owned".
     status: validated
     confirmations:
       - date: "2026-09-11"
@@ -88,7 +95,10 @@ lessons:
       - date: "2026-09-14"
         history: "rules/nfl_sd/history/2026-09-14__nfl-sd-snf-week-1-9-13-2026"
         note: "PARTIAL, not counted: outdoors, 2.5-point spread, underdog kicker Zvada ($4,800) owned 11.8% vs Aubrey's 34.3%. Direction held (Zvada 4.0 beat Aubrey 2.0) but Zvada did NOT out-score his salary tier (Fields $5,000 4.5, Mooney $4,000 4.7) and 0 of 20 top lineups carried any kicker. The edge was real but worth nothing."
-    contradictions: []
+    contradictions:
+      - date: "2026-09-15"
+        history: "rules/nfl_sd/history/2026-09-15__nfl-sd-week-1-mnf-9-14-2026"
+        note: "Mechanism failed under its own conditions: outdoors, 2.5-point spread, underdog kicker Lutz ($5,200) owned 21.9% vs Butker's 27.1% — the close-spread AND under-owned halves both applied. Lutz scored 4.0 to Butker's 7.0, sat in 0% of the top-1% lineups and 25% of the bottom half (a fish trap), and did not out-score his tier (Chiefs DST $4,400 12.0). Outdoor close-spread underdog kickers are now 0 for 2 (Zvada 4.0, Lutz 4.0); the only confirmation (9/11) was a roofed stadium. Narrowing to the dome half proposed 9/15."
     codified_in: null
     retired_reason: null
 
@@ -97,13 +107,14 @@ lessons:
     origin: "ETR research digest 9/10/26 — docs/etr_research/DIGEST_2026-09-10_nfl_sd.md (ETR 2025 sim study); external data, not a logged slate"
     statement: >
       At similar sim ROI, the lineup with fewer projected duplicates wins on actual return. Why: an 11x-duplicated cash returns about 60% less than a unique cash. Counts as confirmed when: a logged contest's top finishers with positive sim ROI were low-dupe more often than high-dupe.
-    status: hypothesis
+    status: retired
     confirmations: []
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: "Untestable: the archive never holds sim ROI for the field's top finishers (3 slates). Content already codified in framework.md Duplication (a 15% sim-ROI lineup with 2 dupes beats a 20% lineup with 10). User approved 2026-09-19."
     # 2026-09-11: untested — the archive holds no per-lineup sim ROI for the top finishers. Top-10 dupe counts were 1-3 in both contests.
     # 2026-09-14: untested again (same gap). Winner copied 2-3x, top-20 dup_max 11 (Dimeback) / 17 (Huddle).
+    # 2026-09-15: untested a third time — the archive can never hold sim ROI for the FIELD's top finishers, so the test as written cannot fire. The slate still showed the payout side: 84 identical lineups tied for first at 124.61 and split places 1-84 for about $1,240 each instead of $50,000. Retirement proposed 9/15 (the content already lives in framework.md's Duplication section).
 
   # ---- 2026-09-11 — NFL SD 9.10.26 (49ers at Rams, Melbourne) — first logged slate ----
 
@@ -120,6 +131,7 @@ lessons:
     contradictions: []
     codified_in: null
     retired_reason: null
+    # 2026-09-15: NOT applied, untested. Both QBs sat under the 20% base rate (Mahomes 13.6% projected captain, Nix 13.1%) but the strategy kept them OFF the captain menu ("keeps the quarterbacks as normal players") because they were among the crowd's top four captains. Cost nothing: the winner captained RB Walker (55.65 CPT); Mahomes as captain (33.99) tops out near the user's 120th-place score, Nix (11.16) nowhere. Neither confirms nor contradicts.
 
   - id: nfl_sd_cheap_side_catchers
     born: "2026-09-11"
@@ -132,6 +144,7 @@ lessons:
     codified_in: null
     retired_reason: null
     # 2026-09-14: did not trigger — the cheap fillers split both ways (Flournoy/Aubrey/Demercado DAL, Tracy/Johnson NYG), so no side was 'the cheap side'.
+    # 2026-09-15: did not trigger — the cheap side WAS Denver (Bryant 22.9%, Engram 17.5%; strategy edge 8 said so), but the Chiefs had no $7K-$8K catcher under 20% (Kelce $7,000 34.5%, Worthy $6,600 23.0%), so the lesson's leverage set did not exist. Caution for the premise: the crowded side's filler Engram (14.3) was the slate definer, and the quiet side's cheap pieces (Thornton 0.0, Gray) did nothing.
 
   - id: nfl_sd_pick_override_inside_band
     born: "2026-09-11"
@@ -144,6 +157,7 @@ lessons:
     codified_in: null
     retired_reason: null
     # 2026-09-14: untested — no Claude pick this slate (both entries hand-entered; no lineup_selection.json archived). The sim's chance-to-win metric again read weak (0.145 vs real scores), cash% read best (0.278).
+    # 2026-09-15: untested — no Claude pick again (all 5 entries hand-entered from the Sim pool; no lineup_selection.json archived). Sim signal watch: chance-to-finish-first vs real scores 0.19 -> 0.145 -> 0.101 across three slates; cash chance led on 9/14 (0.278) and 9/15 (0.252) but trailed on 9/11 (0.137); chance-to-win-outright is under 0.1 two slates running (0.079, 0.051). Not a lesson yet.
 
   - id: nfl_sd_underweight_across_entries
     born: "2026-09-11"
@@ -156,6 +170,7 @@ lessons:
     codified_in: null
     retired_reason: null
     # 2026-09-14: did not trigger — all three UNDERWEIGHT calls (Aubrey 2.0, Flournoy 4.2, Tracy 0.4) were at 0 of 2 entries. The opposite discipline held; nothing to test.
+    # 2026-09-15: did not trigger — Mahomes (UNDERWEIGHT) rode 3 of 5 entries (60%), inside the strategy's own max_exposure_pct 60 rule and under the crowd's 69.7% projected / 66.8% actual; Butker, Broncos DST and Engram were 1 of 5 each. (The adherence tool still flags 60% as 'over-exposed' on its fixed 50% cutoff — the tool contradicts the rule block, the 9/14 bug #2 in another form.)
 
   # ---- 2026-09-14 — NFL SD SNF Week 1 9.13.26 (Cowboys at Giants) — second logged slate ----
 
@@ -169,6 +184,7 @@ lessons:
     contradictions: []
     codified_in: null
     retired_reason: null
+    # 2026-09-15: did not trigger — no QB was on the captain menu (see nfl_sd_qb_cpt_under_base_rate). Kelce (Mahomes' top catcher, 5.4% captain) WAS on the menu and scored 10.1 flex; the winner captained Walker. Nothing to count.
 
   - id: nfl_sd_punt_slot_role_path
     born: "2026-09-14"
@@ -180,12 +196,43 @@ lessons:
     contradictions: []
     codified_in: null
     retired_reason: null
+    # 2026-09-15: not counted — the winner carried no sub-$2,500 piece (its cheap spot was Engram, $3,400, 14.3). Half-support: the role-path dart Emmett Johnson ($2,600, 5.4% owned, projected 2.9, ceiling 7.9) scored 8.8, above his printed ceiling, exactly the mechanism. Half-fail: the crowd's filler Bryant ($3,200, 8.2) BEAT his 6.7 projection. Applied by the strategy (Johnson and Coleman named as the priority darts); the user's cheap spots held Bryant twice and Engram once.
 
   - id: nfl_sd_winner_envelope_45_per_slot
     born: "2026-09-14"
     origin: "rules/nfl_sd/history/2026-09-14__nfl-sd-snf-week-1-9-13-2026"
     statement: >
       In ~2,000-entry single-entry Showdowns the winning ownership envelope is about 45% per roster spot (four chalk stars + one mid-priced piece + one sub-5% dart), not the framework's ~28% per slot; an entry under 40% per slot is under-owning the chalk, not being sharp. Why: the Showdown universe is ~30 names and the top five sit at 45-74% each, so any lineup holding four of them averages ~45%; winners differentiate by WHICH captain wears the tag and by the one cheap dart, not by fading stars. Origin: top-20 average ownership per spot was 47.0% (Dimeback) and 45.6% (Huddle), the winner 46.8%, the four tracked pros 42.0%, while the strategy set a 28-30% target and both user entries sat at 39.4% and 40.0% — below every winning cohort. Counts as confirmed when: a logged ~1,500-2,500-entry SE slate's top-20 averages 40%+ per slot while the strategy's stated target stays under 35%.
+    status: validated
+    confirmations:
+      - date: "2026-09-15"
+        history: "rules/nfl_sd/history/2026-09-15__nfl-sd-week-1-mnf-9-14-2026"
+        note: "Mechanism held in a 47,562-entry 150-Max (outside the statement's SE range — counted for the MECHANISM, scope widening proposed): the top 1% (473 lineups) averaged 40.9% ownership per spot with 0% sub-5% pieces, the winner 39.3% with none, the bottom half 40.1% with 17.2% darts and 16.8% unique. The strategy APPLIED the 9/14 lesson (target 35-45% per spot, not 28%) and the user's set sat at 41.65%. Differentiation was the captain tag (Walker) and one mid-priced piece (Engram 14.3 / Chiefs DST 12.0), not a fade of stars."
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-09-15 — NFL SD Week 1 MNF 9.14.26 (Broncos at Chiefs, $200K Flea Flicker 150-Max) — third logged slate ----
+
+  - id: nfl_sd_salary_left_is_a_rate
+    born: "2026-09-15"
+    origin: "rules/nfl_sd/history/2026-09-15__nfl-sd-week-1-mnf-9-14-2026"
+    statement: >
+      "Leave salary" is a RATE across winners, never a per-lineup gate: the framework's "median winner left $1,400, only 7% spent the full cap" describes a spread in which many winners sit at $49,600-$49,900, and a Build-rules line of salary_max 49500 deletes exactly the near-max chalk-plus-one-mid builds that win. Why: the chalk stars are priced so that four of them plus one $3,000-$4,500 mid piece lands at $49,600-$49,800; a $49,500 ceiling forces the $200-cheaper twin into the cheap spot (Bryant for Engram) and turns the winning six into the 120th-place six. Origin: the 9/15 winner (CPT Walker, Mahomes, Rice, Kelce, Chiefs DST, Engram) cost $49,700 and the Sim's 10,000-lineup pool, built under the strategy's salary_max 49500 rule, topped out at 121.41 vs the 124.61 winning score; the user's best entry was the same six with Bryant ($3,200, 8.2) for Engram ($3,400, 14.3), the $200 the rule would not allow. Prior sighting 9/14: the 4th-place build ($49,800) was blocked by the same rule while the winner spent all $50,000. Counts as confirmed when: a logged slate's winner or top-5 build spends over the strategy's salary_max line and the Sim pool never held it.
+    status: validated
+    confirmations:
+      - date: "2026-09-14"
+        history: "rules/nfl_sd/history/2026-09-14__nfl-sd-snf-week-1-9-13-2026"
+        note: "Recorded in that review's 9/14-evening addendum: the Huddle entry becomes the exact 4th-place lineup (128.95 in both contests) by swapping Zvada + Johnson for Likely + Singletary, at $49,800 — un-buildable under salary_max 49500. The winner spent $50,000."
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl_sd_twin_drift_to_consensus
+    born: "2026-09-15"
+    origin: "rules/nfl_sd/history/2026-09-15__nfl-sd-week-1-mnf-9-14-2026"
+    statement: >
+      The Anchor-Equivalence twin call ("run the less-owned twin") is made on the vendor's PROJECTED ownership, but when both articles push the same twin the field reads the same articles and the projected less-owned twin can close as the MORE-owned one; the call needs a lock-time ownership check, and the user's exposure to the chosen twin must stay under the field's actual rate, not the projected one. Why: projected ownership is a pre-article snapshot; a matchup writer's strong read (Silva's "QB2" on Mahomes, "this defense has not contained" Nix) moves thousands of late entries the same direction the strategy moved. Origin: ETR projected Mahomes 69.7% / Nix 64.3%, the strategy named Nix the less-owned twin and the user carried Nix in 4 of 5 entries (80%) and Mahomes in 3 of 5; at lock Nix was the slate's most-owned player at 74.4% and Mahomes fell to 66.8% — the set was LONGER than the crowd on the twin it meant to lean toward. Counts as confirmed when: a logged slate's projected less-owned twin closes higher-owned than his partner and the user's exposure to him sits above the field's actual rate. (Result-neutral: Nix's 7.4 vs Mahomes' 22.7 is variance, not the mechanism.)
     status: hypothesis
     confirmations: []
     contradictions: []

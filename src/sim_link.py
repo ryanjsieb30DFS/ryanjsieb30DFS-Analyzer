@@ -607,3 +607,98 @@ def capture_stats_md(stats: dict) -> str:
         out += (("  \n" if out else "")
                 + f"_Dead-structure share: {stats['dead_structure_note']}._")
     return out
+
+
+# --------------------------------------------- IKB edit-count guard (9/14/26) ----
+
+_IKB_MAX_PLAYERS = 10     # ETR's own limit (NFL Classic digest 9/12/26, B1 item 9)
+_IKB_MAX_POINTS = 2.0     # "1–2 points each"
+
+
+def ikb_edit_summary(slug: str) -> dict | None:
+    """How far the Sim's WORKING projections for this slate have been edited
+    away from the vendor file(s) it loaded — the "I Know Better" freeroll
+    guard from the ETR NFL Classic digest (Section E item 5). Reads the Sim's
+    saved session (data/sessions/<slug>.json: `projections` = the edited
+    working set, `proj_sources` = each vendor's untouched CSV) and compares
+    `proj_points` by normalized name. None when the bridge, the session, or
+    the vendor sources are absent. Information only."""
+    import io
+    import pandas as pd
+    from src.autopsy import _norm_name
+    root = sim_root()
+    if root is None:
+        return None
+    path = root / "data" / "sessions" / f"{slug}.json"
+    if not path.exists():
+        return None
+    try:
+        payload = json.loads(path.read_text())
+    except (json.JSONDecodeError, OSError):
+        return None
+    sources = payload.get("proj_sources") or []
+    if not isinstance(payload, dict) or not payload.get("projections") or not sources:
+        return None
+    try:
+        work = pd.read_csv(io.StringIO(payload["projections"]))
+        base_frames = [pd.read_csv(io.StringIO(s["projections"])) for s in sources
+                       if s.get("projections")]
+    except Exception:  # noqa: BLE001
+        return None
+    if work.empty or not base_frames or "name" not in work.columns \
+            or "proj_points" not in work.columns:
+        return None
+    base = pd.concat(base_frames, ignore_index=True)
+    if "name" not in base.columns or "proj_points" not in base.columns:
+        return None
+    base["__k"] = base["name"].astype(str).map(_norm_name)
+    base["__p"] = pd.to_numeric(base["proj_points"], errors="coerce")
+    base_proj = base.dropna(subset=["__p"]).groupby("__k")["__p"].mean()
+    edits = []
+    n_compared = 0
+    for _, r in work.iterrows():
+        k = _norm_name(str(r["name"]))
+        if k not in base_proj.index:
+            continue
+        try:
+            w = float(r["proj_points"])
+        except (TypeError, ValueError):
+            continue
+        if w != w:
+            continue
+        n_compared += 1
+        d = w - float(base_proj[k])
+        if abs(d) >= 0.05:
+            edits.append({"name": str(r["name"]), "base": round(float(base_proj[k]), 1),
+                          "edited": round(w, 1), "delta": round(d, 1)})
+    edits.sort(key=lambda e: -abs(e["delta"]))
+    return {"n_players": n_compared, "n_edited": len(edits),
+            "max_delta": max((abs(e["delta"]) for e in edits), default=0.0),
+            "edits": edits, "vendors": [s.get("vendor") for s in sources],
+            "max_players": _IKB_MAX_PLAYERS, "max_points": _IKB_MAX_POINTS}
+
+
+def ikb_md(summary: dict | None) -> str | None:
+    """One plain info line for the Breakdown panel; None when there is nothing
+    to say (no Sim session for this slate)."""
+    if not summary:
+        return None
+    n, mx = summary["n_edited"], summary["max_delta"]
+    lim = (f"ETR's own limit for these edits is {summary['max_players']} players or fewer, "
+           f"{summary['max_points']:g} points or less each")
+    if n == 0:
+        return (f"IKB check (your projection edits in the Sim): none — the Sim is running the "
+                f"vendor's base projections for all {summary['n_players']} players. An edit is a "
+                f"freeroll only when the lineup already sims well on the base numbers. {lim}.")
+    top = ", ".join(f"{e['name']} {e['delta']:+.1f}" for e in summary["edits"][:5])
+    over = []
+    if n > summary["max_players"]:
+        over.append(f"that is more than the {summary['max_players']}-player limit")
+    if mx > summary["max_points"]:
+        over.append(f"the biggest change is over {summary['max_points']:g} points")
+    tail = (" — " + " and ".join(over) + ", so the sim result is an edited-projection "
+            "result, not a freeroll on the base numbers") if over else \
+        " — inside ETR's limit, so the edit still reads as a freeroll"
+    return (f"IKB check (your projection edits in the Sim): {n} of {summary['n_players']} "
+            f"players changed, biggest change {mx:.1f} points ({top}){tail}. {lim}. "
+            f"Information only.")

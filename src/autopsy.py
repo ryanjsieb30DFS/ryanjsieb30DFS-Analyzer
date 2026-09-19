@@ -318,7 +318,7 @@ def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str,
         for _, r in proj_df.iterrows():
             entry = {"salary": r["salary"], "proj_points": r["proj_points"],
                      "ownership": r.get("ownership")}
-            for opt in ("team", "position", "salary_cpt", "proj_cpt", "own_cpt"):
+            for opt in ("team", "opponent", "position", "salary_cpt", "proj_cpt", "own_cpt"):
                 if opt in proj_df.columns:
                     entry[opt] = r[opt]
             proj_lookup[r["_norm"]] = entry
@@ -436,7 +436,27 @@ def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str,
         slate_defining.sort(key=lambda d: d["actual_fpts"], reverse=True)
         slate_defining = slate_defining[:8]
 
+    # NFL Classic stack shapes (Phase 4, 9/14/26): every lineup read as
+    # QB-stack / bring-back / RB count / players-from-one-game, compared across
+    # the field, the top 1%, the top 20 and the user's entries. Teams come
+    # from the still-loaded projections; without them the report says "not
+    # gradable" and nothing else changes. Slug-routed — NFL SD is a
+    # different game and never gets a stack read.
+    stack_report, stack_lookup = None, None
+    if slug == "nfl_classic":
+        try:
+            from src import nfl_stack_autopsy as _nsa
+            stack_report = _nsa.stack_report(parsed, proj_df)
+            stack_lookup = _nsa.build_lookup(players, proj_df)
+            _nsa._fill_opponents(stack_lookup)
+        except Exception:  # noqa: BLE001 — descriptive add-on, never blocks
+            stack_report, stack_lookup = None, None
+
     return {
+        # NFL Classic only (else None): the stack report + the norm →
+        # {position, team, opponent} lookup the shark gap reuses.
+        "stack_report": stack_report,
+        "stack_lookup": stack_lookup,
         "user_lineups_df": user_df,
         "winners_df": winners_df,
         "winners_summary": winners_summary,
@@ -544,6 +564,10 @@ def build_autopsy_record(*, ts: str, contest_label: str, slug: str, sport: str,
         # loss one swap away or structural, and what leverage carried the winner?
         "winner_story": _counterfactual("winner_story", parsed, analysis),
         "near_miss": _counterfactual("near_miss", parsed, analysis),
+        # NFL Classic stack shapes (None for every other slug): field / top 1%
+        # / top 20 / your entries + the winner's shape in words. Archived as
+        # <history_dir>/stack_report.json and summarized in results.jsonl.
+        "stack_report": analysis.get("stack_report"),
     }
 
 
@@ -592,4 +616,13 @@ def record_md_summary(record: dict) -> str:
             + ", ".join(f"{d['name']} ({d['actual_fpts']:.1f} pts @ {d['actual_own']:.1f}%)"
                         for d in sd[:4])
         )
+    if record.get("stack_report"):
+        try:
+            from src.nfl_stack_autopsy import stack_md
+            block = stack_md(record["stack_report"], record.get("source_file"))
+            if block:
+                lines.append("")
+                lines.append(block)
+        except Exception:  # noqa: BLE001 — never blocks the summary
+            pass
     return "\n".join(lines)

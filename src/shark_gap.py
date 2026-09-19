@@ -58,7 +58,34 @@ def chalk_anchors(parsed: dict, n: int = _N_ANCHORS) -> list[str]:
     return [_norm_name(x) for x in top["name"]]
 
 
-def structural_profile(parsed: dict, handles, anchors: list[str] | None = None) -> dict:
+def _lineup_strings_for(parsed: dict, handles) -> list[str]:
+    """Raw DK lineup strings (slot markers intact) for the given handles."""
+    wanted = {h.lower() for h in (handles or [])}
+    L = parsed["lineups"]
+    return [str(s) for s, h, r in zip(L["Lineup"], L["EntryName"].map(_handle),
+                                      L["Lineup_parsed"])
+            if h in wanted and r]
+
+
+def _stack_dims(parsed: dict, handles, stack_lookup: dict) -> dict:
+    """NFL Classic only: share of a handle-set's lineups with a DOUBLE STACK
+    (QB + 2 or more teammates) and with a BRING-BACK (a player from the QB's
+    opponent). Counts only lineups whose teams resolved; {} when none did."""
+    from src.nfl_stack_autopsy import read_lineup
+    reads = [read_lineup(s, stack_lookup) for s in _lineup_strings_for(parsed, handles)]
+    reads = [r for r in reads if r is not None]
+    if not reads:
+        return {}
+    n = len(reads)
+    return {
+        "double_stack_pct": round(sum(1 for r in reads if r["mates"] >= 2) / n * 100, 1),
+        "bringback_pct": round(sum(1 for r in reads if r["bringback"] > 0) / n * 100, 1),
+        "stack_n": n,
+    }
+
+
+def structural_profile(parsed: dict, handles, anchors: list[str] | None = None,
+                       stack_lookup: dict | None = None) -> dict:
     """The behavioral fingerprint for a set of handles in this contest.
 
     Dimensions (all field-ownership based, so they're decisions, not results):
@@ -68,6 +95,10 @@ def structural_profile(parsed: dict, handles, anchors: list[str] | None = None) 
       max_overlap    — worst shared-player count between any two of their lineups
       unique_pct     — share of lineups with a distinct roster
       best/median_pctile — finish distribution
+    NFL Classic adds (only when `stack_lookup` — norm → {position, team,
+    opponent} from src.nfl_stack_autopsy.build_lookup — is passed):
+      double_stack_pct — share of lineups with the QB + 2 or more teammates
+      bringback_pct    — share of lineups with a player from the QB's opponent
     Returns {gradable: False} if the handles have no lineups here.
     """
     field = len(parsed["lineups"])
@@ -111,7 +142,7 @@ def structural_profile(parsed: dict, handles, anchors: list[str] | None = None) 
     ranks = _ranks_for(parsed, handles)
     pct = sorted(round(r / field * 100, 2) for r in ranks) if (ranks and field) else []
 
-    return {
+    out = {
         "gradable": True,
         "n_entries": n,
         "own_per_slot": own_per_slot,
@@ -123,6 +154,12 @@ def structural_profile(parsed: dict, handles, anchors: list[str] | None = None) 
         "best_pctile": pct[0] if pct else None,
         "median_pctile": pct[len(pct) // 2] if pct else None,
     }
+    if stack_lookup:
+        try:
+            out.update(_stack_dims(parsed, handles, stack_lookup))
+        except Exception:  # noqa: BLE001 — the stack read is additive, never blocks
+            pass
+    return out
 
 
 def present_handles(parsed: dict, handles) -> list[str]:
@@ -152,14 +189,22 @@ _DIMS = [
     ("leverage_pct", "% lineups w/ sub-5% piece", "sharks carry one in most"),
     ("anchor_exposure", "exposure to chalk anchors", "under-owning these is the recurring leak"),
     ("unique_pct", "% unique rosters", "sharks are all-unique"),
+    # NFL Classic only — present in a profile only when the stack lookup was
+    # passed; other sports never carry these keys so the delta loop skips them.
+    ("double_stack_pct", "% lineups with a double stack (QB + 2 teammates)",
+     "how often they pair the QB with two of his own players"),
+    ("bringback_pct", "% lineups with a bring-back (a player from the QB's opponent)",
+     "how often they bet on the game turning into a shootout"),
 ]
 
 
-def shark_gap(parsed: dict, shark_handles, user_handles) -> dict:
-    """Us vs the in-field sharks on every structural axis, with the deltas."""
+def shark_gap(parsed: dict, shark_handles, user_handles,
+              stack_lookup: dict | None = None) -> dict:
+    """Us vs the in-field sharks on every structural axis, with the deltas.
+    `stack_lookup` (NFL Classic only) adds the double-stack / bring-back axes."""
     anchors = chalk_anchors(parsed)
-    sharks = structural_profile(parsed, shark_handles, anchors)
-    user = structural_profile(parsed, user_handles, anchors)
+    sharks = structural_profile(parsed, shark_handles, anchors, stack_lookup=stack_lookup)
+    user = structural_profile(parsed, user_handles, anchors, stack_lookup=stack_lookup)
 
     deltas = []
     if sharks.get("gradable") and user.get("gradable"):
@@ -222,13 +267,16 @@ def load_handles() -> dict:
     return cfg
 
 
-def gap_for_slug(slug: str, parsed: dict) -> dict:
-    """Compute the shark-gap for a slate slug using the configured handles."""
+def gap_for_slug(slug: str, parsed: dict, stack_lookup: dict | None = None) -> dict:
+    """Compute the shark-gap for a slate slug using the configured handles.
+    `stack_lookup` is analyze_contest's `stack_lookup` (NFL Classic only;
+    None elsewhere) — it adds the double-stack / bring-back dimensions."""
     cfg = load_handles()
     sport = (cfg.get("slug_sport") or {}).get(slug)
     sharks = (cfg.get("sharks_by_sport") or {}).get(sport, [])
     user = cfg.get("user", [])
-    g = shark_gap(parsed, sharks, user)
+    g = shark_gap(parsed, sharks, user,
+                  stack_lookup=stack_lookup if slug == "nfl_classic" else None)
     g["slug"], g["sport"] = slug, sport
     return g
 

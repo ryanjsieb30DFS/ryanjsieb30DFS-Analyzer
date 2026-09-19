@@ -212,6 +212,14 @@ def process_trend_block(slug: str, n: int = 5) -> str | None:
         lines.append(f"- **Player-pool tier calibration:** tier ordering held in "
                      f"{held} of {len(ordered)} graded slates"
                      + (" — the board's boundaries are suspect." if held < len(ordered) else "."))
+    # NFL Classic stack shapes: one line per slate that has one. A stack is a
+    # QB plus his teammates; a bring-back is a player from the other team in
+    # that game. Descriptive only, same as everything above.
+    stacks = [(r.get("date"), r.get("stack_summary")) for r in rows if r.get("stack_summary")]
+    if stacks:
+        lines.append("- **Stack shapes** (how the winners stacked vs how you did, per slate):")
+        for d, s in stacks:
+            lines.append(f"  - {d}: {s}")
     # Grader self-validation: pool the per-lineup outcomes across slates. Only
     # meaningful once BOTH buckets have a few lineups.
     fl, cl = [], []
@@ -345,6 +353,27 @@ def archive_slate(
     if sim_autopsy:
         (hist_dir / "sim_autopsy.json").write_text(json.dumps(sim_autopsy, indent=2))
 
+    # NFL Classic stack shapes (Phase 4, 9/14/26): one report per contest,
+    # lifted from the autopsy records — how the field / top 1% / top 20 /
+    # the user stacked, plus the winner's shape in words. Only written when
+    # a record carries one (nfl_classic only).
+    stack_reports = [
+        {"source_file": r.get("source_file"), "contest_type": r.get("contest_type"),
+         "contest_id": r.get("contest_id"), **r["stack_report"]}
+        for r in autopsy_records
+        if isinstance(r, dict) and isinstance(r.get("stack_report"), dict)
+    ]
+    stack_summary = None
+    if stack_reports:
+        (hist_dir / "stack_report.json").write_text(json.dumps(stack_reports, indent=2))
+        try:
+            from src.nfl_stack_autopsy import stack_summary as _ss
+            gradable = [s for s in stack_reports if s.get("gradable")]
+            if gradable:
+                stack_summary = _ss(max(gradable, key=lambda s: s.get("n_field") or 0))
+        except Exception:  # noqa: BLE001 — a summary line never blocks the archive
+            stack_summary = None
+
     contests_out = []
     for c in roi_contests:
         roi = compute_roi(c.get("entry_fee"), c.get("my_entries"), c.get("winnings"))
@@ -434,6 +463,10 @@ def archive_slate(
              "clean_pctiles": grader_validation["clean_pctiles"]}
             if grader_validation and grader_validation.get("gradable") else None
         ),
+        # NFL Classic stack shapes, one line (None elsewhere / not gradable):
+        # double-stack and bring-back rates for the top 1%, the field and
+        # you, plus the winner's shape — trended by process_trend_block.
+        "stack_summary": stack_summary,
     }
     (hist_dir / "results.json").write_text(json.dumps(row, indent=2))
     append_results(slug, row)
