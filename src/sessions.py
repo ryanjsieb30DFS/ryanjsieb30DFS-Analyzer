@@ -6,6 +6,7 @@ Stores the uploaded projection sources for the active slate.
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 import pandas as pd
 
@@ -22,12 +23,31 @@ def load(slug: str) -> dict:
     p = _path(slug)
     if not p.exists():
         return {"sources": {}}
-    return json.loads(p.read_text())
+    # A Streamlit rerun can read this file while an upload is rewriting it.
+    # An empty or half-written file means "nothing saved yet", never a crash
+    # (9/19/26: the first MMA upload after a slate clear took the whole app
+    # down with JSONDecodeError on a 0-byte read).
+    try:
+        text = p.read_text()
+    except OSError:
+        return {"sources": {}}
+    if not text.strip():
+        return {"sources": {}}
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError:
+        return {"sources": {}}
+    return data if isinstance(data, dict) else {"sources": {}}
 
 
 def save(slug: str, session: dict) -> None:
     _SESSION_DIR.mkdir(parents=True, exist_ok=True)
-    _path(slug).write_text(json.dumps(session, default=str, indent=2))
+    # Atomic: write beside the target, then rename, so a concurrent reader
+    # sees either the old file or the new one — never a truncated one.
+    target = _path(slug)
+    tmp = target.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(session, default=str, indent=2))
+    os.replace(tmp, target)
 
 
 def save_source(slug: str, source_name: str, df: pd.DataFrame, vendor: str) -> None:
