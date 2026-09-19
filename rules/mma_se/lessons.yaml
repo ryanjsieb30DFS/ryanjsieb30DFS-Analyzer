@@ -43,11 +43,14 @@ lessons:
       unconfirmed injury news trades a known any-outcome floor for a binary bet —
       the Brady-to-Buckley swap (Brady 136.27, Buckley 5.20) was an overreaction,
       and SE's one-shot structure makes that risk asymmetry worse.
-    status: hypothesis   # RETIRE proposed 2026-09-19 (ledger hygiene) — awaits user approval; see that review's ## Ledger hygiene
+    status: retired
     confirmations: []
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: >
+      Retired 2026-09-19 (ledger hygiene, user-approved): 13 slates untested AND its
+      trigger (a hand swap on late news) is closed by the codified pick-never-hand-build
+      rule; the residual read-back lives in verify-submission.
 
   # ---- 2026-05-16 — UFC Vegas 117 (Allen vs. Costa) ----
 
@@ -588,7 +591,7 @@ lessons:
       the chalkiest favorite / the main-event chalk. Links [[mma-se-2026-06-14-showdown-captain-the-ceiling-pair-the-smash]];
       generalizes the red team's "Bo in 9/10 with zero hedge" finding (Bo won, so the
       realized evidence is Topuria, but the mechanism is identical).
-    status: validated
+    status: codified   # refined form (BINARY favorites only), 9/19/26
     confirmations:
       - date: "2026-06-20"
         slate: "UFC Fight Night 6/20 (CLASSIC, not showdown — mechanism is format-agnostic)"
@@ -660,7 +663,7 @@ lessons:
           Cepo) collapsed their blocks, the two floor favorites (Dyer, Silva) did not.
           The codifiable form is the refined one — cap exposure to a favorite whose
           only scoring path is a finish — and the counted evidence stays at 2 of 3.
-    codified_in: null
+    codified_in: "rules/mma_se/framework.md — Step 5 — Diversification (Codified 9/19/26, refined form: cap BINARY favorites at ~60% of a multi-entry set; a decision-floor favorite may run to 100%)"
     retired_reason: null
 
   - id: mma-se-2026-06-14-showdown-trust-cpt-own-not-projected-overall-own
@@ -2102,7 +2105,7 @@ lessons:
       [[mma-se-2026-05-16-no-identical-conviction-cores]]; links
       [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]],
       [[mma-se-2026-06-14-showdown-cap-single-favorite-exposure]].
-    status: validated
+    status: codified   # 9/19/26, 3 confirming slates
     confirmations:
       - date: "2026-09-06"
         slate: "UFC Fight Night: Hooker vs. Parnasse 9.5.26 — 588 + 951 SEs"
@@ -2131,7 +2134,7 @@ lessons:
           both dead slots resolved in both entries at once and they finished 78.2 /
           66.0. Shared favorites cost nothing; shared coin-flips died together.
     contradictions: []
-    codified_in: null
+    codified_in: "rules/mma_se/framework.md — Step 5 — Diversification (Codified 9/19/26: count shared coin-flip slots separately from shared favorites; at most ONE shared fighter under ~55% to win)"
     retired_reason: null
 
   - id: mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma
@@ -2960,10 +2963,19 @@ lessons:
       points BELOW the pool average (`picking_edge_points` -18.59). Rule to test: log
       rank_signal alongside the pool's score dispersion each slate, and keep treating a
       single lineup's sim rank as a tie-breaker among strategy-compliant lineups rather
-      than as evidence about that lineup. Links
+      than as evidence about that lineup. (3) WHICH METRIC (merged 2026-09-19 from
+      [[mma-se-2026-09-06-presim-metrics-bury-winners]], a watch item, not a behavior
+      change): the pre-sim headline metrics have ranked the actual contest winners
+      mid-table — on 9/5 the pool row that would have won all three contests (731.2
+      actual) sat ON the shown Clinch table at 2.26% Top-1% / 40% ROI while
+      Parnasse-chalk builds showed 3.4-3.5% / ~107% — and in three straight slates
+      (8/29, 9/6, 9/12) Cash% was the best predictor of real score (Spearman ~0.25-0.32)
+      and Win% the worst (0.00-0.07). Do NOT touch the blend on n=3 — keep reading each
+      slate's sim_autopsy rank_signal at autopsy time and revisit when the pattern holds
+      across ~5+ slates. Links
       [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-08-09-the-single-bullet-gets-the-least-disciplined-build]].
-    status: validated
+    status: validated   # clause (2) single-row CODIFIED 9/19/26 (see codified_in); clauses (1) dispersion + (3) which-metric stay open
     confirmations:
       - date: "2026-09-06"
         slate: "UFC Fight Night: Hooker vs. Parnasse 9.5.26 — 588 + 951 SEs"
@@ -2997,7 +3009,7 @@ lessons:
           Also the third straight slate where Cash% was the best predictor and Win%
           the worst (see [[mma-se-2026-09-06-presim-metrics-bury-winners]]).
     contradictions: []
-    codified_in: null
+    codified_in: "rules/mma_se/framework.md — A Sim Rank Orders the Pool, Not the Row (9/19/26) — clause (2) single-row weakness ONLY; clause (1) dispersion and clause (3) which-metric remain validated / watch"
     retired_reason: null
 
   # ---- 2026-09-06 — UFC Fight Night: Hooker vs. Parnasse (Paris) ----
@@ -3103,7 +3115,7 @@ lessons:
       NOT touch the blend on n=2 — keep reading each slate's sim_autopsy
       rank_signal at autopsy time and revisit when a stable pattern holds
       across ~5+ slates.
-    status: validated
+    status: retired   # merged 9/19/26 — see retired_reason
     confirmations:
       - date: "2026-09-19"
         slate: "UFC Noche 9.12.26 — 7,937-lineup pool, 3 contests"
@@ -3120,7 +3132,7 @@ lessons:
           this slate. Do not touch the blend yet; two more slates.
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: "merged into mma-se-2026-08-29-sim-ordering-scales-with-score-dispersion (clause 3, 2026-09-19 ledger hygiene, user-approved)"
 
   # ---- 2026-09-19 — MMA 150-max field study (9/5 + 9/12 MEGA mini-MAX) ----
   # The user moved MMA to the 150-max game (100 entries a night) on 9/19/26.

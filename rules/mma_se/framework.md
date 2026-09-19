@@ -96,6 +96,10 @@ This is uncomfortable — it means one SE underweights something you believe in.
 
 **The leverage swing can differ**, but it's secondary. The anchor differentiation is what saves you when conviction fails.
 
+**Codified 9/19/26 (3 confirming slates — `shared-coin-flip-slots-not-shared-players-kill-a-portfolio`).** Count shared COIN-FLIP slots separately from shared favorites. Entries may share favorites with a decision floor; they may share at most ONE fighter under ~55% to win. 8/2 Cepo+Janicic, 9/6 zero shared flips decorrelated, 9/12 Garcia+Morales died in two entries at once.
+
+**Codified 9/19/26 (refined form — `showdown-cap-single-favorite-exposure`).** Cap any BINARY favorite (only scoring path is a finish) at ~60% of a multi-entry set and carry one entry without him; a favorite with a decision floor may run to 100%. Topuria 7/10 and Cepo 2/3 sank their blocks; Dyer 5/5 and Silva 4/5 did not.
+
 ## Pre-Submission Checklist for SE
 
 Before locking each lineup:
@@ -338,6 +342,10 @@ Pick the single-entry bullet from the Sim pool's contest slice; never hand-assem
 ### One Lineup, One Contest — Re-Run, Never Repair (8/29/26 — 3-slate validated)
 
 One lineup, one contest. If a pick is displaced from a contest, RE-RUN the pick for that contest — never repair it by swapping slots by hand.
+
+### A Sim Rank Orders the Pool, Not the Row (9/19/26)
+
+Top-1% / ROI / Cash% order 7,000 lineups weakly (0.1-0.3) and say almost nothing about one row. Use them to cut the pool's bottom and break ties among strategy-compliant lineups, never as evidence for a lineup. 8/29, 9/6, 9/12: the best-credentialed pick finished worst each time. (Codified from the single-row clause of `sim-ordering-scales-with-score-dispersion`; the dispersion clause — signal scales with how widely the card's scores spread — stays validated, pending a tight card.)
 
 ### Winners Decide the Card, Ownership Barely Moves It (8/29/26 — 13 contests / 5 cards, EX POST)
 
