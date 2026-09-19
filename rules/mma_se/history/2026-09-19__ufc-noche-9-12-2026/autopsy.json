@@ -1,0 +1,2614 @@
+[
+  {
+    "timestamp": "2026-09-19 13:38",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-195352889.csv",
+    "contest_id": "195352889",
+    "entries": 1189,
+    "winning_score": 591.51996,
+    "cash_line_p80": 480.84998,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 26,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 32.55,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 50000.0,
+      "entry_count": 1,
+      "best_rank": 930,
+      "best_percentile": 78.2
+    },
+    "user_lineups": [
+      {
+        "rank": 930,
+        "entry_name": "RyvlesGaming30",
+        "points": 333.14,
+        "percentile": 78.2,
+        "players": [
+          "Waldo Cortes Acosta",
+          "Joseph Morales",
+          "Marwan Rahiki",
+          "Rafa Garcia",
+          "Jean Silva",
+          "Sean King III"
+        ],
+        "avg_own": 32.55,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 395.41,
+        "dup_count": 5
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Tim Elliott",
+        "proj_points": 49.56,
+        "actual_fpts": 106.82,
+        "fpts_delta": 57.26,
+        "ownership": 27.0,
+        "actual_own": 27.25
+      },
+      {
+        "name": "Sean King III",
+        "proj_points": 69.22,
+        "actual_fpts": 122.92,
+        "fpts_delta": 53.7,
+        "ownership": 38.0,
+        "actual_own": 29.86
+      },
+      {
+        "name": "Tommy McMillen",
+        "proj_points": 69.69,
+        "actual_fpts": 117.19,
+        "fpts_delta": 47.5,
+        "ownership": 48.0,
+        "actual_own": 57.02
+      },
+      {
+        "name": "Alexa Grasso",
+        "proj_points": 44.24,
+        "actual_fpts": 76.91,
+        "fpts_delta": 32.67,
+        "ownership": 14.0,
+        "actual_own": 25.99
+      },
+      {
+        "name": "Yousri Belgaroui",
+        "proj_points": 86.48,
+        "actual_fpts": 118.4,
+        "fpts_delta": 31.92,
+        "ownership": 20.0,
+        "actual_own": 22.62
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Waldo Cortes Acosta",
+        "proj_points": 67.31,
+        "actual_fpts": 11.6,
+        "fpts_delta": -55.71,
+        "ownership": 26.0,
+        "actual_own": 29.35
+      },
+      {
+        "name": "Jessie Rosas",
+        "proj_points": 47.6,
+        "actual_fpts": 1.2,
+        "fpts_delta": -46.4,
+        "ownership": 16.0,
+        "actual_own": 18.17
+      },
+      {
+        "name": "Edgar Chairez",
+        "proj_points": 68.98,
+        "actual_fpts": 25.72,
+        "fpts_delta": -43.26,
+        "ownership": 24.0,
+        "actual_own": 20.69
+      },
+      {
+        "name": "Manon Fiorot",
+        "proj_points": 69.06,
+        "actual_fpts": 29.06,
+        "fpts_delta": -40.0,
+        "ownership": 16.0,
+        "actual_own": 11.19
+      },
+      {
+        "name": "Djorden Santos",
+        "proj_points": 33.67,
+        "actual_fpts": 6.4,
+        "fpts_delta": -27.27,
+        "ownership": 7.0,
+        "actual_own": 5.13
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Rong Rongzhu",
+        "salary": 8500,
+        "actual_fpts": 73.8,
+        "actual_own": 12.95,
+        "top_lineup_pct": 30.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 34.24,
+      "low_own_count_mean": 0.25,
+      "salary_used_mean": 49805.0,
+      "dup_max": 12,
+      "unique_pct": 15.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "tszone72",
+          "points": 591.51996,
+          "percentile": 0.1,
+          "players": [
+            "Curtis Blaydes",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rong Rongzhu",
+            "Tommy Gantt",
+            "Sean King III"
+          ],
+          "avg_own": 33.68,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 385.61,
+          "dup_count": 2
+        },
+        {
+          "rank": 1,
+          "entry_name": "adalebt7",
+          "points": 591.51996,
+          "percentile": 0.1,
+          "players": [
+            "Curtis Blaydes",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rong Rongzhu",
+            "Tommy Gantt",
+            "Sean King III"
+          ],
+          "avg_own": 33.68,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 385.61,
+          "dup_count": 2
+        },
+        {
+          "rank": 3,
+          "entry_name": "erog30",
+          "points": 590.11,
+          "percentile": 0.3,
+          "players": [
+            "Curtis Blaydes",
+            "Alexa Grasso",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Yousri Belgaroui",
+            "Tommy Gantt"
+          ],
+          "avg_own": 34.65,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 383.65,
+          "dup_count": 4
+        },
+        {
+          "rank": 3,
+          "entry_name": "jtkeefer",
+          "points": 590.11,
+          "percentile": 0.3,
+          "players": [
+            "Curtis Blaydes",
+            "Alexa Grasso",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Yousri Belgaroui",
+            "Tommy Gantt"
+          ],
+          "avg_own": 34.65,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 383.65,
+          "dup_count": 4
+        },
+        {
+          "rank": 3,
+          "entry_name": "VICARO",
+          "points": 590.11,
+          "percentile": 0.3,
+          "players": [
+            "Curtis Blaydes",
+            "Alexa Grasso",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Yousri Belgaroui",
+            "Tommy Gantt"
+          ],
+          "avg_own": 34.65,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 383.65,
+          "dup_count": 4
+        },
+        {
+          "rank": 3,
+          "entry_name": "macbustin",
+          "points": 590.11,
+          "percentile": 0.3,
+          "players": [
+            "Curtis Blaydes",
+            "Alexa Grasso",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Yousri Belgaroui",
+            "Tommy Gantt"
+          ],
+          "avg_own": 34.65,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 383.65,
+          "dup_count": 4
+        },
+        {
+          "rank": 7,
+          "entry_name": "Amazin11000",
+          "points": 574.8,
+          "percentile": 0.6,
+          "players": [
+            "Brandon Moreno",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rafa Garcia",
+            "Yousri Belgaroui",
+            "Sean King III"
+          ],
+          "avg_own": 35,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 381.19,
+          "dup_count": 2
+        },
+        {
+          "rank": 7,
+          "entry_name": "BrianJarman",
+          "points": 574.8,
+          "percentile": 0.6,
+          "players": [
+            "Brandon Moreno",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rafa Garcia",
+            "Yousri Belgaroui",
+            "Sean King III"
+          ],
+          "avg_own": 35,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 381.19,
+          "dup_count": 2
+        },
+        {
+          "rank": 9,
+          "entry_name": "delersh1",
+          "points": 568.72,
+          "percentile": 0.8,
+          "players": [
+            "Curtis Blaydes",
+            "Joseph Morales",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Yousri Belgaroui",
+            "Sean King III"
+          ],
+          "avg_own": 30.39,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 381.94,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "JERKER19",
+          "points": 567.18,
+          "percentile": 0.8,
+          "players": [
+            "Curtis Blaydes",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rong Rongzhu",
+            "Jean Silva",
+            "Sean King III"
+          ],
+          "avg_own": 33.67,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 388.32,
+          "dup_count": 4
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 1.69,
+        "low_own_count_delta": 0.25,
+        "salary_used_delta": -195.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 1180,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Tommy McMillen",
+          "field_own": 57.0,
+          "actual_fpts": 117.2
+        },
+        {
+          "name": "Tommy Gantt",
+          "field_own": 46.3,
+          "actual_fpts": 103.0
+        },
+        {
+          "name": "Jean Silva",
+          "field_own": 46.3,
+          "actual_fpts": 78.7
+        },
+        {
+          "name": "Rafa Garcia",
+          "field_own": 41.1,
+          "actual_fpts": 37.2
+        },
+        {
+          "name": "Brandon Moreno",
+          "field_own": 32.1,
+          "actual_fpts": 72.2
+        },
+        {
+          "name": "Marwan Rahiki",
+          "field_own": 31.8,
+          "actual_fpts": 47.0
+        },
+        {
+          "name": "Sean King III",
+          "field_own": 29.9,
+          "actual_fpts": 122.9
+        },
+        {
+          "name": "Waldo Cortes Acosta",
+          "field_own": 29.4,
+          "actual_fpts": 11.6
+        },
+        {
+          "name": "Curtis Blaydes",
+          "field_own": 28.7,
+          "actual_fpts": 67.7
+        },
+        {
+          "name": "Tim Elliott",
+          "field_own": 27.2,
+          "actual_fpts": 106.8
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Tommy Gantt",
+            "Tommy McMillen"
+          ],
+          "field_pct": 26.0,
+          "count": 307
+        },
+        {
+          "players": [
+            "Rafa Garcia",
+            "Tommy McMillen"
+          ],
+          "field_pct": 25.7,
+          "count": 303
+        },
+        {
+          "players": [
+            "Jean Silva",
+            "Tommy McMillen"
+          ],
+          "field_pct": 24.8,
+          "count": 292
+        },
+        {
+          "players": [
+            "Rafa Garcia",
+            "Tommy Gantt"
+          ],
+          "field_pct": 19.6,
+          "count": 231
+        },
+        {
+          "players": [
+            "Jean Silva",
+            "Rafa Garcia"
+          ],
+          "field_pct": 19.5,
+          "count": 230
+        },
+        {
+          "players": [
+            "Brandon Moreno",
+            "Tommy McMillen"
+          ],
+          "field_pct": 18.7,
+          "count": 221
+        },
+        {
+          "players": [
+            "Curtis Blaydes",
+            "Tommy McMillen"
+          ],
+          "field_pct": 18.2,
+          "count": 214
+        },
+        {
+          "players": [
+            "Jean Silva",
+            "Tommy Gantt"
+          ],
+          "field_pct": 17.7,
+          "count": 209
+        },
+        {
+          "players": [
+            "Tim Elliott",
+            "Tommy Gantt"
+          ],
+          "field_pct": 17.3,
+          "count": 204
+        },
+        {
+          "players": [
+            "Marwan Rahiki",
+            "Tommy Gantt"
+          ],
+          "field_pct": 17.1,
+          "count": 202
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Brandon Moreno",
+            "Jean Silva",
+            "Marwan Rahiki",
+            "Sean King III",
+            "Tim Elliott",
+            "Tommy Gantt"
+          ],
+          "count": 25,
+          "field_pct": 2.1
+        },
+        {
+          "players": [
+            "Curtis Blaydes",
+            "Jean Silva",
+            "Rafa Garcia",
+            "Tim Elliott",
+            "Tommy Gantt",
+            "Tommy McMillen"
+          ],
+          "count": 23,
+          "field_pct": 2.0
+        },
+        {
+          "players": [
+            "Jean Silva",
+            "Marwan Rahiki",
+            "Rafa Garcia",
+            "Sean King III",
+            "Tim Elliott",
+            "Tommy Gantt"
+          ],
+          "count": 13,
+          "field_pct": 1.1
+        },
+        {
+          "players": [
+            "Jean Silva",
+            "Muslim Salikhov",
+            "Sean King III",
+            "Tim Elliott",
+            "Tommy Gantt",
+            "Tommy McMillen"
+          ],
+          "count": 12,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Alexa Grasso",
+            "Brandon Moreno",
+            "Curtis Blaydes",
+            "Jean Silva",
+            "Tommy Gantt",
+            "Tommy McMillen"
+          ],
+          "count": 12,
+          "field_pct": 1.0
+        }
+      ],
+      "winners_profile": {
+        "n": 12,
+        "avg_own_per_slot": 33.9,
+        "dart_pct": 0.0,
+        "unique_pct": 41.7
+      },
+      "fish_profile": {
+        "n": 590,
+        "avg_own_per_slot": 28.7,
+        "dart_pct": 5.3,
+        "unique_pct": 76.1
+      },
+      "fish_traps": [
+        {
+          "name": "Waldo Cortes Acosta",
+          "fish_pct": 46.6,
+          "winner_pct": 0.0,
+          "gap": 46.6,
+          "actual_fpts": 11.6,
+          "field_own": 29.4,
+          "own_rank": 8
+        },
+        {
+          "name": "Marwan Rahiki",
+          "fish_pct": 38.3,
+          "winner_pct": 0.0,
+          "gap": 38.3,
+          "actual_fpts": 47.0,
+          "field_own": 31.8,
+          "own_rank": 6
+        },
+        {
+          "name": "Edgar Chairez",
+          "fish_pct": 35.6,
+          "winner_pct": 0.0,
+          "gap": 35.6,
+          "actual_fpts": 25.7,
+          "field_own": 20.7,
+          "own_rank": 14
+        },
+        {
+          "name": "Jessie Rosas",
+          "fish_pct": 31.4,
+          "winner_pct": 0.0,
+          "gap": 31.4,
+          "actual_fpts": 1.2,
+          "field_own": 18.2,
+          "own_rank": 15
+        },
+        {
+          "name": "Rafa Garcia",
+          "fish_pct": 43.4,
+          "winner_pct": 16.7,
+          "gap": 26.7,
+          "actual_fpts": 37.2,
+          "field_own": 41.1,
+          "own_rank": 4
+        },
+        {
+          "name": "Jose Delgado",
+          "fish_pct": 25.4,
+          "winner_pct": 0.0,
+          "gap": 25.4,
+          "actual_fpts": 16.8,
+          "field_own": 21.9,
+          "own_rank": 13
+        },
+        {
+          "name": "Ignacio Bahamondes",
+          "fish_pct": 19.3,
+          "winner_pct": 0.0,
+          "gap": 19.3,
+          "actual_fpts": 63.8,
+          "field_own": 16.1,
+          "own_rank": 17
+        },
+        {
+          "name": "David Martinez",
+          "fish_pct": 18.6,
+          "winner_pct": 0.0,
+          "gap": 18.6,
+          "actual_fpts": 57.6,
+          "field_own": 14.5,
+          "own_rank": 18
+        },
+        {
+          "name": "Manon Fiorot",
+          "fish_pct": 18.3,
+          "winner_pct": 0.0,
+          "gap": 18.3,
+          "actual_fpts": 29.1,
+          "field_own": 11.2,
+          "own_rank": 21
+        },
+        {
+          "name": "Jean Silva",
+          "fish_pct": 42.7,
+          "winner_pct": 25.0,
+          "gap": 17.7,
+          "actual_fpts": 78.7,
+          "field_own": 46.3,
+          "own_rank": 3
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "tszone72",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "adalebt7",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "erog30",
+          "best_rank": 3,
+          "percentile": 0.3
+        },
+        {
+          "handle": "jtkeefer",
+          "best_rank": 3,
+          "percentile": 0.3
+        },
+        {
+          "handle": "VICARO",
+          "best_rank": 3,
+          "percentile": 0.3
+        },
+        {
+          "handle": "macbustin",
+          "best_rank": 3,
+          "percentile": 0.3
+        },
+        {
+          "handle": "Amazin11000",
+          "best_rank": 7,
+          "percentile": 0.6
+        },
+        {
+          "handle": "BrianJarman",
+          "best_rank": 7,
+          "percentile": 0.6
+        },
+        {
+          "handle": "delersh1",
+          "best_rank": 9,
+          "percentile": 0.8
+        },
+        {
+          "handle": "JERKER19",
+          "best_rank": 10,
+          "percentile": 0.8
+        },
+        {
+          "handle": "tonyfeels420",
+          "best_rank": 10,
+          "percentile": 0.8
+        },
+        {
+          "handle": "mikkvl",
+          "best_rank": 10,
+          "percentile": 0.8
+        },
+        {
+          "handle": "daboycows",
+          "best_rank": 10,
+          "percentile": 0.8
+        },
+        {
+          "handle": "oargueta",
+          "best_rank": 14,
+          "percentile": 1.2
+        },
+        {
+          "handle": "jamieb336",
+          "best_rank": 15,
+          "percentile": 1.3
+        }
+      ],
+      "read": [
+        "Field crowded **Tommy McMillen** at 57.0% (117.2 fpts) \u2014 the chalk to consider fading.",
+        "**Tommy Gantt + Tommy McMillen** were together in 26.0% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Waldo Cortes Acosta** was a fish trap: 46.6% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 591.51996,
+      "winner_handle": "tszone72",
+      "roster": [
+        {
+          "name": "Curtis Blaydes",
+          "own": 28.68,
+          "fpts": 67.74
+        },
+        {
+          "name": "Tim Elliott",
+          "own": 27.25,
+          "fpts": 106.82
+        },
+        {
+          "name": "Tommy McMillen",
+          "own": 57.02,
+          "fpts": 117.19
+        },
+        {
+          "name": "Rong Rongzhu",
+          "own": 12.95,
+          "fpts": 73.8
+        },
+        {
+          "name": "Tommy Gantt",
+          "own": 46.34,
+          "fpts": 103.05
+        },
+        {
+          "name": "Sean King III",
+          "own": 29.86,
+          "fpts": 122.92
+        }
+      ],
+      "avg_own": 33.7,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Rong Rongzhu",
+        "own": 12.95,
+        "fpts": 73.8
+      },
+      "expected_dupes": 0.95
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "position_checked": false,
+      "blocked_swap": null,
+      "gradable": true,
+      "won": false,
+      "your_points": 333.14,
+      "winner_points": 591.51996,
+      "gap": 258.4,
+      "your_percentile": 78.2,
+      "n_shared": 1,
+      "shared": [
+        "Sean King III"
+      ],
+      "your_uniques": [
+        {
+          "name": "Jean Silva",
+          "fpts": 78.71,
+          "salary": 9300,
+          "position": null
+        },
+        {
+          "name": "Marwan Rahiki",
+          "fpts": 47.01,
+          "salary": 7600,
+          "position": null
+        },
+        {
+          "name": "Rafa Garcia",
+          "fpts": 37.25,
+          "salary": 7700,
+          "position": null
+        },
+        {
+          "name": "Joseph Morales",
+          "fpts": 35.65,
+          "salary": 8300,
+          "position": null
+        },
+        {
+          "name": "Waldo Cortes Acosta",
+          "fpts": 11.6,
+          "salary": 8700,
+          "position": null
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Tommy McMillen",
+          "fpts": 117.19,
+          "salary": 8600,
+          "position": null
+        },
+        {
+          "name": "Tim Elliott",
+          "fpts": 106.82,
+          "salary": 7400,
+          "position": null
+        },
+        {
+          "name": "Tommy Gantt",
+          "fpts": 103.05,
+          "salary": 9400,
+          "position": null
+        },
+        {
+          "name": "Rong Rongzhu",
+          "fpts": 73.8,
+          "salary": 8500,
+          "position": null
+        },
+        {
+          "name": "Curtis Blaydes",
+          "fpts": 67.74,
+          "salary": 7500,
+          "position": null
+        }
+      ],
+      "best_swap": {
+        "out": "Waldo Cortes Acosta",
+        "in": "Tommy McMillen",
+        "gain": 105.6,
+        "would_have_won": false
+      },
+      "swaps_needed": 5
+    },
+    "stack_report": null,
+    "mme_report": {
+      "gradable": false,
+      "n_field": 1180,
+      "reason": "field of 1,180 is below the MME cut (5,000)"
+    }
+  },
+  {
+    "timestamp": "2026-09-19 13:38",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-195352892.csv",
+    "contest_id": "195352892",
+    "entries": 594,
+    "winning_score": 591.51996,
+    "cash_line_p80": 495.43,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 26,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 32.09,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 49933.0,
+      "entry_count": 3,
+      "best_rank": 232,
+      "best_percentile": 39.1
+    },
+    "user_lineups": [
+      {
+        "rank": 232,
+        "entry_name": "RyvlesGaming30 (1/3)",
+        "points": 440.86,
+        "percentile": 39.1,
+        "players": [
+          "Waldo Cortes Acosta",
+          "Tim Elliott",
+          "Marwan Rahiki",
+          "Rong Rongzhu",
+          "Jean Silva",
+          "Sean King III"
+        ],
+        "avg_own": 32.02,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 392.83,
+        "dup_count": 2
+      },
+      {
+        "rank": 392,
+        "entry_name": "RyvlesGaming30 (3/3)",
+        "points": 367.99,
+        "percentile": 66.0,
+        "players": [
+          "Curtis Blaydes",
+          "Joseph Morales",
+          "Edgar Chairez",
+          "Rafa Garcia",
+          "Jean Silva",
+          "Sean King III"
+        ],
+        "avg_own": 31.73,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 390.19,
+        "dup_count": 1
+      },
+      {
+        "rank": 455,
+        "entry_name": "RyvlesGaming30 (2/3)",
+        "points": 339.32,
+        "percentile": 76.6,
+        "players": [
+          "Ignacio Bahamondes",
+          "Tommy McMillen",
+          "Rafa Garcia",
+          "Jose Delgado",
+          "Tommy Gantt",
+          "Jessie Rosas"
+        ],
+        "avg_own": 32.52,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 386.44,
+        "dup_count": 2
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Tim Elliott",
+        "proj_points": 49.56,
+        "actual_fpts": 106.82,
+        "fpts_delta": 57.26,
+        "ownership": 27.0,
+        "actual_own": 28.11
+      },
+      {
+        "name": "Sean King III",
+        "proj_points": 69.22,
+        "actual_fpts": 122.92,
+        "fpts_delta": 53.7,
+        "ownership": 38.0,
+        "actual_own": 36.03
+      },
+      {
+        "name": "Tommy McMillen",
+        "proj_points": 69.69,
+        "actual_fpts": 117.19,
+        "fpts_delta": 47.5,
+        "ownership": 48.0,
+        "actual_own": 56.73
+      },
+      {
+        "name": "Alexa Grasso",
+        "proj_points": 44.24,
+        "actual_fpts": 76.91,
+        "fpts_delta": 32.67,
+        "ownership": 14.0,
+        "actual_own": 23.91
+      },
+      {
+        "name": "Yousri Belgaroui",
+        "proj_points": 86.48,
+        "actual_fpts": 118.4,
+        "fpts_delta": 31.92,
+        "ownership": 20.0,
+        "actual_own": 22.9
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Waldo Cortes Acosta",
+        "proj_points": 67.31,
+        "actual_fpts": 11.6,
+        "fpts_delta": -55.71,
+        "ownership": 26.0,
+        "actual_own": 29.97
+      },
+      {
+        "name": "Jessie Rosas",
+        "proj_points": 47.6,
+        "actual_fpts": 1.2,
+        "fpts_delta": -46.4,
+        "ownership": 16.0,
+        "actual_own": 15.66
+      },
+      {
+        "name": "Edgar Chairez",
+        "proj_points": 68.98,
+        "actual_fpts": 25.72,
+        "fpts_delta": -43.26,
+        "ownership": 24.0,
+        "actual_own": 25.42
+      },
+      {
+        "name": "Manon Fiorot",
+        "proj_points": 69.06,
+        "actual_fpts": 29.06,
+        "fpts_delta": -40.0,
+        "ownership": 16.0,
+        "actual_own": 10.94
+      },
+      {
+        "name": "Djorden Santos",
+        "proj_points": 33.67,
+        "actual_fpts": 6.4,
+        "fpts_delta": -27.27,
+        "ownership": 7.0,
+        "actual_own": 6.23
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Rong Rongzhu",
+        "salary": 8500,
+        "actual_fpts": 73.8,
+        "actual_own": 17.17,
+        "top_lineup_pct": 30.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 35.09,
+      "low_own_count_mean": 0.05,
+      "salary_used_mean": 49805.0,
+      "dup_max": 5,
+      "unique_pct": 25.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "oargueta (3/3)",
+          "points": 591.51996,
+          "percentile": 0.2,
+          "players": [
+            "Curtis Blaydes",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rong Rongzhu",
+            "Tommy Gantt",
+            "Sean King III"
+          ],
+          "avg_own": 35.3,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 385.61,
+          "dup_count": 2
+        },
+        {
+          "rank": 1,
+          "entry_name": "Packersfan203 (3/3)",
+          "points": 591.51996,
+          "percentile": 0.2,
+          "players": [
+            "Curtis Blaydes",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rong Rongzhu",
+            "Tommy Gantt",
+            "Sean King III"
+          ],
+          "avg_own": 35.3,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 385.61,
+          "dup_count": 2
+        },
+        {
+          "rank": 3,
+          "entry_name": "Webedawgs (2/3)",
+          "points": 567.18,
+          "percentile": 0.5,
+          "players": [
+            "Curtis Blaydes",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rong Rongzhu",
+            "Jean Silva",
+            "Sean King III"
+          ],
+          "avg_own": 35.44,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 388.32,
+          "dup_count": 2
+        },
+        {
+          "rank": 3,
+          "entry_name": "pitcoman (3/3)",
+          "points": 567.18,
+          "percentile": 0.5,
+          "players": [
+            "Curtis Blaydes",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rong Rongzhu",
+            "Jean Silva",
+            "Sean King III"
+          ],
+          "avg_own": 35.44,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 388.32,
+          "dup_count": 2
+        },
+        {
+          "rank": 5,
+          "entry_name": "oargueta (2/3)",
+          "points": 565.94,
+          "percentile": 0.8,
+          "players": [
+            "Curtis Blaydes",
+            "Tim Elliott",
+            "Marwan Rahiki",
+            "Yousri Belgaroui",
+            "Tommy Gantt",
+            "Sean King III"
+          ],
+          "avg_own": 32.3,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 392.52,
+          "dup_count": 2
+        },
+        {
+          "rank": 5,
+          "entry_name": "mattf19 (3/3)",
+          "points": 565.94,
+          "percentile": 0.8,
+          "players": [
+            "Curtis Blaydes",
+            "Tim Elliott",
+            "Marwan Rahiki",
+            "Yousri Belgaroui",
+            "Tommy Gantt",
+            "Sean King III"
+          ],
+          "avg_own": 32.3,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 392.52,
+          "dup_count": 2
+        },
+        {
+          "rank": 7,
+          "entry_name": "tonyfeels420 (1/2)",
+          "points": 565.77,
+          "percentile": 1.2,
+          "players": [
+            "Curtis Blaydes",
+            "Alexa Grasso",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Yousri Belgaroui",
+            "Jean Silva"
+          ],
+          "avg_own": 34.37,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 386.36,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "Amazin11000 (2/3)",
+          "points": 559.45,
+          "percentile": 1.3,
+          "players": [
+            "Brandon Moreno",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rafa Garcia",
+            "Tommy Gantt",
+            "Sean King III"
+          ],
+          "avg_own": 38.91,
+          "low_own_count": 0,
+          "salary_used": 49400,
+          "proj_total": 381.7,
+          "dup_count": 3
+        },
+        {
+          "rank": 8,
+          "entry_name": "rpjr10 (1/3)",
+          "points": 559.45,
+          "percentile": 1.3,
+          "players": [
+            "Brandon Moreno",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rafa Garcia",
+            "Tommy Gantt",
+            "Sean King III"
+          ],
+          "avg_own": 38.91,
+          "low_own_count": 0,
+          "salary_used": 49400,
+          "proj_total": 381.7,
+          "dup_count": 3
+        },
+        {
+          "rank": 8,
+          "entry_name": "Jocquan (2/3)",
+          "points": 559.45,
+          "percentile": 1.3,
+          "players": [
+            "Brandon Moreno",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rafa Garcia",
+            "Tommy Gantt",
+            "Sean King III"
+          ],
+          "avg_own": 38.91,
+          "low_own_count": 0,
+          "salary_used": 49400,
+          "proj_total": 381.7,
+          "dup_count": 3
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 3.0,
+        "low_own_count_delta": 0.05,
+        "salary_used_delta": -128.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 591,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Tommy McMillen",
+          "field_own": 56.7,
+          "actual_fpts": 117.2
+        },
+        {
+          "name": "Jean Silva",
+          "field_own": 47.8,
+          "actual_fpts": 78.7
+        },
+        {
+          "name": "Tommy Gantt",
+          "field_own": 47.0,
+          "actual_fpts": 103.0
+        },
+        {
+          "name": "Rafa Garcia",
+          "field_own": 37.4,
+          "actual_fpts": 37.2
+        },
+        {
+          "name": "Sean King III",
+          "field_own": 36.0,
+          "actual_fpts": 122.9
+        },
+        {
+          "name": "Marwan Rahiki",
+          "field_own": 33.0,
+          "actual_fpts": 47.0
+        },
+        {
+          "name": "Waldo Cortes Acosta",
+          "field_own": 30.0,
+          "actual_fpts": 11.6
+        },
+        {
+          "name": "Brandon Moreno",
+          "field_own": 28.3,
+          "actual_fpts": 72.2
+        },
+        {
+          "name": "Tim Elliott",
+          "field_own": 28.1,
+          "actual_fpts": 106.8
+        },
+        {
+          "name": "Curtis Blaydes",
+          "field_own": 26.8,
+          "actual_fpts": 67.7
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Tommy Gantt",
+            "Tommy McMillen"
+          ],
+          "field_pct": 24.1,
+          "count": 142
+        },
+        {
+          "players": [
+            "Jean Silva",
+            "Tommy McMillen"
+          ],
+          "field_pct": 23.8,
+          "count": 140
+        },
+        {
+          "players": [
+            "Rafa Garcia",
+            "Tommy McMillen"
+          ],
+          "field_pct": 22.4,
+          "count": 132
+        },
+        {
+          "players": [
+            "Jean Silva",
+            "Rafa Garcia"
+          ],
+          "field_pct": 20.4,
+          "count": 120
+        },
+        {
+          "players": [
+            "Jean Silva",
+            "Marwan Rahiki"
+          ],
+          "field_pct": 19.9,
+          "count": 117
+        },
+        {
+          "players": [
+            "Marwan Rahiki",
+            "Tommy Gantt"
+          ],
+          "field_pct": 19.4,
+          "count": 114
+        },
+        {
+          "players": [
+            "Jean Silva",
+            "Tommy Gantt"
+          ],
+          "field_pct": 19.4,
+          "count": 114
+        },
+        {
+          "players": [
+            "Sean King III",
+            "Tommy McMillen"
+          ],
+          "field_pct": 18.9,
+          "count": 111
+        },
+        {
+          "players": [
+            "Sean King III",
+            "Tommy Gantt"
+          ],
+          "field_pct": 18.0,
+          "count": 106
+        },
+        {
+          "players": [
+            "Tim Elliott",
+            "Tommy Gantt"
+          ],
+          "field_pct": 17.9,
+          "count": 105
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Brandon Moreno",
+            "Jean Silva",
+            "Marwan Rahiki",
+            "Sean King III",
+            "Tim Elliott",
+            "Tommy Gantt"
+          ],
+          "count": 14,
+          "field_pct": 2.4
+        },
+        {
+          "players": [
+            "Curtis Blaydes",
+            "Jean Silva",
+            "Rafa Garcia",
+            "Tim Elliott",
+            "Tommy Gantt",
+            "Tommy McMillen"
+          ],
+          "count": 11,
+          "field_pct": 1.9
+        },
+        {
+          "players": [
+            "Curtis Blaydes",
+            "Jean Silva",
+            "Jessie Rosas",
+            "Tim Elliott",
+            "Tommy Gantt",
+            "Tommy McMillen"
+          ],
+          "count": 7,
+          "field_pct": 1.2
+        },
+        {
+          "players": [
+            "Brandon Moreno",
+            "Edgar Chairez",
+            "Jose Delgado",
+            "Sean King III",
+            "Tommy Gantt",
+            "Tommy McMillen"
+          ],
+          "count": 6,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Alexa Grasso",
+            "Sean King III",
+            "Tim Elliott",
+            "Tommy Gantt",
+            "Tommy McMillen",
+            "Waldo Cortes Acosta"
+          ],
+          "count": 5,
+          "field_pct": 0.9
+        }
+      ],
+      "winners_profile": {
+        "n": 6,
+        "avg_own_per_slot": 34.3,
+        "dart_pct": 0.0,
+        "unique_pct": 50.0
+      },
+      "fish_profile": {
+        "n": 294,
+        "avg_own_per_slot": 28.8,
+        "dart_pct": 7.5,
+        "unique_pct": 81.3
+      },
+      "fish_traps": [
+        {
+          "name": "Waldo Cortes Acosta",
+          "fish_pct": 48.0,
+          "winner_pct": 0.0,
+          "gap": 48.0,
+          "actual_fpts": 11.6,
+          "field_own": 30.0,
+          "own_rank": 7
+        },
+        {
+          "name": "Edgar Chairez",
+          "fish_pct": 41.8,
+          "winner_pct": 0.0,
+          "gap": 41.8,
+          "actual_fpts": 25.7,
+          "field_own": 25.4,
+          "own_rank": 11
+        },
+        {
+          "name": "Rafa Garcia",
+          "fish_pct": 39.8,
+          "winner_pct": 0.0,
+          "gap": 39.8,
+          "actual_fpts": 37.2,
+          "field_own": 37.4,
+          "own_rank": 4
+        },
+        {
+          "name": "Jessie Rosas",
+          "fish_pct": 27.2,
+          "winner_pct": 0.0,
+          "gap": 27.2,
+          "actual_fpts": 1.2,
+          "field_own": 15.7,
+          "own_rank": 18
+        },
+        {
+          "name": "Brandon Moreno",
+          "fish_pct": 25.5,
+          "winner_pct": 0.0,
+          "gap": 25.5,
+          "actual_fpts": 72.2,
+          "field_own": 28.3,
+          "own_rank": 8
+        },
+        {
+          "name": "Jose Delgado",
+          "fish_pct": 24.5,
+          "winner_pct": 0.0,
+          "gap": 24.5,
+          "actual_fpts": 16.8,
+          "field_own": 22.4,
+          "own_rank": 14
+        },
+        {
+          "name": "Joseph Morales",
+          "fish_pct": 24.1,
+          "winner_pct": 0.0,
+          "gap": 24.1,
+          "actual_fpts": 35.6,
+          "field_own": 17.0,
+          "own_rank": 16
+        },
+        {
+          "name": "Ignacio Bahamondes",
+          "fish_pct": 21.8,
+          "winner_pct": 0.0,
+          "gap": 21.8,
+          "actual_fpts": 63.8,
+          "field_own": 16.0,
+          "own_rank": 17
+        },
+        {
+          "name": "Alexa Grasso",
+          "fish_pct": 21.1,
+          "winner_pct": 0.0,
+          "gap": 21.1,
+          "actual_fpts": 76.9,
+          "field_own": 23.9,
+          "own_rank": 12
+        },
+        {
+          "name": "Manon Fiorot",
+          "fish_pct": 18.4,
+          "winner_pct": 0.0,
+          "gap": 18.4,
+          "actual_fpts": 29.1,
+          "field_own": 10.9,
+          "own_rank": 20
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "oargueta",
+          "best_rank": 1,
+          "percentile": 0.2
+        },
+        {
+          "handle": "Packersfan203",
+          "best_rank": 1,
+          "percentile": 0.2
+        },
+        {
+          "handle": "Webedawgs",
+          "best_rank": 3,
+          "percentile": 0.5
+        },
+        {
+          "handle": "pitcoman",
+          "best_rank": 3,
+          "percentile": 0.5
+        },
+        {
+          "handle": "mattf19",
+          "best_rank": 5,
+          "percentile": 0.8
+        },
+        {
+          "handle": "tonyfeels420",
+          "best_rank": 7,
+          "percentile": 1.2
+        },
+        {
+          "handle": "Amazin11000",
+          "best_rank": 8,
+          "percentile": 1.4
+        },
+        {
+          "handle": "rpjr10",
+          "best_rank": 8,
+          "percentile": 1.4
+        },
+        {
+          "handle": "Jocquan",
+          "best_rank": 8,
+          "percentile": 1.4
+        },
+        {
+          "handle": "Ccs69494",
+          "best_rank": 11,
+          "percentile": 1.9
+        },
+        {
+          "handle": "IceHoya",
+          "best_rank": 12,
+          "percentile": 2.0
+        },
+        {
+          "handle": "Lanzarus21",
+          "best_rank": 13,
+          "percentile": 2.2
+        },
+        {
+          "handle": "slushfundx",
+          "best_rank": 13,
+          "percentile": 2.2
+        },
+        {
+          "handle": "Glorioustree",
+          "best_rank": 15,
+          "percentile": 2.5
+        },
+        {
+          "handle": "xTRISKITx",
+          "best_rank": 16,
+          "percentile": 2.7
+        }
+      ],
+      "read": [
+        "Field crowded **Tommy McMillen** at 56.7% (117.2 fpts) \u2014 the chalk to consider fading.",
+        "**Tommy Gantt + Tommy McMillen** were together in 24.1% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Waldo Cortes Acosta** was a fish trap: 48.0% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 591.51996,
+      "winner_handle": "oargueta",
+      "roster": [
+        {
+          "name": "Curtis Blaydes",
+          "own": 26.77,
+          "fpts": 67.74
+        },
+        {
+          "name": "Tim Elliott",
+          "own": 28.11,
+          "fpts": 106.82
+        },
+        {
+          "name": "Tommy McMillen",
+          "own": 56.73,
+          "fpts": 117.19
+        },
+        {
+          "name": "Rong Rongzhu",
+          "own": 17.17,
+          "fpts": 73.8
+        },
+        {
+          "name": "Tommy Gantt",
+          "own": 46.97,
+          "fpts": 103.05
+        },
+        {
+          "name": "Sean King III",
+          "own": 36.03,
+          "fpts": 122.92
+        }
+      ],
+      "avg_own": 35.3,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Rong Rongzhu",
+        "own": 17.17,
+        "fpts": 73.8
+      },
+      "expected_dupes": 0.74
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "position_checked": false,
+      "blocked_swap": null,
+      "gradable": true,
+      "won": false,
+      "your_points": 440.86,
+      "winner_points": 591.51996,
+      "gap": 150.7,
+      "your_percentile": 39.1,
+      "n_shared": 3,
+      "shared": [
+        "Rong Rongzhu",
+        "Sean King III",
+        "Tim Elliott"
+      ],
+      "your_uniques": [
+        {
+          "name": "Jean Silva",
+          "fpts": 78.71,
+          "salary": 9300,
+          "position": null
+        },
+        {
+          "name": "Marwan Rahiki",
+          "fpts": 47.01,
+          "salary": 7600,
+          "position": null
+        },
+        {
+          "name": "Waldo Cortes Acosta",
+          "fpts": 11.6,
+          "salary": 8700,
+          "position": null
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Tommy McMillen",
+          "fpts": 117.19,
+          "salary": 8600,
+          "position": null
+        },
+        {
+          "name": "Tommy Gantt",
+          "fpts": 103.05,
+          "salary": 9400,
+          "position": null
+        },
+        {
+          "name": "Curtis Blaydes",
+          "fpts": 67.74,
+          "salary": 7500,
+          "position": null
+        }
+      ],
+      "best_swap": {
+        "out": "Waldo Cortes Acosta",
+        "in": "Tommy McMillen",
+        "gain": 105.6,
+        "would_have_won": false
+      },
+      "swaps_needed": 3
+    },
+    "stack_report": null,
+    "mme_report": {
+      "gradable": false,
+      "n_field": 591,
+      "reason": "field of 591 is below the MME cut (5,000)"
+    }
+  },
+  {
+    "timestamp": "2026-09-19 13:38",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-195352899.csv",
+    "contest_id": "195352899",
+    "entries": 784,
+    "winning_score": 600.69,
+    "cash_line_p80": 492.1199920000001,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 26,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 20.6,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 50000.0,
+      "entry_count": 1,
+      "best_rank": 515,
+      "best_percentile": 65.7
+    },
+    "user_lineups": [
+      {
+        "rank": 515,
+        "entry_name": "RyvlesGaming30",
+        "points": 380.39,
+        "percentile": 65.7,
+        "players": [
+          "Alexa Grasso",
+          "Regina Tarin",
+          "Marwan Rahiki",
+          "Rong Rongzhu",
+          "Yousri Belgaroui",
+          "Jessie Rosas"
+        ],
+        "avg_own": 20.6,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 366,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Tim Elliott",
+        "proj_points": 49.56,
+        "actual_fpts": 106.82,
+        "fpts_delta": 57.26,
+        "ownership": 27.0,
+        "actual_own": 27.17
+      },
+      {
+        "name": "Sean King III",
+        "proj_points": 69.22,
+        "actual_fpts": 122.92,
+        "fpts_delta": 53.7,
+        "ownership": 38.0,
+        "actual_own": 32.14
+      },
+      {
+        "name": "Tommy McMillen",
+        "proj_points": 69.69,
+        "actual_fpts": 117.19,
+        "fpts_delta": 47.5,
+        "ownership": 48.0,
+        "actual_own": 57.4
+      },
+      {
+        "name": "Alexa Grasso",
+        "proj_points": 44.24,
+        "actual_fpts": 76.91,
+        "fpts_delta": 32.67,
+        "ownership": 14.0,
+        "actual_own": 30.36
+      },
+      {
+        "name": "Yousri Belgaroui",
+        "proj_points": 86.48,
+        "actual_fpts": 118.4,
+        "fpts_delta": 31.92,
+        "ownership": 20.0,
+        "actual_own": 21.3
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Waldo Cortes Acosta",
+        "proj_points": 67.31,
+        "actual_fpts": 11.6,
+        "fpts_delta": -55.71,
+        "ownership": 26.0,
+        "actual_own": 27.42
+      },
+      {
+        "name": "Jessie Rosas",
+        "proj_points": 47.6,
+        "actual_fpts": 1.2,
+        "fpts_delta": -46.4,
+        "ownership": 16.0,
+        "actual_own": 16.84
+      },
+      {
+        "name": "Edgar Chairez",
+        "proj_points": 68.98,
+        "actual_fpts": 25.72,
+        "fpts_delta": -43.26,
+        "ownership": 24.0,
+        "actual_own": 22.07
+      },
+      {
+        "name": "Manon Fiorot",
+        "proj_points": 69.06,
+        "actual_fpts": 29.06,
+        "fpts_delta": -40.0,
+        "ownership": 16.0,
+        "actual_own": 8.93
+      },
+      {
+        "name": "Djorden Santos",
+        "proj_points": 33.67,
+        "actual_fpts": 6.4,
+        "fpts_delta": -27.27,
+        "ownership": 7.0,
+        "actual_own": 4.46
+      }
+    ],
+    "slate_defining_plays": [],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 36.92,
+      "low_own_count_mean": 0.1,
+      "salary_used_mean": 49605.0,
+      "dup_max": 2,
+      "unique_pct": 50.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "artvandelay44",
+          "points": 600.69,
+          "percentile": 0.1,
+          "players": [
+            "Alexa Grasso",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rong Rongzhu",
+            "Tommy Gantt",
+            "Sean King III"
+          ],
+          "avg_own": 35.04,
+          "low_own_count": 0,
+          "salary_used": 49600,
+          "proj_total": 383.16,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "chichi84nc",
+          "points": 599.11,
+          "percentile": 0.3,
+          "players": [
+            "Alexa Grasso",
+            "Brandon Moreno",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Tommy Gantt",
+            "Sean King III"
+          ],
+          "avg_own": 38.14,
+          "low_own_count": 0,
+          "salary_used": 49000,
+          "proj_total": 370.64,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "constanza8",
+          "points": 590.11,
+          "percentile": 0.4,
+          "players": [
+            "Curtis Blaydes",
+            "Alexa Grasso",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Yousri Belgaroui",
+            "Tommy Gantt"
+          ],
+          "avg_own": 36.5,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 383.65,
+          "dup_count": 2
+        },
+        {
+          "rank": 3,
+          "entry_name": "canesnathan",
+          "points": 590.11,
+          "percentile": 0.4,
+          "players": [
+            "Curtis Blaydes",
+            "Alexa Grasso",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Yousri Belgaroui",
+            "Tommy Gantt"
+          ],
+          "avg_own": 36.5,
+          "low_own_count": 0,
+          "salary_used": 49900,
+          "proj_total": 383.65,
+          "dup_count": 2
+        },
+        {
+          "rank": 5,
+          "entry_name": "blunt321",
+          "points": 576.96,
+          "percentile": 0.6,
+          "players": [
+            "Curtis Blaydes",
+            "Alexa Grasso",
+            "Tommy McMillen",
+            "Rong Rongzhu",
+            "Yousri Belgaroui",
+            "Sean King III"
+          ],
+          "avg_own": 30.93,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 379.78,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "Amazin11000",
+          "points": 570.32,
+          "percentile": 0.8,
+          "players": [
+            "Curtis Blaydes",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rafa Garcia",
+            "Yousri Belgaroui",
+            "Sean King III"
+          ],
+          "avg_own": 35.69,
+          "low_own_count": 0,
+          "salary_used": 49300,
+          "proj_total": 376.94,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "nolanshapiro",
+          "points": 569.38,
+          "percentile": 0.9,
+          "players": [
+            "Alexa Grasso",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Marwan Rahiki",
+            "Yousri Belgaroui",
+            "Tommy Gantt"
+          ],
+          "avg_own": 36.52,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 390.54,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "Tr0ubl35",
+          "points": 567.18,
+          "percentile": 1.0,
+          "players": [
+            "Curtis Blaydes",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rong Rongzhu",
+            "Jean Silva",
+            "Sean King III"
+          ],
+          "avg_own": 34.65,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 388.32,
+          "dup_count": 2
+        },
+        {
+          "rank": 8,
+          "entry_name": "mikkvl",
+          "points": 567.18,
+          "percentile": 1.0,
+          "players": [
+            "Curtis Blaydes",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Rong Rongzhu",
+            "Jean Silva",
+            "Sean King III"
+          ],
+          "avg_own": 34.65,
+          "low_own_count": 0,
+          "salary_used": 49700,
+          "proj_total": 388.32,
+          "dup_count": 2
+        },
+        {
+          "rank": 10,
+          "entry_name": "Pjg1979",
+          "points": 565.77,
+          "percentile": 1.3,
+          "players": [
+            "Curtis Blaydes",
+            "Alexa Grasso",
+            "Tim Elliott",
+            "Tommy McMillen",
+            "Yousri Belgaroui",
+            "Jean Silva"
+          ],
+          "avg_own": 35.84,
+          "low_own_count": 0,
+          "salary_used": 49800,
+          "proj_total": 386.36,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 16.32,
+        "low_own_count_delta": 0.1,
+        "salary_used_delta": -395.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 780,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Tommy McMillen",
+          "field_own": 57.4,
+          "actual_fpts": 117.2
+        },
+        {
+          "name": "Tommy Gantt",
+          "field_own": 50.8,
+          "actual_fpts": 103.0
+        },
+        {
+          "name": "Jean Silva",
+          "field_own": 46.8,
+          "actual_fpts": 78.7
+        },
+        {
+          "name": "Rafa Garcia",
+          "field_own": 44.1,
+          "actual_fpts": 37.2
+        },
+        {
+          "name": "Marwan Rahiki",
+          "field_own": 32.1,
+          "actual_fpts": 47.0
+        },
+        {
+          "name": "Sean King III",
+          "field_own": 32.1,
+          "actual_fpts": 122.9
+        },
+        {
+          "name": "Curtis Blaydes",
+          "field_own": 32.0,
+          "actual_fpts": 67.7
+        },
+        {
+          "name": "Brandon Moreno",
+          "field_own": 31.0,
+          "actual_fpts": 72.2
+        },
+        {
+          "name": "Alexa Grasso",
+          "field_own": 30.4,
+          "actual_fpts": 76.9
+        },
+        {
+          "name": "Waldo Cortes Acosta",
+          "field_own": 27.4,
+          "actual_fpts": 11.6
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Tommy Gantt",
+            "Tommy McMillen"
+          ],
+          "field_pct": 28.5,
+          "count": 222
+        },
+        {
+          "players": [
+            "Rafa Garcia",
+            "Tommy McMillen"
+          ],
+          "field_pct": 26.8,
+          "count": 209
+        },
+        {
+          "players": [
+            "Jean Silva",
+            "Tommy McMillen"
+          ],
+          "field_pct": 24.8,
+          "count": 193
+        },
+        {
+          "players": [
+            "Rafa Garcia",
+            "Tommy Gantt"
+          ],
+          "field_pct": 22.7,
+          "count": 177
+        },
+        {
+          "players": [
+            "Jean Silva",
+            "Rafa Garcia"
+          ],
+          "field_pct": 22.1,
+          "count": 172
+        },
+        {
+          "players": [
+            "Jean Silva",
+            "Tommy Gantt"
+          ],
+          "field_pct": 21.1,
+          "count": 164
+        },
+        {
+          "players": [
+            "Curtis Blaydes",
+            "Tommy Gantt"
+          ],
+          "field_pct": 20.9,
+          "count": 163
+        },
+        {
+          "players": [
+            "Curtis Blaydes",
+            "Tommy McMillen"
+          ],
+          "field_pct": 20.7,
+          "count": 161
+        },
+        {
+          "players": [
+            "Alexa Grasso",
+            "Tommy McMillen"
+          ],
+          "field_pct": 19.4,
+          "count": 151
+        },
+        {
+          "players": [
+            "Brandon Moreno",
+            "Tommy McMillen"
+          ],
+          "field_pct": 19.1,
+          "count": 149
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Curtis Blaydes",
+            "Jean Silva",
+            "Rafa Garcia",
+            "Tim Elliott",
+            "Tommy Gantt",
+            "Tommy McMillen"
+          ],
+          "count": 22,
+          "field_pct": 2.8
+        },
+        {
+          "players": [
+            "Alexa Grasso",
+            "Brandon Moreno",
+            "Curtis Blaydes",
+            "Jean Silva",
+            "Tommy Gantt",
+            "Tommy McMillen"
+          ],
+          "count": 15,
+          "field_pct": 1.9
+        },
+        {
+          "players": [
+            "Brandon Moreno",
+            "Jean Silva",
+            "Marwan Rahiki",
+            "Sean King III",
+            "Tim Elliott",
+            "Tommy Gantt"
+          ],
+          "count": 10,
+          "field_pct": 1.3
+        },
+        {
+          "players": [
+            "Jean Silva",
+            "Marwan Rahiki",
+            "Rafa Garcia",
+            "Sean King III",
+            "Tim Elliott",
+            "Tommy Gantt"
+          ],
+          "count": 9,
+          "field_pct": 1.2
+        },
+        {
+          "players": [
+            "Curtis Blaydes",
+            "Jean Silva",
+            "Marwan Rahiki",
+            "Rafa Garcia",
+            "Sean King III",
+            "Tommy Gantt"
+          ],
+          "count": 9,
+          "field_pct": 1.2
+        }
+      ],
+      "winners_profile": {
+        "n": 8,
+        "avg_own_per_slot": 35.5,
+        "dart_pct": 0.0,
+        "unique_pct": 87.5
+      },
+      "fish_profile": {
+        "n": 390,
+        "avg_own_per_slot": 29.7,
+        "dart_pct": 15.9,
+        "unique_pct": 76.9
+      },
+      "fish_traps": [
+        {
+          "name": "Waldo Cortes Acosta",
+          "fish_pct": 44.4,
+          "winner_pct": 0.0,
+          "gap": 44.4,
+          "actual_fpts": 11.6,
+          "field_own": 27.4,
+          "own_rank": 10
+        },
+        {
+          "name": "Edgar Chairez",
+          "fish_pct": 37.2,
+          "winner_pct": 0.0,
+          "gap": 37.2,
+          "actual_fpts": 25.7,
+          "field_own": 22.1,
+          "own_rank": 12
+        },
+        {
+          "name": "Rafa Garcia",
+          "fish_pct": 44.6,
+          "winner_pct": 12.5,
+          "gap": 32.1,
+          "actual_fpts": 37.2,
+          "field_own": 44.1,
+          "own_rank": 4
+        },
+        {
+          "name": "Jean Silva",
+          "fish_pct": 42.8,
+          "winner_pct": 12.5,
+          "gap": 30.3,
+          "actual_fpts": 78.7,
+          "field_own": 46.8,
+          "own_rank": 3
+        },
+        {
+          "name": "Jessie Rosas",
+          "fish_pct": 29.2,
+          "winner_pct": 0.0,
+          "gap": 29.2,
+          "actual_fpts": 1.2,
+          "field_own": 16.8,
+          "own_rank": 17
+        },
+        {
+          "name": "Marwan Rahiki",
+          "fish_pct": 40.0,
+          "winner_pct": 12.5,
+          "gap": 27.5,
+          "actual_fpts": 47.0,
+          "field_own": 32.1,
+          "own_rank": 5
+        },
+        {
+          "name": "Jose Delgado",
+          "fish_pct": 25.6,
+          "winner_pct": 0.0,
+          "gap": 25.6,
+          "actual_fpts": 16.8,
+          "field_own": 19.1,
+          "own_rank": 14
+        },
+        {
+          "name": "Joseph Morales",
+          "fish_pct": 24.1,
+          "winner_pct": 0.0,
+          "gap": 24.1,
+          "actual_fpts": 35.6,
+          "field_own": 17.0,
+          "own_rank": 16
+        },
+        {
+          "name": "Ignacio Bahamondes",
+          "fish_pct": 23.3,
+          "winner_pct": 0.0,
+          "gap": 23.3,
+          "actual_fpts": 63.8,
+          "field_own": 17.5,
+          "own_rank": 15
+        },
+        {
+          "name": "David Martinez",
+          "fish_pct": 16.2,
+          "winner_pct": 0.0,
+          "gap": 16.2,
+          "actual_fpts": 57.6,
+          "field_own": 11.7,
+          "own_rank": 19
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "artvandelay44",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "chichi84nc",
+          "best_rank": 2,
+          "percentile": 0.3
+        },
+        {
+          "handle": "constanza8",
+          "best_rank": 3,
+          "percentile": 0.4
+        },
+        {
+          "handle": "canesnathan",
+          "best_rank": 3,
+          "percentile": 0.4
+        },
+        {
+          "handle": "blunt321",
+          "best_rank": 5,
+          "percentile": 0.6
+        },
+        {
+          "handle": "Amazin11000",
+          "best_rank": 6,
+          "percentile": 0.8
+        },
+        {
+          "handle": "nolanshapiro",
+          "best_rank": 7,
+          "percentile": 0.9
+        },
+        {
+          "handle": "Tr0ubl35",
+          "best_rank": 8,
+          "percentile": 1.0
+        },
+        {
+          "handle": "mikkvl",
+          "best_rank": 8,
+          "percentile": 1.0
+        },
+        {
+          "handle": "Pjg1979",
+          "best_rank": 10,
+          "percentile": 1.3
+        },
+        {
+          "handle": "ptaylorla",
+          "best_rank": 11,
+          "percentile": 1.4
+        },
+        {
+          "handle": "johnson0652",
+          "best_rank": 12,
+          "percentile": 1.5
+        },
+        {
+          "handle": "rmknks",
+          "best_rank": 12,
+          "percentile": 1.5
+        },
+        {
+          "handle": "ZEUSMAN1711",
+          "best_rank": 14,
+          "percentile": 1.8
+        },
+        {
+          "handle": "supremexjp",
+          "best_rank": 15,
+          "percentile": 1.9
+        }
+      ],
+      "read": [
+        "Field crowded **Tommy McMillen** at 57.4% (117.2 fpts) \u2014 the chalk to consider fading.",
+        "**Tommy Gantt + Tommy McMillen** were together in 28.5% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Waldo Cortes Acosta** was a fish trap: 44.4% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 600.69,
+      "winner_handle": "artvandelay44",
+      "roster": [
+        {
+          "name": "Alexa Grasso",
+          "own": 30.36,
+          "fpts": 76.91
+        },
+        {
+          "name": "Tim Elliott",
+          "own": 27.17,
+          "fpts": 106.82
+        },
+        {
+          "name": "Tommy McMillen",
+          "own": 57.4,
+          "fpts": 117.19
+        },
+        {
+          "name": "Rong Rongzhu",
+          "own": 12.37,
+          "fpts": 73.8
+        },
+        {
+          "name": "Tommy Gantt",
+          "own": 50.77,
+          "fpts": 103.05
+        },
+        {
+          "name": "Sean King III",
+          "own": 32.14,
+          "fpts": 122.92
+        }
+      ],
+      "avg_own": 35.0,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Rong Rongzhu",
+        "own": 12.37,
+        "fpts": 73.8
+      },
+      "expected_dupes": 0.75
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "position_checked": false,
+      "blocked_swap": {
+        "out": "Jessie Rosas",
+        "in": "Sean King III",
+        "gain": 121.7,
+        "over_cap_by": 600
+      },
+      "gradable": true,
+      "won": false,
+      "your_points": 380.39,
+      "winner_points": 600.69,
+      "gap": 220.3,
+      "your_percentile": 65.7,
+      "n_shared": 2,
+      "shared": [
+        "Alexa Grasso",
+        "Rong Rongzhu"
+      ],
+      "your_uniques": [
+        {
+          "name": "Yousri Belgaroui",
+          "fpts": 118.4,
+          "salary": 9700,
+          "position": null
+        },
+        {
+          "name": "Regina Tarin",
+          "fpts": 63.07,
+          "salary": 9100,
+          "position": null
+        },
+        {
+          "name": "Marwan Rahiki",
+          "fpts": 47.01,
+          "salary": 7600,
+          "position": null
+        },
+        {
+          "name": "Jessie Rosas",
+          "fpts": 1.2,
+          "salary": 7800,
+          "position": null
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Sean King III",
+          "fpts": 122.92,
+          "salary": 8400,
+          "position": null
+        },
+        {
+          "name": "Tommy McMillen",
+          "fpts": 117.19,
+          "salary": 8600,
+          "position": null
+        },
+        {
+          "name": "Tim Elliott",
+          "fpts": 106.82,
+          "salary": 7400,
+          "position": null
+        },
+        {
+          "name": "Tommy Gantt",
+          "fpts": 103.05,
+          "salary": 9400,
+          "position": null
+        }
+      ],
+      "best_swap": {
+        "out": "Jessie Rosas",
+        "in": "Tim Elliott",
+        "gain": 105.6,
+        "would_have_won": false
+      },
+      "swaps_needed": 3
+    },
+    "stack_report": null,
+    "mme_report": {
+      "gradable": false,
+      "n_field": 780,
+      "reason": "field of 780 is below the MME cut (5,000)"
+    }
+  }
+]

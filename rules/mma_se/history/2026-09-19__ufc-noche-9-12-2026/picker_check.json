@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "slug": "mma_se",
+  "contests": [
+    {
+      "date": "2026-09-19",
+      "contest": "UFC $5K Clinch [Single Entry]",
+      "winning_score": 591.5,
+      "pool_n": 7937,
+      "pool_max": 616.0,
+      "pool_held_winner": true,
+      "n_pool_ge_win": 4,
+      "pick_actual": 333.1,
+      "pick_won": false,
+      "pick_pool_pctile": 41.6,
+      "pick_source": "entered",
+      "n_entered": 1
+    },
+    {
+      "date": "2026-09-19",
+      "contest": "UFC $2K Sprawl [3 Entry Max]",
+      "winning_score": 591.5,
+      "pool_n": 7937,
+      "pool_max": 616.0,
+      "pool_held_winner": true,
+      "n_pool_ge_win": 4,
+      "pick_actual": 440.9,
+      "pick_won": false,
+      "pick_pool_pctile": 86.0,
+      "pick_source": "entered",
+      "n_entered": 3
+    },
+    {
+      "date": "2026-09-19",
+      "contest": "UFC $8K Flying Knee ($2K to 1st)",
+      "winning_score": 600.7,
+      "pool_n": 7937,
+      "pool_max": 616.0,
+      "pool_held_winner": true,
+      "n_pool_ge_win": 2,
+      "pick_actual": 380.4,
+      "pick_won": false,
+      "pick_pool_pctile": 64.2,
+      "pick_source": "entered",
+      "n_entered": 1
+    }
+  ],
+  "note": null,
+  "generated_at": "2026-09-19 13:38"
+}

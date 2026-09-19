@@ -744,3 +744,50 @@ _Descriptive only: this reads how the field and the winners built. It is not a r
 - You minus the big-stack median: top1 -0.7, top10 +8.0, cash -2.6, max exposure +10.7, fighters used -8.0, own med +15.1
 
 _Descriptive only: this reads how the field and the winners built. It is not a rule._
+
+## 2026-09-19 13:38 — MMA (contest-standings-195352889.csv)
+- Entries: 1,189
+- Winning score: 591.5
+- Cash line (top 20%): 480.8
+- My entries: 1 · best rank 930/1,189 (top 78.2%)
+- Winners (top 20): avg own 34.24% vs mine 32.55% · sub-10% plays/lineup 0.25 vs mine 0.0 · salary Δ -195
+- Overperformed proj: Tim Elliott, Sean King III, Tommy McMillen
+- Underperformed proj: Waldo Cortes Acosta, Jessie Rosas, Edgar Chairez
+- Slate-defining plays: Rong Rongzhu (73.8 pts @ 12.9%)
+
+
+## 2026-09-19 13:38 — MMA (contest-standings-195352892.csv)
+- Entries: 594
+- Winning score: 591.5
+- Cash line (top 20%): 495.4
+- My entries: 3 · best rank 232/594 (top 39.1%)
+- Winners (top 20): avg own 35.09% vs mine 32.09% · sub-10% plays/lineup 0.05 vs mine 0.0 · salary Δ -128
+- Overperformed proj: Tim Elliott, Sean King III, Tommy McMillen
+- Underperformed proj: Waldo Cortes Acosta, Jessie Rosas, Edgar Chairez
+- Slate-defining plays: Rong Rongzhu (73.8 pts @ 17.2%)
+
+
+## 2026-09-19 13:38 — MMA (contest-standings-195352899.csv)
+- Entries: 784
+- Winning score: 600.7
+- Cash line (top 20%): 492.1
+- My entries: 1 · best rank 515/784 (top 65.7%)
+- Winners (top 20): avg own 36.92% vs mine 20.6% · sub-10% plays/lineup 0.1 vs mine 0.0 · salary Δ -395
+- Overperformed proj: Tim Elliott, Sean King III, Tommy McMillen
+- Underperformed proj: Waldo Cortes Acosta, Jessie Rosas, Edgar Chairez
+
+### Strategy adherence — did you follow your own strategy? (5 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ LEAN_FADE call over-exposed inside contest-standings-195352899.csv: **Regina Tarin** in 1 of 1 there — the pooled average hid it.
+- ⚠️ LEAN_FADE call over-exposed inside contest-standings-195352889.csv: **Joseph Morales** in 1 of 1 there — the pooled average hid it.
+- Leverage candidates rostered somewhere: **0 of 4**.
+
+### Player-pool tier calibration (26 of 26 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 3 | 69.3 | 118.4 |
+| **Good** | 7 | 79.2 | 122.9 |
+| **Okay** | 9 | 46.9 | 106.8 |
+| **Fade** | 7 | 35.6 | 76.9 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+- 🕳️ Buried: **Alexa Grasso** (Fade) scored 76.9 — above the top tier's average.

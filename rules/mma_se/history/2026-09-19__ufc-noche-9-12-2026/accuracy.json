@@ -1,0 +1,75 @@
+{
+  "edges": {
+    "gradable": true,
+    "n_our_players": 18,
+    "leverage_capture": 1.0,
+    "leverage_hit": [
+      "Rong Rongzhu"
+    ],
+    "leverage_missed": [],
+    "overperformer_capture": 1.0,
+    "overperformer_hit": [
+      "Tim Elliott",
+      "Sean King III",
+      "Tommy McMillen",
+      "Alexa Grasso",
+      "Yousri Belgaroui"
+    ],
+    "underperformer_exposure": 0.6,
+    "underperformer_hit": [
+      "Waldo Cortes Acosta",
+      "Jessie Rosas",
+      "Edgar Chairez"
+    ]
+  },
+  "lineups": {
+    "gradable": true,
+    "n_lineups": 5,
+    "avg_ratio": 0.965,
+    "best_percentile": 39.1,
+    "median_percentile": 66.0,
+    "n_top_10pct": 0,
+    "lineups": [
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 333.14,
+        "proj_total": 395.41,
+        "ratio": 0.843,
+        "percentile": 78.2,
+        "avg_own": 32.55
+      },
+      {
+        "entry_name": "RyvlesGaming30 (1/3)",
+        "points": 440.86,
+        "proj_total": 392.83,
+        "ratio": 1.122,
+        "percentile": 39.1,
+        "avg_own": 32.02
+      },
+      {
+        "entry_name": "RyvlesGaming30 (3/3)",
+        "points": 367.99,
+        "proj_total": 390.19,
+        "ratio": 0.943,
+        "percentile": 66.0,
+        "avg_own": 31.73
+      },
+      {
+        "entry_name": "RyvlesGaming30 (2/3)",
+        "points": 339.32,
+        "proj_total": 386.44,
+        "ratio": 0.878,
+        "percentile": 76.6,
+        "avg_own": 32.52
+      },
+      {
+        "entry_name": "RyvlesGaming30",
+        "points": 380.39,
+        "proj_total": 366,
+        "ratio": 1.039,
+        "percentile": 65.7,
+        "avg_own": 20.6
+      }
+    ]
+  }
+}

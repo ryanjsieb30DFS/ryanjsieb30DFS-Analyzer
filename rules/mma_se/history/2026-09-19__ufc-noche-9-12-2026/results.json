@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-19",
+  "slug": "mma_se",
+  "sport": "mma",
+  "slate_label": "UFC Noche 9.12.2026",
+  "history_dir": "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026",
+  "contests": [
+    {
+      "name": "UFC $5K Clinch [Single Entry]",
+      "type": "SE",
+      "source_file": "contest-standings-195352889.csv",
+      "field_size": 1189,
+      "my_entries": 1,
+      "entry_fee": 5.0,
+      "buy_in": 5.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 930,
+      "best_percentile": 78.2
+    },
+    {
+      "name": "UFC $2K Sprawl [3 Entry Max]",
+      "type": "3-Max",
+      "source_file": "contest-standings-195352892.csv",
+      "field_size": 594,
+      "my_entries": 3,
+      "entry_fee": 4.0,
+      "buy_in": 12.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 232,
+      "best_percentile": 39.1
+    },
+    {
+      "name": "UFC $8K Flying Knee ($2K to 1st)",
+      "type": "SE",
+      "source_file": "contest-standings-195352899.csv",
+      "field_size": 784,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "buy_in": 12.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 515,
+      "best_percentile": 65.7
+    }
+  ],
+  "total_buy_in": 29.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 232,
+  "best_percentile": 39.1,
+  "best_rank_mme": null,
+  "best_percentile_mme": null,
+  "entries_total": 5,
+  "edge_leverage_capture": 1.0,
+  "edge_overperformer_capture": 1.0,
+  "edge_bust_exposure": 0.6,
+  "lineup_avg_ratio": 0.965,
+  "shark_gap_top": {
+    "dim": "own_per_slot",
+    "delta": 12.7
+  },
+  "adherence_fades_violated": 0,
+  "adherence_leverage_covered": "0/4",
+  "tier_summary": "Core 69.3 > Good 79.2 > Okay 46.9 > Fade 35.6  \u2717 OUT OF ORDER",
+  "tiers_ordered": false,
+  "grader_check": {
+    "flagged_pctiles": [],
+    "clean_pctiles": [
+      78.2,
+      39.1,
+      66.0,
+      76.6,
+      65.7
+    ]
+  },
+  "stack_summary": null,
+  "mme_summary": null
+}

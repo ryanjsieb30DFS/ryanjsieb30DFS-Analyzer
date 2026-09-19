@@ -1,0 +1,232 @@
+{
+  "gradable": true,
+  "n_lineups": 5,
+  "n_contests": 3,
+  "calls": [
+    {
+      "name": "Muslim Salikhov",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 5,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195352889.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195352892.csv",
+          "in_lineups": 0,
+          "of": 3,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195352899.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Djorden Santos",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 5,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195352889.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195352892.csv",
+          "in_lineups": 0,
+          "of": 3,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195352899.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Curtis Blaydes",
+      "verdict": "lean_fade",
+      "exposure_pct": 20.0,
+      "in_lineups": 1,
+      "of": 5,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195352889.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195352892.csv",
+          "in_lineups": 1,
+          "of": 3,
+          "exposure_pct": 33.3
+        },
+        {
+          "contest": "contest-standings-195352899.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Jose Delgado",
+      "verdict": "lean_fade",
+      "exposure_pct": 20.0,
+      "in_lineups": 1,
+      "of": 5,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195352889.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195352892.csv",
+          "in_lineups": 1,
+          "of": 3,
+          "exposure_pct": 33.3
+        },
+        {
+          "contest": "contest-standings-195352899.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "David Martinez",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 5,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195352889.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195352892.csv",
+          "in_lineups": 0,
+          "of": 3,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195352899.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Regina Tarin",
+      "verdict": "lean_fade",
+      "exposure_pct": 20.0,
+      "in_lineups": 1,
+      "of": 5,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195352889.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195352892.csv",
+          "in_lineups": 0,
+          "of": 3,
+          "exposure_pct": 0.0
+        },
+        {
+          "contest": "contest-standings-195352899.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        }
+      ],
+      "over_in": [
+        "contest-standings-195352899.csv"
+      ]
+    },
+    {
+      "name": "Joseph Morales",
+      "verdict": "lean_fade",
+      "exposure_pct": 40.0,
+      "in_lineups": 2,
+      "of": 5,
+      "followed": true,
+      "by_contest": [
+        {
+          "contest": "contest-standings-195352889.csv",
+          "in_lineups": 1,
+          "of": 1,
+          "exposure_pct": 100.0
+        },
+        {
+          "contest": "contest-standings-195352892.csv",
+          "in_lineups": 1,
+          "of": 3,
+          "exposure_pct": 33.3
+        },
+        {
+          "contest": "contest-standings-195352899.csv",
+          "in_lineups": 0,
+          "of": 1,
+          "exposure_pct": 0.0
+        }
+      ],
+      "over_in": [
+        "contest-standings-195352889.csv"
+      ]
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 2,
+  "leverage_candidates": [
+    {
+      "name": "Muslim Salikhov",
+      "rostered": false
+    },
+    {
+      "name": "Djorden Santos",
+      "rostered": false
+    },
+    {
+      "name": "Drakkar Klose",
+      "rostered": false
+    },
+    {
+      "name": "JJ Aldrich",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 0,
+  "leverage_of": 4
+}
