@@ -43,7 +43,7 @@ lessons:
       unconfirmed injury news trades a known any-outcome floor for a binary bet —
       the Brady-to-Buckley swap (Brady 136.27, Buckley 5.20) was an overreaction,
       and SE's one-shot structure makes that risk asymmetry worse.
-    status: hypothesis
+    status: hypothesis   # RETIRE proposed 2026-09-19 (ledger hygiene) — awaits user approval; see that review's ## Ledger hygiene
     confirmations: []
     contradictions: []
     codified_in: null
@@ -77,6 +77,17 @@ lessons:
           Anderson 7.41), had no independent path and finished 52.9%ile. Note the
           asymmetry the rule predicts: the shared spine cannot produce two outcomes,
           only one outcome twice.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 1,189 Clinch SE + 594 3-Max + 784 Flying Knee"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          Confirmed by violation again. The Clinch SE bullet and 3-Max entry 3 shared
+          FOUR of six fighters — Jean Silva, Sean King III, Rafa Garcia, Joseph Morales —
+          including every conviction piece; they differed only on Acosta/Rahiki vs
+          Blaydes/Chairez. Garcia (37.2) and Morales (35.6) both lost, so both entries
+          carried the same two dead slots and finished 78.2%ile and 66.0%ile together.
+          Silva sat in 4 of 5 entries, over the strategy's own "no anchor in more than
+          3 of 5" portfolio rule. The set was one bet on Garcia + Morales made twice.
     contradictions: []
     codified_in: "framework.md — Step 5 — Diversification; The Santos/Gantt Pairing Lesson; philosophy.md — SE Diversification Rules"
     retired_reason: null
@@ -222,6 +233,17 @@ lessons:
           low-owned pieces that actually decided the slate were CONVERTERS who won —
           Benouaich 143.03 at 10.7% own, Bukauskas 93.05 at 10.1%, Andrusca 84.78 at
           12.3% — blended-EV fighters, not binary bets, exactly as the rule prices it.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 1,189 / 594 / 784 fields"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          Small-field mechanism held for the ninth time. Every sub-10% dart lost
+          (Salikhov, Santos 6.4, Klose, Aldrich), and all three contest winners carried
+          ZERO sub-10% pieces (winners_profile dart_pct 0.0 in all three). The user's
+          binary-shaped slot was Jessie Rosas ($7,800, 32% to win, +260 to finish, 16%
+          own): 1.2 points, carried in 2 of 5 entries, and the Flying Knee bullet's
+          best repair was Rosas -> Elliott (+105.6). The fish carried darts at 5-16%
+          while the winners carried none.
     contradictions: []
     codified_in: "framework.md — Step 3 — Field-Size Calibration (binary leverage by field size)"
     retired_reason: null
@@ -625,6 +647,19 @@ lessons:
           whose only scoring path is a finish), not to any favorite — an 85%-win
           fighter with a decision floor at 100% exposure is a conviction anchor, not a
           correlated bet. Still 2 of 3.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 594 3-Max + two SEs (5 entries)"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          SECOND BOUNDARY NOTE, not counted — and it lands on the same side as 8/23.
+          Jean Silva ($9,300, 78% to win, a decision floor: "even a decision scores
+          low 100s") was carried in 4 of 5 entries (80%), above the ~60% cap and above
+          the strategy's own 3-of-5 rule. He won by decision for 78.7 and sank nothing;
+          the block died on Acosta / Garcia / Morales / Rosas. Four slates now sort
+          cleanly by WIN PATH: the two binary favorites at high exposure (Topuria,
+          Cepo) collapsed their blocks, the two floor favorites (Dyer, Silva) did not.
+          The codifiable form is the refined one — cap exposure to a favorite whose
+          only scoring path is a finish — and the counted evidence stays at 2 of 3.
     codified_in: null
     retired_reason: null
 
@@ -705,6 +740,19 @@ lessons:
           [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]]'s
           "carry no losing slot" clause; that lesson is graded on the whole roster, this
           one on the cheap slot specifically.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 784 Flying Knee SE + 594 3-Max"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          Fourth confirming slate. The Flying Knee bullet's cheap-tier slots were
+          Jessie Rosas ($7,800, 32% to win, +260 to finish) and Alexa Grasso
+          ($7,300, 30% to win). Grasso WON (76.9, in the contest winner); Rosas
+          scored 1.2. `near_miss` puts the best repair at Rosas -> Elliott (+105.6)
+          and the points-best repair Rosas -> King (+121.7) blocked $600 over the cap.
+          3-Max entry 2 spent both cheap slots on no-floor pieces — Delgado ($6,900,
+          a LEAN FADE, 16.8) and Rosas (1.2) — and finished 76.6%ile. Every winning
+          roster's cheapest slot was a fighter who WON (Elliott $7,400 106.8, Blaydes
+          $7,500 67.7, Grasso $7,300 76.9).
     contradictions: []
     codified_in: "framework.md — The Cheap Slot Decides the Lineup (8/2/26 — 3-slate validated)"
     retired_reason: null
@@ -1099,6 +1147,18 @@ lessons:
           so the screen FOUND the converters and the verdict layer took them back off
           the table. Mechanism holds; the verdict-layer leak is carried by
           [[mma-se-2026-09-06-price-tag-lean-fades-in-the-leverage-band-delete-the-winners-carrier]].
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 1,189 / 594 / 784 fields"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          Eighth confirming slate, and the screen named the carrier outright. Rong
+          Rongzhu ($8,500, 23% projected / 12.4-17.2% actual, a 59% favorite picked
+          less than his underdog) was given his own `## Leverage` line and tiered
+          `Good`; he scored 73.8 and was the differentiation carrier of ALL THREE
+          contest winners (the only slate-defining play in every autopsy record, in
+          30% of top-20 lineups). The named binary dogs all died (Klose, Aldrich,
+          Salikhov, Santos 6.4). The user carried Rongzhu in 2 of 5 entries — and his
+          field-value opposite Garcia (37.2) in 3.
     contradictions: []
     codified_in: "framework.md — The Leverage Screen: Converters, Not Named Dogs (7/19/26 — 3-slate validated)"
     retired_reason: null
@@ -1409,6 +1469,20 @@ lessons:
           (Soriano, 37.96 in a loss) and still won by 22 points, so "six winners" reads
           as "no ZERO slots" — five converters plus the slate's top carrier absorbed one
           modest loser.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 1,189 Clinch + 594 3-Max + 784 Flying Knee"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          Ninth confirming slate, in all three contests. The Clinch/3-Max winner
+          (591.52: Blaydes 67.7 / Elliott 106.8 / McMillen 117.2 / Rongzhu 73.8 /
+          Gantt 103.1 / King 122.9) and the Flying Knee winner (600.69, Grasso 76.9
+          for Blaydes) were six fighters who ALL won, at 33.7-35.3% own per slot,
+          zero sub-10% pieces, differentiated by Rongzhu at 12-17%. The user's four
+          non-Flying-Knee entries sat inside the envelope (31.7-32.5%) and died on
+          WHICH fighters: Acosta 11.6 (2 entries), Rosas 1.2 (2), Chairez 25.7,
+          Garcia 37.2 (3), Morales 35.6 (2), Rahiki 47.0 (3). The Flying Knee bullet
+          ran far BELOW the envelope (20.6% vs winners 36.9%) and died the same way
+          (Rosas 1.2, Rahiki 47.0). Bust exposure 0.6 for the second slate running.
     contradictions: []
     codified_in: "framework.md — The Winning MMA SE Shape (8/2/26 — 3-slate validated)"
     retired_reason: null
@@ -1515,6 +1589,20 @@ lessons:
           slate where the shape was right and the named fighter was wrong. The open
           problem is unchanged and should not be papered over: the rule reliably says
           that one mid-priced name will run +15, and nothing in it identifies WHICH.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 1,189 / 594 / 784 fields"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          Core claim held, band clause missed, named fighter wrong for the FIFTH
+          straight slate. One fighter ran hot by about +15: Alexa Grasso, 14%
+          projected -> 24-30% actual (+10 / +12 / +16). But she is $7,300 and 14%
+          projected — OUTSIDE both the $7,500-8,999 band and the 25-45% window (the
+          band held on 12 of 15 cards, so this is the 13th-of-16 miss, not a
+          contradiction). Rafa Garcia ($7,700, 30%) was the in-band runner at
+          +7 / +11 / +14. The strategy applied the adjustment to Tommy McMillen ("will
+          run hotter than 48%... about 15 points"); he ran +9 (57.0-57.4%). Pair math
+          under-ran as the mechanism predicts: McMillen+Gantt was called ~21% and
+          landed at 24-28.5%.
     contradictions:
       - date: "2026-08-09"
         slate: "UFC Fight Night: Gamrot vs. Salkilld 8.8.26 — 784 SE + 47,562 mini-MAX"
@@ -1710,6 +1798,19 @@ lessons:
           Bilal Hasan at 19.78%). The 0/2 metric has now read 0-for-N on four of the
           last seven slates with no relationship to the finish, which is what a
           non-rule looks like when it is still being counted.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 1,189 Clinch SE"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          Seventh confirmation of the axis-is-noise corollary, and the sharpest
+          inversion yet. One tracked pro was in the Clinch field at 19.8% own per
+          slot against the user's 32.5% (delta 12.7 — a material gap, flagged as the
+          slate's top shark-gap axis). The pro finished 98.4%ile — bottom 2% of
+          1,189 — while the user finished 78.2%ile and the winners averaged 33.9%
+          per slot. Being 13 points more contrarian than the user was the LOSING
+          structure. RATE half also held: `adherence_leverage_covered` read 0/4 and all
+          four named sub-10% candidates lost; that metric has now read 0-for-N on five
+          of the last eight slates with no relationship to the finish.
     contradictions: []
     codified_in: "framework.md — Envelope Targets Are Rates (8/16/26); philosophy.md — Envelope Targets Are Rates (8/16/26); 8/28/26 extended into the tooling, then hardened same day on user directive ('i really dont think that should be a hard and fast rule... the point of the grade tab is to ensure lineups are following the CURRENT SLATE STRATEGY'): per-lineup leverage is now NOT A RULE OF ANY STRENGTH in either repo. Analyzer — out of compliance()/_RELAX_ORDER/soft_notes/parse_pick and unmarked in the slice (src/lineup_selection.py); grader no_leverage is info-only in every sport and never costs a letter, retro_grade dropped it too (src/grader.py). Sim — contract_rule_groups no longer BUILDS a leverage_rule, no pack selects one, 🎯 button deleted (src/analyzer_link.py, app.py). Rationale beyond the rate: leverage_candidates is a mechanical ownership screen (own<10%), never a strategy call, so enforcing it made the gate impose a universal rule while claiming to enforce the slate strategy. Coverage = Min-Exp seeding (a pool RATE) only"
     retired_reason: null
@@ -1773,6 +1874,19 @@ lessons:
           0.85) — same roster, double the field, one-third the copies: consensus
           concentration, not field size, set the duplication. Origin + 8/9 + 8/16 =
           three slates -> propose codifying.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 1,189 Clinch SE"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          Fourth confirmation, on the user's own roster. The Clinch SE bullet
+          (Acosta / Morales / Rahiki / Garcia / Silva / King — six names all inside
+          the field's top-16 by ownership) was entered FIVE times in 1,189
+          (`dup_count` 5). Naive independence on its actual ownerships predicts about
+          1.2 copies; 5 is ~4x, inside the measured 1.7-6.6x band. The winning roster
+          carried McMillen at 57% AND Gantt at 46% yet was copied only twice
+          (expected 0.95) — consensus concentration, not the two heaviest names, set
+          the copy count. Dropping McMillen to "break the pair" did not buy uniqueness
+          because every other slot was a consensus piece.
     contradictions: []
     codified_in: "framework.md — Exact-Roster Duplication Is Superlinear (8/16/26)"
     retired_reason: null
@@ -1841,6 +1955,22 @@ lessons:
           double-loss mechanism is confirmed by its inverse — taking the named side
           captured the winning half of the fight AND the ownership gap in one decision.
           Origin (7/26) + 8/2 + 8/23 = three confirming slates -> propose codifying.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 1,189 / 594 / 784 fields"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          Fourth confirming slate, twice on one card, at the PORTFOLIO level the
+          codified lineup-scoped rule deliberately does not cover. The strategy named
+          Brandon Moreno (18%, "Brett picks him") the leverage side of Morales/Moreno
+          and LEAN-FADED Morales; the user carried Morales in 2 of 5 entries (100% of
+          the Clinch bullet) and Moreno in ZERO. Moreno won (72.2, in the Flying Knee
+          rank-2 lineup); Morales scored 35.6. The strategy named Rongzhu the
+          leverage side of Rongzhu/Garcia and said "a sharp runs Garcia well below the
+          field"; the user carried Garcia in 3 of 5 (60% vs the field's 37-44%) and
+          Rongzhu in 2. Rongzhu 73.8 carried all three winners; Garcia 37.2 was a fish
+          trap (43% of the bottom half). No single lineup held both sides, so the
+          codified lineup rule was honored — the leak is that the set as a whole sat
+          on the field's side of both called fights. Adherence graded neither.
     contradictions: []
     codified_in: >
       framework.md — Never Buy the Other Side of Your Own Leverage Fight
@@ -1987,6 +2117,19 @@ lessons:
           resolve to zero in both at once. Mechanism evidence in the inverse: zero
           shared binary slots produced two genuinely independent bets, where 8/2's two
           shared coin-flips produced one bet made twice.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 594 3-Max (3 entries) + 1,189 Clinch SE"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          THIRD confirming slate — promotion candidate — small in magnitude, exact in
+          shape. Inside the 3-Max, entries 1 and 3 shared two favorites (Silva, King)
+          but sat on OPPOSITE sides of two coin-flips (Acosta/Blaydes, Elliott/Chairez):
+          they decorrelated to 39.1%ile and 66.0%ile. Entries 2 and 3 shared the
+          coin-flip slot Rafa Garcia (41% to win, 37.2 in a loss): they finished
+          66.0%ile and 76.6%ile together. Across contests the Clinch bullet and entry 3
+          shared TWO coin-flip slots (Garcia AND Morales, 51%) plus Silva and King —
+          both dead slots resolved in both entries at once and they finished 78.2 /
+          66.0. Shared favorites cost nothing; shared coin-flips died together.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -2078,6 +2221,16 @@ lessons:
           clean pre-lock grade will keep carrying no information, because the variable
           that decides the slate resolves after lock. Treat the grade as a rules check,
           never as a quality score.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 5 entries, 3 contests"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          Fifth confirmation — now ~127 consecutive clean MMA lineups across six
+          slates with no flag ever fired. `retro_grade` returned ZERO flags on all
+          five entries (39.1 to 78.2%ile). The Clinch bullet carried FOUR losing
+          slots (Acosta 11.6, Morales 35.6, Garcia 37.2, Rahiki 47.0), a LEAN FADE
+          at 100% of that contest, and was copied 5 times in 1,189 — and graded
+          clean. Same conclusion: a rules check, never a quality score.
     contradictions: []
     codified_in: "framework.md — A Clean MMA Grade Carries No Information (8/16/26)"
     retired_reason: null
@@ -2153,6 +2306,22 @@ lessons:
           hand-assembly is where dead slots enter, and there was no hand-assembly and no
           rule-broken slot — the entries died on a favourite losing. A bad result under
           a followed process is not a contradiction of the process.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 1,189 Clinch SE + 784 Flying Knee SE"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          THIRD confirmation, by violation — the codified rule was NOT applied. The
+          archive manifest lists `lineup_selection.json` as MISSING: no Analyzer pick
+          was run for any contest (`picker_check` pick_source "entered"). All five
+          rosters were Sim pool rows, so no free-hand slot-swapping is visible, but
+          the pick step — the slice, the strategy gate, the written why — was skipped
+          entirely. The single bullets were again the least disciplined builds: the
+          Clinch bullet carried four losing slots (Acosta 11.6, Morales 35.6 as a
+          LEAN FADE at 100%, Garcia 37.2, Rahiki 47.0), was beaten by 58.4% of the
+          Sim's own 7,937-lineup pool (picking edge -19.5), and finished 78.2%ile —
+          the worst entry on the slate. The 3-Max block, where a dead slot can be
+          diversified away, held the best finish (39.1%ile) and beat the pool
+          average by +30.1. Same asymmetry as 8/9, same missing gate.
     contradictions: []
     codified_in: >
       rules/mma_se/framework.md — "Pick the Single-Entry Bullet, Never Hand-Build It
@@ -2183,8 +2352,20 @@ lessons:
       the projection file), and a contract whose parsed-call count differs from the
       rendered fade-line count warns at generation time. Links
       [[mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          FIRST confirmation, from the fix side -> promoted to validated. The
+          strategy wrote all seven `## Fades` verdicts with full names (Salikhov,
+          Santos, Blaydes, Delgado, Martinez, Tarin, Morales) and `adherence.json`
+          graded exactly seven calls — parsed count equals rendered count for the
+          fourth consecutive slate since 8/16. No call was silently dropped, so every
+          fade the user carried (Morales 2 of 5, Blaydes 1, Delgado 1, Tarin 1) is on
+          the record. The writing rule works when followed; the generation-time count
+          warning is still not built.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -2397,6 +2578,22 @@ lessons:
           he simply lost, scoring 27.27 — a win-side miss, not an ownership mirror. A
           third confirmation must show Core again assigned to the board's top-3
           projected-ownership names WITHOUT a stated edge the crowd is not paying for.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 26-fighter board"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          SECOND BOUNDARY NOTE, not counted — the rule-to-test was applied again and
+          Core did NOT mirror the chalk. Core was Bahamondes (25% projected),
+          Belgaroui (20%) and Chairez (24%), each with a stated non-crowd edge (the
+          same 80% win chance as Gantt at half the pick rate; a 66% favorite picked
+          less than his underdog), while the field's three most-owned names — McMillen
+          48%, Gantt 43%, Silva 42% — all sat in Good. Core still averaged 69.3
+          against Good's 79.2 (eighth straight OUT OF ORDER at some seam), because
+          Chairez lost (25.7) and Bahamondes won slowly (63.8) while Good held
+          McMillen 117.2, King 122.9 and Gantt 103.1. Two slates of the fix applied,
+          two slates of Core below Good on win-side misses: the mirror mechanism is not
+          what is breaking the ordering now. See
+          [[mma-se-2026-09-19-core-tier-ordering-fails-on-sample-size]]. Still 2 of 3.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -2560,6 +2757,19 @@ lessons:
           $9,600, then Woodson $8,400, Gomes $7,700, Nuzzi $7,600, Song $6,700). The
           user's bullets each carried two $9,000+ slots, inside the rule, so the failure
           was not the count — it was that one of the two was the crowd's probability buy.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 1,189 / 594 / 784 fields"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          Sixth confirming slate, realised. Points per $1,000 among the winners fell
+          with price again: King $8,400 -> 122.9 (14.6), Elliott $7,400 -> 106.8
+          (14.4), McMillen $8,600 -> 117.2 (13.6), Belgaroui $9,700 -> 118.4 (12.2),
+          Gantt $9,400 -> 103.1 (11.0), Silva $9,300 -> 78.7 (8.5), Bahamondes
+          $9,500 -> 63.8 (6.7). Every $9,000+ fighter WON and three of the five paid
+          under 11 per $1K. The user put Silva — the twin who won by decision for
+          78.7 — in 4 of 5 entries, over the rule's "never the same expensive favorite
+          in 100% of a set" line in spirit and over the strategy's own 3-of-5 cap in
+          fact; the winners carried one $9,000+ slot each (Gantt).
     contradictions: []
     codified_in: >
       rules/mma_se/framework.md — "Salary Buys Floor, Not Ceiling (8/23/26 — 19-card
@@ -2633,8 +2843,25 @@ lessons:
       written verdict is one the user can actually execute. Links
       [[mma-se-2026-07-19-sharp-envelope-is-a-rate-not-a-per-bullet-quota]],
       [[mma-se-2026-08-16-abbreviated-names-drop-contract-calls]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — two single-entry contests + a 3-Max"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          FIRST confirmation — the strategy half of the rule-to-test was applied ->
+          promoted to validated. `## Fades` opened with "No UNDERWEIGHT calls this
+          slate: three of the five entries are single bullets, where 'less than the
+          crowd' cannot be done," and wrote every soft call as LEAN FADE. Every
+          written verdict was therefore executable. The arithmetic artefact did not
+          vanish, it MOVED: `adherence.json` marked Joseph Morales (Clinch, 1 of 1)
+          and Regina Tarin (Flying Knee, 1 of 1) `over_in` while grading both LEAN
+          FADEs "followed" on the pooled 40% / 20%. In a one-bullet contest a LEAN
+          FADE carried IS the whole contest's exposure — "mostly avoid" was not
+          honoured there (Morales 35.6 lost; Tarin won for 63.1, the low score the
+          call predicted). The adherence half still needs building: for `my_entries`
+          of 1, grade a carried LEAN FADE as violated in that contest, not as a
+          pooled pass.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -2671,8 +2898,24 @@ lessons:
       [[mma-se-2026-06-20-fade-on-structure-not-narrative]],
       [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]],
       [[mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 1,189 / 594 / 784 fields"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          FIRST confirmation -> promoted to validated, with the 9/6 contradiction
+          standing beside it. The screen named six fighters — Garcia (+10 ranks),
+          Fiorot (+7), King (+6), Rongzhu (+6), Grasso (+6), Blaydes (+5). Two were
+          real misses (Garcia 37.2, a fish trap in 40-45% of the bottom half; Fiorot
+          29.1). FOUR were in winning rosters: King 122.9 (the slate's top score, in
+          every winner), Rongzhu 73.8 (the carrier of all three winners), Blaydes 67.7
+          (Clinch/3-Max winner), Grasso 76.9 (Flying Knee winner). Two-for-six with
+          four winners, the 8/29 shape exactly. Record after three slates: 2/6, 5/6,
+          2/6 — the residual rule is what survives: the listing alone justifies a
+          verdict in NEITHER direction. The strategy handled it correctly this time
+          ("the ledger says this screen went 2-for-6 one week and 5-for-6 the next,
+          so it argues nothing on its own") and sourced no fade from it.
     contradictions:
       - date: "2026-09-06"
         slate: "UFC Fight Night: Hooker vs. Parnasse 9.5.26 — 588 + 951 SEs"
@@ -2737,6 +2980,22 @@ lessons:
           one scored 339.22, beaten by 72.7% of the pool (picking edge -61.48 points),
           the other 515.97, beating 87.2% of it (+115.27). The metric orders the POOL;
           it says almost nothing about any one row.
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 7,937-lineup pool, 3 contests"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          THIRD confirming slate — promotion candidate for clause (2); clause (1)
+          still lacks a tight-card test. (1) DISPERSION: another wide 13-fight card
+          (pool average 352.6, maximum 616.0) and the ordering signal was positive in
+          all three contests — Cash% 0.30 / 0.32 / 0.30, ROI 0.13 / 0.19 / 0.12,
+          Top1% 0.08 / 0.11 / 0.10, Win% 0.00 / 0.07 / 0.05. Fourth consecutive wide
+          card with positive signal; no tight card has been logged since 8/16, so
+          "scales with dispersion" remains untested on its low end. (2) SINGLE-ROW
+          WEAKNESS, confirmed hard: the entry with the BEST pre-lock credentials
+          (Clinch bullet, Top1% 2.95, ROI 90.2) scored 333.1 and was beaten by 58.4%
+          of the pool; the 3-Max entry at Top1% 3.01 scored 440.9 and beat 86% of it.
+          Also the third straight slate where Cash% was the best predictor and Win%
+          the worst (see [[mma-se-2026-09-06-presim-metrics-bury-winners]]).
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -2775,8 +3034,22 @@ lessons:
       [[mma-se-2026-06-20-fade-on-structure-not-narrative]],
       [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]],
       [[mma-se-2026-08-29-owned-ahead-of-projection-is-not-a-trap-signal]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          FIRST confirmation, from the prescription side -> promoted to validated.
+          Two LEAN FADEs landed in the 13-15% band on live favorites — David Martinez
+          ($9,200, 13%, 76% to win) and Regina Tarin ($9,100, 15%, 71% to win) — and
+          BOTH named the dead path in one sentence rather than a price complaint
+          (Martinez: decision wins of 74, 66 and 62 against an opponent finished once
+          in 30 fights; Tarin: Aldrich allows 12 points per 15 minutes, a decision
+          near 80). Both fighters won and both scored inside the named band — Martinez
+          57.6, Tarin 63.1 — so the fades were RIGHT and cost nothing. The board also
+          tiered no `## Leverage`-listed fighter `Fade` this slate. When the dead path
+          is named the fade holds; 9/6's Benouaich fade named only a price and broke.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -2830,8 +3103,21 @@ lessons:
       NOT touch the blend on n=2 — keep reading each slate's sim_autopsy
       rank_signal at autopsy time and revisit when a stable pattern holds
       across ~5+ slates.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-19"
+        slate: "UFC Noche 9.12.26 — 7,937-lineup pool, 3 contests"
+        origin_dir: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+        note: >
+          THIRD slate with the same shape -> promoted to validated, still a WATCH
+          ITEM (n=3 of the ~5 the gate asks for). Cash% was the best predictor of
+          real score in all three contests (0.307 / 0.317 / 0.300; its top-100 rows
+          averaged 421-423 against a pool average of 352.6) and Win% the worst
+          (0.004 / 0.071 / 0.050; its top-100 by Win% averaged 347 in the Clinch,
+          BELOW the pool average). Top1% sat at 0.075-0.109. The pool's two rows at or
+          above the 600.69 Flying Knee winner and four at or above 591.5 were not
+          surfaced to anyone — no pick was run — so table-vs-pick cannot be judged
+          this slate. Do not touch the blend yet; two more slates.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -2892,6 +3178,67 @@ lessons:
       metric by small amounts. A starting envelope for the Sim's Portfolio /
       Diversifier knobs, re-read every card — a rate across the stack, never
       a per-lineup rule.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-09-19 — UFC Noche 9.12.26 (Silva vs. Delgado) ----
+
+  - id: mma-se-2026-09-19-build-rules-block-is-not-graded-by-adherence
+    born: "2026-09-19"
+    origin: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+    statement: >
+      The strategy now writes its quotas as a machine-readable `## Build rules`
+      block, but nothing grades the ENTERED set against it — `adherence.py` reads
+      only fade / underweight verdicts and sub-10% leverage names — so a portfolio
+      or lineup rule the strategy stated in numbers can be broken in silence and
+      the review never learns it. Evidence (9/12): the block said
+      `max_entries_with: 3` for Jean Silva ("no anchor in more than 3 of 5
+      entries"); Silva was in 4 of 5. The prose said "a sharp runs Rafa Garcia
+      well below the field"; Garcia (37-44% actual own) was in 3 of 5 (60%). The
+      prose named Brandon Moreno the leverage side of his fight; Moreno was in 0
+      of 5 and his opposite Morales in 2. `adherence.json` returned 0 fades
+      violated, 0 soft violated, and "followed: true" on every call — a spotless
+      grade on a set that broke its own strategy three ways. Mechanism: the
+      verdict grader and the build-rules block were built at different times and
+      never joined, so the strategy's most precise instructions are the ones
+      least likely to be checked. Rule to test: at Log time, grade every
+      `lineup_rules` entry per lineup and every `portfolio_rules` entry across the
+      set, archive the result beside `adherence.json`, and count a broken build
+      rule as a discipline finding whether or not it scored. Links
+      [[mma-se-2026-05-09-verify-submission-before-lock]],
+      [[mma-se-2026-07-26-field-value-side-vs-your-named-converter]],
+      [[mma-se-2026-08-29-underweight-has-no-meaning-in-a-single-entry-contest]].
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-se-2026-09-19-core-tier-ordering-fails-on-sample-size
+    born: "2026-09-19"
+    origin: "rules/mma_se/history/2026-09-19__ufc-noche-9-12-2026"
+    statement: >
+      The board's tier ordering has read OUT OF ORDER on eight consecutive graded
+      slates, and on the last two the Core tier was assigned exactly as the
+      anti-chalk fix prescribes — so the mirror-the-chalk mechanism can no longer
+      be the whole cause. What the eight slates share is that `Core` holds 2-3
+      fighters while `Good` holds 7-10, and a 2-3 fighter AVERAGE in a sport where
+      one loss scores 5-25 points is a coin-flip statistic: 9/12 Core = Belgaroui
+      118.4 + Bahamondes 63.8 + Chairez 25.7 = 69.3, dragged under Good's 79.2 by
+      ONE loss; 9/6 Core 90.2 vs Good 92.8 by one loss (Wood 27.3); 8/23 Core
+      40.0 by two. Meanwhile the Core tier's WIN RATE is fine (9/12: 2 of 3 won;
+      9/6: 1 of 2; 8/29: 1 of 2 with the top scorer). Mechanism: `pool_calibration`
+      compares tier means, and the mean of n=2-3 finish-driven scores has a
+      standard error near 30 points, wider than the Core-Good gap it is asked to
+      detect, so the flag fires on variance and teaches nothing. Rule to test:
+      report Core-vs-Good on a statistic that survives n=3 — win rate, or median,
+      or the share of Core fighters who out-scored the Good median — and treat the
+      mean-ordering flag as INFO when any tier has fewer than 4 fighters. Links
+      [[mma-se-2026-08-23-core-tier-mirrors-the-field-chalk]],
+      [[mma-se-2026-08-02-okay-tier-is-a-dumping-ground]].
     status: hypothesis
     confirmations: []
     contradictions: []

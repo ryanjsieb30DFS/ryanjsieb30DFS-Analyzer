@@ -1,0 +1,87 @@
+{
+  "gradable": true,
+  "n_lineups": 6,
+  "lineups": [
+    {
+      "players": [
+        "Jean Silva",
+        "Jose Delgado",
+        "Sean King III",
+        "Tim Elliott",
+        "Tommy Gantt",
+        "Tommy McMillen"
+      ],
+      "percentile": 1.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Jean Silva",
+        "Marwan Rahiki",
+        "Rong Rongzhu",
+        "Sean King III",
+        "Tim Elliott",
+        "Waldo Cortes Acosta"
+      ],
+      "percentile": 27.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexa Grasso",
+        "Jessie Rosas",
+        "Marwan Rahiki",
+        "Regina Tarin",
+        "Rong Rongzhu",
+        "Yousri Belgaroui"
+      ],
+      "percentile": 55.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Curtis Blaydes",
+        "Edgar Chairez",
+        "Jean Silva",
+        "Joseph Morales",
+        "Rafa Garcia",
+        "Sean King III"
+      ],
+      "percentile": 61.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Ignacio Bahamondes",
+        "Jessie Rosas",
+        "Jose Delgado",
+        "Rafa Garcia",
+        "Tommy Gantt",
+        "Tommy McMillen"
+      ],
+      "percentile": 72.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Jean Silva",
+        "Joseph Morales",
+        "Marwan Rahiki",
+        "Rafa Garcia",
+        "Sean King III",
+        "Waldo Cortes Acosta"
+      ],
+      "percentile": 75.0,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    1.8,
+    27.6,
+    55.5,
+    61.1,
+    72.0,
+    75.0
+  ]
+}

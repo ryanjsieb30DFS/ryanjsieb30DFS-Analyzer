@@ -1,0 +1,86 @@
+{
+  "gradable": true,
+  "n_lineups": 6,
+  "n_contests": 1,
+  "calls": [
+    {
+      "name": "Muslim Salikhov",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 6,
+      "followed": true
+    },
+    {
+      "name": "Djorden Santos",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 6,
+      "followed": true
+    },
+    {
+      "name": "Curtis Blaydes",
+      "verdict": "lean_fade",
+      "exposure_pct": 16.7,
+      "in_lineups": 1,
+      "of": 6,
+      "followed": true
+    },
+    {
+      "name": "Jose Delgado",
+      "verdict": "lean_fade",
+      "exposure_pct": 33.3,
+      "in_lineups": 2,
+      "of": 6,
+      "followed": true
+    },
+    {
+      "name": "David Martinez",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 6,
+      "followed": true
+    },
+    {
+      "name": "Regina Tarin",
+      "verdict": "lean_fade",
+      "exposure_pct": 16.7,
+      "in_lineups": 1,
+      "of": 6,
+      "followed": true
+    },
+    {
+      "name": "Joseph Morales",
+      "verdict": "lean_fade",
+      "exposure_pct": 33.3,
+      "in_lineups": 2,
+      "of": 6,
+      "followed": true
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 0,
+  "leverage_candidates": [
+    {
+      "name": "Muslim Salikhov",
+      "rostered": false
+    },
+    {
+      "name": "Djorden Santos",
+      "rostered": false
+    },
+    {
+      "name": "Drakkar Klose",
+      "rostered": false
+    },
+    {
+      "name": "JJ Aldrich",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 0,
+  "leverage_of": 4
+}

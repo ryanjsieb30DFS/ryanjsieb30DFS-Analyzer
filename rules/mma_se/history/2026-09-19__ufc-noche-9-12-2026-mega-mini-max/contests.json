@@ -1,0 +1,48 @@
+{
+  "contests": [
+    {
+      "name": "UFC $2K Sprawl [3 Entry Max]",
+      "type": "3-Max",
+      "field_size": 594,
+      "max_entries": 3,
+      "my_entries": 3,
+      "entry_fee": 4.0,
+      "prize_pool": 2000,
+      "payout_shape": null,
+      "id": "72e7e5dc"
+    },
+    {
+      "name": "UFC $5K Clinch [Single Entry]",
+      "type": "SE",
+      "field_size": 1189,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 5.0,
+      "prize_pool": 5000,
+      "payout_shape": null,
+      "id": "31a25610"
+    },
+    {
+      "name": "UFC $8K Flying Knee ($2K to 1st)",
+      "type": "SE",
+      "field_size": 784,
+      "max_entries": 1,
+      "my_entries": 1,
+      "entry_fee": 12.0,
+      "prize_pool": 8000,
+      "payout_shape": null,
+      "id": "7f7fb5e7"
+    },
+    {
+      "name": "UFC $80K MEGA mini-MAX [150 Entry Max]",
+      "type": "150-Max",
+      "field_size": 31708,
+      "max_entries": 150,
+      "my_entries": 6,
+      "entry_fee": 3.0,
+      "prize_pool": 80000,
+      "payout_shape": "Top-heavy",
+      "id": "d2d025d5"
+    }
+  ]
+}

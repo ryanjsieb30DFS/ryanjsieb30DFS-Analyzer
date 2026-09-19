@@ -791,3 +791,93 @@ _Descriptive only: this reads how the field and the winners built. It is not a r
 | **Fade** | 7 | 35.6 | 76.9 |
 - ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
 - 🕳️ Buried: **Alexa Grasso** (Fade) scored 76.9 — above the top tier's average.
+
+
+## 2026-09-19 14:06 — MMA (contest-standings-195112693.csv)
+- Entries: 31,708
+- Winning score: 616.0
+- Cash line (top 20%): 460.4
+- My entries: 6 · best rank 584/31,708 (top 1.8%)
+- Winners (top 100): avg own 31.32% vs mine 29.84% · sub-10% plays/lineup 0.0 vs mine 0.0 · salary Δ -142
+- Overperformed proj: Tim Elliott, Sean King III, Tommy McMillen
+- Underperformed proj: Waldo Cortes Acosta, Jessie Rosas, Edgar Chairez
+- Slate-defining plays: Rong Rongzhu (73.8 pts @ 19.9%)
+
+### 150-max portfolio read — contest-standings-195112693.csv
+- Field: 31,625 entries from 3,781 people. Top 1% = rank 316 or better; cash line = rank 6,325 (estimated at 20% paid).
+
+**Who is in the field (by how many entries each person played)**
+
+| Entries per person | People | Share of field | Share of top 1% |
+|---|---:|---:|---:|
+| 1 entry | 1,733 | 6% | 4% |
+| 2-5 | 1,289 | 12% | 11% |
+| 6-20 | 513 | 17% | 18% |
+| 21-50 | 114 | 12% | 14% |
+| 51-100 | 35 | 8% | 6% |
+| 101-149 | 8 | 3% | 2% |
+| 150 (full stake) | 89 | 42% | 44% |
+
+**Lineup shape — summed ownership (how chalky), lowest-owned piece, and punts (fighters under 10% owned)**
+
+| Group | Summed own (median) | Lowest piece (median) | Punts per lineup |
+|---|---:|---:|---:|
+| Winner | 174% | 20% | 0.00 |
+| Top 1% | 189% | 20% | 0.11 |
+| Top 10% | 187% | 20% | 0.12 |
+| Whole field | 168% | 15% | 0.22 |
+
+**Winner:** TwoHearted (150 entries), 616.0 points, this exact roster appeared 14x in the field. Alexa Grasso 23% · Tim Elliott 24% · Tommy McMillen 49% · Rong Rongzhu 20% · Yousri Belgaroui 26% · Sean King III 32%
+
+**Duplication:** 26.5% of the field's lineups were unique (8,393 distinct rosters; the most-copied roster appeared 155x). Top-1% lineups were copied a median 30x vs 8x for the field; 2% of the top 1% were one-of-one vs 13% of the field.
+
+**Who the top 1% rostered (top-1% use vs field ownership; 'lift' = use ÷ own)**
+
+| Fighter | Field own | In top-1% lineups | Lift |
+|---|---:|---:|---:|
+| Tim Elliott | 24% | 94% | 3.88 |
+| Tommy McMillen | 49% | 83% | 1.69 |
+| Sean King III | 32% | 81% | 2.55 |
+| Curtis Blaydes | 26% | 67% | 2.52 |
+| Yousri Belgaroui | 26% | 60% | 2.34 |
+| Tommy Gantt | 41% | 56% | 1.37 |
+| Alexa Grasso | 23% | 43% | 1.86 |
+| Rong Rongzhu | 20% | 38% | 1.90 |
+| Jean Silva | 40% | 30% | 0.76 |
+| Marwan Rahiki | 34% | 13% | 0.39 |
+| Muslim Salikhov | 9% | 10% | 1.19 |
+| Brandon Moreno | 25% | 10% | 0.38 |
+
+**The big stacks (101 people with 100+ entries)** — median top-1% rate 1% (best 5%), top-10% 9%, cash 19%; typical stack: biggest single exposure 56%, 26 fighters used, summed own 168%.
+- Correlation with top-1% rate (−1 to +1; near 0 = no link): chalkiness 0.50, biggest exposure 0.13, concentration 0.07, field copies 0.06, fighters used 0.04. With cash rate: chalkiness 0.73, biggest exposure 0.29.
+- Split by chalkiness: least chalky → top-1% 0%, cash 13%; middle → top-1% 1%, cash 19%; most chalky → top-1% 2%, cash 28%
+- Split by concentration: most spread → top-1% 1%, cash 16%; middle → top-1% 1%, cash 21%; most concentrated → top-1% 1%, cash 23%
+- Split by how copied their lineups were: most unique → top-1% 0%, cash 15%; middle → top-1% 1%, cash 21%; most copied → top-1% 1%, cash 25%
+
+| Best big stacks | Entries | Best rank | Top 1% | Top 10% | Cash | Max exposure | Fighters used | Summed own |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Outbreak_1911 | 150 | 1 | 5% | 31% | 55% | 80% | 23 | 176% |
+| Skipbidder | 150 | 25 | 4% | 31% | 48% | 80% | 26 | 188% |
+| kfish191 | 150 | 25 | 4% | 31% | 47% | 80% | 26 | 182% |
+| Gboyle22 | 150 | 25 | 4% | 22% | 35% | 66% | 23 | 178% |
+| jimmym2727 | 150 | 25 | 3% | 21% | 39% | 84% | 26 | 182% |
+
+**You:** 6 entries, best rank 584; top-1% rate 0%, top-10% 17%, cash 17%; biggest exposure 67% (2 fighters over 50%), 18 fighters used, summed own 183%, lowest piece 19%, 0.00 punts per lineup, your lineups appeared 27.8x each in the field, 100% distinct within your own set.
+- Your top exposures: Jean Silva 67%, Sean King III 67%, Marwan Rahiki 50%, Rafa Garcia 50%, Tim Elliott 33%, Tommy McMillen 33%, Jose Delgado 33%, Tommy Gantt 33%
+- You minus the big-stack median: top1 -0.7, top10 +8.0, cash -2.6, max exposure +10.7, fighters used -8.0, own med +15.1
+
+_Descriptive only: this reads how the field and the winners built. It is not a rule._
+
+### Strategy adherence — did you follow your own strategy? (6 unique lineups)
+- ✅ Every hard FADE honored.
+- Leverage candidates rostered somewhere: **0 of 4**.
+
+### Player-pool tier calibration (26 of 26 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 3 | 69.3 | 118.4 |
+| **Good** | 7 | 79.2 | 122.9 |
+| **Okay** | 9 | 46.9 | 106.8 |
+| **Fade** | 7 | 35.6 | 76.9 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+- 🕳️ Buried: **Alexa Grasso** (Fade) scored 76.9 — above the top tier's average.

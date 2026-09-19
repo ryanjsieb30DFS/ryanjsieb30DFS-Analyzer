@@ -1,0 +1,428 @@
+{
+  "generated_at": "2026-09-12 13:14",
+  "slug": "mma_se",
+  "slate": "MMA slate strategy \u2014 Noche UFC, Saturday 9/12/26",
+  "calls": [
+    {
+      "name": "Muslim Salikhov",
+      "verdict": "fade"
+    },
+    {
+      "name": "Djorden Santos",
+      "verdict": "fade"
+    },
+    {
+      "name": "Curtis Blaydes",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Jose Delgado",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "David Martinez",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Regina Tarin",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Joseph Morales",
+      "verdict": "lean_fade"
+    }
+  ],
+  "fades": [
+    "Muslim Salikhov",
+    "Djorden Santos"
+  ],
+  "leverage_candidates": [
+    {
+      "name": "Muslim Salikhov",
+      "own": 8.0
+    },
+    {
+      "name": "Djorden Santos",
+      "own": 7.0
+    },
+    {
+      "name": "Drakkar Klose",
+      "own": 9.0
+    },
+    {
+      "name": "JJ Aldrich",
+      "own": 9.0
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Tommy McMillen",
+        "Tommy Gantt"
+      ],
+      "joint_pct": 20.6
+    },
+    {
+      "players": [
+        "Tommy McMillen",
+        "Jean Silva"
+      ],
+      "joint_pct": 20.2
+    },
+    {
+      "players": [
+        "Tommy McMillen",
+        "Sean King III"
+      ],
+      "joint_pct": 18.2
+    },
+    {
+      "players": [
+        "Tommy Gantt",
+        "Jean Silva"
+      ],
+      "joint_pct": 18.1
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Tommy McMillen",
+        "Tommy Gantt"
+      ]
+    },
+    {
+      "players": [
+        "Jean Silva",
+        "Sean King III"
+      ]
+    },
+    {
+      "players": [
+        "Marwan Rahiki",
+        "Joseph Morales"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "lineup_rules": [
+    {
+      "rule": "at_most",
+      "why": "anchor twins are one bet; hold one, never both",
+      "from": "mma-se-2026-05-30-anchor-equivalence-fifth-validation",
+      "count": 1,
+      "players": [
+        "Jean Silva",
+        "Tommy Gantt"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "the triple costs $27,300 and forces three long shots",
+      "from": "strategy",
+      "count": 2,
+      "players": [
+        "Tommy McMillen",
+        "Tommy Gantt",
+        "Jean Silva"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "carry 1-2 fighters at $9,000+, rarely more",
+      "from": "mma-se-2026-08-23-salary-buys-floor-not-ceiling",
+      "count": 2,
+      "players": [
+        "Yousri Belgaroui",
+        "Ignacio Bahamondes",
+        "Tommy Gantt",
+        "Jean Silva",
+        "David Martinez",
+        "Regina Tarin"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "FADE; neither is a projected winner",
+      "from": "strategy",
+      "count": 0,
+      "players": [
+        "Muslim Salikhov",
+        "Djorden Santos"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "no more than one fighter under $7,200",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Djorden Santos",
+        "Muslim Salikhov",
+        "Drakkar Klose",
+        "Jose Delgado",
+        "Dan Ige",
+        "JJ Aldrich"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never both sides of a called leverage fight",
+      "from": "mma-se-2026-07-26-field-value-side-vs-your-named-converter",
+      "count": 1,
+      "players": [
+        "Edgar Chairez",
+        "Tim Elliott"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never both sides of a called leverage fight",
+      "from": "mma-se-2026-07-26-field-value-side-vs-your-named-converter",
+      "count": 1,
+      "players": [
+        "Rong Rongzhu",
+        "Rafa Garcia"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never both sides of a called leverage fight",
+      "from": "mma-se-2026-07-26-field-value-side-vs-your-named-converter",
+      "count": 1,
+      "players": [
+        "Brandon Moreno",
+        "Joseph Morales"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never both sides of a called leverage fight",
+      "from": "mma-se-2026-07-26-field-value-side-vs-your-named-converter",
+      "count": 1,
+      "players": [
+        "Waldo Cortes Acosta",
+        "Curtis Blaydes"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "one side of the McMillen fight, never both",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Tommy McMillen",
+        "Marwan Rahiki"
+      ]
+    },
+    {
+      "rule": "salary_min",
+      "why": "salary stays at $48,500 or more",
+      "from": "strategy",
+      "value": 48500
+    }
+  ],
+  "portfolio_rules": [
+    {
+      "rule": "min_entries_with",
+      "why": "the under-picked anchor twin appears in at least one entry",
+      "from": "mma-se-2026-05-30-anchor-equivalence-fifth-validation",
+      "count": 1,
+      "players": [
+        "Ignacio Bahamondes",
+        "Yousri Belgaroui"
+      ]
+    },
+    {
+      "rule": "min_entries_with",
+      "why": "each half of the twin pair appears somewhere",
+      "from": "mma-se-2026-05-30-anchor-equivalence-fifth-validation",
+      "count": 1,
+      "players": [
+        "Jean Silva"
+      ]
+    },
+    {
+      "rule": "min_entries_with",
+      "why": "each half of the twin pair appears somewhere",
+      "from": "mma-se-2026-05-30-anchor-equivalence-fifth-validation",
+      "count": 1,
+      "players": [
+        "Tommy Gantt"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "no anchor in more than 3 of 5 entries",
+      "from": "strategy",
+      "count": 3,
+      "players": [
+        "Tommy McMillen"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "no anchor in more than 3 of 5 entries",
+      "from": "strategy",
+      "count": 3,
+      "players": [
+        "Tommy Gantt"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "no anchor in more than 3 of 5 entries",
+      "from": "strategy",
+      "count": 3,
+      "players": [
+        "Jean Silva"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "sub-10% piece in about 1 of 4 lineups; one across five entries",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Drakkar Klose",
+        "JJ Aldrich"
+      ]
+    }
+  ],
+  "build_rules": {
+    "present": true,
+    "errors": []
+  },
+  "board": [
+    {
+      "name": "Ignacio Bahamondes",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Yousri Belgaroui",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Edgar Chairez",
+      "tier": "Core",
+      "leverage": false
+    },
+    {
+      "name": "Tommy Gantt",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Jean Silva",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Marwan Rahiki",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Tommy McMillen",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Rong Rongzhu",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Waldo Cortes Acosta",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Sean King III",
+      "tier": "Good",
+      "leverage": false
+    },
+    {
+      "name": "Tim Elliott",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Brandon Moreno",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Rafa Garcia",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Jessie Rosas",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Manon Fiorot",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "David Martinez",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Drakkar Klose",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Regina Tarin",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "JJ Aldrich",
+      "tier": "Okay",
+      "leverage": false
+    },
+    {
+      "name": "Joseph Morales",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Curtis Blaydes",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Jose Delgado",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Alexa Grasso",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Dan Ige",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Muslim Salikhov",
+      "tier": "Fade",
+      "leverage": false
+    },
+    {
+      "name": "Djorden Santos",
+      "tier": "Fade",
+      "leverage": false
+    }
+  ]
+}

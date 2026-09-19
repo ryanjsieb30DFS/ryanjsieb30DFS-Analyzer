@@ -1,0 +1,59 @@
+[
+  {
+    "slug": "mma_se",
+    "slate_name": "Noche UFC 9-12-26 MEGA mini-MAX",
+    "contest_id": "195112693",
+    "field_size": 31708,
+    "schema_version": 1,
+    "generated_at": "2026-09-19 14:05",
+    "user": {
+      "n_entries": 6,
+      "best_points": 545.52,
+      "avg_points": 401.2,
+      "best_rank": 584
+    },
+    "pool": {
+      "n": 7937,
+      "avg_actual": 352.64,
+      "median_actual": 350.84,
+      "max_actual": 616.04,
+      "n_beating_best_entry": 47,
+      "pct_beating_best_entry": 0.59,
+      "picking_edge_points": 48.57
+    },
+    "rank_signal": [
+      {
+        "metric": "pre_sim_top1_pct",
+        "label": "Top 1%",
+        "n": 7937,
+        "spearman_vs_actual": 0.109,
+        "top100_avg_actual": 365.56,
+        "pool_avg_actual": 352.64
+      },
+      {
+        "metric": "pre_sim_roi_pct",
+        "label": "ROI",
+        "n": 7937,
+        "spearman_vs_actual": 0.186,
+        "top100_avg_actual": 375.86,
+        "pool_avg_actual": 352.64
+      },
+      {
+        "metric": "pre_sim_win_pct",
+        "label": "Win%",
+        "n": 7937,
+        "spearman_vs_actual": 0.071,
+        "top100_avg_actual": 357.18,
+        "pool_avg_actual": 352.64
+      },
+      {
+        "metric": "pre_sim_cash_pct",
+        "label": "Cash%",
+        "n": 7937,
+        "spearman_vs_actual": 0.317,
+        "top100_avg_actual": 422.98,
+        "pool_avg_actual": 352.64
+      }
+    ]
+  }
+]
