@@ -232,6 +232,20 @@ def _stack_blocks_md(records: list) -> str | None:
         return None
 
 
+def _mme_blocks_md(records: list) -> str | None:
+    """The '### 150-max portfolio read' blocks for every logged MMA record
+    whose field was big enough to grade; None otherwise (every other sport,
+    and small MMA fields)."""
+    try:
+        from src.mme_portfolio import portfolio_md as _pmd
+        blocks = [_pmd(r["mme_report"], r.get("source_file"))
+                  for r in records if (r.get("mme_report") or {}).get("gradable")]
+        blocks = [b for b in blocks if b]
+        return "\n\n".join(blocks) if blocks else None
+    except Exception:  # noqa: BLE001 — display-only
+        return None
+
+
 def _split_leading_table(md: str):
     """Split a player-pool markdown doc into (leading table as DataFrame, remainder
     markdown). Returns (None, md) when no pipe-table is found near the top."""
@@ -2161,6 +2175,21 @@ with tab_autopsy:
                     except Exception:  # noqa: BLE001 — display-only, never blocks
                         pass
 
+                # MMA 150-max portfolio read (9/19/26): who is in the field
+                # by stake size, how chalky the top 1% was, how copied the
+                # winners were, the big stacks' structure vs result, and
+                # your stack against theirs. Small MMA fields say why they
+                # are not graded; other sports never see it.
+                if (analysis.get("mme_report") or {}).get("gradable"):
+                    try:
+                        from src.mme_portfolio import portfolio_md as _mme_md_fn
+                        _mmd = _mme_md_fn(analysis["mme_report"], dk_csv.name)
+                        if _mmd:
+                            with st.container(border=True):
+                                st.markdown(_md_safe(_mmd))
+                    except Exception:  # noqa: BLE001 — display-only, never blocks
+                        pass
+
                 # Self-grade: did OUR entered lineups capture the leverage/edges?
                 if analysis.get("user_lineups_df") is not None and not analysis["user_lineups_df"].empty:
                     from src import accuracy
@@ -2758,6 +2787,9 @@ with tab_autopsy:
                     # NFL Classic stack shapes, one block per logged contest
                     # (None for every other slug).
                     "stack_md": _stack_blocks_md(records),
+                    # MMA 150-max portfolio read, one block per logged
+                    # big-field contest (None elsewhere).
+                    "mme_md": _mme_blocks_md(records),
                 }
                 st.rerun()
 
@@ -2833,6 +2865,12 @@ with tab_autopsy:
                 st.markdown(_md_safe(_done["stack_md"]))
                 st.caption("NFL Classic stack shapes — archived to stack_report.json, "
                            "one line in results.jsonl, and read by the post-autopsy review.")
+        if _done.get("mme_md"):
+            with st.container(border=True):
+                st.markdown(_md_safe(_done["mme_md"]))
+                st.caption("MMA 150-max portfolio read — how the big stacks built and "
+                           "where yours sat. Archived to mme_report.json, one line in "
+                           "results.jsonl, and read by the post-autopsy review.")
         if st.button("🧹 Clear slate data (start the next slate fresh)", key=f"clear_after_log_{slug}"):
             clear_persisted(slug)
             player_pool.clear_pool(slug)

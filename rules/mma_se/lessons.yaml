@@ -2835,3 +2835,65 @@ lessons:
     contradictions: []
     codified_in: null
     retired_reason: null
+
+  # ---- 2026-09-19 — MMA 150-max field study (9/5 + 9/12 MEGA mini-MAX) ----
+  # The user moved MMA to the 150-max game (100 entries a night) on 9/19/26.
+  # These were born from two favorite-heavy cards read BEFORE the first
+  # 100-entry night; every big-field MMA autopsy now prints the same read
+  # (mme_report.json). Hypotheses only — an upset-heavy card is the test.
+
+  - id: mma-mme-2026-09-19-judge-the-stack-against-the-big-stack-median
+    born: "2026-09-19"
+    origin: "autopsies.md — 2026-09-19 MMA 150-max field study (contests 194665456 + 195112693)"
+    statement: >
+      In a 150-max field the scoreboard for a 100-entry stack is the same
+      card's 100+ entry players, not the cash line: median big stack put 0.7%
+      of entries in the top 1% and ~10% in the top 10% on both cards (best
+      stacks 5-9% / 30-38%). Grade the portfolio's top-1% rate, top-10% rate,
+      cash rate, biggest exposure, fighters used and summed ownership against
+      that median (the autopsy prints the head-to-head); a single good finish
+      inside 100 entries is not a portfolio result.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-mme-2026-09-19-top-one-percent-was-chalkier-than-the-field
+    born: "2026-09-19"
+    origin: "autopsies.md — 2026-09-19 MMA 150-max field study (contests 194665456 + 195112693)"
+    statement: >
+      On two favorite-heavy cards the top 1% summed MORE ownership than the
+      field (163% vs 160% on 9/5; 189% vs 168% on 9/12), carried 0.1-0.3
+      fighters under 10% owned, and among the 100+ entry stacks chalkiness
+      correlated with top-1% rate (+0.17 / +0.50) and cash rate (+0.31 /
+      +0.73) while the most-unique third of stacks finished worst. Mechanism:
+      winning FAVORITES at 2-4x lift decide the top 1%; being different only
+      pays when the different piece wins (Bukauskas 9/5, 9% owned, in the
+      one-of-one winner). MME form of
+      [[mma-se-2026-09-06-the-leverage-piece-must-be-a-projected-winner]].
+      Expected to CONTRADICT on an upset-heavy card — that is the test; do
+      not tilt the build on two cards.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: mma-mme-2026-09-19-best-stack-exposure-envelope
+    born: "2026-09-19"
+    origin: "autopsies.md — 2026-09-19 MMA 150-max field study (contests 194665456 + 195112693)"
+    statement: >
+      The best 100+ entry stacks on both cards shared a shape: 2-4 fighters
+      above 50% exposure, 23-28 fighters used, summed ownership 165-188% per
+      entry, every entry distinct within the stack, and no attempt to be
+      unique against the field (top-20 lineups averaged 6-10 copies). The
+      most-concentrated third of stacks edged the most-spread third on every
+      metric by small amounts. A starting envelope for the Sim's Portfolio /
+      Diversifier knobs, re-read every card — a rate across the stack, never
+      a per-lineup rule.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null

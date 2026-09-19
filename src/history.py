@@ -220,6 +220,12 @@ def process_trend_block(slug: str, n: int = 5) -> str | None:
         lines.append("- **Stack shapes** (how the winners stacked vs how you did, per slate):")
         for d, s in stacks:
             lines.append(f"  - {d}: {s}")
+    # MMA 150-max portfolio: one line per big-field slate. Descriptive only.
+    mmes = [(r.get("date"), r.get("mme_summary")) for r in rows if r.get("mme_summary")]
+    if mmes:
+        lines.append("- **150-max portfolio** (how the top 1% and the big stacks built vs you, per slate):")
+        for d, s in mmes:
+            lines.append(f"  - {d}: {s}")
     # Grader self-validation: pool the per-lineup outcomes across slates. Only
     # meaningful once BOTH buckets have a few lineups.
     fl, cl = [], []
@@ -374,6 +380,24 @@ def archive_slate(
         except Exception:  # noqa: BLE001 — a summary line never blocks the archive
             stack_summary = None
 
+    # MMA 150-max portfolio read (9/19/26): one report per big-field MMA
+    # contest, lifted from the autopsy records. Only written when a record
+    # carries a gradable one.
+    mme_reports = [
+        {"source_file": r.get("source_file"), "contest_type": r.get("contest_type"),
+         "contest_id": r.get("contest_id"), **r["mme_report"]}
+        for r in autopsy_records
+        if isinstance(r, dict) and (r.get("mme_report") or {}).get("gradable")
+    ]
+    mme_summary = None
+    if mme_reports:
+        (hist_dir / "mme_report.json").write_text(json.dumps(mme_reports, indent=2))
+        try:
+            from src.mme_portfolio import portfolio_summary as _ms
+            mme_summary = _ms(max(mme_reports, key=lambda s: s.get("n_field") or 0))
+        except Exception:  # noqa: BLE001 — a summary line never blocks the archive
+            mme_summary = None
+
     contests_out = []
     for c in roi_contests:
         roi = compute_roi(c.get("entry_fee"), c.get("my_entries"), c.get("winnings"))
@@ -467,6 +491,11 @@ def archive_slate(
         # double-stack and bring-back rates for the top 1%, the field and
         # you, plus the winner's shape — trended by process_trend_block.
         "stack_summary": stack_summary,
+        # MMA 150-max portfolio read, one line (None elsewhere): top-1%
+        # chalkiness vs the field, winner copies, and your stack's top-1% /
+        # cash rate against the big-stack median — trended by
+        # process_trend_block.
+        "mme_summary": mme_summary,
     }
     (hist_dir / "results.json").write_text(json.dumps(row, indent=2))
     append_results(slug, row)

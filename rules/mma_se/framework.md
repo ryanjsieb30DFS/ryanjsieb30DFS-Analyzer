@@ -2,7 +2,7 @@
 
 **Contest Type:** Single Entry (SE)
 **Document Type:** Operational Process & Manual Build Playbook
-**Last Updated:** August 29, 2026
+**Last Updated:** September 19, 2026
 **Companion Files:** SE_mma_philosophy_2026-05-17.md, SE_mma_autopsies_2026-05-17.md
 
 ---
@@ -410,14 +410,21 @@ After every slate, if you played a SE:
 
 ## SE vs. MME
 
-SEs are NOT:
-- A backup when MME struggles
-- A way to "diversify" your bankroll
-- An alternative format for the same game
+SEs and 150-max are different games with different scoreboards. From 9/19/26 the 150-max game is the MMA home game (see below); the SE process above stays the reference for how a single lineup is built, and every SE lesson about fights, winners, and leverage still applies to each entry inside a stack.
 
-SEs ARE:
-- A different skill to develop separately
-- A higher-variance, higher-upside format
-- Valuable only if you commit to learning them over 10+ slates
+## The MME (150-max) track — the MMA home game from 9/19/26
 
-If you're going to play SEs, play them seriously. If you're not serious, skip them and focus on MME where the framework is mature.
+**What changed.** On 9/19/26 the user moved MMA from 3-6 entries in the SE / small-field contests to **100 entries a night in the UFC $80K MEGA mini-MAX [150 Entry Max]** ($3, ~31,700 entries, top 20% paid, ~90 people playing the full 150). The slug stays `mma_se` in both tools (the ledger, the lessons and 17+ autopsies live there); the contest's size, not the slug, decides what the autopsy reads.
+
+**The unit of judgement is the portfolio.** In a 150-max field one lineup's finish is noise. What is graded is the STACK: its top-1% rate, top-10% rate and cash rate, its biggest single exposure and how many fighters it used, its summed ownership per entry, how many times its rosters existed elsewhere in the field, and all of that against the same card's 100+ entry players. Both tools print this read automatically for any MMA contest of 5,000+ entries (`src/mme_portfolio.py`, shared verbatim; archived as `mme_report.json`, one line in `results.jsonl`, read by the post-autopsy review).
+
+**Weekly process (the SE steps above still build each entry; this is the wrapper).**
+
+1. **Slate strategy + player pool as before.** The board is the pool the Sim builds from; Fade stays out.
+2. **Build in the Sim, pick in the Portfolio / Diversifier tab** (`feedback: diversifier first`). The Diversifier's knobs (exposure caps, distinct-within-set, dupe awareness) are where the stack's shape is set. The build rules block of the strategy is the only enforcement.
+3. **Set the stack's shape as RATES across the 100, never per-lineup rules**: how many fighters carry more than half the entries, how many fighters are used at all, what share of entries carry a sub-10% piece. The two-card envelope (below) is the starting point; the autopsy's big-stack table is what re-sets it each week.
+4. **After the card:** log the standings in both tools; read the portfolio block; run the post-autopsy review, which grades the stack against the big-stack median and updates the MME lessons (`mma-mme-*` ids in `lessons.yaml`).
+
+**What two favorite-heavy cards showed (9/5 + 9/12/26 — EX POST, n=2, NOT a rule).** The top 1% was chalkier than the field (summed ownership 163% vs 160%, then 189% vs 168%), carried 0.1-0.3 sub-10% pieces, and was decided by winning favorites at 2-4x lift (Elliott, McMillen, King; Campbell, Andrusca, Benouaich). Among 100+ entry stacks, chalkiness correlated with top-1% rate (+0.17 / +0.50) and the most-unique stacks finished worst. The best stacks ran 2-4 fighters above 50% exposure, 23-28 fighters used, summed ownership 165-188%, every entry distinct within the stack, and freely duplicated what the field also built (the 9/12 winner existed 14 times). **An upset-heavy card is expected to flip every one of these numbers**; the read is logged every card so the split can be measured over 8-10 nights before anything is codified.
+
+**What does not change.** The Anchor-Equivalence check, "the leverage piece must be a projected winner", the fight-centric autopsy and the low-owned-favorite tracker all still apply — per entry inside the stack. No rule packs: `rules.yaml` stays `constraints: {}`; rules reach the Sim only through the strategy's build-rules block and approved autopsy proposals.

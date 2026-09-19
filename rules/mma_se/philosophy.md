@@ -2,7 +2,7 @@
 
 **Contest Type:** Single Entry (SE)
 **Document Type:** Core Philosophy
-**Last Updated:** August 16, 2026
+**Last Updated (9/19/26 MME section):** September 19, 2026 · original August 16, 2026
 **Companion Files:** SE_mma_framework_2026-05-17.md, SE_mma_autopsies_2026-05-17.md
 
 ---
@@ -93,15 +93,16 @@ SEs are high-variance. A 50% ROI process over 30 slates might go 0-for-5 to star
 
 Alternatively: Play SEs as a **smaller-cap companion** to a larger MME volume. If MME is your core $75/slate project, SEs should be $5-10/slate maximum, treated as exploration, not as a primary income source.
 
-## SE is Not a Backup to MME
+## SE and MME Are Different Games (updated 9/19/26)
 
-This is the biggest mistake: treating SE as "the same game as MME, just with one lineup instead of 150."
+SE and 150-max are not the same game with a different lineup count. Different field dynamics, different variance, different process, different scoreboard.
 
-They are different games. Different field dynamics. Different variance. Different process.
+**From 9/19/26 the 150-max mini-MAX is the MMA home game** (100 entries a night). What that changes in how we think:
 
-If you don't believe in the SE process enough to treat it as its own sport with its own framework, don't play SEs. If you do, commit to learning it, documenting it, and playing it enough (10+ slates) to know whether you have an edge.
-
-Mixing MME + SE as "one bankroll" without separate frameworks is a fast way to lose the confidence to play either one well.
+- **The portfolio is the bet, not the lineup.** One entry finishing 584th out of 31,708 is not a result; the stack's top-1% rate against the other 100+ entry players is. A stack is judged the way a season is, not the way a fight is.
+- **Being different is not a strategy; being right is.** Across the two cards read on 9/19 the top 1% was chalkier than the field and the stacks built to be unique finished worst. The SE lesson "the leverage piece must be a projected winner" holds for every entry in the stack. Ownership is a price, and paying a low price for a fighter who loses is still a loss.
+- **Copies are a cost only when the roster scores.** The 9/12 winner existed 14 times and still won. Duplication is a tie-break at the very top, not a reason to avoid the lineup the card wants.
+- **Two cards are two cards.** Favorite-heavy nights and upset-heavy nights pull every one of these numbers in opposite directions. The autopsy logs the read every card; the framework changes when 8-10 nights say the same thing, not before.
 
 ## Envelope Targets Are Rates (8/16/26)
 

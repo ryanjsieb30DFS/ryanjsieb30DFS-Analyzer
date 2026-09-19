@@ -577,3 +577,170 @@ A bust. The process got the leverage core (Pavlovich/Haddon/Menifield) dead righ
 - 🕳️ Buried: **Delphine Benouaich** (Fade) scored 143.0 — above the top tier's average.
 - 🕳️ Buried: **Axel Sola** (Fade) scored 103.7 — above the top tier's average.
 - 🕳️ Buried: **Modestas Bukauskas** (Fade) scored 93.0 — above the top tier's average.
+
+
+## 2026-09-19 — MMA 150-max field study (the 9/5 and 9/12 UFC $80K MEGA mini-MAX) — MME Review
+
+**What this entry is.** On 9/19/26 the user moved MMA to the 150-max game (100 entries a night, up from 3 to 6). Before the first 100-entry card we read the two mini-MAX standings files that DraftKings would still export (8/22 and 8/29 came down empty) to learn what a winning PORTFOLIO looks like in that field. From this entry on, every big-field MMA contest logged in either tool carries the same read automatically (`src/mme_portfolio.py`, shared verbatim with the Sim). Nothing below is a rule. It is two favorite-heavy cards.
+
+### Contests
+
+| Contest | Date | Entry | Field | Paid | My entries | My best |
+|---|---|---|---|---|---|---|
+| UFC $80K MEGA mini-MAX [150 Entry Max] (194665456) | 9/5 | $3 | 31,708 | 6,443 (20%) | 5 | 1,434 |
+| UFC $80K MEGA mini-MAX [150 Entry Max] (195112693) | 9/12 | $3 | 31,708 | 6,443 (20%) | 6 | 584 ($10) |
+
+### What the two fields had in common
+
+1. **Roughly 90 people play the full 150.** They are 40% of every entry and took 44% to 52% of the top 1%. Their median stack put 0.7% of its entries in the top 1% and about 10% in the top 10%; the best of them put 5% to 9% in the top 1% and 30% to 38% in the top 10%. The user's new stake (100 entries) is the 55th-largest or so in the room, and the 51-to-100 bracket earned exactly its share of the top 1% on both nights — entry count alone buys nothing.
+2. **The top 1% was CHALKIER than the field, not less.** Summed ownership of a top-1% lineup was 163% vs 160% for the field on 9/5, and 189% vs 168% on 9/12. Top-1% lineups carried 0.1 to 0.3 fighters under 10% owned; the lowest-owned piece in a typical top-1% lineup was 13% (9/5) and 20% (9/12).
+3. **Winners were favorites who won, at high field ownership.** 9/12: Tim Elliott (24% owned) was in 94% of top-1% lineups, Tommy McMillen (49%) in 83%, Sean King III (32%) in 81%. 9/5: Kurtis Campbell (34%) in 78%, Pavel Andrusca (16%) in 69%, Delphine Benouaich (13%) in 51%. The lift (share of the top 1% ÷ field ownership) ran 2x to 4x for the winning favorites and under 0.5x for the losing chalk (Parnasse 46% owned → 29% of the top 1%; Silva 40% → 30%; Rahiki 34% → 13%).
+4. **Duplication did not stop the winners.** The 9/12 winning roster (pure chalk: Grasso, Elliott, McMillen, Rongzhu, Belgaroui, King) existed 14 times in the field; the top 20 averaged 10 copies each; only 2% of the top 1% were one-of-one against 13% of the whole field. The 9/5 winner was one-of-one with a single 9%-owned piece (Bukauskas), so one night rewarded one well-chosen dog and the other rewarded none.
+5. **Among the 100+ entry stacks, chalkiness was the strongest link to finishing well.** Correlation of a stack's median summed ownership with its top-1% rate: +0.17 (9/5) and +0.50 (9/12); with its cash rate +0.31 and +0.73. Split into thirds, the most-chalky third beat the least-chalky third on top-1% rate (2% vs 1%; 2% vs 0%) and cash rate (26% vs 18%; 28% vs 13%). Stacks built to be unique against the field finished worst both nights. Concentration (biggest single exposure, fighters used) mattered a little and pointed the same way: the most-concentrated third (max exposure ~75%, 22 to 24 fighters) edged the most-spread third (~48%, 26 to 28 fighters) on every metric, by small amounts.
+6. **The best stacks shared a shape:** 2 to 4 fighters above 50% exposure, 23 to 28 fighters used across 150 entries, summed ownership 165% to 188%, and every entry distinct within the stack while freely copying what the rest of the field also built.
+
+### The user's entries
+
+Median summed ownership 164% (9/5) and 183% (9/12), lowest piece 16% and 19%: the SHAPE matched the top 1% on both nights. The misses were fighter choices, not structure — Salahdine Parnasse (46% owned, 105 points) in 4 of 5 entries on 9/5 while the Andrusca/Benouaich/Sola side of the card was in 51% to 69% of the top 1%; Jean Silva, Marwan Rahiki and Rafa Garcia across 4 of 6 entries on 9/12.
+
+### What this does NOT say
+
+Both cards were favorite-heavy and the favorites cashed. On a night where two or three chalk favorites lose, every number above flips: the top 1% gets LESS chalky than the field, the unique stacks win, and the copied chalk roster splits nothing because it did not score. Two cards cannot separate "chalk wins" from "chalk won those two nights". The portfolio read now logs every card so the split can be measured over 8 to 10 nights; until then these are hypotheses in `lessons.yaml`, not framework.
+
+### Process lessons (hypotheses, not codified)
+
+1. **Judge the 100-entry stack against the big-stack median on the same card, not against a cash line.** The tool now prints the head-to-head (top-1% rate, top-10% rate, cash rate, biggest exposure, fighters used, summed ownership) automatically.
+2. **Winning favorites, not low ownership, decided both cards.** Being different from the field only paid when the different piece WON (Bukauskas 9/5); it cost the 9/12 unique stacks everything. This is the MME form of the existing SE lesson "the leverage piece must be a projected winner".
+3. **Exposure shape of the best stacks (2-4 fighters above 50%, ~25 fighters used, entries distinct within the stack) is a starting envelope for the Sim's Portfolio/Diversifier, to be re-read every card.**
+
+### The read, per contest (machine-generated, same block every future big-field MMA autopsy prints)
+
+### 150-max portfolio read — 2026-09-05 UFC Paris (Hooker vs Parnasse) — contest 194665456
+- Field: 31,644 entries from 3,780 people. Top 1% = rank 316 or better; cash line = rank 6,443.
+
+**Who is in the field (by how many entries each person played)**
+
+| Entries per person | People | Share of field | Share of top 1% |
+|---|---:|---:|---:|
+| 1 entry | 1,729 | 6% | 2% |
+| 2-5 | 1,278 | 12% | 9% |
+| 6-20 | 495 | 16% | 10% |
+| 21-50 | 147 | 16% | 13% |
+| 51-100 | 43 | 10% | 12% |
+| 101-149 | 6 | 2% | 2% |
+| 150 (full stake) | 82 | 39% | 52% |
+
+**Lineup shape — summed ownership (how chalky), lowest-owned piece, and punts (fighters under 10% owned)**
+
+| Group | Summed own (median) | Lowest piece (median) | Punts per lineup |
+|---|---:|---:|---:|
+| Winner | 150% | 9% | 1.00 |
+| Top 1% | 163% | 13% | 0.30 |
+| Top 10% | 164% | 13% | 0.23 |
+| Whole field | 160% | 13% | 0.25 |
+
+**Winner:** mbhabes (150 entries), 705.9 points, this exact roster appeared 1x in the field. Kurtis Campbell 34% · Mario Pinto 42% · Axel Sola 31% · Modestas Bukauskas 9% · Delphine Benouaich 13% · Fabia Sintes 20%
+
+**Duplication:** 36.8% of the field's lineups were unique (11,637 distinct rosters; the most-copied roster appeared 159x). Top-1% lineups were copied a median 6x vs 5x for the field; 12% of the top 1% were one-of-one vs 21% of the field.
+
+**Who the top 1% rostered (top-1% use vs field ownership; 'lift' = use ÷ own)**
+
+| Fighter | Field own | In top-1% lineups | Lift |
+|---|---:|---:|---:|
+| Kurtis Campbell | 34% | 78% | 2.26 |
+| Mario Pinto | 42% | 69% | 1.66 |
+| Pavel Andrusca | 16% | 69% | 4.43 |
+| Matthieu Duclos | 26% | 68% | 2.60 |
+| Axel Sola | 31% | 62% | 2.02 |
+| Delphine Benouaich | 13% | 51% | 3.86 |
+| Losene Keita | 25% | 38% | 1.52 |
+| Salahdine Parnasse | 46% | 29% | 0.64 |
+| Modestas Bukauskas | 9% | 29% | 3.18 |
+| Punahele Soriano | 23% | 29% | 1.27 |
+| Fabia Sintes | 20% | 24% | 1.18 |
+| Daniil Donchenko | 38% | 16% | 0.41 |
+
+**The big stacks (93 people with 100+ entries)** — median top-1% rate 1% (best 9%), top-10% 11%, cash 23%; typical stack: biggest single exposure 59%, 27 fighters used, summed own 160%.
+- Correlation with top-1% rate (−1 to +1; near 0 = no link): chalkiness 0.17, biggest exposure 0.03, concentration -0.01, field copies 0.16, fighters used 0.06. With cash rate: chalkiness 0.31, biggest exposure 0.13.
+- Split by chalkiness: least chalky → top-1% 1%, cash 18%; middle → top-1% 2%, cash 26%; most chalky → top-1% 2%, cash 26%
+- Split by concentration: most spread → top-1% 1%, cash 21%; middle → top-1% 2%, cash 23%; most concentrated → top-1% 1%, cash 24%
+- Split by how copied their lineups were: most unique → top-1% 1%, cash 21%; middle → top-1% 1%, cash 22%; most copied → top-1% 2%, cash 26%
+
+| Best big stacks | Entries | Best rank | Top 1% | Top 10% | Cash | Max exposure | Fighters used | Summed own |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| molecul0 | 150 | 11 | 9% | 38% | 59% | 75% | 27 | 166% |
+| awen419 | 150 | 20 | 6% | 25% | 39% | 70% | 26 | 166% |
+| rbcues | 150 | 8 | 5% | 34% | 58% | 100% | 23 | 161% |
+| mayamaya | 150 | 4 | 5% | 28% | 43% | 83% | 28 | 164% |
+| EHulseDC | 150 | 46 | 5% | 27% | 45% | 65% | 28 | 158% |
+
+**You:** 5 entries, best rank 1,434; top-1% rate 0%, top-10% 20%, cash 60%; biggest exposure 80% (5 fighters over 50%), 15 fighters used, summed own 164%, lowest piece 16%, 0.00 punts per lineup, your lineups appeared 24.2x each in the field, 100% distinct within your own set.
+- Your top exposures: Salahdine Parnasse 80%, Kurtis Campbell 60%, Losene Keita 60%, Punahele Soriano 60%, Pavel Andrusca 60%, Fabia Sintes 40%, Mario Pinto 40%, Sofia Montenegro 40%
+- You minus the big-stack median: top1 -1.3, top10 +9.3, cash +36.7, max exposure +21.0, fighters used -12.0, own med +3.9
+
+_Descriptive only: this reads how the field and the winners built. It is not a rule._
+
+### 150-max portfolio read — 2026-09-12 UFC (Silva vs Delgado card) — contest 195112693
+- Field: 31,625 entries from 3,781 people. Top 1% = rank 316 or better; cash line = rank 6,443.
+
+**Who is in the field (by how many entries each person played)**
+
+| Entries per person | People | Share of field | Share of top 1% |
+|---|---:|---:|---:|
+| 1 entry | 1,733 | 6% | 4% |
+| 2-5 | 1,289 | 12% | 11% |
+| 6-20 | 513 | 17% | 18% |
+| 21-50 | 114 | 12% | 14% |
+| 51-100 | 35 | 8% | 6% |
+| 101-149 | 8 | 3% | 2% |
+| 150 (full stake) | 89 | 42% | 44% |
+
+**Lineup shape — summed ownership (how chalky), lowest-owned piece, and punts (fighters under 10% owned)**
+
+| Group | Summed own (median) | Lowest piece (median) | Punts per lineup |
+|---|---:|---:|---:|
+| Winner | 174% | 20% | 0.00 |
+| Top 1% | 189% | 20% | 0.11 |
+| Top 10% | 187% | 20% | 0.12 |
+| Whole field | 168% | 15% | 0.22 |
+
+**Winner:** TwoHearted (150 entries), 616.0 points, this exact roster appeared 14x in the field. Alexa Grasso 23% · Tim Elliott 24% · Tommy McMillen 49% · Rong Rongzhu 20% · Yousri Belgaroui 26% · Sean King III 32%
+
+**Duplication:** 26.5% of the field's lineups were unique (8,393 distinct rosters; the most-copied roster appeared 155x). Top-1% lineups were copied a median 30x vs 8x for the field; 2% of the top 1% were one-of-one vs 13% of the field.
+
+**Who the top 1% rostered (top-1% use vs field ownership; 'lift' = use ÷ own)**
+
+| Fighter | Field own | In top-1% lineups | Lift |
+|---|---:|---:|---:|
+| Tim Elliott | 24% | 94% | 3.88 |
+| Tommy McMillen | 49% | 83% | 1.69 |
+| Sean King III | 32% | 81% | 2.55 |
+| Curtis Blaydes | 26% | 67% | 2.52 |
+| Yousri Belgaroui | 26% | 60% | 2.34 |
+| Tommy Gantt | 41% | 56% | 1.37 |
+| Alexa Grasso | 23% | 43% | 1.86 |
+| Rong Rongzhu | 20% | 38% | 1.90 |
+| Jean Silva | 40% | 30% | 0.76 |
+| Marwan Rahiki | 34% | 13% | 0.39 |
+| Muslim Salikhov | 9% | 10% | 1.19 |
+| Brandon Moreno | 25% | 10% | 0.38 |
+
+**The big stacks (101 people with 100+ entries)** — median top-1% rate 1% (best 5%), top-10% 9%, cash 19%; typical stack: biggest single exposure 56%, 26 fighters used, summed own 168%.
+- Correlation with top-1% rate (−1 to +1; near 0 = no link): chalkiness 0.50, biggest exposure 0.13, concentration 0.07, field copies 0.06, fighters used 0.04. With cash rate: chalkiness 0.73, biggest exposure 0.29.
+- Split by chalkiness: least chalky → top-1% 0%, cash 13%; middle → top-1% 1%, cash 20%; most chalky → top-1% 2%, cash 28%
+- Split by concentration: most spread → top-1% 1%, cash 16%; middle → top-1% 1%, cash 22%; most concentrated → top-1% 1%, cash 24%
+- Split by how copied their lineups were: most unique → top-1% 0%, cash 15%; middle → top-1% 1%, cash 21%; most copied → top-1% 1%, cash 25%
+
+| Best big stacks | Entries | Best rank | Top 1% | Top 10% | Cash | Max exposure | Fighters used | Summed own |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Outbreak_1911 | 150 | 1 | 5% | 31% | 55% | 80% | 23 | 176% |
+| Skipbidder | 150 | 25 | 4% | 31% | 48% | 80% | 26 | 188% |
+| kfish191 | 150 | 25 | 4% | 31% | 48% | 80% | 26 | 182% |
+| Gboyle22 | 150 | 25 | 4% | 22% | 35% | 66% | 23 | 178% |
+| jimmym2727 | 150 | 25 | 3% | 21% | 39% | 84% | 26 | 182% |
+
+**You:** 6 entries, best rank 584; top-1% rate 0%, top-10% 17%, cash 17%; biggest exposure 67% (2 fighters over 50%), 18 fighters used, summed own 183%, lowest piece 19%, 0.00 punts per lineup, your lineups appeared 27.8x each in the field, 100% distinct within your own set.
+- Your top exposures: Jean Silva 67%, Sean King III 67%, Marwan Rahiki 50%, Rafa Garcia 50%, Tim Elliott 33%, Tommy McMillen 33%, Jose Delgado 33%, Tommy Gantt 33%
+- You minus the big-stack median: top1 -0.7, top10 +8.0, cash -2.6, max exposure +10.7, fighters used -8.0, own med +15.1
+
+_Descriptive only: this reads how the field and the winners built. It is not a rule._

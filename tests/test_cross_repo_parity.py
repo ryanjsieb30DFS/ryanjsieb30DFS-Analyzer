@@ -295,3 +295,22 @@ def test_nfl_classic_rulebook_behavior():
     assert d.NFL_GAME_LOADING["QB"] == 0.62 and d.NFL_TEAM_LOADING["QB"] == 0.45
     assert d.NFL_DST_OPP_LOADING == -0.50
     assert d.SALARY_CAP == 50_000 and d.CLASSIC_SIZE == 9
+
+
+# ---------------------------------------------------------------------------
+# MMA 150-max portfolio read (9/19/26) — shared verbatim
+# ---------------------------------------------------------------------------
+
+def test_mme_portfolio_is_byte_identical():
+    """src/mme_portfolio.py is a VERBATIM copy in both repos: the Sim's
+    Post-Slate log and the Analyzer's autopsy read one definition of the
+    entrant mix, the top-1% shape, duplication, and the big-stack benchmark.
+    Any edit must be copied to the other repo."""
+    from pathlib import Path
+    ours = (Path(__file__).parent.parent / "src" / "mme_portfolio.py").read_text()
+    theirs = (SIM / "src" / "mme_portfolio.py").read_text()
+    assert ours == theirs, (
+        "src/mme_portfolio.py differs between the Analyzer and the Sim — "
+        "copy the edited file to the other repo verbatim (Sim "
+        "src/mme_portfolio.py <-> Analyzer src/mme_portfolio.py)."
+    )

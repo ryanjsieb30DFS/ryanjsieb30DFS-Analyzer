@@ -452,11 +452,33 @@ def analyze_contest(parsed: dict, proj_df: pd.DataFrame | None, sport: str,
         except Exception:  # noqa: BLE001 — descriptive add-on, never blocks
             stack_report, stack_lookup = None, None
 
+    # MMA 150-max portfolio read (9/19/26): in a big MMA field the unit of
+    # judgement is the PORTFOLIO — how the full-stake players spread their
+    # entries, how chalky the top 1% was, how copied the winners were, and
+    # where the user's stack sits against the big players. Standings-only;
+    # small fields (the SE / 3-max home game) come back "not gradable".
+    # Slug-routed to MMA; nothing else changes for other sports.
+    mme_report = None
+    if sport == "mma":
+        try:
+            from src import mme_portfolio as _mp
+            _entries = [{"rank": int(r["Rank"]), "entry_name": r["EntryName"],
+                         "points": float(r["Points"]), "players": list(r["Lineup_parsed"])}
+                        for _, r in valid.iterrows()]
+            _raw_own = {str(p["name"]): float(p["actual_own"])
+                        for _, p in players.iterrows()
+                        if _norm_name(p["name"]) not in ambiguous}
+            mme_report = _mp.portfolio_report(_entries, _raw_own, is_user=is_user_entry)
+        except Exception:  # noqa: BLE001 — descriptive add-on, never blocks
+            mme_report = None
+
     return {
         # NFL Classic only (else None): the stack report + the norm →
         # {position, team, opponent} lookup the shark gap reuses.
         "stack_report": stack_report,
         "stack_lookup": stack_lookup,
+        # MMA only (else None): the 150-max portfolio read (mme_portfolio).
+        "mme_report": mme_report,
         "user_lineups_df": user_df,
         "winners_df": winners_df,
         "winners_summary": winners_summary,
@@ -568,6 +590,12 @@ def build_autopsy_record(*, ts: str, contest_label: str, slug: str, sport: str,
         # / top 20 / your entries + the winner's shape in words. Archived as
         # <history_dir>/stack_report.json and summarized in results.jsonl.
         "stack_report": analysis.get("stack_report"),
+        # MMA 150-max portfolio read (None for every other sport, and
+        # {"gradable": False} for a small MMA field): entrant mix, top-1%
+        # ownership shape, duplication, the big stacks' structure-vs-result,
+        # and your stack vs theirs. Archived as <history_dir>/mme_report.json
+        # and summarized in results.jsonl.
+        "mme_report": analysis.get("mme_report"),
     }
 
 
@@ -620,6 +648,15 @@ def record_md_summary(record: dict) -> str:
         try:
             from src.nfl_stack_autopsy import stack_md
             block = stack_md(record["stack_report"], record.get("source_file"))
+            if block:
+                lines.append("")
+                lines.append(block)
+        except Exception:  # noqa: BLE001 — never blocks the summary
+            pass
+    if (record.get("mme_report") or {}).get("gradable"):
+        try:
+            from src.mme_portfolio import portfolio_md
+            block = portfolio_md(record["mme_report"], record.get("source_file"))
             if block:
                 lines.append("")
                 lines.append(block)

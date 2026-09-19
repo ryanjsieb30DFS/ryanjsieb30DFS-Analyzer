@@ -1360,6 +1360,17 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str, hist_dir=None)
             f"it as information about how winners built, never as a rule to impose), "
             if slug == "nfl_classic" else ""
         )
+        + (
+            f"the 150-max portfolio read at `{hist_dir}/mme_report.json` (if present — MMA "
+            f"big-field contests only: who was in the field by stake size, how chalky the top 1% "
+            f"was vs the whole field, how many times the winning roster was copied, whether the "
+            f"100+ entry players who finished best were chalkier / more concentrated / more copied "
+            f"than the ones who finished worst, and the user's own stack on every one of those axes "
+            f"against the big-stack median; read it as a description of how winning PORTFOLIOS "
+            f"were built in that field, never as a rule — and never conclude from one card, because "
+            f"a favorite-heavy night and an upset-heavy night pull the same numbers opposite ways), "
+            if slug in ("mma_se", "mma_mme") else ""
+        )
         + f"the latest entries in `rules/{slug}/autopsy_data.jsonl`, "
         f"and the lesson ledger at "
         f"`rules/{slug}/lessons.yaml` (create it with the standard header from CLAUDE.md's "
