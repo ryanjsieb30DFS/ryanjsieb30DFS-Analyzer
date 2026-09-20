@@ -184,7 +184,12 @@ def _leading_name(raw: str) -> str:
     failed universe resolution and the entire contract shipped empty)."""
     s = raw.strip()
     s = re.split(r"\s+(?:at|vs\.?|over|on)\s+|\s*[\(\$]|,|\d|\s*[—–]\s*|\s+-\s+", s)[0]
-    return s.strip(" :—-.").strip()
+    s = s.strip(" :—-.").strip()
+    # A bolded verdict token ('**FADE** — Jon Jones') is a call, not a name:
+    # returning "FADE" as the player put a phantom fade on the board (9/19/26).
+    if s.upper() in {tok for tok, _ in _VERDICT_TOKENS}:
+        return ""
+    return s
 
 
 # Verdict tokens for per-player calls in the Fades/Leverage sections. Order

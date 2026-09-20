@@ -124,3 +124,15 @@ def test_split_format_parse_calls_reads_both_sections():
     assert calls.get("Sam Patterson") == "lean_fade"
     # No verdict token -> no call (Saidov, Heim).
     assert "Muhammad Saidov" not in calls and "Corey Heim" not in calls
+
+
+def test_bolded_verdict_token_is_never_returned_as_a_name():
+    """9/19/26: `**FADE** — Jon Jones` returned the name "FADE" — a phantom
+    fade that matched nobody but shipped as a call. A bare verdict token in
+    bold is a call marker, never a player."""
+    md = "## Fades\n- **FADE** — Jon Jones is priced like a lock.\n- **Tom Aspinall** — FADE.\n"
+    fades = extract_fades(md)
+    assert "FADE" not in fades
+    assert "Tom Aspinall" in fades
+    names = [c["name"] for c in parse_calls(md)]
+    assert "FADE" not in names and "LEAN FADE" not in names

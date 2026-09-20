@@ -13,6 +13,9 @@ from pathlib import Path
 
 import pandas as pd
 import streamlit as st
+import logging
+
+_log = logging.getLogger("analyzer.app")
 
 from src.autopsy import (
     parse_dk_results, analyze_contest,
@@ -201,21 +204,24 @@ def _cached_dk_analysis(csv_bytes: bytes, sport_: str | None, slug_: str, src_mt
         from src.autopsy import proj_frame_for_autopsy
         pool = sessions.merge_same_vendor(sessions.load_sources(slug_))
         proj_frame = proj_frame_for_autopsy([s.get("df") for s in pool.values()])
-    except Exception:  # noqa: BLE001 — enrichment is best-effort
+    except Exception as _pfe:  # noqa: BLE001 — enrichment is best-effort
         proj_frame = None
+        _log.warning("autopsy salary enrichment skipped for %s: %s", slug_, _pfe)
     analysis = analyze_contest(parsed, proj_frame, sport_, slug=slug_)
     try:
         from src import shark_gap as _sg
         # NFL Classic passes its team/position lookup so the shark gap can
         # add the double-stack / bring-back axes; None for every other slug.
         gap = _sg.gap_for_slug(slug_, parsed, stack_lookup=analysis.get("stack_lookup"))
-    except Exception:  # noqa: BLE001 — the gap panel is best-effort
+    except Exception as _sge:  # noqa: BLE001 — the gap panel is best-effort
         gap = None
+        _log.warning("shark-gap panel failed for %s: %s", slug_, _sge)
     try:
         from src import field_analysis as _fa
         field = _fa.field_profile(parsed, sport_)
-    except Exception:  # noqa: BLE001 — the field panel is best-effort
+    except Exception as _fae:  # noqa: BLE001 — the field panel is best-effort
         field = None
+        _log.warning("field-profile panel failed for %s: %s", slug_, _fae)
     return parsed, analysis, gap, field
 
 
@@ -228,7 +234,8 @@ def _stack_blocks_md(records: list) -> str | None:
                   for r in records if r.get("stack_report")]
         blocks = [b for b in blocks if b]
         return "\n\n".join(blocks) if blocks else None
-    except Exception:  # noqa: BLE001 — display-only
+    except Exception as _sbe:  # noqa: BLE001 — display-only
+        _log.warning("stack-shapes blocks failed: %s", _sbe)
         return None
 
 
@@ -242,7 +249,8 @@ def _mme_blocks_md(records: list) -> str | None:
                   for r in records if (r.get("mme_report") or {}).get("gradable")]
         blocks = [b for b in blocks if b]
         return "\n\n".join(blocks) if blocks else None
-    except Exception:  # noqa: BLE001 — display-only
+    except Exception as _mbe:  # noqa: BLE001 — display-only
+        _log.warning("150-max portfolio blocks failed: %s", _mbe)
         return None
 
 
@@ -701,8 +709,8 @@ with tab_slate:
                             "if so, upload it in the **Projections** tab instead (it won't fold "
                             "into the breakdown/player-pool from here)."
                         )
-                except Exception:  # noqa: BLE001 — best-effort hint only
-                    pass
+                except Exception as _he:  # noqa: BLE001 — best-effort hint only
+                    st.caption(f"⚠️ Projections-file hint unavailable: {_he}")
 
     uploaded_photos = st.file_uploader(
         "Upload photos / screenshots",
@@ -1132,8 +1140,9 @@ with tab_strategy:
         if _src:
             try:
                 _slate_names_now = player_pool.build_pool(_src)["name"].astype(str).tolist()
-            except Exception:  # noqa: BLE001
+            except Exception as _sne:  # noqa: BLE001
                 _slate_names_now = None
+                st.caption(f"⚠️ Crowded-names screen unavailable: {_sne}")
         _crowds = field_tendencies.crowded_names(slug, load_contests(slug),
                                                  current_names=_slate_names_now)
         if _crowds:
@@ -1157,8 +1166,8 @@ with tab_strategy:
                 _dmd = _drift.drift_md(_d) if _d else None
                 if _dmd:
                     (st.warning if _d["drifted"] else st.caption)(_dmd)
-            except Exception:  # noqa: BLE001 — display-only
-                pass
+            except Exception as _de:  # noqa: BLE001 — display-only
+                st.caption(f"⚠️ Ownership-drift panel unavailable: {_de}")
         with st.container(border=True):
             st.caption(f"Last updated: {persisted['mtime']}")
             st.markdown(_md_safe(persisted["markdown"]))
@@ -1187,8 +1196,8 @@ with tab_strategy:
                 try:
                     from src.strategy_contract import update_board
                     update_board(slug)
-                except Exception:  # noqa: BLE001
-                    pass
+                except Exception as _ube:  # noqa: BLE001
+                    st.caption(f"⚠️ Strategy-contract board refresh failed: {_ube}")
                 st.success(f"Ranked in {_pr['duration_s']:.0f}s."
                            + (f" · ~${_pr['cost_usd']:.2f}" if _pr.get("cost_usd") else ""))
                 st.rerun()
@@ -1359,8 +1368,9 @@ with tab_grade:
             _cpath = _contract_path(slug)
             _c_gen = (json.loads(_cpath.read_text()).get("generated_at")
                       if _cpath.exists() else None)
-        except Exception:  # noqa: BLE001 — banner only, never blocks the tab
+        except Exception as _cge:  # noqa: BLE001 — banner only, never blocks the tab
             _c_gen = None
+            st.caption(f"⚠️ Contract-freshness banner unavailable: {_cge}")
         # On the CORRECT workflow the contract is written before the pool
         # (strategy → contract → build → send), so the contract being an hour
         # older is normal — the old any-age-gap check fired on every
@@ -1995,8 +2005,9 @@ with tab_autopsy:
         try:
             from src.sim_link import list_sim_standings as _lss
             _sim_pushed = _lss(slug)
-        except Exception:  # noqa: BLE001
+        except Exception as _lse:  # noqa: BLE001
             _sim_pushed = []
+            st.caption(f"⚠️ Sim-pushed standings list unavailable: {_lse}")
         if _sim_pushed:
             _pushed_names = ", ".join(r["filename"] for r in _sim_pushed)
             # Say WHEN the Sim scored them — a leftover push from a previous
@@ -2172,8 +2183,8 @@ with tab_autopsy:
                         if _smd:
                             with st.container(border=True):
                                 st.markdown(_md_safe(_smd))
-                    except Exception:  # noqa: BLE001 — display-only, never blocks
-                        pass
+                    except Exception as _ste:  # noqa: BLE001 — display-only, never blocks
+                        st.caption(f"⚠️ Stack-shapes panel unavailable: {_ste}")
 
                 # MMA 150-max portfolio read (9/19/26): who is in the field
                 # by stake size, how chalky the top 1% was, how copied the
@@ -2187,8 +2198,8 @@ with tab_autopsy:
                         if _mmd:
                             with st.container(border=True):
                                 st.markdown(_md_safe(_mmd))
-                    except Exception:  # noqa: BLE001 — display-only, never blocks
-                        pass
+                    except Exception as _mme_e:  # noqa: BLE001 — display-only, never blocks
+                        st.caption(f"⚠️ 150-max portfolio panel unavailable: {_mme_e}")
 
                 # Self-grade: did OUR entered lineups capture the leverage/edges?
                 if analysis.get("user_lineups_df") is not None and not analysis["user_lineups_df"].empty:
@@ -2215,8 +2226,8 @@ with tab_autopsy:
                     if _cf_md:
                         with st.container(border=True):
                             st.markdown(_md_safe(_cf_md))
-                except Exception:  # noqa: BLE001 — display-only, never blocks
-                    pass
+                except Exception as _cfe:  # noqa: BLE001 — display-only, never blocks
+                    st.caption(f"⚠️ Near-miss / winner-story panel unavailable: {_cfe}")
 
                 # Shark gap — structural us-vs-sharks fingerprint for THIS field
                 # (computed once in _cached_dk_analysis; None = best-effort failure).
@@ -2290,8 +2301,8 @@ with tab_autopsy:
                             # A degraded bridge must not look like a clean one.
                             if capture_warnings.get(slug):
                                 st.caption(f"⚠️ {capture_warnings[slug]}")
-                        except Exception:  # noqa: BLE001
-                            pass
+                        except Exception as _cpe:  # noqa: BLE001
+                            st.caption(f"⚠️ Sim-capture panel unavailable: {_cpe}")
                         for _b in _fp.get("read", []):
                             st.markdown(f"- {_b}")
                         fc1, fc2 = st.columns(2)
@@ -2374,8 +2385,8 @@ with tab_autopsy:
                         if _sa_md:
                             with st.container(border=True):
                                 st.markdown(_sa_md)
-                except Exception:  # noqa: BLE001 — a broken bridge never blocks the tab
-                    pass
+                except Exception as _sae2:  # noqa: BLE001 — a broken bridge never blocks the tab
+                    st.caption(f"⚠️ Sim autopsy panel unavailable: {_sae2}")
 
                 # Draft-persisted: survives a Streamlit crash/restart mid-autopsy.
                 # Keyed by FILE identity (not loop index): index keys stick to
@@ -2566,16 +2577,18 @@ with tab_autopsy:
                             try:
                                 _cap_stats = _cfs(slug, len(lineups),
                                                   contest_id=pc.get("contest_id"))
-                            except Exception:  # noqa: BLE001
+                            except Exception as _cse2:  # noqa: BLE001
                                 _cap_stats = None
+                                _log_warnings.append(f"Sim capture stats NOT attached: {_cse2}")
                             # This slate's projections (still loaded at Log
                             # time) attach salary/projection/projected-own to
                             # each trap and crowd row — a trap is a price, not
                             # a player, so the price must be stored with it.
                             try:
                                 _ft_pool = player_pool.build_pool(cached_sources(slug))
-                            except Exception:  # noqa: BLE001
+                            except Exception as _fpe:  # noqa: BLE001
                                 _ft_pool = None
+                                _log_warnings.append(f"Projections NOT attached to field-tendency row: {_fpe}")
                             _ft.record(slug, pc.get("contest_type"), len(lineups),
                                        pc.get("field_profile") or {}, ts,
                                        contest_name=pc.get("contest_name"),
@@ -2924,8 +2937,9 @@ with tab_autopsy:
     from src.lineup_selection import override_outcomes, override_outcomes_md
     try:
         _ovr = override_outcomes(slug)
-    except Exception:  # noqa: BLE001 — a bad archive file never blocks the tab
+    except Exception as _ove:  # noqa: BLE001 — a bad archive file never blocks the tab
         _ovr = {"rows": []}
+        st.caption(f"⚠️ Strategy-overrides panel unavailable: {_ove}")
     if _ovr.get("rows"):
         st.divider()
         st.markdown("### 🔓 Strategy overrides — is following the strategy winning?")
@@ -2959,14 +2973,15 @@ with tab_autopsy:
             for _pc in (parsed_contests if dk_csvs else []):
                 if _pc.get("contest_id") and _pc["contest_id"] not in _logged_ids:
                     _pending.append(_pc.get("contest_name") or _pc.get("name") or "?")
-        except Exception:  # noqa: BLE001 — never block the section on this check
+        except Exception as _pne:  # noqa: BLE001 — never block the section on this check
             _pending = []
+            st.caption(f"⚠️ Unlogged-contest check unavailable: {_pne}")
         _arch_when = ""
         try:
             _man = json.loads((latest_hist / "manifest.json").read_text())
             _arch_when = _man.get("archived_at") or _man.get("date") or ""
-        except Exception:  # noqa: BLE001
-            pass
+        except Exception as _mne:  # noqa: BLE001 — manifest is optional on old archives
+            st.caption(f"⚠️ Archive manifest unreadable: {_mne}")
         _arch_name = latest_hist.name
         if _pending:
             # Exactly tonight's failure — made impossible.
@@ -3041,9 +3056,37 @@ with tab_autopsy:
                     else:
                         st.error(f"Couldn't apply the proposals: {aresult['error']}")
 
+    # ----- Sim mirror freshness (after Apply proposals) ----- #
+    # The Sim keeps its own copy of framework.md / philosophy.md and refreshes
+    # it with its 🔄 button; an apply here leaves that copy stale until then.
+    try:
+        from src.sim_link import stale_sim_mirrors as _ssm
+        _stale_docs = _ssm(slug)
+    except Exception as _sme:  # noqa: BLE001
+        _stale_docs = []
+        st.caption(f"⚠️ Sim mirror check unavailable: {_sme}")
+    if _stale_docs:
+        st.warning("Sim copy of " + slug + " "
+                   + " + ".join(d.replace(".md", "") for d in _stale_docs)
+                   + " is stale — press 🔄 in the Sim to refresh it.")
+
     # ----- Lesson-ledger hygiene ----- #
     if (REPO_ROOT / "rules" / slug / "lessons.yaml").exists():
         st.divider()
+        with st.expander("🧪 Hypotheses nobody has checked", expanded=False):
+            try:
+                from src import lessons_lint as _ll
+                st.markdown(_ll.rot_report_md(_ll.rot_report(slug)))
+                _lw = _ll.lint_warnings(slug)
+                _le = _ll.lint_lessons(slug)
+                if _le:
+                    st.error("Ledger integrity problems (the next review run will refuse "
+                             "to save until these are fixed by hand):\n- " + "\n- ".join(_le))
+                if _lw:
+                    st.caption(f"{len(_lw)} lesson id(s) use the older naming style; they keep "
+                               "their names, new lessons use the dated style.")
+            except Exception as _rre:  # noqa: BLE001 — display-only
+                st.caption(f"⚠️ Unchecked-hypotheses panel unavailable: {_rre}")
         with st.expander("Lesson-ledger hygiene", expanded=False):
             st.caption(
                 "Keeps the ledger sharp as it grows: stale hypotheses, lessons near the "
@@ -3061,8 +3104,8 @@ with tab_autopsy:
                 if _xs:
                     with st.container(border=True):
                         st.markdown(_xs)
-            except Exception:  # noqa: BLE001 — display-only
-                pass
+            except Exception as _xse:  # noqa: BLE001 — display-only
+                st.caption(f"⚠️ Cross-sport overlap panel unavailable: {_xse}")
 
             # The standalone "Review ledger" button + its Approve path were
             # removed 7/18/26: hygiene flags now ride the post-autopsy review
@@ -3091,8 +3134,8 @@ with tab_autopsy:
                     "buy-in $": r.get("total_buy_in"),
                     "winnings $": r.get("total_winnings"),
                     "ROI %": r.get("roi_pct"),
-                    "best %ile": r.get("best_percentile"),
-                    "best rank": r.get("best_rank"),
+                    "best %ile": history.headline_percentile(r),
+                    "best rank": history.headline_rank(r),
                 }
                 for r in reversed(results_rows)
             ])

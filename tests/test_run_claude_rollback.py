@@ -78,3 +78,75 @@ def test_collateral_created_by_failed_run_is_deleted(monkeypatch, tmp_path):
     res = ar._run_claude("prompt", out, collateral=[lessons])
     assert res["ok"] is False
     assert not lessons.exists()
+
+
+# --- 9/19/26: model / turn / budget flags + one retry on timeout -----------
+
+def test_cli_flags_pin_model_turns_and_budget(monkeypatch, tmp_path):
+    out, lessons = _setup(monkeypatch, tmp_path)
+    seen = {}
+
+    def run(cmd, **kwargs):
+        seen["cmd"] = cmd
+        out.write_text("x")
+        return _FakeProc(returncode=0)
+    monkeypatch.setattr(ar.subprocess, "run", run)
+    assert ar._run_claude("prompt", out)["ok"] is True
+    cmd = seen["cmd"]
+    assert cmd[cmd.index("--model") + 1] == ar.CLAUDE_MODEL
+    assert cmd[cmd.index("--max-turns") + 1] == str(ar.CLAUDE_MAX_TURNS)
+    assert cmd[cmd.index("--max-budget-usd") + 1] == "15"
+    assert ar.CLAUDE_MODEL  # never empty
+
+
+def test_timeout_retries_exactly_once_when_asked(monkeypatch, tmp_path):
+    out, _ = _setup(monkeypatch, tmp_path)
+    calls = {"n": 0}
+
+    def run(cmd, **kwargs):
+        calls["n"] += 1
+        out.write_text("partial")
+        raise ar.subprocess.TimeoutExpired(cmd="claude", timeout=1)
+    monkeypatch.setattr(ar.subprocess, "run", run)
+    res = ar._run_claude("prompt", out, retry_on_timeout=True)
+    assert res["ok"] is False and "retried once" in res["error"]
+    assert calls["n"] == 2
+    assert not out.exists()          # partial write rolled back both times
+
+
+def test_timeout_does_not_retry_by_default(monkeypatch, tmp_path):
+    out, _ = _setup(monkeypatch, tmp_path)
+    calls = {"n": 0}
+
+    def run(cmd, **kwargs):
+        calls["n"] += 1
+        raise ar.subprocess.TimeoutExpired(cmd="claude", timeout=1)
+    monkeypatch.setattr(ar.subprocess, "run", run)
+    res = ar._run_claude("prompt", out)
+    assert res["ok"] is False and calls["n"] == 1
+
+
+def test_retry_succeeds_on_second_attempt(monkeypatch, tmp_path):
+    out, _ = _setup(monkeypatch, tmp_path)
+    calls = {"n": 0}
+
+    def run(cmd, **kwargs):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            raise ar.subprocess.TimeoutExpired(cmd="claude", timeout=1)
+        out.write_text("done")
+        return _FakeProc(returncode=0)
+    monkeypatch.setattr(ar.subprocess, "run", run)
+    res = ar._run_claude("prompt", out, retry_on_timeout=True)
+    assert res["ok"] is True and calls["n"] == 2 and out.read_text() == "done"
+
+
+def test_post_check_errors_roll_everything_back(monkeypatch, tmp_path):
+    out, lessons = _setup(monkeypatch, tmp_path)
+    monkeypatch.setattr(
+        ar.subprocess, "run",
+        _fake_run([(lessons, "lessons:\n  - id: dup\n  - id: dup\n"), (out, "review")]))
+    res = ar._run_claude("prompt", out, collateral=[lessons],
+                         post_check=lambda: ["dup: duplicate id"])
+    assert res["ok"] is False and "duplicate id" in res["error"]
+    assert lessons.read_text() == "lessons: []\n" and not out.exists()

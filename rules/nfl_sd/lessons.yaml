@@ -215,7 +215,7 @@ lessons:
   # ---- 2026-09-15 — NFL SD Week 1 MNF 9.14.26 (Broncos at Chiefs, $200K Flea Flicker 150-Max) — third logged slate ----
 
   - id: nfl_sd_salary_left_is_a_rate
-    born: "2026-09-15"
+    born: "2026-09-14"
     origin: "rules/nfl_sd/history/2026-09-15__nfl-sd-week-1-mnf-9-14-2026"
     statement: >
       "Leave salary" is a RATE across winners, never a per-lineup gate: the framework's "median winner left $1,400, only 7% spent the full cap" describes a spread in which many winners sit at $49,600-$49,900, and a Build-rules line of salary_max 49500 deletes exactly the near-max chalk-plus-one-mid builds that win. Why: the chalk stars are priced so that four of them plus one $3,000-$4,500 mid piece lands at $49,600-$49,800; a $49,500 ceiling forces the $200-cheaper twin into the cheap spot (Bryant for Engram) and turns the winning six into the 120th-place six. Origin: the 9/15 winner (CPT Walker, Mahomes, Rice, Kelce, Chiefs DST, Engram) cost $49,700 and the Sim's 10,000-lineup pool, built under the strategy's salary_max 49500 rule, topped out at 121.41 vs the 124.61 winning score; the user's best entry was the same six with Bryant ($3,200, 8.2) for Engram ($3,400, 14.3), the $200 the rule would not allow. Prior sighting 9/14: the 4th-place build ($49,800) was blocked by the same rule while the winner spent all $50,000. Counts as confirmed when: a logged slate's winner or top-5 build spends over the strategy's salary_max line and the Sim pool never held it.

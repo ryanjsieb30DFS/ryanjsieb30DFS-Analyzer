@@ -399,3 +399,18 @@ def test_sim_raw_projection_files_lists_and_degrades(tmp_path, monkeypatch):
     assert sl.sim_raw_projection_files("nascar") == []
     monkeypatch.setattr(sl, "_SIM_ROOT", tmp_path / "nope")
     assert sl.sim_raw_projection_files("mma_se") == []
+
+
+def test_stale_sim_mirrors_compares_framework_and_philosophy(tmp_path, monkeypatch):
+    mine = tmp_path / "ana"; theirs = tmp_path / "sim"
+    for root in (mine, theirs):
+        d = root / "rules" / "mma_se"; d.mkdir(parents=True)
+        (d / "framework.md").write_text("same")
+        (d / "philosophy.md").write_text("same")
+    monkeypatch.setattr(sl, "_REPO_ROOT", mine)
+    monkeypatch.setattr(sl, "sim_root", lambda: theirs)
+    assert sl.stale_sim_mirrors("mma_se") == []
+    (mine / "rules" / "mma_se" / "framework.md").write_text("edited by Apply proposals")
+    assert sl.stale_sim_mirrors("mma_se") == ["framework.md"]
+    monkeypatch.setattr(sl, "sim_root", lambda: None)
+    assert sl.stale_sim_mirrors("mma_se") == []      # no Sim on this machine = quiet

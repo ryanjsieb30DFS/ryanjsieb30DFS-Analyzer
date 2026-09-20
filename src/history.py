@@ -161,6 +161,25 @@ def logged_contest_ids(slug: str) -> set[str]:
     return out
 
 
+def headline_percentile(row: dict | None):
+    """The slate's best percentile for trend readers. MME-only nights (9/15
+    MNF, 9/19 MEGA) store `best_percentile: null` with the large-field number
+    in `best_percentile_mme`; fall back to it so the trend never shows a dash
+    for a night that was actually played. The jsonl row is never rewritten."""
+    if not row:
+        return None
+    v = row.get("best_percentile")
+    return v if v is not None else row.get("best_percentile_mme")
+
+
+def headline_rank(row: dict | None):
+    """`best_rank` with the same MME fallback as `headline_percentile`."""
+    if not row:
+        return None
+    v = row.get("best_rank")
+    return v if v is not None else row.get("best_rank_mme")
+
+
 def process_trend_block(slug: str, n: int = 5) -> str | None:
     """Forward-feed block for the slate bundle: the last n slates' PROCESS trend
     from results.jsonl — best percentile, leverage capture, bust exposure, and the
@@ -173,7 +192,8 @@ def process_trend_block(slug: str, n: int = 5) -> str | None:
         return None
 
     def _seq(field, fmt="{:.0f}"):
-        vals = [(r.get(field)) for r in rows]
+        vals = [(headline_percentile(r) if field == "best_percentile" else r.get(field))
+                for r in rows]
         return " → ".join("—" if v is None else fmt.format(v) for v in vals)
 
     def _pct_seq(field):

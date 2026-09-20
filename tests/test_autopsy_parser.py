@@ -119,3 +119,46 @@ if __name__ == "__main__":
         fn()
         print(f"ok  {fn.__name__}")
     print(f"\n{len(fns)} passed")
+
+
+# --- NFL Classic slot rows (9/19/26) ------------------------------------
+# Shape of a real DK NFL Classic standings export (anonymized/trimmed from
+# ~/Downloads/contest-standings-195548784.csv): a player appears once PER
+# ROSTER SLOT the field used — Gibbs at RB and again at FLEX.
+def _classic_csv() -> io.StringIO:
+    return _csv([
+        '1,111,alpha,0,228.56,DST Bills  FLEX Michael Mayer QB Josh Allen RB Jahmyr Gibbs '
+        'RB Jonathan Taylor TE Dallas Goedert WR Chris Olave WR Zay Flowers WR Josh Allen,,'
+        'Jahmyr Gibbs,RB,52.78%,37.6',
+        '2,222,beta,0,224.86,DST Jaguars  FLEX Jahmyr Gibbs QB Josh Allen RB Jonathan Taylor '
+        'RB Travis Etienne Jr. TE Greg Dulcich WR Christian Watson WR Zay Flowers WR Josh Allen,,'
+        'Jahmyr Gibbs,FLEX,2.5%,37.6',
+        ',,,,,,,Josh Allen,QB,40.0%,28.3',
+        ',,,,,,,Josh Allen,WR,3.0%,6.1',
+        ',,,,,,,Josh Allen,FLEX,1.0%,6.1',
+        ',,,,,,,Zay Flowers,WR,22.0%,19.9',
+    ])
+
+
+def test_classic_rb_and_flex_rows_collapse_to_one_player():
+    players = parse_dk_results(_classic_csv())["players"]
+    gibbs = players[players["name"] == "Jahmyr Gibbs"]
+    assert len(gibbs) == 1
+    assert abs(float(gibbs["actual_own"].iloc[0]) - (52.78 + 2.5)) < 1e-6
+    assert float(gibbs["actual_fpts"].iloc[0]) == 37.6
+    assert gibbs["roster_position"].iloc[0] == "RB"
+
+
+def test_same_name_different_base_position_is_not_merged():
+    """A QB and a WR who share a name are two players: never sum their
+    ownership. The FLEX row attaches to the FLEX-eligible one (the WR)."""
+    players = parse_dk_results(_classic_csv())["players"]
+    allens = players[players["name"] == "Josh Allen"].sort_values("roster_position")
+    assert len(allens) == 2
+    by_pos = {r.roster_position: r for r in allens.itertuples()}
+    assert set(by_pos) == {"QB", "WR"}
+    assert abs(by_pos["QB"].actual_own - 40.0) < 1e-6
+    assert abs(by_pos["WR"].actual_own - 4.0) < 1e-6      # WR 3.0 + FLEX 1.0
+    assert by_pos["QB"].actual_fpts == 28.3
+    # The untouched single-slot player passes through.
+    assert len(players[players["name"] == "Zay Flowers"]) == 1

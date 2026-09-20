@@ -136,7 +136,7 @@ def test_run_player_pool_passes_builder_prompt(tmp_path, monkeypatch):
     sessions.save_source("nfl_classic", "etr.csv", _df(), "ETR")
     captured = {}
 
-    def _fake(prompt, out_path):
+    def _fake(prompt, out_path, **kwargs):
         captured["prompt"] = prompt
         return {"ok": True, "error": None, "duration_s": 0.0, "cost_usd": None}
     monkeypatch.setattr(ar, "_run_claude", _fake)

@@ -237,7 +237,7 @@ def test_shark_gap_adds_stack_dimensions_for_classic_only():
 def test_review_prompt_points_at_the_stack_report_for_classic_only(tmp_path, monkeypatch):
     seen = {}
 
-    def _fake_run(prompt, out_path, collateral=None):
+    def _fake_run(prompt, out_path, collateral=None, **kwargs):
         seen["prompt"] = prompt
         return {"ok": True, "error": None, "duration_s": 0.0, "cost_usd": None}
 

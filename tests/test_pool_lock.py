@@ -120,7 +120,7 @@ def test_classic_pool_prompt_is_position_by_position(tmp_path, monkeypatch):
     from src import analysis_runner as ar
     captured = {}
 
-    def _fake(prompt, out_path):
+    def _fake(prompt, out_path, **kwargs):
         captured["prompt"] = prompt
         return {"ok": True, "error": None, "duration_s": 0.0, "cost_usd": None}
     monkeypatch.setattr(ar, "_run_claude", _fake)

@@ -59,6 +59,40 @@ def sim_root() -> Path | None:
     return _SIM_ROOT if _SIM_ROOT.exists() else None
 
 
+# The Sim mirrors framework.md + philosophy.md per slug (its 🔄 refresh button
+# copies them from this repo — analyzer_link._SYNCED_RULE_DOCS). After
+# "Apply proposals" edits them here, the Sim's copies are stale until that
+# button is pressed; this check makes the gap visible (9/19/26).
+MIRRORED_RULE_DOCS = ("framework.md", "philosophy.md")
+
+
+def rules_doc_digest(slug: str, root: Path | None = None) -> dict:
+    """{doc: sha256 hex or None} for the mirrored docs under <root>/rules/<slug>."""
+    import hashlib
+    base = (root or _REPO_ROOT) / "rules" / slug
+    out = {}
+    for doc in MIRRORED_RULE_DOCS:
+        p = base / doc
+        out[doc] = hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None
+    return out
+
+
+def stale_sim_mirrors(slug: str) -> list[str]:
+    """Names of the mirrored docs whose Sim copy differs from this repo's.
+    Empty when they match, when the Sim repo is absent, or when this repo has
+    no such doc (nothing to mirror). Never raises."""
+    try:
+        sim = sim_root()
+        if sim is None:
+            return []
+        mine = rules_doc_digest(slug)
+        theirs = rules_doc_digest(slug, sim)
+        return [doc for doc in MIRRORED_RULE_DOCS
+                if mine.get(doc) is not None and mine.get(doc) != theirs.get(doc)]
+    except Exception:  # noqa: BLE001 — a bridge check never blocks the tab
+        return []
+
+
 def sim_raw_projection_files(slug: str) -> list[Path]:
     """The Sim's saved RAW projection uploads for this slate (one upload per
     slate, not one per tool — 8/22/26).

@@ -91,6 +91,9 @@ def parse_dk_results(csv_path_or_buffer) -> dict:
     return {"lineups": lineups, "players": players}
 
 
+_FLEX_SLOTS = ("FLEX", "CPT", "UTIL")
+
+
 def _collapse_slot_rows(players: pd.DataFrame) -> pd.DataFrame:
     """ONE row per player. DK NFL standings list a player once per roster slot
     the field used — Classic: an RB row AND a FLEX row (9/13/26: Gibbs showed
@@ -98,22 +101,47 @@ def _collapse_slot_rows(players: pd.DataFrame) -> pd.DataFrame:
     CPT row whose FPTS is already 1.5x plus a FLEX row. %Drafted is SUMMED
     across a player's rows (total ownership); FPTS is the FLEX-basis number
     (a CPT-only player is divided back by 1.5). Frames with no repeated name
-    pass through unchanged (golf / MMA / NASCAR)."""
+    pass through unchanged (golf / MMA / NASCAR).
+
+    Grouping is by name PLUS base position (9/19/26): two different players
+    who share a name (a QB and a WR both called 'Josh Allen') used to be
+    summed into one row. A FLEX / CPT / UTIL row has no base position of its
+    own, so it attaches to the same-name base row it can legally fill (FLEX
+    = RB/WR/TE; never QB/DST); with one base position it simply merges."""
     if players is None or players.empty or not players["name"].duplicated().any():
         return players
     slots = players["roster_position"].astype(str).str.strip().str.upper()
     df = players.copy()
+    df["_slot"] = slots.to_numpy()
     df["_cpt"] = (slots == "CPT").to_numpy()
     rows = []
     for _name, grp in df.groupby("name", sort=False):
-        base = grp.iloc[0].copy()
-        flex = grp[~grp["_cpt"]]
-        if len(flex):
-            base["actual_fpts"] = float(pd.to_numeric(flex["actual_fpts"], errors="coerce").max())
+        bases = [b for b in grp["_slot"].unique() if b not in _FLEX_SLOTS]
+        if len(bases) <= 1:
+            parts = [grp]
         else:
-            base["actual_fpts"] = float(pd.to_numeric(grp["actual_fpts"], errors="coerce").max()) / 1.5
-        base["actual_own"] = float(pd.to_numeric(grp["actual_own"], errors="coerce").fillna(0.0).sum())
-        rows.append(base.drop(labels="_cpt"))
+            # Same name, different base positions = different players. FLEX-type
+            # rows go to the first FLEX-eligible base (RB/WR/TE) or, failing
+            # that, the first base position.
+            flex_home = next((b for b in bases if b in ("RB", "WR", "TE")), bases[0])
+            parts = []
+            for b in bases:
+                mask = (grp["_slot"] == b)
+                if b == flex_home:
+                    mask |= grp["_slot"].isin(_FLEX_SLOTS)
+                parts.append(grp[mask])
+        for part in parts:
+            base = part.iloc[0].copy()
+            flex = part[~part["_cpt"]]
+            if len(flex):
+                base["actual_fpts"] = float(pd.to_numeric(flex["actual_fpts"], errors="coerce").max())
+            else:
+                base["actual_fpts"] = float(pd.to_numeric(part["actual_fpts"], errors="coerce").max()) / 1.5
+            base["actual_own"] = float(pd.to_numeric(part["actual_own"], errors="coerce").fillna(0.0).sum())
+            base_slots = [b for b in part["_slot"] if b not in _FLEX_SLOTS]
+            if base_slots:
+                base["roster_position"] = base_slots[0]
+            rows.append(base.drop(labels=["_cpt", "_slot"]))
     return pd.DataFrame(rows).reset_index(drop=True)
 
 

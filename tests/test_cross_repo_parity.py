@@ -15,6 +15,7 @@ Skips cleanly when the Sim repo is absent (CI or another machine).
 from __future__ import annotations
 
 import ast
+import os
 import re
 import unicodedata
 
@@ -23,6 +24,12 @@ import pytest
 from src.sim_link import sim_root
 
 SIM = sim_root()
+
+# ANALYZER_REQUIRE_SIM=1 (the user's own machine / a checked setup) turns a
+# missing sibling into a FAILURE instead of a silent skip (9/19/26).
+if SIM is None and os.environ.get("ANALYZER_REQUIRE_SIM") == "1":
+    pytest.fail("Sim repo not found (set DFS_SIM_ROOT or unset ANALYZER_REQUIRE_SIM)",
+                pytrace=False)
 
 pytestmark = pytest.mark.skipif(SIM is None, reason="Sim repo not present")
 
@@ -36,17 +43,47 @@ def _module_tree(rel_path: str):
     return text, ast.parse(text)
 
 
-def _extract_literal(rel_path: str, name: str):
-    """The literal value of a top-level `name = <literal>` assign in a Sim file."""
+def _extract_literal(rel_path: str, name: str, _depth: int = 0):
+    """The literal value of a top-level `name = <literal>` assign in a Sim file.
+
+    A bare-name alias (`SALARY_CAP = DK_SALARY_CAP`, with DK_SALARY_CAP pulled
+    in by `from src.rules import ...`) is followed through same-file assigns
+    and `from src.<mod> import X [as Y]` lines, so the Sim re-pointing a
+    constant at its shared rulebook keeps the parity check meaningful
+    instead of crashing it (9/19/26)."""
+    if _depth > 6:
+        raise AssertionError(f"{name}: alias chain too deep in Sim {rel_path}")
     _, tree = _module_tree(rel_path)
+
+    def _value(node_value):
+        if isinstance(node_value, ast.Name):
+            return _resolve_name(node_value.id)
+        return ast.literal_eval(node_value)
+
+    def _resolve_name(alias: str):
+        for imp in tree.body:
+            if isinstance(imp, ast.ImportFrom) and imp.module and imp.module.startswith("src"):
+                for a in imp.names:
+                    if (a.asname or a.name) == alias:
+                        return _extract_literal(imp.module.replace(".", "/") + ".py",
+                                                a.name, _depth + 1)
+        return _extract_literal(rel_path, alias, _depth + 1)
+
     for node in tree.body:
         if isinstance(node, ast.Assign):
             targets = [t.id for t in node.targets if isinstance(t, ast.Name)]
             if name in targets:
-                return ast.literal_eval(node.value)
+                return _value(node.value)
         if isinstance(node, ast.AnnAssign) and isinstance(node.target, ast.Name) \
                 and node.target.id == name and node.value is not None:
-            return ast.literal_eval(node.value)
+            return _value(node.value)
+    # Not assigned here — maybe imported here (`from src.x import Y as name`).
+    for imp in tree.body:
+        if isinstance(imp, ast.ImportFrom) and imp.module and imp.module.startswith("src"):
+            for a in imp.names:
+                if (a.asname or a.name) == name:
+                    return _extract_literal(imp.module.replace(".", "/") + ".py",
+                                            a.name, _depth + 1)
     raise AssertionError(f"{name} not found as a literal in Sim {rel_path}")
 
 

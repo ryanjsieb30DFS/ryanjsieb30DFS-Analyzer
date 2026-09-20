@@ -12,6 +12,8 @@ separate billing. The `claude` binary is already installed on the machine.
 from __future__ import annotations
 
 import json
+import logging
+import os
 import shutil
 import subprocess
 import time
@@ -21,6 +23,17 @@ from src.bundle import build_bundle
 
 _REPO_ROOT = Path(__file__).parent.parent
 _TIMEOUT_S = 1200  # generous ceiling for reading many article PDFs/images
+_log = logging.getLogger(__name__)
+
+# Headless-run knobs (9/19/26 review). The CLI used to be shelled with no
+# model, no turn cap and no budget cap, so a run took whatever the machine's
+# default model was that day. No past run JSON records a model id; the
+# machine's ~/.claude/settings.json model was "fable[1m]" (Fable with the
+# 1M-token window) on 9/19/26, so that is what every past run actually used
+# and it stays the default. Override with ANALYZER_CLAUDE_MODEL.
+CLAUDE_MODEL = os.environ.get("ANALYZER_CLAUDE_MODEL", "").strip() or "fable[1m]"
+CLAUDE_MAX_TURNS = 60       # generous: a strategy run reads 10-20 files + writes one
+CLAUDE_MAX_BUDGET_USD = 15.0
 
 # NFL Classic pool auto-out floor (9/13/26). The Classic projections file
 # carries ~340 players, and the headless pool run used to demand a table row
@@ -62,8 +75,33 @@ DK_ONLY_NOTE = (
 )
 
 
-def _run_claude(prompt: str, out_path: Path, collateral: list | None = None) -> dict:
+# Trimmed views Claude reads instead of the full ledgers (9/19/26): the open
+# lessons only (lessons_open.md) and the last N autopsies (autopsies_recent.md).
+# Regenerated before every strategy / pool / review run so they never go stale.
+RECENT_AUTOPSIES_N = 6
+
+
+def refresh_trimmed_views(slug: str) -> None:
+    """Best-effort: a failure here must never block a run (the prompt then
+    reads a stale or missing view and Claude says so)."""
+    try:
+        from src import lessons_view
+        lessons_view.write_open_lessons(slug)
+        lessons_view.write_recent_autopsies(slug, n=RECENT_AUTOPSIES_N)
+    except Exception as e:  # noqa: BLE001
+        _log.warning("could not refresh trimmed views for %s: %s", slug, e)
+
+
+def _run_claude(prompt: str, out_path: Path, collateral: list | None = None,
+                retry_on_timeout: bool = False, post_check=None) -> dict:
     """Run `claude -p` headlessly and confirm `out_path` was freshly written.
+
+    `retry_on_timeout=True` re-runs the command exactly ONCE after a timeout
+    (the strategy + pool runs; a 20-minute run that dies at minute 19 used to
+    leave the user with nothing). `post_check` is an optional callable run
+    after a successful write that returns a list of error strings; a non-empty
+    list rolls everything back and fails the run (the lesson-ledger lint after
+    the review run).
 
     `collateral` lists the OTHER files the prompt instructs claude to edit
     (lessons.yaml, framework.md, …). They are snapshotted before the run and
@@ -120,18 +158,31 @@ def _run_claude(prompt: str, out_path: Path, collateral: list | None = None) -> 
         "--output-format", "json",
         "--permission-mode", "acceptEdits",
         "--allowedTools", "Read,Glob,Grep,Write,Edit",
+        "--model", CLAUDE_MODEL,
+        "--max-turns", str(CLAUDE_MAX_TURNS),
+        "--max-budget-usd", f"{CLAUDE_MAX_BUDGET_USD:g}",
     ]
 
-    try:
-        proc = subprocess.run(
-            cmd, cwd=str(_REPO_ROOT),
-            capture_output=True, text=True, timeout=_TIMEOUT_S,
-        )
-    except subprocess.TimeoutExpired:
-        _rollback_partial()
-        _rollback_collateral()
-        return {"ok": False, "error": f"Timed out after {_TIMEOUT_S // 60} minutes.",
-                "duration_s": time.time() - started, "cost_usd": None}
+    attempts = 2 if retry_on_timeout else 1
+    proc = None
+    for attempt in range(1, attempts + 1):
+        try:
+            proc = subprocess.run(
+                cmd, cwd=str(_REPO_ROOT),
+                capture_output=True, text=True, timeout=_TIMEOUT_S,
+            )
+            break
+        except subprocess.TimeoutExpired:
+            _rollback_partial()
+            _rollback_collateral()
+            if attempt < attempts:
+                _log.warning("claude -p timed out after %ss writing %s — retrying once",
+                             _TIMEOUT_S, out_path.name)
+                continue
+            retried = " (retried once)" if attempts > 1 else ""
+            return {"ok": False,
+                    "error": f"Timed out after {_TIMEOUT_S // 60} minutes{retried}.",
+                    "duration_s": time.time() - started, "cost_usd": None}
 
     duration = time.time() - started
 
@@ -174,6 +225,23 @@ def _run_claude(prompt: str, out_path: Path, collateral: list | None = None) -> 
                         "error": f"Claude's edit broke {p.name} ({ye}). "
                                  f"All files were restored to their pre-run state.",
                         "duration_s": duration, "cost_usd": cost}
+
+    # Optional integrity check (lesson-ledger lint after a review): same
+    # rollback semantics as a broken YAML — a ledger with duplicate ids or
+    # dateless evidence is worse than no review.
+    if post_check is not None:
+        try:
+            problems = list(post_check() or [])
+        except Exception as pe:  # noqa: BLE001 — a crashing check is itself a problem
+            problems = [f"integrity check crashed: {pe}"]
+        if problems:
+            _rollback_partial()
+            _rollback_collateral()
+            return {"ok": False,
+                    "error": "Claude's edit failed the ledger check — "
+                             + "; ".join(problems[:5])
+                             + ". All files were restored to their pre-run state.",
+                    "duration_s": duration, "cost_usd": cost}
 
     return {"ok": True, "error": None, "duration_s": duration, "cost_usd": cost}
 
@@ -339,6 +407,7 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
     """Build the bundle (articles + every loaded vendor projection) and run headless
     Claude to write the slate strategy to data/slate_analysis/<slug>.md."""
     out_path = _REPO_ROOT / "data" / "slate_analysis" / f"{slug}.md"
+    refresh_trimmed_views(slug)
     bundle_path = build_bundle(slug, contest_label, sport)
     prompt = (
         f"Write the {contest_label} slate strategy from EVERYTHING uploaded for this slate — "
@@ -349,13 +418,16 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"reads them visually; do not skip a file because it looks redundant) AND the `## Projections` "
         f"tables in the bundle (every loaded vendor's ownership/projection numbers). Then read the "
         f"strategy docs the bundle references for sport `{sport}`: `rules/{slug}/philosophy.md`, "
-        f"`rules/{slug}/framework.md`, `rules/{slug}/autopsies.md`, `rules/{slug}/lessons.yaml`, "
+        f"`rules/{slug}/framework.md`, `rules/{slug}/autopsies_recent.md` (the last "
+        f"{RECENT_AUTOPSIES_N} logged autopsies — do NOT open the full autopsies.md), "
+        f"`rules/{slug}/lessons_open.md` (the open hypothesis/validated lessons plus the codified "
+        f"ids — do NOT open the full lessons.yaml), "
         f"`rules/shared/anchor_equivalence.md`, `rules/shared/sharp_playbook.md`, and the venue "
         f"file for this slate's venue (golf → rules/pga_classic/courses, nascar → "
         f"rules/nascar/tracks; mma and nfl have none — create a stub marked "
         f"UNVERIFIED if the venue file is missing).\n\n"
         f"SOURCE-OF-TRUTH RULE: synthesize from BOTH the articles AND the vendor projections, "
-        f"cross-checked against the framework and the OPEN lessons in lessons.yaml. BLEND the "
+        f"cross-checked against the framework and the OPEN lessons in lessons_open.md. BLEND the "
         f"qualitative article reads with the projection ownership/projections; cite each ownership "
         f"or projection number from its source (name the article OR the vendor). Where the vendors "
         f"disagree with each other, or a vendor disagrees with the articles, SURFACE that gap — it "
@@ -385,7 +457,7 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"bundle's generation date + article file dates against today); if they look stale, do NOT "
         f"analyze a prior slate — instead open the doc with a single bold `⚠️` warning line and stop. "
         f"Read EVERY `articles/{slug}/` file (never silently skip one). Read the venue file. Read "
-        f"`rules/{slug}/lessons.yaml` — apply every open lesson (hypothesis/validated) in the decisions "
+        f"`rules/{slug}/lessons_open.md` — apply every open lesson (hypothesis/validated) in the decisions "
         f"where it fits, and silently drop the ones whose mechanism doesn't. Run the framework's "
         f"pre-lock checks including Anchor-Equivalence (surfaced as a tension in `## Edges & tensions`). "
         f"If the bundle has a `## Process trend` section, read the SEQUENCES: a recurring weakness "
@@ -597,7 +669,7 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"for the salary rules), `players` (exact names as they appear in the projections; omit "
         f"for salary rules), `why` (≤12 words quoting the read it comes from), `from` "
         f"('strategy' when it is this slate's own read, or the lesson id from "
-        f"`rules/{slug}/lessons.yaml` when a CODIFIED lesson is the source).\n"
+        f"`rules/{slug}/lessons_open.md`'s codified-ids list when a CODIFIED lesson is the source).\n"
         f"   `portfolio_rules` — checks on the SET of entries across every contest. Each item: "
         f"`rule` (min_entries_with = at least `count` entries hold ≥1 of `players`; "
         f"max_entries_with = at most `count` entries hold ≥1 of `players`; max_exposure_pct = "
@@ -606,15 +678,16 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"anchor), NEVER a per-lineup ban, unless step 3 refused the pair for a stated reason. A "
         f"dart or low-owned RATE ('about one dart across the entries') is max_entries_with, never "
         f"a lineup rule. NEVER write a lineup rule that REQUIRES a low-owned player. The `from` "
-        f"field is how codified lessons get enforced: read every `status: codified` lesson in "
-        f"`rules/{slug}/lessons.yaml`, and for each one whose mechanism fits THIS slate and can "
+        f"field is how codified lessons get enforced: read the codified-ids list at the end of "
+        f"`rules/{slug}/lessons_open.md` (each id names its framework/philosophy section, where "
+        f"the rule text lives), and for each one whose mechanism fits THIS slate and can "
         f"be checked on a roster, write its rule here with `from: <lesson id>`; lessons that do "
         f"not fit this slate, and hypothesis/validated lessons, are NOT written. Names must be "
         f"exact projection-sheet names, one rule per line-item, no prose inside the block, no "
         f"rule you cannot point to in the sections above. An empty list is legal and honest.\n\n"
         f"Do not ask any questions — read the inputs and produce the file."
     )
-    return _run_claude(prompt, out_path)
+    return _run_claude(prompt, out_path, retry_on_timeout=True)
 
 
 def run_grade(slug: str, contest_label: str, sport: str, lineups_text: str,
@@ -1035,10 +1108,11 @@ def run_player_pool(slug: str, contest_label: str, sport: str) -> dict:
         return {"ok": False, "error": "Player pool is empty — check the loaded projections.",
                 "duration_s": 0.0, "cost_usd": None}
     out_path = _REPO_ROOT / "data" / "player_pool" / f"{slug}.md"
+    refresh_trimmed_views(slug)
     bundle_path = build_bundle(slug, contest_label, sport)
     prompt = build_player_pool_prompt(full, removed, strategy_note, slug, contest_label,
                                       sport, out_path, bundle_path)
-    return _run_claude(prompt, out_path)
+    return _run_claude(prompt, out_path, retry_on_timeout=True)
 
 
 def split_nfl_classic_pool(full, removed: list | None = None):
@@ -1432,6 +1506,17 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str, hist_dir=None)
         f"with this slate's date and history dir; promote status to 'validated' where confirmations "
         f"exist; add new 'hypothesis' lessons born from this autopsy — mechanism-based, not "
         f"result-based. A recurring shark-gap axis (1b) should birth or confirm a mechanism lesson.\n"
+        f"   LEDGER DISCIPLINE (9/19/26): prefer CONFIRMING or CONTRADICTING an EXISTING open "
+        f"lesson over writing a new one. Every existing hypothesis/validated lesson that tonight's "
+        f"data touched (its mechanism could fire on this slate) MUST get a confirmation OR a "
+        f"contradiction entry — never leave a testable lesson silent. Write at most 2 NEW "
+        f"hypothesis lessons per review, unless this slate produced a genuinely new mechanism "
+        f"no existing lesson covers (say so in one line when you go past 2).\n"
+        f"   NEW LESSON IDS follow the dated-slug convention "
+        f"`{slug.replace('_', '-')}-YYYY-MM-DD-<short-kebab>` (example: "
+        f"`{slug.replace('_', '-')}-2026-09-19-te-bring-back`). Never rename an existing id. "
+        f"Every confirmation/contradiction entry carries `date` (YYYY-MM-DD) and "
+        f"`history_dir` (this slate's archive dir) plus a one-line `note`.\n"
         f"3. UPDATE THE VENUE FILE for this slate's venue (sport `{sport}`; see CLAUDE.md for the "
         f"venue dir; create the file from the archived strategy if missing): append a date-stamped "
         f"'Per-slate observation' line with what this slate proved or disproved about the venue. "
@@ -1499,8 +1584,11 @@ def run_autopsy_review(slug: str, contest_label: str, sport: str, hist_dir=None)
     # lessons.yaml is a collateral edit of this run — snapshot/restore + parse
     # gate. The venue file is append-mostly and its path isn't statically
     # known, so it stays unsnapshotted.
+    refresh_trimmed_views(slug)
+    from src.lessons_lint import lint_lessons
     return _run_claude(prompt, out_path,
-                       collateral=[_REPO_ROOT / "rules" / slug / "lessons.yaml"])
+                       collateral=[_REPO_ROOT / "rules" / slug / "lessons.yaml"],
+                       post_check=lambda: lint_lessons(slug))
 
 
 def run_apply_proposals(slug: str, hist_dir=None) -> dict:

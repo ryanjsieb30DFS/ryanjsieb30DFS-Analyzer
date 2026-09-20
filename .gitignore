@@ -48,3 +48,8 @@ rules/**/history/**/sim_pool.csv
 
 # Preliminary projections snapshot (NFL Classic stage 2 diff) — per-slate.
 data/projections_prev/
+
+# Generated trimmed views the headless runs read instead of the full ledgers
+# (src/lessons_view.py, regenerated before every strategy / pool / review run).
+rules/**/lessons_open.md
+rules/**/autopsies_recent.md

@@ -130,7 +130,8 @@ def results_md(res: dict | None) -> str | None:
             f"| {c.get('my_entries') or 0} "
             f"| {c.get('best_rank') or '—'} "
             f"| {f'top {pct}%' if pct is not None else '—'} |")
-    best = res.get("best_percentile")
+    from src.history import headline_percentile
+    best = headline_percentile(res)
     total = res.get("total_buy_in")
     tail = []
     if best is not None:
