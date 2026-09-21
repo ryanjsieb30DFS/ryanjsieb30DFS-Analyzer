@@ -684,8 +684,36 @@ def run_analysis(slug: str, contest_label: str, sport: str) -> dict:
         f"be checked on a roster, write its rule here with `from: <lesson id>`; lessons that do "
         f"not fit this slate, and hypothesis/validated lessons, are NOT written. Names must be "
         f"exact projection-sheet names, one rule per line-item, no prose inside the block, no "
-        f"rule you cannot point to in the sections above. An empty list is legal and honest.\n\n"
-        f"Do not ask any questions — read the inputs and produce the file."
+        f"rule you cannot point to in the sections above. An empty list is legal and honest.\n"
+        + (
+            f"   `portfolio_plan` — the SHAPE of the entry set, which no rule can carry, for EVERY "
+            f"sport. Write it whenever the declared contest takes more than one entry OR two or "
+            f"more contests are declared; for a single-entry, one-contest slate write one slot. "
+            f"The Sim tool seeds its entry-plan table from this block, so an entry story that is "
+            f"not here gets no entries on purpose. Two lists. `slots`: one item per entry story "
+            f"named in step 1 (anchor decision) and step 5 (entries), each with `label`, `share` "
+            f"(the fraction of the entry set, 0–1; the shares sum to about 1), `require` (exact "
+            f"sheet names that must ALL be in the lineup — the anchor of that story), `require_any` "
+            f"(at least one of these names — the leverage piece or the bring-back, optional), "
+            f"`exclude` (none of these names, optional)"
+            + (f", and for Showdown also `cpt_team` (the captain's team code as the sheet prints "
+               f"it, or omit for either team), `captains` (the captain candidates for that story) "
+               f"and `split` (a mapping of team code to [min, max] players from that team, defense "
+               f"included)" if slug == "nfl_sd" else "")
+            + f". `anchors`"
+            + (f": the captain ladder from step 1 — each item `player` and `share` (fraction of "
+               f"entries wearing the captain tag; the biggest share belongs to the captain step 1 "
+               f"argued for, never above 0.35, and the list covers at least half the set)."
+               if slug == "nfl_sd" else
+               f": the quarterback ladder from step 1 — each item `player` (a quarterback) and "
+               f"`share` (fraction of entries built around him)." if slug == "nfl_classic" else
+               f": leave empty for this sport; the anchors are the `require` names of each slot.")
+            + f" Every name must already appear in the sections above; the plan never invents a "
+            f"player. When step 6 flags dead builds (minimum-priced players with no ceiling), also "
+            f"write the rate as a `portfolio_rules` max_entries_with on those names — the picker "
+            f"otherwise fills the cheapest spot with a salary dummy in every entry.\n\n"
+        )
+        + f"Do not ask any questions — read the inputs and produce the file."
     )
     return _run_claude(prompt, out_path, retry_on_timeout=True)
 

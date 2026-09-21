@@ -261,3 +261,118 @@ def test_contract_carries_slate_title_from_first_heading(tmp_path, monkeypatch):
     # heading beats none), and a headingless strategy yields None.
     p2 = write_contract("nascar", "no headings here", _sources())
     assert json.loads(p2.read_text())["slate"] is None
+
+
+# ---------------------------------------------------------------------------
+# 9/20/26 — the portfolio PLAN (story mix + captain ladder) rides the block
+# ---------------------------------------------------------------------------
+_PLAN_MD = """
+# NFL Showdown slate strategy — Colts at Chiefs
+
+## Build rules
+
+```yaml
+lineup_rules:
+  - rule: at_most
+    count: 1
+    players: [Harrison Butker, Spencer Shrader]
+    why: never two kickers
+portfolio_rules: []
+portfolio_plan:
+  stories:
+    - label: Chiefs rout
+      cpt_team: kc
+      captains: [Kenneth Walker III, Chiefs]
+      split: {KC: [4, 5], IND: [1, 2]}
+      share: 0.35
+    - label: Competitive
+      captains: [Patrick Mahomes, Rashee Rice]
+      split: {KC: [3, 4], IND: [2, 3]}
+      share: 35
+    - label: Garbage time
+      cpt_team: IND
+      split: {KC: 2, IND: 4}
+      share: 0.2
+    - label: Upset
+      cpt_team: IND
+      captains: [Nobody Real]
+      share: 0.1
+  captains:
+    - {player: Patrick Mahomes, share: 0.25}
+    - {player: Rashee Rice, share: 0.10}
+    - {player: Ghost Player, share: 0.10}
+```
+"""
+
+
+def _plan_universe():
+    names = ["Kenneth Walker III", "Patrick Mahomes", "Rashee Rice", "Chiefs",
+             "Harrison Butker", "Spencer Shrader"]
+    return {sc._norm_name(n): n for n in names}
+
+
+def test_portfolio_plan_parses_stories_and_captains_with_name_resolution():
+    out = sc.parse_build_rules(_PLAN_MD, _plan_universe())
+    plan = out["portfolio_plan"]
+    assert plan is not None and len(plan["slots"]) == 4
+    rout = plan["slots"][0]
+    assert rout["cpt_team"] == "KC" and rout["captains"] == ["Kenneth Walker III", "Chiefs"]
+    assert rout["split"] == {"KC": [4, 5], "IND": [1, 2]} and rout["share"] == 0.35
+    assert plan["slots"][1]["cpt_team"] == "" and plan["slots"][1]["share"] == 0.35   # 35 → 0.35
+    assert plan["slots"][2]["split"] == {"KC": [2, 2], "IND": [4, 4]}                   # scalar split
+    assert plan["slots"][3]["captains"] == []                                          # unknown captain dropped, story kept
+    assert [c["player"] for c in plan["anchors"]] == ["Patrick Mahomes", "Rashee Rice"]  # ghost dropped
+    assert any("Nobody Real" in e for e in out["errors"]) and any("Ghost Player" in e for e in out["errors"])
+    assert out["lineup_rules"][0]["players"] == ["Harrison Butker", "Spencer Shrader"]  # the old lists still parse
+
+
+def test_portfolio_plan_is_none_when_absent():
+    md = _PLAN_MD.split("portfolio_plan:")[0] + "```\n"
+    out = sc.parse_build_rules(md, _plan_universe())
+    assert out["portfolio_plan"] is None and out["present"] is True
+
+
+def test_contract_payload_carries_portfolio_plan(tmp_path, monkeypatch):
+    monkeypatch.setattr(sc, "_path", lambda slug: tmp_path / f"{slug}.json")
+    df = pd.DataFrame([{"name": n, "salary": 8000, "proj_points": 10.0, "ownership": 9.0,
+                        "position": "WR", "team": "KC"}
+                       for n in ["Kenneth Walker III", "Patrick Mahomes", "Rashee Rice", "Chiefs",
+                                 "Harrison Butker", "Spencer Shrader"]])
+    p = write_contract("nfl_sd", _PLAN_MD, {"src.csv": {"vendor": "ETR NFL SD", "df": df}})
+    data = json.loads(p.read_text())
+    assert data["portfolio_plan"]["anchors"][0] == {"player": "Patrick Mahomes", "share": 0.25, "why": ""}
+    assert data["portfolio_plan"]["slots"][0]["label"] == "Chiefs rout"
+
+
+_MMA_PLAN_MD = """
+# UFC slate strategy
+
+## Build rules
+
+```yaml
+lineup_rules: []
+portfolio_rules: []
+portfolio_plan:
+  slots:
+    - label: Tsarukyan anchor, Brito leverage
+      share: 0.4
+      require: [Arman Tsarukyan]
+      require_any: [Joanderson Brito, Nobody Here]
+      exclude: [Joshua Van]
+    - label: Van main event
+      share: 0.6
+      require: [Joshua Van, Arman Tsarukyan]
+```
+"""
+
+
+def test_portfolio_plan_universal_slots_for_any_sport():
+    uni = {sc._norm_name(n): n for n in ["Arman Tsarukyan", "Joanderson Brito", "Joshua Van"]}
+    out = sc.parse_build_rules(_MMA_PLAN_MD, uni)
+    plan = out["portfolio_plan"]
+    assert [s["label"] for s in plan["slots"]] == ["Tsarukyan anchor, Brito leverage", "Van main event"]
+    a, b = plan["slots"]
+    assert a["require"] == ["Arman Tsarukyan"] and a["require_any"] == ["Joanderson Brito"]
+    assert a["exclude"] == ["Joshua Van"] and a["share"] == 0.4 and a["cpt_team"] == "" and a["captains"] == []
+    assert b["require"] == ["Joshua Van", "Arman Tsarukyan"] and plan["anchors"] == []
+    assert any("Nobody Here" in e for e in out["errors"])

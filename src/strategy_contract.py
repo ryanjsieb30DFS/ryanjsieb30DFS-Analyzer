@@ -125,7 +125,8 @@ def parse_build_rules(strategy_md: str, universe: dict | None = None) -> dict:
     `errors` (a rule about a player who is not on the sheet can never be
     checked, and a silently-kept half-rule would enforce the wrong thing).
     Never raises: a missing or malformed block yields empty lists + errors."""
-    out = {"lineup_rules": [], "portfolio_rules": [], "errors": [], "present": False}
+    out = {"lineup_rules": [], "portfolio_rules": [], "errors": [], "present": False,
+           "portfolio_plan": None}
     md = strategy_md or ""
     m = _BUILD_RULES_HEADING.search(md)
     if not m:
@@ -229,7 +230,94 @@ def parse_build_rules(strategy_md: str, universe: dict | None = None) -> dict:
             row["count"] = c
             row["players"] = good
         out["portfolio_rules"].append(row)
+
+    out["portfolio_plan"] = _parse_portfolio_plan(data.get("portfolio_plan"), _resolve, out["errors"])
     return out
+
+
+def _parse_portfolio_plan(raw, _resolve, errors: list) -> dict | None:
+    """The strategy's PORTFOLIO PLAN (9/20/26) — the part of a strategy that
+    is neither a lineup rule nor a set-level rule but a SHAPE: which entry
+    stories get how many entries, and (NFL) which anchors carry the set.
+    Before this, the Sim's picker got the two rule lists and nothing else, so
+    the 9/20 20-max set held zero Mahomes captains on a slate whose strategy
+    named Mahomes the captain. Shape, not rules: the Sim seeds its entry-plan
+    table from it; nothing is banned. Universal across sports (9/20/26 PM):
+
+      portfolio_plan:
+        slots:                       # one item per entry story, any sport
+          - label: Tsarukyan anchor, Brito leverage
+            share: 0.25              # fraction of the entry set (35 = 0.35)
+            require: [Arman Tsarukyan]          # every one in the lineup
+            require_any: [Joanderson Brito]     # at least one of
+            exclude: [Joshua Van]               # none of
+            # NFL Showdown only:
+            cpt_team: KC
+            captains: [Kenneth Walker III]
+            split: {KC: [4, 5], IND: [1, 2]}
+        anchors:                     # NFL only: the captain (SD) / QB (Classic) ladder
+          - {player: Patrick Mahomes, share: 0.20}
+
+    `stories` / `captains` are accepted as aliases of `slots` / `anchors`.
+    Unknown players are dropped and reported; a slot with no usable field
+    is dropped. Returns None when the block is absent or empty."""
+    if not isinstance(raw, dict):
+        return None
+
+    def _share(v) -> float:
+        try:
+            x = float(v)
+        except (TypeError, ValueError):
+            return 0.0
+        if x > 1.0:
+            x = x / 100.0
+        return max(0.0, min(1.0, x))
+
+    def _names(item, key, label) -> list[str]:
+        good, bad = _resolve(item.get(key))
+        if bad:
+            errors.append(f"portfolio_plan slot '{label}': unknown {key} {', '.join(bad)} — dropped from the slot")
+        return good
+
+    slots = []
+    for item in (raw.get("slots") or raw.get("stories") or []):
+        if not isinstance(item, dict):
+            continue
+        label = str(item.get("label") or "").strip()
+        cpt_team = str(item.get("cpt_team") or item.get("captain_team") or "").upper().strip()
+        captains = _names({"captains": item.get("captains") or item.get("cpt_names")}, "captains", label)
+        require = _names(item, "require", label)
+        require_any = _names(item, "require_any", label)
+        exclude = _names(item, "exclude", label)
+        split = {}
+        for team, rng in (item.get("split") or {}).items():
+            try:
+                if isinstance(rng, (list, tuple)) and len(rng) == 2:
+                    lo, hi = int(float(rng[0])), int(float(rng[1]))
+                else:
+                    lo = hi = int(float(rng))
+            except (TypeError, ValueError):
+                continue
+            split[str(team).upper().strip()] = [max(0, lo), max(lo, hi)]
+        if not (label or cpt_team or captains or split or require or require_any or exclude):
+            continue
+        slots.append({"label": label or f"Slot {len(slots) + 1}", "cpt_team": cpt_team,
+                      "captains": captains, "split": split, "share": _share(item.get("share")),
+                      "require": require, "require_any": require_any, "exclude": exclude,
+                      "why": str(item.get("why") or "").strip()})
+    anchors = []
+    for item in (raw.get("anchors") or raw.get("captains") or []):
+        if not isinstance(item, dict):
+            continue
+        good, bad = _resolve([item.get("player")] if item.get("player") else item.get("players"))
+        if bad or not good:
+            errors.append(f"portfolio_plan anchor: unknown player {', '.join(bad) or '?'} — dropped")
+            continue
+        anchors.append({"player": good[0], "share": _share(item.get("share")),
+                        "why": str(item.get("why") or "").strip()})
+    if not slots and not anchors:
+        return None
+    return {"slots": slots, "anchors": anchors}
 
 
 def _slate_title(md: str) -> str | None:
@@ -341,6 +429,9 @@ def write_contract(slug: str, strategy_md: str, sources: dict) -> Path:
         "portfolio_rules": build_rules["portfolio_rules"],
         "build_rules": {"present": build_rules["present"],
                         "errors": build_rules["errors"]},
+        # The strategy's portfolio PLAN (9/20/26): entry-slot mix (+ NFL
+        # anchor ladder), any sport. The Sim seeds its picker from it.
+        "portfolio_plan": build_rules.get("portfolio_plan"),
         # The tiered player board (Core/Good/Okay/Fade + Leverage), machine-
         # readable, so the Sim can show each player's tier at build time. Rides
         # the contract because the contract already has the full slate
