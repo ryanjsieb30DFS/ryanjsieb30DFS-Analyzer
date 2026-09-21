@@ -1,0 +1,94 @@
+{
+  "gradable": true,
+  "n_lineups": 20,
+  "n_contests": 1,
+  "calls": [
+    {
+      "name": "Keenan Allen",
+      "verdict": "lean_fade",
+      "exposure_pct": 15.0,
+      "in_lineups": 3,
+      "of": 20,
+      "followed": true
+    },
+    {
+      "name": "Daniel Jones",
+      "verdict": "underweight",
+      "exposure_pct": 35.0,
+      "in_lineups": 7,
+      "of": 20,
+      "followed": true
+    },
+    {
+      "name": "Harrison Butker",
+      "verdict": "underweight",
+      "exposure_pct": 15.0,
+      "in_lineups": 3,
+      "of": 20,
+      "followed": true
+    },
+    {
+      "name": "Spencer Shrader",
+      "verdict": "underweight",
+      "exposure_pct": 5.0,
+      "in_lineups": 1,
+      "of": 20,
+      "followed": true
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 0,
+  "leverage_candidates": [
+    {
+      "name": "Noah Gray",
+      "rostered": true
+    },
+    {
+      "name": "Seth McGowan",
+      "rostered": false
+    },
+    {
+      "name": "Mo Alie-Cox",
+      "rostered": true
+    },
+    {
+      "name": "Laquon Treadwell",
+      "rostered": true
+    },
+    {
+      "name": "Cyrus Allen",
+      "rostered": false
+    },
+    {
+      "name": "Jake Briningstool",
+      "rostered": false
+    },
+    {
+      "name": "Drew Ogletree",
+      "rostered": false
+    },
+    {
+      "name": "Brashard Smith",
+      "rostered": false
+    },
+    {
+      "name": "Ben VanSumeren",
+      "rostered": true
+    },
+    {
+      "name": "Jalen Royals",
+      "rostered": false
+    },
+    {
+      "name": "Nikko Remigio",
+      "rostered": false
+    },
+    {
+      "name": "Deion Burks",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 4,
+  "leverage_of": 12
+}

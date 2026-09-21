@@ -110,3 +110,27 @@ This file is a running log of distilled process lessons from post-contest autops
 | **Okay** | 16 | 3.9 | 14.3 |
 | **Fade** | 6 | 1.1 | 4.8 |
 - ✅ Tier ordering HELD — higher tiers outscored lower ones on average.
+
+
+## 2026-09-21 18:15 — NFL Showdown (contest-standings-195785965.csv)
+- Entries: 47,562
+- Winning score: 159.7
+- Cash line (top 20%): 131.8
+- My entries: 20 · best rank 8,248/47,562 (top 17.3%)
+- Winners (top 100): avg own 47.71% vs mine 39.94% · sub-10% plays/lineup 0.14 vs mine 0.2 · salary Δ +549
+- Overperformed proj: Travis Kelce, Patrick Mahomes, Jonathan Taylor
+- Underperformed proj: Keenan Allen, Alec Pierce, Chiefs
+- Slate-defining plays: Tyquan Thornton (12.6 pts @ 10.5%)
+
+### Strategy adherence — did you follow your own strategy? (20 unique lineups)
+- ✅ Every hard FADE honored.
+- Leverage candidates rostered somewhere: **4 of 12**.
+
+### Player-pool tier calibration (30 of 30 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 3 | 29.3 | 32.0 |
+| **Good** | 7 | 12.2 | 28.1 |
+| **Okay** | 10 | 7.3 | 17.0 |
+| **Fade** | 10 | 1.0 | 8.6 |
+- ✅ Tier ordering HELD — higher tiers outscored lower ones on average.

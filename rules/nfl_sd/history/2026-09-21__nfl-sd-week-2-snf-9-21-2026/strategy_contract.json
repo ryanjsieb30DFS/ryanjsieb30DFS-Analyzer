@@ -1,0 +1,419 @@
+{
+  "generated_at": "2026-09-20 19:37",
+  "slug": "nfl_sd",
+  "slate": "NFL Showdown slate strategy \u2014 Colts at Chiefs, Sunday Night, September 20, 2026",
+  "calls": [
+    {
+      "name": "Keenan Allen",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Daniel Jones",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Harrison Butker",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Spencer Shrader",
+      "verdict": "underweight"
+    }
+  ],
+  "fades": [],
+  "leverage_candidates": [
+    {
+      "name": "Noah Gray",
+      "own": 8.7
+    },
+    {
+      "name": "Seth McGowan",
+      "own": 3.1
+    },
+    {
+      "name": "Mo Alie-Cox",
+      "own": 3.4
+    },
+    {
+      "name": "Laquon Treadwell",
+      "own": 3.0
+    },
+    {
+      "name": "Cyrus Allen",
+      "own": 1.6
+    },
+    {
+      "name": "Jake Briningstool",
+      "own": 0.8
+    },
+    {
+      "name": "Drew Ogletree",
+      "own": 0.8
+    },
+    {
+      "name": "Brashard Smith",
+      "own": 1.0
+    },
+    {
+      "name": "Ben VanSumeren",
+      "own": 0.4
+    },
+    {
+      "name": "Jalen Royals",
+      "own": 0.6
+    },
+    {
+      "name": "Nikko Remigio",
+      "own": 0.6
+    },
+    {
+      "name": "Deion Burks",
+      "own": 0.6
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Patrick Mahomes",
+        "Kenneth Walker III"
+      ],
+      "joint_pct": 44.0
+    },
+    {
+      "players": [
+        "Patrick Mahomes",
+        "Jonathan Taylor"
+      ],
+      "joint_pct": 38.7
+    },
+    {
+      "players": [
+        "Kenneth Walker III",
+        "Jonathan Taylor"
+      ],
+      "joint_pct": 35.4
+    },
+    {
+      "players": [
+        "Patrick Mahomes",
+        "Daniel Jones"
+      ],
+      "joint_pct": 29.3
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Daniel Jones",
+        "Xavier Worthy",
+        "Travis Kelce",
+        "Rashee Rice"
+      ]
+    },
+    {
+      "players": [
+        "Josh Downs",
+        "Harrison Butker",
+        "Keenan Allen"
+      ]
+    },
+    {
+      "players": [
+        "Spencer Shrader",
+        "Alec Pierce",
+        "Chiefs"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "lineup_rules": [
+    {
+      "rule": "at_most",
+      "why": "three or more kicker-plus-defense pieces won about 1% of slates",
+      "from": "strategy",
+      "count": 2,
+      "players": [
+        "Harrison Butker",
+        "Spencer Shrader",
+        "Chiefs",
+        "Colts"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never two kickers; step 7 pre-lock check",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Harrison Butker",
+        "Spencer Shrader"
+      ]
+    }
+  ],
+  "portfolio_rules": [
+    {
+      "rule": "min_entries_with",
+      "why": "Anchor-Equivalence, Taylor is the less-picked twin of Walker",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Jonathan Taylor"
+      ]
+    },
+    {
+      "rule": "min_entries_with",
+      "why": "no-kicker-no-defense is a choice, a rate across the set",
+      "from": "nfl_sd_six_skill_default",
+      "count": 8,
+      "players": [
+        "Harrison Butker",
+        "Spencer Shrader",
+        "Chiefs",
+        "Colts"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "LEAN FADE, lowest ceiling of any $5K-plus catcher at 26% owned",
+      "from": "strategy",
+      "count": 3,
+      "players": [
+        "Keenan Allen"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT, 42.3% owned for a 23.9 ceiling, garbage-time entries only",
+      "from": "strategy",
+      "count": 7,
+      "players": [
+        "Daniel Jones"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT, 27.4% owned outdoors, two ranks ahead of projection",
+      "from": "strategy",
+      "count": 5,
+      "players": [
+        "Harrison Butker"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT, 23.8% owned outdoor underdog kicker",
+      "from": "strategy",
+      "count": 4,
+      "players": [
+        "Spencer Shrader"
+      ]
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "exposure stays under the field's 69.3% rate, twin drift check",
+      "from": "strategy",
+      "player": "Patrick Mahomes",
+      "value": 65
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "exposure stays under the field's 63.5% rate, twin drift check",
+      "from": "strategy",
+      "player": "Kenneth Walker III",
+      "value": 60
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "exposure stays under the field's 55.8% rate, twin drift check",
+      "from": "strategy",
+      "player": "Jonathan Taylor",
+      "value": 50
+    }
+  ],
+  "build_rules": {
+    "present": true,
+    "errors": []
+  },
+  "board": [
+    {
+      "name": "Kenneth Walker III",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Patrick Mahomes",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Jonathan Taylor",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Rashee Rice",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Tyler Warren",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Alec Pierce",
+      "tier": "Good",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Xavier Worthy",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Chiefs",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Travis Kelce",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Josh Downs",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Tyquan Thornton",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Emmett Johnson",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Daniel Jones",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Harrison Butker",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "K"
+    },
+    {
+      "name": "Colts",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Spencer Shrader",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "K"
+    },
+    {
+      "name": "Keenan Allen",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Noah Gray",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "Mo Alie-Cox",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "Laquon Treadwell",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Seth McGowan",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Cyrus Allen",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Brashard Smith",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Jake Briningstool",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Drew Ogletree",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Ben VanSumeren",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Jalen Royals",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Nikko Remigio",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Deion Burks",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Anthony Gould",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    }
+  ]
+}

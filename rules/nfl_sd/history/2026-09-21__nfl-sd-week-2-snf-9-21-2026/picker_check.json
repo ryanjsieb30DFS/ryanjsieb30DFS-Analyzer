@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "slug": "nfl_sd",
+  "contests": [
+    {
+      "date": "2026-09-21",
+      "contest": "NFL Showdown $40K First Down",
+      "winning_score": 159.7,
+      "pool_n": 10150,
+      "pool_max": 159.7,
+      "pool_held_winner": true,
+      "n_pool_ge_win": 2,
+      "pick_actual": 132.5,
+      "pick_won": false,
+      "pick_pool_pctile": 94.2,
+      "pick_source": "entered",
+      "n_entered": 20
+    }
+  ],
+  "note": null,
+  "generated_at": "2026-09-21 18:15"
+}

@@ -1,0 +1,269 @@
+{
+  "gradable": true,
+  "n_lineups": 20,
+  "lineups": [
+    {
+      "players": [
+        "Kenneth Walker III",
+        "Patrick Mahomes",
+        "Rashee Rice",
+        "Travis Kelce",
+        "Tyler Warren",
+        "Tyquan Thornton"
+      ],
+      "percentile": 17.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Chiefs",
+        "Jonathan Taylor",
+        "Kenneth Walker III",
+        "Patrick Mahomes",
+        "Travis Kelce",
+        "Xavier Worthy"
+      ],
+      "percentile": 21.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alec Pierce",
+        "Kenneth Walker III",
+        "Patrick Mahomes",
+        "Travis Kelce",
+        "Tyquan Thornton",
+        "Xavier Worthy"
+      ],
+      "percentile": 21.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Daniel Jones",
+        "Harrison Butker",
+        "Jonathan Taylor",
+        "Josh Downs",
+        "Travis Kelce",
+        "Xavier Worthy"
+      ],
+      "percentile": 27.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Jonathan Taylor",
+        "Rashee Rice",
+        "Travis Kelce",
+        "Tyler Warren",
+        "Tyquan Thornton",
+        "Xavier Worthy"
+      ],
+      "percentile": 34.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Harrison Butker",
+        "Josh Downs",
+        "Kenneth Walker III",
+        "Patrick Mahomes",
+        "Rashee Rice",
+        "Xavier Worthy"
+      ],
+      "percentile": 34.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Josh Downs",
+        "Kenneth Walker III",
+        "Laquon Treadwell",
+        "Patrick Mahomes",
+        "Rashee Rice",
+        "Xavier Worthy"
+      ],
+      "percentile": 35.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alec Pierce",
+        "Chiefs",
+        "Kenneth Walker III",
+        "Patrick Mahomes",
+        "Travis Kelce",
+        "Xavier Worthy"
+      ],
+      "percentile": 50.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Kenneth Walker III",
+        "Mo Alie-Cox",
+        "Patrick Mahomes",
+        "Rashee Rice",
+        "Tyler Warren",
+        "Xavier Worthy"
+      ],
+      "percentile": 56.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Josh Downs",
+        "Kenneth Walker III",
+        "Noah Gray",
+        "Patrick Mahomes",
+        "Rashee Rice",
+        "Xavier Worthy"
+      ],
+      "percentile": 56.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Jonathan Taylor",
+        "Josh Downs",
+        "Keenan Allen",
+        "Rashee Rice",
+        "Travis Kelce",
+        "Tyler Warren"
+      ],
+      "percentile": 58.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alec Pierce",
+        "Daniel Jones",
+        "Josh Downs",
+        "Patrick Mahomes",
+        "Travis Kelce",
+        "Xavier Worthy"
+      ],
+      "percentile": 66.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alec Pierce",
+        "Ben VanSumeren",
+        "Jonathan Taylor",
+        "Kenneth Walker III",
+        "Patrick Mahomes",
+        "Xavier Worthy"
+      ],
+      "percentile": 74.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Chiefs",
+        "Josh Downs",
+        "Kenneth Walker III",
+        "Rashee Rice",
+        "Travis Kelce",
+        "Tyler Warren"
+      ],
+      "percentile": 77.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Colts",
+        "Daniel Jones",
+        "Josh Downs",
+        "Keenan Allen",
+        "Kenneth Walker III",
+        "Patrick Mahomes"
+      ],
+      "percentile": 88.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alec Pierce",
+        "Daniel Jones",
+        "Harrison Butker",
+        "Rashee Rice",
+        "Travis Kelce",
+        "Tyler Warren"
+      ],
+      "percentile": 89.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alec Pierce",
+        "Keenan Allen",
+        "Kenneth Walker III",
+        "Patrick Mahomes",
+        "Tyler Warren",
+        "Xavier Worthy"
+      ],
+      "percentile": 91.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alec Pierce",
+        "Colts",
+        "Daniel Jones",
+        "Kenneth Walker III",
+        "Patrick Mahomes",
+        "Xavier Worthy"
+      ],
+      "percentile": 93.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alec Pierce",
+        "Daniel Jones",
+        "Rashee Rice",
+        "Travis Kelce",
+        "Tyler Warren",
+        "Tyquan Thornton"
+      ],
+      "percentile": 93.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alec Pierce",
+        "Daniel Jones",
+        "Josh Downs",
+        "Rashee Rice",
+        "Spencer Shrader",
+        "Tyler Warren"
+      ],
+      "percentile": 98.5,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    17.3,
+    21.5,
+    21.8,
+    27.5,
+    34.4,
+    34.8,
+    35.9,
+    50.0,
+    56.3,
+    56.9,
+    58.4,
+    66.9,
+    74.4,
+    77.9,
+    88.1,
+    89.0,
+    91.5,
+    93.2,
+    93.7,
+    98.5
+  ]
+}
