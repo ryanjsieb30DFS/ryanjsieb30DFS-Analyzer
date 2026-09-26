@@ -1,0 +1,33 @@
+{
+  "slug": "nfl_classic",
+  "sport": "nfl",
+  "contest_label": "NFL Classic",
+  "date": "2026-09-26",
+  "slate_label": "NFL Classic Week 2 9.20.2026",
+  "archived_at": "2026-09-26 11:04",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json"
+  ],
+  "missing": [
+    "lineup_selection.json",
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/nfl_classic/2026-09-20__DFS Top Plays_ Week 2 _ Establish The Run.pdf",
+    "articles/nfl_classic/2026-09-20__ETR Discord late update 2hats1mike 9.57-10.03 AM.md",
+    "articles/nfl_classic/2026-09-20__ETR\u2019s Cheap WR Volume_ Week 2 _ Establish The Run.pdf",
+    "articles/nfl_classic/2026-09-20__Establish-The-Million-Week-2.pdf",
+    "articles/nfl_classic/2026-09-20__Establish-The-Show-Week-2.pdf",
+    "articles/nfl_classic/2026-09-20__Evan Silva\u2019s Matchups_ Week 2 _ Establish The Run.pdf",
+    "articles/nfl_classic/2026-09-20__GPP Game Scores  Week 2 .pdf",
+    "articles/nfl_classic/2026-09-20__GPP Leverage_ Week 2 _ Establish The Run.pdf",
+    "articles/nfl_classic/2026-09-20__The Rundown_ Week 2 _ Establish The Run.pdf",
+    "articles/nfl_classic/2026-09-20__Thorman\u2019s Snaps and Pace_ Week 2 _ Establish The Run.pdf",
+    "articles/nfl_classic/2026-09-20__Thorn_ Biggest OL vs. DL Mismatches, Week 2 _ Establish The Run.pdf"
+  ],
+  "proj_source": null
+}

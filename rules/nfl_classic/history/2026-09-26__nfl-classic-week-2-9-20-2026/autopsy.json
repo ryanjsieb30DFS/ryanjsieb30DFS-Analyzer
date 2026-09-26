@@ -1,0 +1,1113 @@
+[
+  {
+    "timestamp": "2026-09-26 11:04",
+    "contest_type": "NFL Classic",
+    "source_file": "contest-standings-195825300 2.csv",
+    "contest_id": "195825300",
+    "entries": 1568,
+    "winning_score": 205.28,
+    "cash_line_p80": 145.16,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nfl_classic",
+    "sport": "nfl",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 192,
+      "total": 193
+    },
+    "user_summary": {
+      "avg_own_mean": 12.76,
+      "low_own_count_mean": 5.0,
+      "salary_used_mean": 49933.0,
+      "entry_count": 3,
+      "best_rank": 516,
+      "best_percentile": 32.9
+    },
+    "user_lineups": [
+      {
+        "rank": 516,
+        "entry_name": "RyvlesGaming30 (2/3)",
+        "points": 132.76001,
+        "percentile": 32.9,
+        "players": [
+          "Bears",
+          "J.K. Dobbins",
+          "Dak Prescott",
+          "Christian McCaffrey",
+          "De'Von Achane",
+          "Michael Mayer",
+          "CeeDee Lamb",
+          "George Pickens",
+          "Caleb Douglas"
+        ],
+        "avg_own": 13.75,
+        "low_own_count": 4,
+        "salary_used": 50000,
+        "proj_total": 136.2,
+        "dup_count": 1
+      },
+      {
+        "rank": 1078,
+        "entry_name": "RyvlesGaming30 (3/3)",
+        "points": 105.21999,
+        "percentile": 68.8,
+        "players": [
+          "49ers",
+          "Javonte Williams",
+          "Drake Maye",
+          "Bucky Irving",
+          "Chuba Hubbard",
+          "Hunter Henry",
+          "Ja'Marr Chase",
+          "DK Metcalf",
+          "Romeo Doubs"
+        ],
+        "avg_own": 8.96,
+        "low_own_count": 6,
+        "salary_used": 50000,
+        "proj_total": 130.3,
+        "dup_count": 1
+      },
+      {
+        "rank": 1133,
+        "entry_name": "RyvlesGaming30 (1/3)",
+        "points": 102.88,
+        "percentile": 72.3,
+        "players": [
+          "Buccaneers",
+          "Rhamondre Stevenson",
+          "Brock Purdy",
+          "Bijan Robinson",
+          "Derrick Henry",
+          "George Kittle",
+          "Mike Evans",
+          "Malik Washington",
+          "Caleb Douglas"
+        ],
+        "avg_own": 15.56,
+        "low_own_count": 5,
+        "salary_used": 49800,
+        "proj_total": 133.9,
+        "dup_count": 1
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Jaxon Smith-Njigba",
+        "proj_points": 18.2,
+        "actual_fpts": 45.5,
+        "fpts_delta": 27.3,
+        "ownership": 9.0,
+        "actual_own": 6.5600000000000005
+      },
+      {
+        "name": "CeeDee Lamb",
+        "proj_points": 18.8,
+        "actual_fpts": 38.3,
+        "fpts_delta": 19.5,
+        "ownership": 28.6,
+        "actual_own": 24.939999999999998
+      },
+      {
+        "name": "Panthers",
+        "proj_points": 6.9,
+        "actual_fpts": 26.0,
+        "fpts_delta": 19.1,
+        "ownership": 5.4,
+        "actual_own": 6.25
+      },
+      {
+        "name": "Dalton Schultz",
+        "proj_points": 11.6,
+        "actual_fpts": 29.0,
+        "fpts_delta": 17.4,
+        "ownership": 31.7,
+        "actual_own": 37.31
+      },
+      {
+        "name": "DeVonta Smith",
+        "proj_points": 14.1,
+        "actual_fpts": 30.7,
+        "fpts_delta": 16.6,
+        "ownership": 4.8,
+        "actual_own": 2.17
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Saquon Barkley",
+        "proj_points": 17.3,
+        "actual_fpts": 3.0,
+        "fpts_delta": -14.3,
+        "ownership": 8.7,
+        "actual_own": 7.59
+      },
+      {
+        "name": "Bijan Robinson",
+        "proj_points": 24.0,
+        "actual_fpts": 11.1,
+        "fpts_delta": -12.9,
+        "ownership": 37.5,
+        "actual_own": 52.68
+      },
+      {
+        "name": "Trevor Lawrence",
+        "proj_points": 18.7,
+        "actual_fpts": 7.16,
+        "fpts_delta": -11.54,
+        "ownership": 5.4,
+        "actual_own": 3.89
+      },
+      {
+        "name": "Colston Loveland",
+        "proj_points": 12.2,
+        "actual_fpts": 1.3,
+        "fpts_delta": -10.9,
+        "ownership": 6.2,
+        "actual_own": 12.05
+      },
+      {
+        "name": "Caleb Williams",
+        "proj_points": 19.6,
+        "actual_fpts": 8.72,
+        "fpts_delta": -10.88,
+        "ownership": 2.0,
+        "actual_own": 7.59
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Dak Prescott",
+        "salary": 6400,
+        "actual_fpts": 29.76,
+        "actual_own": 16.65,
+        "top_lineup_pct": 60.0
+      },
+      {
+        "name": "Brock Purdy",
+        "salary": 6200,
+        "actual_fpts": 28.48,
+        "actual_own": 11.48,
+        "top_lineup_pct": 30.0
+      },
+      {
+        "name": "Panthers",
+        "salary": 2700,
+        "actual_fpts": 26.0,
+        "actual_own": 6.25,
+        "top_lineup_pct": 60.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 20,
+      "avg_own_mean": 18.89,
+      "low_own_count_mean": 2.65,
+      "salary_used_mean": 49880.0,
+      "dup_max": 1,
+      "unique_pct": 100.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "abbyml (1/3)",
+          "points": 205.28,
+          "percentile": 0.1,
+          "players": [
+            "Broncos",
+            "Dalton Schultz",
+            "Brock Purdy",
+            "Christian McCaffrey",
+            "Aaron Jones Sr.",
+            "George Kittle",
+            "CeeDee Lamb",
+            "DeVonta Smith",
+            "Garrett Wilson"
+          ],
+          "avg_own": 18.23,
+          "low_own_count": 3,
+          "salary_used": 50000,
+          "proj_total": 137.5,
+          "dup_count": 1
+        },
+        {
+          "rank": 2,
+          "entry_name": "ploeg96 (3/3)",
+          "points": 203.56001,
+          "percentile": 0.1,
+          "players": [
+            "Patriots",
+            "Kendrick Bourne",
+            "Dak Prescott",
+            "Ashton Jeanty",
+            "TreVeyon Henderson",
+            "Jake Ferguson",
+            "Jaxon Smith-Njigba",
+            "CeeDee Lamb",
+            "Stefon Diggs"
+          ],
+          "avg_own": 9.41,
+          "low_own_count": 5,
+          "salary_used": 49900,
+          "proj_total": 120.4,
+          "dup_count": 1
+        },
+        {
+          "rank": 3,
+          "entry_name": "wtfbra97 (2/3)",
+          "points": 200.37999,
+          "percentile": 0.2,
+          "players": [
+            "Panthers",
+            "Mark Andrews",
+            "Brock Purdy",
+            "Derrick Henry",
+            "Aaron Jones Sr.",
+            "Dalton Schultz",
+            "Ja'Marr Chase",
+            "CeeDee Lamb",
+            "George Pickens"
+          ],
+          "avg_own": 21.43,
+          "low_own_count": 1,
+          "salary_used": 50000,
+          "proj_total": 143.3,
+          "dup_count": 1
+        },
+        {
+          "rank": 4,
+          "entry_name": "mbetz33 (1/3)",
+          "points": 197.18,
+          "percentile": 0.3,
+          "players": [
+            "Panthers",
+            "Christian McCaffrey",
+            "Brock Purdy",
+            "Derrick Henry",
+            "Chuba Hubbard",
+            "Dalton Schultz",
+            "CeeDee Lamb",
+            "Parker Washington",
+            "Caleb Douglas"
+          ],
+          "avg_own": 18.27,
+          "low_own_count": 3,
+          "salary_used": 50000,
+          "proj_total": 138.9,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "thomas3times (2/3)",
+          "points": 195.36,
+          "percentile": 0.3,
+          "players": [
+            "Panthers",
+            "Aaron Jones Sr.",
+            "Dak Prescott",
+            "Derrick Henry",
+            "Chuba Hubbard",
+            "Dalton Schultz",
+            "CeeDee Lamb",
+            "George Pickens",
+            "Garrett Wilson"
+          ],
+          "avg_own": 21.93,
+          "low_own_count": 2,
+          "salary_used": 50000,
+          "proj_total": 142.1,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "AdmiralEwok (1/3)",
+          "points": 193.06,
+          "percentile": 0.4,
+          "players": [
+            "Panthers",
+            "Ja'Marr Chase",
+            "Dak Prescott",
+            "Bucky Irving",
+            "Aaron Jones Sr.",
+            "Dalton Schultz",
+            "CeeDee Lamb",
+            "George Pickens",
+            "Terry McLaurin"
+          ],
+          "avg_own": 21.42,
+          "low_own_count": 1,
+          "salary_used": 49900,
+          "proj_total": 138.7,
+          "dup_count": 1
+        },
+        {
+          "rank": 7,
+          "entry_name": "Redrex003 (2/3)",
+          "points": 192.09999,
+          "percentile": 0.4,
+          "players": [
+            "Jets",
+            "Mark Andrews",
+            "Drew Lock",
+            "Christian McCaffrey",
+            "Aaron Jones Sr.",
+            "Dalton Schultz",
+            "Jaxon Smith-Njigba",
+            "Ja'Marr Chase",
+            "Garrett Wilson"
+          ],
+          "avg_own": 16.87,
+          "low_own_count": 3,
+          "salary_used": 49700,
+          "proj_total": 135.7,
+          "dup_count": 1
+        },
+        {
+          "rank": 8,
+          "entry_name": "Archibus (2/3)",
+          "points": 191.18,
+          "percentile": 0.5,
+          "players": [
+            "Patriots",
+            "Aaron Jones Sr.",
+            "Brock Purdy",
+            "Christian McCaffrey",
+            "Derrick Henry",
+            "Dalton Schultz",
+            "CeeDee Lamb",
+            "Garrett Wilson",
+            "Caleb Douglas"
+          ],
+          "avg_own": 22.36,
+          "low_own_count": 2,
+          "salary_used": 49800,
+          "proj_total": 142.2,
+          "dup_count": 1
+        },
+        {
+          "rank": 9,
+          "entry_name": "pepinovich",
+          "points": 189.85999,
+          "percentile": 0.6,
+          "players": [
+            "Steelers",
+            "George Kittle",
+            "Dak Prescott",
+            "Bijan Robinson",
+            "Christian McCaffrey",
+            "Dalton Schultz",
+            "CeeDee Lamb",
+            "Stefon Diggs",
+            "Devaughn Vele"
+          ],
+          "avg_own": 20.62,
+          "low_own_count": 3,
+          "salary_used": 50000,
+          "proj_total": 137.3,
+          "dup_count": 1
+        },
+        {
+          "rank": 10,
+          "entry_name": "rayofhope (3/3)",
+          "points": 188.16,
+          "percentile": 0.6,
+          "players": [
+            "Panthers",
+            "Aaron Jones Sr.",
+            "Dak Prescott",
+            "Christian McCaffrey",
+            "Ashton Jeanty",
+            "Dalton Schultz",
+            "CeeDee Lamb",
+            "George Pickens",
+            "Malik Washington"
+          ],
+          "avg_own": 20.08,
+          "low_own_count": 2,
+          "salary_used": 49800,
+          "proj_total": 140.6,
+          "dup_count": 1
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 6.13,
+        "low_own_count_delta": -2.35,
+        "salary_used_delta": -53.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 1568,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Bijan Robinson",
+          "field_own": 52.7,
+          "actual_fpts": 11.1
+        },
+        {
+          "name": "Dalton Schultz",
+          "field_own": 37.3,
+          "actual_fpts": 29.0
+        },
+        {
+          "name": "Derrick Henry",
+          "field_own": 34.6,
+          "actual_fpts": 17.7
+        },
+        {
+          "name": "Aaron Jones Sr.",
+          "field_own": 32.6,
+          "actual_fpts": 13.5
+        },
+        {
+          "name": "Javonte Williams",
+          "field_own": 28.1,
+          "actual_fpts": 8.0
+        },
+        {
+          "name": "Christian McCaffrey",
+          "field_own": 26.6,
+          "actual_fpts": 22.6
+        },
+        {
+          "name": "CeeDee Lamb",
+          "field_own": 24.9,
+          "actual_fpts": 38.3
+        },
+        {
+          "name": "Terry McLaurin",
+          "field_own": 23.5,
+          "actual_fpts": 7.0
+        },
+        {
+          "name": "George Pickens",
+          "field_own": 21.8,
+          "actual_fpts": 10.0
+        },
+        {
+          "name": "Matthew Golden",
+          "field_own": 21.0,
+          "actual_fpts": 9.8
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Bijan Robinson",
+            "Dalton Schultz"
+          ],
+          "field_pct": 23.9,
+          "count": 374
+        },
+        {
+          "players": [
+            "Aaron Jones Sr.",
+            "Bijan Robinson"
+          ],
+          "field_pct": 18.3,
+          "count": 287
+        },
+        {
+          "players": [
+            "Bijan Robinson",
+            "Derrick Henry"
+          ],
+          "field_pct": 16.2,
+          "count": 254
+        },
+        {
+          "players": [
+            "Dalton Schultz",
+            "Derrick Henry"
+          ],
+          "field_pct": 12.9,
+          "count": 202
+        },
+        {
+          "players": [
+            "Bijan Robinson",
+            "Javonte Williams"
+          ],
+          "field_pct": 12.8,
+          "count": 200
+        },
+        {
+          "players": [
+            "Christian McCaffrey",
+            "Dalton Schultz"
+          ],
+          "field_pct": 12.6,
+          "count": 197
+        },
+        {
+          "players": [
+            "Bijan Robinson",
+            "Garrett Wilson"
+          ],
+          "field_pct": 12.3,
+          "count": 192
+        },
+        {
+          "players": [
+            "Bijan Robinson",
+            "Terry McLaurin"
+          ],
+          "field_pct": 12.2,
+          "count": 191
+        },
+        {
+          "players": [
+            "Bijan Robinson",
+            "Matthew Golden"
+          ],
+          "field_pct": 12.1,
+          "count": 189
+        },
+        {
+          "players": [
+            "Aaron Jones Sr.",
+            "Dalton Schultz"
+          ],
+          "field_pct": 11.7,
+          "count": 183
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Aaron Jones Sr.",
+            "Bijan Robinson",
+            "Dalton Schultz",
+            "Dolphins",
+            "Garrett Wilson",
+            "Ja'Marr Chase",
+            "Javonte Williams",
+            "Jayden Daniels",
+            "Terry McLaurin"
+          ],
+          "count": 4,
+          "field_pct": 0.3
+        },
+        {
+          "players": [
+            "Aaron Jones Sr.",
+            "Broncos",
+            "CeeDee Lamb",
+            "Dak Prescott",
+            "Dalton Schultz",
+            "Derrick Henry",
+            "George Pickens",
+            "Javonte Williams",
+            "Terry McLaurin"
+          ],
+          "count": 3,
+          "field_pct": 0.2
+        },
+        {
+          "players": [
+            "Aaron Jones Sr.",
+            "Carson Wentz",
+            "Christian McCaffrey",
+            "Dalton Schultz",
+            "George Pickens",
+            "Javonte Williams",
+            "Justin Jefferson",
+            "Luther Burden III",
+            "Steelers"
+          ],
+          "count": 3,
+          "field_pct": 0.2
+        },
+        {
+          "players": [
+            "Aaron Jones Sr.",
+            "Baker Mayfield",
+            "Bijan Robinson",
+            "Christian McCaffrey",
+            "Emeka Egbuka",
+            "Falcons",
+            "Garrett Wilson",
+            "KC Concepcion Jr.",
+            "Michael Mayer"
+          ],
+          "count": 3,
+          "field_pct": 0.2
+        },
+        {
+          "players": [
+            "Aaron Jones Sr.",
+            "Carson Wentz",
+            "Chargers",
+            "Christian McCaffrey",
+            "Jaylen Waddle",
+            "Jonathon Brooks",
+            "Justin Jefferson",
+            "Mark Andrews",
+            "Rome Odunze"
+          ],
+          "count": 3,
+          "field_pct": 0.2
+        }
+      ],
+      "winners_profile": {
+        "n": 16,
+        "avg_own_per_slot": 18.5,
+        "dart_pct": 62.5,
+        "unique_pct": 100.0
+      },
+      "fish_profile": {
+        "n": 782,
+        "avg_own_per_slot": 15.6,
+        "dart_pct": 84.8,
+        "unique_pct": 99.0
+      },
+      "fish_traps": [
+        {
+          "name": "Bijan Robinson",
+          "fish_pct": 54.7,
+          "winner_pct": 12.5,
+          "gap": 42.2,
+          "actual_fpts": 11.1,
+          "field_own": 52.7,
+          "own_rank": 1
+        },
+        {
+          "name": "Justin Jefferson",
+          "fish_pct": 31.2,
+          "winner_pct": 0.0,
+          "gap": 31.2,
+          "actual_fpts": 8.5,
+          "field_own": 18.5,
+          "own_rank": 12
+        },
+        {
+          "name": "Javonte Williams",
+          "fish_pct": 30.6,
+          "winner_pct": 6.2,
+          "gap": 24.3,
+          "actual_fpts": 8.0,
+          "field_own": 28.1,
+          "own_rank": 5
+        },
+        {
+          "name": "Colston Loveland",
+          "fish_pct": 20.5,
+          "winner_pct": 0.0,
+          "gap": 20.5,
+          "actual_fpts": 1.3,
+          "field_own": 12.1,
+          "own_rank": 21
+        },
+        {
+          "name": "Buccaneers",
+          "fish_pct": 19.7,
+          "winner_pct": 0.0,
+          "gap": 19.7,
+          "actual_fpts": 2.0,
+          "field_own": 15.6,
+          "own_rank": 16
+        },
+        {
+          "name": "Luther Burden III",
+          "fish_pct": 19.7,
+          "winner_pct": 0.0,
+          "gap": 19.7,
+          "actual_fpts": 6.2,
+          "field_own": 12.0,
+          "own_rank": 22
+        },
+        {
+          "name": "Carson Wentz",
+          "fish_pct": 17.1,
+          "winner_pct": 0.0,
+          "gap": 17.1,
+          "actual_fpts": 6.3,
+          "field_own": 9.9,
+          "own_rank": 28
+        },
+        {
+          "name": "Jayden Daniels",
+          "fish_pct": 13.9,
+          "winner_pct": 0.0,
+          "gap": 13.9,
+          "actual_fpts": 14.7,
+          "field_own": 13.5,
+          "own_rank": 18
+        },
+        {
+          "name": "Caleb Williams",
+          "fish_pct": 13.7,
+          "winner_pct": 0.0,
+          "gap": 13.7,
+          "actual_fpts": 8.7,
+          "field_own": 7.6,
+          "own_rank": 36
+        },
+        {
+          "name": "Michael Mayer",
+          "fish_pct": 19.2,
+          "winner_pct": 6.2,
+          "gap": 12.9,
+          "actual_fpts": 5.3,
+          "field_own": 18.1,
+          "own_rank": 13
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "abbyml",
+          "best_rank": 1,
+          "percentile": 0.1
+        },
+        {
+          "handle": "ploeg96",
+          "best_rank": 2,
+          "percentile": 0.1
+        },
+        {
+          "handle": "wtfbra97",
+          "best_rank": 3,
+          "percentile": 0.2
+        },
+        {
+          "handle": "mbetz33",
+          "best_rank": 4,
+          "percentile": 0.3
+        },
+        {
+          "handle": "thomas3times",
+          "best_rank": 5,
+          "percentile": 0.3
+        },
+        {
+          "handle": "AdmiralEwok",
+          "best_rank": 6,
+          "percentile": 0.4
+        },
+        {
+          "handle": "Redrex003",
+          "best_rank": 7,
+          "percentile": 0.4
+        },
+        {
+          "handle": "Archibus",
+          "best_rank": 8,
+          "percentile": 0.5
+        },
+        {
+          "handle": "pepinovich",
+          "best_rank": 9,
+          "percentile": 0.6
+        },
+        {
+          "handle": "rayofhope",
+          "best_rank": 10,
+          "percentile": 0.6
+        },
+        {
+          "handle": "bpadia",
+          "best_rank": 11,
+          "percentile": 0.7
+        },
+        {
+          "handle": "msangalis",
+          "best_rank": 12,
+          "percentile": 0.8
+        },
+        {
+          "handle": "BadRebel",
+          "best_rank": 13,
+          "percentile": 0.8
+        },
+        {
+          "handle": "ghsfy53",
+          "best_rank": 14,
+          "percentile": 0.9
+        },
+        {
+          "handle": "sprizza",
+          "best_rank": 14,
+          "percentile": 0.9
+        }
+      ],
+      "read": [
+        "Field crowded **Bijan Robinson** at 52.7% (11.1 fpts) \u2014 the chalk to consider fading.",
+        "**Bijan Robinson + Dalton Schultz** were together in 23.9% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Bijan Robinson** was a fish trap: 54.7% of the fish, only 12.5% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 205.28,
+      "winner_handle": "abbyml",
+      "roster": [
+        {
+          "name": "Broncos",
+          "own": 5.48,
+          "fpts": 8.0
+        },
+        {
+          "name": "Dalton Schultz",
+          "own": 37.31,
+          "fpts": 29.0
+        },
+        {
+          "name": "Brock Purdy",
+          "own": 11.48,
+          "fpts": 28.48
+        },
+        {
+          "name": "Christian McCaffrey",
+          "own": 26.590000000000003,
+          "fpts": 22.6
+        },
+        {
+          "name": "Aaron Jones Sr.",
+          "own": 32.59,
+          "fpts": 13.5
+        },
+        {
+          "name": "George Kittle",
+          "own": 3.77,
+          "fpts": 18.0
+        },
+        {
+          "name": "CeeDee Lamb",
+          "own": 24.939999999999998,
+          "fpts": 38.3
+        },
+        {
+          "name": "DeVonta Smith",
+          "own": 2.17,
+          "fpts": 30.7
+        },
+        {
+          "name": "Garrett Wilson",
+          "own": 19.77,
+          "fpts": 16.7
+        }
+      ],
+      "avg_own": 18.2,
+      "n_low_own": 3,
+      "carrier": {
+        "name": "DeVonta Smith",
+        "own": 2.17,
+        "fpts": 30.7
+      },
+      "expected_dupes": 0.0
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "position_checked": true,
+      "blocked_swap": {
+        "out": "J.K. Dobbins",
+        "in": "DeVonta Smith",
+        "gain": 27.1,
+        "over_cap_by": 1800
+      },
+      "gradable": true,
+      "won": false,
+      "your_points": 132.76001,
+      "winner_points": 205.28,
+      "gap": 72.5,
+      "your_percentile": 32.9,
+      "n_shared": 2,
+      "shared": [
+        "CeeDee Lamb",
+        "Christian McCaffrey"
+      ],
+      "your_uniques": [
+        {
+          "name": "Dak Prescott",
+          "fpts": 29.76,
+          "salary": 6400,
+          "position": "QB"
+        },
+        {
+          "name": "De'Von Achane",
+          "fpts": 12.3,
+          "salary": 6700,
+          "position": "RB"
+        },
+        {
+          "name": "George Pickens",
+          "fpts": 10.0,
+          "salary": 6300,
+          "position": "WR"
+        },
+        {
+          "name": "Bears",
+          "fpts": 7.0,
+          "salary": 3000,
+          "position": "DST"
+        },
+        {
+          "name": "Michael Mayer",
+          "fpts": 5.3,
+          "salary": 3600,
+          "position": "TE"
+        },
+        {
+          "name": "Caleb Douglas",
+          "fpts": 3.9,
+          "salary": 3700,
+          "position": "WR"
+        },
+        {
+          "name": "J.K. Dobbins",
+          "fpts": 3.6,
+          "salary": 5000,
+          "position": "RB"
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "DeVonta Smith",
+          "fpts": 30.7,
+          "salary": 6800,
+          "position": "WR"
+        },
+        {
+          "name": "Dalton Schultz",
+          "fpts": 29.0,
+          "salary": 3200,
+          "position": "TE"
+        },
+        {
+          "name": "Brock Purdy",
+          "fpts": 28.48,
+          "salary": 6200,
+          "position": "QB"
+        },
+        {
+          "name": "George Kittle",
+          "fpts": 18.0,
+          "salary": 4600,
+          "position": "TE"
+        },
+        {
+          "name": "Garrett Wilson",
+          "fpts": 16.7,
+          "salary": 6000,
+          "position": "WR"
+        },
+        {
+          "name": "Aaron Jones Sr.",
+          "fpts": 13.5,
+          "salary": 5100,
+          "position": "RB"
+        },
+        {
+          "name": "Broncos",
+          "fpts": 8.0,
+          "salary": 2800,
+          "position": "DST"
+        }
+      ],
+      "best_swap": {
+        "out": "J.K. Dobbins",
+        "in": "Dalton Schultz",
+        "gain": 25.4,
+        "would_have_won": false
+      },
+      "swaps_needed": 7
+    },
+    "stack_report": {
+      "gradable": true,
+      "n_field": 1568,
+      "n_graded": 1567,
+      "top1_n": 16,
+      "groups": {
+        "field": {
+          "n": 1567,
+          "naked_pct": 5.6,
+          "single_pct": 42.1,
+          "double_pct": 47.5,
+          "triple_plus_pct": 4.8,
+          "bringback_pct": 61.1,
+          "three_rb_pct": 57.0,
+          "dst_vs_qb_pct": 0.1,
+          "one_game_max_mean": 3.35,
+          "one_game_5plus_pct": 8.9
+        },
+        "top1pct": {
+          "n": 16,
+          "naked_pct": 6.2,
+          "single_pct": 50.0,
+          "double_pct": 37.5,
+          "triple_plus_pct": 6.2,
+          "bringback_pct": 62.5,
+          "three_rb_pct": 37.5,
+          "dst_vs_qb_pct": 0.0,
+          "one_game_max_mean": 3.12,
+          "one_game_5plus_pct": 0.0
+        },
+        "top20": {
+          "n": 20,
+          "naked_pct": 5.0,
+          "single_pct": 45.0,
+          "double_pct": 40.0,
+          "triple_plus_pct": 10.0,
+          "bringback_pct": 65.0,
+          "three_rb_pct": 35.0,
+          "dst_vs_qb_pct": 0.0,
+          "one_game_max_mean": 3.25,
+          "one_game_5plus_pct": 0.0
+        },
+        "user": {
+          "n": 3,
+          "naked_pct": 0.0,
+          "single_pct": 0.0,
+          "double_pct": 100.0,
+          "triple_plus_pct": 0.0,
+          "bringback_pct": 66.7,
+          "three_rb_pct": 100.0,
+          "dst_vs_qb_pct": 0.0,
+          "one_game_max_mean": 4.0,
+          "one_game_5plus_pct": 33.3
+        }
+      },
+      "winner": {
+        "rank": 1,
+        "entry_name": "abbyml (1/3)",
+        "words": "Purdy double stack (McCaffrey, Kittle), no bring-back, 3 from MIA-SF",
+        "shape": "stack2",
+        "mates": 2,
+        "bringback": 0,
+        "rb_count": 2,
+        "one_game_max": 3,
+        "one_game_key": "MIA-SF",
+        "dst_vs_qb": false,
+        "qb": "Brock Purdy"
+      },
+      "user_lineups": [
+        {
+          "rank": 516,
+          "words": "Prescott double stack (Lamb, Pickens), no bring-back, 3 RBs, 3 from DAL-WAS",
+          "shape": "stack2",
+          "bringback": 0,
+          "rb_count": 3,
+          "one_game_max": 3
+        },
+        {
+          "rank": 1078,
+          "words": "Maye double stack (Henry, Doubs) + Metcalf bring-back, 3 RBs, 4 from NE-PIT",
+          "shape": "stack2",
+          "bringback": 1,
+          "rb_count": 3,
+          "one_game_max": 4
+        },
+        {
+          "rank": 1133,
+          "words": "Purdy double stack (Kittle, Evans) + Washington, Douglas bring-backs, 3 RBs, 5 from MIA-SF",
+          "shape": "stack2",
+          "bringback": 2,
+          "rb_count": 3,
+          "one_game_max": 5
+        }
+      ]
+    },
+    "mme_report": null
+  }
+]

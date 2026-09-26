@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-26",
+  "slug": "nfl_classic",
+  "sport": "nfl",
+  "slate_label": "NFL Classic Week 2 9.20.2026",
+  "history_dir": "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026",
+  "contests": [
+    {
+      "name": "NFL $20K Screen Pass [3 Entry Max]",
+      "type": "3-Max",
+      "source_file": "contest-standings-195825300 2.csv",
+      "field_size": 1568,
+      "my_entries": 3,
+      "entry_fee": 15.0,
+      "buy_in": 45.0,
+      "winnings": null,
+      "roi_pct": null,
+      "best_rank": 516,
+      "best_percentile": 32.9
+    }
+  ],
+  "total_buy_in": 45.0,
+  "total_winnings": null,
+  "roi_pct": null,
+  "best_rank": 516,
+  "best_percentile": 32.9,
+  "best_rank_mme": null,
+  "best_percentile_mme": null,
+  "entries_total": 3,
+  "edge_leverage_capture": 0.667,
+  "edge_overperformer_capture": 0.2,
+  "edge_bust_exposure": 0.2,
+  "lineup_avg_ratio": 0.85,
+  "shark_gap_top": {
+    "dim": "double_stack_pct",
+    "delta": 77.8
+  },
+  "adherence_fades_violated": 0,
+  "adherence_leverage_covered": "3/12",
+  "tier_summary": "Core 17.3 > Good 12.9 > Okay 9.8 > Fade 6.4  \u2713 ordered",
+  "tiers_ordered": true,
+  "grader_check": {
+    "flagged_pctiles": [],
+    "clean_pctiles": [
+      32.9,
+      68.8,
+      72.3
+    ]
+  },
+  "stack_summary": "top 1%: double stack 37.5% \u00b7 bring-back 62.5% (n=16) | field: double stack 47.5% \u00b7 bring-back 61.1% (n=1567) | you: double stack 100.0% \u00b7 bring-back 66.7% (n=3) | winner: Purdy double stack (McCaffrey, Kittle), no bring-back, 3 from MIA-SF",
+  "mme_summary": null
+}

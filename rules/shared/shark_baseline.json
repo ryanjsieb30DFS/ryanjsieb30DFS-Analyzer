@@ -97,10 +97,10 @@
       "n_with_sharks": 28,
       "user_envelope": {},
       "shark_envelope": {
-        "own_per_slot": 13.897,
-        "leverage_pct": 87.338,
-        "anchor_exposure": 0.389,
-        "unique_pct": 98.6
+        "own_per_slot": 14.013,
+        "leverage_pct": 87.76,
+        "anchor_exposure": 0.388,
+        "unique_pct": 97.907
       },
       "mean_gap": {},
       "seed_envelope": {
@@ -110,7 +110,7 @@
         "unique_pct": 98.55
       },
       "seed_weight": 28,
-      "accumulated_contests": 1,
+      "accumulated_contests": 2,
       "seed_source": "scripts/mine_nfl_history.py 2026-09-12 \u2014 tracked sharks; 28 small-field (<10,000) NFL Classic contests from the 2024-25 archive"
     }
   },

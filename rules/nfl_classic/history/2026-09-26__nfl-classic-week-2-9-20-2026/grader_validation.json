@@ -1,0 +1,57 @@
+{
+  "gradable": true,
+  "n_lineups": 3,
+  "lineups": [
+    {
+      "players": [
+        "Bears",
+        "Caleb Douglas",
+        "CeeDee Lamb",
+        "Christian McCaffrey",
+        "Dak Prescott",
+        "De'Von Achane",
+        "George Pickens",
+        "J.K. Dobbins",
+        "Michael Mayer"
+      ],
+      "percentile": 32.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "49ers",
+        "Bucky Irving",
+        "Chuba Hubbard",
+        "DK Metcalf",
+        "Drake Maye",
+        "Hunter Henry",
+        "Ja'Marr Chase",
+        "Javonte Williams",
+        "Romeo Doubs"
+      ],
+      "percentile": 68.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Bijan Robinson",
+        "Brock Purdy",
+        "Buccaneers",
+        "Caleb Douglas",
+        "Derrick Henry",
+        "George Kittle",
+        "Malik Washington",
+        "Mike Evans",
+        "Rhamondre Stevenson"
+      ],
+      "percentile": 72.3,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    32.9,
+    68.8,
+    72.3
+  ]
+}

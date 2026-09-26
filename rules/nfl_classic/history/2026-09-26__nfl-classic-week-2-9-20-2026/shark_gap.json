@@ -1,0 +1,99 @@
+{
+  "field": 1568,
+  "anchors": [
+    "bijan robinson",
+    "dalton schultz",
+    "derrick henry"
+  ],
+  "sharks": {
+    "gradable": true,
+    "n_entries": 9,
+    "own_per_slot": 17.4,
+    "leverage_pct": 100.0,
+    "anchor_exposure": 0.37,
+    "anchor_exposure_by_player": {
+      "bijan robinson": 0.667,
+      "dalton schultz": 0.444,
+      "derrick henry": 0.0
+    },
+    "max_overlap": 9,
+    "unique_pct": 77.8,
+    "best_pctile": 12.18,
+    "median_pctile": 73.66,
+    "double_stack_pct": 22.2,
+    "bringback_pct": 66.7,
+    "stack_n": 9
+  },
+  "user": {
+    "gradable": true,
+    "n_entries": 3,
+    "own_per_slot": 12.8,
+    "leverage_pct": 100.0,
+    "anchor_exposure": 0.222,
+    "anchor_exposure_by_player": {
+      "bijan robinson": 0.333,
+      "dalton schultz": 0.0,
+      "derrick henry": 0.333
+    },
+    "max_overlap": 1,
+    "unique_pct": 100.0,
+    "best_pctile": 32.91,
+    "median_pctile": 68.75,
+    "double_stack_pct": 100.0,
+    "bringback_pct": 66.7,
+    "stack_n": 3
+  },
+  "deltas": [
+    {
+      "dim": "double_stack_pct",
+      "label": "% lineups with a double stack (QB + 2 teammates)",
+      "read": "how often they pair the QB with two of his own players",
+      "user": 100.0,
+      "shark": 22.2,
+      "delta": 77.8
+    },
+    {
+      "dim": "unique_pct",
+      "label": "% unique rosters",
+      "read": "sharks are all-unique",
+      "user": 100.0,
+      "shark": 77.8,
+      "delta": 22.2
+    },
+    {
+      "dim": "own_per_slot",
+      "label": "avg own%/slot",
+      "read": "lower = more contrarian",
+      "user": 12.8,
+      "shark": 17.4,
+      "delta": -4.6
+    },
+    {
+      "dim": "anchor_exposure",
+      "label": "exposure to chalk anchors",
+      "read": "under-owning these is the recurring leak",
+      "user": 0.222,
+      "shark": 0.37,
+      "delta": -0.148
+    },
+    {
+      "dim": "leverage_pct",
+      "label": "% lineups w/ sub-5% piece",
+      "read": "sharks carry one in most",
+      "user": 100.0,
+      "shark": 100.0,
+      "delta": 0.0
+    },
+    {
+      "dim": "bringback_pct",
+      "label": "% lineups with a bring-back (a player from the QB's opponent)",
+      "read": "how often they bet on the game turning into a shootout",
+      "user": 66.7,
+      "shark": 66.7,
+      "delta": 0.0
+    }
+  ],
+  "sharks_in_field": true,
+  "slug": "nfl_classic",
+  "sport": "nfl"
+}

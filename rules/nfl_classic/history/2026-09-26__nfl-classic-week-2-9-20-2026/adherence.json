@@ -1,0 +1,126 @@
+{
+  "gradable": true,
+  "n_lineups": 3,
+  "n_contests": 1,
+  "calls": [
+    {
+      "name": "Carson Wentz",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 3,
+      "followed": true
+    },
+    {
+      "name": "Aaron Jones Sr.",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 3,
+      "followed": true
+    },
+    {
+      "name": "Dalton Schultz",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 3,
+      "followed": true
+    },
+    {
+      "name": "Mark Andrews",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 3,
+      "followed": true
+    },
+    {
+      "name": "Matthew Golden",
+      "verdict": "underweight",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 3,
+      "followed": true
+    },
+    {
+      "name": "Michael Mayer",
+      "verdict": "underweight",
+      "exposure_pct": 33.3,
+      "in_lineups": 1,
+      "of": 3,
+      "followed": true
+    },
+    {
+      "name": "Ravens",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 3,
+      "followed": true
+    },
+    {
+      "name": "Buccaneers",
+      "verdict": "underweight",
+      "exposure_pct": 33.3,
+      "in_lineups": 1,
+      "of": 3,
+      "followed": true
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 0,
+  "leverage_candidates": [
+    {
+      "name": "Jaxon Smith-Njigba",
+      "rostered": false
+    },
+    {
+      "name": "Brock Purdy",
+      "rostered": true
+    },
+    {
+      "name": "Lamar Jackson",
+      "rostered": false
+    },
+    {
+      "name": "Saquon Barkley",
+      "rostered": false
+    },
+    {
+      "name": "Jayden Daniels",
+      "rostered": false
+    },
+    {
+      "name": "Jalen Hurts",
+      "rostered": false
+    },
+    {
+      "name": "Caleb Williams",
+      "rostered": false
+    },
+    {
+      "name": "Drake Maye",
+      "rostered": true
+    },
+    {
+      "name": "Bo Nix",
+      "rostered": false
+    },
+    {
+      "name": "De'Von Achane",
+      "rostered": true
+    },
+    {
+      "name": "Trey McBride",
+      "rostered": false
+    },
+    {
+      "name": "Justin Herbert",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 3,
+  "leverage_of": 12
+}

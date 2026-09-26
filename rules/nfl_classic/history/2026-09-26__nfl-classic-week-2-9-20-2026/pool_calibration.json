@@ -1,0 +1,61 @@
+{
+  "gradable": true,
+  "n_pool": 365,
+  "n_matched": 192,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 12,
+      "avg_fpts": 17.3,
+      "max_fpts": 38.3
+    },
+    {
+      "tier": "Good",
+      "n": 40,
+      "avg_fpts": 12.9,
+      "max_fpts": 45.5
+    },
+    {
+      "tier": "Okay",
+      "n": 57,
+      "avg_fpts": 9.8,
+      "max_fpts": 30.7
+    },
+    {
+      "tier": "Fade",
+      "n": 83,
+      "avg_fpts": 6.4,
+      "max_fpts": 22.4
+    }
+  ],
+  "tiers_ordered": true,
+  "leakage": [
+    {
+      "name": "Tyler Shough",
+      "tier": "Fade",
+      "fpts": 22.4
+    },
+    {
+      "name": "C.J. Stroud",
+      "tier": "Fade",
+      "fpts": 20.0
+    },
+    {
+      "name": "Drew Lock",
+      "tier": "Fade",
+      "fpts": 21.4
+    },
+    {
+      "name": "Deshaun Watson",
+      "tier": "Fade",
+      "fpts": 19.7
+    },
+    {
+      "name": "Kirk Cousins",
+      "tier": "Fade",
+      "fpts": 21.2
+    }
+  ],
+  "excluded_scratches": [],
+  "summary": "Core 17.3 > Good 12.9 > Okay 9.8 > Fade 6.4  \u2713 ordered"
+}

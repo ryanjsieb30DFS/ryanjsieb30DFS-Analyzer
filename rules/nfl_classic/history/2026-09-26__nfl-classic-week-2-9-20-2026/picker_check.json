@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "slug": "nfl_classic",
+  "contests": [
+    {
+      "date": "2026-09-26",
+      "contest": "NFL $20K Screen Pass [3 Entry Max]",
+      "winning_score": 205.3,
+      "pool_n": 49208,
+      "pool_max": 207.3,
+      "pool_held_winner": true,
+      "n_pool_ge_win": 3,
+      "pick_actual": 132.8,
+      "pick_won": false,
+      "pick_pool_pctile": 82.4,
+      "pick_source": "entered",
+      "n_entered": 3
+    }
+  ],
+  "note": null,
+  "generated_at": "2026-09-26 11:04"
+}
