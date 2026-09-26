@@ -30,6 +30,8 @@ Write these down before building. Do not add or subtract mid-build.
 - A coin-flip decision play (50% win, no finish equity)
 - A play you're including just because they fit salary
 
+**Codified 9/26/26 (`core-tier-mirrors-the-field-chalk` — the Core ownership check, applied 9/5, 9/12, 9/19 with no mirror).** A fighter whose projected ownership is top-3 on the board is tiered Core only with a stated edge the crowd is not paying for (a price dislocation, an unowned twin, a path that pays without a finish); otherwise Good.
+
 ### Step 2 — Contrarian Swing Identification (a SCREEN, not a slot)
 
 **Identify** the leverage swing candidates on this card — the fighters who are:
@@ -126,6 +128,10 @@ Before locking each lineup:
     built for ONE named contest — confirm the DK entry screen shows that exact contest (5/9
     execution lesson; confirmed by violation 9/5/26 when two picks were entered into each other's
     contests and one missed a cash it would otherwise have made)
+11. ✓ **Every `## Fades` and `## Leverage` name is written in full, matching the projection file.**
+    A contract whose parsed-call count differs from the rendered fade-line count is not submitted.
+    (Codified 9/26/26 — `abbreviated-names-drop-contract-calls`: 8/16 origin; 9/12 and 9/19: 7
+    written, 7 parsed.)
 
 If any check fails, revise before submitting.
 
@@ -215,6 +221,10 @@ A fade justified by **finish probability alone** — "inside-the-distance odds a
 An inside-the-distance-price ceiling cap becomes structural **only** when paired with **low projected volume AND low projected control**. Absent both, downgrade the fade to a note and hold the fighter at neutral exposure.
 
 Structural mechanisms that still qualify, all of which paid on 8/2: ownership versus win-equity mismatch (Todorović, 28% owned on a 42% win chance → 12.2), salary inefficiency against a documented scoring history (Klein, three straight decisions of 64/86/89 at $8.8K → 18.6), and a ceiling-capped favorite priced above a live alternative.
+
+**Codified 9/26/26 (`owned-ahead-of-projection-is-not-a-trap-signal`, 3 confirming slates).** The bundle's `## Trap-shaped prices` listing justifies a verdict in neither direction; four slates read 2/6, 5/6, 2/6, 3/6. A fade cites a thin win path, never the listing.
+
+**Codified 9/26/26 (`price-tag-lean-fades-in-the-leverage-band-delete-the-winners-carrier`, 3 confirming slates).** A FADE or LEAN FADE on a fighter under ~15% projected own with live finish odds must name a path that CANNOT pay. "Only a lucky punch" is a probability, not a dead path. A fighter listed in `## Leverage` is never tiered `Fade`. (Benouaich 143.0 on 9/5, Sharaf 126.3 on 9/19 — each carried every winner after being faded.)
 
 ### The Winning MMA SE Shape (8/2/26 — 3-slate validated)
 

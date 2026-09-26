@@ -247,6 +247,22 @@ lessons:
           own): 1.2 points, carried in 2 of 5 entries, and the Flying Knee bullet's
           best repair was Rosas -> Elliott (+105.6). The fish carried darts at 5-16%
           while the winners carried none.
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — 59,453-entry 150-Max, 100 entries"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          LARGE-FIELD inverse confirmed for the second time (first was 6/14, 5,945
+          field). In a 59,453-entry top-heavy field all three tied winners (708.0)
+          carried Sean Sharaf ($6,300, 7% to win, 4.4% owned, 126.26) — a pure
+          KO-or-bust dog — and the top 1% used Sharaf in 21.6% of lineups (4.9x his
+          ownership), Marlon Vera (35% to win, 22.9% own, 124.45) in 76.4% and
+          Patricio Pitbull (29% to win, 17.7% own, 115.35) in 55.3%. The winners'
+          profile carried a sub-10% piece 22.2% of the time; the fish 0.9%. The
+          user's 100 entries carried ZERO sub-10% pieces (Sharaf FADED at 0 of 100)
+          and the best entry's one-swap repair was Shahbazyan -> Sharaf (+54.8,
+          would have won). Same mechanism, opposite field size: extreme variance
+          is what separates in a 59K field.
     contradictions: []
     codified_in: "framework.md — Step 3 — Field-Size Calibration (binary leverage by field size)"
     retired_reason: null
@@ -663,6 +679,21 @@ lessons:
           Cepo) collapsed their blocks, the two floor favorites (Dyer, Silva) did not.
           The codifiable form is the refined one — cap exposure to a favorite whose
           only scoring path is a finish — and the counted evidence stays at 2 of 3.
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — 100-entry stack in a 59,453 field"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          Refined form APPLIED and its mechanism held. The strategy's build rules
+          capped the four knockout-or-nothing favorites (Baraniewski, Shahbazyan,
+          Gandra, Despaigne) at 60% and the two decision-floor favorites (Tsarukyan,
+          Steveson) at 80%. Actual exposures: Baraniewski 38%, Shahbazyan 40%, Gandra
+          34%, Despaigne 13%, Tsarukyan 41%, Steveson 18%. Baraniewski ($8,700, 47.3%
+          field own) lost and scored 44.0 — the field's #2 fish trap (53.3% of the
+          bottom half, 11.6% of winners) — and at 38% he sank 38 entries, not the
+          set. Gable Steveson (-2500, $9,900, 29.4% own) scored 0.4 at 18% of the set.
+          Honest note: the one floor favorite who mattered, Tsarukyan (113.8), was
+          held at 41% while the top 1% used him in 92.1% of lineups.
     codified_in: "rules/mma_se/framework.md — Step 5 — Diversification (Codified 9/19/26, refined form: cap BINARY favorites at ~60% of a multi-entry set; a decision-floor favorite may run to 100%)"
     retired_reason: null
 
@@ -805,11 +836,11 @@ lessons:
       never-zero-top3-anchor coverage point. Per [[feedback_play_like_sharks]], moklovin
       landed the exact combination on 150 bullets; on 10 the captain discipline is the
       recoverable edge.
-    status: hypothesis
+    status: retired   # 9/26/26 ledger hygiene, user-approved
     confirmations: []
     contradictions: []
     codified_in: null
-    retired_reason: null
+    retired_reason: "captain-mode MMA showdown is not a slate type in this tool; untestable since 6/14; the read-captain-own clause lives in the NFL Showdown rules."
 
   # ---- 2026-06-20 — UFC Fight Night 6/20 (classic 6-fighter) ----
 
@@ -2355,7 +2386,7 @@ lessons:
       the projection file), and a contract whose parsed-call count differs from the
       rendered fade-line count warns at generation time. Links
       [[mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma]].
-    status: validated
+    status: codified   # 9/26/26, 3 confirming slates
     confirmations:
       - date: "2026-09-19"
         slate: "UFC Noche 9.12.26"
@@ -2369,8 +2400,20 @@ lessons:
           fade the user carried (Morales 2 of 5, Blaydes 1, Delgado 1, Tarin 1) is on
           the record. The writing rule works when followed; the generation-time count
           warning is still not built.
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — 59,453 150-Max, 100 entries"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          SECOND confirmation, fix side -> THIRD confirming slate, promotion proposed.
+          `## Fades` wrote seven verdicts with full names (Sharaf, Tuivasa, Ruffy,
+          Chikadze, Ferreira, Aswell Jr., O'Neill) and `adherence.json` graded exactly
+          seven calls — parsed count equals rendered count for the fifth straight
+          slate. Every verdict was enforced by the Sim's filter gate to the exact cap
+          (O'Neill 30 of 100, Ferreira 25, Aswell 20, Ruffy 10, Chikadze 10, Sharaf
+          and Tuivasa 0), which is only possible because every name resolved.
     contradictions: []
-    codified_in: null
+    codified_in: "rules/mma_se/framework.md — Pre-Submission Checklist for SE, item 11 (9/26/26)"
     retired_reason: null
 
   - id: mma-se-2026-08-16-duplicate-pick-across-contests-forces-hand-edits
@@ -2543,7 +2586,7 @@ lessons:
       read-out. Links [[mma-se-2026-08-02-okay-tier-is-a-dumping-ground]],
       [[mma-se-2026-07-19-winning-se-shape-six-winners-mid-own-converters]],
       [[mma-se-2026-05-30-anchor-equivalence-fifth-validation]].
-    status: validated
+    status: codified   # 9/26/26 — the Core ownership CHECK codified after 3 slates applied with no mirror
     confirmations:
       - date: "2026-08-29"
         slate: "UFC Fight Night: Nurmagomedov vs. Song 8.29.26 — 26-fighter board"
@@ -2597,8 +2640,23 @@ lessons:
           two slates of Core below Good on win-side misses: the mirror mechanism is not
           what is breaking the ordering now. See
           [[mma-se-2026-09-19-core-tier-ordering-fails-on-sample-size]]. Still 2 of 3.
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — 24-fighter board"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          THIRD BOUNDARY NOTE, not counted — the ownership check was applied for the
+          third straight slate and Core did NOT mirror the chalk. Core was Tsarukyan
+          (48% projected, #2 on the board — with a stated edge: a decision floor that
+          scores 93.9 per win), Choi (24%, "a semi-forgotten man") and Steveson
+          (29%). The field's other top-3 names, Van (50%) and Baraniewski (48%), sat
+          in Good. Core averaged 40.7 (Tsarukyan 113.8, Choi 8.0, Steveson 0.4)
+          against Good's 84.4 — ninth straight OUT OF ORDER, again on two losses, not
+          on ownership. The fix works as written; counted evidence stays at 2 of 3.
+          Proposal this review: codify the FIX (the Core ownership check) on three
+          slates of applied evidence, since the mirror has not recurred once under it.
     contradictions: []
-    codified_in: null
+    codified_in: "rules/mma_se/framework.md — Step 1 (Conviction Play Identification), Core ownership check (9/26/26)"
     retired_reason: null
 
   - id: mma-se-2026-08-23-underweight-gate-deletes-a-whole-pool-branch
@@ -2773,6 +2831,21 @@ lessons:
           78.7 — in 4 of 5 entries, over the rule's "never the same expensive favorite
           in 100% of a set" line in spirit and over the strategy's own 3-of-5 cap in
           fact; the winners carried one $9,000+ slot each (Gantt).
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — 59,453 150-Max"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          Seventh confirming slate, the loudest yet. Gable Steveson ($9,900, -2500,
+          93% to win, 29.4% own) scored 0.4 — the field's #1 fish trap (45.7% of the
+          bottom half, 0.0% of winners). The $9,000+ tier averaged about 70 points
+          (Tsarukyan 113.8, Gandra 106.5, Brito 100.0, Despaigne ~72, Yoo 28.5,
+          Steveson 0.4) while the under-$7,500 tier's winners paid 126.3 (Sharaf
+          $6,300), 124.5 (Vera $7,400) and 115.4 (Pitbull $7,300) — 17-20 points per
+          $1K against 11-12 for the expensive winners. The build rule "at most two
+          $9,000+ fighters" was applied and enforced; the winner carried two
+          (Tsarukyan, Gandra) plus Brito at $9,200 — three, over the cap, so the cap
+          is a rate, not a law.
     contradictions: []
     codified_in: >
       rules/mma_se/framework.md — "Salary Buys Floor, Not Ceiling (8/23/26 — 19-card
@@ -2901,7 +2974,7 @@ lessons:
       [[mma-se-2026-06-20-fade-on-structure-not-narrative]],
       [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]],
       [[mma-se-2026-08-02-grade-gates-have-no-discriminating-power-in-mma]].
-    status: validated
+    status: codified   # 9/26/26 — residual rule only (listing justifies a verdict in neither direction)
     confirmations:
       - date: "2026-09-19"
         slate: "UFC Noche 9.12.26 — 1,189 / 594 / 784 fields"
@@ -2919,6 +2992,21 @@ lessons:
           verdict in NEITHER direction. The strategy handled it correctly this time
           ("the ledger says this screen went 2-for-6 one week and 5-for-6 the next,
           so it argues nothing on its own") and sourced no fade from it.
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — 59,453 150-Max"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          SECOND confirmation -> THIRD confirming slate for the residual rule,
+          promotion proposed. The screen named six — O'Neill (+14 ranks), Moura
+          (+12), Aswell (+11), Ferreira (+10), Shahbazyan (+8), Baraniewski (+5).
+          Three lost (Moura 9.0, Ferreira 13.0, Baraniewski 44.0 — the #2 fish trap)
+          and three won and sat in the top 1%: O'Neill 90.4 (in 63.7% of top-1%
+          lineups), Shahbazyan 71.5 (22.3%), Aswell 64.7 (18.8%). Record across four
+          slates: 2/6, 5/6, 2/6, 3/6 — a coin flip. The strategy again sourced no
+          verdict from the listing (its `## Edges & tensions` line 7 said "read it as
+          the crowd buying the win case, not fade"). The residual rule is what
+          codifies: the listing alone justifies a verdict in NEITHER direction.
     contradictions:
       - date: "2026-09-06"
         slate: "UFC Fight Night: Hooker vs. Parnasse 9.5.26 — 588 + 951 SEs"
@@ -2938,7 +3026,7 @@ lessons:
           lesson's residual rule — the listing alone can justify a verdict in NEITHER
           direction — while contradicting its stronger "systematically flags the
           winning population" mechanism.
-    codified_in: null
+    codified_in: "rules/mma_se/framework.md — Structural Fades Only, Trap-shaped prices residual rule (9/26/26)"
     retired_reason: null
 
   - id: mma-se-2026-08-29-sim-ordering-scales-with-score-dispersion
@@ -3008,6 +3096,22 @@ lessons:
           of the pool; the 3-Max entry at Top1% 3.01 scored 440.9 and beat 86% of it.
           Also the third straight slate where Cash% was the best predictor and Win%
           the worst (see [[mma-se-2026-09-06-presim-metrics-bury-winners]]).
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — 4,103-lineup pool, 59,453 150-Max"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          FOURTH confirming slate. (1) DISPERSION: another wide 12-fight card (pool
+          average 373.5, maximum 708.0) and the ordering signal was positive again —
+          Cash% 0.368, Top1% 0.244, ROI 0.215, Win% 0.104; still no tight card logged
+          since 8/16. (3) WHICH METRIC: Cash% the best predictor and Win% the worst
+          for the FOURTH straight slate (8/29, 9/6, 9/12, 9/19); Cash%'s top-100 rows
+          averaged 488.5 against the pool's 373.5, Win%'s top-100 only 418.8. The
+          lesson's own gate is ~5 slates; one more before any framework line. (2)
+          already codified: the entered set beat the pool average by 62.4 points and
+          its best row beat 99.8% of the pool, yet the pool's single 708.0 row (the
+          winning score) was not among the 100 entered — 7 pool rows beat the best
+          entry (0.17%).
     contradictions: []
     codified_in: "rules/mma_se/framework.md — A Sim Rank Orders the Pool, Not the Row (9/19/26) — clause (2) single-row weakness ONLY; clause (1) dispersion and clause (3) which-metric remain validated / watch"
     retired_reason: null
@@ -3046,7 +3150,7 @@ lessons:
       [[mma-se-2026-06-20-fade-on-structure-not-narrative]],
       [[mma-se-2026-07-12-distance-fight-is-not-low-ceiling]],
       [[mma-se-2026-08-29-owned-ahead-of-projection-is-not-a-trap-signal]].
-    status: validated
+    status: codified   # 9/26/26, 3 confirming slates
     confirmations:
       - date: "2026-09-19"
         slate: "UFC Noche 9.12.26"
@@ -3062,8 +3166,27 @@ lessons:
           57.6, Tarin 63.1 — so the fades were RIGHT and cost nothing. The board also
           tiered no `## Leverage`-listed fighter `Fade` this slate. When the dead path
           is named the fade holds; 9/6's Benouaich fade named only a price and broke.
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — 59,453 150-Max, 100 entries"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          SECOND confirmation -> THIRD confirming slate, promotion proposed. The
+          Bukauskas shape exactly, one band lower: Sean Sharaf ($6,300, 3% projected
+          / 4.4% actual own, 7% to win) was LISTED in the strategy's own `## Leverage`
+          ("ceiling 102.8 on a lucky early punch"), then tiered `Fade` on the board
+          and given a hard FADE whose "dead path" was the same live path — "the only
+          world is a lucky early punch." That is a probability complaint, not a dead
+          path. He scored 126.26, the slate's top overperformer (+112.5 over
+          projection), carried all three tied winners at 708.0, and sat in 21.6% of
+          the top 1%. Perfect fade discipline (0 of 100) meant zero exposure to the
+          winners' carrier for the second time in three slates. Chikadze's LEAN FADE
+          (8%, "a win may score 50") named a true dead-score path and he lost (Brito
+          99.97); that fade held. The rule that codifies: a FADE under ~15% projected
+          own must name a path that CANNOT pay, and a `## Leverage`-listed fighter
+          may never be tiered `Fade`.
     contradictions: []
-    codified_in: null
+    codified_in: "rules/mma_se/framework.md — Structural Fades Only, dead-path rule for sub-15% fades (9/26/26)"
     retired_reason: null
 
   # ---- 2026-09-06 — UFC Paris (Hooker vs. Parnasse 9.5.26) ----
@@ -3094,7 +3217,24 @@ lessons:
           Origin slate. Every pool row at or above the MEGA winning score
           (705.9) carried Benouaich + Sola + Campbell — low-owned or mid-owned
           WINNERS, zero anti-favorite flips.
-    contradictions: []
+    contradictions:
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — 59,453-entry 150-Max (NOT an SE field)"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          FIRST mechanism contradiction, SCOPED to big fields — the SE claim is
+          untouched. The lesson rests on "uniqueness is free in SE fields." In this
+          59,453 field it was not: only 14.9% of rosters were unique, the top 1% was
+          copied a median 50 times, and the most-copied roster existed 345 times. The
+          strategy's leverage list was four under-owned FAVORITES (Brito 17%, Choi
+          24%, Yoo 12%, Jourdain 15%); one won (Brito 99.97). The three fighters who
+          made the top 1% were DOGS: Vera (35% to win) in 76.4% of top-1% lineups,
+          Pitbull (29%) in 55.3%, Sharaf (7%) in 21.6% and in every tied winner. In a
+          big field the differentiation slot must be a winning dog because a
+          six-favorite roster is shared 50 ways. Not a retire signal — a scope line:
+          "projected winner" is the SE rule; the 150-max track reads
+          [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]] inverted.
     codified_in: >
       philosophy.md — "The leverage piece must be a projected winner";
       framework.md Pre-Submission Checklist item 2; analysis_runner.py pick
@@ -3151,8 +3291,21 @@ lessons:
       cash rate, biggest exposure, fighters used and summed ownership against
       that median (the autopsy prints the head-to-head); a single good finish
       inside 100 entries is not a portfolio result.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — first 100-entry night, 59,453 field, 280 big stacks"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          FIRST confirmation -> validated. The head-to-head was printed and it graded
+          the stack, not the finish: 100 entries, top-1% rate 2.0% vs the big-stack
+          median 0.7%, top-10% 16.0% vs 9.3%, cash 27.0% vs 19.3%, biggest exposure
+          50% vs 55.9%, 22 fighters used vs 24, summed own 178.6% vs 180.3%. The
+          best-rank 106 finish (0.2 percentile) is one entry; the 2.0% top-1% rate is
+          the portfolio result, and it would rank inside the top fifth of the 280
+          stacks (best stack DKyat 6.7%). Third card the median read out at 0.7% /
+          ~9-10% / ~19%: a stable yardstick.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -3172,8 +3325,25 @@ lessons:
       [[mma-se-2026-09-06-the-leverage-piece-must-be-a-projected-winner]].
       Expected to CONTRADICT on an upset-heavy card — that is the test; do
       not tilt the build on two cards.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — 59,453 150-Max, a card where five favorites lost"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          FIRST confirmation -> validated, and it came on the card the lesson asked
+          for: a -2500 favorite (Steveson 0.4), a -275 (Choi 8.0) and three 64-67%
+          favorites (Baraniewski 44.0, Yoo 28.5, Jourdain 38.2) all lost. The top 1%
+          STILL summed more ownership than the field (188.5% vs 181.4%), carried 0.22
+          sub-10% pieces per lineup vs 0.05, and among the 280 big stacks chalkiness
+          correlated +0.14 with top-1% rate and +0.23 with cash; the most-chalky third
+          put 1.2% in the top 1% vs 0.8% for the least chalky. Mechanism held because
+          the biggest chalk WON — Van 47.4% (137.0), Tsarukyan 38.2% (113.8), Gandra
+          34.3% (106.5) — and the top 1% rode them at 92% / 92% / 61% use. Honest
+          half: the top 1% was chalk anchors PLUS one winning dog (Vera 76.4% use at
+          22.9% own, Pitbull 55.3% at 17.7%), and the winner's carrier was a 4.4%
+          punt. "Chalkier than the field" and "carries the winning dog" were both true.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -3192,7 +3362,22 @@ lessons:
       a per-lineup rule.
     status: hypothesis
     confirmations: []
-    contradictions: []
+    contradictions:
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — 280 big stacks in a 59,453 field"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          FIRST mechanism contradiction (1 of 2). The envelope's numbers did not hold
+          and concentration gave no edge. Best five stacks: fighters above 50%
+          exposure ranged 0 (ngates815, the winner) to 5 (DKyat, 6.7% top-1% rate),
+          fighters used 19-24 (below the 23-28 band), summed own 170-187%. Split by
+          concentration the thirds tied at 1.0% / 1.1% / 1.0% top-1% rate; biggest
+          exposure correlated -0.01 with top-1% rate. What survived: every entry
+          distinct within the stack (100% for all five), summed ownership 170-187%,
+          and free duplication of what the field built (the winner existed 3x; DKyat's
+          rosters averaged 7 copies, the winner's 30). Narrow the statement to those
+          three if a second card agrees; drop the exposure-count and HHI clauses.
     codified_in: null
     retired_reason: null
 
@@ -3223,8 +3408,22 @@ lessons:
       [[mma-se-2026-05-09-verify-submission-before-lock]],
       [[mma-se-2026-07-26-field-value-side-vs-your-named-converter]],
       [[mma-se-2026-08-29-underweight-has-no-meaning-in-a-single-entry-contest]].
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — 100-entry stack, 24-rule build block"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          FIRST confirmation -> validated. The strategy wrote 8 lineup rules and 16
+          portfolio rules; `adherence.json` graded 7 verdict calls and 4 leverage
+          names and nothing else. Checked by hand this review: every portfolio cap
+          landed exactly AT its number (O'Neill 30, Ferreira 25, Aswell 20, Ruffy 10,
+          Chikadze 10, Diaz+Chikadze 20 of a 20 cap) and every floor cleared (Brito 18
+          of a 15 minimum, Yoo 23 / Jourdain 23 of a 15 minimum) — so the Sim's filter
+          gate enforced the block at build time and nothing broke. The grader still
+          could not have told us either way. Cost this slate: zero. The gap is real
+          and the rule-to-test (grade the block at Log time) is still unbuilt.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -3251,6 +3450,59 @@ lessons:
       mean-ordering flag as INFO when any tier has fewer than 4 fighters. Links
       [[mma-se-2026-08-23-core-tier-mirrors-the-field-chalk]],
       [[mma-se-2026-08-02-okay-tier-is-a-dumping-ground]].
+    status: validated
+    confirmations:
+      - date: "2026-09-26"
+        slate: "UFC 331 9.19.26 — 24-fighter board, Core n=3"
+        origin_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        history_dir: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+        note: >
+          FIRST confirmation -> validated. Ninth straight OUT OF ORDER, and again on
+          a 3-fighter mean: Core = Tsarukyan 113.8 + Choi 8.0 + Steveson 0.4 = 40.7,
+          under Good's 84.4 (n=7) and even under Fade's 42.5 (n=4, carried by Sharaf
+          126.3). Two losses moved the Core mean by ~70 points. Core win rate 1 of 3;
+          the Core name who won out-scored the Good median. The board's real miss
+          was not Core — it was the Fade tier holding the slate's top scorer — and
+          the mean-ordering flag cannot say which. Report win rate or median.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-09-26 — UFC 331 9.19.26 (Van vs. Pantoja) — first 100-entry night ----
+
+  - id: mma-mme-2026-09-26-a-fade-in-a-hundred-entry-stack-is-a-zero-ticket
+    born: "2026-09-26"
+    origin: "rules/mma_se/history/2026-09-26__ufc-331-9-19-26"
+    statement: >
+      In a 100-entry stack a hard FADE (0 of 100) on a sub-5%-owned fighter with a
+      live knockout path is a portfolio decision to hold NO ticket in his world,
+      and the fade logic that produced it was born in single-entry contests where a
+      dart is a dead slot. Evidence (9/19, 59,453-entry 150-Max): the strategy cited
+      the pro envelope — "a sub-5% piece in about 1 entry in 4" — then wrote build
+      rules that capped the two punts it allowed (Diaz, Chikadze) at 20 entries and
+      faded the two cheapest fighters outright (Sharaf, Tuivasa: 0 of 100). Diaz's
+      actual ownership came in at 11.2%, so the realised rate was ZERO sub-10% pieces
+      across all 100 entries (0.00 per lineup) against 0.22 in the top 1% and 1.0 in
+      the winner. Sean Sharaf ($6,300, 7% to win, 4.4% own) won by knockout for
+      126.26 and carried all three rosters tied at 708.0; the user's best entry
+      (668.59, rank 106) was one swap from first (Shahbazyan -> Sharaf, +54.8). The
+      best big stack (DKyat, 6.7% top-1% rate) carried Sharaf 22%, Tuivasa 21% and
+      Ruffy 21% — the three "dead" punts as rates; the winning stack carried Ruffy
+      42% (he scored 5.4) and still won. Mechanism, stated without the result: a
+      4.4%-owned 7% shot is priced BELOW fair by the crowd (own/win = 0.6), so in a
+      top-heavy 59K field his world pays ~4.9x lift when it lands, and the cost of
+      3-7 entries out of 100 is a rounding error against the set's average; zero
+      entries is the only exposure that cannot collect. Fourth straight slate with
+      0.00 sub-10% pieces per entered lineup (9/5, 9/12 SE, 9/12 MEGA, 9/19) — the
+      recurring structural leak. Rule to test: in a 100+ entry stack no fighter
+      under ~5% projected own with a live finish path gets FADE; the verdict is a
+      RATE (3-10 entries), the build-rules punt cap must sit at or above the
+      envelope's sub-5% rate the same strategy cites, and the review reads
+      sub-10% pieces per entered lineup against the top 1% each card. Links
+      [[mma-se-2026-05-16-binary-leverage-weak-in-small-fields]],
+      [[mma-se-2026-09-06-price-tag-lean-fades-in-the-leverage-band-delete-the-winners-carrier]],
+      [[mma-se-2026-07-19-sharp-envelope-is-a-rate-not-a-per-bullet-quota]],
+      [[mma-mme-2026-09-19-top-one-percent-was-chalkier-than-the-field]].
     status: hypothesis
     confirmations: []
     contradictions: []
