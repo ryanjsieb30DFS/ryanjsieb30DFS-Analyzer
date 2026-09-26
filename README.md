@@ -1,3 +1,13 @@
+# FROZEN 2026-09-26 — merged into ryanjsieb30DFS
+
+This repo is no longer developed or run. On 2026-09-26 the Analyzer was merged into the Sim repo
+(`~/Desktop/Repo/ryanjsieb30DFS`, one app on port 8501: Projections · Slate Data · Slate Strategy ·
+Contests · Lineup Builder · Lineups · Portfolio · Post-Slate). Its code lives there under `src/analyzer/`
+and `ui/`; its rules/history ledgers were carried over per slug; golf/NASCAR history was archived to
+`~/Desktop/DFS/archive/rules/analyzer/`. Kept on GitHub for history only.
+
+---
+
 # DFS Slate Analyzer
 
 Article-driven, multi-sport DFS slate-strategy tool for DraftKings (PGA Classic, PGA RD4 Showdown, MMA, NASCAR). Upload the slate's articles + vendor projections → Claude writes the slate strategy (top plays, how to approach the slate, themes, leverage & fades, decisions) and a tiered player board. No lineup building — construction lives in the sibling Sim tool.
