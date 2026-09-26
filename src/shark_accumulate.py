@@ -93,6 +93,29 @@ def _load_observations() -> list[dict]:
     return out
 
 
+def observed_envelope(slug: str) -> dict | None:
+    """The pros' envelope on YOUR logged <slug> slates only — no archive seed.
+
+    9/26/26 (NFL Week 2 review): the blended `shark_envelope` carries a 28-contest
+    archive seed, so two live NFL Classic slates at 19.6 / 17.4 own-per-slot still
+    printed "about 14%" and the strategy built to it. This is the unblended
+    in-field number: mean of every focus-contest observation for the slug
+    (deduped by contest_id), with the per-slate values so the reader can see the
+    spread. None when the slug has no focus observations."""
+    rows = [o for o in _load_observations()
+            if o.get("slug") == slug and _in_focus(o.get("contest_type"))]
+    if not rows:
+        return None
+    out: dict = {"slug": slug, "n": len(rows),
+                 "dates": [r.get("date") for r in rows]}
+    for f in FEATURES:
+        vals = [r[f] for r in rows if r.get(f) is not None]
+        if vals:
+            out[f] = round(sum(vals) / len(vals), 1)
+            out[f + "_values"] = [round(v, 1) for v in vals]
+    return out
+
+
 def refresh_baseline() -> dict:
     """Recompute each sport's `shark_envelope` = count-weighted blend of the frozen
     backfill seed + accumulated observations. Idempotent. Returns the new baseline."""

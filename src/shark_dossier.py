@@ -130,12 +130,17 @@ def _pattern(p: dict) -> str:
     return ", ".join(bits) if bits else "not enough signal yet"
 
 
-def summarize_pro(handle: str) -> dict | None:
+def summarize_pro(handle: str, sport: str | None = None) -> dict | None:
     """Roll one named pro's dossier across the contests they've appeared in:
     contests seen, sports, median own/slot, leverage rate, anchor tendency, their
-    beat-you record, and a derived one-line pattern. None if never logged."""
+    beat-you record, and a derived one-line pattern. None if never logged.
+
+    `sport` limits the roll to that sport's rows. 9/26/26: without it the NFL
+    table quoted youdacao at 17.6 own/slot — his GOLF median — because the same
+    handles are tracked across sports; NFL-only he ran 16.9 and 18.7."""
     hl = str(handle).lower()
-    rows = [r for r in _load_dossier() if str(r.get("handle", "")).lower() == hl]
+    rows = [r for r in _load_dossier() if str(r.get("handle", "")).lower() == hl
+            and (sport is None or r.get("sport") == sport)]
     if not rows:
         return None
     rows.sort(key=lambda r: r.get("date") or "")
@@ -176,7 +181,7 @@ def dossier_md(sport: str) -> str | None:
         if hl and hl not in seen:
             seen.add(hl)
             handles.append(r.get("handle"))
-    pros = [p for p in (summarize_pro(h) for h in handles) if p]
+    pros = [p for p in (summarize_pro(h, sport) for h in handles) if p]
     if not pros:
         return None
     pros.sort(key=lambda p: (-p["beat_user_n"], p.get("median_best_pctile") or 100))
@@ -298,6 +303,21 @@ def shark_reality_block(slug: str) -> str | None:
                      f"leverage {user_env.get('leverage_pct')}%, anchor {user_env.get('anchor_exposure')} — "
                      f"that delta is the gap to close.")
         lines.append(line)
+    try:
+        from src.shark_accumulate import observed_envelope
+        obs = observed_envelope(slug)
+    except Exception:  # noqa: BLE001
+        obs = None
+    if obs:
+        vals = ", ".join(f"{v}" for v in obs.get("own_per_slot_values", []))
+        lines.append(
+            f"- **Observed on your logged {slug} slates (n={obs['n']}, no archive seed):** "
+            f"own/slot **{obs.get('own_per_slot')}** (per slate: {vals}), "
+            f"leverage {obs.get('leverage_pct')}%, anchor-exposure {obs.get('anchor_exposure')}, "
+            f"unique {obs.get('unique_pct')}%."
+            + (" THIS line is the sharp target to print; the blended envelope above still "
+               "carries the archive seed." if obs["n"] >= 2 else
+               " One slate only — quote the blended envelope, note this as the live read."))
     if pros_md:
         lines.append("\n".join(l for l in pros_md.splitlines() if not l.startswith("### ")))
     return "\n".join(lines)
