@@ -1,0 +1,24 @@
+{
+  "slug": "mma_se",
+  "sport": "mma",
+  "contest_label": "MMA",
+  "date": "2026-09-26",
+  "slate_label": "UFC 331 9.19.26",
+  "archived_at": "2026-09-26 09:49",
+  "archived": [
+    "slate_analysis.md",
+    "player_pool.md",
+    "bundle.md",
+    "contests.json",
+    "strategy_contract.json"
+  ],
+  "missing": [
+    "lineup_selection.json",
+    "lineup_grade.md"
+  ],
+  "article_files": [
+    "articles/mma_se/2026-09-19__UFC 331 Beatdown \u2013 DailyFanSports.pdf",
+    "articles/mma_se/2026-09-19__UFC 331 Top Plays_Slate Summary \u2013 DailyFanSports.pdf"
+  ],
+  "proj_source": null
+}

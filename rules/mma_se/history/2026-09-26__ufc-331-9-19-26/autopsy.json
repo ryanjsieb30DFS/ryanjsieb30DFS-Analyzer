@@ -1,0 +1,3450 @@
+[
+  {
+    "timestamp": "2026-09-26 09:49",
+    "contest_type": "MMA",
+    "source_file": "contest-standings-195660629 2.csv",
+    "contest_id": "195660629",
+    "entries": 59453,
+    "winning_score": 707.95996,
+    "cash_line_p80": 496.41,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "mma_se",
+    "sport": "mma",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 24,
+      "total": 26
+    },
+    "user_summary": {
+      "avg_own_mean": 29.56,
+      "low_own_count_mean": 0.0,
+      "salary_used_mean": 49856.0,
+      "entry_count": 100,
+      "best_rank": 106,
+      "best_percentile": 0.2
+    },
+    "user_lineups": [
+      {
+        "rank": 106,
+        "entry_name": "RyvlesGaming30 (23/100)",
+        "points": 668.58997,
+        "percentile": 0.2,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Ryan Gandra",
+          "Marlon Vera",
+          "Patricio Pitbull",
+          "Edmen Shahbazyan"
+        ],
+        "avg_own": 31.42,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 413.71,
+        "dup_count": 35
+      },
+      {
+        "rank": 228,
+        "entry_name": "RyvlesGaming30 (2/100)",
+        "points": 646.23,
+        "percentile": 0.4,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Marlon Vera",
+          "Alonzo Menifield",
+          "Joanderson Brito",
+          "Casey O'Neill"
+        ],
+        "avg_own": 30.89,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 407.83,
+        "dup_count": 53
+      },
+      {
+        "rank": 791,
+        "entry_name": "RyvlesGaming30 (4/100)",
+        "points": 624.76,
+        "percentile": 1.3,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Ryan Gandra",
+          "Alonzo Menifield",
+          "Patricio Pitbull",
+          "Edmen Shahbazyan"
+        ],
+        "avg_own": 31.16,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 401.4,
+        "dup_count": 89
+      },
+      {
+        "rank": 1232,
+        "entry_name": "RyvlesGaming30 (86/100)",
+        "points": 613.93,
+        "percentile": 2.1,
+        "players": [
+          "Joshua Van",
+          "Ryan Gandra",
+          "Patricio Pitbull",
+          "Joanderson Brito",
+          "Casey O'Neill",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 31.31,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 408.52,
+        "dup_count": 23
+      },
+      {
+        "rank": 1442,
+        "entry_name": "RyvlesGaming30 (30/100)",
+        "points": 606.79,
+        "percentile": 2.4,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Ryan Gandra",
+          "Marlon Vera",
+          "Iwo Baraniewski",
+          "Patricio Pitbull"
+        ],
+        "avg_own": 33.74,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 416.65,
+        "dup_count": 81
+      },
+      {
+        "rank": 1555,
+        "entry_name": "RyvlesGaming30 (71/100)",
+        "points": 604.74005,
+        "percentile": 2.6,
+        "players": [
+          "Alexandre Pantoja",
+          "Robelis Despaigne",
+          "Marlon Vera",
+          "Patricio Pitbull",
+          "Joanderson Brito",
+          "Casey O'Neill"
+        ],
+        "avg_own": 26.02,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 405.43,
+        "dup_count": 8
+      },
+      {
+        "rank": 1762,
+        "entry_name": "RyvlesGaming30 (69/100)",
+        "points": 599.6,
+        "percentile": 3.0,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Ryan Gandra",
+          "Marlon Vera",
+          "Alonzo Menifield",
+          "Edmen Shahbazyan"
+        ],
+        "avg_own": 31.15,
+        "low_own_count": 0,
+        "salary_used": 49700,
+        "proj_total": 402.64,
+        "dup_count": 47
+      },
+      {
+        "rank": 2821,
+        "entry_name": "RyvlesGaming30 (58/100)",
+        "points": 583.32996,
+        "percentile": 4.7,
+        "players": [
+          "Joshua Van",
+          "Ryan Gandra",
+          "Marlon Vera",
+          "Patricio Pitbull",
+          "Edmen Shahbazyan",
+          "JooSang Yoo"
+        ],
+        "avg_own": 27.35,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 395.5,
+        "dup_count": 5
+      },
+      {
+        "rank": 3191,
+        "entry_name": "RyvlesGaming30 (26/100)",
+        "points": 576.67004,
+        "percentile": 5.4,
+        "players": [
+          "Alexandre Pantoja",
+          "Ryan Gandra",
+          "Alonzo Menifield",
+          "Patricio Pitbull",
+          "Edmen Shahbazyan",
+          "Joanderson Brito"
+        ],
+        "avg_own": 27.48,
+        "low_own_count": 0,
+        "salary_used": 49700,
+        "proj_total": 385.31,
+        "dup_count": 11
+      },
+      {
+        "rank": 3448,
+        "entry_name": "RyvlesGaming30 (38/100)",
+        "points": 574.14,
+        "percentile": 5.8,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Ryan Gandra",
+          "Alonzo Menifield",
+          "Edmen Shahbazyan",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 33.73,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 407.65,
+        "dup_count": 90
+      },
+      {
+        "rank": 3719,
+        "entry_name": "RyvlesGaming30 (12/100)",
+        "points": 570.25995,
+        "percentile": 6.3,
+        "players": [
+          "Robelis Despaigne",
+          "Ryan Gandra",
+          "Marlon Vera",
+          "Alonzo Menifield",
+          "Patricio Pitbull",
+          "Edmen Shahbazyan"
+        ],
+        "avg_own": 23.71,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 370.36,
+        "dup_count": 1
+      },
+      {
+        "rank": 4113,
+        "entry_name": "RyvlesGaming30 (52/100)",
+        "points": 563.68,
+        "percentile": 6.9,
+        "players": [
+          "Joshua Van",
+          "Mauricio Ruffy",
+          "Ryan Gandra",
+          "Marlon Vera",
+          "Joanderson Brito",
+          "Casey O'Neill"
+        ],
+        "avg_own": 31.18,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 404.17,
+        "dup_count": 38
+      },
+      {
+        "rank": 4370,
+        "entry_name": "RyvlesGaming30 (55/100)",
+        "points": 560.31,
+        "percentile": 7.4,
+        "players": [
+          "Joshua Van",
+          "Ryan Gandra",
+          "Alonzo Menifield",
+          "Edmen Shahbazyan",
+          "Joanderson Brito",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 30.94,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 397.21,
+        "dup_count": 70
+      },
+      {
+        "rank": 4562,
+        "entry_name": "RyvlesGaming30 (77/100)",
+        "points": 558.39,
+        "percentile": 7.7,
+        "players": [
+          "Joshua Van",
+          "Ryan Gandra",
+          "Alonzo Menifield",
+          "Patricio Pitbull",
+          "Casey O'Neill",
+          "JooSang Yoo"
+        ],
+        "avg_own": 28.08,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 389.08,
+        "dup_count": 25
+      },
+      {
+        "rank": 5519,
+        "entry_name": "RyvlesGaming30 (81/100)",
+        "points": 546.86,
+        "percentile": 9.3,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Marlon Vera",
+          "Iwo Baraniewski",
+          "Edmen Shahbazyan",
+          "Casey O'Neill"
+        ],
+        "avg_own": 35.41,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 425.23,
+        "dup_count": 159
+      },
+      {
+        "rank": 5683,
+        "entry_name": "RyvlesGaming30 (85/100)",
+        "points": 546.81,
+        "percentile": 9.6,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Alonzo Menifield",
+          "Patricio Pitbull",
+          "Edmen Shahbazyan",
+          "JooSang Yoo"
+        ],
+        "avg_own": 27.75,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 387.28,
+        "dup_count": 7
+      },
+      {
+        "rank": 6391,
+        "entry_name": "RyvlesGaming30 (24/100)",
+        "points": 539.5,
+        "percentile": 10.7,
+        "players": [
+          "Joshua Van",
+          "Ryan Gandra",
+          "Alonzo Menifield",
+          "Patricio Pitbull",
+          "Edmen Shahbazyan",
+          "JooSang Yoo"
+        ],
+        "avg_own": 27.09,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 383.19,
+        "dup_count": 12
+      },
+      {
+        "rank": 6703,
+        "entry_name": "RyvlesGaming30 (80/100)",
+        "points": 535.37,
+        "percentile": 11.3,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Marlon Vera",
+          "Alonzo Menifield",
+          "Dooho Choi",
+          "Edmen Shahbazyan"
+        ],
+        "avg_own": 30.63,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 398.2,
+        "dup_count": 16
+      },
+      {
+        "rank": 7038,
+        "entry_name": "RyvlesGaming30 (16/100)",
+        "points": 531.99,
+        "percentile": 11.8,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Charles Jourdain",
+          "Patricio Pitbull",
+          "Edmen Shahbazyan",
+          "Casey O'Neill"
+        ],
+        "avg_own": 28.97,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 414.31,
+        "dup_count": 36
+      },
+      {
+        "rank": 8543,
+        "entry_name": "RyvlesGaming30 (49/100)",
+        "points": 520.6,
+        "percentile": 14.4,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Ryan Gandra",
+          "Iwo Baraniewski",
+          "Patricio Pitbull",
+          "Giga Chikadze"
+        ],
+        "avg_own": 32.72,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 406.05,
+        "dup_count": 40
+      },
+      {
+        "rank": 9083,
+        "entry_name": "RyvlesGaming30 (66/100)",
+        "points": 516.51,
+        "percentile": 15.3,
+        "players": [
+          "Arman Tsarukyan",
+          "Marlon Vera",
+          "Iwo Baraniewski",
+          "Patricio Pitbull",
+          "Casey O'Neill",
+          "JooSang Yoo"
+        ],
+        "avg_own": 28.98,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 401.3,
+        "dup_count": 5
+      },
+      {
+        "rank": 9242,
+        "entry_name": "RyvlesGaming30 (51/100)",
+        "points": 514.11,
+        "percentile": 15.5,
+        "players": [
+          "Alexandre Pantoja",
+          "Ryan Gandra",
+          "Marlon Vera",
+          "Edmen Shahbazyan",
+          "Joanderson Brito",
+          "Eduarda Moura"
+        ],
+        "avg_own": 28.05,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 407.33,
+        "dup_count": 21
+      },
+      {
+        "rank": 9600,
+        "entry_name": "RyvlesGaming30 (78/100)",
+        "points": 512.42,
+        "percentile": 16.1,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Robelis Despaigne",
+          "Iwo Baraniewski",
+          "Patricio Pitbull",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 32.73,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 417.93,
+        "dup_count": 50
+      },
+      {
+        "rank": 10598,
+        "entry_name": "RyvlesGaming30 (96/100)",
+        "points": 504.37,
+        "percentile": 17.8,
+        "players": [
+          "Joshua Van",
+          "Gable Steveson",
+          "Marlon Vera",
+          "Alonzo Menifield",
+          "Edmen Shahbazyan",
+          "Casey O'Neill"
+        ],
+        "avg_own": 30.52,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 401.72,
+        "dup_count": 46
+      },
+      {
+        "rank": 10706,
+        "entry_name": "RyvlesGaming30 (73/100)",
+        "points": 503.68997,
+        "percentile": 18.0,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Ryan Gandra",
+          "Marlon Vera",
+          "Brunno Ferreira",
+          "Eduarda Moura"
+        ],
+        "avg_own": 31.04,
+        "low_own_count": 0,
+        "salary_used": 49700,
+        "proj_total": 401.74,
+        "dup_count": 25
+      },
+      {
+        "rank": 11216,
+        "entry_name": "RyvlesGaming30 (62/100)",
+        "points": 499.68,
+        "percentile": 18.9,
+        "players": [
+          "Joshua Van",
+          "Iwo Baraniewski",
+          "Patricio Pitbull",
+          "Brunno Ferreira",
+          "Joanderson Brito",
+          "Casey O'Neill"
+        ],
+        "avg_own": 31.94,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 391.87,
+        "dup_count": 28
+      },
+      {
+        "rank": 11403,
+        "entry_name": "RyvlesGaming30 (91/100)",
+        "points": 498.54004,
+        "percentile": 19.2,
+        "players": [
+          "Joshua Van",
+          "Ryan Gandra",
+          "Charles Jourdain",
+          "Alonzo Menifield",
+          "Edmen Shahbazyan",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 29.68,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 387.82,
+        "dup_count": 10
+      },
+      {
+        "rank": 12992,
+        "entry_name": "RyvlesGaming30 (45/100)",
+        "points": 489.86,
+        "percentile": 21.9,
+        "players": [
+          "Joshua Van",
+          "Ryan Gandra",
+          "Marlon Vera",
+          "Brunno Ferreira",
+          "Joanderson Brito",
+          "Eduarda Moura"
+        ],
+        "avg_own": 28.25,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 391.3,
+        "dup_count": 10
+      },
+      {
+        "rank": 13008,
+        "entry_name": "RyvlesGaming30 (48/100)",
+        "points": 489.48,
+        "percentile": 21.9,
+        "players": [
+          "Alexandre Pantoja",
+          "Robelis Despaigne",
+          "Alonzo Menifield",
+          "Patricio Pitbull",
+          "Casey O'Neill",
+          "JooSang Yoo"
+        ],
+        "avg_own": 24.48,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 385.35,
+        "dup_count": 6
+      },
+      {
+        "rank": 13044,
+        "entry_name": "RyvlesGaming30 (40/100)",
+        "points": 488.82,
+        "percentile": 21.9,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Iwo Baraniewski",
+          "Patricio Pitbull",
+          "Brunno Ferreira",
+          "Joanderson Brito"
+        ],
+        "avg_own": 31.77,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 404.72,
+        "dup_count": 85
+      },
+      {
+        "rank": 13618,
+        "entry_name": "RyvlesGaming30 (27/100)",
+        "points": 486.63998,
+        "percentile": 22.9,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Marlon Vera",
+          "Dooho Choi",
+          "Brunno Ferreira",
+          "Casey O'Neill"
+        ],
+        "avg_own": 32.03,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 410.82,
+        "dup_count": 79
+      },
+      {
+        "rank": 14036,
+        "entry_name": "RyvlesGaming30 (6/100)",
+        "points": 484.81003,
+        "percentile": 23.6,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Charles Jourdain",
+          "Patricio Pitbull",
+          "Edmen Shahbazyan",
+          "Eduarda Moura"
+        ],
+        "avg_own": 27.46,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 400.79,
+        "dup_count": 2
+      },
+      {
+        "rank": 15191,
+        "entry_name": "RyvlesGaming30 (47/100)",
+        "points": 479.24002,
+        "percentile": 25.6,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Charles Jourdain",
+          "Alonzo Menifield",
+          "Patricio Pitbull",
+          "JooSang Yoo"
+        ],
+        "avg_own": 24.51,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 386.19,
+        "dup_count": 9
+      },
+      {
+        "rank": 15297,
+        "entry_name": "RyvlesGaming30 (32/100)",
+        "points": 478.41998,
+        "percentile": 25.7,
+        "players": [
+          "Joshua Van",
+          "Robelis Despaigne",
+          "Ozzy Diaz",
+          "Marlon Vera",
+          "Iwo Baraniewski",
+          "Joanderson Brito"
+        ],
+        "avg_own": 28.04,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 395.21,
+        "dup_count": 20
+      },
+      {
+        "rank": 15493,
+        "entry_name": "RyvlesGaming30 (67/100)",
+        "points": 477.52002,
+        "percentile": 26.1,
+        "players": [
+          "Joshua Van",
+          "Robelis Despaigne",
+          "Marlon Vera",
+          "Dooho Choi",
+          "Edmen Shahbazyan",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 29.21,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 407.7,
+        "dup_count": 10
+      },
+      {
+        "rank": 15673,
+        "entry_name": "RyvlesGaming30 (7/100)",
+        "points": 476.37,
+        "percentile": 26.4,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Ryan Gandra",
+          "Alonzo Menifield",
+          "Dooho Choi",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 32.48,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 412.21,
+        "dup_count": 124
+      },
+      {
+        "rank": 16417,
+        "entry_name": "RyvlesGaming30 (99/100)",
+        "points": 471.94,
+        "percentile": 27.6,
+        "players": [
+          "Alexandre Pantoja",
+          "Ryan Gandra",
+          "Iwo Baraniewski",
+          "Patricio Pitbull",
+          "Brunno Ferreira",
+          "Casey O'Neill"
+        ],
+        "avg_own": 33.18,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 392.57,
+        "dup_count": 30
+      },
+      {
+        "rank": 16447,
+        "entry_name": "RyvlesGaming30 (79/100)",
+        "points": 471.93002,
+        "percentile": 27.7,
+        "players": [
+          "Alexandre Pantoja",
+          "Ryan Gandra",
+          "Charles Jourdain",
+          "Alonzo Menifield",
+          "Patricio Pitbull",
+          "JooSang Yoo"
+        ],
+        "avg_own": 23.86,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 382.1,
+        "dup_count": 13
+      },
+      {
+        "rank": 16621,
+        "entry_name": "RyvlesGaming30 (93/100)",
+        "points": 470.11002,
+        "percentile": 28.0,
+        "players": [
+          "Alexandre Pantoja",
+          "Gable Steveson",
+          "Marlon Vera",
+          "Alonzo Menifield",
+          "Edmen Shahbazyan",
+          "Casey O'Neill"
+        ],
+        "avg_own": 29.63,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 396.07,
+        "dup_count": 17
+      },
+      {
+        "rank": 17563,
+        "entry_name": "RyvlesGaming30 (92/100)",
+        "points": 465.41003,
+        "percentile": 29.5,
+        "players": [
+          "Alexandre Pantoja",
+          "Charles Jourdain",
+          "Alonzo Menifield",
+          "Patricio Pitbull",
+          "Joanderson Brito",
+          "JooSang Yoo"
+        ],
+        "avg_own": 21.72,
+        "low_own_count": 0,
+        "salary_used": 49700,
+        "proj_total": 375.75,
+        "dup_count": 3
+      },
+      {
+        "rank": 17798,
+        "entry_name": "RyvlesGaming30 (20/100)",
+        "points": 463.71,
+        "percentile": 29.9,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Marlon Vera",
+          "Dooho Choi",
+          "Edmen Shahbazyan",
+          "Eduarda Moura"
+        ],
+        "avg_own": 30.32,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 413.33,
+        "dup_count": 29
+      },
+      {
+        "rank": 18097,
+        "entry_name": "RyvlesGaming30 (63/100)",
+        "points": 461.6,
+        "percentile": 30.4,
+        "players": [
+          "Alexandre Pantoja",
+          "Marlon Vera",
+          "Iwo Baraniewski",
+          "Edmen Shahbazyan",
+          "Casey O'Neill",
+          "JooSang Yoo"
+        ],
+        "avg_own": 31.34,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 407.02,
+        "dup_count": 47
+      },
+      {
+        "rank": 18243,
+        "entry_name": "RyvlesGaming30 (37/100)",
+        "points": 460.94,
+        "percentile": 30.7,
+        "players": [
+          "Joshua Van",
+          "Gable Steveson",
+          "Marlon Vera",
+          "Iwo Baraniewski",
+          "Casey O'Neill",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 35.68,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 421.98,
+        "dup_count": 123
+      },
+      {
+        "rank": 18398,
+        "entry_name": "RyvlesGaming30 (11/100)",
+        "points": 460.67,
+        "percentile": 30.9,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Iwo Baraniewski",
+          "Edmen Shahbazyan",
+          "Giga Chikadze",
+          "Casey O'Neill"
+        ],
+        "avg_own": 34.38,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 414.63,
+        "dup_count": 135
+      },
+      {
+        "rank": 18602,
+        "entry_name": "RyvlesGaming30 (17/100)",
+        "points": 460.16,
+        "percentile": 31.3,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Gable Steveson",
+          "Alonzo Menifield",
+          "Patricio Pitbull",
+          "Brunno Ferreira"
+        ],
+        "avg_own": 29.66,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 391.65,
+        "dup_count": 44
+      },
+      {
+        "rank": 20484,
+        "entry_name": "RyvlesGaming30 (19/100)",
+        "points": 452.1,
+        "percentile": 34.5,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Ozzy Diaz",
+          "Charles Jourdain",
+          "Edmen Shahbazyan",
+          "Casey O'Neill"
+        ],
+        "avg_own": 28.77,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 401.39,
+        "dup_count": 27
+      },
+      {
+        "rank": 21577,
+        "entry_name": "RyvlesGaming30 (53/100)",
+        "points": 446.11,
+        "percentile": 36.3,
+        "players": [
+          "Joshua Van",
+          "Robelis Despaigne",
+          "Patricio Pitbull",
+          "Brunno Ferreira",
+          "Joanderson Brito",
+          "Eduarda Moura"
+        ],
+        "avg_own": 24.66,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 386.33,
+        "dup_count": 11
+      },
+      {
+        "rank": 21676,
+        "entry_name": "RyvlesGaming30 (97/100)",
+        "points": 446.03,
+        "percentile": 36.5,
+        "players": [
+          "Joshua Van",
+          "Ryan Gandra",
+          "Alonzo Menifield",
+          "Brunno Ferreira",
+          "Joanderson Brito",
+          "Eduarda Moura"
+        ],
+        "avg_own": 27.99,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 378.99,
+        "dup_count": 28
+      },
+      {
+        "rank": 22050,
+        "entry_name": "RyvlesGaming30 (46/100)",
+        "points": 445.06998,
+        "percentile": 37.1,
+        "players": [
+          "Alexandre Pantoja",
+          "Ryan Gandra",
+          "Marlon Vera",
+          "Dooho Choi",
+          "Brunno Ferreira",
+          "Casey O'Neill"
+        ],
+        "avg_own": 30.48,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 401.08,
+        "dup_count": 37
+      },
+      {
+        "rank": 22856,
+        "entry_name": "RyvlesGaming30 (98/100)",
+        "points": 441.75,
+        "percentile": 38.4,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Ryan Gandra",
+          "Edmen Shahbazyan",
+          "Giga Chikadze",
+          "Eduarda Moura"
+        ],
+        "avg_own": 29.81,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 407.17,
+        "dup_count": 28
+      },
+      {
+        "rank": 23083,
+        "entry_name": "RyvlesGaming30 (1/100)",
+        "points": 440.68,
+        "percentile": 38.8,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Ryan Gandra",
+          "Iwo Baraniewski",
+          "Eduarda Moura",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 35.74,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 425.72,
+        "dup_count": 171
+      },
+      {
+        "rank": 23282,
+        "entry_name": "RyvlesGaming30 (10/100)",
+        "points": 440.42,
+        "percentile": 39.2,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Alonzo Menifield",
+          "Edmen Shahbazyan",
+          "Eduarda Moura",
+          "JooSang Yoo"
+        ],
+        "avg_own": 28.06,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 396.99,
+        "dup_count": 48
+      },
+      {
+        "rank": 24591,
+        "entry_name": "RyvlesGaming30 (34/100)",
+        "points": 433.79,
+        "percentile": 41.4,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Gable Steveson",
+          "Alonzo Menifield",
+          "Edmen Shahbazyan",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 32.03,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 413.93,
+        "dup_count": 105
+      },
+      {
+        "rank": 24938,
+        "entry_name": "RyvlesGaming30 (75/100)",
+        "points": 432.65002,
+        "percentile": 41.9,
+        "players": [
+          "Joshua Van",
+          "Ryan Gandra",
+          "Iwo Baraniewski",
+          "Edmen Shahbazyan",
+          "Eduarda Moura",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 34.93,
+        "low_own_count": 0,
+        "salary_used": 49700,
+        "proj_total": 406.98,
+        "dup_count": 59
+      },
+      {
+        "rank": 25477,
+        "entry_name": "RyvlesGaming30 (89/100)",
+        "points": 429.09,
+        "percentile": 42.9,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Alonzo Menifield",
+          "Brunno Ferreira",
+          "Casey O'Neill",
+          "JooSang Yoo"
+        ],
+        "avg_own": 28.88,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 388.83,
+        "dup_count": 37
+      },
+      {
+        "rank": 25655,
+        "entry_name": "RyvlesGaming30 (100/100)",
+        "points": 428.25,
+        "percentile": 43.2,
+        "players": [
+          "Joshua Van",
+          "Iwo Baraniewski",
+          "Patricio Pitbull",
+          "Brunno Ferreira",
+          "Casey O'Neill",
+          "JooSang Yoo"
+        ],
+        "avg_own": 30.66,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 384.1,
+        "dup_count": 12
+      },
+      {
+        "rank": 27919,
+        "entry_name": "RyvlesGaming30 (82/100)",
+        "points": 417.13,
+        "percentile": 47.0,
+        "players": [
+          "Alexandre Pantoja",
+          "Gable Steveson",
+          "Marlon Vera",
+          "Alonzo Menifield",
+          "Joanderson Brito",
+          "Eduarda Moura"
+        ],
+        "avg_own": 26.14,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 390.85,
+        "dup_count": 4
+      },
+      {
+        "rank": 28124,
+        "entry_name": "RyvlesGaming30 (54/100)",
+        "points": 415.6,
+        "percentile": 47.3,
+        "players": [
+          "Joshua Van",
+          "Iwo Baraniewski",
+          "Dooho Choi",
+          "Edmen Shahbazyan",
+          "Casey O'Neill",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 35.93,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 416.06,
+        "dup_count": 345
+      },
+      {
+        "rank": 28470,
+        "entry_name": "RyvlesGaming30 (61/100)",
+        "points": 415.55,
+        "percentile": 47.9,
+        "players": [
+          "Alexandre Pantoja",
+          "Ryan Gandra",
+          "Charles Jourdain",
+          "Brunno Ferreira",
+          "Casey O'Neill",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 30.19,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 394.79,
+        "dup_count": 3
+      },
+      {
+        "rank": 29856,
+        "entry_name": "RyvlesGaming30 (9/100)",
+        "points": 408.81003,
+        "percentile": 50.2,
+        "players": [
+          "Alexandre Pantoja",
+          "Gable Steveson",
+          "Charles Jourdain",
+          "Alonzo Menifield",
+          "Patricio Pitbull",
+          "Edmen Shahbazyan"
+        ],
+        "avg_own": 25.41,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 387.85,
+        "dup_count": 7
+      },
+      {
+        "rank": 30024,
+        "entry_name": "RyvlesGaming30 (95/100)",
+        "points": 408.62,
+        "percentile": 50.5,
+        "players": [
+          "Alexandre Pantoja",
+          "Marlon Vera",
+          "Iwo Baraniewski",
+          "Joanderson Brito",
+          "Eduarda Moura",
+          "JooSang Yoo"
+        ],
+        "avg_own": 27.85,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 401.8,
+        "dup_count": 9
+      },
+      {
+        "rank": 30247,
+        "entry_name": "RyvlesGaming30 (36/100)",
+        "points": 407.58,
+        "percentile": 50.9,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Charles Jourdain",
+          "Patricio Pitbull",
+          "Eduarda Moura",
+          "JooSang Yoo"
+        ],
+        "avg_own": 24.2,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 401.32,
+        "dup_count": 8
+      },
+      {
+        "rank": 30348,
+        "entry_name": "RyvlesGaming30 (68/100)",
+        "points": 406.65002,
+        "percentile": 51.0,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Charles Jourdain",
+          "Iwo Baraniewski",
+          "Eduarda Moura",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 33.24,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 415.63,
+        "dup_count": 41
+      },
+      {
+        "rank": 30932,
+        "entry_name": "RyvlesGaming30 (94/100)",
+        "points": 404.15,
+        "percentile": 52.0,
+        "players": [
+          "Arman Tsarukyan",
+          "Marlon Vera",
+          "Iwo Baraniewski",
+          "Brunno Ferreira",
+          "Joanderson Brito",
+          "Eduarda Moura"
+        ],
+        "avg_own": 28.89,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 391.21,
+        "dup_count": 9
+      },
+      {
+        "rank": 31372,
+        "entry_name": "RyvlesGaming30 (44/100)",
+        "points": 401.86002,
+        "percentile": 52.8,
+        "players": [
+          "Alexandre Pantoja",
+          "Mauricio Ruffy",
+          "Gable Steveson",
+          "Ryan Gandra",
+          "Patricio Pitbull",
+          "Edmen Shahbazyan"
+        ],
+        "avg_own": 29.75,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 404.02,
+        "dup_count": 56
+      },
+      {
+        "rank": 31971,
+        "entry_name": "RyvlesGaming30 (29/100)",
+        "points": 398.27,
+        "percentile": 53.8,
+        "players": [
+          "Joshua Van",
+          "Gable Steveson",
+          "Robelis Despaigne",
+          "Patricio Pitbull",
+          "Eduarda Moura",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 27.52,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 409.55,
+        "dup_count": 36
+      },
+      {
+        "rank": 34099,
+        "entry_name": "RyvlesGaming30 (13/100)",
+        "points": 390.46002,
+        "percentile": 57.4,
+        "players": [
+          "Joshua Van",
+          "Mauricio Ruffy",
+          "Ryan Gandra",
+          "Charles Jourdain",
+          "Brunno Ferreira",
+          "Casey O'Neill"
+        ],
+        "avg_own": 30.07,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 389.2,
+        "dup_count": 20
+      },
+      {
+        "rank": 34526,
+        "entry_name": "RyvlesGaming30 (83/100)",
+        "points": 388.08,
+        "percentile": 58.1,
+        "players": [
+          "Alexandre Pantoja",
+          "Marlon Vera",
+          "Iwo Baraniewski",
+          "Dooho Choi",
+          "Joanderson Brito",
+          "Eduarda Moura"
+        ],
+        "avg_own": 29.86,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 405.83,
+        "dup_count": 10
+      },
+      {
+        "rank": 34899,
+        "entry_name": "RyvlesGaming30 (14/100)",
+        "points": 386.47998,
+        "percentile": 58.7,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Marlon Vera",
+          "Dooho Choi",
+          "Eduarda Moura",
+          "JooSang Yoo"
+        ],
+        "avg_own": 27.07,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 413.86,
+        "dup_count": 41
+      },
+      {
+        "rank": 35428,
+        "entry_name": "RyvlesGaming30 (25/100)",
+        "points": 383.63998,
+        "percentile": 59.6,
+        "players": [
+          "Alexandre Pantoja",
+          "Robelis Despaigne",
+          "Ryan Gandra",
+          "Alonzo Menifield",
+          "Brunno Ferreira",
+          "Eduarda Moura"
+        ],
+        "avg_own": 26.52,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 381.61,
+        "dup_count": 22
+      },
+      {
+        "rank": 35749,
+        "entry_name": "RyvlesGaming30 (28/100)",
+        "points": 381.34003,
+        "percentile": 60.1,
+        "players": [
+          "Alexandre Pantoja",
+          "Iwo Baraniewski",
+          "Dooho Choi",
+          "Edmen Shahbazyan",
+          "Casey O'Neill",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 35.04,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 410.41,
+        "dup_count": 44
+      },
+      {
+        "rank": 36008,
+        "entry_name": "RyvlesGaming30 (8/100)",
+        "points": 380.49002,
+        "percentile": 60.6,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Iwo Baraniewski",
+          "Dooho Choi",
+          "Brunno Ferreira",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 35.95,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 412.88,
+        "dup_count": 174
+      },
+      {
+        "rank": 36537,
+        "entry_name": "RyvlesGaming30 (33/100)",
+        "points": 378.22,
+        "percentile": 61.5,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Ryan Gandra",
+          "Charles Jourdain",
+          "Brunno Ferreira",
+          "Giga Chikadze"
+        ],
+        "avg_own": 27.29,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 397.68,
+        "dup_count": 18
+      },
+      {
+        "rank": 36776,
+        "entry_name": "RyvlesGaming30 (60/100)",
+        "points": 377.15,
+        "percentile": 61.9,
+        "players": [
+          "Alexandre Pantoja",
+          "Gable Steveson",
+          "Robelis Despaigne",
+          "Marlon Vera",
+          "Brunno Ferreira",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 28.23,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 402.39,
+        "dup_count": 12
+      },
+      {
+        "rank": 36823,
+        "entry_name": "RyvlesGaming30 (3/100)",
+        "points": 376.79,
+        "percentile": 61.9,
+        "players": [
+          "Joshua Van",
+          "Mauricio Ruffy",
+          "Iwo Baraniewski",
+          "Edmen Shahbazyan",
+          "Casey O'Neill",
+          "JooSang Yoo"
+        ],
+        "avg_own": 32.92,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 400.79,
+        "dup_count": 158
+      },
+      {
+        "rank": 37980,
+        "entry_name": "RyvlesGaming30 (21/100)",
+        "points": 372.01,
+        "percentile": 63.9,
+        "players": [
+          "Joshua Van",
+          "Charles Jourdain",
+          "Iwo Baraniewski",
+          "Patricio Pitbull",
+          "Eduarda Moura",
+          "JooSang Yoo"
+        ],
+        "avg_own": 26.6,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 391.17,
+        "dup_count": 10
+      },
+      {
+        "rank": 40470,
+        "entry_name": "RyvlesGaming30 (76/100)",
+        "points": 360.1,
+        "percentile": 68.1,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Ozzy Diaz",
+          "Iwo Baraniewski",
+          "Dooho Choi",
+          "Casey O'Neill"
+        ],
+        "avg_own": 33.08,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 409.98,
+        "dup_count": 68
+      },
+      {
+        "rank": 43489,
+        "entry_name": "RyvlesGaming30 (59/100)",
+        "points": 344.01,
+        "percentile": 73.1,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Iwo Baraniewski",
+          "Dooho Choi",
+          "Edmen Shahbazyan",
+          "Giga Chikadze"
+        ],
+        "avg_own": 32.14,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 413.3,
+        "dup_count": 69
+      },
+      {
+        "rank": 43785,
+        "entry_name": "RyvlesGaming30 (57/100)",
+        "points": 342.92,
+        "percentile": 73.6,
+        "players": [
+          "Alexandre Pantoja",
+          "Gable Steveson",
+          "Iwo Baraniewski",
+          "Patricio Pitbull",
+          "Edmen Shahbazyan",
+          "Eduarda Moura"
+        ],
+        "avg_own": 30.66,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 407.01,
+        "dup_count": 37
+      },
+      {
+        "rank": 44233,
+        "entry_name": "RyvlesGaming30 (31/100)",
+        "points": 341.42,
+        "percentile": 74.4,
+        "players": [
+          "Alexandre Pantoja",
+          "Mauricio Ruffy",
+          "Ryan Gandra",
+          "Charles Jourdain",
+          "Alonzo Menifield",
+          "Dooho Choi"
+        ],
+        "avg_own": 27.42,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 381.14,
+        "dup_count": 6
+      },
+      {
+        "rank": 44283,
+        "entry_name": "RyvlesGaming30 (5/100)",
+        "points": 341.21002,
+        "percentile": 74.5,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Ozzy Diaz",
+          "Iwo Baraniewski",
+          "Dooho Choi",
+          "Edmen Shahbazyan"
+        ],
+        "avg_own": 32.09,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 404.09,
+        "dup_count": 40
+      },
+      {
+        "rank": 44544,
+        "entry_name": "RyvlesGaming30 (35/100)",
+        "points": 339.99002,
+        "percentile": 74.9,
+        "players": [
+          "Joshua Van",
+          "Mauricio Ruffy",
+          "Ryan Gandra",
+          "Charles Jourdain",
+          "Iwo Baraniewski",
+          "Eduarda Moura"
+        ],
+        "avg_own": 31.57,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 400.3,
+        "dup_count": 85
+      },
+      {
+        "rank": 45492,
+        "entry_name": "RyvlesGaming30 (88/100)",
+        "points": 336.85,
+        "percentile": 76.5,
+        "players": [
+          "Joshua Van",
+          "Robelis Despaigne",
+          "Ozzy Diaz",
+          "Charles Jourdain",
+          "Alonzo Menifield",
+          "Dooho Choi"
+        ],
+        "avg_own": 22.95,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 375.13,
+        "dup_count": 5
+      },
+      {
+        "rank": 45550,
+        "entry_name": "RyvlesGaming30 (84/100)",
+        "points": 336.41998,
+        "percentile": 76.6,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Charles Jourdain",
+          "Dooho Choi",
+          "Eduarda Moura",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 28.77,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 411.6,
+        "dup_count": 5
+      },
+      {
+        "rank": 47391,
+        "entry_name": "RyvlesGaming30 (50/100)",
+        "points": 325.91,
+        "percentile": 79.7,
+        "players": [
+          "Arman Tsarukyan",
+          "Ryan Gandra",
+          "Alonzo Menifield",
+          "Dooho Choi",
+          "Brunno Ferreira",
+          "Giga Chikadze"
+        ],
+        "avg_own": 25.83,
+        "low_own_count": 0,
+        "salary_used": 49700,
+        "proj_total": 367.8,
+        "dup_count": 3
+      },
+      {
+        "rank": 47961,
+        "entry_name": "RyvlesGaming30 (22/100)",
+        "points": 321.53,
+        "percentile": 80.7,
+        "players": [
+          "Alexandre Pantoja",
+          "Arman Tsarukyan",
+          "Gable Steveson",
+          "Ozzy Diaz",
+          "Brunno Ferreira",
+          "Casey O'Neill"
+        ],
+        "avg_own": 29.78,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 401.73,
+        "dup_count": 56
+      },
+      {
+        "rank": 48509,
+        "entry_name": "RyvlesGaming30 (56/100)",
+        "points": 318.76,
+        "percentile": 81.6,
+        "players": [
+          "Joshua Van",
+          "Ozzy Diaz",
+          "Charles Jourdain",
+          "Iwo Baraniewski",
+          "Dooho Choi",
+          "Casey O'Neill"
+        ],
+        "avg_own": 29.92,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 395.8,
+        "dup_count": 67
+      },
+      {
+        "rank": 50625,
+        "entry_name": "RyvlesGaming30 (39/100)",
+        "points": 305.2,
+        "percentile": 85.2,
+        "players": [
+          "Joshua Van",
+          "Robelis Despaigne",
+          "Ozzy Diaz",
+          "Charles Jourdain",
+          "Iwo Baraniewski",
+          "Brunno Ferreira"
+        ],
+        "avg_own": 26.94,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 380.24,
+        "dup_count": 24
+      },
+      {
+        "rank": 51323,
+        "entry_name": "RyvlesGaming30 (72/100)",
+        "points": 300.29,
+        "percentile": 86.3,
+        "players": [
+          "Joshua Van",
+          "Arman Tsarukyan",
+          "Dooho Choi",
+          "Giga Chikadze",
+          "Eduarda Moura",
+          "JooSang Yoo"
+        ],
+        "avg_own": 26.04,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 403.26,
+        "dup_count": 25
+      },
+      {
+        "rank": 51488,
+        "entry_name": "RyvlesGaming30 (74/100)",
+        "points": 299.87,
+        "percentile": 86.6,
+        "players": [
+          "Joshua Van",
+          "Ozzy Diaz",
+          "Charles Jourdain",
+          "Iwo Baraniewski",
+          "Dooho Choi",
+          "Edmen Shahbazyan"
+        ],
+        "avg_own": 28.93,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 389.91,
+        "dup_count": 40
+      },
+      {
+        "rank": 51636,
+        "entry_name": "RyvlesGaming30 (90/100)",
+        "points": 298.72,
+        "percentile": 86.9,
+        "players": [
+          "Joshua Van",
+          "Gable Steveson",
+          "Ozzy Diaz",
+          "Alonzo Menifield",
+          "Dooho Choi",
+          "Edmen Shahbazyan"
+        ],
+        "avg_own": 27.2,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 380.58,
+        "dup_count": 12
+      },
+      {
+        "rank": 53047,
+        "entry_name": "RyvlesGaming30 (87/100)",
+        "points": 287.58002,
+        "percentile": 89.2,
+        "players": [
+          "Alexandre Pantoja",
+          "Robelis Despaigne",
+          "Edmen Shahbazyan",
+          "Giga Chikadze",
+          "Eduarda Moura",
+          "JooSang Yoo"
+        ],
+        "avg_own": 22.14,
+        "low_own_count": 0,
+        "salary_used": 49600,
+        "proj_total": 385.23,
+        "dup_count": 2
+      },
+      {
+        "rank": 53351,
+        "entry_name": "RyvlesGaming30 (41/100)",
+        "points": 284.93,
+        "percentile": 89.7,
+        "players": [
+          "Alexandre Pantoja",
+          "Mauricio Ruffy",
+          "Gable Steveson",
+          "Marlon Vera",
+          "Iwo Baraniewski",
+          "Dooho Choi"
+        ],
+        "avg_own": 32.43,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 409.41,
+        "dup_count": 65
+      },
+      {
+        "rank": 54837,
+        "entry_name": "RyvlesGaming30 (43/100)",
+        "points": 267.05002,
+        "percentile": 92.2,
+        "players": [
+          "Alexandre Pantoja",
+          "Charles Jourdain",
+          "Alonzo Menifield",
+          "Dooho Choi",
+          "Eduarda Moura",
+          "JooSang Yoo"
+        ],
+        "avg_own": 22.76,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 381.72,
+        "dup_count": 9
+      },
+      {
+        "rank": 54902,
+        "entry_name": "RyvlesGaming30 (42/100)",
+        "points": 265.83,
+        "percentile": 92.3,
+        "players": [
+          "Joshua Van",
+          "Gable Steveson",
+          "Iwo Baraniewski",
+          "Edmen Shahbazyan",
+          "Giga Chikadze",
+          "Eduarda Moura"
+        ],
+        "avg_own": 30.51,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 403.3,
+        "dup_count": 46
+      },
+      {
+        "rank": 55653,
+        "entry_name": "RyvlesGaming30 (70/100)",
+        "points": 258.09,
+        "percentile": 93.6,
+        "players": [
+          "Joshua Van",
+          "Gable Steveson",
+          "Iwo Baraniewski",
+          "Dooho Choi",
+          "Giga Chikadze",
+          "Michael Aswell Jr."
+        ],
+        "avg_own": 32.41,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 410.05,
+        "dup_count": 63
+      },
+      {
+        "rank": 55890,
+        "entry_name": "RyvlesGaming30 (15/100)",
+        "points": 255.88,
+        "percentile": 94.0,
+        "players": [
+          "Alexandre Pantoja",
+          "Mauricio Ruffy",
+          "Gable Steveson",
+          "Iwo Baraniewski",
+          "Brunno Ferreira",
+          "Casey O'Neill"
+        ],
+        "avg_own": 33.94,
+        "low_own_count": 0,
+        "salary_used": 49900,
+        "proj_total": 399.51,
+        "dup_count": 107
+      },
+      {
+        "rank": 56907,
+        "entry_name": "RyvlesGaming30 (65/100)",
+        "points": 235.88,
+        "percentile": 95.7,
+        "players": [
+          "Joshua Van",
+          "Mauricio Ruffy",
+          "Iwo Baraniewski",
+          "Dooho Choi",
+          "Brunno Ferreira",
+          "JooSang Yoo"
+        ],
+        "avg_own": 30.87,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 383.43,
+        "dup_count": 45
+      },
+      {
+        "rank": 57875,
+        "entry_name": "RyvlesGaming30 (18/100)",
+        "points": 217.52002,
+        "percentile": 97.3,
+        "players": [
+          "Alexandre Pantoja",
+          "Mauricio Ruffy",
+          "Gable Steveson",
+          "Edmen Shahbazyan",
+          "Eduarda Moura",
+          "JooSang Yoo"
+        ],
+        "avg_own": 26.65,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 399.61,
+        "dup_count": 21
+      },
+      {
+        "rank": 57955,
+        "entry_name": "RyvlesGaming30 (64/100)",
+        "points": 214.86002,
+        "percentile": 97.5,
+        "players": [
+          "Alexandre Pantoja",
+          "Charles Jourdain",
+          "Iwo Baraniewski",
+          "Dooho Choi",
+          "Brunno Ferreira",
+          "Eduarda Moura"
+        ],
+        "avg_own": 28.75,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 390.86,
+        "dup_count": 27
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Sean Sharaf",
+        "proj_points": 13.8,
+        "actual_fpts": 126.26,
+        "fpts_delta": 112.46,
+        "ownership": 3.0,
+        "actual_own": 4.43
+      },
+      {
+        "name": "Marlon Vera",
+        "proj_points": 49.79,
+        "actual_fpts": 124.45,
+        "fpts_delta": 74.66,
+        "ownership": 21.0,
+        "actual_own": 22.94
+      },
+      {
+        "name": "Patricio Pitbull",
+        "proj_points": 42.9,
+        "actual_fpts": 115.35,
+        "fpts_delta": 72.45,
+        "ownership": 18.0,
+        "actual_own": 17.67
+      },
+      {
+        "name": "Joshua Van",
+        "proj_points": 78.66,
+        "actual_fpts": 136.99,
+        "fpts_delta": 58.33,
+        "ownership": 50.0,
+        "actual_own": 47.4
+      },
+      {
+        "name": "Alonzo Menifield",
+        "proj_points": 37.48,
+        "actual_fpts": 80.62,
+        "fpts_delta": 43.14,
+        "ownership": 26.0,
+        "actual_own": 21.39
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Gable Steveson",
+        "proj_points": 98.12,
+        "actual_fpts": 0.4,
+        "fpts_delta": -97.72,
+        "ownership": 29.0,
+        "actual_own": 29.42
+      },
+      {
+        "name": "Dooho Choi",
+        "proj_points": 76.1,
+        "actual_fpts": 8.0,
+        "fpts_delta": -68.1,
+        "ownership": 24.0,
+        "actual_own": 25.83
+      },
+      {
+        "name": "Eduarda Moura",
+        "proj_points": 52.61,
+        "actual_fpts": 8.96,
+        "fpts_delta": -43.65,
+        "ownership": 29.0,
+        "actual_own": 19.52
+      },
+      {
+        "name": "JooSang Yoo",
+        "proj_points": 72.07,
+        "actual_fpts": 28.54,
+        "fpts_delta": -43.53,
+        "ownership": 12.0,
+        "actual_own": 13.82
+      },
+      {
+        "name": "Mauricio Ruffy",
+        "proj_points": 37.91,
+        "actual_fpts": 5.38,
+        "fpts_delta": -32.53,
+        "ownership": 24.0,
+        "actual_own": 27.04
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Patricio Pitbull",
+        "salary": 7300,
+        "actual_fpts": 115.35,
+        "actual_own": 17.67,
+        "top_lineup_pct": 89.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 100,
+      "avg_own_mean": 31.2,
+      "low_own_count_mean": 0.15,
+      "salary_used_mean": 49875.0,
+      "dup_max": 67,
+      "unique_pct": 4.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "ngates815 (106/150)",
+          "points": 707.95996,
+          "percentile": 0.0,
+          "players": [
+            "Joshua Van",
+            "Arman Tsarukyan",
+            "Sean Sharaf",
+            "Ryan Gandra",
+            "Marlon Vera",
+            "Joanderson Brito"
+          ],
+          "avg_own": 28.12,
+          "low_own_count": 1,
+          "salary_used": 49700,
+          "proj_total": 398.56,
+          "dup_count": 3
+        },
+        {
+          "rank": 1,
+          "entry_name": "berrysavage (5/5)",
+          "points": 707.95996,
+          "percentile": 0.0,
+          "players": [
+            "Joshua Van",
+            "Arman Tsarukyan",
+            "Sean Sharaf",
+            "Ryan Gandra",
+            "Marlon Vera",
+            "Joanderson Brito"
+          ],
+          "avg_own": 28.12,
+          "low_own_count": 1,
+          "salary_used": 49700,
+          "proj_total": 398.56,
+          "dup_count": 3
+        },
+        {
+          "rank": 1,
+          "entry_name": "rseid12345 (85/150)",
+          "points": 707.95996,
+          "percentile": 0.0,
+          "players": [
+            "Joshua Van",
+            "Arman Tsarukyan",
+            "Sean Sharaf",
+            "Ryan Gandra",
+            "Marlon Vera",
+            "Joanderson Brito"
+          ],
+          "avg_own": 28.12,
+          "low_own_count": 1,
+          "salary_used": 49700,
+          "proj_total": 398.56,
+          "dup_count": 3
+        },
+        {
+          "rank": 4,
+          "entry_name": "CrimeTime405RicD (4/6)",
+          "points": 699.81,
+          "percentile": 0.0,
+          "players": [
+            "Joshua Van",
+            "Alexandre Pantoja",
+            "Arman Tsarukyan",
+            "Ryan Gandra",
+            "Marlon Vera",
+            "Patricio Pitbull"
+          ],
+          "avg_own": 33.76,
+          "low_own_count": 0,
+          "salary_used": 49400,
+          "proj_total": 420.83,
+          "dup_count": 1
+        },
+        {
+          "rank": 5,
+          "entry_name": "Ryanmauthe1 (10/150)",
+          "points": 698.86,
+          "percentile": 0.0,
+          "players": [
+            "Joshua Van",
+            "Arman Tsarukyan",
+            "Sean Sharaf",
+            "Ryan Gandra",
+            "Patricio Pitbull",
+            "Joanderson Brito"
+          ],
+          "avg_own": 27.25,
+          "low_own_count": 1,
+          "salary_used": 49600,
+          "proj_total": 391.67,
+          "dup_count": 1
+        },
+        {
+          "rank": 6,
+          "entry_name": "byrddro (2/2)",
+          "points": 687.48,
+          "percentile": 0.0,
+          "players": [
+            "Joshua Van",
+            "Arman Tsarukyan",
+            "Ryan Gandra",
+            "Marlon Vera",
+            "Patricio Pitbull",
+            "Casey O'Neill"
+          ],
+          "avg_own": 32.41,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 419.6,
+          "dup_count": 67
+        },
+        {
+          "rank": 6,
+          "entry_name": "jonathanav19 (37/60)",
+          "points": 687.48,
+          "percentile": 0.0,
+          "players": [
+            "Joshua Van",
+            "Arman Tsarukyan",
+            "Ryan Gandra",
+            "Marlon Vera",
+            "Patricio Pitbull",
+            "Casey O'Neill"
+          ],
+          "avg_own": 32.41,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 419.6,
+          "dup_count": 67
+        },
+        {
+          "rank": 6,
+          "entry_name": "awen419 (73/150)",
+          "points": 687.48,
+          "percentile": 0.0,
+          "players": [
+            "Joshua Van",
+            "Arman Tsarukyan",
+            "Ryan Gandra",
+            "Marlon Vera",
+            "Patricio Pitbull",
+            "Casey O'Neill"
+          ],
+          "avg_own": 32.41,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 419.6,
+          "dup_count": 67
+        },
+        {
+          "rank": 6,
+          "entry_name": "xMike24x",
+          "points": 687.48,
+          "percentile": 0.0,
+          "players": [
+            "Joshua Van",
+            "Arman Tsarukyan",
+            "Ryan Gandra",
+            "Marlon Vera",
+            "Patricio Pitbull",
+            "Casey O'Neill"
+          ],
+          "avg_own": 32.41,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 419.6,
+          "dup_count": 67
+        },
+        {
+          "rank": 6,
+          "entry_name": "trentb007 (34/150)",
+          "points": 687.48,
+          "percentile": 0.0,
+          "players": [
+            "Joshua Van",
+            "Arman Tsarukyan",
+            "Ryan Gandra",
+            "Marlon Vera",
+            "Patricio Pitbull",
+            "Casey O'Neill"
+          ],
+          "avg_own": 32.41,
+          "low_own_count": 0,
+          "salary_used": 50000,
+          "proj_total": 419.6,
+          "dup_count": 67
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": 1.64,
+        "low_own_count_delta": 0.15,
+        "salary_used_delta": 19.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 59350,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Joshua Van",
+          "field_own": 47.4,
+          "actual_fpts": 137.0
+        },
+        {
+          "name": "Iwo Baraniewski",
+          "field_own": 47.3,
+          "actual_fpts": 44.0
+        },
+        {
+          "name": "Alexandre Pantoja",
+          "field_own": 42.1,
+          "actual_fpts": 102.7
+        },
+        {
+          "name": "Arman Tsarukyan",
+          "field_own": 38.2,
+          "actual_fpts": 113.8
+        },
+        {
+          "name": "Ryan Gandra",
+          "field_own": 34.3,
+          "actual_fpts": 106.5
+        },
+        {
+          "name": "Casey O'Neill",
+          "field_own": 33.9,
+          "actual_fpts": 90.4
+        },
+        {
+          "name": "Michael Aswell Jr.",
+          "field_own": 33.1,
+          "actual_fpts": 64.7
+        },
+        {
+          "name": "Gable Steveson",
+          "field_own": 29.4,
+          "actual_fpts": 0.4
+        },
+        {
+          "name": "Edmen Shahbazyan",
+          "field_own": 28.0,
+          "actual_fpts": 71.5
+        },
+        {
+          "name": "Mauricio Ruffy",
+          "field_own": 27.0,
+          "actual_fpts": 5.4
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Iwo Baraniewski",
+            "Joshua Van"
+          ],
+          "field_pct": 22.3,
+          "count": 13212
+        },
+        {
+          "players": [
+            "Alexandre Pantoja",
+            "Iwo Baraniewski"
+          ],
+          "field_pct": 20.3,
+          "count": 12014
+        },
+        {
+          "players": [
+            "Arman Tsarukyan",
+            "Joshua Van"
+          ],
+          "field_pct": 17.3,
+          "count": 10234
+        },
+        {
+          "players": [
+            "Alexandre Pantoja",
+            "Arman Tsarukyan"
+          ],
+          "field_pct": 17.1,
+          "count": 10116
+        },
+        {
+          "players": [
+            "Casey O'Neill",
+            "Joshua Van"
+          ],
+          "field_pct": 16.1,
+          "count": 9562
+        },
+        {
+          "players": [
+            "Joshua Van",
+            "Michael Aswell Jr."
+          ],
+          "field_pct": 15.8,
+          "count": 9390
+        },
+        {
+          "players": [
+            "Arman Tsarukyan",
+            "Iwo Baraniewski"
+          ],
+          "field_pct": 15.7,
+          "count": 9299
+        },
+        {
+          "players": [
+            "Iwo Baraniewski",
+            "Michael Aswell Jr."
+          ],
+          "field_pct": 15.5,
+          "count": 9186
+        },
+        {
+          "players": [
+            "Casey O'Neill",
+            "Iwo Baraniewski"
+          ],
+          "field_pct": 15.4,
+          "count": 9120
+        },
+        {
+          "players": [
+            "Joshua Van",
+            "Ryan Gandra"
+          ],
+          "field_pct": 15.2,
+          "count": 8985
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Casey O'Neill",
+            "Dooho Choi",
+            "Edmen Shahbazyan",
+            "Iwo Baraniewski",
+            "Joshua Van",
+            "Michael Aswell Jr."
+          ],
+          "count": 344,
+          "field_pct": 0.6
+        },
+        {
+          "players": [
+            "Alexandre Pantoja",
+            "Casey O'Neill",
+            "Edmen Shahbazyan",
+            "Iwo Baraniewski",
+            "Mauricio Ruffy",
+            "Ryan Gandra"
+          ],
+          "count": 243,
+          "field_pct": 0.4
+        },
+        {
+          "players": [
+            "Gable Steveson",
+            "Iwo Baraniewski",
+            "Joshua Van",
+            "Mauricio Ruffy",
+            "Ryan Gandra",
+            "Tai Tuivasa"
+          ],
+          "count": 233,
+          "field_pct": 0.4
+        },
+        {
+          "players": [
+            "Alexandre Pantoja",
+            "Brunno Ferreira",
+            "Dooho Choi",
+            "Iwo Baraniewski",
+            "Michael Aswell Jr.",
+            "Ryan Gandra"
+          ],
+          "count": 218,
+          "field_pct": 0.4
+        },
+        {
+          "players": [
+            "Alexandre Pantoja",
+            "Arman Tsarukyan",
+            "Casey O'Neill",
+            "Edmen Shahbazyan",
+            "Iwo Baraniewski",
+            "Michael Aswell Jr."
+          ],
+          "count": 210,
+          "field_pct": 0.4
+        }
+      ],
+      "winners_profile": {
+        "n": 594,
+        "avg_own_per_slot": 31.3,
+        "dart_pct": 22.2,
+        "unique_pct": 10.8
+      },
+      "fish_profile": {
+        "n": 29625,
+        "avg_own_per_slot": 29.4,
+        "dart_pct": 0.9,
+        "unique_pct": 16.6
+      },
+      "fish_traps": [
+        {
+          "name": "Gable Steveson",
+          "fish_pct": 45.7,
+          "winner_pct": 0.0,
+          "gap": 45.7,
+          "actual_fpts": 0.4,
+          "field_own": 29.4,
+          "own_rank": 8
+        },
+        {
+          "name": "Iwo Baraniewski",
+          "fish_pct": 53.3,
+          "winner_pct": 11.6,
+          "gap": 41.7,
+          "actual_fpts": 44.0,
+          "field_own": 47.3,
+          "own_rank": 2
+        },
+        {
+          "name": "Mauricio Ruffy",
+          "fish_pct": 41.1,
+          "winner_pct": 0.0,
+          "gap": 41.1,
+          "actual_fpts": 5.4,
+          "field_own": 27.0,
+          "own_rank": 10
+        },
+        {
+          "name": "Dooho Choi",
+          "fish_pct": 38.7,
+          "winner_pct": 0.0,
+          "gap": 38.7,
+          "actual_fpts": 8.0,
+          "field_own": 25.8,
+          "own_rank": 11
+        },
+        {
+          "name": "Alexandre Pantoja",
+          "fish_pct": 44.1,
+          "winner_pct": 8.2,
+          "gap": 35.9,
+          "actual_fpts": 102.7,
+          "field_own": 42.1,
+          "own_rank": 3
+        },
+        {
+          "name": "Brunno Ferreira",
+          "fish_pct": 30.3,
+          "winner_pct": 0.0,
+          "gap": 30.3,
+          "actual_fpts": 13.0,
+          "field_own": 23.9,
+          "own_rank": 12
+        },
+        {
+          "name": "Eduarda Moura",
+          "fish_pct": 27.1,
+          "winner_pct": 0.0,
+          "gap": 27.1,
+          "actual_fpts": 9.0,
+          "field_own": 19.5,
+          "own_rank": 16
+        },
+        {
+          "name": "Charles Jourdain",
+          "fish_pct": 17.9,
+          "winner_pct": 0.0,
+          "gap": 17.9,
+          "actual_fpts": 38.2,
+          "field_own": 13.9,
+          "own_rank": 19
+        },
+        {
+          "name": "Ozzy Diaz",
+          "fish_pct": 17.8,
+          "winner_pct": 0.0,
+          "gap": 17.8,
+          "actual_fpts": 1.2,
+          "field_own": 11.2,
+          "own_rank": 23
+        },
+        {
+          "name": "JooSang Yoo",
+          "fish_pct": 17.9,
+          "winner_pct": 0.2,
+          "gap": 17.7,
+          "actual_fpts": 28.5,
+          "field_own": 13.8,
+          "own_rank": 20
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "rseid12345",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "berrysavage",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "ngates815",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "CrimeTime405RicD",
+          "best_rank": 4,
+          "percentile": 0.0
+        },
+        {
+          "handle": "Ryanmauthe1",
+          "best_rank": 5,
+          "percentile": 0.0
+        },
+        {
+          "handle": "Elias0493",
+          "best_rank": 6,
+          "percentile": 0.0
+        },
+        {
+          "handle": "jaden42622",
+          "best_rank": 6,
+          "percentile": 0.0
+        },
+        {
+          "handle": "twooge74",
+          "best_rank": 6,
+          "percentile": 0.0
+        },
+        {
+          "handle": "EagleEye3434",
+          "best_rank": 6,
+          "percentile": 0.0
+        },
+        {
+          "handle": "IBXPRESS",
+          "best_rank": 6,
+          "percentile": 0.0
+        },
+        {
+          "handle": "BigMart11",
+          "best_rank": 6,
+          "percentile": 0.0
+        },
+        {
+          "handle": "codychepa",
+          "best_rank": 6,
+          "percentile": 0.0
+        },
+        {
+          "handle": "bryanbigbets",
+          "best_rank": 6,
+          "percentile": 0.0
+        },
+        {
+          "handle": "JohnZaps",
+          "best_rank": 6,
+          "percentile": 0.0
+        },
+        {
+          "handle": "sploush",
+          "best_rank": 6,
+          "percentile": 0.0
+        }
+      ],
+      "read": [
+        "Field crowded **Joshua Van** at 47.4% (137.0 fpts) \u2014 the chalk to consider fading.",
+        "**Iwo Baraniewski + Joshua Van** were together in 22.3% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Gable Steveson** was a fish trap: 45.7% of the fish, only 0.0% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 707.95996,
+      "winner_handle": "ngates815",
+      "roster": [
+        {
+          "name": "Joshua Van",
+          "own": 47.4,
+          "fpts": 136.99
+        },
+        {
+          "name": "Arman Tsarukyan",
+          "own": 38.22,
+          "fpts": 113.8
+        },
+        {
+          "name": "Sean Sharaf",
+          "own": 4.43,
+          "fpts": 126.26
+        },
+        {
+          "name": "Ryan Gandra",
+          "own": 34.27,
+          "fpts": 106.49
+        },
+        {
+          "name": "Marlon Vera",
+          "own": 22.94,
+          "fpts": 124.45
+        },
+        {
+          "name": "Joanderson Brito",
+          "own": 21.48,
+          "fpts": 99.97
+        }
+      ],
+      "avg_own": 28.1,
+      "n_low_own": 1,
+      "carrier": {
+        "name": "Sean Sharaf",
+        "own": 4.43,
+        "fpts": 126.26
+      },
+      "expected_dupes": 8.06
+    },
+    "near_miss": {
+      "salary_checked": true,
+      "position_checked": false,
+      "blocked_swap": null,
+      "gradable": true,
+      "won": false,
+      "your_points": 668.58997,
+      "winner_points": 707.95996,
+      "gap": 39.4,
+      "your_percentile": 0.2,
+      "n_shared": 4,
+      "shared": [
+        "Arman Tsarukyan",
+        "Joshua Van",
+        "Marlon Vera",
+        "Ryan Gandra"
+      ],
+      "your_uniques": [
+        {
+          "name": "Patricio Pitbull",
+          "fpts": 115.35,
+          "salary": 7300,
+          "position": null
+        },
+        {
+          "name": "Edmen Shahbazyan",
+          "fpts": 71.51,
+          "salary": 8400,
+          "position": null
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Sean Sharaf",
+          "fpts": 126.26,
+          "salary": 6300,
+          "position": null
+        },
+        {
+          "name": "Joanderson Brito",
+          "fpts": 99.97,
+          "salary": 9200,
+          "position": null
+        }
+      ],
+      "best_swap": {
+        "out": "Edmen Shahbazyan",
+        "in": "Sean Sharaf",
+        "gain": 54.8,
+        "would_have_won": true
+      },
+      "swaps_needed": 1
+    },
+    "stack_report": null,
+    "mme_report": {
+      "gradable": true,
+      "n_field": 59350,
+      "n_users": 2892,
+      "top1_cut": 594,
+      "top10_cut": 5935,
+      "cash_cut": 11870,
+      "cash_cut_estimated": true,
+      "entrant_mix": [
+        {
+          "bucket": "1 entry",
+          "users": 1041,
+          "entries": 1041,
+          "field_share_pct": 1.8,
+          "top1_entries": 6,
+          "top1_share_pct": 1.0
+        },
+        {
+          "bucket": "2-5",
+          "users": 880,
+          "entries": 2552,
+          "field_share_pct": 4.3,
+          "top1_entries": 23,
+          "top1_share_pct": 3.8
+        },
+        {
+          "bucket": "6-20",
+          "users": 476,
+          "entries": 5332,
+          "field_share_pct": 9.0,
+          "top1_entries": 59,
+          "top1_share_pct": 9.7
+        },
+        {
+          "bucket": "21-50",
+          "users": 158,
+          "entries": 5869,
+          "field_share_pct": 9.9,
+          "top1_entries": 65,
+          "top1_share_pct": 10.6
+        },
+        {
+          "bucket": "51-100",
+          "users": 74,
+          "entries": 5825,
+          "field_share_pct": 9.8,
+          "top1_entries": 61,
+          "top1_share_pct": 10.0
+        },
+        {
+          "bucket": "101-149",
+          "users": 26,
+          "entries": 3181,
+          "field_share_pct": 5.4,
+          "top1_entries": 24,
+          "top1_share_pct": 3.9
+        },
+        {
+          "bucket": "150 (full stake)",
+          "users": 237,
+          "entries": 35550,
+          "field_share_pct": 59.9,
+          "top1_entries": 373,
+          "top1_share_pct": 61.0
+        }
+      ],
+      "shape": {
+        "winner": {
+          "n": 1,
+          "sum_own_med": 168.7,
+          "min_own_med": 4.4,
+          "sub10_mean": 1.0
+        },
+        "top1": {
+          "n": 611,
+          "sum_own_med": 188.5,
+          "min_own_med": 17.7,
+          "sub10_mean": 0.22
+        },
+        "top10": {
+          "n": 5942,
+          "sum_own_med": 187.1,
+          "min_own_med": 17.7,
+          "sub10_mean": 0.15
+        },
+        "field": {
+          "n": 59350,
+          "sum_own_med": 181.4,
+          "min_own_med": 13.9,
+          "sub10_mean": 0.05
+        }
+      },
+      "winner": {
+        "entry_name": "ngates815 (106/150)",
+        "user": "ngates815",
+        "user_entries": 150,
+        "points": 708.0,
+        "copies": 3,
+        "sum_own": 168.7,
+        "min_own": 4.4,
+        "players": [
+          {
+            "name": "Joshua Van",
+            "own_pct": 47.4
+          },
+          {
+            "name": "Arman Tsarukyan",
+            "own_pct": 38.2
+          },
+          {
+            "name": "Sean Sharaf",
+            "own_pct": 4.4
+          },
+          {
+            "name": "Ryan Gandra",
+            "own_pct": 34.3
+          },
+          {
+            "name": "Marlon Vera",
+            "own_pct": 22.9
+          },
+          {
+            "name": "Joanderson Brito",
+            "own_pct": 21.5
+          }
+        ]
+      },
+      "fighters": [
+        {
+          "name": "Joshua Van",
+          "own_pct": 47.4,
+          "top1_use_pct": 92.3,
+          "leverage": 1.95
+        },
+        {
+          "name": "Arman Tsarukyan",
+          "own_pct": 38.2,
+          "top1_use_pct": 92.1,
+          "leverage": 2.41
+        },
+        {
+          "name": "Marlon Vera",
+          "own_pct": 22.9,
+          "top1_use_pct": 76.4,
+          "leverage": 3.33
+        },
+        {
+          "name": "Casey O'Neill",
+          "own_pct": 33.9,
+          "top1_use_pct": 63.7,
+          "leverage": 1.88
+        },
+        {
+          "name": "Ryan Gandra",
+          "own_pct": 34.3,
+          "top1_use_pct": 61.4,
+          "leverage": 1.79
+        },
+        {
+          "name": "Patricio Pitbull",
+          "own_pct": 17.7,
+          "top1_use_pct": 55.3,
+          "leverage": 3.13
+        },
+        {
+          "name": "Joanderson Brito",
+          "own_pct": 21.5,
+          "top1_use_pct": 46.8,
+          "leverage": 2.18
+        },
+        {
+          "name": "Edmen Shahbazyan",
+          "own_pct": 28.0,
+          "top1_use_pct": 22.3,
+          "leverage": 0.79
+        },
+        {
+          "name": "Alonzo Menifield",
+          "own_pct": 21.4,
+          "top1_use_pct": 21.8,
+          "leverage": 1.02
+        },
+        {
+          "name": "Sean Sharaf",
+          "own_pct": 4.4,
+          "top1_use_pct": 21.6,
+          "leverage": 4.88
+        },
+        {
+          "name": "Michael Aswell Jr.",
+          "own_pct": 33.1,
+          "top1_use_pct": 18.8,
+          "leverage": 0.57
+        },
+        {
+          "name": "Iwo Baraniewski",
+          "own_pct": 47.3,
+          "top1_use_pct": 13.7,
+          "leverage": 0.29
+        },
+        {
+          "name": "Alexandre Pantoja",
+          "own_pct": 42.1,
+          "top1_use_pct": 8.0,
+          "leverage": 0.19
+        },
+        {
+          "name": "Robelis Despaigne",
+          "own_pct": 18.0,
+          "top1_use_pct": 5.6,
+          "leverage": 0.31
+        },
+        {
+          "name": "JooSang Yoo",
+          "own_pct": 13.8,
+          "top1_use_pct": 0.2,
+          "leverage": 0.01
+        },
+        {
+          "name": "Gable Steveson",
+          "own_pct": 29.4,
+          "top1_use_pct": 0.0,
+          "leverage": 0.0
+        },
+        {
+          "name": "Mauricio Ruffy",
+          "own_pct": 27.0,
+          "top1_use_pct": 0.0,
+          "leverage": 0.0
+        },
+        {
+          "name": "Dooho Choi",
+          "own_pct": 25.8,
+          "top1_use_pct": 0.0,
+          "leverage": 0.0
+        },
+        {
+          "name": "Brunno Ferreira",
+          "own_pct": 23.9,
+          "top1_use_pct": 0.0,
+          "leverage": 0.0
+        },
+        {
+          "name": "Eduarda Moura",
+          "own_pct": 19.5,
+          "top1_use_pct": 0.0,
+          "leverage": 0.0
+        }
+      ],
+      "dupes": {
+        "unique_lineups": 8830,
+        "unique_pct": 14.9,
+        "max_copies": 345,
+        "winner_copies": 3,
+        "top1_median_copies": 50.0,
+        "field_median_copies": 22.0,
+        "top1_one_of_one_pct": 4.6,
+        "field_one_of_one_pct": 6.2
+      },
+      "big_players": {
+        "min_entries": 100,
+        "n": 280,
+        "top1_median": 0.7,
+        "top1_best": 6.7,
+        "top10_median": 9.3,
+        "cash_median": 19.3,
+        "max_exposure_median": 55.9,
+        "fighters_used_median": 24.0,
+        "own_med_median": 180.3,
+        "corr_with_top1": {
+          "own_med": 0.14,
+          "max_exposure_pct": -0.01,
+          "hhi": -0.06,
+          "field_copies_mean": 0.13,
+          "fighters_used": 0.13
+        },
+        "corr_with_cash": {
+          "own_med": 0.23,
+          "max_exposure_pct": 0.05
+        },
+        "thirds_by_own": [
+          {
+            "group": "least chalky",
+            "n": 93,
+            "own_med_mean": 170.47,
+            "top1_pct": 0.8,
+            "top10_pct": 8.7,
+            "cash_pct": 18.5
+          },
+          {
+            "group": "middle",
+            "n": 93,
+            "own_med_mean": 180.39,
+            "top1_pct": 1.0,
+            "top10_pct": 9.7,
+            "cash_pct": 20.2
+          },
+          {
+            "group": "most chalky",
+            "n": 94,
+            "own_med_mean": 188.65,
+            "top1_pct": 1.2,
+            "top10_pct": 11.2,
+            "cash_pct": 22.0
+          }
+        ],
+        "thirds_by_hhi": [
+          {
+            "group": "most spread",
+            "n": 93,
+            "hhi_mean": 1.82,
+            "top1_pct": 1.0,
+            "top10_pct": 9.0,
+            "cash_pct": 18.7
+          },
+          {
+            "group": "middle",
+            "n": 93,
+            "hhi_mean": 2.02,
+            "top1_pct": 1.1,
+            "top10_pct": 10.3,
+            "cash_pct": 20.9
+          },
+          {
+            "group": "most concentrated",
+            "n": 94,
+            "hhi_mean": 2.56,
+            "top1_pct": 1.0,
+            "top10_pct": 10.4,
+            "cash_pct": 21.2
+          }
+        ],
+        "thirds_by_copies": [
+          {
+            "group": "most unique",
+            "n": 93,
+            "field_copies_mean_mean": 14.44,
+            "top1_pct": 0.7,
+            "top10_pct": 9.6,
+            "cash_pct": 20.1
+          },
+          {
+            "group": "middle",
+            "n": 93,
+            "field_copies_mean_mean": 33.85,
+            "top1_pct": 0.9,
+            "top10_pct": 9.5,
+            "cash_pct": 20.0
+          },
+          {
+            "group": "most copied",
+            "n": 94,
+            "field_copies_mean_mean": 58.61,
+            "top1_pct": 1.5,
+            "top10_pct": 10.6,
+            "cash_pct": 20.7
+          }
+        ],
+        "best": [
+          {
+            "user": "DKyat",
+            "n": 150,
+            "best_rank": 90,
+            "top1_pct": 6.7,
+            "top10_pct": 49.3,
+            "cash_pct": 74.7,
+            "median_points": 542.2,
+            "max_exposure_pct": 86.0,
+            "n_over_50pct": 5,
+            "n_over_30pct": 5,
+            "fighters_used": 20,
+            "hhi": 3.591,
+            "own_med": 169.9,
+            "min_own_med": 17.7,
+            "sub10_mean": 0.22,
+            "field_copies_mean": 7.2,
+            "within_unique_pct": 100.0,
+            "exposures": [
+              {
+                "name": "Marlon Vera",
+                "pct": 86.0
+              },
+              {
+                "name": "Ryan Gandra",
+                "pct": 84.7
+              },
+              {
+                "name": "Alexandre Pantoja",
+                "pct": 80.7
+              },
+              {
+                "name": "Casey O'Neill",
+                "pct": 78.0
+              },
+              {
+                "name": "Joanderson Brito",
+                "pct": 74.0
+              },
+              {
+                "name": "Sean Sharaf",
+                "pct": 22.0
+              },
+              {
+                "name": "Tai Tuivasa",
+                "pct": 21.3
+              },
+              {
+                "name": "Mauricio Ruffy",
+                "pct": 21.3
+              },
+              {
+                "name": "Michael Aswell Jr.",
+                "pct": 19.3
+              },
+              {
+                "name": "Patricio Pitbull",
+                "pct": 18.0
+              }
+            ]
+          },
+          {
+            "user": "ngates815",
+            "n": 150,
+            "best_rank": 1,
+            "top1_pct": 5.3,
+            "top10_pct": 20.7,
+            "cash_pct": 30.7,
+            "median_points": 431.6,
+            "max_exposure_pct": 47.3,
+            "n_over_50pct": 0,
+            "n_over_30pct": 7,
+            "fighters_used": 24,
+            "hhi": 1.891,
+            "own_med": 174.0,
+            "min_own_med": 13.9,
+            "sub10_mean": 0.09,
+            "field_copies_mean": 29.9,
+            "within_unique_pct": 100.0,
+            "exposures": [
+              {
+                "name": "Alexandre Pantoja",
+                "pct": 47.3
+              },
+              {
+                "name": "Arman Tsarukyan",
+                "pct": 44.7
+              },
+              {
+                "name": "Joshua Van",
+                "pct": 42.0
+              },
+              {
+                "name": "Mauricio Ruffy",
+                "pct": 42.0
+              },
+              {
+                "name": "Joanderson Brito",
+                "pct": 40.0
+              },
+              {
+                "name": "Iwo Baraniewski",
+                "pct": 40.0
+              },
+              {
+                "name": "Patricio Pitbull",
+                "pct": 35.3
+              },
+              {
+                "name": "Ryan Gandra",
+                "pct": 30.0
+              },
+              {
+                "name": "Robelis Despaigne",
+                "pct": 30.0
+              },
+              {
+                "name": "Gable Steveson",
+                "pct": 30.0
+              }
+            ]
+          },
+          {
+            "user": "lmc33",
+            "n": 120,
+            "best_rank": 6,
+            "top1_pct": 5.0,
+            "top10_pct": 18.3,
+            "cash_pct": 32.5,
+            "median_points": 451.5,
+            "max_exposure_pct": 55.8,
+            "n_over_50pct": 1,
+            "n_over_30pct": 8,
+            "fighters_used": 23,
+            "hhi": 2.046,
+            "own_med": 182.4,
+            "min_own_med": 13.8,
+            "sub10_mean": 0.03,
+            "field_copies_mean": 42.2,
+            "within_unique_pct": 100.0,
+            "exposures": [
+              {
+                "name": "Joshua Van",
+                "pct": 55.8
+              },
+              {
+                "name": "Joanderson Brito",
+                "pct": 48.3
+              },
+              {
+                "name": "Casey O'Neill",
+                "pct": 45.0
+              },
+              {
+                "name": "Alexandre Pantoja",
+                "pct": 43.3
+              },
+              {
+                "name": "Iwo Baraniewski",
+                "pct": 40.8
+              },
+              {
+                "name": "Ryan Gandra",
+                "pct": 37.5
+              },
+              {
+                "name": "Arman Tsarukyan",
+                "pct": 36.7
+              },
+              {
+                "name": "Edmen Shahbazyan",
+                "pct": 30.8
+              },
+              {
+                "name": "Alonzo Menifield",
+                "pct": 28.3
+              },
+              {
+                "name": "Mauricio Ruffy",
+                "pct": 28.3
+              }
+            ]
+          },
+          {
+            "user": "OM4R7",
+            "n": 150,
+            "best_rank": 6,
+            "top1_pct": 4.7,
+            "top10_pct": 30.0,
+            "cash_pct": 40.0,
+            "median_points": 471.3,
+            "max_exposure_pct": 54.7,
+            "n_over_50pct": 4,
+            "n_over_30pct": 9,
+            "fighters_used": 19,
+            "hhi": 2.393,
+            "own_med": 184.5,
+            "min_own_med": 17.7,
+            "sub10_mean": 0.0,
+            "field_copies_mean": 18.9,
+            "within_unique_pct": 100.0,
+            "exposures": [
+              {
+                "name": "Marlon Vera",
+                "pct": 54.7
+              },
+              {
+                "name": "Michael Aswell Jr.",
+                "pct": 54.7
+              },
+              {
+                "name": "Alexandre Pantoja",
+                "pct": 52.7
+              },
+              {
+                "name": "Mauricio Ruffy",
+                "pct": 52.0
+              },
+              {
+                "name": "Arman Tsarukyan",
+                "pct": 48.0
+              },
+              {
+                "name": "Joshua Van",
+                "pct": 47.3
+              },
+              {
+                "name": "Casey O'Neill",
+                "pct": 43.3
+              },
+              {
+                "name": "Patricio Pitbull",
+                "pct": 35.3
+              },
+              {
+                "name": "Joanderson Brito",
+                "pct": 33.3
+              },
+              {
+                "name": "Gable Steveson",
+                "pct": 26.7
+              }
+            ]
+          },
+          {
+            "user": "davidmarchorn",
+            "n": 150,
+            "best_rank": 6,
+            "top1_pct": 4.0,
+            "top10_pct": 21.3,
+            "cash_pct": 36.7,
+            "median_points": 462.1,
+            "max_exposure_pct": 100.0,
+            "n_over_50pct": 1,
+            "n_over_30pct": 8,
+            "fighters_used": 23,
+            "hhi": 2.526,
+            "own_med": 187.2,
+            "min_own_med": 18.0,
+            "sub10_mean": 0.04,
+            "field_copies_mean": 55.0,
+            "within_unique_pct": 100.0,
+            "exposures": [
+              {
+                "name": "Joshua Van",
+                "pct": 100.0
+              },
+              {
+                "name": "Arman Tsarukyan",
+                "pct": 48.7
+              },
+              {
+                "name": "Casey O'Neill",
+                "pct": 45.3
+              },
+              {
+                "name": "Iwo Baraniewski",
+                "pct": 40.0
+              },
+              {
+                "name": "Brunno Ferreira",
+                "pct": 36.7
+              },
+              {
+                "name": "Alonzo Menifield",
+                "pct": 35.3
+              },
+              {
+                "name": "Michael Aswell Jr.",
+                "pct": 35.3
+              },
+              {
+                "name": "Ryan Gandra",
+                "pct": 31.3
+              },
+              {
+                "name": "Edmen Shahbazyan",
+                "pct": 30.0
+              },
+              {
+                "name": "Joanderson Brito",
+                "pct": 27.3
+              }
+            ]
+          }
+        ]
+      },
+      "user": {
+        "n": 100,
+        "best_rank": 106,
+        "top1_pct": 2.0,
+        "top10_pct": 16.0,
+        "cash_pct": 27.0,
+        "median_points": 441.2,
+        "max_exposure_pct": 50.0,
+        "n_over_50pct": 0,
+        "n_over_30pct": 8,
+        "fighters_used": 22,
+        "hhi": 1.917,
+        "own_med": 178.6,
+        "min_own_med": 13.9,
+        "sub10_mean": 0.0,
+        "field_copies_mean": 43.3,
+        "within_unique_pct": 100.0,
+        "exposures": [
+          {
+            "name": "Joshua Van",
+            "pct": 50.0
+          },
+          {
+            "name": "Alexandre Pantoja",
+            "pct": 46.0
+          },
+          {
+            "name": "Arman Tsarukyan",
+            "pct": 41.0
+          },
+          {
+            "name": "Edmen Shahbazyan",
+            "pct": 40.0
+          },
+          {
+            "name": "Iwo Baraniewski",
+            "pct": 38.0
+          },
+          {
+            "name": "Ryan Gandra",
+            "pct": 34.0
+          },
+          {
+            "name": "Patricio Pitbull",
+            "pct": 32.0
+          },
+          {
+            "name": "Alonzo Menifield",
+            "pct": 32.0
+          },
+          {
+            "name": "Marlon Vera",
+            "pct": 30.0
+          },
+          {
+            "name": "Casey O'Neill",
+            "pct": 30.0
+          }
+        ],
+        "vs_big_median": {
+          "top1_pct": 1.3,
+          "top10_pct": 6.7,
+          "cash_pct": 7.7,
+          "max_exposure_pct": -5.9,
+          "fighters_used": -2.0,
+          "own_med": -1.7
+        }
+      }
+    }
+  }
+]

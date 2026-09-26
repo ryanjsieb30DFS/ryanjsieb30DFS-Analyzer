@@ -1,0 +1,86 @@
+{
+  "gradable": true,
+  "n_lineups": 100,
+  "n_contests": 1,
+  "calls": [
+    {
+      "name": "Sean Sharaf",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 100,
+      "followed": true
+    },
+    {
+      "name": "Tai Tuivasa",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 100,
+      "followed": true
+    },
+    {
+      "name": "Mauricio Ruffy",
+      "verdict": "lean_fade",
+      "exposure_pct": 10.0,
+      "in_lineups": 10,
+      "of": 100,
+      "followed": true
+    },
+    {
+      "name": "Giga Chikadze",
+      "verdict": "lean_fade",
+      "exposure_pct": 10.0,
+      "in_lineups": 10,
+      "of": 100,
+      "followed": true
+    },
+    {
+      "name": "Brunno Ferreira",
+      "verdict": "underweight",
+      "exposure_pct": 25.0,
+      "in_lineups": 25,
+      "of": 100,
+      "followed": true
+    },
+    {
+      "name": "Michael Aswell Jr.",
+      "verdict": "underweight",
+      "exposure_pct": 20.0,
+      "in_lineups": 20,
+      "of": 100,
+      "followed": true
+    },
+    {
+      "name": "Casey O'Neill",
+      "verdict": "underweight",
+      "exposure_pct": 30.0,
+      "in_lineups": 30,
+      "of": 100,
+      "followed": true
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 0,
+  "per_contest_flags": 0,
+  "leverage_candidates": [
+    {
+      "name": "Sean Sharaf",
+      "rostered": false
+    },
+    {
+      "name": "Ozzy Diaz",
+      "rostered": true
+    },
+    {
+      "name": "Tai Tuivasa",
+      "rostered": false
+    },
+    {
+      "name": "Giga Chikadze",
+      "rostered": true
+    }
+  ],
+  "leverage_covered": 2,
+  "leverage_of": 4
+}

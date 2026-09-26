@@ -1,0 +1,1309 @@
+{
+  "gradable": true,
+  "n_lineups": 100,
+  "lineups": [
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Edmen Shahbazyan",
+        "Joshua Van",
+        "Marlon Vera",
+        "Patricio Pitbull",
+        "Ryan Gandra"
+      ],
+      "percentile": 0.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Arman Tsarukyan",
+        "Casey O'Neill",
+        "Joanderson Brito",
+        "Joshua Van",
+        "Marlon Vera"
+      ],
+      "percentile": 0.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Arman Tsarukyan",
+        "Edmen Shahbazyan",
+        "Joshua Van",
+        "Patricio Pitbull",
+        "Ryan Gandra"
+      ],
+      "percentile": 1.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Casey O'Neill",
+        "Joanderson Brito",
+        "Joshua Van",
+        "Michael Aswell Jr.",
+        "Patricio Pitbull",
+        "Ryan Gandra"
+      ],
+      "percentile": 2.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Iwo Baraniewski",
+        "Marlon Vera",
+        "Patricio Pitbull",
+        "Ryan Gandra"
+      ],
+      "percentile": 2.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Casey O'Neill",
+        "Joanderson Brito",
+        "Marlon Vera",
+        "Patricio Pitbull",
+        "Robelis Despaigne"
+      ],
+      "percentile": 2.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Arman Tsarukyan",
+        "Edmen Shahbazyan",
+        "Marlon Vera",
+        "Ryan Gandra"
+      ],
+      "percentile": 3.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Edmen Shahbazyan",
+        "JooSang Yoo",
+        "Joshua Van",
+        "Marlon Vera",
+        "Patricio Pitbull",
+        "Ryan Gandra"
+      ],
+      "percentile": 4.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Edmen Shahbazyan",
+        "Joanderson Brito",
+        "Patricio Pitbull",
+        "Ryan Gandra"
+      ],
+      "percentile": 5.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Arman Tsarukyan",
+        "Edmen Shahbazyan",
+        "Joshua Van",
+        "Michael Aswell Jr.",
+        "Ryan Gandra"
+      ],
+      "percentile": 5.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Edmen Shahbazyan",
+        "Marlon Vera",
+        "Patricio Pitbull",
+        "Robelis Despaigne",
+        "Ryan Gandra"
+      ],
+      "percentile": 6.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Casey O'Neill",
+        "Joanderson Brito",
+        "Joshua Van",
+        "Marlon Vera",
+        "Mauricio Ruffy",
+        "Ryan Gandra"
+      ],
+      "percentile": 6.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Edmen Shahbazyan",
+        "Joanderson Brito",
+        "Joshua Van",
+        "Michael Aswell Jr.",
+        "Ryan Gandra"
+      ],
+      "percentile": 7.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Casey O'Neill",
+        "JooSang Yoo",
+        "Joshua Van",
+        "Patricio Pitbull",
+        "Ryan Gandra"
+      ],
+      "percentile": 7.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Casey O'Neill",
+        "Edmen Shahbazyan",
+        "Iwo Baraniewski",
+        "Marlon Vera"
+      ],
+      "percentile": 9.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Arman Tsarukyan",
+        "Edmen Shahbazyan",
+        "JooSang Yoo",
+        "Joshua Van",
+        "Patricio Pitbull"
+      ],
+      "percentile": 9.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Edmen Shahbazyan",
+        "JooSang Yoo",
+        "Joshua Van",
+        "Patricio Pitbull",
+        "Ryan Gandra"
+      ],
+      "percentile": 10.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Arman Tsarukyan",
+        "Dooho Choi",
+        "Edmen Shahbazyan",
+        "Joshua Van",
+        "Marlon Vera"
+      ],
+      "percentile": 11.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Casey O'Neill",
+        "Charles Jourdain",
+        "Edmen Shahbazyan",
+        "Patricio Pitbull"
+      ],
+      "percentile": 11.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Giga Chikadze",
+        "Iwo Baraniewski",
+        "Joshua Van",
+        "Patricio Pitbull",
+        "Ryan Gandra"
+      ],
+      "percentile": 14.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Casey O'Neill",
+        "Iwo Baraniewski",
+        "JooSang Yoo",
+        "Marlon Vera",
+        "Patricio Pitbull"
+      ],
+      "percentile": 15.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Edmen Shahbazyan",
+        "Eduarda Moura",
+        "Joanderson Brito",
+        "Marlon Vera",
+        "Ryan Gandra"
+      ],
+      "percentile": 15.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Iwo Baraniewski",
+        "Michael Aswell Jr.",
+        "Patricio Pitbull",
+        "Robelis Despaigne"
+      ],
+      "percentile": 16.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Casey O'Neill",
+        "Edmen Shahbazyan",
+        "Gable Steveson",
+        "Joshua Van",
+        "Marlon Vera"
+      ],
+      "percentile": 17.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Brunno Ferreira",
+        "Eduarda Moura",
+        "Joshua Van",
+        "Marlon Vera",
+        "Ryan Gandra"
+      ],
+      "percentile": 18.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brunno Ferreira",
+        "Casey O'Neill",
+        "Iwo Baraniewski",
+        "Joanderson Brito",
+        "Joshua Van",
+        "Patricio Pitbull"
+      ],
+      "percentile": 18.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Charles Jourdain",
+        "Edmen Shahbazyan",
+        "Joshua Van",
+        "Michael Aswell Jr.",
+        "Ryan Gandra"
+      ],
+      "percentile": 19.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brunno Ferreira",
+        "Eduarda Moura",
+        "Joanderson Brito",
+        "Joshua Van",
+        "Marlon Vera",
+        "Ryan Gandra"
+      ],
+      "percentile": 21.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Casey O'Neill",
+        "JooSang Yoo",
+        "Patricio Pitbull",
+        "Robelis Despaigne"
+      ],
+      "percentile": 21.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Brunno Ferreira",
+        "Iwo Baraniewski",
+        "Joanderson Brito",
+        "Patricio Pitbull"
+      ],
+      "percentile": 21.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Brunno Ferreira",
+        "Casey O'Neill",
+        "Dooho Choi",
+        "Joshua Van",
+        "Marlon Vera"
+      ],
+      "percentile": 22.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Charles Jourdain",
+        "Edmen Shahbazyan",
+        "Eduarda Moura",
+        "Joshua Van",
+        "Patricio Pitbull"
+      ],
+      "percentile": 23.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Arman Tsarukyan",
+        "Charles Jourdain",
+        "JooSang Yoo",
+        "Patricio Pitbull"
+      ],
+      "percentile": 25.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Iwo Baraniewski",
+        "Joanderson Brito",
+        "Joshua Van",
+        "Marlon Vera",
+        "Ozzy Diaz",
+        "Robelis Despaigne"
+      ],
+      "percentile": 25.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Dooho Choi",
+        "Edmen Shahbazyan",
+        "Joshua Van",
+        "Marlon Vera",
+        "Michael Aswell Jr.",
+        "Robelis Despaigne"
+      ],
+      "percentile": 26.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Arman Tsarukyan",
+        "Dooho Choi",
+        "Michael Aswell Jr.",
+        "Ryan Gandra"
+      ],
+      "percentile": 26.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Brunno Ferreira",
+        "Casey O'Neill",
+        "Iwo Baraniewski",
+        "Patricio Pitbull",
+        "Ryan Gandra"
+      ],
+      "percentile": 27.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Charles Jourdain",
+        "JooSang Yoo",
+        "Patricio Pitbull",
+        "Ryan Gandra"
+      ],
+      "percentile": 27.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Casey O'Neill",
+        "Edmen Shahbazyan",
+        "Gable Steveson",
+        "Marlon Vera"
+      ],
+      "percentile": 28.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Charles Jourdain",
+        "Joanderson Brito",
+        "JooSang Yoo",
+        "Patricio Pitbull"
+      ],
+      "percentile": 29.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Dooho Choi",
+        "Edmen Shahbazyan",
+        "Eduarda Moura",
+        "Joshua Van",
+        "Marlon Vera"
+      ],
+      "percentile": 29.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Casey O'Neill",
+        "Edmen Shahbazyan",
+        "Iwo Baraniewski",
+        "JooSang Yoo",
+        "Marlon Vera"
+      ],
+      "percentile": 30.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Casey O'Neill",
+        "Gable Steveson",
+        "Iwo Baraniewski",
+        "Joshua Van",
+        "Marlon Vera",
+        "Michael Aswell Jr."
+      ],
+      "percentile": 30.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Casey O'Neill",
+        "Edmen Shahbazyan",
+        "Giga Chikadze",
+        "Iwo Baraniewski",
+        "Joshua Van"
+      ],
+      "percentile": 30.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Arman Tsarukyan",
+        "Brunno Ferreira",
+        "Gable Steveson",
+        "Joshua Van",
+        "Patricio Pitbull"
+      ],
+      "percentile": 31.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Casey O'Neill",
+        "Charles Jourdain",
+        "Edmen Shahbazyan",
+        "Joshua Van",
+        "Ozzy Diaz"
+      ],
+      "percentile": 34.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brunno Ferreira",
+        "Eduarda Moura",
+        "Joanderson Brito",
+        "Joshua Van",
+        "Patricio Pitbull",
+        "Robelis Despaigne"
+      ],
+      "percentile": 36.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Brunno Ferreira",
+        "Eduarda Moura",
+        "Joanderson Brito",
+        "Joshua Van",
+        "Ryan Gandra"
+      ],
+      "percentile": 36.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Brunno Ferreira",
+        "Casey O'Neill",
+        "Dooho Choi",
+        "Marlon Vera",
+        "Ryan Gandra"
+      ],
+      "percentile": 37.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Edmen Shahbazyan",
+        "Eduarda Moura",
+        "Giga Chikadze",
+        "Joshua Van",
+        "Ryan Gandra"
+      ],
+      "percentile": 38.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Eduarda Moura",
+        "Iwo Baraniewski",
+        "Michael Aswell Jr.",
+        "Ryan Gandra"
+      ],
+      "percentile": 38.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Arman Tsarukyan",
+        "Edmen Shahbazyan",
+        "Eduarda Moura",
+        "JooSang Yoo",
+        "Joshua Van"
+      ],
+      "percentile": 39.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Arman Tsarukyan",
+        "Edmen Shahbazyan",
+        "Gable Steveson",
+        "Michael Aswell Jr."
+      ],
+      "percentile": 41.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Edmen Shahbazyan",
+        "Eduarda Moura",
+        "Iwo Baraniewski",
+        "Joshua Van",
+        "Michael Aswell Jr.",
+        "Ryan Gandra"
+      ],
+      "percentile": 41.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Arman Tsarukyan",
+        "Brunno Ferreira",
+        "Casey O'Neill",
+        "JooSang Yoo"
+      ],
+      "percentile": 42.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brunno Ferreira",
+        "Casey O'Neill",
+        "Iwo Baraniewski",
+        "JooSang Yoo",
+        "Joshua Van",
+        "Patricio Pitbull"
+      ],
+      "percentile": 43.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Eduarda Moura",
+        "Gable Steveson",
+        "Joanderson Brito",
+        "Marlon Vera"
+      ],
+      "percentile": 47.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Casey O'Neill",
+        "Dooho Choi",
+        "Edmen Shahbazyan",
+        "Iwo Baraniewski",
+        "Joshua Van",
+        "Michael Aswell Jr."
+      ],
+      "percentile": 47.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Brunno Ferreira",
+        "Casey O'Neill",
+        "Charles Jourdain",
+        "Michael Aswell Jr.",
+        "Ryan Gandra"
+      ],
+      "percentile": 47.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Charles Jourdain",
+        "Edmen Shahbazyan",
+        "Gable Steveson",
+        "Patricio Pitbull"
+      ],
+      "percentile": 50.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Eduarda Moura",
+        "Iwo Baraniewski",
+        "Joanderson Brito",
+        "JooSang Yoo",
+        "Marlon Vera"
+      ],
+      "percentile": 50.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Charles Jourdain",
+        "Eduarda Moura",
+        "JooSang Yoo",
+        "Patricio Pitbull"
+      ],
+      "percentile": 50.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Charles Jourdain",
+        "Eduarda Moura",
+        "Iwo Baraniewski",
+        "Joshua Van",
+        "Michael Aswell Jr."
+      ],
+      "percentile": 51.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Brunno Ferreira",
+        "Eduarda Moura",
+        "Iwo Baraniewski",
+        "Joanderson Brito",
+        "Marlon Vera"
+      ],
+      "percentile": 52.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Edmen Shahbazyan",
+        "Gable Steveson",
+        "Mauricio Ruffy",
+        "Patricio Pitbull",
+        "Ryan Gandra"
+      ],
+      "percentile": 52.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Eduarda Moura",
+        "Gable Steveson",
+        "Joshua Van",
+        "Michael Aswell Jr.",
+        "Patricio Pitbull",
+        "Robelis Despaigne"
+      ],
+      "percentile": 53.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brunno Ferreira",
+        "Casey O'Neill",
+        "Charles Jourdain",
+        "Joshua Van",
+        "Mauricio Ruffy",
+        "Ryan Gandra"
+      ],
+      "percentile": 57.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Dooho Choi",
+        "Eduarda Moura",
+        "Iwo Baraniewski",
+        "Joanderson Brito",
+        "Marlon Vera"
+      ],
+      "percentile": 58.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Dooho Choi",
+        "Eduarda Moura",
+        "JooSang Yoo",
+        "Marlon Vera"
+      ],
+      "percentile": 58.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Brunno Ferreira",
+        "Eduarda Moura",
+        "Robelis Despaigne",
+        "Ryan Gandra"
+      ],
+      "percentile": 59.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Casey O'Neill",
+        "Dooho Choi",
+        "Edmen Shahbazyan",
+        "Iwo Baraniewski",
+        "Michael Aswell Jr."
+      ],
+      "percentile": 60.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Brunno Ferreira",
+        "Dooho Choi",
+        "Iwo Baraniewski",
+        "Joshua Van",
+        "Michael Aswell Jr."
+      ],
+      "percentile": 60.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Brunno Ferreira",
+        "Charles Jourdain",
+        "Giga Chikadze",
+        "Ryan Gandra"
+      ],
+      "percentile": 61.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Brunno Ferreira",
+        "Gable Steveson",
+        "Marlon Vera",
+        "Michael Aswell Jr.",
+        "Robelis Despaigne"
+      ],
+      "percentile": 61.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Casey O'Neill",
+        "Edmen Shahbazyan",
+        "Iwo Baraniewski",
+        "JooSang Yoo",
+        "Joshua Van",
+        "Mauricio Ruffy"
+      ],
+      "percentile": 61.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Charles Jourdain",
+        "Eduarda Moura",
+        "Iwo Baraniewski",
+        "JooSang Yoo",
+        "Joshua Van",
+        "Patricio Pitbull"
+      ],
+      "percentile": 63.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Casey O'Neill",
+        "Dooho Choi",
+        "Iwo Baraniewski",
+        "Ozzy Diaz"
+      ],
+      "percentile": 68.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Dooho Choi",
+        "Edmen Shahbazyan",
+        "Giga Chikadze",
+        "Iwo Baraniewski"
+      ],
+      "percentile": 73.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Edmen Shahbazyan",
+        "Eduarda Moura",
+        "Gable Steveson",
+        "Iwo Baraniewski",
+        "Patricio Pitbull"
+      ],
+      "percentile": 73.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Charles Jourdain",
+        "Dooho Choi",
+        "Mauricio Ruffy",
+        "Ryan Gandra"
+      ],
+      "percentile": 74.4,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Dooho Choi",
+        "Edmen Shahbazyan",
+        "Iwo Baraniewski",
+        "Ozzy Diaz"
+      ],
+      "percentile": 74.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Charles Jourdain",
+        "Eduarda Moura",
+        "Iwo Baraniewski",
+        "Joshua Van",
+        "Mauricio Ruffy",
+        "Ryan Gandra"
+      ],
+      "percentile": 74.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Charles Jourdain",
+        "Dooho Choi",
+        "Joshua Van",
+        "Ozzy Diaz",
+        "Robelis Despaigne"
+      ],
+      "percentile": 76.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Charles Jourdain",
+        "Dooho Choi",
+        "Eduarda Moura",
+        "Michael Aswell Jr."
+      ],
+      "percentile": 76.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Arman Tsarukyan",
+        "Brunno Ferreira",
+        "Dooho Choi",
+        "Giga Chikadze",
+        "Ryan Gandra"
+      ],
+      "percentile": 79.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Arman Tsarukyan",
+        "Brunno Ferreira",
+        "Casey O'Neill",
+        "Gable Steveson",
+        "Ozzy Diaz"
+      ],
+      "percentile": 80.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Casey O'Neill",
+        "Charles Jourdain",
+        "Dooho Choi",
+        "Iwo Baraniewski",
+        "Joshua Van",
+        "Ozzy Diaz"
+      ],
+      "percentile": 81.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brunno Ferreira",
+        "Charles Jourdain",
+        "Iwo Baraniewski",
+        "Joshua Van",
+        "Ozzy Diaz",
+        "Robelis Despaigne"
+      ],
+      "percentile": 85.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Dooho Choi",
+        "Eduarda Moura",
+        "Giga Chikadze",
+        "JooSang Yoo",
+        "Joshua Van"
+      ],
+      "percentile": 86.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Charles Jourdain",
+        "Dooho Choi",
+        "Edmen Shahbazyan",
+        "Iwo Baraniewski",
+        "Joshua Van",
+        "Ozzy Diaz"
+      ],
+      "percentile": 86.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alonzo Menifield",
+        "Dooho Choi",
+        "Edmen Shahbazyan",
+        "Gable Steveson",
+        "Joshua Van",
+        "Ozzy Diaz"
+      ],
+      "percentile": 86.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Edmen Shahbazyan",
+        "Eduarda Moura",
+        "Giga Chikadze",
+        "JooSang Yoo",
+        "Robelis Despaigne"
+      ],
+      "percentile": 89.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Dooho Choi",
+        "Gable Steveson",
+        "Iwo Baraniewski",
+        "Marlon Vera",
+        "Mauricio Ruffy"
+      ],
+      "percentile": 89.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Alonzo Menifield",
+        "Charles Jourdain",
+        "Dooho Choi",
+        "Eduarda Moura",
+        "JooSang Yoo"
+      ],
+      "percentile": 92.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Edmen Shahbazyan",
+        "Eduarda Moura",
+        "Gable Steveson",
+        "Giga Chikadze",
+        "Iwo Baraniewski",
+        "Joshua Van"
+      ],
+      "percentile": 92.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Dooho Choi",
+        "Gable Steveson",
+        "Giga Chikadze",
+        "Iwo Baraniewski",
+        "Joshua Van",
+        "Michael Aswell Jr."
+      ],
+      "percentile": 93.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Brunno Ferreira",
+        "Casey O'Neill",
+        "Gable Steveson",
+        "Iwo Baraniewski",
+        "Mauricio Ruffy"
+      ],
+      "percentile": 94.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Brunno Ferreira",
+        "Dooho Choi",
+        "Iwo Baraniewski",
+        "JooSang Yoo",
+        "Joshua Van",
+        "Mauricio Ruffy"
+      ],
+      "percentile": 95.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Edmen Shahbazyan",
+        "Eduarda Moura",
+        "Gable Steveson",
+        "JooSang Yoo",
+        "Mauricio Ruffy"
+      ],
+      "percentile": 97.3,
+      "flags": []
+    },
+    {
+      "players": [
+        "Alexandre Pantoja",
+        "Brunno Ferreira",
+        "Charles Jourdain",
+        "Dooho Choi",
+        "Eduarda Moura",
+        "Iwo Baraniewski"
+      ],
+      "percentile": 97.5,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    0.2,
+    0.4,
+    1.3,
+    2.1,
+    2.4,
+    2.6,
+    3.0,
+    4.7,
+    5.4,
+    5.8,
+    6.3,
+    6.9,
+    7.4,
+    7.7,
+    9.3,
+    9.6,
+    10.7,
+    11.3,
+    11.8,
+    14.4,
+    15.3,
+    15.5,
+    16.1,
+    17.8,
+    18.0,
+    18.9,
+    19.2,
+    21.9,
+    21.9,
+    21.9,
+    22.9,
+    23.6,
+    25.6,
+    25.7,
+    26.1,
+    26.4,
+    27.6,
+    27.7,
+    28.0,
+    29.5,
+    29.9,
+    30.4,
+    30.7,
+    30.9,
+    31.3,
+    34.5,
+    36.3,
+    36.5,
+    37.1,
+    38.4,
+    38.8,
+    39.2,
+    41.4,
+    41.9,
+    42.9,
+    43.2,
+    47.0,
+    47.3,
+    47.9,
+    50.2,
+    50.5,
+    50.9,
+    51.0,
+    52.0,
+    52.8,
+    53.8,
+    57.4,
+    58.1,
+    58.7,
+    59.6,
+    60.1,
+    60.6,
+    61.5,
+    61.9,
+    61.9,
+    63.9,
+    68.1,
+    73.1,
+    73.6,
+    74.4,
+    74.5,
+    74.9,
+    76.5,
+    76.6,
+    79.7,
+    80.7,
+    81.6,
+    85.2,
+    86.3,
+    86.6,
+    86.9,
+    89.2,
+    89.7,
+    92.2,
+    92.3,
+    93.6,
+    94.0,
+    95.7,
+    97.3,
+    97.5
+  ]
+}

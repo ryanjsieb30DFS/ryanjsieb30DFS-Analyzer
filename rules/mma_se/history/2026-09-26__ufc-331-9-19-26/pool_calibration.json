@@ -1,0 +1,41 @@
+{
+  "gradable": true,
+  "n_pool": 24,
+  "n_matched": 24,
+  "tiers": [
+    {
+      "tier": "Core",
+      "n": 3,
+      "avg_fpts": 40.7,
+      "max_fpts": 113.8
+    },
+    {
+      "tier": "Good",
+      "n": 7,
+      "avg_fpts": 84.4,
+      "max_fpts": 137.0
+    },
+    {
+      "tier": "Okay",
+      "n": 10,
+      "avg_fpts": 60.8,
+      "max_fpts": 124.5
+    },
+    {
+      "tier": "Fade",
+      "n": 4,
+      "avg_fpts": 42.5,
+      "max_fpts": 126.3
+    }
+  ],
+  "tiers_ordered": false,
+  "leakage": [
+    {
+      "name": "Sean Sharaf",
+      "tier": "Fade",
+      "fpts": 126.3
+    }
+  ],
+  "excluded_scratches": [],
+  "summary": "Core 40.7 > Good 84.4 > Okay 60.8 > Fade 42.5  \u2717 OUT OF ORDER"
+}

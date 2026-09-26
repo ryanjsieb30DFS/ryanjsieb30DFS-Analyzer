@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "slug": "mma_se",
+  "contests": [
+    {
+      "date": "2026-09-26",
+      "contest": "UFC $25K Mini Max",
+      "winning_score": 708.0,
+      "pool_n": 4103,
+      "pool_max": 708.0,
+      "pool_held_winner": true,
+      "n_pool_ge_win": 1,
+      "pick_actual": 668.6,
+      "pick_won": false,
+      "pick_pool_pctile": 99.8,
+      "pick_source": "entered",
+      "n_entered": 100
+    }
+  ],
+  "note": null,
+  "generated_at": "2026-09-26 09:49"
+}

@@ -881,3 +881,93 @@ _Descriptive only: this reads how the field and the winners built. It is not a r
 | **Fade** | 7 | 35.6 | 76.9 |
 - ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
 - 🕳️ Buried: **Alexa Grasso** (Fade) scored 76.9 — above the top tier's average.
+
+
+## 2026-09-26 09:49 — MMA (contest-standings-195660629 2.csv)
+- Entries: 59,453
+- Winning score: 708.0
+- Cash line (top 20%): 496.4
+- My entries: 100 · best rank 106/59,453 (top 0.2%)
+- Winners (top 100): avg own 31.2% vs mine 29.56% · sub-10% plays/lineup 0.15 vs mine 0.0 · salary Δ +19
+- Overperformed proj: Sean Sharaf, Marlon Vera, Patricio Pitbull
+- Underperformed proj: Gable Steveson, Dooho Choi, Eduarda Moura
+- Slate-defining plays: Patricio Pitbull (115.3 pts @ 17.7%)
+
+### 150-max portfolio read — contest-standings-195660629 2.csv
+- Field: 59,350 entries from 2,892 people. Top 1% = rank 594 or better; cash line = rank 11,870 (estimated at 20% paid).
+
+**Who is in the field (by how many entries each person played)**
+
+| Entries per person | People | Share of field | Share of top 1% |
+|---|---:|---:|---:|
+| 1 entry | 1,041 | 2% | 1% |
+| 2-5 | 880 | 4% | 4% |
+| 6-20 | 476 | 9% | 10% |
+| 21-50 | 158 | 10% | 11% |
+| 51-100 | 74 | 10% | 10% |
+| 101-149 | 26 | 5% | 4% |
+| 150 (full stake) | 237 | 60% | 61% |
+
+**Lineup shape — summed ownership (how chalky), lowest-owned piece, and punts (fighters under 10% owned)**
+
+| Group | Summed own (median) | Lowest piece (median) | Punts per lineup |
+|---|---:|---:|---:|
+| Winner | 169% | 4% | 1.00 |
+| Top 1% | 188% | 18% | 0.22 |
+| Top 10% | 187% | 18% | 0.15 |
+| Whole field | 181% | 14% | 0.05 |
+
+**Winner:** ngates815 (150 entries), 708.0 points, this exact roster appeared 3x in the field. Joshua Van 47% · Arman Tsarukyan 38% · Sean Sharaf 4% · Ryan Gandra 34% · Marlon Vera 23% · Joanderson Brito 22%
+
+**Duplication:** 14.9% of the field's lineups were unique (8,830 distinct rosters; the most-copied roster appeared 345x). Top-1% lineups were copied a median 50x vs 22x for the field; 5% of the top 1% were one-of-one vs 6% of the field.
+
+**Who the top 1% rostered (top-1% use vs field ownership; 'lift' = use ÷ own)**
+
+| Fighter | Field own | In top-1% lineups | Lift |
+|---|---:|---:|---:|
+| Joshua Van | 47% | 92% | 1.95 |
+| Arman Tsarukyan | 38% | 92% | 2.41 |
+| Marlon Vera | 23% | 76% | 3.33 |
+| Casey O'Neill | 34% | 64% | 1.88 |
+| Ryan Gandra | 34% | 61% | 1.79 |
+| Patricio Pitbull | 18% | 55% | 3.13 |
+| Joanderson Brito | 22% | 47% | 2.18 |
+| Edmen Shahbazyan | 28% | 22% | 0.79 |
+| Alonzo Menifield | 21% | 22% | 1.02 |
+| Sean Sharaf | 4% | 22% | 4.88 |
+| Michael Aswell Jr. | 33% | 19% | 0.57 |
+| Iwo Baraniewski | 47% | 14% | 0.29 |
+
+**The big stacks (280 people with 100+ entries)** — median top-1% rate 1% (best 7%), top-10% 9%, cash 19%; typical stack: biggest single exposure 56%, 24 fighters used, summed own 180%.
+- Correlation with top-1% rate (−1 to +1; near 0 = no link): chalkiness 0.14, biggest exposure -0.01, concentration -0.06, field copies 0.13, fighters used 0.13. With cash rate: chalkiness 0.23, biggest exposure 0.05.
+- Split by chalkiness: least chalky → top-1% 1%, cash 18%; middle → top-1% 1%, cash 20%; most chalky → top-1% 1%, cash 22%
+- Split by concentration: most spread → top-1% 1%, cash 19%; middle → top-1% 1%, cash 21%; most concentrated → top-1% 1%, cash 21%
+- Split by how copied their lineups were: most unique → top-1% 1%, cash 20%; middle → top-1% 1%, cash 20%; most copied → top-1% 2%, cash 21%
+
+| Best big stacks | Entries | Best rank | Top 1% | Top 10% | Cash | Max exposure | Fighters used | Summed own |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| DKyat | 150 | 90 | 7% | 49% | 75% | 86% | 20 | 170% |
+| ngates815 | 150 | 1 | 5% | 21% | 31% | 47% | 24 | 174% |
+| lmc33 | 120 | 6 | 5% | 18% | 32% | 56% | 23 | 182% |
+| OM4R7 | 150 | 6 | 5% | 30% | 40% | 55% | 19 | 184% |
+| davidmarchorn | 150 | 6 | 4% | 21% | 37% | 100% | 23 | 187% |
+
+**You:** 100 entries, best rank 106; top-1% rate 2%, top-10% 16%, cash 27%; biggest exposure 50% (0 fighters over 50%), 22 fighters used, summed own 179%, lowest piece 14%, 0.00 punts per lineup, your lineups appeared 43.3x each in the field, 100% distinct within your own set.
+- Your top exposures: Joshua Van 50%, Alexandre Pantoja 46%, Arman Tsarukyan 41%, Edmen Shahbazyan 40%, Iwo Baraniewski 38%, Ryan Gandra 34%, Patricio Pitbull 32%, Alonzo Menifield 32%
+- You minus the big-stack median: top1 +1.3, top10 +6.7, cash +7.7, max exposure -5.9, fighters used -2.0, own med -1.7
+
+_Descriptive only: this reads how the field and the winners built. It is not a rule._
+
+### Strategy adherence — did you follow your own strategy? (100 unique lineups)
+- ✅ Every hard FADE honored.
+- Leverage candidates rostered somewhere: **2 of 4**.
+
+### Player-pool tier calibration (24 of 24 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 3 | 40.7 | 113.8 |
+| **Good** | 7 | 84.4 | 137.0 |
+| **Okay** | 10 | 60.8 | 124.5 |
+| **Fade** | 4 | 42.5 | 126.3 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.
+- 🕳️ Buried: **Sean Sharaf** (Fade) scored 126.3 — above the top tier's average.

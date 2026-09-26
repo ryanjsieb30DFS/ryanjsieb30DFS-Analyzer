@@ -1,0 +1,474 @@
+{
+  "generated_at": "2026-09-19 14:36",
+  "slug": "mma_se",
+  "slate": "UFC 331 \u2014 Van vs. Pantoja (9/19/26) \u2014 MMA slate strategy",
+  "calls": [
+    {
+      "name": "Sean Sharaf",
+      "verdict": "fade"
+    },
+    {
+      "name": "Tai Tuivasa",
+      "verdict": "fade"
+    },
+    {
+      "name": "Mauricio Ruffy",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Giga Chikadze",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Brunno Ferreira",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Michael Aswell Jr.",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Casey O'Neill",
+      "verdict": "underweight"
+    }
+  ],
+  "fades": [
+    "Sean Sharaf",
+    "Tai Tuivasa"
+  ],
+  "leverage_candidates": [
+    {
+      "name": "Sean Sharaf",
+      "own": 3.0
+    },
+    {
+      "name": "Ozzy Diaz",
+      "own": 6.0
+    },
+    {
+      "name": "Tai Tuivasa",
+      "own": 5.0
+    },
+    {
+      "name": "Giga Chikadze",
+      "own": 8.0
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Joshua Van",
+        "Arman Tsarukyan"
+      ],
+      "joint_pct": 24.0
+    },
+    {
+      "players": [
+        "Joshua Van",
+        "Iwo Baraniewski"
+      ],
+      "joint_pct": 24.0
+    },
+    {
+      "players": [
+        "Arman Tsarukyan",
+        "Iwo Baraniewski"
+      ],
+      "joint_pct": 23.0
+    },
+    {
+      "players": [
+        "Joshua Van",
+        "Alexandre Pantoja"
+      ],
+      "joint_pct": 21.0
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Joshua Van",
+        "Arman Tsarukyan",
+        "Iwo Baraniewski"
+      ]
+    },
+    {
+      "players": [
+        "Casey O'Neill",
+        "Ryan Gandra",
+        "Edmen Shahbazyan",
+        "Brunno Ferreira"
+      ]
+    },
+    {
+      "players": [
+        "Gable Steveson",
+        "Eduarda Moura",
+        "Michael Aswell Jr.",
+        "Alonzo Menifield"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "lineup_rules": [
+    {
+      "rule": "at_most",
+      "why": "never both sides of the main event",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Joshua Van",
+        "Alexandre Pantoja"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "carry one or two $9,000+ fighters, rarely more",
+      "from": "mma-se-2026-08-23-salary-buys-floor-not-ceiling",
+      "count": 2,
+      "players": [
+        "Gable Steveson",
+        "Robelis Despaigne",
+        "Ryan Gandra",
+        "Joanderson Brito",
+        "Arman Tsarukyan",
+        "JooSang Yoo"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "no more than one fighter under $7,200",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Sean Sharaf",
+        "Tai Tuivasa",
+        "Ozzy Diaz",
+        "Giga Chikadze",
+        "Mauricio Ruffy"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "FADE: no win path beyond a lucky punch",
+      "from": "strategy",
+      "count": 0,
+      "players": [
+        "Sean Sharaf",
+        "Tai Tuivasa"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never the other side of a named leverage fight",
+      "from": "mma-se-2026-07-26-field-value-side-vs-your-named-converter",
+      "count": 1,
+      "players": [
+        "JooSang Yoo",
+        "Michael Aswell Jr."
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never the other side of a named leverage fight",
+      "from": "mma-se-2026-07-26-field-value-side-vs-your-named-converter",
+      "count": 1,
+      "players": [
+        "Charles Jourdain",
+        "Marlon Vera"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never the other side of a named leverage fight",
+      "from": "mma-se-2026-07-26-field-value-side-vs-your-named-converter",
+      "count": 1,
+      "players": [
+        "Joanderson Brito",
+        "Giga Chikadze"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never the other side of a named leverage fight",
+      "from": "mma-se-2026-07-26-field-value-side-vs-your-named-converter",
+      "count": 1,
+      "players": [
+        "Dooho Choi",
+        "Patricio Pitbull"
+      ]
+    }
+  ],
+  "portfolio_rules": [
+    {
+      "rule": "max_exposure_pct",
+      "why": "knockout-or-nothing favorite capped near 60%",
+      "from": "mma-se-2026-06-14-showdown-cap-single-favorite-exposure",
+      "player": "Iwo Baraniewski",
+      "value": 60
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "round-one-or-bust favorite capped near 60%",
+      "from": "mma-se-2026-06-14-showdown-cap-single-favorite-exposure",
+      "player": "Edmen Shahbazyan",
+      "value": 60
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "knockout-or-nothing favorite capped near 60%",
+      "from": "mma-se-2026-06-14-showdown-cap-single-favorite-exposure",
+      "player": "Ryan Gandra",
+      "value": 60
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "needs an early knockout; capped near 60%",
+      "from": "mma-se-2026-06-14-showdown-cap-single-favorite-exposure",
+      "player": "Robelis Despaigne",
+      "value": 60
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "never the same expensive favorite in 100% of the set",
+      "from": "mma-se-2026-08-23-salary-buys-floor-not-ceiling",
+      "player": "Arman Tsarukyan",
+      "value": 80
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "never the same expensive favorite in 100% of the set",
+      "from": "mma-se-2026-08-23-salary-buys-floor-not-ceiling",
+      "player": "Gable Steveson",
+      "value": 80
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "main event is a coin flip; hold near the odds",
+      "from": "strategy",
+      "player": "Joshua Van",
+      "value": 60
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "main event is a coin flip; hold near the odds",
+      "from": "strategy",
+      "player": "Alexandre Pantoja",
+      "value": 60
+    },
+    {
+      "rule": "min_entries_with",
+      "why": "same win chance as Tsarukyan at a third of the ownership",
+      "from": "mma-se-2026-05-30-anchor-equivalence-fifth-validation",
+      "count": 15,
+      "players": [
+        "Joanderson Brito"
+      ]
+    },
+    {
+      "rule": "min_entries_with",
+      "why": "the 12-15%-owned side of the 64-67% win tier",
+      "from": "mma-se-2026-05-30-anchor-equivalence-fifth-validation",
+      "count": 15,
+      "players": [
+        "JooSang Yoo",
+        "Charles Jourdain"
+      ]
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "UNDERWEIGHT: less than the crowd's 36%",
+      "from": "strategy",
+      "player": "Casey O'Neill",
+      "value": 30
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "UNDERWEIGHT: 31% own on a 39% win chance",
+      "from": "strategy",
+      "player": "Brunno Ferreira",
+      "value": 25
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "UNDERWEIGHT: 26% own on a 36% win chance",
+      "from": "strategy",
+      "player": "Michael Aswell Jr.",
+      "value": 20
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "LEAN FADE: owned like a coin flip, no floor",
+      "from": "strategy",
+      "player": "Mauricio Ruffy",
+      "value": 10
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "LEAN FADE: capped ceiling, no volume or control",
+      "from": "strategy",
+      "player": "Giga Chikadze",
+      "value": 10
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "punts are a rate: about 1 entry in 5",
+      "from": "strategy",
+      "count": 20,
+      "players": [
+        "Ozzy Diaz",
+        "Giga Chikadze"
+      ]
+    }
+  ],
+  "build_rules": {
+    "present": true,
+    "errors": []
+  },
+  "board": [
+    {
+      "name": "Arman Tsarukyan",
+      "tier": "Core",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Dooho Choi",
+      "tier": "Core",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Gable Steveson",
+      "tier": "Core",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Joanderson Brito",
+      "tier": "Good",
+      "leverage": true,
+      "pos": ""
+    },
+    {
+      "name": "Joshua Van",
+      "tier": "Good",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Alexandre Pantoja",
+      "tier": "Good",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Robelis Despaigne",
+      "tier": "Good",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Iwo Baraniewski",
+      "tier": "Good",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Ryan Gandra",
+      "tier": "Good",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "JooSang Yoo",
+      "tier": "Good",
+      "leverage": true,
+      "pos": ""
+    },
+    {
+      "name": "Edmen Shahbazyan",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Alonzo Menifield",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Patricio Pitbull",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": ""
+    },
+    {
+      "name": "Charles Jourdain",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": ""
+    },
+    {
+      "name": "Eduarda Moura",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Casey O'Neill",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Ozzy Diaz",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": ""
+    },
+    {
+      "name": "Marlon Vera",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Brunno Ferreira",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Michael Aswell Jr.",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Mauricio Ruffy",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Giga Chikadze",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Tai Tuivasa",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": ""
+    },
+    {
+      "name": "Sean Sharaf",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": ""
+    }
+  ]
+}
