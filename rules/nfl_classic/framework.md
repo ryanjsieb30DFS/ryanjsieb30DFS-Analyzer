@@ -75,7 +75,7 @@ ETR's multi-year Milly Maker studies, winners vs field:
 - **Spread:** small spread + high total = shootout → full game stack with bring-back. Spread of 7+ = blowout risk → the favorite's RB + DST pairing, or the underdog's receivers alone (trailing teams throw).
 - **Pace:** two fast teams = more plays = more raw material. Thorman's weekly pace bucket (Up in pace / Slow-paced slog) sits beside total and spread as a game-selection input. Two persistence facts (Thorman, 9/12/26): a defensive coordinator from the Fangio tree drags combined plays for years (Fangio's eight DC seasons ranked 32nd, 31st, 30th, 30th, 25th, 18th, 16th and 14th in combined offensive plays), so a stack in his game carries a volume discount; Cowboys games have finished top five in combined snaps six of the last seven years.
 - **Team intent:** ETR's Pass Rate Over Expectation (PROE — how much more a team throws than the game situation predicts) is the stable half of future pass rate; game script is the volatile half. Two high-PROE teams in one game is the shootout shape; a high red-zone PROE leans that team's touchdowns to WR/TE. 2026 numbers start after Week 2 (`docs/etr_research/2026-09-12__nfl_classic__etr_pass_rate_over_expectation.pdf`).
-- **Dome tiebreaker:** in domes QBs score ~12% more, WR/TE ~6% more (receiving TDs +22%/+33%), and DSTs ~15% LESS. ETR's projections already carry most of this — it breaks ties between two otherwise-equal game environments and counts against the dome DST; it is never added on top.
+- **Dome tiebreaker:** in domes QBs score ~12% more, WR/TE ~6% more (receiving TDs +22%/+33%), and DSTs ~15% LESS. ETR's projections already carry most of this — it breaks ties between two otherwise-equal game environments and counts against the dome DST; it is never added on top. Local ledger (codified 2026-09-26, stack half only): the dome stack beat projection by more than the outdoor comparison on both logged slates (Week 1 Shough/Olave/St. Brown vs Burrow/Chase; Week 2 Dak +8.1 and Lamb +19.5 vs Purdy +7.4). The dome-DST discount is still unmeasured locally.
 - **The leverage overlay:** ownership floods the slate's top total. The sharp read is the second or third highest total with the same shootout shape at half the ownership, or attacking the chalk game through its less obvious pieces (WR2, TE). **The richest leverage in NFL is a low-owned stack, not a low-owned player.**
 
 ## Ownership as a price
@@ -89,7 +89,7 @@ Leverage = win-rate minus ownership — guide-not-gate, ownership is information
 
 ## Roster construction, position by position
 
-- **Salary: winners spend the full cap** — ~84% at $49,800+. ETR tested leaving money directly and found no edge. Uniqueness comes from player choices, not leftover salary (the OPPOSITE of Showdown).
+- **Salary: winners spend the full cap** — ~84% at $49,800+. ETR tested leaving money directly and found no edge. Uniqueness comes from player choices, not leftover salary (the OPPOSITE of Showdown). Local ledger (codified 2026-09-26): Week 1 top lineups averaged $49,833 (SE) and $49,905 (3-Max); Week 2 top 20 averaged $49,880. Three confirming slates.
 - **QB — the price-leverage spot.** Sub-$6,000 QBs won 45% vs 38% field usage; QB scoring is flat relative to price, cheap QBs run low-owned, and the savings buy studs.
 - **RB — pay up and eat the chalk.** Half of winners carried a $6,500+ RB. RB is also the winning FLEX (58% of winners flexed a RB).
 - **WR — slight pay-up.** Winners average 1.3 receivers at $6,500+; elite WRs are the double-stack ammunition.

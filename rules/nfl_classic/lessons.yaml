@@ -20,7 +20,14 @@ lessons:
           10 of the 20 top-10 lineups across the SE (2,450) and 3-Max (1,960) carried QB + 2 same-team catchers
           (Young+McMillan+Coker x4, Shough+Olave+Juwan Johnson x4, Shough+Olave+Vele, Kyler stacks) — 50% vs the
           29% external field baseline. This slate's own field rate was not measured; soft confirmation.
-    contradictions: []
+    contradictions:
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          First slate with the field rate measured: the top 1% (16 lineups) ran a double stack 37.5% of the time
+          against 47.5% for the whole field, and a single stack 50% vs 42.1%. The winner (abbyml, 205.28) was
+          Purdy + McCaffrey + Kittle. The user ran a double stack in 3 of 3 while the 9 tracked-pro entries ran
+          22.2%. The mechanism (two catchers double the capture of a big passing game) did not show up in winners.
     codified_in: null
     retired_reason: null
 
@@ -31,7 +38,13 @@ lessons:
       A tight end used as the bring-back (the opposing pass-catcher next to a QB stack) appears in winning lineups more often than the field uses it (+34%). Why: tight-end ceilings are touchdown-driven and cluster in the high-scoring games a stack is already betting on. Counts as confirmed when: on a logged slate, top-10 lineups with a QB stack carry an opposing TE at a higher rate than the field.
     status: hypothesis
     confirmations: []
-    contradictions: []
+    contradictions:
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          Soft. 0 of the top-10 lineups carried a tight end from the QB's opponent. The tight ends that paid were
+          stack-mates or stand-alones: Kittle ($4,600, 18.0) inside the winner's Purdy stack, Schultz ($3,200, 29.0)
+          as a stand-alone in 8 of 10. Field rate of TE bring-backs not measured.
     codified_in: null
     retired_reason: null
 
@@ -49,7 +62,15 @@ lessons:
           The other chalk anchors ran BELOW field in the top 10: Michael Mayer (TE, 47-51%, 9.2) in 8 of 20,
           Ja'Marr Chase (WR, 38%, 3.2) in 1 of 20, Jets DST (20%, 9.0) in 4 of 20. RB chalk held; every other
           position's chalk was where the losing half lived.
-    contradictions: []
+    contradictions:
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          Partial. The sturdiest volume chalk, Bijan Robinson ($8,200, 52.7% owned, 24.0 projected), scored 11.1 and
+          sat in 1 of the top 10 (54.7% of the bottom half, 12.5% of the top 1%). Javonte Williams (28.1%, 8.0) sat
+          in 0 of 10. The second-tier RB chalk held: Aaron Jones (32.6%, 13.5) in 6 of 10, McCaffrey (26.6%, 22.6)
+          in 6 of 10, Henry (34.6%, 17.7) in 4 of 10. Touches did not bank points for the top-owned RB this slate,
+          and the chalk TE (Schultz, 37.3%) was in 8 of 10 winners, so the "RB chalkier, TE below" split also failed.
     codified_in: null
     retired_reason: null
 
@@ -58,8 +79,15 @@ lessons:
     origin: "docs/nfl_game_theory.md 1.4 — ownership-to-points correlations (external data, not a logged slate)"
     statement: >
       The highest-owned defense is the most reliably overpriced piece on the slate. Why: DST scoring is the least predictable on the board (ownership predicts DST points at only 0.21), so the field's confidence is not backed by the distribution. Counts as confirmed when: on a logged slate, the top-owned DST finishes outside the top-3 defenses by points while top-10 lineups used a lower-owned DST.
-    status: hypothesis
-    confirmations: []
+    status: validated
+    confirmations:
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          The top-owned defense, the Buccaneers ($3,600, 15.6% of the field), scored 2.0 and sat in 0 of the top 16
+          (19.7% of the bottom half). The top-10 lineups used the Panthers ($2,700, 6.25% owned, 26.0 — the slate's
+          top defense) in 5 of 10 and the Patriots / Broncos / Jets / Steelers in the rest. The user's 1/3 carried the
+          Buccaneers (a late swap from the Seahawks) and finished top 72.3%.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -77,7 +105,14 @@ lessons:
           15 of the 20 top-10 lineups ran a sub-$6,000 QB: Bryce Young $5,200 (35.44) x7, Tyler Shough $5,600
           (29.2) x5, Kyler Murray $5,500 x2, Malik Willis x1. The field's four most-owned QBs were all $6,000+
           (Goff, Burrow, Herbert, Lamar at 7-12% each) and only Lamar (28.96) paid.
-    contradictions: []
+    contradictions:
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          1 of the top-10 lineups ran a sub-$6,000 QB (Drew Lock $4,900, 21.4, rank 7). The other nine ran Dak
+          Prescott $6,400 (29.76) x5 and Brock Purdy $6,200 (28.48) x4 — the two top projected QBs in the two best
+          games. The cheap tier busted: Lawrence $5,800 7.16, Wentz $4,600 6.3, Nix $5,700 not in any top-10 lineup.
+          The mechanism (flat QB scoring vs price) failed when the mid-priced QBs owned the slate's two shootouts.
     codified_in: null
     retired_reason: null
 
@@ -86,15 +121,20 @@ lessons:
     origin: "docs/nfl_game_theory.md 1.5 — ETR salary-left test (external data, not a logged slate)"
     statement: >
       Winning Classic lineups spend the full cap (84% at $49,800+); leaving salary buys no uniqueness edge in this format. Why: with nine slots, uniqueness comes from player choice and stack structure, and every dollar left is projection surrendered. Counts as confirmed when: a logged slate's top-10 lineups average $49,500+ in salary used.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-09-13"
         history_dir: "rules/nfl_classic/history/2026-09-13__nfl-classic-week-1-9-13-2026__2"
         note: >
           SE top-24 averaged $49,833 used; 3-Max top-20 averaged $49,905. All 40 top lineups were unique.
           The user's four entries averaged $49,925 — this rule was followed.
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          3-Max top-20 averaged $49,880 used; the winner (abbyml) spent $50,000 exactly and all 20 were unique.
+          The user's three entries averaged $49,933. Third confirming slate — codification proposed.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Roster construction / Salary (codified 2026-09-26, 3 confirming slates)"
     retired_reason: null
 
   - id: nfl_classic_forced_value_stampede
@@ -104,7 +144,14 @@ lessons:
       When late news creates a cheap forced-value starter, the field over-rushes the obvious pivot and under-owns the second-order beneficiary (the passing game that inherits the work). Why: everyone's salary math routes through the same cheap player and the same two studs the savings buy. Counts as confirmed when: on a logged slate with a late-news value play, his actual ownership exceeds the last vendor projection by 10+ points while a same-team second-order beneficiary appears in top-10 lineups above his ownership.
     status: hypothesis
     confirmations: []
-    contradictions: []
+    contradictions:
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          Two forced-value plays, neither stampeded and both paid or held: Dalton Schultz ($3,200, Collins out) went
+          31.7% projected to 37.3% actual (+5.6, under the 10-point bar) and scored 29.0 in 8 of the top 10; Aaron
+          Jones ($5,100, Mason on IR) went 28.7% to 32.6% and scored 13.5 in 6 of 10. No second-order Houston or
+          Minnesota beneficiary reached a top-10 lineup. The over-rush did not happen when the news was days old.
     codified_in: null
     retired_reason: null
 
@@ -117,7 +164,13 @@ lessons:
       A chalk pass-catcher from the chalk game scores as a positive inside the stack he correlates with and as a negative outside it. Why: the stack pays his ceiling twice; naked, his ownership is a pure tax. Counts as confirmed when: on a logged slate, the chalk bring-back's top-10 lineups are stack-mates of his QB more often than not, and his naked lineups finish below the field median.
     status: hypothesis
     confirmations: []
-    contradictions: []
+    contradictions:
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          CeeDee Lamb ($7,300, 24.9% owned, 38.3) was the chalk game's chalk catcher. He sat in 9 of the top 10:
+          5 with Dak Prescott and 4 naked under a Purdy stack, including the winner (abbyml, 205.28) and ranks 3, 4
+          and 8. The naked Lamb lineups did not finish below the median; a 38-point receiver pays outside his stack.
     codified_in: null
     retired_reason: null
 
@@ -127,7 +180,14 @@ lessons:
     statement: >
       Fading the obvious bring-back beats keeping him only when the fade buys a construction edge (a third Tier-1 RB, a mini-correlation). Why: the fade's leverage alone is small in a stack that is not over-owned; the salary it frees is where the edge lives. Counts as confirmed when: a logged no-bring-back winner or top-10 lineup carries a visibly different construction from the with-bring-back stacks.
     status: hypothesis
-    confirmations: []
+    confirmations:
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          The winner (abbyml, 205.28) ran Purdy + McCaffrey + Kittle with NO Miami bring-back and spent the freed
+          salary on two $6,800+ receivers from other games: Lamb ($7,300, 38.3) and DeVonta Smith ($6,800, 30.7).
+          The user's Purdy entry carried two Miami bring-backs (Malik Washington, Caleb Douglas 3.9) and finished
+          top 72.3%. Top-1% bring-back rate (62.5%) matched the field (61.1%) — the bring-back itself was neutral.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -159,7 +219,7 @@ lessons:
     origin: "ETR research digest 9/12/26 — docs/etr_research/DIGEST_2026-09-12_nfl_classic.md (Brott, Top NFL Narratives, 2021-23 data); external data, not a logged slate"
     statement: >
       Between two equal game environments, the dome game's stack outscores the outdoor one and the dome DST underscores. Why: +12% QB / -15% DST DK points in domes historically. Counts as confirmed when: logged slates show the dome-game stack's actual points above projection more often than the outdoor comparison's.
-    status: validated
+    status: codified
     confirmations:
       - date: "2026-09-13"
         history_dir: "rules/nfl_classic/history/2026-09-13__nfl-classic-week-1-9-13-2026__2"
@@ -168,8 +228,15 @@ lessons:
           50.5). The dome stack beat projection across the board — Shough 29.2 vs 18.5, Olave 31.2 vs 18.2,
           St. Brown 28.7 vs 20.5 — while the outdoor stack missed: Burrow 15.2 vs 21.8, Chase 3.2 vs 22.1,
           Higgins 8.9. DST half not checked (Bengals DST score not archived).
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          Stack half, soft. The dome game WAS@DAL vs the outdoor MIA@SF (both top-2 by total and game score). Dome:
+          Dak 29.76 vs 21.7 projected (+8.1), Lamb 38.3 vs 18.8 (+19.5). Outdoor: Purdy 28.48 vs 21.1 (+7.4), Kittle
+          18.0 vs 11.3 (+6.7), McCaffrey 22.6 vs 21.4 (+1.2). Both stacks beat projection; the dome stack beat it by
+          more. DST half again not checked (Cowboys / Commanders DST scores not archived). Third confirming slate.
     contradictions: []
-    codified_in: null
+    codified_in: "framework.md — Pick the game / Dome tiebreaker (codified 2026-09-26, stack half only; dome-DST discount unmeasured)"
     retired_reason: null
 
   - id: nfl_classic_dst_pressure_not_points_allowed
@@ -179,7 +246,14 @@ lessons:
       A DST attached to a top-6 pass-rush mismatch outscores a DST picked for opponent points allowed. Why: only 2.5% of games are shutouts and 9.7% hold a team to six or fewer, so DST points come from sacks and turnovers, which come from QB pressure. Counts as confirmed when: over 6 logged slates, mismatch-backed DSTs beat their projection more often than points-allowed picks.
     status: hypothesis
     confirmations: []
-    contradictions: []
+    contradictions:
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          Soft, partial data. The slate's top defense was the Panthers ($2,700, 26.0, 6.25% owned, in 5 of the top
+          10), picked on a backup-QB read (Cooper Rush), not a top-6 mismatch. The Buccaneers (top-6 mismatch, $3,600)
+          scored 2.0; the Broncos (top-6 mismatch) 8.0; the Bears (no mismatch) 7.0. The 49ers, Eagles and Seahawks
+          mismatch scores were not archived. Second slate where the mismatch read did not pick the top defense.
     codified_in: null
     retired_reason: null
 
@@ -207,7 +281,13 @@ lessons:
     statement: >
       Six players from one game in a small field produces measurable duplication; five is the large-field ceiling. Why: the same game's obvious pieces funnel every builder into the same roster. Counts as confirmed when: the Sim's dupe report or the standings show a 6-from-one-game lineup duplicated in a small field on 3 slates.
     status: hypothesis
-    confirmations: []
+    confirmations:
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          Soft (crowding, not duplication): 8.9% of the field carried 5+ players from one game; 0 of the top 16 did.
+          The top 1% averaged 3.1 players from its busiest game; the user's Purdy entry carried 5 from MIA@SF and
+          finished top 72.3%. No 6-from-one-game duplicate was observed (winners' max duplicate count was 1).
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -225,7 +305,14 @@ lessons:
           10 of the 20 top-10 lineups ran three RBs (RB in the FLEX), including both winners (dankepka: Gibbs +
           Taylor + Mayer flex is NOT one; FearSweetPea: Gibbs + Jeanty + Swift IS). Third RBs that paid: D'Andre
           Swift $6,100 35.4, Jeanty $6,600 35.7, Etienne, Chase Brown. Field rate not measured; 1 of 6 slates.
-    contradictions: []
+    contradictions:
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          First slate with the field rate measured, and it ran the other way: 57.0% of the field ran three running
+          backs against 37.5% of the top 1% and 35% of the top 20. The winner ran two (McCaffrey, Jones) with three
+          receivers and two tight ends. The user ran three RBs in 3 of 3 entries. The "field defaults to a WR FLEX"
+          half of the mechanism is false in this field — the 3-RB build was the CHALK shape, not the under-owned one.
     codified_in: null
     retired_reason: null
 
@@ -255,7 +342,14 @@ lessons:
       definer in 60%+ of top lineups. Counts as confirmed when: on a logged slate, a Fade-tiered QB from a game the
       strategy called a shootout finishes top-5 at QB while his catchers were named as bring-backs.
     status: hypothesis
-    confirmations: []
+    confirmations:
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          Soft. The strategy called NO@BAL "up in pace" and named Olave and Juwan Johnson as bring-backs for a Lamar
+          stack, while the board tiered Tyler Shough ($5,300, 6% projected own) Fade. Shough scored 22.4 — above the
+          Core tier's 17.3 average and the top Fade-tier score on the slate. He did not reach a top-10 lineup (Dak
+          29.76 and Purdy 28.48 owned the top 10), so the "top-5 at QB" bar is unverified; the tier contradiction repeated.
     contradictions: []
     codified_in: null
     retired_reason: null
@@ -289,6 +383,52 @@ lessons:
       ShaidyAdvice ran 19.6% per slot, all three held Gibbs + Chase, one held Mayer; the user ran 20.8% with all
       three. Counts as confirmed when: two more logged slates show in-field pros at 17%+ per slot with 2 of 3 chalk
       anchors held.
+    status: validated
+    confirmations:
+      - date: "2026-09-26"
+        history_dir: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+        note: >
+          Nine tracked-pro entries in the 1,568-team 3-Max ran 17.4% per slot and held Bijan in 67% and Schultz in
+          44% of entries (Henry 0%). The top 20 averaged 18.9% per slot. The strategy's "Build it like a sharp" still
+          printed the seeded 14% target (the bundle's shark envelope, 13.9), the user built to 12.8% per slot, and all
+          three entries finished below the pros' best (top 12.2%). The seed understates the in-field pros again.
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  # ---- 2026-09-26 — born from the Week 2 autopsy (second logged NFL Classic slate) ----
+
+  - id: nfl-classic-2026-09-26-underweight-is-not-zero
+    born: "2026-09-26"
+    origin: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+    statement: >
+      When the entered set holds ZERO of every UNDERWEIGHT call, the set drifts far below the pros' ownership per slot
+      and misses the sturdy chalk that pays; UNDERWEIGHT means one entry, never none. Why: the underweight list is
+      built from ownership-ahead-of-projection, and the projection is the weaker input (Week 1 vendor calibration:
+      ownership correlation 0.96, projection 0.63), so a few underweights pay every week and the pros keep one bullet
+      on them. Evidence: the strategy named 7 underweights; the user carried 0 of 3 entries on 5 of them (Wentz,
+      Aaron Jones, Schultz, Andrews, Golden). Schultz ($3,200, 37.3% owned) scored 29.0 and sat in 8 of the top 10;
+      Jones ($5,100, 32.6%) scored 13.5 in 6 of 10. The set ran 12.8% per slot vs 17.4% for the pros and 18.9% for
+      the top 20. Counts as confirmed when: on a logged slate, an underweight held at zero across the set scores in
+      the top 10 at his position AND the set's ownership per slot sits 4+ points under the tracked pros.
+    status: hypothesis
+    confirmations: []
+    contradictions: []
+    codified_in: null
+    retired_reason: null
+
+  - id: nfl-classic-2026-09-26-qb-fade-tier-too-deep
+    born: "2026-09-26"
+    origin: "rules/nfl_classic/history/2026-09-26__nfl-classic-week-2-9-20-2026"
+    statement: >
+      The player pool's Fade tier at quarterback is built on passer QUALITY reads ("erratic", "folds under pressure",
+      "game manager") while QB points come from volume and game script, so the Fade tier buries several 20-point QBs
+      every week. Why: quarterback scoring is flat relative to price and talent (framework: QB is the price-leverage
+      spot); a bad passer in a shootout still throws 35 times. Evidence: 5 of the 5 "buried" board players this slate
+      were Fade-tier QBs — Shough ($5,300) 22.4, Lock ($4,900) 21.4, Cousins 21.2, Stroud 20.0, Deshaun Watson 19.7 —
+      all above the Core tier's 17.3 average; Lock was the QB of the rank-7 lineup. Week 1 buried Bryce Young ($5,200,
+      Fade) at 35.44 the same way. Counts as confirmed when: on a logged slate, 3+ Fade-tier QBs outscore the Core
+      tier average while their Fade reason was a quality read rather than a volume or injury read.
     status: hypothesis
     confirmations: []
     contradictions: []
