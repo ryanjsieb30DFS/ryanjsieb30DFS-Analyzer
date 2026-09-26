@@ -1,0 +1,1203 @@
+[
+  {
+    "timestamp": "2026-09-26 14:02",
+    "contest_type": "NFL Showdown",
+    "source_file": "contest-standings-195786072 4.csv",
+    "contest_id": "195786072",
+    "entries": 83234,
+    "winning_score": 149.33,
+    "cash_line_p80": 112.42999,
+    "notes": "",
+    "schema_version": 2,
+    "slug": "nfl_sd",
+    "sport": "nfl",
+    "projections": {
+      "available": true,
+      "source": null,
+      "matched": 31,
+      "total": 52
+    },
+    "user_summary": {
+      "avg_own_mean": 47.61,
+      "low_own_count_mean": 0.3,
+      "salary_used_mean": 48990.0,
+      "entry_count": 20,
+      "best_rank": 4826,
+      "best_percentile": 5.8
+    },
+    "user_lineups": [
+      {
+        "rank": 4826,
+        "entry_name": "RyvlesGaming30 (1/20)",
+        "points": 126.92999,
+        "percentile": 5.8,
+        "players": [
+          "Kyren Williams",
+          "Matthew Stafford",
+          "Jaxson Dart",
+          "Davante Adams",
+          "Blake Corum",
+          "Terrance Ferguson"
+        ],
+        "avg_own": 52.99,
+        "low_own_count": 0,
+        "salary_used": 49400,
+        "proj_total": 97.3,
+        "dup_count": 834
+      },
+      {
+        "rank": 8478,
+        "entry_name": "RyvlesGaming30 (3/20)",
+        "points": 120.729996,
+        "percentile": 10.2,
+        "players": [
+          "Kyren Williams",
+          "Matthew Stafford",
+          "Cam Skattebo",
+          "Davante Adams",
+          "Rams",
+          "Davis Allen"
+        ],
+        "avg_own": 40.35,
+        "low_own_count": 1,
+        "salary_used": 48400,
+        "proj_total": 82.1,
+        "dup_count": 2
+      },
+      {
+        "rank": 11803,
+        "entry_name": "RyvlesGaming30 (5/20)",
+        "points": 118.03,
+        "percentile": 14.2,
+        "players": [
+          "Davante Adams",
+          "Matthew Stafford",
+          "Jaxson Dart",
+          "Malik Nabers",
+          "Harrison Mevis",
+          "Terrance Ferguson"
+        ],
+        "avg_own": 49.64,
+        "low_own_count": 0,
+        "salary_used": 48800,
+        "proj_total": 96.5,
+        "dup_count": 470
+      },
+      {
+        "rank": 12490,
+        "entry_name": "RyvlesGaming30 (6/20)",
+        "points": 117.53,
+        "percentile": 15.0,
+        "players": [
+          "Davante Adams",
+          "Matthew Stafford",
+          "Jaxson Dart",
+          "Isaiah Likely",
+          "Blake Corum",
+          "Colby Parkinson"
+        ],
+        "avg_own": 50.36,
+        "low_own_count": 0,
+        "salary_used": 48600,
+        "proj_total": 94.3,
+        "dup_count": 333
+      },
+      {
+        "rank": 15073,
+        "entry_name": "RyvlesGaming30 (2/20)",
+        "points": 114.130005,
+        "percentile": 18.1,
+        "players": [
+          "Kyren Williams",
+          "Matthew Stafford",
+          "Malik Nabers",
+          "Davante Adams",
+          "Rams",
+          "Colby Parkinson"
+        ],
+        "avg_own": 46.36,
+        "low_own_count": 0,
+        "salary_used": 50000,
+        "proj_total": 93.4,
+        "dup_count": 394
+      },
+      {
+        "rank": 25908,
+        "entry_name": "RyvlesGaming30 (14/20)",
+        "points": 101.33,
+        "percentile": 31.1,
+        "players": [
+          "Malik Nabers",
+          "Matthew Stafford",
+          "Jaxson Dart",
+          "Davante Adams",
+          "Dominic Zvada",
+          "Terrance Ferguson"
+        ],
+        "avg_own": 48.49,
+        "low_own_count": 0,
+        "salary_used": 48700,
+        "proj_total": 94.1,
+        "dup_count": 178
+      },
+      {
+        "rank": 30378,
+        "entry_name": "RyvlesGaming30 (7/20)",
+        "points": 96.05,
+        "percentile": 36.5,
+        "players": [
+          "Davante Adams",
+          "Jaxson Dart",
+          "Kyren Williams",
+          "Malik Nabers",
+          "Blake Corum",
+          "Colby Parkinson"
+        ],
+        "avg_own": 52.03,
+        "low_own_count": 0,
+        "salary_used": 49800,
+        "proj_total": 97,
+        "dup_count": 268
+      },
+      {
+        "rank": 42190,
+        "entry_name": "RyvlesGaming30 (20/20)",
+        "points": 84.049995,
+        "percentile": 50.7,
+        "players": [
+          "Cam Skattebo",
+          "Jaxson Dart",
+          "Davante Adams",
+          "Isaiah Likely",
+          "Dominic Zvada",
+          "Blake Corum"
+        ],
+        "avg_own": 44.56,
+        "low_own_count": 0,
+        "salary_used": 49500,
+        "proj_total": 82.8,
+        "dup_count": 67
+      },
+      {
+        "rank": 44579,
+        "entry_name": "RyvlesGaming30 (4/20)",
+        "points": 82.03,
+        "percentile": 53.6,
+        "players": [
+          "Kyren Williams",
+          "Matthew Stafford",
+          "Jaxson Dart",
+          "Harrison Mevis",
+          "Blake Corum",
+          "Rams"
+        ],
+        "avg_own": 44.5,
+        "low_own_count": 0,
+        "salary_used": 48000,
+        "proj_total": 88.8,
+        "dup_count": 54
+      },
+      {
+        "rank": 56998,
+        "entry_name": "RyvlesGaming30 (12/20)",
+        "points": 70.38,
+        "percentile": 68.5,
+        "players": [
+          "Jaxson Dart",
+          "Matthew Stafford",
+          "Cam Skattebo",
+          "Malik Nabers",
+          "Blake Corum",
+          "Terrance Ferguson"
+        ],
+        "avg_own": 47.51,
+        "low_own_count": 0,
+        "salary_used": 49500,
+        "proj_total": 92.4,
+        "dup_count": 181
+      },
+      {
+        "rank": 57540,
+        "entry_name": "RyvlesGaming30 (13/20)",
+        "points": 69.950005,
+        "percentile": 69.1,
+        "players": [
+          "Malik Nabers",
+          "Jaxson Dart",
+          "Kyren Williams",
+          "Davante Adams",
+          "Isaiah Likely",
+          "Xavier Smith"
+        ],
+        "avg_own": 52.1,
+        "low_own_count": 1,
+        "salary_used": 49300,
+        "proj_total": 92.4,
+        "dup_count": 630
+      },
+      {
+        "rank": 59600,
+        "entry_name": "RyvlesGaming30 (8/20)",
+        "points": 68.38,
+        "percentile": 71.6,
+        "players": [
+          "Blake Corum",
+          "Matthew Stafford",
+          "Jaxson Dart",
+          "Kyren Williams",
+          "Malik Nabers",
+          "Colby Parkinson"
+        ],
+        "avg_own": 52.04,
+        "low_own_count": 0,
+        "salary_used": 48900,
+        "proj_total": 94.2,
+        "dup_count": 98
+      },
+      {
+        "rank": 61592,
+        "entry_name": "RyvlesGaming30 (16/20)",
+        "points": 66.35,
+        "percentile": 74.0,
+        "players": [
+          "Isaiah Likely",
+          "Jaxson Dart",
+          "Cam Skattebo",
+          "Malik Nabers",
+          "Davante Adams",
+          "Xavier Smith"
+        ],
+        "avg_own": 48.04,
+        "low_own_count": 1,
+        "salary_used": 48300,
+        "proj_total": 85.5,
+        "dup_count": 192
+      },
+      {
+        "rank": 63189,
+        "entry_name": "RyvlesGaming30 (17/20)",
+        "points": 64.75,
+        "percentile": 75.9,
+        "players": [
+          "Malik Nabers",
+          "Jaxson Dart",
+          "Cam Skattebo",
+          "Davante Adams",
+          "Darnell Mooney",
+          "Colby Parkinson"
+        ],
+        "avg_own": 44.72,
+        "low_own_count": 1,
+        "salary_used": 48900,
+        "proj_total": 86.9,
+        "dup_count": 40
+      },
+      {
+        "rank": 63907,
+        "entry_name": "RyvlesGaming30 (10/20)",
+        "points": 63.679996,
+        "percentile": 76.8,
+        "players": [
+          "Jaxson Dart",
+          "Matthew Stafford",
+          "Cam Skattebo",
+          "Malik Nabers",
+          "Colby Parkinson",
+          "Terrance Ferguson"
+        ],
+        "avg_own": 46.55,
+        "low_own_count": 0,
+        "salary_used": 48500,
+        "proj_total": 92.9,
+        "dup_count": 163
+      },
+      {
+        "rank": 65831,
+        "entry_name": "RyvlesGaming30 (9/20)",
+        "points": 61.929996,
+        "percentile": 79.1,
+        "players": [
+          "Kyren Williams",
+          "Matthew Stafford",
+          "Jaxson Dart",
+          "Malik Nabers",
+          "Harrison Mevis",
+          "Xavier Smith"
+        ],
+        "avg_own": 47.6,
+        "low_own_count": 1,
+        "salary_used": 48400,
+        "proj_total": 92.6,
+        "dup_count": 81
+      },
+      {
+        "rank": 70081,
+        "entry_name": "RyvlesGaming30 (15/20)",
+        "points": 54.530003,
+        "percentile": 84.2,
+        "players": [
+          "Malik Nabers",
+          "Matthew Stafford",
+          "Jaxson Dart",
+          "Kyren Williams",
+          "Colby Parkinson",
+          "Devin Singletary"
+        ],
+        "avg_own": 49.46,
+        "low_own_count": 0,
+        "salary_used": 49500,
+        "proj_total": 92.9,
+        "dup_count": 327
+      },
+      {
+        "rank": 70454,
+        "entry_name": "RyvlesGaming30 (18/20)",
+        "points": 54.050003,
+        "percentile": 84.6,
+        "players": [
+          "Malik Nabers",
+          "Jaxson Dart",
+          "Kyren Williams",
+          "Cam Skattebo",
+          "Dominic Zvada",
+          "Terrance Ferguson"
+        ],
+        "avg_own": 44.81,
+        "low_own_count": 0,
+        "salary_used": 48900,
+        "proj_total": 86.6,
+        "dup_count": 56
+      },
+      {
+        "rank": 71620,
+        "entry_name": "RyvlesGaming30 (19/20)",
+        "points": 52.129997,
+        "percentile": 86.0,
+        "players": [
+          "Cam Skattebo",
+          "Matthew Stafford",
+          "Jaxson Dart",
+          "Malik Nabers",
+          "Malachi Fields",
+          "Xavier Smith"
+        ],
+        "avg_own": 42.88,
+        "low_own_count": 1,
+        "salary_used": 48700,
+        "proj_total": 82.9,
+        "dup_count": 12
+      },
+      {
+        "rank": 73268,
+        "entry_name": "RyvlesGaming30 (11/20)",
+        "points": 49.079998,
+        "percentile": 88.0,
+        "players": [
+          "Jaxson Dart",
+          "Matthew Stafford",
+          "Malik Nabers",
+          "Isaiah Likely",
+          "Harrison Mevis",
+          "Colby Parkinson"
+        ],
+        "avg_own": 47.2,
+        "low_own_count": 0,
+        "salary_used": 49700,
+        "proj_total": 93,
+        "dup_count": 127
+      }
+    ],
+    "top_overperformers": [
+      {
+        "name": "Davante Adams",
+        "proj_points": 17.4,
+        "actual_fpts": 42.5,
+        "fpts_delta": 25.1,
+        "ownership": 62.4,
+        "actual_own": 62.42
+      },
+      {
+        "name": "Matthew Stafford",
+        "proj_points": 18.5,
+        "actual_fpts": 30.98,
+        "fpts_delta": 12.48,
+        "ownership": 71.4,
+        "actual_own": 62.43
+      },
+      {
+        "name": "Terrance Ferguson",
+        "proj_points": 7.8,
+        "actual_fpts": 17.4,
+        "fpts_delta": 9.6,
+        "ownership": 22.9,
+        "actual_own": 19.790000000000003
+      },
+      {
+        "name": "Rams",
+        "proj_points": 7.4,
+        "actual_fpts": 11.0,
+        "fpts_delta": 3.6,
+        "ownership": 19.4,
+        "actual_own": 13.3
+      },
+      {
+        "name": "Darnell Mooney",
+        "proj_points": 4.8,
+        "actual_fpts": 6.8,
+        "fpts_delta": 2.0,
+        "ownership": 8.6,
+        "actual_own": 8.790000000000001
+      }
+    ],
+    "top_underperformers": [
+      {
+        "name": "Jaxson Dart",
+        "proj_points": 19.4,
+        "actual_fpts": 0.8,
+        "fpts_delta": -18.6,
+        "ownership": 72.9,
+        "actual_own": 81.39
+      },
+      {
+        "name": "Malik Nabers",
+        "proj_points": 15.4,
+        "actual_fpts": 1.1,
+        "fpts_delta": -14.3,
+        "ownership": 51.6,
+        "actual_own": 53.85
+      },
+      {
+        "name": "Colby Parkinson",
+        "proj_points": 10.1,
+        "actual_fpts": 3.5,
+        "fpts_delta": -6.6,
+        "ownership": 32.8,
+        "actual_own": 22.63
+      },
+      {
+        "name": "Xavier Smith",
+        "proj_points": 5.4,
+        "actual_fpts": 0.0,
+        "fpts_delta": -5.4,
+        "ownership": 11.0,
+        "actual_own": 6.44
+      },
+      {
+        "name": "Harrison Mevis",
+        "proj_points": 9.3,
+        "actual_fpts": 4.0,
+        "fpts_delta": -5.3,
+        "ownership": 23.2,
+        "actual_own": 17.96
+      }
+    ],
+    "slate_defining_plays": [
+      {
+        "name": "Terrance Ferguson",
+        "salary": 1800,
+        "actual_fpts": 17.4,
+        "actual_own": 19.790000000000003,
+        "top_lineup_pct": 100.0
+      },
+      {
+        "name": "Rams",
+        "salary": 4200,
+        "actual_fpts": 11.0,
+        "actual_own": 13.3,
+        "top_lineup_pct": 46.0
+      }
+    ],
+    "winners_structure": {
+      "top_n": 100,
+      "avg_own_mean": 44.28,
+      "low_own_count_mean": 0.01,
+      "salary_used_mean": 48210.0,
+      "dup_max": 86,
+      "unique_pct": 0.0,
+      "top_lineups": [
+        {
+          "rank": 1,
+          "entry_name": "slpendy (3/20)",
+          "points": 149.33,
+          "percentile": 0.0,
+          "players": [
+            "Davante Adams",
+            "Matthew Stafford",
+            "Kyren Williams",
+            "Cam Skattebo",
+            "Rams",
+            "Terrance Ferguson"
+          ],
+          "avg_own": 43.45,
+          "low_own_count": 0,
+          "salary_used": 48200,
+          "proj_total": 88.2,
+          "dup_count": 86
+        },
+        {
+          "rank": 1,
+          "entry_name": "chilligan (9/20)",
+          "points": 149.33,
+          "percentile": 0.0,
+          "players": [
+            "Davante Adams",
+            "Matthew Stafford",
+            "Kyren Williams",
+            "Cam Skattebo",
+            "Rams",
+            "Terrance Ferguson"
+          ],
+          "avg_own": 43.45,
+          "low_own_count": 0,
+          "salary_used": 48200,
+          "proj_total": 88.2,
+          "dup_count": 86
+        },
+        {
+          "rank": 1,
+          "entry_name": "Tannerroob318 (12/20)",
+          "points": 149.33,
+          "percentile": 0.0,
+          "players": [
+            "Davante Adams",
+            "Matthew Stafford",
+            "Kyren Williams",
+            "Cam Skattebo",
+            "Rams",
+            "Terrance Ferguson"
+          ],
+          "avg_own": 43.45,
+          "low_own_count": 0,
+          "salary_used": 48200,
+          "proj_total": 88.2,
+          "dup_count": 86
+        },
+        {
+          "rank": 1,
+          "entry_name": "ChokeHoldem1 (6/20)",
+          "points": 149.33,
+          "percentile": 0.0,
+          "players": [
+            "Davante Adams",
+            "Matthew Stafford",
+            "Kyren Williams",
+            "Cam Skattebo",
+            "Rams",
+            "Terrance Ferguson"
+          ],
+          "avg_own": 43.45,
+          "low_own_count": 0,
+          "salary_used": 48200,
+          "proj_total": 88.2,
+          "dup_count": 86
+        },
+        {
+          "rank": 1,
+          "entry_name": "jermgolf24 (20/20)",
+          "points": 149.33,
+          "percentile": 0.0,
+          "players": [
+            "Davante Adams",
+            "Matthew Stafford",
+            "Kyren Williams",
+            "Cam Skattebo",
+            "Rams",
+            "Terrance Ferguson"
+          ],
+          "avg_own": 43.45,
+          "low_own_count": 0,
+          "salary_used": 48200,
+          "proj_total": 88.2,
+          "dup_count": 86
+        },
+        {
+          "rank": 1,
+          "entry_name": "mntiny (18/20)",
+          "points": 149.33,
+          "percentile": 0.0,
+          "players": [
+            "Davante Adams",
+            "Matthew Stafford",
+            "Kyren Williams",
+            "Cam Skattebo",
+            "Rams",
+            "Terrance Ferguson"
+          ],
+          "avg_own": 43.45,
+          "low_own_count": 0,
+          "salary_used": 48200,
+          "proj_total": 88.2,
+          "dup_count": 86
+        },
+        {
+          "rank": 1,
+          "entry_name": "killedtherabbit (18/20)",
+          "points": 149.33,
+          "percentile": 0.0,
+          "players": [
+            "Davante Adams",
+            "Matthew Stafford",
+            "Kyren Williams",
+            "Cam Skattebo",
+            "Rams",
+            "Terrance Ferguson"
+          ],
+          "avg_own": 43.45,
+          "low_own_count": 0,
+          "salary_used": 48200,
+          "proj_total": 88.2,
+          "dup_count": 86
+        },
+        {
+          "rank": 1,
+          "entry_name": "Dewkee (5/20)",
+          "points": 149.33,
+          "percentile": 0.0,
+          "players": [
+            "Davante Adams",
+            "Matthew Stafford",
+            "Kyren Williams",
+            "Cam Skattebo",
+            "Rams",
+            "Terrance Ferguson"
+          ],
+          "avg_own": 43.45,
+          "low_own_count": 0,
+          "salary_used": 48200,
+          "proj_total": 88.2,
+          "dup_count": 86
+        },
+        {
+          "rank": 1,
+          "entry_name": "Wood334 (7/20)",
+          "points": 149.33,
+          "percentile": 0.0,
+          "players": [
+            "Davante Adams",
+            "Matthew Stafford",
+            "Kyren Williams",
+            "Cam Skattebo",
+            "Rams",
+            "Terrance Ferguson"
+          ],
+          "avg_own": 43.45,
+          "low_own_count": 0,
+          "salary_used": 48200,
+          "proj_total": 88.2,
+          "dup_count": 86
+        },
+        {
+          "rank": 1,
+          "entry_name": "atong126 (3/20)",
+          "points": 149.33,
+          "percentile": 0.0,
+          "players": [
+            "Davante Adams",
+            "Matthew Stafford",
+            "Kyren Williams",
+            "Cam Skattebo",
+            "Rams",
+            "Terrance Ferguson"
+          ],
+          "avg_own": 43.45,
+          "low_own_count": 0,
+          "salary_used": 48200,
+          "proj_total": 88.2,
+          "dup_count": 86
+        }
+      ],
+      "vs_user": {
+        "avg_own_delta": -3.33,
+        "low_own_count_delta": -0.29,
+        "salary_used_delta": -780.0
+      }
+    },
+    "field_profile": {
+      "gradable": true,
+      "field_size": 82848,
+      "contest_type": null,
+      "crowded_players": [
+        {
+          "name": "Jaxson Dart",
+          "field_own": 81.4,
+          "actual_fpts": 0.8
+        },
+        {
+          "name": "Kyren Williams",
+          "field_own": 63.5,
+          "actual_fpts": 16.7
+        },
+        {
+          "name": "Matthew Stafford",
+          "field_own": 62.4,
+          "actual_fpts": 31.0
+        },
+        {
+          "name": "Davante Adams",
+          "field_own": 62.4,
+          "actual_fpts": 42.5
+        },
+        {
+          "name": "Malik Nabers",
+          "field_own": 53.9,
+          "actual_fpts": 1.1
+        },
+        {
+          "name": "Isaiah Likely",
+          "field_own": 44.9,
+          "actual_fpts": 8.3
+        },
+        {
+          "name": "Cam Skattebo",
+          "field_own": 39.2,
+          "actual_fpts": 9.5
+        },
+        {
+          "name": "Blake Corum",
+          "field_own": 28.4,
+          "actual_fpts": 10.2
+        },
+        {
+          "name": "Colby Parkinson",
+          "field_own": 22.6,
+          "actual_fpts": 3.5
+        },
+        {
+          "name": "Terrance Ferguson",
+          "field_own": 19.8,
+          "actual_fpts": 17.4
+        }
+      ],
+      "crowded_combos": [
+        {
+          "players": [
+            "Jaxson Dart",
+            "Matthew Stafford"
+          ],
+          "field_pct": 49.1,
+          "count": 40680
+        },
+        {
+          "players": [
+            "Jaxson Dart",
+            "Kyren Williams"
+          ],
+          "field_pct": 49.1,
+          "count": 40657
+        },
+        {
+          "players": [
+            "Davante Adams",
+            "Jaxson Dart"
+          ],
+          "field_pct": 47.9,
+          "count": 39634
+        },
+        {
+          "players": [
+            "Jaxson Dart",
+            "Malik Nabers"
+          ],
+          "field_pct": 44.0,
+          "count": 36441
+        },
+        {
+          "players": [
+            "Davante Adams",
+            "Matthew Stafford"
+          ],
+          "field_pct": 40.5,
+          "count": 33504
+        },
+        {
+          "players": [
+            "Kyren Williams",
+            "Matthew Stafford"
+          ],
+          "field_pct": 35.7,
+          "count": 29586
+        },
+        {
+          "players": [
+            "Isaiah Likely",
+            "Jaxson Dart"
+          ],
+          "field_pct": 35.7,
+          "count": 29534
+        },
+        {
+          "players": [
+            "Davante Adams",
+            "Kyren Williams"
+          ],
+          "field_pct": 35.0,
+          "count": 28981
+        },
+        {
+          "players": [
+            "Davante Adams",
+            "Malik Nabers"
+          ],
+          "field_pct": 31.2,
+          "count": 25871
+        },
+        {
+          "players": [
+            "Kyren Williams",
+            "Malik Nabers"
+          ],
+          "field_pct": 30.3,
+          "count": 25111
+        }
+      ],
+      "dupe_magnets": [
+        {
+          "players": [
+            "Blake Corum",
+            "Jaxson Dart",
+            "Kyren Williams",
+            "Malik Nabers",
+            "Matthew Stafford",
+            "Terrance Ferguson"
+          ],
+          "count": 849,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Davante Adams",
+            "Harrison Mevis",
+            "Jaxson Dart",
+            "Kyren Williams",
+            "Matthew Stafford",
+            "Terrance Ferguson"
+          ],
+          "count": 837,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Blake Corum",
+            "Davante Adams",
+            "Jaxson Dart",
+            "Kyren Williams",
+            "Matthew Stafford",
+            "Terrance Ferguson"
+          ],
+          "count": 833,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Davante Adams",
+            "Jaxson Dart",
+            "Kyren Williams",
+            "Malik Nabers",
+            "Matthew Stafford",
+            "Terrance Ferguson"
+          ],
+          "count": 816,
+          "field_pct": 1.0
+        },
+        {
+          "players": [
+            "Blake Corum",
+            "Davante Adams",
+            "Jaxson Dart",
+            "Malik Nabers",
+            "Matthew Stafford",
+            "Terrance Ferguson"
+          ],
+          "count": 672,
+          "field_pct": 0.8
+        }
+      ],
+      "winners_profile": {
+        "n": 828,
+        "avg_own_per_slot": 47.8,
+        "dart_pct": 0.4,
+        "unique_pct": 5.3
+      },
+      "fish_profile": {
+        "n": 41414,
+        "avg_own_per_slot": 45.8,
+        "dart_pct": 13.8,
+        "unique_pct": 9.7
+      },
+      "fish_traps": [
+        {
+          "name": "Malik Nabers",
+          "fish_pct": 67.9,
+          "winner_pct": 12.7,
+          "gap": 55.2,
+          "actual_fpts": 1.1,
+          "field_own": 53.9,
+          "own_rank": 5
+        },
+        {
+          "name": "Jaxson Dart",
+          "fish_pct": 92.8,
+          "winner_pct": 40.3,
+          "gap": 52.4,
+          "actual_fpts": 0.8,
+          "field_own": 81.4,
+          "own_rank": 1
+        },
+        {
+          "name": "Isaiah Likely",
+          "fish_pct": 55.6,
+          "winner_pct": 20.4,
+          "gap": 35.1,
+          "actual_fpts": 8.3,
+          "field_own": 44.9,
+          "own_rank": 6
+        },
+        {
+          "name": "Cam Skattebo",
+          "fish_pct": 49.7,
+          "winner_pct": 25.2,
+          "gap": 24.5,
+          "actual_fpts": 9.5,
+          "field_own": 39.2,
+          "own_rank": 7
+        },
+        {
+          "name": "Colby Parkinson",
+          "fish_pct": 23.2,
+          "winner_pct": 1.7,
+          "gap": 21.5,
+          "actual_fpts": 3.5,
+          "field_own": 22.6,
+          "own_rank": 9
+        },
+        {
+          "name": "Devin Singletary",
+          "fish_pct": 16.3,
+          "winner_pct": 0.4,
+          "gap": 16.0,
+          "actual_fpts": 0.9,
+          "field_own": 12.9,
+          "own_rank": 14
+        },
+        {
+          "name": "Harrison Mevis",
+          "fish_pct": 18.8,
+          "winner_pct": 4.3,
+          "gap": 14.5,
+          "actual_fpts": 4.0,
+          "field_own": 18.0,
+          "own_rank": 11
+        },
+        {
+          "name": "Malachi Fields",
+          "fish_pct": 16.3,
+          "winner_pct": 2.7,
+          "gap": 13.7,
+          "actual_fpts": 5.0,
+          "field_own": 14.0,
+          "own_rank": 12
+        },
+        {
+          "name": "Giants",
+          "fish_pct": 10.0,
+          "winner_pct": 0.0,
+          "gap": 10.0,
+          "actual_fpts": 4.0,
+          "field_own": 6.5,
+          "own_rank": 18
+        },
+        {
+          "name": "Konata Mumpfield",
+          "fish_pct": 9.6,
+          "winner_pct": 0.2,
+          "gap": 9.3,
+          "actual_fpts": 2.2,
+          "field_own": 10.2,
+          "own_rank": 16
+        }
+      ],
+      "top_opponents": [
+        {
+          "handle": "slpendy",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "chilligan",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "atong126",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "Wood334",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "younglloyd",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "WolfDance",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "burgdxd",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "riddimbaucher",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "kashman100",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "dkgarrettkc27",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "bfitm17",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "vonder87",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "uncle_reed",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "Wheely1995",
+          "best_rank": 1,
+          "percentile": 0.0
+        },
+        {
+          "handle": "ynot4greg21",
+          "best_rank": 1,
+          "percentile": 0.0
+        }
+      ],
+      "read": [
+        "Field crowded **Jaxson Dart** at 81.4% (0.8 fpts) \u2014 the chalk to consider fading.",
+        "**Jaxson Dart + Matthew Stafford** were together in 49.1% of field lineups \u2014 a dupe magnet; break the pair.",
+        "**Malik Nabers** was a fish trap: 67.9% of the fish, only 12.7% of winners."
+      ]
+    },
+    "winner_story": {
+      "gradable": true,
+      "winner_points": 149.33,
+      "winner_handle": "slpendy",
+      "roster": [
+        {
+          "name": "Davante Adams",
+          "own": 62.42,
+          "fpts": 42.5
+        },
+        {
+          "name": "Matthew Stafford",
+          "own": 62.43,
+          "fpts": 30.98
+        },
+        {
+          "name": "Kyren Williams",
+          "own": 63.55,
+          "fpts": 16.7
+        },
+        {
+          "name": "Cam Skattebo",
+          "own": 39.21,
+          "fpts": 9.5
+        },
+        {
+          "name": "Rams",
+          "own": 13.3,
+          "fpts": 11.0
+        },
+        {
+          "name": "Terrance Ferguson",
+          "own": 19.790000000000003,
+          "fpts": 17.4
+        }
+      ],
+      "avg_own": 43.4,
+      "n_low_own": 0,
+      "carrier": {
+        "name": "Rams",
+        "own": 13.3,
+        "fpts": 11.0
+      },
+      "expected_dupes": 212.73
+    },
+    "near_miss": {
+      "salary_checked": false,
+      "position_checked": false,
+      "blocked_swap": null,
+      "gradable": true,
+      "won": false,
+      "your_points": 126.92999,
+      "winner_points": 149.33,
+      "gap": 22.4,
+      "your_percentile": 5.8,
+      "n_shared": 4,
+      "shared": [
+        "Davante Adams",
+        "Kyren Williams",
+        "Matthew Stafford",
+        "Terrance Ferguson"
+      ],
+      "your_uniques": [
+        {
+          "name": "Blake Corum",
+          "fpts": 10.2,
+          "salary": null,
+          "position": null
+        },
+        {
+          "name": "Jaxson Dart",
+          "fpts": 0.8,
+          "salary": null,
+          "position": null
+        }
+      ],
+      "winner_uniques": [
+        {
+          "name": "Rams",
+          "fpts": 11.0,
+          "salary": null,
+          "position": null
+        },
+        {
+          "name": "Cam Skattebo",
+          "fpts": 9.5,
+          "salary": null,
+          "position": null
+        }
+      ],
+      "best_swap": {
+        "out": "Jaxson Dart",
+        "in": "Rams",
+        "gain": 10.2,
+        "would_have_won": false
+      },
+      "swaps_needed": null
+    },
+    "stack_report": null,
+    "mme_report": null
+  }
+]

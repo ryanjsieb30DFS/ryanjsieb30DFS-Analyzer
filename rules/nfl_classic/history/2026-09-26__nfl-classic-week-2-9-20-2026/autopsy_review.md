@@ -92,3 +92,7 @@ This section is the short list to carry into Week 3.
 3. Mix the shapes: one single stack and one non-three-back build, because the double stack and three backs were the crowd's shape this week.
 4. Put a different named leverage piece in each of the three entries; 3 of 12 covered is two slates running.
 5. Never tier a quarterback Fade for a quality read; five Fade quarterbacks scored 20 or more.
+
+## Applied
+
+Applied 2026-09-26 (user approved). Both codifications are in `rules/nfl_classic/framework.md`: the Salary bullet under "Roster construction, position by position" carries the full-cap local-ledger line (Week 1 $49,833 SE / $49,905 3-Max, Week 2 top 20 $49,880, three confirming slates), and the Dome tiebreaker bullet under "Pick the game before the players" carries the stack-half line (dome-DST discount still unmeasured). In `lessons.yaml`, `nfl_classic_full_cap` and `nfl_classic_dome_stack_tiebreaker` are `codified` with `codified_in` naming those sections. Ledger hygiene: no retire or merge decisions; the four KEEP lessons (`double_stack_edge`, `rb_chalk_sturdy`, `cheap_qb_leverage`, `three_rb_underowned`) stay `validated`. `philosophy.md` unchanged.

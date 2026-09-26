@@ -1,0 +1,707 @@
+{
+  "generated_at": "2026-09-21 19:24",
+  "slug": "nfl_sd",
+  "slate": "NFL Showdown slate strategy \u2014 Giants at Rams, Monday 9/21/26",
+  "calls": [
+    {
+      "name": "Matthew Stafford",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Cam Skattebo",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Colby Parkinson",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Harrison Mevis",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Xavier Smith",
+      "verdict": "underweight"
+    },
+    {
+      "name": "Malachi Fields",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Theo Johnson",
+      "verdict": "lean_fade"
+    },
+    {
+      "name": "Tyrone Tracy Jr.",
+      "verdict": "fade"
+    },
+    {
+      "name": "Odell Beckham Jr.",
+      "verdict": "fade"
+    }
+  ],
+  "fades": [
+    "Tyrone Tracy Jr.",
+    "Odell Beckham Jr."
+  ],
+  "leverage_candidates": [
+    {
+      "name": "Devin Singletary",
+      "own": 6.9
+    },
+    {
+      "name": "Konata Mumpfield",
+      "own": 9.7
+    },
+    {
+      "name": "Darnell Mooney",
+      "own": 8.6
+    },
+    {
+      "name": "Giants",
+      "own": 9.3
+    },
+    {
+      "name": "Tyler Higbee",
+      "own": 4.5
+    },
+    {
+      "name": "Theo Johnson",
+      "own": 5.0
+    },
+    {
+      "name": "Davis Allen",
+      "own": 2.1
+    },
+    {
+      "name": "Najee Harris",
+      "own": 5.0
+    },
+    {
+      "name": "Tutu Atwell",
+      "own": 2.7
+    },
+    {
+      "name": "Odell Beckham Jr.",
+      "own": 0.6
+    },
+    {
+      "name": "Patrick Ricard",
+      "own": 0.3
+    },
+    {
+      "name": "Ronnie Rivers",
+      "own": 0.3
+    }
+  ],
+  "chalk_pairs": [
+    {
+      "players": [
+        "Jaxson Dart",
+        "Matthew Stafford"
+      ],
+      "joint_pct": 52.1
+    },
+    {
+      "players": [
+        "Jaxson Dart",
+        "Davante Adams"
+      ],
+      "joint_pct": 45.5
+    },
+    {
+      "players": [
+        "Matthew Stafford",
+        "Davante Adams"
+      ],
+      "joint_pct": 44.6
+    },
+    {
+      "players": [
+        "Jaxson Dart",
+        "Kyren Williams"
+      ],
+      "joint_pct": 41.9
+    }
+  ],
+  "anchor_pairs": [
+    {
+      "players": [
+        "Jaxson Dart",
+        "Matthew Stafford"
+      ]
+    },
+    {
+      "players": [
+        "Davante Adams",
+        "Kyren Williams"
+      ]
+    },
+    {
+      "players": [
+        "Cam Skattebo",
+        "Colby Parkinson"
+      ]
+    }
+  ],
+  "structure_rules": [],
+  "lineup_rules": [
+    {
+      "rule": "at_most",
+      "why": "max two kicker-plus-defense pieces per lineup",
+      "from": "strategy",
+      "count": 2,
+      "players": [
+        "Harrison Mevis",
+        "Dominic Zvada",
+        "Rams",
+        "Giants"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "never two kickers",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Harrison Mevis",
+        "Dominic Zvada"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "no lineup holds more than 3 Giants pass-catchers",
+      "from": "strategy",
+      "count": 3,
+      "players": [
+        "Malik Nabers",
+        "Isaiah Likely",
+        "Darnell Mooney",
+        "Malachi Fields",
+        "Theo Johnson"
+      ]
+    },
+    {
+      "rule": "at_most",
+      "why": "FADE, ceilings 4.9 or lower, dead builds",
+      "from": "strategy",
+      "count": 0,
+      "players": [
+        "Tyrone Tracy Jr.",
+        "Odell Beckham Jr.",
+        "Patrick Ricard",
+        "Ronnie Rivers",
+        "Chris Manhertz",
+        "Max Klare",
+        "Braxton Berrios"
+      ]
+    }
+  ],
+  "portfolio_rules": [
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT, 71.4% owned 3 ranks ahead of projection",
+      "from": "strategy",
+      "count": 12,
+      "players": [
+        "Matthew Stafford"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT, lowest ceiling of the $9K tier",
+      "from": "strategy",
+      "count": 6,
+      "players": [
+        "Cam Skattebo"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT, trap-shaped 32.8% at $3,600",
+      "from": "strategy",
+      "count": 5,
+      "players": [
+        "Colby Parkinson"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT, favored kicker owned ahead of projection",
+      "from": "strategy",
+      "count": 4,
+      "players": [
+        "Harrison Mevis"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "UNDERWEIGHT, the crowd's $200 punt at 11%",
+      "from": "strategy",
+      "count": 4,
+      "players": [
+        "Xavier Smith"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "LEAN FADE, cheaper Rams pieces project higher",
+      "from": "strategy",
+      "count": 2,
+      "players": [
+        "Malachi Fields"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "LEAN FADE, four better options at his price",
+      "from": "strategy",
+      "count": 1,
+      "players": [
+        "Theo Johnson"
+      ]
+    },
+    {
+      "rule": "max_entries_with",
+      "why": "Giants-throw-late stories capped near 5 entries",
+      "from": "strategy",
+      "count": 5,
+      "players": [
+        "Darnell Mooney",
+        "Devin Singletary"
+      ]
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "dog catcher held at or under the field's 51.6%",
+      "from": "strategy",
+      "player": "Malik Nabers",
+      "value": 50
+    },
+    {
+      "rule": "max_exposure_pct",
+      "why": "dog catcher held at or under the field's 29.0%",
+      "from": "strategy",
+      "player": "Isaiah Likely",
+      "value": 30
+    },
+    {
+      "rule": "min_entries_with",
+      "why": "Anchor-Equivalence twin of Dart appears in the set",
+      "from": "strategy",
+      "count": 2,
+      "players": [
+        "Matthew Stafford"
+      ]
+    },
+    {
+      "rule": "min_entries_with",
+      "why": "a kicker or defense in about 40% of the set",
+      "from": "nfl_sd_six_skill_default",
+      "count": 8,
+      "players": [
+        "Harrison Mevis",
+        "Dominic Zvada",
+        "Rams",
+        "Giants"
+      ]
+    }
+  ],
+  "build_rules": {
+    "present": true,
+    "errors": []
+  },
+  "portfolio_plan": {
+    "slots": [
+      {
+        "label": "Rams blowout 5-1",
+        "cpt_team": "LAR",
+        "captains": [
+          "Kyren Williams",
+          "Davante Adams",
+          "Matthew Stafford",
+          "Colby Parkinson"
+        ],
+        "split": {
+          "LAR": [
+            5,
+            5
+          ],
+          "NYG": [
+            1,
+            1
+          ]
+        },
+        "share": 0.2,
+        "require": [
+          "Matthew Stafford"
+        ],
+        "require_any": [
+          "Malik Nabers",
+          "Isaiah Likely"
+        ],
+        "exclude": [
+          "Giants"
+        ],
+        "why": ""
+      },
+      {
+        "label": "Rams control 4-2 (ground-and-pound lean)",
+        "cpt_team": "LAR",
+        "captains": [
+          "Kyren Williams",
+          "Blake Corum",
+          "Davante Adams"
+        ],
+        "split": {
+          "LAR": [
+            4,
+            4
+          ],
+          "NYG": [
+            2,
+            2
+          ]
+        },
+        "share": 0.25,
+        "require": [
+          "Kyren Williams"
+        ],
+        "require_any": [
+          "Rams",
+          "Blake Corum",
+          "Harrison Mevis"
+        ],
+        "exclude": [],
+        "why": ""
+      },
+      {
+        "label": "Shootout 3-3 double-stack",
+        "cpt_team": "",
+        "captains": [
+          "Jaxson Dart",
+          "Davante Adams",
+          "Malik Nabers",
+          "Matthew Stafford"
+        ],
+        "split": {
+          "LAR": [
+            3,
+            3
+          ],
+          "NYG": [
+            3,
+            3
+          ]
+        },
+        "share": 0.3,
+        "require": [
+          "Jaxson Dart"
+        ],
+        "require_any": [
+          "Davante Adams",
+          "Kyren Williams"
+        ],
+        "exclude": [],
+        "why": ""
+      },
+      {
+        "label": "Garbage-time 2-4 (Rams lead, Giants throw late)",
+        "cpt_team": "",
+        "captains": [
+          "Kyren Williams",
+          "Davante Adams",
+          "Malik Nabers",
+          "Isaiah Likely"
+        ],
+        "split": {
+          "LAR": [
+            2,
+            2
+          ],
+          "NYG": [
+            4,
+            4
+          ]
+        },
+        "share": 0.15,
+        "require": [
+          "Malik Nabers"
+        ],
+        "require_any": [
+          "Kyren Williams",
+          "Rams",
+          "Blake Corum"
+        ],
+        "exclude": [],
+        "why": ""
+      },
+      {
+        "label": "Giants upset 5-1",
+        "cpt_team": "NYG",
+        "captains": [
+          "Cam Skattebo",
+          "Jaxson Dart",
+          "Malik Nabers",
+          "Isaiah Likely"
+        ],
+        "split": {
+          "NYG": [
+            4,
+            5
+          ],
+          "LAR": [
+            1,
+            2
+          ]
+        },
+        "share": 0.1,
+        "require": [
+          "Jaxson Dart"
+        ],
+        "require_any": [
+          "Giants",
+          "Cam Skattebo",
+          "Devin Singletary"
+        ],
+        "exclude": [],
+        "why": ""
+      }
+    ],
+    "anchors": [
+      {
+        "player": "Kyren Williams",
+        "share": 0.2,
+        "why": ""
+      },
+      {
+        "player": "Davante Adams",
+        "share": 0.15,
+        "why": ""
+      },
+      {
+        "player": "Jaxson Dart",
+        "share": 0.15,
+        "why": ""
+      },
+      {
+        "player": "Malik Nabers",
+        "share": 0.15,
+        "why": ""
+      },
+      {
+        "player": "Matthew Stafford",
+        "share": 0.1,
+        "why": ""
+      },
+      {
+        "player": "Cam Skattebo",
+        "share": 0.1,
+        "why": ""
+      },
+      {
+        "player": "Colby Parkinson",
+        "share": 0.05,
+        "why": ""
+      },
+      {
+        "player": "Isaiah Likely",
+        "share": 0.05,
+        "why": ""
+      },
+      {
+        "player": "Blake Corum",
+        "share": 0.05,
+        "why": ""
+      }
+    ]
+  },
+  "board": [
+    {
+      "name": "Kyren Williams",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Davante Adams",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Malik Nabers",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Jaxson Dart",
+      "tier": "Core",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Isaiah Likely",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Blake Corum",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Terrance Ferguson",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Matthew Stafford",
+      "tier": "Good",
+      "leverage": false,
+      "pos": "QB"
+    },
+    {
+      "name": "Colby Parkinson",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Cam Skattebo",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Darnell Mooney",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Devin Singletary",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "RB"
+    },
+    {
+      "name": "Konata Mumpfield",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Dominic Zvada",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "K"
+    },
+    {
+      "name": "Rams",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "DST"
+    },
+    {
+      "name": "Giants",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "DST"
+    },
+    {
+      "name": "Harrison Mevis",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "K"
+    },
+    {
+      "name": "Xavier Smith",
+      "tier": "Okay",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Tutu Atwell",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "WR"
+    },
+    {
+      "name": "Tyler Higbee",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "Davis Allen",
+      "tier": "Okay",
+      "leverage": true,
+      "pos": "TE"
+    },
+    {
+      "name": "Malachi Fields",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Theo Johnson",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Najee Harris",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Tyrone Tracy Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Odell Beckham Jr.",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    },
+    {
+      "name": "Patrick Ricard",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Ronnie Rivers",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "RB"
+    },
+    {
+      "name": "Chris Manhertz",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Max Klare",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "TE"
+    },
+    {
+      "name": "Braxton Berrios",
+      "tier": "Fade",
+      "leverage": false,
+      "pos": "WR"
+    }
+  ]
+}

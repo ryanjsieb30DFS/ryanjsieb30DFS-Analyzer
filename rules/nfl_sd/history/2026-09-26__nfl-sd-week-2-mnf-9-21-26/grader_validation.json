@@ -1,0 +1,269 @@
+{
+  "gradable": true,
+  "n_lineups": 20,
+  "lineups": [
+    {
+      "players": [
+        "Blake Corum",
+        "Davante Adams",
+        "Jaxson Dart",
+        "Kyren Williams",
+        "Matthew Stafford",
+        "Terrance Ferguson"
+      ],
+      "percentile": 5.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cam Skattebo",
+        "Davante Adams",
+        "Davis Allen",
+        "Kyren Williams",
+        "Matthew Stafford",
+        "Rams"
+      ],
+      "percentile": 10.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Davante Adams",
+        "Harrison Mevis",
+        "Jaxson Dart",
+        "Malik Nabers",
+        "Matthew Stafford",
+        "Terrance Ferguson"
+      ],
+      "percentile": 14.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Blake Corum",
+        "Colby Parkinson",
+        "Davante Adams",
+        "Isaiah Likely",
+        "Jaxson Dart",
+        "Matthew Stafford"
+      ],
+      "percentile": 15.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Colby Parkinson",
+        "Davante Adams",
+        "Kyren Williams",
+        "Malik Nabers",
+        "Matthew Stafford",
+        "Rams"
+      ],
+      "percentile": 18.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Davante Adams",
+        "Dominic Zvada",
+        "Jaxson Dart",
+        "Malik Nabers",
+        "Matthew Stafford",
+        "Terrance Ferguson"
+      ],
+      "percentile": 31.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Blake Corum",
+        "Colby Parkinson",
+        "Davante Adams",
+        "Jaxson Dart",
+        "Kyren Williams",
+        "Malik Nabers"
+      ],
+      "percentile": 36.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Blake Corum",
+        "Cam Skattebo",
+        "Davante Adams",
+        "Dominic Zvada",
+        "Isaiah Likely",
+        "Jaxson Dart"
+      ],
+      "percentile": 50.7,
+      "flags": []
+    },
+    {
+      "players": [
+        "Blake Corum",
+        "Harrison Mevis",
+        "Jaxson Dart",
+        "Kyren Williams",
+        "Matthew Stafford",
+        "Rams"
+      ],
+      "percentile": 53.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Blake Corum",
+        "Cam Skattebo",
+        "Jaxson Dart",
+        "Malik Nabers",
+        "Matthew Stafford",
+        "Terrance Ferguson"
+      ],
+      "percentile": 68.5,
+      "flags": []
+    },
+    {
+      "players": [
+        "Davante Adams",
+        "Isaiah Likely",
+        "Jaxson Dart",
+        "Kyren Williams",
+        "Malik Nabers",
+        "Xavier Smith"
+      ],
+      "percentile": 69.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Blake Corum",
+        "Colby Parkinson",
+        "Jaxson Dart",
+        "Kyren Williams",
+        "Malik Nabers",
+        "Matthew Stafford"
+      ],
+      "percentile": 71.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cam Skattebo",
+        "Davante Adams",
+        "Isaiah Likely",
+        "Jaxson Dart",
+        "Malik Nabers",
+        "Xavier Smith"
+      ],
+      "percentile": 74.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cam Skattebo",
+        "Colby Parkinson",
+        "Darnell Mooney",
+        "Davante Adams",
+        "Jaxson Dart",
+        "Malik Nabers"
+      ],
+      "percentile": 75.9,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cam Skattebo",
+        "Colby Parkinson",
+        "Jaxson Dart",
+        "Malik Nabers",
+        "Matthew Stafford",
+        "Terrance Ferguson"
+      ],
+      "percentile": 76.8,
+      "flags": []
+    },
+    {
+      "players": [
+        "Harrison Mevis",
+        "Jaxson Dart",
+        "Kyren Williams",
+        "Malik Nabers",
+        "Matthew Stafford",
+        "Xavier Smith"
+      ],
+      "percentile": 79.1,
+      "flags": []
+    },
+    {
+      "players": [
+        "Colby Parkinson",
+        "Devin Singletary",
+        "Jaxson Dart",
+        "Kyren Williams",
+        "Malik Nabers",
+        "Matthew Stafford"
+      ],
+      "percentile": 84.2,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cam Skattebo",
+        "Dominic Zvada",
+        "Jaxson Dart",
+        "Kyren Williams",
+        "Malik Nabers",
+        "Terrance Ferguson"
+      ],
+      "percentile": 84.6,
+      "flags": []
+    },
+    {
+      "players": [
+        "Cam Skattebo",
+        "Jaxson Dart",
+        "Malachi Fields",
+        "Malik Nabers",
+        "Matthew Stafford",
+        "Xavier Smith"
+      ],
+      "percentile": 86.0,
+      "flags": []
+    },
+    {
+      "players": [
+        "Colby Parkinson",
+        "Harrison Mevis",
+        "Isaiah Likely",
+        "Jaxson Dart",
+        "Malik Nabers",
+        "Matthew Stafford"
+      ],
+      "percentile": 88.0,
+      "flags": []
+    }
+  ],
+  "flagged_pctiles": [],
+  "clean_pctiles": [
+    5.8,
+    10.2,
+    14.2,
+    15.0,
+    18.1,
+    31.1,
+    36.5,
+    50.7,
+    53.6,
+    68.5,
+    69.1,
+    71.6,
+    74.0,
+    75.9,
+    76.8,
+    79.1,
+    84.2,
+    84.6,
+    86.0,
+    88.0
+  ]
+}

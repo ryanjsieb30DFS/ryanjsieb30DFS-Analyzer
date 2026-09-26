@@ -134,3 +134,28 @@ This file is a running log of distilled process lessons from post-contest autops
 | **Okay** | 10 | 7.3 | 17.0 |
 | **Fade** | 10 | 1.0 | 8.6 |
 - ✅ Tier ordering HELD — higher tiers outscored lower ones on average.
+
+
+## 2026-09-26 14:02 — NFL Showdown (contest-standings-195786072 4.csv)
+- Entries: 83,234
+- Winning score: 149.3
+- Cash line (top 20%): 112.4
+- My entries: 20 · best rank 4,826/83,234 (top 5.8%)
+- Winners (top 100): avg own 44.28% vs mine 47.61% · sub-10% plays/lineup 0.01 vs mine 0.3 · salary Δ -780
+- Overperformed proj: Davante Adams, Matthew Stafford, Terrance Ferguson
+- Underperformed proj: Jaxson Dart, Malik Nabers, Colby Parkinson
+- Slate-defining plays: Terrance Ferguson (17.4 pts @ 19.8%), Rams (11.0 pts @ 13.3%)
+
+### Strategy adherence — did you follow your own strategy? (20 unique lineups)
+- ✅ Every hard FADE honored.
+- ⚠️ 1 under-own call(s) over-exposed: **Matthew Stafford** (70.0%)
+- Leverage candidates rostered somewhere: **3 of 12**.
+
+### Player-pool tier calibration (31 of 31 board players matched to actuals)
+| Tier | Players | Avg FPTS | Best |
+|---|---|---|---|
+| **Core** | 4 | 15.3 | 42.5 |
+| **Good** | 4 | 16.7 | 31.0 |
+| **Okay** | 13 | 4.2 | 11.0 |
+| **Fade** | 10 | 0.6 | 5.0 |
+- ⚠️ **Tier ordering BROKE** — a lower tier out-averaged a higher one. The board's boundaries need attention.

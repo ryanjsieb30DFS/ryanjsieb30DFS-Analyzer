@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "slug": "nfl_sd",
+  "contests": [
+    {
+      "date": "2026-09-26",
+      "contest": "NFL Showdown $70K First Down",
+      "winning_score": 149.3,
+      "pool_n": 7838,
+      "pool_max": 149.3,
+      "pool_held_winner": true,
+      "n_pool_ge_win": 1,
+      "pick_actual": 126.9,
+      "pick_won": false,
+      "pick_pool_pctile": 97.9,
+      "pick_source": "entered",
+      "n_entered": 20
+    }
+  ],
+  "note": null,
+  "generated_at": "2026-09-26 14:02"
+}

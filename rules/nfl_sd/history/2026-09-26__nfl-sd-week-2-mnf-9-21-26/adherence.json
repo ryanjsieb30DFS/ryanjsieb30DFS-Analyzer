@@ -1,0 +1,134 @@
+{
+  "gradable": true,
+  "n_lineups": 20,
+  "n_contests": 1,
+  "calls": [
+    {
+      "name": "Matthew Stafford",
+      "verdict": "underweight",
+      "exposure_pct": 70.0,
+      "in_lineups": 14,
+      "of": 20,
+      "followed": false
+    },
+    {
+      "name": "Cam Skattebo",
+      "verdict": "underweight",
+      "exposure_pct": 40.0,
+      "in_lineups": 8,
+      "of": 20,
+      "followed": true
+    },
+    {
+      "name": "Colby Parkinson",
+      "verdict": "underweight",
+      "exposure_pct": 40.0,
+      "in_lineups": 8,
+      "of": 20,
+      "followed": true
+    },
+    {
+      "name": "Harrison Mevis",
+      "verdict": "underweight",
+      "exposure_pct": 20.0,
+      "in_lineups": 4,
+      "of": 20,
+      "followed": true
+    },
+    {
+      "name": "Xavier Smith",
+      "verdict": "underweight",
+      "exposure_pct": 20.0,
+      "in_lineups": 4,
+      "of": 20,
+      "followed": true
+    },
+    {
+      "name": "Malachi Fields",
+      "verdict": "lean_fade",
+      "exposure_pct": 5.0,
+      "in_lineups": 1,
+      "of": 20,
+      "followed": true
+    },
+    {
+      "name": "Theo Johnson",
+      "verdict": "lean_fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 20,
+      "followed": true
+    },
+    {
+      "name": "Tyrone Tracy Jr.",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 20,
+      "followed": true
+    },
+    {
+      "name": "Odell Beckham Jr.",
+      "verdict": "fade",
+      "exposure_pct": 0.0,
+      "in_lineups": 0,
+      "of": 20,
+      "followed": true
+    }
+  ],
+  "fades_violated": 0,
+  "soft_violated": 1,
+  "per_contest_flags": 0,
+  "leverage_candidates": [
+    {
+      "name": "Devin Singletary",
+      "rostered": true
+    },
+    {
+      "name": "Konata Mumpfield",
+      "rostered": false
+    },
+    {
+      "name": "Darnell Mooney",
+      "rostered": true
+    },
+    {
+      "name": "Giants",
+      "rostered": false
+    },
+    {
+      "name": "Tyler Higbee",
+      "rostered": false
+    },
+    {
+      "name": "Theo Johnson",
+      "rostered": false
+    },
+    {
+      "name": "Davis Allen",
+      "rostered": true
+    },
+    {
+      "name": "Najee Harris",
+      "rostered": false
+    },
+    {
+      "name": "Tutu Atwell",
+      "rostered": false
+    },
+    {
+      "name": "Odell Beckham Jr.",
+      "rostered": false
+    },
+    {
+      "name": "Patrick Ricard",
+      "rostered": false
+    },
+    {
+      "name": "Ronnie Rivers",
+      "rostered": false
+    }
+  ],
+  "leverage_covered": 3,
+  "leverage_of": 12
+}
